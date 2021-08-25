@@ -1,0 +1,314 @@
+Info Session started: Tue Aug 24 20:58:04 2021
+
+Info ------------- ENVIRONMENT -------------
+Info IMPERAS_ARCH                             = Linux64
+Info IMPERASD_LICENSE_FILE                    = 2700@localhost
+Info IMPERAS_BACKTRACE                        = 1
+Info IMPERAS_HOME                             = /soft64/Imperas.20210408
+Info IMPERAS_ISS                              = /soft64/Imperas.20210408/bin/Linux64/iss.exe
+Info IMPERAS_PERSONALITY                      = CPUMAN_STANDARD
+Info IMPERAS_RUNTIME                          = CpuManager
+Info IMPERAS_SHRSUF                           = so
+Info IMPERAS_UNAME                            = Linux
+Info IMPERAS_VLNV                             = /soft64/Imperas.20210408/lib/Linux64/ImperasLib
+Info LD_LIBRARY_PATH                          = /soft64/Imperas.20210408/bin/Linux64:/soft64/Imperas.20210408/lib/Linux64/External/lib:/soft64/Imperas.20210408/bin/Linux64:/soft64/Imperas.20210408/lib//soft64/Imperas.20210408/lib/Linux64/External/lib
+Info --------------------------------------
+Info -------- FLAGS (from harness.exe)
+Info --modulefile  ../module/model.Linux64.so
+Info --program  Chronos_RiscV_FreeRTOS/cpu0=../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf
+Info --override  Chronos_RiscV_FreeRTOS/uart0/console=T
+Info --override  Chronos_RiscV_FreeRTOS/uart0/finishOnDisconnect=T
+Info --override  Chronos_RiscV_FreeRTOS/uart0/outfile=../simulation/uart0.log
+Info --program  Chronos_RiscV_FreeRTOS/cpu1=../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf
+Info --override  Chronos_RiscV_FreeRTOS/uart1/console=T
+Info --override  Chronos_RiscV_FreeRTOS/uart1/finishOnDisconnect=T
+Info --override  Chronos_RiscV_FreeRTOS/uart1/outfile=../simulation/uart1.log
+Info --program  Chronos_RiscV_FreeRTOS/cpu2=../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf
+Info --override  Chronos_RiscV_FreeRTOS/uart2/console=T
+Info --override  Chronos_RiscV_FreeRTOS/uart2/finishOnDisconnect=T
+Info --override  Chronos_RiscV_FreeRTOS/uart2/outfile=../simulation/uart2.log
+Info --program  Chronos_RiscV_FreeRTOS/cpu3=../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf
+Info --override  Chronos_RiscV_FreeRTOS/uart3/console=T
+Info --override  Chronos_RiscV_FreeRTOS/uart3/finishOnDisconnect=T
+Info --override  Chronos_RiscV_FreeRTOS/uart3/outfile=../simulation/uart3.log
+Info --program  Chronos_RiscV_FreeRTOS/cpu4=../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf
+Info --override  Chronos_RiscV_FreeRTOS/uart4/console=T
+Info --override  Chronos_RiscV_FreeRTOS/uart4/finishOnDisconnect=T
+Info --override  Chronos_RiscV_FreeRTOS/uart4/outfile=../simulation/uart4.log
+Info --program  Chronos_RiscV_FreeRTOS/cpu5=../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf
+Info --override  Chronos_RiscV_FreeRTOS/uart5/console=T
+Info --override  Chronos_RiscV_FreeRTOS/uart5/finishOnDisconnect=T
+Info --override  Chronos_RiscV_FreeRTOS/uart5/outfile=../simulation/uart5.log
+Info --program  Chronos_RiscV_FreeRTOS/cpu6=../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf
+Info --override  Chronos_RiscV_FreeRTOS/uart6/console=T
+Info --override  Chronos_RiscV_FreeRTOS/uart6/finishOnDisconnect=T
+Info --override  Chronos_RiscV_FreeRTOS/uart6/outfile=../simulation/uart6.log
+Info --program  Chronos_RiscV_FreeRTOS/cpu7=../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf
+Info --override  Chronos_RiscV_FreeRTOS/uart7/console=T
+Info --override  Chronos_RiscV_FreeRTOS/uart7/finishOnDisconnect=T
+Info --override  Chronos_RiscV_FreeRTOS/uart7/outfile=../simulation/uart7.log
+Info --program  Chronos_RiscV_FreeRTOS/cpu8=../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf
+Info --override  Chronos_RiscV_FreeRTOS/uart8/console=T
+Info --override  Chronos_RiscV_FreeRTOS/uart8/finishOnDisconnect=T
+Info --override  Chronos_RiscV_FreeRTOS/uart8/outfile=../simulation/uart8.log
+Info --verbose
+Info --output  ../simulation/imperas.log
+Info --imperasintercepts
+Info --------------------------------------
+
+
+CpuManagerStandard (64-Bit) v20210408.0 Open Virtual Platform simulator from www.IMPERAS.com.
+Copyright (c) 2005-2021 Imperas Software Ltd.  Contains Imperas Proprietary Information.
+Licensed Software, All Rights Reserved.
+Visit www.IMPERAS.com for multicore debug, verification and analysis solutions.
+
+CpuManagerStandard started: Tue Aug 24 20:58:04 2021
+
+
+Info (PSE_SER) 'Chronos_RiscV_FreeRTOS/uart0' Server connected to 43471
+Info (PSE_SER) 'Chronos_RiscV_FreeRTOS/uart1' Server connected to 36051
+Info (PSE_SER) 'Chronos_RiscV_FreeRTOS/uart2' Server connected to 36949
+Info (PSE_SER) 'Chronos_RiscV_FreeRTOS/uart3' Server connected to 38947
+Info (PSE_SER) 'Chronos_RiscV_FreeRTOS/uart4' Server connected to 40133
+Info (PSE_SER) 'Chronos_RiscV_FreeRTOS/uart5' Server connected to 42393
+Info (PSE_SER) 'Chronos_RiscV_FreeRTOS/uart6' Server connected to 39253
+Info (PSE_SER) 'Chronos_RiscV_FreeRTOS/uart7' Server connected to 40767
+Info (PSE_SER) 'Chronos_RiscV_FreeRTOS/uart8' Server connected to 35739
+Info (OR_OF) Target 'Chronos_RiscV_FreeRTOS/cpu0' has object file read from '../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00002ce0 0x0003be30 RWE   1000
+Info (OR_OF) Target 'Chronos_RiscV_FreeRTOS/cpu1' has object file read from '../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00002ce0 0x0003be30 RWE   1000
+Info (OR_OF) Target 'Chronos_RiscV_FreeRTOS/cpu2' has object file read from '../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00002ce0 0x0003be30 RWE   1000
+Info (OR_OF) Target 'Chronos_RiscV_FreeRTOS/cpu3' has object file read from '../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00002ce0 0x0003be30 RWE   1000
+Info (OR_OF) Target 'Chronos_RiscV_FreeRTOS/cpu4' has object file read from '../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00002ce0 0x0003be30 RWE   1000
+Info (OR_OF) Target 'Chronos_RiscV_FreeRTOS/cpu5' has object file read from '../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00002ce0 0x0003be30 RWE   1000
+Info (OR_OF) Target 'Chronos_RiscV_FreeRTOS/cpu6' has object file read from '../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00002ce0 0x0003be30 RWE   1000
+Info (OR_OF) Target 'Chronos_RiscV_FreeRTOS/cpu7' has object file read from '../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00002ce0 0x0003be30 RWE   1000
+Info (OR_OF) Target 'Chronos_RiscV_FreeRTOS/cpu8' has object file read from '../FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00002ce0 0x0003be30 RWE   1000
+Info (MY_ADRESS) Chronos_RiscV_FreeRTOS/router8: My Address: 2 1
+Info (MYADRESS) Chronos_RiscV_FreeRTOS/router8: MY ID = 5
+Info (MY_ADRESS) Chronos_RiscV_FreeRTOS/router7: My Address: 2 1
+Info (MYADRESS) Chronos_RiscV_FreeRTOS/router7: MY ID = 5
+Info (MY_ADRESS) Chronos_RiscV_FreeRTOS/router6: My Address: 2 1
+Info (MYADRESS) Chronos_RiscV_FreeRTOS/router6: MY ID = 5
+Info (MY_ADRESS) Chronos_RiscV_FreeRTOS/router5: My Address: 2 1
+Info (MYADRESS) Chronos_RiscV_FreeRTOS/router5: MY ID = 5
+Info (MY_ADRESS) Chronos_RiscV_FreeRTOS/router4: My Address: 2 1
+Info (MYADRESS) Chronos_RiscV_FreeRTOS/router4: MY ID = 5
+Info (MY_ADRESS) Chronos_RiscV_FreeRTOS/router3: My Address: 2 1
+Info (MYADRESS) Chronos_RiscV_FreeRTOS/router3: MY ID = 5
+Info (MY_ADRESS) Chronos_RiscV_FreeRTOS/router2: My Address: 2 1
+Info (MYADRESS) Chronos_RiscV_FreeRTOS/router2: MY ID = 5
+Info (MY_ADRESS) Chronos_RiscV_FreeRTOS/router1: My Address: 2 1
+Info (MYADRESS) Chronos_RiscV_FreeRTOS/router1: MY ID = 5
+Info (MY_ADRESS) Chronos_RiscV_FreeRTOS/router0: My Address: 2 1
+Info (MYADRESS) Chronos_RiscV_FreeRTOS/router0: MY ID = 5
+Info (PSE_SER) 'Chronos_RiscV_FreeRTOS/uart8' Socket disconnected - terminating simulation
+Info (PSE_SER) 'Chronos_RiscV_FreeRTOS/uart8' Disconnected from port 35739
+Info 
+Info ---------------------------------------------------
+Info PSE SIMULATION TIME STATISTICS
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/prci0'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/prci1'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/prci2'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/prci3'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/prci4'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/prci5'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/prci6'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/prci7'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/prci8'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart8'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart7'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart7'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart6'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart6'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart5'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart5'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart4'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart4'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart3'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart3'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart2'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart2'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart1'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart1'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart0'
+Info    0.00 seconds: PSE THREAD 'Chronos_RiscV_FreeRTOS/uart0'
+Info    0.32 seconds: PSE 'Chronos_RiscV_FreeRTOS/iterator' (and 325,360 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/ni8' (and 36,160 terminated callbacks)
+Info    0.05 seconds: PSE 'Chronos_RiscV_FreeRTOS/router8' (and 36,167 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/prci8' (and 215 terminated threads, 893 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/plic8' (and 313 terminated callbacks)
+Info    0.12 seconds: PSE 'Chronos_RiscV_FreeRTOS/uart8' (and 1 terminated thread, 483 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/ni7' (and 36,160 terminated callbacks)
+Info    0.05 seconds: PSE 'Chronos_RiscV_FreeRTOS/router7' (and 36,167 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/prci7' (and 215 terminated threads, 893 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/plic7' (and 313 terminated callbacks)
+Info    0.12 seconds: PSE 'Chronos_RiscV_FreeRTOS/uart7' (and 483 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/ni6' (and 36,160 terminated callbacks)
+Info    0.05 seconds: PSE 'Chronos_RiscV_FreeRTOS/router6' (and 36,167 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/prci6' (and 215 terminated threads, 893 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/plic6' (and 313 terminated callbacks)
+Info    0.11 seconds: PSE 'Chronos_RiscV_FreeRTOS/uart6' (and 483 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/ni5' (and 36,160 terminated callbacks)
+Info    0.05 seconds: PSE 'Chronos_RiscV_FreeRTOS/router5' (and 36,167 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/prci5' (and 215 terminated threads, 893 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/plic5' (and 313 terminated callbacks)
+Info    0.11 seconds: PSE 'Chronos_RiscV_FreeRTOS/uart5' (and 483 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/ni4' (and 36,160 terminated callbacks)
+Info    0.05 seconds: PSE 'Chronos_RiscV_FreeRTOS/router4' (and 36,167 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/prci4' (and 215 terminated threads, 893 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/plic4' (and 313 terminated callbacks)
+Info    0.11 seconds: PSE 'Chronos_RiscV_FreeRTOS/uart4' (and 483 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/ni3' (and 36,160 terminated callbacks)
+Info    0.05 seconds: PSE 'Chronos_RiscV_FreeRTOS/router3' (and 36,167 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/prci3' (and 215 terminated threads, 893 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/plic3' (and 313 terminated callbacks)
+Info    0.11 seconds: PSE 'Chronos_RiscV_FreeRTOS/uart3' (and 483 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/ni2' (and 36,160 terminated callbacks)
+Info    0.05 seconds: PSE 'Chronos_RiscV_FreeRTOS/router2' (and 36,167 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/prci2' (and 215 terminated threads, 893 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/plic2' (and 313 terminated callbacks)
+Info    0.11 seconds: PSE 'Chronos_RiscV_FreeRTOS/uart2' (and 483 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/ni1' (and 36,160 terminated callbacks)
+Info    0.05 seconds: PSE 'Chronos_RiscV_FreeRTOS/router1' (and 36,167 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/prci1' (and 215 terminated threads, 893 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/plic1' (and 313 terminated callbacks)
+Info    0.11 seconds: PSE 'Chronos_RiscV_FreeRTOS/uart1' (and 483 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/ni0' (and 36,160 terminated callbacks)
+Info    0.06 seconds: PSE 'Chronos_RiscV_FreeRTOS/router0' (and 36,167 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/prci0' (and 215 terminated threads, 893 terminated callbacks)
+Info    0.01 seconds: PSE 'Chronos_RiscV_FreeRTOS/plic0' (and 313 terminated callbacks)
+Info    0.15 seconds: PSE 'Chronos_RiscV_FreeRTOS/uart0' (and 483 terminated callbacks)
+Info    0.03 seconds: PSE 'Chronos_RiscV_FreeRTOS/tea' (and 3 terminated callbacks)
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'Chronos_RiscV_FreeRTOS/cpu8' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002360
+Info   Simulated instructions: 893,000,000
+Info   Simulated MIPS        : 126.5
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'Chronos_RiscV_FreeRTOS/cpu7' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002360
+Info   Simulated instructions: 893,000,000
+Info   Simulated MIPS        : 126.5
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'Chronos_RiscV_FreeRTOS/cpu6' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002360
+Info   Simulated instructions: 893,000,000
+Info   Simulated MIPS        : 126.5
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'Chronos_RiscV_FreeRTOS/cpu5' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002360
+Info   Simulated instructions: 893,000,000
+Info   Simulated MIPS        : 126.5
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'Chronos_RiscV_FreeRTOS/cpu4' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002360
+Info   Simulated instructions: 893,000,000
+Info   Simulated MIPS        : 126.5
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'Chronos_RiscV_FreeRTOS/cpu3' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002360
+Info   Simulated instructions: 893,000,000
+Info   Simulated MIPS        : 126.5
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'Chronos_RiscV_FreeRTOS/cpu2' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002360
+Info   Simulated instructions: 893,000,000
+Info   Simulated MIPS        : 126.5
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'Chronos_RiscV_FreeRTOS/cpu1' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002360
+Info   Simulated instructions: 893,000,000
+Info   Simulated MIPS        : 126.5
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'Chronos_RiscV_FreeRTOS/cpu0' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002360
+Info   Simulated instructions: 893,000,000
+Info   Simulated MIPS        : 126.5
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info TOTAL
+Info   Simulated instructions: 8,037,000,000
+Info   Simulated MIPS        : 1138.4
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info SIMULATION TIME STATISTICS
+Info   Simulated time        : 17.86 seconds
+Info   User time             : 7.00 seconds
+Info   System time           : 0.06 seconds
+Info   Elapsed time          : 7.06 seconds
+Info   Real time ratio       : 2.53x faster
+Info ---------------------------------------------------
+
+CpuManagerStandard finished: Tue Aug 24 20:58:13 2021
+
+
+CpuManagerStandard (64-Bit) v20210408.0 Open Virtual Platform simulator from www.IMPERAS.com.
+Visit www.IMPERAS.com for multicore debug, verification and analysis solutions.
+
+Info Session ended: Tue Aug 24 20:58:13 2021
+

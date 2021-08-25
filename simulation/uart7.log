@@ -1,0 +1,12 @@
+
+        Sample Demonstration of FreeRTOS port for Mi-V processor.
+
+      This project creates two tasks and runs them at regular intervals.
+Task - 2
+Task - 1
+Task - 2
+Task - 1
+Task - 2
+Task - 2
+Task - 1
+Task - 2
