@@ -21,6 +21,9 @@ make -C ../peripheral/networkInterface NOVLNV=1
 echo "================="
 echo "COMPILING THE TEA"
 make -C ../peripheral/tea NOVLNV=1
+echo "====================="
+echo "COMPILING THE PRINTER"
+make -C ../peripheral/printer NOVLNV=1
 echo "===================="
 echo "COMPILING THE MODULE"
 cd ../module
@@ -34,10 +37,10 @@ make -C harness
 
 FREERTOS_ELF=FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf
 MODULE=Chronos_RiscV_FreeRTOS
-
+cd harness
 # Check Installation supports this example
 checkinstall.exe -p install.pkg --nobanner || exit
-
+cd ..
 #cd harness
 #harness.exe \
 #  --modulefile ../module/model.${IMPERAS_ARCH}.${IMPERAS_SHRSUF} \
@@ -90,8 +93,6 @@ harness/harness.${IMPERAS_ARCH}.exe             \
   --program  cpu8=${FREERTOS_ELF}               \
   --override uart8/console=T                    \
   --override uart8/finishOnDisconnect=T         \
-  --override uart8/outfile=simulation/uart8.log \
-  \
-  --verbose --output simulation/imperas.log  \
-  "$@"
+  --override uart8/outfile=simulation/uart8.log $* --verbose --output simulation/imperas.log  
+
 #--imperasintercepts                                     \

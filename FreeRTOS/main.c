@@ -117,11 +117,20 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 static void vUartTestTask1( void *pvParameters )
 {
 	( void ) pvParameters;
-	
+	int i = 8;
+	volatile unsigned int *value = PLIC_TEST;
+	char str[100];
 	for( ;; )
 	{
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 1\r\n" );
-	    vTaskDelay(100);
+	    vTaskDelay(1);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)"Meu teste: " );
+		i++;
+		*value = 10;
+		itoa(*value, str, 10);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n");
+		
 	}
 }
 
@@ -135,6 +144,6 @@ static void vUartTestTask2( void *pvParameters )
 	for( ;; )
 	{
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 2\r\n" );
-	    vTaskDelay(50);
+	    vTaskDelay(5);
 	}
 }

@@ -29,16 +29,16 @@
 
 // Quantum defines
 #define INSTRUCTIONS_PER_SECOND 1000000000.0                                            // 1GHz (assuming 1 instruction per cycle)
-#define INSTRUCTIONS_PER_TIME_SLICE 2500.0                                               //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
+#define INSTRUCTIONS_PER_TIME_SLICE 25000.0                                               //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
 #define QUANTUM_TIME_SLICE (INSTRUCTIONS_PER_TIME_SLICE / INSTRUCTIONS_PER_SECOND)      // 0.0000010 //
 
-
-
 struct optionsS {
+	Bool configurecpuinstance;
 } options = {
+    .configurecpuinstance = False,
 };
 
-static OP_CONSTRUCT_FN(moduleConstruct) {
+/*static OP_CONSTRUCT_FN(moduleConstruct) {
     const char *u1_path = "module";
     opModuleNew(
         mi,       // parent module
@@ -47,22 +47,22 @@ static OP_CONSTRUCT_FN(moduleConstruct) {
         0,
         0
     );
-}
+}*/
 
-static void cmdParser(optCmdParserP parser) {
-}
+/*static void cmdParser(optCmdParserP parser) {
+}*/
 
-typedef struct optModuleObjectS {
+/*typedef struct optModuleObjectS {
     // insert module persistent data here
-} optModuleObject;
+} optModuleObject;*/
 
-static OP_PRE_SIMULATE_FN(modulePreSimulate) {
+/*static OP_PRE_SIMULATE_FN(modulePreSimulate) {
 // insert modulePreSimulate code here
-}
+}*/
 
-static OP_SIMULATE_STARTING_FN(moduleSimulate) {
+/*static OP_SIMULATE_STARTING_FN(moduleSimulate) {
 // insert moduleSimulate code here
-}
+}*/
 
 static OP_POST_SIMULATE_FN(modulePostSimulate) {
 // insert modulePostSimulate code here
@@ -72,7 +72,20 @@ static OP_DESTRUCT_FN(moduleDestruct) {
 // insert moduleDestruct code here
 }
 
+/*Attributes Set in Module Construction */
 optModuleAttr modelAttrs = {
+    .versionString = OP_VERSION,
+    .type = OP_MODULE,
+    .name = MODULE_NAME,
+    .releaseStatus = OP_UNSET,
+    .purpose = OP_PP_BAREMETAL,
+    .visibility = OP_VISIBLE,
+    //.constructCB          = moduleConstruct,
+    .postSimulateCB = modulePostSimulate,
+    .destructCB = moduleDestruct,
+};
+
+/*optModuleAttr modelAttrs = {
     .versionString       = OP_VERSION,
     .type                = OP_MODULE,
     .name                = MODULE_NAME,
@@ -85,7 +98,7 @@ optModuleAttr modelAttrs = {
     .simulateCB           = moduleSimulate,
     .postSimulateCB       = modulePostSimulate,
     .destructCB           = moduleDestruct,
-};
+};*/
 
 int main(int argc, const char *argv[]) {
     int runningPE;
@@ -95,12 +108,15 @@ int main(int argc, const char *argv[]) {
     optStopReason stopReason = OP_SR_SCHED;
 	optProcessorP proc;
     
-
     opSessionInit(OP_VERSION);
     /* create the root module with reduced Quantum (in line with Custom Scheduler) */
 	optParamP params = OP_PARAMS(OP_PARAM_DOUBLE_SET(OP_FP_QUANTUM, QUANTUM_TIME_SLICE));
     optCmdParserP parser = opCmdParserNew(MODULE_NAME, OP_AC_ALL);
-    cmdParser(parser);
+    opCmdParserAdd(parser, "configurecpuinstance", 0, "bool", "user", OP_FT_BOOLVAL, &options.configurecpuinstance, "Add configuration to enable Imperas Intercepts to CPU instance", OP_AC_ALL, 0, 0);  // enable interception
+    if (!opCmdParseArgs(parser, argc, argv)) {
+		opMessage("E", MODULE_NAME, "Command line parse incomplete");
+	}
+    //cmdParser(parser);
     opCmdParseArgs(parser, argc, argv);
     optModuleP mi = opRootModuleNew(&modelAttrs, MODULE_NAME, params);
     optModuleP modNew = opModuleNew(mi, MODULE_DIR, MODULE_INSTANCE, 0, 0);
@@ -129,16 +145,16 @@ int main(int argc, const char *argv[]) {
                 id[0] = (9-firstRun) & 0x000000FF;
                 opProcessorWrite(proc, 0x8FFFFFFC, id, 4, 1, True, OP_HOSTENDIAN_TARGET);
                 firstRun--;
+                // Go to the next processor
+			    opMessage("I", "HARNESS INFO", ">>>>>> INICIALIZANDO PE %d", runningPE);  // alzemiro modification
             }
 
-  			// simulate  processor for INSTRUCTIONS PER_TIME_SLICE instructions
+  			// simulate processor for INSTRUCTIONS PER_TIME_SLICE instructions
             stopReason = opProcessorSimulate(proc, INSTRUCTIONS_PER_TIME_SLICE);
             if (stopReason == OP_SR_EXIT) {
 				finishedProcessors++;
 			}
-
-            // Go to the next processor
-			runningPE++;
+            runningPE++;
         }
 
         // increments the number of simulated quanta
@@ -153,7 +169,6 @@ int main(int argc, const char *argv[]) {
         // checks if all processors has exited
         if (finishedProcessors == N_PES) {
 			opMessage("I", "HARNESS", "Simulation Complete (%s) e %d quantums", opStopReasonString(stopReason), countQuantum);
-
 			break;  // finish simulation loop
 		}
 

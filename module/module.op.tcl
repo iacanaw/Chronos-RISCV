@@ -215,7 +215,7 @@ ihwconnect   -instancename stk8   -busslaveport sp1 -bus cpu8Bus -loaddress 0xff
 #define CORE16550_BASE_ADDR    0x70007000UL
 #define PLIC_BASE_ADDR         0x40000000UL
 
-ihwaddperipheral -instancename tea -modelfile ../peripheral/tea/pse.pse
+ihwaddperipheral -instancename tea -modelfile peripheral/tea/pse.pse
 
 ihwaddperipheral -instancename uart0 \
                  -vendor microsemi.ovpworld.org -library peripheral -type CoreUARTapb -version 1.0
@@ -230,16 +230,18 @@ ihwaddperipheral -instancename prci0 -vendor riscv.ovpworld.org -library periphe
 ihwconnect -instancename prci0 -bus cpu0Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
 ihwsetparameter -name clockMHz -handle prci0 -type double -value 1.0
 
-ihwaddperipheral -instancename router0 -modelfile ../peripheral/whnoc_dma/pse.pse
+ihwaddperipheral -instancename router0 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router0 -busslaveport localPort -bus cpu0Bus -loaddress 0x50000000 -hiaddress 0x50000003
 ihwconnect -instancename router0 -busmasterport RREAD  -bus cpu0Bus
 ihwconnect -instancename router0 -busmasterport RWRITE -bus cpu0Bus
 
-ihwaddperipheral -instancename ni0 -modelfile ../peripheral/networkInterface/pse.pse
+ihwaddperipheral -instancename ni0 -modelfile peripheral/networkInterface/pse.pse
 ihwconnect -instancename ni0 -busslaveport DMAC -bus cpu0Bus -loaddress 0x50000004 -hiaddress 0x5000000F
 ihwconnect -instancename ni0 -busmasterport MREAD  -bus cpu0Bus
 ihwconnect -instancename ni0 -busmasterport MWRITE -bus cpu0Bus
 
+ihwaddperipheral -instancename printer0 -modelfile peripheral/printer/pse.pse
+ihwconnect -instancename printer0 -busslaveport PRINTREGS -bus cpu0Bus -loaddress 0x50000020 -hiaddress 0x50000027
 ihwaddperipheral -instancename uart1 \
                  -vendor microsemi.ovpworld.org -library peripheral -type CoreUARTapb -version 1.0
 ihwconnect -instancename uart1 -bus cpu1Bus -busslaveport port0 -loaddress 0x70001000 -hiaddress 0x70001017
@@ -253,16 +255,18 @@ ihwaddperipheral -instancename prci1 -vendor riscv.ovpworld.org -library periphe
 ihwconnect -instancename prci1 -bus cpu1Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
 ihwsetparameter -name clockMHz -handle prci1 -type double -value 1.0
 
-ihwaddperipheral -instancename router1 -modelfile ../peripheral/whnoc_dma/pse.pse
+ihwaddperipheral -instancename router1 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router1 -busslaveport localPort -bus cpu1Bus -loaddress 0x50000000 -hiaddress 0x50000003
 ihwconnect -instancename router1 -busmasterport RREAD  -bus cpu1Bus
 ihwconnect -instancename router1 -busmasterport RWRITE -bus cpu1Bus
 
-ihwaddperipheral -instancename ni1 -modelfile ../peripheral/networkInterface/pse.pse
+ihwaddperipheral -instancename ni1 -modelfile peripheral/networkInterface/pse.pse
 ihwconnect -instancename ni1 -busslaveport DMAC -bus cpu1Bus -loaddress 0x50000004 -hiaddress 0x5000000F
 ihwconnect -instancename ni1 -busmasterport MREAD  -bus cpu1Bus
 ihwconnect -instancename ni1 -busmasterport MWRITE -bus cpu1Bus
 
+ihwaddperipheral -instancename printer1 -modelfile peripheral/printer/pse.pse
+ihwconnect -instancename printer1 -busslaveport PRINTREGS -bus cpu1Bus -loaddress 0x50000020 -hiaddress 0x50000027
 ihwaddperipheral -instancename uart2 \
                  -vendor microsemi.ovpworld.org -library peripheral -type CoreUARTapb -version 1.0
 ihwconnect -instancename uart2 -bus cpu2Bus -busslaveport port0 -loaddress 0x70001000 -hiaddress 0x70001017
@@ -276,16 +280,18 @@ ihwaddperipheral -instancename prci2 -vendor riscv.ovpworld.org -library periphe
 ihwconnect -instancename prci2 -bus cpu2Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
 ihwsetparameter -name clockMHz -handle prci2 -type double -value 1.0
 
-ihwaddperipheral -instancename router2 -modelfile ../peripheral/whnoc_dma/pse.pse
+ihwaddperipheral -instancename router2 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router2 -busslaveport localPort -bus cpu2Bus -loaddress 0x50000000 -hiaddress 0x50000003
 ihwconnect -instancename router2 -busmasterport RREAD  -bus cpu2Bus
 ihwconnect -instancename router2 -busmasterport RWRITE -bus cpu2Bus
 
-ihwaddperipheral -instancename ni2 -modelfile ../peripheral/networkInterface/pse.pse
+ihwaddperipheral -instancename ni2 -modelfile peripheral/networkInterface/pse.pse
 ihwconnect -instancename ni2 -busslaveport DMAC -bus cpu2Bus -loaddress 0x50000004 -hiaddress 0x5000000F
 ihwconnect -instancename ni2 -busmasterport MREAD  -bus cpu2Bus
 ihwconnect -instancename ni2 -busmasterport MWRITE -bus cpu2Bus
 
+ihwaddperipheral -instancename printer2 -modelfile peripheral/printer/pse.pse
+ihwconnect -instancename printer2 -busslaveport PRINTREGS -bus cpu2Bus -loaddress 0x50000020 -hiaddress 0x50000027
 ihwaddperipheral -instancename uart3 \
                  -vendor microsemi.ovpworld.org -library peripheral -type CoreUARTapb -version 1.0
 ihwconnect -instancename uart3 -bus cpu3Bus -busslaveport port0 -loaddress 0x70001000 -hiaddress 0x70001017
@@ -299,16 +305,18 @@ ihwaddperipheral -instancename prci3 -vendor riscv.ovpworld.org -library periphe
 ihwconnect -instancename prci3 -bus cpu3Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
 ihwsetparameter -name clockMHz -handle prci3 -type double -value 1.0
 
-ihwaddperipheral -instancename router3 -modelfile ../peripheral/whnoc_dma/pse.pse
+ihwaddperipheral -instancename router3 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router3 -busslaveport localPort -bus cpu3Bus -loaddress 0x50000000 -hiaddress 0x50000003
 ihwconnect -instancename router3 -busmasterport RREAD  -bus cpu3Bus
 ihwconnect -instancename router3 -busmasterport RWRITE -bus cpu3Bus
 
-ihwaddperipheral -instancename ni3 -modelfile ../peripheral/networkInterface/pse.pse
+ihwaddperipheral -instancename ni3 -modelfile peripheral/networkInterface/pse.pse
 ihwconnect -instancename ni3 -busslaveport DMAC -bus cpu3Bus -loaddress 0x50000004 -hiaddress 0x5000000F
 ihwconnect -instancename ni3 -busmasterport MREAD  -bus cpu3Bus
 ihwconnect -instancename ni3 -busmasterport MWRITE -bus cpu3Bus
 
+ihwaddperipheral -instancename printer3 -modelfile peripheral/printer/pse.pse
+ihwconnect -instancename printer3 -busslaveport PRINTREGS -bus cpu3Bus -loaddress 0x50000020 -hiaddress 0x50000027
 ihwaddperipheral -instancename uart4 \
                  -vendor microsemi.ovpworld.org -library peripheral -type CoreUARTapb -version 1.0
 ihwconnect -instancename uart4 -bus cpu4Bus -busslaveport port0 -loaddress 0x70001000 -hiaddress 0x70001017
@@ -322,16 +330,18 @@ ihwaddperipheral -instancename prci4 -vendor riscv.ovpworld.org -library periphe
 ihwconnect -instancename prci4 -bus cpu4Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
 ihwsetparameter -name clockMHz -handle prci4 -type double -value 1.0
 
-ihwaddperipheral -instancename router4 -modelfile ../peripheral/whnoc_dma/pse.pse
+ihwaddperipheral -instancename router4 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router4 -busslaveport localPort -bus cpu4Bus -loaddress 0x50000000 -hiaddress 0x50000003
 ihwconnect -instancename router4 -busmasterport RREAD  -bus cpu4Bus
 ihwconnect -instancename router4 -busmasterport RWRITE -bus cpu4Bus
 
-ihwaddperipheral -instancename ni4 -modelfile ../peripheral/networkInterface/pse.pse
+ihwaddperipheral -instancename ni4 -modelfile peripheral/networkInterface/pse.pse
 ihwconnect -instancename ni4 -busslaveport DMAC -bus cpu4Bus -loaddress 0x50000004 -hiaddress 0x5000000F
 ihwconnect -instancename ni4 -busmasterport MREAD  -bus cpu4Bus
 ihwconnect -instancename ni4 -busmasterport MWRITE -bus cpu4Bus
 
+ihwaddperipheral -instancename printer4 -modelfile peripheral/printer/pse.pse
+ihwconnect -instancename printer4 -busslaveport PRINTREGS -bus cpu4Bus -loaddress 0x50000020 -hiaddress 0x50000027
 ihwaddperipheral -instancename uart5 \
                  -vendor microsemi.ovpworld.org -library peripheral -type CoreUARTapb -version 1.0
 ihwconnect -instancename uart5 -bus cpu5Bus -busslaveport port0 -loaddress 0x70001000 -hiaddress 0x70001017
@@ -345,16 +355,18 @@ ihwaddperipheral -instancename prci5 -vendor riscv.ovpworld.org -library periphe
 ihwconnect -instancename prci5 -bus cpu5Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
 ihwsetparameter -name clockMHz -handle prci5 -type double -value 1.0
 
-ihwaddperipheral -instancename router5 -modelfile ../peripheral/whnoc_dma/pse.pse
+ihwaddperipheral -instancename router5 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router5 -busslaveport localPort -bus cpu5Bus -loaddress 0x50000000 -hiaddress 0x50000003
 ihwconnect -instancename router5 -busmasterport RREAD  -bus cpu5Bus
 ihwconnect -instancename router5 -busmasterport RWRITE -bus cpu5Bus
 
-ihwaddperipheral -instancename ni5 -modelfile ../peripheral/networkInterface/pse.pse
+ihwaddperipheral -instancename ni5 -modelfile peripheral/networkInterface/pse.pse
 ihwconnect -instancename ni5 -busslaveport DMAC -bus cpu5Bus -loaddress 0x50000004 -hiaddress 0x5000000F
 ihwconnect -instancename ni5 -busmasterport MREAD  -bus cpu5Bus
 ihwconnect -instancename ni5 -busmasterport MWRITE -bus cpu5Bus
 
+ihwaddperipheral -instancename printer5 -modelfile peripheral/printer/pse.pse
+ihwconnect -instancename printer5 -busslaveport PRINTREGS -bus cpu5Bus -loaddress 0x50000020 -hiaddress 0x50000027
 ihwaddperipheral -instancename uart6 \
                  -vendor microsemi.ovpworld.org -library peripheral -type CoreUARTapb -version 1.0
 ihwconnect -instancename uart6 -bus cpu6Bus -busslaveport port0 -loaddress 0x70001000 -hiaddress 0x70001017
@@ -368,16 +380,18 @@ ihwaddperipheral -instancename prci6 -vendor riscv.ovpworld.org -library periphe
 ihwconnect -instancename prci6 -bus cpu6Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
 ihwsetparameter -name clockMHz -handle prci6 -type double -value 1.0
 
-ihwaddperipheral -instancename router6 -modelfile ../peripheral/whnoc_dma/pse.pse
+ihwaddperipheral -instancename router6 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router6 -busslaveport localPort -bus cpu6Bus -loaddress 0x50000000 -hiaddress 0x50000003
 ihwconnect -instancename router6 -busmasterport RREAD  -bus cpu6Bus
 ihwconnect -instancename router6 -busmasterport RWRITE -bus cpu6Bus
 
-ihwaddperipheral -instancename ni6 -modelfile ../peripheral/networkInterface/pse.pse
+ihwaddperipheral -instancename ni6 -modelfile peripheral/networkInterface/pse.pse
 ihwconnect -instancename ni6 -busslaveport DMAC -bus cpu6Bus -loaddress 0x50000004 -hiaddress 0x5000000F
 ihwconnect -instancename ni6 -busmasterport MREAD  -bus cpu6Bus
 ihwconnect -instancename ni6 -busmasterport MWRITE -bus cpu6Bus
 
+ihwaddperipheral -instancename printer6 -modelfile peripheral/printer/pse.pse
+ihwconnect -instancename printer6 -busslaveport PRINTREGS -bus cpu6Bus -loaddress 0x50000020 -hiaddress 0x50000027
 ihwaddperipheral -instancename uart7 \
                  -vendor microsemi.ovpworld.org -library peripheral -type CoreUARTapb -version 1.0
 ihwconnect -instancename uart7 -bus cpu7Bus -busslaveport port0 -loaddress 0x70001000 -hiaddress 0x70001017
@@ -391,16 +405,18 @@ ihwaddperipheral -instancename prci7 -vendor riscv.ovpworld.org -library periphe
 ihwconnect -instancename prci7 -bus cpu7Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
 ihwsetparameter -name clockMHz -handle prci7 -type double -value 1.0
 
-ihwaddperipheral -instancename router7 -modelfile ../peripheral/whnoc_dma/pse.pse
+ihwaddperipheral -instancename router7 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router7 -busslaveport localPort -bus cpu7Bus -loaddress 0x50000000 -hiaddress 0x50000003
 ihwconnect -instancename router7 -busmasterport RREAD  -bus cpu7Bus
 ihwconnect -instancename router7 -busmasterport RWRITE -bus cpu7Bus
 
-ihwaddperipheral -instancename ni7 -modelfile ../peripheral/networkInterface/pse.pse
+ihwaddperipheral -instancename ni7 -modelfile peripheral/networkInterface/pse.pse
 ihwconnect -instancename ni7 -busslaveport DMAC -bus cpu7Bus -loaddress 0x50000004 -hiaddress 0x5000000F
 ihwconnect -instancename ni7 -busmasterport MREAD  -bus cpu7Bus
 ihwconnect -instancename ni7 -busmasterport MWRITE -bus cpu7Bus
 
+ihwaddperipheral -instancename printer7 -modelfile peripheral/printer/pse.pse
+ihwconnect -instancename printer7 -busslaveport PRINTREGS -bus cpu7Bus -loaddress 0x50000020 -hiaddress 0x50000027
 ihwaddperipheral -instancename uart8 \
                  -vendor microsemi.ovpworld.org -library peripheral -type CoreUARTapb -version 1.0
 ihwconnect -instancename uart8 -bus cpu8Bus -busslaveport port0 -loaddress 0x70001000 -hiaddress 0x70001017
@@ -414,16 +430,18 @@ ihwaddperipheral -instancename prci8 -vendor riscv.ovpworld.org -library periphe
 ihwconnect -instancename prci8 -bus cpu8Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
 ihwsetparameter -name clockMHz -handle prci8 -type double -value 1.0
 
-ihwaddperipheral -instancename router8 -modelfile ../peripheral/whnoc_dma/pse.pse
+ihwaddperipheral -instancename router8 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router8 -busslaveport localPort -bus cpu8Bus -loaddress 0x50000000 -hiaddress 0x50000003
 ihwconnect -instancename router8 -busmasterport RREAD  -bus cpu8Bus
 ihwconnect -instancename router8 -busmasterport RWRITE -bus cpu8Bus
 
-ihwaddperipheral -instancename ni8 -modelfile ../peripheral/networkInterface/pse.pse
+ihwaddperipheral -instancename ni8 -modelfile peripheral/networkInterface/pse.pse
 ihwconnect -instancename ni8 -busslaveport DMAC -bus cpu8Bus -loaddress 0x50000004 -hiaddress 0x5000000F
 ihwconnect -instancename ni8 -busmasterport MREAD  -bus cpu8Bus
 ihwconnect -instancename ni8 -busmasterport MWRITE -bus cpu8Bus
 
+ihwaddperipheral -instancename printer8 -modelfile peripheral/printer/pse.pse
+ihwconnect -instancename printer8 -busslaveport PRINTREGS -bus cpu8Bus -loaddress 0x50000020 -hiaddress 0x50000027
 ########################### interrupts ############################
 
 # External Interrupt Port
@@ -697,7 +715,7 @@ ihwconnect -instancename ni5 -netport INT_NI_TX  -net intNI_TX5
 ihwconnect -instancename ni6 -netport INT_NI_TX  -net intNI_TX6
 ihwconnect -instancename ni7 -netport INT_NI_TX  -net intNI_TX7
 ihwconnect -instancename ni8 -netport INT_NI_TX  -net intNI_TX8
-ihwaddperipheral -instancename iterator -modelfile ../peripheral/iterator/pse.pse
+ihwaddperipheral -instancename iterator -modelfile peripheral/iterator/pse.pse
 
 ihwaddpacketnet -instancename iteration_0
 ihwconnect -instancename router0 -packetnetport iterationsPort -packetnet iteration_0

@@ -1014,7 +1014,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE tea
 
-    const char *tea_path = "../peripheral/tea/pse.pse";
+    const char *tea_path = "peripheral/tea/pse.pse";
     opPeripheralNew(
         mi,
         tea_path,
@@ -1114,7 +1114,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE router0
 
-    const char *router0_path = "../peripheral/whnoc_dma/pse.pse";
+    const char *router0_path = "peripheral/whnoc_dma/pse.pse";
     opPeripheralNew(
         mi,
         router0_path,
@@ -1142,7 +1142,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE ni0
 
-    const char *ni0_path = "../peripheral/networkInterface/pse.pse";
+    const char *ni0_path = "peripheral/networkInterface/pse.pse";
     opPeripheralNew(
         mi,
         ni0_path,
@@ -1159,6 +1159,21 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_0_0_L_pkn, "dataPort"),
                 OP_PACKETNET_CONNECT(ctrl_0_0_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer0
+
+    const char *printer0_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer0_path,
+        "printer0",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu0Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
             )
         ),
         0
@@ -1250,7 +1265,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE router1
 
-    const char *router1_path = "../peripheral/whnoc_dma/pse.pse";
+    const char *router1_path = "peripheral/whnoc_dma/pse.pse";
     opPeripheralNew(
         mi,
         router1_path,
@@ -1278,7 +1293,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE ni1
 
-    const char *ni1_path = "../peripheral/networkInterface/pse.pse";
+    const char *ni1_path = "peripheral/networkInterface/pse.pse";
     opPeripheralNew(
         mi,
         ni1_path,
@@ -1295,6 +1310,21 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_0_1_L_pkn, "dataPort"),
                 OP_PACKETNET_CONNECT(ctrl_0_1_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer1
+
+    const char *printer1_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer1_path,
+        "printer1",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu1Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
             )
         ),
         0
@@ -1386,7 +1416,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE router2
 
-    const char *router2_path = "../peripheral/whnoc_dma/pse.pse";
+    const char *router2_path = "peripheral/whnoc_dma/pse.pse";
     opPeripheralNew(
         mi,
         router2_path,
@@ -1412,7 +1442,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE ni2
 
-    const char *ni2_path = "../peripheral/networkInterface/pse.pse";
+    const char *ni2_path = "peripheral/networkInterface/pse.pse";
     opPeripheralNew(
         mi,
         ni2_path,
@@ -1429,6 +1459,21 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_0_2_L_pkn, "dataPort"),
                 OP_PACKETNET_CONNECT(ctrl_0_2_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer2
+
+    const char *printer2_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer2_path,
+        "printer2",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu2Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
             )
         ),
         0
@@ -1520,7 +1565,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE router3
 
-    const char *router3_path = "../peripheral/whnoc_dma/pse.pse";
+    const char *router3_path = "peripheral/whnoc_dma/pse.pse";
     opPeripheralNew(
         mi,
         router3_path,
@@ -1548,7 +1593,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE ni3
 
-    const char *ni3_path = "../peripheral/networkInterface/pse.pse";
+    const char *ni3_path = "peripheral/networkInterface/pse.pse";
     opPeripheralNew(
         mi,
         ni3_path,
@@ -1565,6 +1610,21 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_1_0_L_pkn, "dataPort"),
                 OP_PACKETNET_CONNECT(ctrl_1_0_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer3
+
+    const char *printer3_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer3_path,
+        "printer3",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu3Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
             )
         ),
         0
@@ -1656,7 +1716,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE router4
 
-    const char *router4_path = "../peripheral/whnoc_dma/pse.pse";
+    const char *router4_path = "peripheral/whnoc_dma/pse.pse";
     opPeripheralNew(
         mi,
         router4_path,
@@ -1686,7 +1746,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE ni4
 
-    const char *ni4_path = "../peripheral/networkInterface/pse.pse";
+    const char *ni4_path = "peripheral/networkInterface/pse.pse";
     opPeripheralNew(
         mi,
         ni4_path,
@@ -1703,6 +1763,21 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_1_1_L_pkn, "dataPort"),
                 OP_PACKETNET_CONNECT(ctrl_1_1_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer4
+
+    const char *printer4_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer4_path,
+        "printer4",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu4Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
             )
         ),
         0
@@ -1794,7 +1869,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE router5
 
-    const char *router5_path = "../peripheral/whnoc_dma/pse.pse";
+    const char *router5_path = "peripheral/whnoc_dma/pse.pse";
     opPeripheralNew(
         mi,
         router5_path,
@@ -1822,7 +1897,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE ni5
 
-    const char *ni5_path = "../peripheral/networkInterface/pse.pse";
+    const char *ni5_path = "peripheral/networkInterface/pse.pse";
     opPeripheralNew(
         mi,
         ni5_path,
@@ -1839,6 +1914,21 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_1_2_L_pkn, "dataPort"),
                 OP_PACKETNET_CONNECT(ctrl_1_2_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer5
+
+    const char *printer5_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer5_path,
+        "printer5",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu5Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
             )
         ),
         0
@@ -1930,7 +2020,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE router6
 
-    const char *router6_path = "../peripheral/whnoc_dma/pse.pse";
+    const char *router6_path = "peripheral/whnoc_dma/pse.pse";
     opPeripheralNew(
         mi,
         router6_path,
@@ -1956,7 +2046,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE ni6
 
-    const char *ni6_path = "../peripheral/networkInterface/pse.pse";
+    const char *ni6_path = "peripheral/networkInterface/pse.pse";
     opPeripheralNew(
         mi,
         ni6_path,
@@ -1973,6 +2063,21 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_2_0_L_pkn, "dataPort"),
                 OP_PACKETNET_CONNECT(ctrl_2_0_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer6
+
+    const char *printer6_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer6_path,
+        "printer6",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu6Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
             )
         ),
         0
@@ -2064,7 +2169,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE router7
 
-    const char *router7_path = "../peripheral/whnoc_dma/pse.pse";
+    const char *router7_path = "peripheral/whnoc_dma/pse.pse";
     opPeripheralNew(
         mi,
         router7_path,
@@ -2092,7 +2197,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE ni7
 
-    const char *ni7_path = "../peripheral/networkInterface/pse.pse";
+    const char *ni7_path = "peripheral/networkInterface/pse.pse";
     opPeripheralNew(
         mi,
         ni7_path,
@@ -2109,6 +2214,21 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_2_1_L_pkn, "dataPort"),
                 OP_PACKETNET_CONNECT(ctrl_2_1_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer7
+
+    const char *printer7_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer7_path,
+        "printer7",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu7Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
             )
         ),
         0
@@ -2200,7 +2320,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE router8
 
-    const char *router8_path = "../peripheral/whnoc_dma/pse.pse";
+    const char *router8_path = "peripheral/whnoc_dma/pse.pse";
     opPeripheralNew(
         mi,
         router8_path,
@@ -2226,7 +2346,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE ni8
 
-    const char *ni8_path = "../peripheral/networkInterface/pse.pse";
+    const char *ni8_path = "peripheral/networkInterface/pse.pse";
     opPeripheralNew(
         mi,
         ni8_path,
@@ -2248,9 +2368,24 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         0
     );
 
+    // PSE printer8
+
+    const char *printer8_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer8_path,
+        "printer8",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu8Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
+            )
+        ),
+        0
+    );
+
     // PSE iterator
 
-    const char *iterator_path = "../peripheral/iterator/pse.pse";
+    const char *iterator_path = "peripheral/iterator/pse.pse";
     opPeripheralNew(
         mi,
         iterator_path,

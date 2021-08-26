@@ -67,7 +67,7 @@ echo "#define COREGPIO_OUT_BASE_ADDR 0x70005000UL" >> module.op.tcl
 echo "#define CORE16550_BASE_ADDR    0x70007000UL" >> module.op.tcl
 echo "#define PLIC_BASE_ADDR         0x40000000UL" >> module.op.tcl
 echo "" >> module.op.tcl
-echo "ihwaddperipheral -instancename tea -modelfile ../peripheral/tea/pse.pse" >> module.op.tcl
+echo "ihwaddperipheral -instancename tea -modelfile peripheral/tea/pse.pse" >> module.op.tcl
 echo "" >> module.op.tcl
 for i in $(seq 0 $N);
 do
@@ -84,16 +84,18 @@ do
 	echo "ihwconnect -instancename prci"$i" -bus cpu"$i"Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF" >> module.op.tcl
 	echo "ihwsetparameter -name clockMHz -handle prci"$i" -type double -value 1.0" >> module.op.tcl
 	echo "" >> module.op.tcl
-	echo "ihwaddperipheral -instancename router"$i" -modelfile ../peripheral/whnoc_dma/pse.pse" >> module.op.tcl
+	echo "ihwaddperipheral -instancename router"$i" -modelfile peripheral/whnoc_dma/pse.pse" >> module.op.tcl
 	echo "ihwconnect -instancename router"$i" -busslaveport localPort -bus cpu"$i"Bus -loaddress 0x50000000 -hiaddress 0x50000003" >> module.op.tcl
 	echo "ihwconnect -instancename router"$i" -busmasterport RREAD  -bus cpu"$i"Bus" >> module.op.tcl
 	echo "ihwconnect -instancename router"$i" -busmasterport RWRITE -bus cpu"$i"Bus" >> module.op.tcl
 	echo "" >> module.op.tcl
-	echo "ihwaddperipheral -instancename ni"$i" -modelfile ../peripheral/networkInterface/pse.pse" >> module.op.tcl
+	echo "ihwaddperipheral -instancename ni"$i" -modelfile peripheral/networkInterface/pse.pse" >> module.op.tcl
 	echo "ihwconnect -instancename ni"$i" -busslaveport DMAC -bus cpu"$i"Bus -loaddress 0x50000004 -hiaddress 0x5000000F" >> module.op.tcl
 	echo "ihwconnect -instancename ni"$i" -busmasterport MREAD  -bus cpu"$i"Bus" >> module.op.tcl
 	echo "ihwconnect -instancename ni"$i" -busmasterport MWRITE -bus cpu"$i"Bus" >> module.op.tcl
 	echo "" >> module.op.tcl
+	echo "ihwaddperipheral -instancename printer"$i" -modelfile peripheral/printer/pse.pse" >> module.op.tcl
+	echo "ihwconnect -instancename printer"$i" -busslaveport PRINTREGS -bus cpu"$i"Bus -loaddress 0x50000020 -hiaddress 0x50000027" >> module.op.tcl
 done
 
 echo "########################### interrupts ############################" >> module.op.tcl
@@ -289,7 +291,7 @@ do
 	#echo "ihwconnect -instancename ni"$i" -netport INT_NI_RX  -net intNI_RX"$i >> module.op.tcl
 done
 
-echo "ihwaddperipheral -instancename iterator -modelfile ../peripheral/iterator/pse.pse" >> module.op.tcl #iterator
+echo "ihwaddperipheral -instancename iterator -modelfile peripheral/iterator/pse.pse" >> module.op.tcl #iterator
 
 echo "" >> module.op.tcl
 for i in $(seq 0 $N);

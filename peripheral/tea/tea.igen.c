@@ -78,9 +78,9 @@ unsigned int y_data_counter = 0;
 
 void load_matrices(double Binv[THERMAL_NODES][SYSTEM_SIZE], double Cexp[THERMAL_NODES][THERMAL_NODES]){
     FILE *binvpointer;
-    binvpointer = fopen("../peripheral/tea/binv.txt","r");
+    binvpointer = fopen("peripheral/tea/binv.txt","r");
     FILE *cexppointer;
-    cexppointer = fopen("../peripheral/tea/cexp.txt","r");
+    cexppointer = fopen("peripheral/tea/cexp.txt","r");
 
     char line[4000];
     char *number;
@@ -164,7 +164,7 @@ void temp_matex(double TempTraceEnd[THERMAL_NODES], double power_trace[SYSTEM_SI
     double Tdifference[THERMAL_NODES];
 
     FILE *filepointer;
-    filepointer = fopen("../simulation/matex.txt","a");
+    filepointer = fopen("simulation/matex.txt","a");
 
     computeSteadyStateTemp(Tsteady, power_trace);
 
