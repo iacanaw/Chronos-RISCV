@@ -29,7 +29,7 @@
 
 // Quantum defines
 #define INSTRUCTIONS_PER_SECOND 1000000000.0                                            // 1GHz (assuming 1 instruction per cycle)
-#define INSTRUCTIONS_PER_TIME_SLICE 250.0                                               //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
+#define INSTRUCTIONS_PER_TIME_SLICE 2500.0                                               //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
 #define QUANTUM_TIME_SLICE (INSTRUCTIONS_PER_TIME_SLICE / INSTRUCTIONS_PER_SECOND)      // 0.0000010 //
 
 
@@ -149,6 +149,7 @@ int main(int argc, const char *argv[]) {
             
         }
 
+        break; 
         // checks if all processors has exited
         if (finishedProcessors == N_PES) {
 			opMessage("I", "HARNESS", "Simulation Complete (%s) e %d quantums", opStopReasonString(stopReason), countQuantum);
@@ -161,7 +162,7 @@ int main(int argc, const char *argv[]) {
     }while(1);
 
 
-    //opRootModuleSimulate(mi);
+    opRootModuleSimulate(mi);
     opSessionTerminate();
 
     return (opErrors() ? 1 : 0);    // set exit based upon any errors
