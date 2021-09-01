@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+echo "=================="
+echo "CLEANING THE SIMULATION FOLDER"
+cd ../simulation
+rm -f *.txt
+cd ../harness
 echo "=================="
 echo "COMPILING FREERTOS"
 cd ../FreeRTOS
@@ -15,6 +21,9 @@ make -C ../peripheral/whnoc_dma NOVLNV=1
 echo "======================"
 echo "COMPILING THE ITERATOR"
 make -C ../peripheral/iterator NOVLNV=1
+echo "=================="
+echo "COMPILING THE PLIC"
+make -C ../peripheral/plic NOVLNV=1
 echo "==============================="
 echo "COMPILING THE NETWORK INTERFACE"
 make -C ../peripheral/networkInterface NOVLNV=1

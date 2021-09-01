@@ -117,20 +117,31 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 static void vUartTestTask1( void *pvParameters )
 {
 	( void ) pvParameters;
-	int i = 8;
-	volatile unsigned int *value = PLIC_TEST;
+	int i = 0;
 	char str[100];
+	unsigned int msg[25];
+	msg[0] = 0x101;
+	msg[1] = 20;
+	msg[2] = HW_get_32bit_reg(ROUTER_BASE);
+	for(i = 3; i<20; i++){
+		msg[i] = i;
+	}
+	i = 0;
+	vTaskDelay(10);
 	for( ;; )
 	{
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 1\r\n" );
-	    vTaskDelay(1);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)"Meu teste: " );
+	    vTaskDelay(2);
+		// sends one message
+		if (i==0 && HW_get_32bit_reg(ROUTER_BASE) != 0x101){
+			SendRaw((unsigned int)&msg);
+		}
 		i++;
-		*value = 10;
-		itoa(*value, str, 10);
+		printi(i);
+		prints("\n");
+		itoa(i, str, 10);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n");
-		
 	}
 }
 
@@ -140,10 +151,20 @@ static void vUartTestTask1( void *pvParameters )
 static void vUartTestTask2( void *pvParameters )
 {
 	( void ) pvParameters;
-
+	volatile unsigned int incomingPacket[100];
+	int i;
+	HW_set_32bit_reg(NI_ADDR, (unsigned int)&incomingPacket);
+	HW_set_32bit_reg(NI_ADDR, (unsigned int)&incomingPacket);
+	for (i = 0; i<100; i++){
+		incomingPacket[i] = 0;
+	}
 	for( ;; )
 	{
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 2\r\n" );
 	    vTaskDelay(5);
+		if (incomingPacket[7] != 0){
+			UART_polled_tx_string( &g_uart, (const uint8_t *)">--Recebi-algo------------------\r\n" );
+			printi(incomingPacket[2]);
+		}
 	}
 }

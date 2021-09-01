@@ -198,8 +198,9 @@ void usi2vec(){
 }
 
 // Function to write something in the memory
-void writeMem(unsigned int value, unsigned int addr){
-    usValue = value;
+void writeMemm(unsigned int value, unsigned int addr){
+    return;
+    /*usValue = value;
     usi2vec();
     ppmAddressSpaceHandle h = ppmOpenAddressSpace("RWRITE");
     if(!h) {
@@ -207,7 +208,7 @@ void writeMem(unsigned int value, unsigned int addr){
         while(1){} // error handling
     }
     ppmWriteAddressSpace(h, addr, sizeof(chValue), chValue);
-    ppmCloseAddressSpace(h);
+    ppmCloseAddressSpace(h);*/
 }
 
 // Calculates the output port for a given local address and a destination address
@@ -460,11 +461,11 @@ void allocate(unsigned int port){
             routingTable[port] = to;
             // and compute a packet transmittion
             countTotalPackets[to] = countTotalPackets[to]+1;
-            if(to==LOCAL)       writeMem(htonl(countTotalPackets[to]), LOCAL_PACKETS_ADDR);
-            else if(to==EAST)   writeMem(htonl(countTotalPackets[to]), EAST_PACKETS_ADDR);
-            else if(to==WEST)   writeMem(htonl(countTotalPackets[to]), WEST_PACKETS_ADDR);
-            else if(to==NORTH)  writeMem(htonl(countTotalPackets[to]), NORTH_PACKETS_ADDR);
-            else if(to==SOUTH)  writeMem(htonl(countTotalPackets[to]), SOUTH_PACKETS_ADDR);
+            if(to==LOCAL)       writeMemm(htonl(countTotalPackets[to]), LOCAL_PACKETS_ADDR);
+            else if(to==EAST)   writeMemm(htonl(countTotalPackets[to]), EAST_PACKETS_ADDR);
+            else if(to==WEST)   writeMemm(htonl(countTotalPackets[to]), WEST_PACKETS_ADDR);
+            else if(to==NORTH)  writeMemm(htonl(countTotalPackets[to]), NORTH_PACKETS_ADDR);
+            else if(to==SOUTH)  writeMemm(htonl(countTotalPackets[to]), SOUTH_PACKETS_ADDR);
             // Once one port is attended, then reset it's priority.
             priority[port] = 1;
         }
@@ -618,7 +619,7 @@ void transmitt(){
                             contFlits[LOCAL] = contFlits[LOCAL]+1;
                             #endif
                             countTotalFlits[LOCAL] = countTotalFlits[LOCAL]+1;
-                            writeMem(htonl(countTotalFlits[LOCAL]), LOCAL_FLITS_ADDR);
+                            writeMemm(htonl(countTotalFlits[LOCAL]), LOCAL_FLITS_ADDR);
                             // Send the flit transmission time followed by the data
                             ppmPacketnetWrite(handles.portDataLocal, &flit, sizeof(flit));
                             activity++;
@@ -635,7 +636,7 @@ void transmitt(){
                             contFlits[EAST] = contFlits[EAST]+1;
                             #endif
                             countTotalFlits[EAST] = countTotalFlits[EAST]+1;
-                            writeMem(htonl(countTotalFlits[EAST]), EAST_FLITS_ADDR);
+                            writeMemm(htonl(countTotalFlits[EAST]), EAST_FLITS_ADDR);
                             // Send the flit transmission time followed by the data
                             ppmPacketnetWrite(handles.portControlEast, &currentTime, sizeof(currentTime));
                             ppmPacketnetWrite(handles.portDataEast, &flit, sizeof(flit));
@@ -653,7 +654,7 @@ void transmitt(){
                             contFlits[WEST] = contFlits[WEST]+1;
                             #endif
                             countTotalFlits[WEST] = countTotalFlits[WEST]+1;
-                            writeMem(htonl(countTotalFlits[WEST]), WEST_FLITS_ADDR);
+                            writeMemm(htonl(countTotalFlits[WEST]), WEST_FLITS_ADDR);
                             // Send the flit transmission time followed by the data
                             ppmPacketnetWrite(handles.portControlWest, &currentTime, sizeof(currentTime));
                             ppmPacketnetWrite(handles.portDataWest, &flit, sizeof(flit));
@@ -671,7 +672,7 @@ void transmitt(){
                             contFlits[NORTH] = contFlits[NORTH]+1;
                             #endif
                             countTotalFlits[NORTH] = countTotalFlits[NORTH]+1;
-                            writeMem(htonl(countTotalFlits[NORTH]), NORTH_FLITS_ADDR);
+                            writeMemm(htonl(countTotalFlits[NORTH]), NORTH_FLITS_ADDR);
                             // Send the flit transmission time followed by the data
                             ppmPacketnetWrite(handles.portControlNorth, &currentTime, sizeof(currentTime));
                             ppmPacketnetWrite(handles.portDataNorth, &flit, sizeof(flit));
@@ -689,7 +690,7 @@ void transmitt(){
                             contFlits[SOUTH] = contFlits[SOUTH]+1;
                             #endif
                             countTotalFlits[SOUTH] = countTotalFlits[SOUTH]+1;
-                            writeMem(htonl(countTotalFlits[SOUTH]), SOUTH_FLITS_ADDR);
+                            writeMemm(htonl(countTotalFlits[SOUTH]), SOUTH_FLITS_ADDR);
                             // Send the flit transmission time followed by the data
                             ppmPacketnetWrite(handles.portControlSouth, &currentTime, sizeof(currentTime));
                             ppmPacketnetWrite(handles.portDataSouth, &flit, sizeof(flit));
@@ -716,7 +717,7 @@ void iterate(){
     activity = 0;
     // Sends the iteration signal to the NI module
     iterateNI();
-    if(myAddress == 0x00) iteratePeriph();
+    if(myAddress == 0x0000) iteratePeriph();
     // Verify if the LOCAL buffer has something to send
     //verifyLocalBuffer();
     ////////////////////////////////////////////

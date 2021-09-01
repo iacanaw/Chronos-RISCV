@@ -75,7 +75,8 @@ do
 	echo "                 -vendor microsemi.ovpworld.org -library peripheral -type CoreUARTapb -version 1.0" >> module.op.tcl
 	echo "ihwconnect -instancename uart"$i" -bus cpu"$i"Bus -busslaveport port0 -loaddress 0x70001000 -hiaddress 0x70001017" >> module.op.tcl
 	echo "" >> module.op.tcl
-	echo "ihwaddperipheral -instancename plic"$i" -vendor riscv.ovpworld.org -library peripheral -type PLIC -version 1.0" >> module.op.tcl
+#	echo "ihwaddperipheral -instancename plic"$i" -vendor riscv.ovpworld.org -library peripheral -type PLIC -version 1.0" >> module.op.tcl
+	echo "ihwaddperipheral -instancename plic"$i" -modelfile peripheral/plic/pse.pse" >> module.op.tcl
 	echo "ihwconnect -instancename plic"$i" -bus cpu"$i"Bus -busslaveport port0 -loaddress 0x40000000 -hiaddress 0x43FFFFFF" >> module.op.tcl
 	echo "ihwsetparameter -name num_sources -handle plic"$i" -type Uns32 -value 256" >> module.op.tcl
 	echo "ihwsetparameter -name num_targets -handle plic"$i" -type Uns32 -value 1" >> module.op.tcl
@@ -120,9 +121,11 @@ do
 	echo "ihwconnect -net MSWInterrupt"$i" -instancename prci"$i" -netport MSWInterrupt0" >> module.op.tcl
 	echo "ihwconnect -net MSWInterrupt"$i" -instancename cpu"$i"  -netport MSWInterrupt" >> module.op.tcl
 	echo "ihwaddnet -instancename intNI_TX"$i >> module.op.tcl
-	echo "ihwconnect -instancename cpu"$i" -netport MExternalInterruptID -net intNI_TX"$i >> module.op.tcl
-	#echo "ihwaddnet -instancename intNI_RX"$i >> module.op.tcl
-	#echo "ihwconnect -instancename cpu"$i" -netport MExternalInterruptID -net intNI_RX"$i >> module.op.tcl
+	echo "ihwconnect -instancename plic"$i" -netport irqS1 -net intNI_TX"$i >> module.op.tcl
+	echo "ihwconnect -instancename ni"$i" -netport INT_NI_TX  -net intNI_TX"$i >> module.op.tcl
+	echo "ihwaddnet -instancename intNI_RX"$i >> module.op.tcl
+	echo "ihwconnect -instancename plic"$i" -netport irqS2 -net intNI_RX"$i >> module.op.tcl
+	echo "ihwconnect -instancename ni"$i" -netport INT_NI_RX  -net intNI_RX"$i >> module.op.tcl
 done
 
 # Creates the wire to connect the TEA with one router
@@ -285,11 +288,11 @@ done
 echo "" >> module.op.tcl
 
 # Connects every interruption signal from each router to the associated processor
-for i in $(seq 0 $N);
-do
-	echo "ihwconnect -instancename ni"$i" -netport INT_NI_TX  -net intNI_TX"$i >> module.op.tcl
+#for i in $(seq 0 $N);
+#do
+	#echo "ihwconnect -instancename ni"$i" -netport INT_NI_TX  -net intNI_TX"$i >> module.op.tcl
 	#echo "ihwconnect -instancename ni"$i" -netport INT_NI_RX  -net intNI_RX"$i >> module.op.tcl
-done
+#done
 
 echo "ihwaddperipheral -instancename iterator -modelfile peripheral/iterator/pse.pse" >> module.op.tcl #iterator
 

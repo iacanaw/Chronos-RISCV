@@ -162,7 +162,6 @@ int main(int argc, const char *argv[]) {
         if (countQuantum % 10000 == 0) {
             opMessage("I", "HARNESS INFO", "Iniciando Quantum %d - elapsed time: %lfs / %.2lfms", countQuantum, (countQuantum * QUANTUM_TIME_SLICE),
                      (countQuantum * QUANTUM_TIME_SLICE * 1000));  // alzemiro modification
-            
         }
 
         break; 

@@ -27,8 +27,14 @@ extern "C" {
  * 
  */
 uint8_t Invalid_IRQHandler(void);
-uint8_t External_1_IRQHandler(void);
-uint8_t External_2_IRQHandler(void);
+uint8_t External_1_IRQHandler(void){
+    prints("INT1\n");
+    return 0;
+}
+uint8_t External_2_IRQHandler(void){
+    prints("INT2\n");
+    return 0;
+}
 uint8_t External_3_IRQHandler(void);
 uint8_t External_4_IRQHandler(void);
 uint8_t External_5_IRQHandler(void);
@@ -173,7 +179,7 @@ void handle_m_ext_interrupt()
 {
     uint32_t int_num  = PLIC_ClaimIRQ();
     uint8_t disable = EXT_IRQ_KEEP_ENABLED;
-
+    prints("Interrupção detectada handle_m_ext_interrupt!\n");
     disable = ext_irq_handler_table[int_num]();
 
     PLIC_CompleteIRQ(int_num);
@@ -187,6 +193,7 @@ void handle_m_ext_interrupt()
 void handle_m_soft_interrupt()
 {
     Software_IRQHandler();
+    prints("Interrupção detectada handle_m_soft_interrupt!\n");
 
     /*Clear software interrupt*/
     PRCI->MSIP[0] = 0x00;

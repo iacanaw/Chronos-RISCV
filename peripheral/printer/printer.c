@@ -42,6 +42,7 @@ PPM_REG_READ_CB(readValue_int) {
 
 PPM_REG_WRITE_CB(writeValue_char) {
     unsigned int newValue = htonl(data);
+    bhmMessage("I", "PRINTER", "~~~~~~~~~~~~Estou recebendo valores!");
     //////////////////////////
     // INITIALIZATION
     //////////////////////////

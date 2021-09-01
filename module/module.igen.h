@@ -94,30 +94,39 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
     optNetP MTimerInterrupt0_n = opNetNew(mi, "MTimerInterrupt0", 0, 0);
     optNetP MSWInterrupt0_n = opNetNew(mi, "MSWInterrupt0", 0, 0);
     optNetP intNI_TX0_n = opNetNew(mi, "intNI_TX0", 0, 0);
+    optNetP intNI_RX0_n = opNetNew(mi, "intNI_RX0", 0, 0);
     optNetP MTimerInterrupt1_n = opNetNew(mi, "MTimerInterrupt1", 0, 0);
     optNetP MSWInterrupt1_n = opNetNew(mi, "MSWInterrupt1", 0, 0);
     optNetP intNI_TX1_n = opNetNew(mi, "intNI_TX1", 0, 0);
+    optNetP intNI_RX1_n = opNetNew(mi, "intNI_RX1", 0, 0);
     optNetP MTimerInterrupt2_n = opNetNew(mi, "MTimerInterrupt2", 0, 0);
     optNetP MSWInterrupt2_n = opNetNew(mi, "MSWInterrupt2", 0, 0);
     optNetP intNI_TX2_n = opNetNew(mi, "intNI_TX2", 0, 0);
+    optNetP intNI_RX2_n = opNetNew(mi, "intNI_RX2", 0, 0);
     optNetP MTimerInterrupt3_n = opNetNew(mi, "MTimerInterrupt3", 0, 0);
     optNetP MSWInterrupt3_n = opNetNew(mi, "MSWInterrupt3", 0, 0);
     optNetP intNI_TX3_n = opNetNew(mi, "intNI_TX3", 0, 0);
+    optNetP intNI_RX3_n = opNetNew(mi, "intNI_RX3", 0, 0);
     optNetP MTimerInterrupt4_n = opNetNew(mi, "MTimerInterrupt4", 0, 0);
     optNetP MSWInterrupt4_n = opNetNew(mi, "MSWInterrupt4", 0, 0);
     optNetP intNI_TX4_n = opNetNew(mi, "intNI_TX4", 0, 0);
+    optNetP intNI_RX4_n = opNetNew(mi, "intNI_RX4", 0, 0);
     optNetP MTimerInterrupt5_n = opNetNew(mi, "MTimerInterrupt5", 0, 0);
     optNetP MSWInterrupt5_n = opNetNew(mi, "MSWInterrupt5", 0, 0);
     optNetP intNI_TX5_n = opNetNew(mi, "intNI_TX5", 0, 0);
+    optNetP intNI_RX5_n = opNetNew(mi, "intNI_RX5", 0, 0);
     optNetP MTimerInterrupt6_n = opNetNew(mi, "MTimerInterrupt6", 0, 0);
     optNetP MSWInterrupt6_n = opNetNew(mi, "MSWInterrupt6", 0, 0);
     optNetP intNI_TX6_n = opNetNew(mi, "intNI_TX6", 0, 0);
+    optNetP intNI_RX6_n = opNetNew(mi, "intNI_RX6", 0, 0);
     optNetP MTimerInterrupt7_n = opNetNew(mi, "MTimerInterrupt7", 0, 0);
     optNetP MSWInterrupt7_n = opNetNew(mi, "MSWInterrupt7", 0, 0);
     optNetP intNI_TX7_n = opNetNew(mi, "intNI_TX7", 0, 0);
+    optNetP intNI_RX7_n = opNetNew(mi, "intNI_RX7", 0, 0);
     optNetP MTimerInterrupt8_n = opNetNew(mi, "MTimerInterrupt8", 0, 0);
     optNetP MSWInterrupt8_n = opNetNew(mi, "MSWInterrupt8", 0, 0);
     optNetP intNI_TX8_n = opNetNew(mi, "intNI_TX8", 0, 0);
+    optNetP intNI_RX8_n = opNetNew(mi, "intNI_RX8", 0, 0);
 
     optPacketnetP data_0_0_TEA_pkn = opPacketnetNew(mi, "data_0_0_TEA", 0, 0);
 
@@ -281,8 +290,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip0_n, "MExternalInterrupt"),
                 OP_NET_CONNECT(MTimerInterrupt0_n, "MTimerInterrupt"),
-                OP_NET_CONNECT(MSWInterrupt0_n, "MSWInterrupt"),
-                OP_NET_CONNECT(intNI_TX0_n, "MExternalInterruptID")
+                OP_NET_CONNECT(MSWInterrupt0_n, "MSWInterrupt")
             )
         ),
         OP_PARAMS(
@@ -319,8 +327,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip1_n, "MExternalInterrupt"),
                 OP_NET_CONNECT(MTimerInterrupt1_n, "MTimerInterrupt"),
-                OP_NET_CONNECT(MSWInterrupt1_n, "MSWInterrupt"),
-                OP_NET_CONNECT(intNI_TX1_n, "MExternalInterruptID")
+                OP_NET_CONNECT(MSWInterrupt1_n, "MSWInterrupt")
             )
         ),
         OP_PARAMS(
@@ -358,8 +365,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip2_n, "MExternalInterrupt"),
                 OP_NET_CONNECT(MTimerInterrupt2_n, "MTimerInterrupt"),
-                OP_NET_CONNECT(MSWInterrupt2_n, "MSWInterrupt"),
-                OP_NET_CONNECT(intNI_TX2_n, "MExternalInterruptID")
+                OP_NET_CONNECT(MSWInterrupt2_n, "MSWInterrupt")
             )
         ),
         OP_PARAMS(
@@ -397,8 +403,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip3_n, "MExternalInterrupt"),
                 OP_NET_CONNECT(MTimerInterrupt3_n, "MTimerInterrupt"),
-                OP_NET_CONNECT(MSWInterrupt3_n, "MSWInterrupt"),
-                OP_NET_CONNECT(intNI_TX3_n, "MExternalInterruptID")
+                OP_NET_CONNECT(MSWInterrupt3_n, "MSWInterrupt")
             )
         ),
         OP_PARAMS(
@@ -436,8 +441,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip4_n, "MExternalInterrupt"),
                 OP_NET_CONNECT(MTimerInterrupt4_n, "MTimerInterrupt"),
-                OP_NET_CONNECT(MSWInterrupt4_n, "MSWInterrupt"),
-                OP_NET_CONNECT(intNI_TX4_n, "MExternalInterruptID")
+                OP_NET_CONNECT(MSWInterrupt4_n, "MSWInterrupt")
             )
         ),
         OP_PARAMS(
@@ -475,8 +479,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip5_n, "MExternalInterrupt"),
                 OP_NET_CONNECT(MTimerInterrupt5_n, "MTimerInterrupt"),
-                OP_NET_CONNECT(MSWInterrupt5_n, "MSWInterrupt"),
-                OP_NET_CONNECT(intNI_TX5_n, "MExternalInterruptID")
+                OP_NET_CONNECT(MSWInterrupt5_n, "MSWInterrupt")
             )
         ),
         OP_PARAMS(
@@ -514,8 +517,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip6_n, "MExternalInterrupt"),
                 OP_NET_CONNECT(MTimerInterrupt6_n, "MTimerInterrupt"),
-                OP_NET_CONNECT(MSWInterrupt6_n, "MSWInterrupt"),
-                OP_NET_CONNECT(intNI_TX6_n, "MExternalInterruptID")
+                OP_NET_CONNECT(MSWInterrupt6_n, "MSWInterrupt")
             )
         ),
         OP_PARAMS(
@@ -553,8 +555,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip7_n, "MExternalInterrupt"),
                 OP_NET_CONNECT(MTimerInterrupt7_n, "MTimerInterrupt"),
-                OP_NET_CONNECT(MSWInterrupt7_n, "MSWInterrupt"),
-                OP_NET_CONNECT(intNI_TX7_n, "MExternalInterruptID")
+                OP_NET_CONNECT(MSWInterrupt7_n, "MSWInterrupt")
             )
         ),
         OP_PARAMS(
@@ -592,8 +593,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip8_n, "MExternalInterrupt"),
                 OP_NET_CONNECT(MTimerInterrupt8_n, "MTimerInterrupt"),
-                OP_NET_CONNECT(MSWInterrupt8_n, "MSWInterrupt"),
-                OP_NET_CONNECT(intNI_TX8_n, "MExternalInterruptID")
+                OP_NET_CONNECT(MSWInterrupt8_n, "MSWInterrupt")
             )
         ),
         OP_PARAMS(
@@ -1054,16 +1054,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE plic0
 
-    const char *plic0_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "PLIC",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *plic0_path = "peripheral/plic/pse.pse";
     opPeripheralNew(
         mi,
         plic0_path,
@@ -1073,7 +1064,9 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu0Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(eip0_n, "irqT0")
+                OP_NET_CONNECT(eip0_n, "irqT0"),
+                OP_NET_CONNECT(intNI_TX0_n, "irqS1"),
+                OP_NET_CONNECT(intNI_RX0_n, "irqS2")
             )
         ),
         OP_PARAMS(
@@ -1154,7 +1147,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu0Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x5000000fULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(intNI_TX0_n, "INT_NI_TX")
+                OP_NET_CONNECT(intNI_TX0_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_RX0_n, "INT_NI_RX")
             ),
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_0_0_L_pkn, "dataPort"),
@@ -1205,16 +1199,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE plic1
 
-    const char *plic1_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "PLIC",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *plic1_path = "peripheral/plic/pse.pse";
     opPeripheralNew(
         mi,
         plic1_path,
@@ -1224,7 +1209,9 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu1Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(eip1_n, "irqT0")
+                OP_NET_CONNECT(eip1_n, "irqT0"),
+                OP_NET_CONNECT(intNI_TX1_n, "irqS1"),
+                OP_NET_CONNECT(intNI_RX1_n, "irqS2")
             )
         ),
         OP_PARAMS(
@@ -1305,7 +1292,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu1Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x5000000fULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(intNI_TX1_n, "INT_NI_TX")
+                OP_NET_CONNECT(intNI_TX1_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_RX1_n, "INT_NI_RX")
             ),
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_0_1_L_pkn, "dataPort"),
@@ -1356,16 +1344,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE plic2
 
-    const char *plic2_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "PLIC",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *plic2_path = "peripheral/plic/pse.pse";
     opPeripheralNew(
         mi,
         plic2_path,
@@ -1375,7 +1354,9 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu2Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(eip2_n, "irqT0")
+                OP_NET_CONNECT(eip2_n, "irqT0"),
+                OP_NET_CONNECT(intNI_TX2_n, "irqS1"),
+                OP_NET_CONNECT(intNI_RX2_n, "irqS2")
             )
         ),
         OP_PARAMS(
@@ -1454,7 +1435,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu2Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x5000000fULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(intNI_TX2_n, "INT_NI_TX")
+                OP_NET_CONNECT(intNI_TX2_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_RX2_n, "INT_NI_RX")
             ),
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_0_2_L_pkn, "dataPort"),
@@ -1505,16 +1487,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE plic3
 
-    const char *plic3_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "PLIC",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *plic3_path = "peripheral/plic/pse.pse";
     opPeripheralNew(
         mi,
         plic3_path,
@@ -1524,7 +1497,9 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu3Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(eip3_n, "irqT0")
+                OP_NET_CONNECT(eip3_n, "irqT0"),
+                OP_NET_CONNECT(intNI_TX3_n, "irqS1"),
+                OP_NET_CONNECT(intNI_RX3_n, "irqS2")
             )
         ),
         OP_PARAMS(
@@ -1605,7 +1580,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu3Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x5000000fULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(intNI_TX3_n, "INT_NI_TX")
+                OP_NET_CONNECT(intNI_TX3_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_RX3_n, "INT_NI_RX")
             ),
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_1_0_L_pkn, "dataPort"),
@@ -1656,16 +1632,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE plic4
 
-    const char *plic4_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "PLIC",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *plic4_path = "peripheral/plic/pse.pse";
     opPeripheralNew(
         mi,
         plic4_path,
@@ -1675,7 +1642,9 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu4Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(eip4_n, "irqT0")
+                OP_NET_CONNECT(eip4_n, "irqT0"),
+                OP_NET_CONNECT(intNI_TX4_n, "irqS1"),
+                OP_NET_CONNECT(intNI_RX4_n, "irqS2")
             )
         ),
         OP_PARAMS(
@@ -1758,7 +1727,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu4Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x5000000fULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(intNI_TX4_n, "INT_NI_TX")
+                OP_NET_CONNECT(intNI_TX4_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_RX4_n, "INT_NI_RX")
             ),
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_1_1_L_pkn, "dataPort"),
@@ -1809,16 +1779,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE plic5
 
-    const char *plic5_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "PLIC",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *plic5_path = "peripheral/plic/pse.pse";
     opPeripheralNew(
         mi,
         plic5_path,
@@ -1828,7 +1789,9 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu5Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(eip5_n, "irqT0")
+                OP_NET_CONNECT(eip5_n, "irqT0"),
+                OP_NET_CONNECT(intNI_TX5_n, "irqS1"),
+                OP_NET_CONNECT(intNI_RX5_n, "irqS2")
             )
         ),
         OP_PARAMS(
@@ -1909,7 +1872,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu5Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x5000000fULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(intNI_TX5_n, "INT_NI_TX")
+                OP_NET_CONNECT(intNI_TX5_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_RX5_n, "INT_NI_RX")
             ),
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_1_2_L_pkn, "dataPort"),
@@ -1960,16 +1924,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE plic6
 
-    const char *plic6_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "PLIC",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *plic6_path = "peripheral/plic/pse.pse";
     opPeripheralNew(
         mi,
         plic6_path,
@@ -1979,7 +1934,9 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu6Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(eip6_n, "irqT0")
+                OP_NET_CONNECT(eip6_n, "irqT0"),
+                OP_NET_CONNECT(intNI_TX6_n, "irqS1"),
+                OP_NET_CONNECT(intNI_RX6_n, "irqS2")
             )
         ),
         OP_PARAMS(
@@ -2058,7 +2015,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu6Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x5000000fULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(intNI_TX6_n, "INT_NI_TX")
+                OP_NET_CONNECT(intNI_TX6_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_RX6_n, "INT_NI_RX")
             ),
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_2_0_L_pkn, "dataPort"),
@@ -2109,16 +2067,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE plic7
 
-    const char *plic7_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "PLIC",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *plic7_path = "peripheral/plic/pse.pse";
     opPeripheralNew(
         mi,
         plic7_path,
@@ -2128,7 +2077,9 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu7Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(eip7_n, "irqT0")
+                OP_NET_CONNECT(eip7_n, "irqT0"),
+                OP_NET_CONNECT(intNI_TX7_n, "irqS1"),
+                OP_NET_CONNECT(intNI_RX7_n, "irqS2")
             )
         ),
         OP_PARAMS(
@@ -2209,7 +2160,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu7Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x5000000fULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(intNI_TX7_n, "INT_NI_TX")
+                OP_NET_CONNECT(intNI_TX7_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_RX7_n, "INT_NI_RX")
             ),
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_2_1_L_pkn, "dataPort"),
@@ -2260,16 +2212,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE plic8
 
-    const char *plic8_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "PLIC",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *plic8_path = "peripheral/plic/pse.pse";
     opPeripheralNew(
         mi,
         plic8_path,
@@ -2279,7 +2222,9 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu8Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(eip8_n, "irqT0")
+                OP_NET_CONNECT(eip8_n, "irqT0"),
+                OP_NET_CONNECT(intNI_TX8_n, "irqS1"),
+                OP_NET_CONNECT(intNI_RX8_n, "irqS2")
             )
         ),
         OP_PARAMS(
@@ -2358,7 +2303,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu8Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x5000000fULL)
             ),
             OP_NET_CONNECTIONS(
-                OP_NET_CONNECT(intNI_TX8_n, "INT_NI_TX")
+                OP_NET_CONNECT(intNI_TX8_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_RX8_n, "INT_NI_RX")
             ),
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_2_2_L_pkn, "dataPort"),

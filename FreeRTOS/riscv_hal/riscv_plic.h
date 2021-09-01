@@ -66,7 +66,6 @@ typedef enum
  * PLIC: Platform Level Interrupt Controller
  */
 #define PLIC_BASE_ADDR 0x40000000UL
-#define PLIC_TEST ((unsigned int *)0x40000000)
 
 typedef struct
 {

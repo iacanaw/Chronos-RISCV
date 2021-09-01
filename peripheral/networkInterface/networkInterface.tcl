@@ -42,6 +42,18 @@ imodeladdpacketnetport \
     -updatefunction controlPortUpd \
     -updatefunctionargument 0x00
 
+imodeladdpacketnetport \
+    -name txInterruption \
+    -maxbytes 8 \
+    -updatefunction txInterruptionPort \
+    -updatefunctionargument 0x00
+
+imodeladdpacketnetport \
+    -name rxInterruption \
+    -maxbytes 8 \
+    -updatefunction rxInterruptionPort \
+    -updatefunctionargument 0x00
+
 #########################################
 ## Processor interrupt line
 #########################################
