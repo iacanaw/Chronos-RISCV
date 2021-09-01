@@ -124,7 +124,7 @@ static void vUartTestTask1( void *pvParameters )
 	msg[1] = 20;
 	msg[2] = HW_get_32bit_reg(ROUTER_BASE);
 	for(i = 3; i<20; i++){
-		msg[i] = i;
+		msg[i] = i+HW_get_32bit_reg(ROUTER_BASE);
 	}
 	i = 0;
 	vTaskDelay(10);
@@ -156,15 +156,15 @@ static void vUartTestTask2( void *pvParameters )
 	HW_set_32bit_reg(NI_ADDR, (unsigned int)&incomingPacket);
 	HW_set_32bit_reg(NI_ADDR, (unsigned int)&incomingPacket);
 	for (i = 0; i<100; i++){
-		incomingPacket[i] = 0;
+		incomingPacket[i] = 88;
 	}
 	for( ;; )
 	{
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 2\r\n" );
 	    vTaskDelay(5);
-		if (incomingPacket[7] != 0){
+		if (incomingPacket[7] != 88){
 			UART_polled_tx_string( &g_uart, (const uint8_t *)">--Recebi-algo------------------\r\n" );
-			printi(incomingPacket[2]);
+			printi(incomingPacket[7]);
 		}
 	}
 }

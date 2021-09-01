@@ -478,7 +478,7 @@ static void evaluate() {
 
         // Update interrupt signal for target
         if (newIRQ && !oldIRQ) {
-            bhmMessage("I", "PLIC", "iterate setting! %d", (int)target);
+            //bhmMessage("I", "PLIC", "iterate setting! %d", (int)target);
             irqTSet(target);
         }
 

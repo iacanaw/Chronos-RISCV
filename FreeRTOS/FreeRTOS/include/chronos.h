@@ -21,7 +21,8 @@
 // NI commands
 #define TX 0x2222
 #define RX 0x3333
-#define TX_RX 0x4444 
+#define TX_RX 0x7777
+#define DONE 0x5555
 #define NI_TX_IRQn External_1_IRQn
 #define NI_RX_IRQn External_2_IRQn
 
@@ -130,8 +131,14 @@ void SendRaw(unsigned int addr) {
 ////////////////////////////////////////////////////////////
 // Enables interruptions incomming from NI
 void NI_enable_irq(int which){
-	if (which == TX || which == TX_RX) PLIC_EnableIRQ(NI_TX_IRQn);
-    if (which == RX || which == TX_RX) PLIC_EnableIRQ(NI_RX_IRQn);
+	if (which == TX || which == TX_RX){
+        PLIC_EnableIRQ(NI_TX_IRQn);
+        PLIC_SetPriority(NI_TX_IRQn, 1);
+    }
+    if (which == RX || which == TX_RX){
+        PLIC_EnableIRQ(NI_RX_IRQn);
+        PLIC_SetPriority(NI_RX_IRQn, 1);
+    }
     return;
 }
 
@@ -141,4 +148,20 @@ void NI_disable_irq(int which){
 	if (which == TX || which == TX_RX) PLIC_DisableIRQ(NI_TX_IRQn);
     if (which == RX || which == TX_RX) PLIC_DisableIRQ(NI_RX_IRQn);
     return;
+}
+
+////////////////////////////////////////////////////////////
+// Interruptions handler for TX
+uint8_t External_1_IRQHandler(void){ 
+    prints("INTERRUPTION TX\n");
+    HW_set_32bit_reg(NI_TX, DONE);
+    return 0;
+}
+
+////////////////////////////////////////////////////////////
+// Interruptions handler for RX
+uint8_t External_2_IRQHandler(void){ 
+    prints("INTERRUPTION RX\n");
+    HW_set_32bit_reg(NI_RX, DONE);
+    return 0;
 }
