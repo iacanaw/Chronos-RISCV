@@ -7,7 +7,11 @@ main.o: ../main.c ../FreeRTOS/include/FreeRTOS.h ../FreeRTOSConfig.h \
  ../FreeRTOS/include/list.h ../FreeRTOS/include/queue.h \
  ../FreeRTOS/include/timers.h ../FreeRTOS/include/task.h ../hw_platform.h \
  ../drivers/CoreUARTapb/core_uart_apb.h ../hal/cpu_types.h \
- ../FreeRTOS/include/chronos.h ../hal/hw_reg_access.h ../hal/cpu_types.h
+ ../FreeRTOS/include/chronos/chronos.h ../hal/hw_reg_access.h \
+ ../hal/cpu_types.h ../FreeRTOS/include/chronos/hwaddr.h \
+ ../FreeRTOS/include/chronos/message.h \
+ ../FreeRTOS/include/chronos/packet.h \
+ ../FreeRTOS/include/chronos/services.h
 
 ../FreeRTOS/include/FreeRTOS.h:
 
@@ -43,8 +47,16 @@ main.o: ../main.c ../FreeRTOS/include/FreeRTOS.h ../FreeRTOSConfig.h \
 
 ../hal/cpu_types.h:
 
-../FreeRTOS/include/chronos.h:
+../FreeRTOS/include/chronos/chronos.h:
 
 ../hal/hw_reg_access.h:
 
 ../hal/cpu_types.h:
+
+../FreeRTOS/include/chronos/hwaddr.h:
+
+../FreeRTOS/include/chronos/message.h:
+
+../FreeRTOS/include/chronos/packet.h:
+
+../FreeRTOS/include/chronos/services.h:

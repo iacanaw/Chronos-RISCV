@@ -6,7 +6,7 @@
 #include "hw_platform.h"
 #include "core_uart_apb.h"
 #include "task.h"
-#include "chronos.h"
+#include "chronos/chronos.h"
 
 const char * g_hello_msg = "\r\nFreeRTOS Example\r\n";
 
@@ -124,7 +124,7 @@ static void vUartTestTask1( void *pvParameters )
 	msg[1] = 20;
 	msg[2] = HW_get_32bit_reg(ROUTER_BASE);
 	for(i = 3; i<20; i++){
-		msg[i] = i+HW_get_32bit_reg(ROUTER_BASE);
+		msg[i] = i;
 	}
 	i = 0;
 	vTaskDelay(10);

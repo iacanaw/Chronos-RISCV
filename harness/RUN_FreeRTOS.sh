@@ -17,25 +17,43 @@ cd ../harness
 checkinstall.exe -p install.pkg --nobanner || exit
 echo "===================="
 echo "COMPILING THE ROUTER"
-make -C ../peripheral/whnoc_dma NOVLNV=1
+cd ../peripheral/whnoc_dma
+rm -rf obj
+rm -f pse.pse
+make NOVLNV=1
 echo "======================"
 echo "COMPILING THE ITERATOR"
-make -C ../peripheral/iterator NOVLNV=1
+cd ../iterator
+rm -rf obj
+rm -f pse.pse
+make NOVLNV=1
 echo "=================="
 echo "COMPILING THE PLIC"
-make -C ../peripheral/plic NOVLNV=1
+cd ../plic
+rm -rf obj
+rm -f pse.pse
+make NOVLNV=1
 echo "==============================="
 echo "COMPILING THE NETWORK INTERFACE"
-make -C ../peripheral/networkInterface NOVLNV=1
+cd ../networkInterface
+rm -rf obj
+rm -f pse.pse
+make NOVLNV=1
 echo "================="
 echo "COMPILING THE TEA"
-make -C ../peripheral/tea NOVLNV=1
+cd ../tea
+rm -rf obj
+rm -f pse.pse
+make NOVLNV=1
 echo "====================="
 echo "COMPILING THE PRINTER"
-make -C ../peripheral/printer NOVLNV=1
+cd ../printer
+rm -rf obj
+rm -f pse.pse
+make NOVLNV=1
 echo "===================="
 echo "COMPILING THE MODULE"
-cd ../module
+cd ../../module
 sh moduleGenerator.sh 3 3
 make clean
 make NOVLNV=1

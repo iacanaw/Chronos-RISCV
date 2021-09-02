@@ -1,17 +1,20 @@
-Info Session started: Wed Sep  1 10:49:22 2021
+Info Session started: Thu Sep  2 14:17:21 2021
 
 Info ------------- ENVIRONMENT -------------
 Info IMPERAS_ARCH                             = Linux64
-Info IMPERASD_LICENSE_FILE                    = 2700@localhost
+Info IMPERASD_LICENSE_FILE                    = 2700@kriti.inf.pucrs.br
 Info IMPERAS_BACKTRACE                        = 1
-Info IMPERAS_HOME                             = /soft64/Imperas.20210408
-Info IMPERAS_ISS                              = /soft64/Imperas.20210408/bin/Linux64/iss.exe
-Info IMPERAS_PERSONALITY                      = CPUMAN_STANDARD
+Info IMPERAS_HOME                             = /Imperas
+Info IMPERAS_ISS                              = /Imperas/bin/Linux64/iss.exe
+Info IMPERAS_M32                              = 0
+Info IMPERAS_PERSONALITY                      = CPUMAN_MULTI
 Info IMPERAS_RUNTIME                          = CpuManager
 Info IMPERAS_SHRSUF                           = so
 Info IMPERAS_UNAME                            = Linux
-Info IMPERAS_VLNV                             = /soft64/Imperas.20210408/lib/Linux64/ImperasLib
-Info LD_LIBRARY_PATH                          = /soft64/Imperas.20210408/bin/Linux64:/soft64/Imperas.20210408/lib/Linux64/External/lib:/soft64/Imperas.20210408/bin/Linux64:/soft64/Imperas.20210408/lib//soft64/Imperas.20210408/lib/Linux64/External/lib
+Info IMPERAS_VLNV                             = /Imperas/lib/Linux64/ImperasLib
+Info LD_LIBRARY_PATH                          = /usr/local/systemc-2.3.3/lib-linux64:/Imperas/lib/Linux64/External/lib:/Imperas/bin/Linux64
+Info LM_LICENSE_FILE                          = 2700@kriti.inf.pucrs.br
+Info SYSTEMC_HOME                             = /usr/local/systemc-2.3.3
 Info --------------------------------------
 Info -------- FLAGS (from harness/harness.Linux64.exe)
 Info --program  cpu0=FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf
@@ -96,12 +99,12 @@ Info --output  simulation/imperas.log
 Info --------------------------------------
 
 
-CpuManagerStandard (64-Bit) v20210408.0 Open Virtual Platform simulator from www.IMPERAS.com.
+CpuManagerMulti (64-Bit) v20210408.0 Open Virtual Platform simulator from www.IMPERAS.com.
 Copyright (c) 2005-2021 Imperas Software Ltd.  Contains Imperas Proprietary Information.
 Licensed Software, All Rights Reserved.
 Visit www.IMPERAS.com for multicore debug, verification and analysis solutions.
 
-CpuManagerStandard started: Wed Sep  1 10:49:22 2021
+CpuManagerMulti started: Thu Sep  2 14:17:21 2021
 
 
 Warning (CF_PMM) Parameter 'top/u2/uart0/outfile' matches 2 entries on the command line or in control file(s):
@@ -113,7 +116,7 @@ Info (CF_PMM_R)     Ignored :  40 --override uart0/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart0/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:   3 --override uart0/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  41 --override uart0/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart0' Server connected to 45365
+Info (PSE_SER) 'top/u2/uart0' Server connected to 44469
 Warning (CF_PMM) Parameter 'top/u2/uart1/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:   8 --override uart1/outfile=simulation/uart1.log
 Info (CF_PMM_R)     Ignored :  46 --override uart1/outfile=simulation/uart1.log
@@ -123,7 +126,7 @@ Info (CF_PMM_R)     Ignored :  44 --override uart1/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart1/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:   7 --override uart1/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  45 --override uart1/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart1' Server connected to 43669
+Info (PSE_SER) 'top/u2/uart1' Server connected to 44735
 Warning (CF_PMM) Parameter 'top/u2/uart2/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  12 --override uart2/outfile=simulation/uart2.log
 Info (CF_PMM_R)     Ignored :  50 --override uart2/outfile=simulation/uart2.log
@@ -133,7 +136,7 @@ Info (CF_PMM_R)     Ignored :  48 --override uart2/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart2/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  11 --override uart2/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  49 --override uart2/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart2' Server connected to 45561
+Info (PSE_SER) 'top/u2/uart2' Server connected to 34309
 Warning (CF_PMM) Parameter 'top/u2/uart3/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  16 --override uart3/outfile=simulation/uart3.log
 Info (CF_PMM_R)     Ignored :  54 --override uart3/outfile=simulation/uart3.log
@@ -143,7 +146,7 @@ Info (CF_PMM_R)     Ignored :  52 --override uart3/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart3/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  15 --override uart3/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  53 --override uart3/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart3' Server connected to 33543
+Info (PSE_SER) 'top/u2/uart3' Server connected to 41967
 Warning (CF_PMM) Parameter 'top/u2/uart4/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  20 --override uart4/outfile=simulation/uart4.log
 Info (CF_PMM_R)     Ignored :  58 --override uart4/outfile=simulation/uart4.log
@@ -153,7 +156,7 @@ Info (CF_PMM_R)     Ignored :  56 --override uart4/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart4/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  19 --override uart4/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  57 --override uart4/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart4' Server connected to 46107
+Info (PSE_SER) 'top/u2/uart4' Server connected to 44857
 Warning (CF_PMM) Parameter 'top/u2/uart5/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  24 --override uart5/outfile=simulation/uart5.log
 Info (CF_PMM_R)     Ignored :  62 --override uart5/outfile=simulation/uart5.log
@@ -163,7 +166,7 @@ Info (CF_PMM_R)     Ignored :  60 --override uart5/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart5/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  23 --override uart5/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  61 --override uart5/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart5' Server connected to 42055
+Info (PSE_SER) 'top/u2/uart5' Server connected to 33301
 Warning (CF_PMM) Parameter 'top/u2/uart6/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  28 --override uart6/outfile=simulation/uart6.log
 Info (CF_PMM_R)     Ignored :  66 --override uart6/outfile=simulation/uart6.log
@@ -173,7 +176,7 @@ Info (CF_PMM_R)     Ignored :  64 --override uart6/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart6/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  27 --override uart6/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  65 --override uart6/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart6' Server connected to 43337
+Info (PSE_SER) 'top/u2/uart6' Server connected to 38877
 Warning (CF_PMM) Parameter 'top/u2/uart7/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  32 --override uart7/outfile=simulation/uart7.log
 Info (CF_PMM_R)     Ignored :  70 --override uart7/outfile=simulation/uart7.log
@@ -183,7 +186,7 @@ Info (CF_PMM_R)     Ignored :  68 --override uart7/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart7/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  31 --override uart7/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  69 --override uart7/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart7' Server connected to 44741
+Info (PSE_SER) 'top/u2/uart7' Server connected to 35003
 Warning (CF_PMM) Parameter 'top/u2/uart8/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  36 --override uart8/outfile=simulation/uart8.log
 Info (CF_PMM_R)     Ignored :  74 --override uart8/outfile=simulation/uart8.log
@@ -193,79 +196,79 @@ Info (CF_PMM_R)     Ignored :  72 --override uart8/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart8/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  35 --override uart8/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  73 --override uart8/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart8' Server connected to 37933
+Info (PSE_SER) 'top/u2/uart8' Server connected to 36327
 Info (OR_OF) Target 'top/u2/cpu0' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu1' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu2' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu3' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu4' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu5' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu6' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu7' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu8' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu0' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu1' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu2' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu3' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu4' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu5' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu6' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu7' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (OR_OF) Target 'top/u2/cpu8' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
 Info (OR_PH) Program Headers:
 Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
-Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003480 0x0003c5d0 RWE   1000
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003470 0x0003c5c0 RWE   1000
 Info (HARNESS INFO) >>>>>> INICIALIZANDO PE 0
 Info (MY_ADRESS) top/u2/router0: My Address: 0 0
 Info (MYADRESS) top/u2/router0: MY ID = 0
@@ -293,90 +296,266 @@ Info (MYADRESS) top/u2/router7: MY ID = 7
 Info (HARNESS INFO) >>>>>> INICIALIZANDO PE 8
 Info (MY_ADRESS) top/u2/router8: My Address: 2 2
 Info (MYADRESS) top/u2/router8: MY ID = 8
-Info (NI) top/u2/ni8: Recebi endereco 1: 80005304
-Info (NI) top/u2/ni8: >Recebi endereco 3: 80005304
-Info (NI) top/u2/ni7: Recebi endereco 1: 80005304
-Info (NI) top/u2/ni7: >Recebi endereco 3: 80005304
-Info (NI) top/u2/ni6: Recebi endereco 1: 80005304
-Info (NI) top/u2/ni6: >Recebi endereco 3: 80005304
-Info (NI) top/u2/ni5: Recebi endereco 1: 80005304
-Info (NI) top/u2/ni5: >Recebi endereco 3: 80005304
-Info (NI) top/u2/ni4: Recebi endereco 1: 80005304
-Info (NI) top/u2/ni4: >Recebi endereco 3: 80005304
-Info (NI) top/u2/ni3: Recebi endereco 1: 80005304
-Info (NI) top/u2/ni3: >Recebi endereco 3: 80005304
-Info (NI) top/u2/ni2: Recebi endereco 1: 80005304
-Info (NI) top/u2/ni2: >Recebi endereco 3: 80005304
-Info (NI) top/u2/ni1: Recebi endereco 1: 80005304
-Info (NI) top/u2/ni1: >Recebi endereco 3: 80005304
-Info (NI) top/u2/ni0: Recebi endereco 1: 80005304
-Info (NI) top/u2/ni0: >Recebi endereco 3: 80005304
-Info (NI) top/u2/ni8: >Recebi endereco 3: 800043bc
-Info (NI) top/u2/ni7: >Recebi endereco 3: 800043bc
-Info (NI) top/u2/ni6: >Recebi endereco 3: 800043bc
-Info (NI) top/u2/ni5: >Recebi endereco 3: 800043bc
-Info (NI) top/u2/ni3: >Recebi endereco 3: 800043bc
-Info (NI) top/u2/ni2: >Recebi endereco 3: 800043bc
-Info (NI) top/u2/ni1: >Recebi endereco 3: 800043bc
-Info (NI) top/u2/ni0: >Recebi endereco 3: 800043bc
+Info (NI) top/u2/ni8: Recebi endereco 1: 800052f4
+Info (NI) top/u2/ni8: >Recebi endereco 3: 800052f4
+Info (NI) top/u2/ni7: Recebi endereco 1: 800052f4
+Info (NI) top/u2/ni7: >Recebi endereco 3: 800052f4
+Info (NI) top/u2/ni6: Recebi endereco 1: 800052f4
+Info (NI) top/u2/ni6: >Recebi endereco 3: 800052f4
+Info (NI) top/u2/ni5: Recebi endereco 1: 800052f4
+Info (NI) top/u2/ni5: >Recebi endereco 3: 800052f4
+Info (NI) top/u2/ni4: Recebi endereco 1: 800052f4
+Info (NI) top/u2/ni4: >Recebi endereco 3: 800052f4
+Info (NI) top/u2/ni3: Recebi endereco 1: 800052f4
+Info (NI) top/u2/ni3: >Recebi endereco 3: 800052f4
+Info (NI) top/u2/ni2: Recebi endereco 1: 800052f4
+Info (NI) top/u2/ni2: >Recebi endereco 3: 800052f4
+Info (NI) top/u2/ni1: Recebi endereco 1: 800052f4
+Info (NI) top/u2/ni1: >Recebi endereco 3: 800052f4
+Info (NI) top/u2/ni0: Recebi endereco 1: 800052f4
+Info (NI) top/u2/ni0: >Recebi endereco 3: 800052f4
+Info (NI) top/u2/ni8: >Recebi endereco 3: 800043ac
+Info (NI) top/u2/ni7: >Recebi endereco 3: 800043ac
+Info (NI) top/u2/ni6: >Recebi endereco 3: 800043ac
+Info (NI) top/u2/ni5: >Recebi endereco 3: 800043ac
+Info (NI) top/u2/ni3: >Recebi endereco 3: 800043ac
+Info (NI) top/u2/ni2: >Recebi endereco 3: 800043ac
+Info (NI) top/u2/ni1: >Recebi endereco 3: 800043ac
+Info (NI) top/u2/ni0: >Recebi endereco 3: 800043ac
+Info (NI) top/u2/ni4: Escrevendo dado 257 na posicao 800052f4
+Info (NI) top/u2/ni4: Escrevendo dado 20 na posicao 800052f8
+Info (NI) top/u2/ni4: Escrevendo dado 256 na posicao 800052fc
+Info (NI) top/u2/ni4: Escrevendo dado 3 na posicao 80005300
+Info (NI) top/u2/ni4: Escrevendo dado 4 na posicao 80005304
+Info (NI) top/u2/ni4: Escrevendo dado 5 na posicao 80005308
+Info (NI) top/u2/ni4: Escrevendo dado 6 na posicao 8000530c
+Info (NI) top/u2/ni4: Escrevendo dado 7 na posicao 80005310
+Info (NI) top/u2/ni4: Escrevendo dado 8 na posicao 80005314
+Info (NI) top/u2/ni4: Escrevendo dado 9 na posicao 80005318
+Info (NI) top/u2/ni4: Escrevendo dado 10 na posicao 8000531c
+Info (NI) top/u2/ni4: Escrevendo dado 11 na posicao 80005320
+Info (NI) top/u2/ni4: Escrevendo dado 12 na posicao 80005324
+Info (NI) top/u2/ni4: Escrevendo dado 13 na posicao 80005328
+Info (NI) top/u2/ni4: Escrevendo dado 14 na posicao 8000532c
+Info (NI) top/u2/ni4: Escrevendo dado 15 na posicao 80005330
+Info (NI) top/u2/ni4: Escrevendo dado 16 na posicao 80005334
+Info (NI) top/u2/ni4: Escrevendo dado 17 na posicao 80005338
+Info (NI) top/u2/ni4: Escrevendo dado 18 na posicao 8000533c
 Info (PLIC) top/u2/plic1: irqUpdate 1
 Info (PLIC) top/u2/plic1: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 1 na posicao 80005340
+Info (NI) top/u2/ni4: Escrevendo dado 79767 na posicao 80005344
+Info (NI) top/u2/ni4: Escrevendo dado 79789 na posicao 80005348
 Info (PLIC) top/u2/plic4: irqUpdate 2
 Info (NI_RX) top/u2/ni4: Levantando interrupt RX
 Info (PLIC) top/u2/plic4: irqUpdate 2
 Info (PLIC) top/u2/plic1: irqUpdate 1
 Info (PLIC) top/u2/plic1: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 257 na posicao 800052f4
+Info (NI) top/u2/ni4: Escrevendo dado 20 na posicao 800052f8
+Info (NI) top/u2/ni4: Escrevendo dado 1 na posicao 800052fc
+Info (NI) top/u2/ni4: Escrevendo dado 3 na posicao 80005300
+Info (NI) top/u2/ni4: Escrevendo dado 4 na posicao 80005304
+Info (NI) top/u2/ni4: Escrevendo dado 5 na posicao 80005308
+Info (NI) top/u2/ni4: Escrevendo dado 6 na posicao 8000530c
+Info (NI) top/u2/ni4: Escrevendo dado 7 na posicao 80005310
+Info (NI) top/u2/ni4: Escrevendo dado 8 na posicao 80005314
 Info (PLIC) top/u2/plic3: irqUpdate 1
 Info (PLIC) top/u2/plic3: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 9 na posicao 80005318
+Info (NI) top/u2/ni4: Escrevendo dado 10 na posicao 8000531c
+Info (NI) top/u2/ni4: Escrevendo dado 11 na posicao 80005320
+Info (NI) top/u2/ni4: Escrevendo dado 12 na posicao 80005324
+Info (NI) top/u2/ni4: Escrevendo dado 13 na posicao 80005328
+Info (NI) top/u2/ni4: Escrevendo dado 14 na posicao 8000532c
+Info (NI) top/u2/ni4: Escrevendo dado 15 na posicao 80005330
+Info (NI) top/u2/ni4: Escrevendo dado 16 na posicao 80005334
+Info (NI) top/u2/ni4: Escrevendo dado 17 na posicao 80005338
+Info (NI) top/u2/ni4: Escrevendo dado 18 na posicao 8000533c
+Info (NI) top/u2/ni4: Escrevendo dado 1 na posicao 80005340
+Info (NI) top/u2/ni4: Escrevendo dado 79767 na posicao 80005344
+Info (NI) top/u2/ni4: Escrevendo dado 79819 na posicao 80005348
 Info (PLIC) top/u2/plic4: irqUpdate 2
 Info (NI_RX) top/u2/ni4: Levantando interrupt RX
 Info (PLIC) top/u2/plic4: irqUpdate 2
 Info (PLIC) top/u2/plic3: irqUpdate 1
 Info (PLIC) top/u2/plic3: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 257 na posicao 800052f4
+Info (NI) top/u2/ni4: Escrevendo dado 20 na posicao 800052f8
+Info (NI) top/u2/ni4: Escrevendo dado 258 na posicao 800052fc
+Info (NI) top/u2/ni4: Escrevendo dado 3 na posicao 80005300
+Info (NI) top/u2/ni4: Escrevendo dado 4 na posicao 80005304
+Info (NI) top/u2/ni4: Escrevendo dado 5 na posicao 80005308
+Info (NI) top/u2/ni4: Escrevendo dado 6 na posicao 8000530c
+Info (NI) top/u2/ni4: Escrevendo dado 7 na posicao 80005310
+Info (NI) top/u2/ni4: Escrevendo dado 8 na posicao 80005314
+Info (PLIC) top/u2/plic7: irqUpdate 1
+Info (PLIC) top/u2/plic7: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 9 na posicao 80005318
+Info (NI) top/u2/ni4: Escrevendo dado 10 na posicao 8000531c
+Info (NI) top/u2/ni4: Escrevendo dado 11 na posicao 80005320
+Info (NI) top/u2/ni4: Escrevendo dado 12 na posicao 80005324
+Info (NI) top/u2/ni4: Escrevendo dado 13 na posicao 80005328
+Info (NI) top/u2/ni4: Escrevendo dado 14 na posicao 8000532c
+Info (NI) top/u2/ni4: Escrevendo dado 15 na posicao 80005330
+Info (NI) top/u2/ni4: Escrevendo dado 16 na posicao 80005334
+Info (NI) top/u2/ni4: Escrevendo dado 17 na posicao 80005338
+Info (NI) top/u2/ni4: Escrevendo dado 18 na posicao 8000533c
+Info (NI) top/u2/ni4: Escrevendo dado 1 na posicao 80005340
+Info (NI) top/u2/ni4: Escrevendo dado 79767 na posicao 80005344
+Info (NI) top/u2/ni4: Escrevendo dado 79843 na posicao 80005348
+Info (PLIC) top/u2/plic4: irqUpdate 2
+Info (NI_RX) top/u2/ni4: Levantando interrupt RX
 Info (PLIC) top/u2/plic7: irqUpdate 1
 Info (PLIC) top/u2/plic7: irqUpdate 1
 Info (PLIC) top/u2/plic4: irqUpdate 2
-Info (NI_RX) top/u2/ni4: Levantando interrupt RX
-Info (PLIC) top/u2/plic7: irqUpdate 1
-Info (PLIC) top/u2/plic7: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 257 na posicao 800052f4
+Info (NI) top/u2/ni4: Escrevendo dado 20 na posicao 800052f8
+Info (NI) top/u2/ni4: Escrevendo dado 513 na posicao 800052fc
+Info (NI) top/u2/ni4: Escrevendo dado 3 na posicao 80005300
+Info (NI) top/u2/ni4: Escrevendo dado 4 na posicao 80005304
+Info (NI) top/u2/ni4: Escrevendo dado 5 na posicao 80005308
+Info (NI) top/u2/ni4: Escrevendo dado 6 na posicao 8000530c
+Info (NI) top/u2/ni4: Escrevendo dado 7 na posicao 80005310
+Info (NI) top/u2/ni4: Escrevendo dado 8 na posicao 80005314
+Info (PLIC) top/u2/plic5: irqUpdate 1
+Info (PLIC) top/u2/plic5: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 9 na posicao 80005318
+Info (NI) top/u2/ni4: Escrevendo dado 10 na posicao 8000531c
+Info (NI) top/u2/ni4: Escrevendo dado 11 na posicao 80005320
+Info (NI) top/u2/ni4: Escrevendo dado 12 na posicao 80005324
+Info (NI) top/u2/ni4: Escrevendo dado 13 na posicao 80005328
+Info (NI) top/u2/ni4: Escrevendo dado 14 na posicao 8000532c
+Info (NI) top/u2/ni4: Escrevendo dado 15 na posicao 80005330
+Info (NI) top/u2/ni4: Escrevendo dado 16 na posicao 80005334
+Info (NI) top/u2/ni4: Escrevendo dado 17 na posicao 80005338
+Info (NI) top/u2/ni4: Escrevendo dado 18 na posicao 8000533c
+Info (NI) top/u2/ni4: Escrevendo dado 1 na posicao 80005340
+Info (NI) top/u2/ni4: Escrevendo dado 79767 na posicao 80005344
+Info (NI) top/u2/ni4: Escrevendo dado 79867 na posicao 80005348
 Info (PLIC) top/u2/plic4: irqUpdate 2
+Info (NI_RX) top/u2/ni4: Levantando interrupt RX
 Info (PLIC) top/u2/plic5: irqUpdate 1
 Info (PLIC) top/u2/plic5: irqUpdate 1
 Info (PLIC) top/u2/plic4: irqUpdate 2
-Info (NI_RX) top/u2/ni4: Levantando interrupt RX
-Info (PLIC) top/u2/plic5: irqUpdate 1
-Info (PLIC) top/u2/plic5: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 257 na posicao 800052f4
+Info (NI) top/u2/ni4: Escrevendo dado 20 na posicao 800052f8
+Info (PLIC) top/u2/plic8: irqUpdate 1
+Info (PLIC) top/u2/plic8: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 514 na posicao 800052fc
+Info (NI) top/u2/ni4: Escrevendo dado 3 na posicao 80005300
+Info (NI) top/u2/ni4: Escrevendo dado 4 na posicao 80005304
+Info (NI) top/u2/ni4: Escrevendo dado 5 na posicao 80005308
+Info (NI) top/u2/ni4: Escrevendo dado 6 na posicao 8000530c
+Info (NI) top/u2/ni4: Escrevendo dado 7 na posicao 80005310
+Info (NI) top/u2/ni4: Escrevendo dado 8 na posicao 80005314
+Info (NI) top/u2/ni4: Escrevendo dado 9 na posicao 80005318
+Info (NI) top/u2/ni4: Escrevendo dado 10 na posicao 8000531c
+Info (NI) top/u2/ni4: Escrevendo dado 11 na posicao 80005320
+Info (NI) top/u2/ni4: Escrevendo dado 12 na posicao 80005324
+Info (NI) top/u2/ni4: Escrevendo dado 13 na posicao 80005328
+Info (NI) top/u2/ni4: Escrevendo dado 14 na posicao 8000532c
+Info (NI) top/u2/ni4: Escrevendo dado 15 na posicao 80005330
+Info (NI) top/u2/ni4: Escrevendo dado 16 na posicao 80005334
+Info (NI) top/u2/ni4: Escrevendo dado 17 na posicao 80005338
+Info (NI) top/u2/ni4: Escrevendo dado 18 na posicao 8000533c
+Info (NI) top/u2/ni4: Escrevendo dado 2 na posicao 80005340
+Info (NI) top/u2/ni4: Escrevendo dado 79767 na posicao 80005344
+Info (NI) top/u2/ni4: Escrevendo dado 79891 na posicao 80005348
 Info (PLIC) top/u2/plic4: irqUpdate 2
+Info (NI_RX) top/u2/ni4: Levantando interrupt RX
 Info (PLIC) top/u2/plic8: irqUpdate 1
 Info (PLIC) top/u2/plic8: irqUpdate 1
 Info (PLIC) top/u2/plic4: irqUpdate 2
+Info (NI) top/u2/ni4: Escrevendo dado 257 na posicao 800052f4
+Info (NI) top/u2/ni4: Escrevendo dado 20 na posicao 800052f8
+Info (PLIC) top/u2/plic2: irqUpdate 1
+Info (PLIC) top/u2/plic2: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 512 na posicao 800052fc
+Info (NI) top/u2/ni4: Escrevendo dado 3 na posicao 80005300
+Info (NI) top/u2/ni4: Escrevendo dado 4 na posicao 80005304
+Info (NI) top/u2/ni4: Escrevendo dado 5 na posicao 80005308
+Info (NI) top/u2/ni4: Escrevendo dado 6 na posicao 8000530c
+Info (NI) top/u2/ni4: Escrevendo dado 7 na posicao 80005310
+Info (NI) top/u2/ni4: Escrevendo dado 8 na posicao 80005314
+Info (NI) top/u2/ni4: Escrevendo dado 9 na posicao 80005318
+Info (NI) top/u2/ni4: Escrevendo dado 10 na posicao 8000531c
+Info (NI) top/u2/ni4: Escrevendo dado 11 na posicao 80005320
+Info (NI) top/u2/ni4: Escrevendo dado 12 na posicao 80005324
+Info (NI) top/u2/ni4: Escrevendo dado 13 na posicao 80005328
+Info (NI) top/u2/ni4: Escrevendo dado 14 na posicao 8000532c
+Info (NI) top/u2/ni4: Escrevendo dado 15 na posicao 80005330
+Info (NI) top/u2/ni4: Escrevendo dado 16 na posicao 80005334
+Info (NI) top/u2/ni4: Escrevendo dado 17 na posicao 80005338
+Info (NI) top/u2/ni4: Escrevendo dado 18 na posicao 8000533c
+Info (NI) top/u2/ni4: Escrevendo dado 2 na posicao 80005340
+Info (NI) top/u2/ni4: Escrevendo dado 79767 na posicao 80005344
+Info (NI) top/u2/ni4: Escrevendo dado 79916 na posicao 80005348
+Info (PLIC) top/u2/plic4: irqUpdate 2
 Info (NI_RX) top/u2/ni4: Levantando interrupt RX
-Info (PLIC) top/u2/plic8: irqUpdate 1
-Info (PLIC) top/u2/plic8: irqUpdate 1
 Info (PLIC) top/u2/plic4: irqUpdate 2
 Info (PLIC) top/u2/plic2: irqUpdate 1
 Info (PLIC) top/u2/plic2: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 257 na posicao 800052f4
+Info (NI) top/u2/ni4: Escrevendo dado 20 na posicao 800052f8
+Info (NI) top/u2/ni4: Escrevendo dado 2 na posicao 800052fc
+Info (PLIC) top/u2/plic6: irqUpdate 1
+Info (PLIC) top/u2/plic6: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 3 na posicao 80005300
+Info (NI) top/u2/ni4: Escrevendo dado 4 na posicao 80005304
+Info (NI) top/u2/ni4: Escrevendo dado 5 na posicao 80005308
+Info (NI) top/u2/ni4: Escrevendo dado 6 na posicao 8000530c
+Info (NI) top/u2/ni4: Escrevendo dado 7 na posicao 80005310
+Info (NI) top/u2/ni4: Escrevendo dado 8 na posicao 80005314
+Info (NI) top/u2/ni4: Escrevendo dado 9 na posicao 80005318
+Info (NI) top/u2/ni4: Escrevendo dado 10 na posicao 8000531c
+Info (NI) top/u2/ni4: Escrevendo dado 11 na posicao 80005320
+Info (NI) top/u2/ni4: Escrevendo dado 12 na posicao 80005324
+Info (NI) top/u2/ni4: Escrevendo dado 13 na posicao 80005328
+Info (NI) top/u2/ni4: Escrevendo dado 14 na posicao 8000532c
+Info (NI) top/u2/ni4: Escrevendo dado 15 na posicao 80005330
+Info (NI) top/u2/ni4: Escrevendo dado 16 na posicao 80005334
+Info (NI) top/u2/ni4: Escrevendo dado 17 na posicao 80005338
+Info (NI) top/u2/ni4: Escrevendo dado 18 na posicao 8000533c
+Info (NI) top/u2/ni4: Escrevendo dado 2 na posicao 80005340
+Info (NI) top/u2/ni4: Escrevendo dado 79767 na posicao 80005344
+Info (NI) top/u2/ni4: Escrevendo dado 79942 na posicao 80005348
 Info (PLIC) top/u2/plic4: irqUpdate 2
 Info (NI_RX) top/u2/ni4: Levantando interrupt RX
-Info (PLIC) top/u2/plic4: irqUpdate 2
-Info (PLIC) top/u2/plic2: irqUpdate 1
-Info (PLIC) top/u2/plic2: irqUpdate 1
 Info (PLIC) top/u2/plic6: irqUpdate 1
 Info (PLIC) top/u2/plic6: irqUpdate 1
 Info (PLIC) top/u2/plic4: irqUpdate 2
-Info (NI_RX) top/u2/ni4: Levantando interrupt RX
-Info (PLIC) top/u2/plic6: irqUpdate 1
-Info (PLIC) top/u2/plic6: irqUpdate 1
-Info (PLIC) top/u2/plic4: irqUpdate 2
+Info (NI) top/u2/ni4: Escrevendo dado 257 na posicao 800052f4
+Info (NI) top/u2/ni4: Escrevendo dado 20 na posicao 800052f8
+Info (NI) top/u2/ni4: Escrevendo dado 0 na posicao 800052fc
 Info (PLIC) top/u2/plic0: irqUpdate 1
 Info (PLIC) top/u2/plic0: irqUpdate 1
+Info (NI) top/u2/ni4: Escrevendo dado 3 na posicao 80005300
+Info (NI) top/u2/ni4: Escrevendo dado 4 na posicao 80005304
+Info (NI) top/u2/ni4: Escrevendo dado 5 na posicao 80005308
+Info (NI) top/u2/ni4: Escrevendo dado 6 na posicao 8000530c
+Info (NI) top/u2/ni4: Escrevendo dado 7 na posicao 80005310
+Info (NI) top/u2/ni4: Escrevendo dado 8 na posicao 80005314
+Info (NI) top/u2/ni4: Escrevendo dado 9 na posicao 80005318
+Info (NI) top/u2/ni4: Escrevendo dado 10 na posicao 8000531c
+Info (NI) top/u2/ni4: Escrevendo dado 11 na posicao 80005320
+Info (NI) top/u2/ni4: Escrevendo dado 12 na posicao 80005324
+Info (NI) top/u2/ni4: Escrevendo dado 13 na posicao 80005328
+Info (NI) top/u2/ni4: Escrevendo dado 14 na posicao 8000532c
+Info (NI) top/u2/ni4: Escrevendo dado 15 na posicao 80005330
+Info (NI) top/u2/ni4: Escrevendo dado 16 na posicao 80005334
+Info (NI) top/u2/ni4: Escrevendo dado 17 na posicao 80005338
+Info (NI) top/u2/ni4: Escrevendo dado 18 na posicao 8000533c
+Info (NI) top/u2/ni4: Escrevendo dado 2 na posicao 80005340
+Info (NI) top/u2/ni4: Escrevendo dado 79767 na posicao 80005344
+Info (NI) top/u2/ni4: Escrevendo dado 79966 na posicao 80005348
 Info (PLIC) top/u2/plic4: irqUpdate 2
 Info (NI_RX) top/u2/ni4: Levantando interrupt RX
 Info (PLIC) top/u2/plic4: irqUpdate 2
 Info (PLIC) top/u2/plic0: irqUpdate 1
 Info (PLIC) top/u2/plic0: irqUpdate 1
 Info (PSE_SER) 'top/u2/uart8' Socket disconnected - terminating simulation
-Info (PSE_SER) 'top/u2/uart8' Disconnected from port 37933
+Info (PSE_SER) 'top/u2/uart8' Disconnected from port 36327
 Info 
 Info ---------------------------------------------------
 Info PSE SIMULATION TIME STATISTICS
@@ -390,180 +569,180 @@ Info    0.00 seconds: PSE THREAD 'top/u2/prci6'
 Info    0.00 seconds: PSE THREAD 'top/u2/prci7'
 Info    0.00 seconds: PSE THREAD 'top/u2/prci8'
 Info    0.00 seconds: PSE THREAD 'top/u2/uart8'
-Info    0.01 seconds: PSE THREAD 'top/u2/uart7'
 Info    0.00 seconds: PSE THREAD 'top/u2/uart7'
-Info    0.01 seconds: PSE THREAD 'top/u2/uart6'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart7'
 Info    0.00 seconds: PSE THREAD 'top/u2/uart6'
-Info    0.01 seconds: PSE THREAD 'top/u2/uart5'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart6'
 Info    0.00 seconds: PSE THREAD 'top/u2/uart5'
-Info    0.01 seconds: PSE THREAD 'top/u2/uart4'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart5'
 Info    0.00 seconds: PSE THREAD 'top/u2/uart4'
-Info    0.01 seconds: PSE THREAD 'top/u2/uart3'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart4'
 Info    0.00 seconds: PSE THREAD 'top/u2/uart3'
-Info    0.01 seconds: PSE THREAD 'top/u2/uart2'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart3'
 Info    0.00 seconds: PSE THREAD 'top/u2/uart2'
-Info    0.01 seconds: PSE THREAD 'top/u2/uart1'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart2'
 Info    0.00 seconds: PSE THREAD 'top/u2/uart1'
-Info    0.01 seconds: PSE THREAD 'top/u2/uart0'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart1'
 Info    0.00 seconds: PSE THREAD 'top/u2/uart0'
-Info    5.30 seconds: PSE 'top/u2/iterator' (and 5,262,724 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/printer8' (and 156 terminated callbacks)
-Info    0.16 seconds: PSE 'top/u2/ni8' (and 584,807 terminated callbacks)
-Info    0.65 seconds: PSE 'top/u2/router8' (and 584,849 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/prci8' (and 88 terminated threads, 485 terminated callbacks)
+Info    0.00 seconds: PSE THREAD 'top/u2/uart0'
+Info    1.54 seconds: PSE 'top/u2/iterator' (and 1,931,824 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/printer8' (and 72 terminated callbacks)
+Info    0.05 seconds: PSE 'top/u2/ni8' (and 214,707 terminated callbacks)
+Info    0.19 seconds: PSE 'top/u2/router8' (and 214,732 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/prci8' (and 32 terminated threads, 185 terminated callbacks)
 Info    0.01 seconds: PSE 'top/u2/plic8' (and 325 terminated callbacks)
-Info    0.12 seconds: PSE 'top/u2/uart8' (and 1 terminated thread, 1,677 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/printer7' (and 156 terminated callbacks)
-Info    0.15 seconds: PSE 'top/u2/ni7' (and 584,807 terminated callbacks)
-Info    0.66 seconds: PSE 'top/u2/router7' (and 585,025 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/prci7' (and 88 terminated threads, 485 terminated callbacks)
+Info    0.08 seconds: PSE 'top/u2/uart8' (and 1 terminated thread, 751 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/printer7' (and 72 terminated callbacks)
+Info    0.05 seconds: PSE 'top/u2/ni7' (and 214,707 terminated callbacks)
+Info    0.20 seconds: PSE 'top/u2/router7' (and 214,908 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/prci7' (and 32 terminated threads, 185 terminated callbacks)
 Info    0.01 seconds: PSE 'top/u2/plic7' (and 325 terminated callbacks)
-Info    0.10 seconds: PSE 'top/u2/uart7' (and 1,676 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/printer6' (and 156 terminated callbacks)
-Info    0.15 seconds: PSE 'top/u2/ni6' (and 584,807 terminated callbacks)
-Info    0.63 seconds: PSE 'top/u2/router6' (and 584,849 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/prci6' (and 88 terminated threads, 485 terminated callbacks)
+Info    0.09 seconds: PSE 'top/u2/uart7' (and 751 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/printer6' (and 72 terminated callbacks)
+Info    0.04 seconds: PSE 'top/u2/ni6' (and 214,707 terminated callbacks)
+Info    0.19 seconds: PSE 'top/u2/router6' (and 214,732 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/prci6' (and 32 terminated threads, 185 terminated callbacks)
 Info    0.01 seconds: PSE 'top/u2/plic6' (and 325 terminated callbacks)
-Info    0.10 seconds: PSE 'top/u2/uart6' (and 1,676 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/printer5' (and 156 terminated callbacks)
-Info    0.18 seconds: PSE 'top/u2/ni5' (and 584,807 terminated callbacks)
-Info    0.65 seconds: PSE 'top/u2/router5' (and 584,849 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/prci5' (and 88 terminated threads, 485 terminated callbacks)
+Info    0.05 seconds: PSE 'top/u2/uart6' (and 751 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/printer5' (and 72 terminated callbacks)
+Info    0.06 seconds: PSE 'top/u2/ni5' (and 214,707 terminated callbacks)
+Info    0.20 seconds: PSE 'top/u2/router5' (and 214,732 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/prci5' (and 32 terminated threads, 185 terminated callbacks)
 Info    0.01 seconds: PSE 'top/u2/plic5' (and 325 terminated callbacks)
-Info    0.10 seconds: PSE 'top/u2/uart5' (and 1,676 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/printer4' (and 272 terminated callbacks)
-Info    0.18 seconds: PSE 'top/u2/ni4' (and 584,944 terminated callbacks)
-Info    0.68 seconds: PSE 'top/u2/router4' (and 585,151 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/prci4' (and 88 terminated threads, 485 terminated callbacks)
+Info    0.05 seconds: PSE 'top/u2/uart5' (and 751 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/printer4' (and 177 terminated callbacks)
+Info    0.06 seconds: PSE 'top/u2/ni4' (and 214,844 terminated callbacks)
+Info    0.20 seconds: PSE 'top/u2/router4' (and 215,034 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci4' (and 32 terminated threads, 185 terminated callbacks)
 Info    0.01 seconds: PSE 'top/u2/plic4' (and 351 terminated callbacks)
-Info    0.10 seconds: PSE 'top/u2/uart4' (and 2,696 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/printer3' (and 156 terminated callbacks)
-Info    0.18 seconds: PSE 'top/u2/ni3' (and 584,807 terminated callbacks)
-Info    0.66 seconds: PSE 'top/u2/router3' (and 584,849 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/prci3' (and 88 terminated threads, 485 terminated callbacks)
+Info    0.05 seconds: PSE 'top/u2/uart4' (and 1,023 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/printer3' (and 72 terminated callbacks)
+Info    0.05 seconds: PSE 'top/u2/ni3' (and 214,707 terminated callbacks)
+Info    0.20 seconds: PSE 'top/u2/router3' (and 214,732 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci3' (and 32 terminated threads, 185 terminated callbacks)
 Info    0.01 seconds: PSE 'top/u2/plic3' (and 325 terminated callbacks)
-Info    0.09 seconds: PSE 'top/u2/uart3' (and 1,676 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/printer2' (and 156 terminated callbacks)
-Info    0.16 seconds: PSE 'top/u2/ni2' (and 584,807 terminated callbacks)
-Info    0.63 seconds: PSE 'top/u2/router2' (and 584,849 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/prci2' (and 88 terminated threads, 485 terminated callbacks)
+Info    0.05 seconds: PSE 'top/u2/uart3' (and 751 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/printer2' (and 72 terminated callbacks)
+Info    0.05 seconds: PSE 'top/u2/ni2' (and 214,707 terminated callbacks)
+Info    0.19 seconds: PSE 'top/u2/router2' (and 214,732 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci2' (and 32 terminated threads, 185 terminated callbacks)
 Info    0.01 seconds: PSE 'top/u2/plic2' (and 325 terminated callbacks)
-Info    0.11 seconds: PSE 'top/u2/uart2' (and 1,676 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/printer1' (and 156 terminated callbacks)
-Info    0.18 seconds: PSE 'top/u2/ni1' (and 584,807 terminated callbacks)
-Info    0.66 seconds: PSE 'top/u2/router1' (and 585,025 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/prci1' (and 88 terminated threads, 485 terminated callbacks)
+Info    0.05 seconds: PSE 'top/u2/uart2' (and 751 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/printer1' (and 72 terminated callbacks)
+Info    0.06 seconds: PSE 'top/u2/ni1' (and 214,707 terminated callbacks)
+Info    0.20 seconds: PSE 'top/u2/router1' (and 214,908 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci1' (and 32 terminated threads, 185 terminated callbacks)
 Info    0.01 seconds: PSE 'top/u2/plic1' (and 325 terminated callbacks)
-Info    0.09 seconds: PSE 'top/u2/uart1' (and 1,676 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/printer0' (and 156 terminated callbacks)
-Info    0.16 seconds: PSE 'top/u2/ni0' (and 584,807 terminated callbacks)
-Info    0.93 seconds: PSE 'top/u2/router0' (and 584,849 terminated callbacks)
-Info    0.01 seconds: PSE 'top/u2/prci0' (and 88 terminated threads, 485 terminated callbacks)
+Info    0.07 seconds: PSE 'top/u2/uart1' (and 751 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/printer0' (and 72 terminated callbacks)
+Info    0.05 seconds: PSE 'top/u2/ni0' (and 214,707 terminated callbacks)
+Info    0.27 seconds: PSE 'top/u2/router0' (and 214,732 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci0' (and 32 terminated threads, 185 terminated callbacks)
 Info    0.01 seconds: PSE 'top/u2/plic0' (and 325 terminated callbacks)
-Info    0.12 seconds: PSE 'top/u2/uart0' (and 1,676 terminated callbacks)
-Info    0.13 seconds: PSE 'top/u2/tea' (and 584,747 terminated callbacks)
+Info    0.35 seconds: PSE 'top/u2/uart0' (and 751 terminated callbacks)
+Info    0.04 seconds: PSE 'top/u2/tea' (and 214,647 terminated callbacks)
 Info ---------------------------------------------------
 Info 
 Info ---------------------------------------------------
 Info CPU 'top/u2/cpu8' STATISTICS
 Info   Type                  : riscv (RVB32I+MSU)
 Info   Nominal MIPS          : 50
-Info   Final program counter : 0x80000cac
-Info   Simulated instructions: 365,243,775
-Info   Simulated MIPS        : 25.6
+Info   Final program counter : 0x80002600
+Info   Simulated instructions: 134,000,000
+Info   Simulated MIPS        : 31.2
 Info ---------------------------------------------------
 Info 
 Info ---------------------------------------------------
 Info CPU 'top/u2/cpu7' STATISTICS
 Info   Type                  : riscv (RVB32I+MSU)
 Info   Nominal MIPS          : 50
-Info   Final program counter : 0x80000cb4
-Info   Simulated instructions: 365,243,759
-Info   Simulated MIPS        : 25.6
+Info   Final program counter : 0x80002600
+Info   Simulated instructions: 134,000,000
+Info   Simulated MIPS        : 31.2
 Info ---------------------------------------------------
 Info 
 Info ---------------------------------------------------
 Info CPU 'top/u2/cpu6' STATISTICS
 Info   Type                  : riscv (RVB32I+MSU)
 Info   Nominal MIPS          : 50
-Info   Final program counter : 0x80000cb4
-Info   Simulated instructions: 365,243,759
-Info   Simulated MIPS        : 25.6
+Info   Final program counter : 0x80002600
+Info   Simulated instructions: 134,000,000
+Info   Simulated MIPS        : 31.2
 Info ---------------------------------------------------
 Info 
 Info ---------------------------------------------------
 Info CPU 'top/u2/cpu5' STATISTICS
 Info   Type                  : riscv (RVB32I+MSU)
 Info   Nominal MIPS          : 50
-Info   Final program counter : 0x80000cb4
-Info   Simulated instructions: 365,243,759
-Info   Simulated MIPS        : 25.6
+Info   Final program counter : 0x80002600
+Info   Simulated instructions: 134,000,000
+Info   Simulated MIPS        : 31.2
 Info ---------------------------------------------------
 Info 
 Info ---------------------------------------------------
 Info CPU 'top/u2/cpu4' STATISTICS
 Info   Type                  : riscv (RVB32I+MSU)
 Info   Nominal MIPS          : 50
-Info   Final program counter : 0x80000cb4
-Info   Simulated instructions: 365,243,759
-Info   Simulated MIPS        : 25.6
+Info   Final program counter : 0x80002e40
+Info   Simulated instructions: 134,000,000
+Info   Simulated MIPS        : 31.2
 Info ---------------------------------------------------
 Info 
 Info ---------------------------------------------------
 Info CPU 'top/u2/cpu3' STATISTICS
 Info   Type                  : riscv (RVB32I+MSU)
 Info   Nominal MIPS          : 50
-Info   Final program counter : 0x80000cb4
-Info   Simulated instructions: 365,243,759
-Info   Simulated MIPS        : 25.6
+Info   Final program counter : 0x80002600
+Info   Simulated instructions: 134,000,000
+Info   Simulated MIPS        : 31.2
 Info ---------------------------------------------------
 Info 
 Info ---------------------------------------------------
 Info CPU 'top/u2/cpu2' STATISTICS
 Info   Type                  : riscv (RVB32I+MSU)
 Info   Nominal MIPS          : 50
-Info   Final program counter : 0x80000cb4
-Info   Simulated instructions: 365,243,759
-Info   Simulated MIPS        : 25.6
+Info   Final program counter : 0x80002600
+Info   Simulated instructions: 134,000,000
+Info   Simulated MIPS        : 31.2
 Info ---------------------------------------------------
 Info 
 Info ---------------------------------------------------
 Info CPU 'top/u2/cpu1' STATISTICS
 Info   Type                  : riscv (RVB32I+MSU)
 Info   Nominal MIPS          : 50
-Info   Final program counter : 0x80000cb4
-Info   Simulated instructions: 365,243,759
-Info   Simulated MIPS        : 25.6
+Info   Final program counter : 0x80002600
+Info   Simulated instructions: 134,000,000
+Info   Simulated MIPS        : 31.2
 Info ---------------------------------------------------
 Info 
 Info ---------------------------------------------------
 Info CPU 'top/u2/cpu0' STATISTICS
 Info   Type                  : riscv (RVB32I+MSU)
 Info   Nominal MIPS          : 50
-Info   Final program counter : 0x80000cb4
-Info   Simulated instructions: 365,243,759
-Info   Simulated MIPS        : 25.6
+Info   Final program counter : 0x80002600
+Info   Simulated instructions: 134,000,000
+Info   Simulated MIPS        : 31.2
 Info ---------------------------------------------------
 Info 
 Info ---------------------------------------------------
 Info TOTAL
-Info   Simulated instructions: 3,287,193,847
-Info   Simulated MIPS        : 230.5
+Info   Simulated instructions: 1,206,000,000
+Info   Simulated MIPS        : 280.5
 Info ---------------------------------------------------
 Info 
 Info ---------------------------------------------------
 Info SIMULATION TIME STATISTICS
-Info   Simulated time        : 7.30 seconds
-Info   User time             : 14.14 seconds
-Info   System time           : 0.12 seconds
-Info   Elapsed time          : 14.26 seconds
+Info   Simulated time        : 2.68 seconds
+Info   User time             : 4.29 seconds
+Info   System time           : 0.01 seconds
+Info   Elapsed time          : 4.31 seconds
 Info ---------------------------------------------------
 
-CpuManagerStandard finished: Wed Sep  1 10:49:38 2021
+CpuManagerMulti finished: Thu Sep  2 14:17:27 2021
 
 
-CpuManagerStandard (64-Bit) v20210408.0 Open Virtual Platform simulator from www.IMPERAS.com.
+CpuManagerMulti (64-Bit) v20210408.0 Open Virtual Platform simulator from www.IMPERAS.com.
 Visit www.IMPERAS.com for multicore debug, verification and analysis solutions.
 
-Info Session ended: Wed Sep  1 10:49:38 2021
+Info Session ended: Thu Sep  2 14:17:27 2021
 

@@ -1,35 +1,24 @@
+#ifndef __CHRONOS_H__
+#define __CHRONOS_H__
+
 #include "hw_reg_access.h"
-// OVP stuff
-
-
-////////////////////////////////////////////////////////////
-// DVFS Info
-//#define FREQUENCY_SCALE ((unsigned int *)0x8FFFFFA0)
-//#define CLK_GATING ((unsigned int *)0x8FFFFFFC)
-//#define EXECUTED_INST ((unsigned int *)0x8FFFFFF8)
+#include "hwaddr.h"
+#include "message.h"
+#include "packet.h"
+#include "services.h"
+#include "hwaddr.h"
 
 ////////////////////////////////////////////////////////////
-// Processor ID info
-#define MY_ID 0x8FFFFFFCUL
+// PIPE 
+#define PIPE_SIZE           4 // Defines the PIPE size
+#define PIPE_OCCUPIED       1
+#define PIPE_FREE           -1
+#define PIPE_TRANSMITTING   -2
+#define PIPE_WAIT           0xFFFFFFFF
+//////////////////////////////
+//////////////////////////////
 
 ////////////////////////////////////////////////////////////
-// Router and NI mapped register - informs the router its address
-#define ROUTER_BASE 0x50000000UL
-#define NI_ADDR 0x50000004UL
-#define NI_TX 0x50000008UL
-#define NI_RX 0x5000000CUL
-// NI commands
-#define TX 0x2222
-#define RX 0x3333
-#define TX_RX 0x7777
-#define DONE 0x5555
-#define NI_TX_IRQn External_1_IRQn
-#define NI_RX_IRQn External_2_IRQn
-
-////////////////////////////////////////////////////////////
-// Router mapped register - informs the printer registers
-#define PRINTER_CHAR 0x50000020UL
-#define PRINTER_INT 0x50000024UL
 // Prints a string
 void prints(char *text); 
 
@@ -165,3 +154,11 @@ uint8_t External_2_IRQHandler(void){
     HW_set_32bit_reg(NI_RX, DONE);
     return 0;
 }
+
+////////////////////////////////////////////////////////////
+// Creates a packet to be transmitted by the NoC
+API_createPacket(Message *theMessage, unsigned int dest_task_id, unsigned int service){
+    
+}
+
+#endif
