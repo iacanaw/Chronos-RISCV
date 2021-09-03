@@ -41,6 +41,7 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName );
 
 int main( void )
 {
+	char str[20];
     PLIC_init();
 
     /**************************************************************************
@@ -53,11 +54,13 @@ int main( void )
 	/**************************************************************************
     * Initialize the Chronos platform stuff
     *************************************************************************/
+	UART_polled_tx_string( &g_uart, (const uint8_t *)"\n Chronos platform initializing... \n" );
 	Chronos_init();
-
-    UART_polled_tx_string( &g_uart, (const uint8_t *)"\n        Sample Demonstration of FreeRTOS port for Mi-V processor.\r\n\r\n" );
-    UART_polled_tx_string( &g_uart, (const uint8_t *)"      This project creates two tasks and runs them at regular intervals.\r\n" );
-    /* Create the two test tasks. */
+	UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This terminal belongs to the address: " );
+	myItoa(HW_get_32bit_reg(ROUTER_BASE), str, 16);
+    UART_polled_tx_string( &g_uart, (const uint8_t *)str); UART_polled_tx_string( &g_uart, (const uint8_t *)"\n");
+		
+	/* Create the two test tasks. */
 	xTaskCreate( vUartTestTask1, "UArt1", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
 	xTaskCreate( vUartTestTask2, "UArt2", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
 
@@ -117,31 +120,11 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 static void vUartTestTask1( void *pvParameters )
 {
 	( void ) pvParameters;
-	int i = 0;
-	char str[100];
-	unsigned int msg[25];
-	msg[0] = 0x101;
-	msg[1] = 20;
-	msg[2] = HW_get_32bit_reg(ROUTER_BASE);
-	for(i = 3; i<20; i++){
-		msg[i] = i;
-	}
-	i = 0;
-	vTaskDelay(10);
+
 	for( ;; )
 	{
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 1\r\n" );
 	    vTaskDelay(2);
-		// sends one message
-		if (i==0 && HW_get_32bit_reg(ROUTER_BASE) != 0x101){
-			SendRaw((unsigned int)&msg);
-		}
-		i++;
-		printi(i);
-		prints("\n");
-		itoa(i, str, 10);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n");
 	}
 }
 
@@ -151,20 +134,10 @@ static void vUartTestTask1( void *pvParameters )
 static void vUartTestTask2( void *pvParameters )
 {
 	( void ) pvParameters;
-	volatile unsigned int incomingPacket[100];
-	int i;
-	HW_set_32bit_reg(NI_ADDR, (unsigned int)&incomingPacket);
-	HW_set_32bit_reg(NI_ADDR, (unsigned int)&incomingPacket);
-	for (i = 0; i<100; i++){
-		incomingPacket[i] = 88;
-	}
+	
 	for( ;; )
 	{
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 2\r\n" );
 	    vTaskDelay(5);
-		if (incomingPacket[7] != 88){
-			UART_polled_tx_string( &g_uart, (const uint8_t *)">--Recebi-algo------------------\r\n" );
-			printi(incomingPacket[7]);
-		}
 	}
 }

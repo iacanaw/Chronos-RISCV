@@ -1,4 +1,4 @@
-obj/Linux64/printer.igen.o: printer.igen.c printer.igen.h \
+obj/Linux64/tea.attrs.igen.o: tea.attrs.igen.c \
   /soft64/Imperas.20210408/ImpPublic/include/target/peripheral/impTypes.h \
   /soft64/Imperas.20210408/ImpPublic/include/target/peripheral/bhm.h \
   /soft64/Imperas.20210408/ImpPublic/include/target/peripheral/impVersion.h \
@@ -8,4 +8,5 @@ obj/Linux64/printer.igen.o: printer.igen.c printer.igen.h \
   /soft64/Imperas.20210408/ImpPublic/include/target/peripheral/ppm.h \
   /soft64/Imperas.20210408/ImpPublic/include/target/peripheral/bhm.h \
   /soft64/Imperas.20210408/ImpPublic/include/target/peripheral/ppmAttrTypes.h \
-  /soft64/Imperas.20210408/ImpPublic/include/target/peripheral/ppmAttrs.h
+  /soft64/Imperas.20210408/ImpPublic/include/target/peripheral/ppmAttrs.h \
+  tea.igen.h

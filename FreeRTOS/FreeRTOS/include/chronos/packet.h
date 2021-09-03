@@ -1,10 +1,13 @@
 #ifndef _PACKET_H_
 #define _PACKET_H_
 
+#include "message.h"
+
 #define PKT_HEADER_SIZE     13
 #define PACKET_MAX_SIZE     MSG_SIZE + PKT_HEADER_SIZE
 
 typedef struct {
+	uint8_t status;						// Stores this header status
 	unsigned int header;				// Its the first flit of packet, keeps the target NoC router
 	unsigned int payload_size;			// Stores the number of flits that forms the remaining of packet
 	unsigned int service;				// Store the packet service code (see services.h file)
@@ -74,5 +77,7 @@ typedef struct {
 	};
 	//Add new variables here ...
 } ServiceHeader;
+
+//API_createPacket(Message *theMessage, unsigned int dest_task_id, unsigned int service);
 
 #endif
