@@ -1,0 +1,37 @@
+Entrei em handle_trap
+mcause 2147483651 epc 2147488568 
+Entrei em handle_trap
+mcause 2147483651 epc 2147488568 
+Entrei em handle_trap
+mcause 11 epc 2147496072 
+Detectei uma chamada teste de sistema!
+arg0 101 
+arg1 202 
+arg2 303 
+arg3 404 
+arg4 606 
+type 66 
+Entrei em handle_trap
+mcause 2147483651 epc 2147488568 
+Entrei em handle_trap
+mcause 2147483655 epc 2147497400 
+TION1 epc ð61313818964 
+TION2 epc ð62147497612 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION2 epc ð62147497556 
+TION

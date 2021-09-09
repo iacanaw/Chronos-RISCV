@@ -206,8 +206,8 @@ uintptr_t handle_trap(uintptr_t mcause, uintptr_t epc)
     prints("Entrei em handle_trap\n");
     printsvsv("mcause ", mcause, "epc ", epc);
     if (mcause == ENV_CALL_M || mcause == ENV_CALL_H || mcause == ENV_CALL_S || mcause == ENV_CALL_U){
-        prints("identifiquei uma chamada de sistema\n");
         handle_syscall();
+        //epc = epc + 4;
     }
     else if ((mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE)  == IRQ_M_EXT))
     {

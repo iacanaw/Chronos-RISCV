@@ -1,15 +1,15 @@
 Archive member included to satisfy reference by file (symbol)
 
-/soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-errno.o)
+/Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-errno.o)
                               ./FreeRTOS/system_call.o (__errno)
-/soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-impure.o)
-                              /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-errno.o) (_impure_ptr)
-/soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-sysisatty.o)
+/Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
+                              /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-errno.o) (_impure_ptr)
+/Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-sysisatty.o)
                               ./riscv_hal/syscall.o (isatty)
-/soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-syswrite.o)
+/Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-syswrite.o)
                               ./riscv_hal/riscv_hal.o (write)
-/soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-writer.o)
-                              /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-syswrite.o) (_write_r)
+/Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-writer.o)
+                              /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-syswrite.o) (_write_r)
 
 Allocating common symbols
 Common symbol       size              file
@@ -372,7 +372,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x2f8 ./hal/hal_irq.o
  .debug_macro   0x0000000000000000       0x28 ./hal/hal_irq.o
  .debug_macro   0x0000000000000000       0x10 ./hal/hal_irq.o
- .debug_line    0x0000000000000000      0x2d0 ./hal/hal_irq.o
+ .debug_line    0x0000000000000000      0x264 ./hal/hal_irq.o
  .debug_str     0x0000000000000000     0x4af4 ./hal/hal_irq.o
  .comment       0x0000000000000000       0x3a ./hal/hal_irq.o
  .debug_frame   0x0000000000000000       0x78 ./hal/hal_irq.o
@@ -498,7 +498,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xd6 ./drivers/CoreTimer/core_timer.o
  .debug_macro   0x0000000000000000       0x64 ./drivers/CoreTimer/core_timer.o
  .debug_macro   0x0000000000000000       0x16 ./drivers/CoreTimer/core_timer.o
- .debug_line    0x0000000000000000      0x3a8 ./drivers/CoreTimer/core_timer.o
+ .debug_line    0x0000000000000000      0x33c ./drivers/CoreTimer/core_timer.o
  .debug_str     0x0000000000000000     0x4038 ./drivers/CoreTimer/core_timer.o
  .comment       0x0000000000000000       0x3a ./drivers/CoreTimer/core_timer.o
  .debug_frame   0x0000000000000000      0x10c ./drivers/CoreTimer/core_timer.o
@@ -676,7 +676,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x3c ./drivers/CoreI2C/core_i2c.o
  .debug_macro   0x0000000000000000       0x64 ./drivers/CoreI2C/core_i2c.o
  .debug_macro   0x0000000000000000       0x16 ./drivers/CoreI2C/core_i2c.o
- .debug_line    0x0000000000000000     0x154d ./drivers/CoreI2C/core_i2c.o
+ .debug_line    0x0000000000000000     0x14bd ./drivers/CoreI2C/core_i2c.o
  .debug_str     0x0000000000000000     0xa84d ./drivers/CoreI2C/core_i2c.o
  .comment       0x0000000000000000       0x3a ./drivers/CoreI2C/core_i2c.o
  .debug_frame   0x0000000000000000      0x478 ./drivers/CoreI2C/core_i2c.o
@@ -723,7 +723,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x2f8 ./drivers/CoreI2C/i2c_interrupt.o
  .debug_macro   0x0000000000000000       0x28 ./drivers/CoreI2C/i2c_interrupt.o
  .debug_macro   0x0000000000000000       0x10 ./drivers/CoreI2C/i2c_interrupt.o
- .debug_line    0x0000000000000000      0x3bf ./drivers/CoreI2C/i2c_interrupt.o
+ .debug_line    0x0000000000000000      0x353 ./drivers/CoreI2C/i2c_interrupt.o
  .debug_str     0x0000000000000000     0x5194 ./drivers/CoreI2C/i2c_interrupt.o
  .comment       0x0000000000000000       0x3a ./drivers/CoreI2C/i2c_interrupt.o
  .debug_frame   0x0000000000000000       0x98 ./drivers/CoreI2C/i2c_interrupt.o
@@ -778,7 +778,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x64 ./drivers/CoreGPIO/core_gpio.o
  .debug_macro   0x0000000000000000       0x16 ./drivers/CoreGPIO/core_gpio.o
  .debug_macro   0x0000000000000000       0x64 ./drivers/CoreGPIO/core_gpio.o
- .debug_line    0x0000000000000000      0x8f7 ./drivers/CoreGPIO/core_gpio.o
+ .debug_line    0x0000000000000000      0x88b ./drivers/CoreGPIO/core_gpio.o
  .debug_str     0x0000000000000000     0x44f2 ./drivers/CoreGPIO/core_gpio.o
  .comment       0x0000000000000000       0x3a ./drivers/CoreGPIO/core_gpio.o
  .debug_frame   0x0000000000000000      0x194 ./drivers/CoreGPIO/core_gpio.o
@@ -853,7 +853,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xf2 ./drivers/Core16550/core_16550.o
  .debug_macro   0x0000000000000000      0x3e5 ./drivers/Core16550/core_16550.o
  .debug_macro   0x0000000000000000       0x16 ./drivers/Core16550/core_16550.o
- .debug_line    0x0000000000000000      0xbb1 ./drivers/Core16550/core_16550.o
+ .debug_line    0x0000000000000000      0xb45 ./drivers/Core16550/core_16550.o
  .debug_str     0x0000000000000000     0x5235 ./drivers/Core16550/core_16550.o
  .comment       0x0000000000000000       0x3a ./drivers/Core16550/core_16550.o
  .debug_frame   0x0000000000000000      0x2d0 ./drivers/Core16550/core_16550.o
@@ -1080,7 +1080,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xc0 ./FreeRTOS/croutine.o
  .debug_macro   0x0000000000000000       0x9a ./FreeRTOS/croutine.o
  .debug_macro   0x0000000000000000       0x43 ./FreeRTOS/croutine.o
- .debug_line    0x0000000000000000      0x415 ./FreeRTOS/croutine.o
+ .debug_line    0x0000000000000000      0x385 ./FreeRTOS/croutine.o
  .debug_str     0x0000000000000000     0xabfd ./FreeRTOS/croutine.o
  .comment       0x0000000000000000       0x3a ./FreeRTOS/croutine.o
  .group         0x0000000000000000        0xc ./FreeRTOS/event_groups.o
@@ -1184,7 +1184,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xc0 ./FreeRTOS/event_groups.o
  .debug_macro   0x0000000000000000       0x9a ./FreeRTOS/event_groups.o
  .debug_macro   0x0000000000000000       0x91 ./FreeRTOS/event_groups.o
- .debug_line    0x0000000000000000      0xb42 ./FreeRTOS/event_groups.o
+ .debug_line    0x0000000000000000      0xab2 ./FreeRTOS/event_groups.o
  .debug_str     0x0000000000000000     0xb383 ./FreeRTOS/event_groups.o
  .comment       0x0000000000000000       0x3a ./FreeRTOS/event_groups.o
  .debug_frame   0x0000000000000000      0x1a0 ./FreeRTOS/event_groups.o
@@ -1392,7 +1392,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xc0 ./FreeRTOS/queue.o
  .debug_macro   0x0000000000000000       0x9a ./FreeRTOS/queue.o
  .debug_macro   0x0000000000000000       0xb0 ./FreeRTOS/queue.o
- .debug_line    0x0000000000000000     0x18a0 ./FreeRTOS/queue.o
+ .debug_line    0x0000000000000000     0x1810 ./FreeRTOS/queue.o
  .debug_str     0x0000000000000000     0xb966 ./FreeRTOS/queue.o
  .comment       0x0000000000000000       0x3a ./FreeRTOS/queue.o
  .debug_frame   0x0000000000000000      0x404 ./FreeRTOS/queue.o
@@ -1681,7 +1681,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x9a ./FreeRTOS/timers.o
  .debug_macro   0x0000000000000000       0xb0 ./FreeRTOS/timers.o
  .debug_macro   0x0000000000000000       0x91 ./FreeRTOS/timers.o
- .debug_line    0x0000000000000000      0x440 ./FreeRTOS/timers.o
+ .debug_line    0x0000000000000000      0x3b0 ./FreeRTOS/timers.o
  .debug_str     0x0000000000000000     0xb90f ./FreeRTOS/timers.o
  .comment       0x0000000000000000       0x3a ./FreeRTOS/timers.o
  .group         0x0000000000000000        0xc ./FreeRTOS/chronos.o
@@ -1724,7 +1724,6 @@ Discarded input sections
  .bss           0x0000000000000000        0x0 ./FreeRTOS/chronos.o
  .text.PLIC_DisableIRQ
                 0x0000000000000000       0xb8 ./FreeRTOS/chronos.o
- .text.printsv  0x0000000000000000       0x54 ./FreeRTOS/chronos.o
  .text.SendRaw  0x0000000000000000       0x64 ./FreeRTOS/chronos.o
  .text.NI_disable_irq
                 0x0000000000000000       0x84 ./FreeRTOS/chronos.o
@@ -1885,7 +1884,6 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./FreeRTOS/system_call.o
  .data          0x0000000000000000        0x0 ./FreeRTOS/system_call.o
  .bss           0x0000000000000000        0x0 ./FreeRTOS/system_call.o
- .rodata        0x0000000000000000       0x4d ./FreeRTOS/system_call.o
  .text.sys_Receive
                 0x0000000000000000       0xbc ./FreeRTOS/system_call.o
  .text.sys_Send
@@ -2051,6 +2049,25 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x10 ./main.o
  .debug_macro   0x0000000000000000      0x241 ./main.o
  .debug_macro   0x0000000000000000       0x28 ./main.o
+ .text          0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-errno.o)
+ .data          0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-errno.o)
+ .bss           0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-errno.o)
+ .text          0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
+ .data          0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
+ .bss           0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
+ .sdata2._global_impure_ptr
+                0x0000000000000000        0x4 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
+ .text          0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-sysisatty.o)
+ .data          0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-sysisatty.o)
+ .bss           0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-sysisatty.o)
+ .text.isatty   0x0000000000000000        0x8 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-sysisatty.o)
+ .debug_frame   0x0000000000000000       0x20 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-sysisatty.o)
+ .text          0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-syswrite.o)
+ .data          0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-syswrite.o)
+ .bss           0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-syswrite.o)
+ .text          0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-writer.o)
+ .data          0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-writer.o)
+ .bss           0x0000000000000000        0x0 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-writer.o)
 
 Memory Configuration
 
@@ -2087,20 +2104,20 @@ LOAD ./FreeRTOS/chronos.o
 LOAD ./FreeRTOS/applications.o
 LOAD ./FreeRTOS/system_call.o
 LOAD ./main.o
-LOAD /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/libgcc.a
-LOAD /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a
-LOAD /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libc_nano.a
-LOAD /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/libgcc.a
+LOAD /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/rv32im/ilp32/libgcc.a
+LOAD /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a
+LOAD /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libc_nano.a
+LOAD /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/rv32im/ilp32/libgcc.a
 START GROUP
-LOAD /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/libgcc.a
-LOAD /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libc_nano.a
+LOAD /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/rv32im/ilp32/libgcc.a
+LOAD /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libc_nano.a
 END GROUP
                 0x0000000080000000                RAM_START_ADDRESS = 0x80000000
                 0x0000000000080000                RAM_SIZE = 0x80000
                 0x0000000000010000                STACK_SIZE = 0x10000
                 0x0000000000010000                HEAP_SIZE = 0x10000
 
-.text           0x0000000080000000     0x3670
+.text           0x0000000080000000     0x3950
  *(SORT_NONE(.text.entry))
  .text.entry    0x0000000080000000      0x15c ./riscv_hal/entry.o
                 0x0000000080000000                _start
@@ -2361,74 +2378,69 @@ END GROUP
                 0x00000000800029dc                prints
  .text.printi   0x0000000080002a4c       0x3c ./FreeRTOS/chronos.o
                 0x0000000080002a4c                printi
+ .text.printsv  0x0000000080002a88       0x48 ./FreeRTOS/chronos.o
+                0x0000000080002a88                printsv
  .text.printsvsv
-                0x0000000080002a88       0x60 ./FreeRTOS/chronos.o
-                0x0000000080002a88                printsvsv
- .text.getXpos  0x0000000080002ae8       0x2c ./FreeRTOS/chronos.o
-                0x0000000080002ae8                getXpos
- .text.getYpos  0x0000000080002b14       0x28 ./FreeRTOS/chronos.o
-                0x0000000080002b14                getYpos
+                0x0000000080002ad0       0x60 ./FreeRTOS/chronos.o
+                0x0000000080002ad0                printsvsv
+ .text.getXpos  0x0000000080002b30       0x2c ./FreeRTOS/chronos.o
+                0x0000000080002b30                getXpos
+ .text.getYpos  0x0000000080002b5c       0x28 ./FreeRTOS/chronos.o
+                0x0000000080002b5c                getYpos
  .text.NI_enable_irq
-                0x0000000080002b3c       0x94 ./FreeRTOS/chronos.o
-                0x0000000080002b3c                NI_enable_irq
+                0x0000000080002b84       0x94 ./FreeRTOS/chronos.o
+                0x0000000080002b84                NI_enable_irq
  .text.External_1_IRQHandler
-                0x0000000080002bd0       0x48 ./FreeRTOS/chronos.o
-                0x0000000080002bd0                External_1_IRQHandler
- .text.External_2_IRQHandler
                 0x0000000080002c18       0x48 ./FreeRTOS/chronos.o
-                0x0000000080002c18                External_2_IRQHandler
- .text.mySwap   0x0000000080002c60       0x4c ./FreeRTOS/chronos.o
-                0x0000000080002c60                mySwap
- .text.reverse  0x0000000080002cac       0x80 ./FreeRTOS/chronos.o
-                0x0000000080002cac                reverse
- .text.myItoa   0x0000000080002d2c      0x1a0 ./FreeRTOS/chronos.o
-                0x0000000080002d2c                myItoa
+                0x0000000080002c18                External_1_IRQHandler
+ .text.External_2_IRQHandler
+                0x0000000080002c60       0x48 ./FreeRTOS/chronos.o
+                0x0000000080002c60                External_2_IRQHandler
+ .text.mySwap   0x0000000080002ca8       0x4c ./FreeRTOS/chronos.o
+                0x0000000080002ca8                mySwap
+ .text.reverse  0x0000000080002cf4       0x80 ./FreeRTOS/chronos.o
+                0x0000000080002cf4                reverse
+ .text.myItoa   0x0000000080002d74      0x1a0 ./FreeRTOS/chronos.o
+                0x0000000080002d74                myItoa
  .text.API_TaskListInit
-                0x0000000080002ecc       0xf0 ./FreeRTOS/applications.o
-                0x0000000080002ecc                API_TaskListInit
+                0x0000000080002f14       0xf0 ./FreeRTOS/applications.o
+                0x0000000080002f14                API_TaskListInit
  .text.__syscall_error
-                0x0000000080002fbc       0x40 ./FreeRTOS/system_call.o
+                0x0000000080003004       0x40 ./FreeRTOS/system_call.o
  .text.__internal_syscall
-                0x0000000080002ffc       0x5c ./FreeRTOS/system_call.o
+                0x0000000080003044       0x5c ./FreeRTOS/system_call.o
  .text.syscall_errno
-                0x0000000080003058       0x80 ./FreeRTOS/system_call.o
+                0x00000000800030a0       0x80 ./FreeRTOS/system_call.o
  .text.sys_Testing
-                0x00000000800030d8       0x64 ./FreeRTOS/system_call.o
-                0x00000000800030d8                sys_Testing
+                0x0000000080003120       0x64 ./FreeRTOS/system_call.o
+                0x0000000080003120                sys_Testing
  .text.handle_syscall
-                0x000000008000313c       0x1c ./FreeRTOS/system_call.o
-                0x000000008000313c                handle_syscall
+                0x0000000080003184      0x1f0 ./FreeRTOS/system_call.o
+                0x0000000080003184                handle_syscall
  .text.PLIC_init
-                0x0000000080003158       0xd0 ./main.o
- .text.main     0x0000000080003228      0x14c ./main.o
-                0x0000000080003228                main
+                0x0000000080003374       0xd0 ./main.o
+ .text.main     0x0000000080003444      0x14c ./main.o
+                0x0000000080003444                main
  .text.vApplicationMallocFailedHook
-                0x0000000080003374       0x14 ./main.o
-                0x0000000080003374                vApplicationMallocFailedHook
+                0x0000000080003590       0x14 ./main.o
+                0x0000000080003590                vApplicationMallocFailedHook
  .text.vApplicationIdleHook
-                0x0000000080003388       0x1c ./main.o
-                0x0000000080003388                vApplicationIdleHook
+                0x00000000800035a4       0x1c ./main.o
+                0x00000000800035a4                vApplicationIdleHook
  .text.vUartTestTask1
-                0x00000000800033a4       0x50 ./main.o
+                0x00000000800035c0       0x50 ./main.o
  .text.vUartTestTask2
-                0x00000000800033f4       0x34 ./main.o
- .text          0x0000000080003428        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-errno.o)
- .text.__errno  0x0000000080003428        0xc /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-errno.o)
-                0x0000000080003428                __errno
- .text          0x0000000080003434        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-impure.o)
- .text          0x0000000080003434        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-sysisatty.o)
- .text.isatty   0x0000000080003434        0x4 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-sysisatty.o)
-                0x0000000080003434                isatty
- .text          0x0000000080003438        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-syswrite.o)
- .text.write    0x0000000080003438       0x14 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-syswrite.o)
-                0x0000000080003438                write
- .text          0x000000008000344c        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-writer.o)
+                0x0000000080003610       0x34 ./main.o
+ .text.__errno  0x0000000080003644       0x10 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-errno.o)
+                0x0000000080003644                __errno
+ .text.write    0x0000000080003654       0x1c /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-syswrite.o)
+                0x0000000080003654                write
  .text._write_r
-                0x000000008000344c       0x36 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-writer.o)
-                0x000000008000344c                _write_r
+                0x0000000080003670       0x54 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-writer.o)
+                0x0000000080003670                _write_r
  *(.plt)
-                0x0000000080003490                . = ALIGN (0x10)
- *fill*         0x0000000080003482        0xe 
+                0x00000000800036d0                . = ALIGN (0x10)
+ *fill*         0x00000000800036c4        0xc 
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
@@ -2438,16 +2450,18 @@ END GROUP
  *(SORT_BY_NAME(.dtors.*))
  *crtend.o(.dtors)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x0000000080003490        0x6 ./riscv_hal/init.o
- *fill*         0x0000000080003496        0x2 
- .rodata        0x0000000080003498       0x56 ./riscv_hal/riscv_hal.o
- *fill*         0x00000000800034ee        0x2 
- .rodata        0x00000000800034f0       0x26 ./riscv_hal/syscall.o
- *fill*         0x0000000080003516        0x2 
- .rodata        0x0000000080003518        0x5 ./FreeRTOS/tasks.o
- *fill*         0x000000008000351d        0x3 
- .rodata        0x0000000080003520       0x68 ./FreeRTOS/chronos.o
- .rodata        0x0000000080003588       0xe3 ./main.o
+ .rodata        0x00000000800036d0        0x6 ./riscv_hal/init.o
+ *fill*         0x00000000800036d6        0x2 
+ .rodata        0x00000000800036d8       0x2e ./riscv_hal/riscv_hal.o
+ *fill*         0x0000000080003706        0x2 
+ .rodata        0x0000000080003708       0x26 ./riscv_hal/syscall.o
+ *fill*         0x000000008000372e        0x2 
+ .rodata        0x0000000080003730        0x5 ./FreeRTOS/tasks.o
+ *fill*         0x0000000080003735        0x3 
+ .rodata        0x0000000080003738       0x68 ./FreeRTOS/chronos.o
+ .rodata        0x00000000800037a0       0xc7 ./FreeRTOS/system_call.o
+ *fill*         0x0000000080003867        0x1 
+ .rodata        0x0000000080003868       0xe3 ./main.o
  *(.gcc_except_table)
  *(.eh_frame_hdr)
  *(.eh_frame)
@@ -2464,41 +2478,39 @@ END GROUP
  *(.fini_array)
  *(SORT_BY_NAME(.fini_array.*))
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000080003670                . = ALIGN (0x10)
- *fill*         0x000000008000366b        0x5 
+                0x0000000080003950                . = ALIGN (0x10)
+ *fill*         0x000000008000394b        0x5 
 
-.sdata2._global_impure_ptr
-                0x0000000080003670        0x8
- .sdata2._global_impure_ptr
-                0x0000000080003670        0x8 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-impure.o)
-                0x0000000080003670                _global_impure_ptr
-
-.rela.dyn       0x0000000080003678        0x0
+.rela.dyn       0x0000000080003950        0x0
  .rela.text.entry
-                0x0000000080003678        0x0 ./riscv_hal/entry.o
+                0x0000000080003950        0x0 ./riscv_hal/entry.o
  .rela.text._init
-                0x0000000080003678        0x0 ./riscv_hal/entry.o
+                0x0000000080003950        0x0 ./riscv_hal/entry.o
  .rela.data.ext_irq_handler_table
-                0x0000000080003678        0x0 ./riscv_hal/entry.o
+                0x0000000080003950        0x0 ./riscv_hal/entry.o
  .rela.text._isatty
-                0x0000000080003678        0x0 ./riscv_hal/entry.o
+                0x0000000080003950        0x0 ./riscv_hal/entry.o
  .rela.text.stub
-                0x0000000080003678        0x0 ./riscv_hal/entry.o
+                0x0000000080003950        0x0 ./riscv_hal/entry.o
  .rela.text.Chronos_init
-                0x0000000080003678        0x0 ./riscv_hal/entry.o
+                0x0000000080003950        0x0 ./riscv_hal/entry.o
  .rela.text.API_TaskListInit
-                0x0000000080003678        0x0 ./riscv_hal/entry.o
+                0x0000000080003950        0x0 ./riscv_hal/entry.o
  .rela.text.main
-                0x0000000080003678        0x0 ./riscv_hal/entry.o
+                0x0000000080003950        0x0 ./riscv_hal/entry.o
  .rela.text.vUartTestTask1
-                0x0000000080003678        0x0 ./riscv_hal/entry.o
+                0x0000000080003950        0x0 ./riscv_hal/entry.o
  .rela.text.vUartTestTask2
-                0x0000000080003678        0x0 ./riscv_hal/entry.o
+                0x0000000080003950        0x0 ./riscv_hal/entry.o
+ .rela.data.impure_data
+                0x0000000080003950        0x0 ./riscv_hal/entry.o
+ .rela.text._write_r
+                0x0000000080003950        0x0 ./riscv_hal/entry.o
 
-.sdata          0x0000000080003680       0x20
-                0x0000000080003680                __sdata_load = LOADADDR (.sdata)
-                0x0000000080003680                __sdata_start = .
-                0x0000000080003e80                PROVIDE (__global_pointer$ = (. + 0x800))
+.sdata          0x0000000080003950       0x20
+                0x0000000080003950                __sdata_load = LOADADDR (.sdata)
+                0x0000000080003950                __sdata_start = .
+                0x0000000080004150                PROVIDE (__global_pointer$ = (. + 0x800))
  *(.srodata.cst16)
  *(.srodata.cst8)
  *(.srodata.cst4)
@@ -2506,159 +2518,149 @@ END GROUP
  *(.srodata*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
  .sdata.xFreeBytesRemaining
-                0x0000000080003680        0x4 ./FreeRTOS/portable/MemMang/heap_2.o
+                0x0000000080003950        0x4 ./FreeRTOS/portable/MemMang/heap_2.o
  .sdata.uxCriticalNesting
-                0x0000000080003684        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
- .sdata.mtime   0x0000000080003688        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x0000000080003954        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
+ .sdata.mtime   0x0000000080003958        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
  .sdata.mtimecmp
-                0x000000008000368c        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x000000008000395c        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
  .sdata._impure_ptr
-                0x0000000080003690        0x8 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-impure.o)
-                0x0000000080003690                _impure_ptr
-                0x00000000800036a0                . = ALIGN (0x10)
- *fill*         0x0000000080003698        0x8 
-                0x00000000800036a0                __sdata_end = .
+                0x0000000080003960        0x4 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
+                0x0000000080003960                _impure_ptr
+                0x0000000080003970                . = ALIGN (0x10)
+ *fill*         0x0000000080003964        0xc 
+                0x0000000080003970                __sdata_end = .
 
-.data           0x00000000800036a0      0x130
-                0x00000000800036a0                __data_load = LOADADDR (.data)
-                0x00000000800036a0                __data_start = .
+.data           0x0000000080003970       0xe0
+                0x0000000080003970                __data_load = LOADADDR (.data)
+                0x0000000080003970                __data_start = .
  *(.got.plt)
  *(.got)
  *(.shdata)
  *(.data .data.* .gnu.linkonce.d.*)
  .data.ext_irq_handler_table
-                0x00000000800036a0       0x80 ./riscv_hal/riscv_hal.o
-                0x00000000800036a0                ext_irq_handler_table
- .data          0x0000000080003720        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-errno.o)
- .data          0x0000000080003720        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-impure.o)
+                0x0000000080003970       0x80 ./riscv_hal/riscv_hal.o
+                0x0000000080003970                ext_irq_handler_table
  .data.impure_data
-                0x0000000080003720       0xb0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-impure.o)
- .data          0x00000000800037d0        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-sysisatty.o)
- .data          0x00000000800037d0        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-syswrite.o)
- .data          0x00000000800037d0        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-writer.o)
-                0x00000000800037d0                . = ALIGN (0x10)
-                0x00000000800037d0                __data_end = .
+                0x00000000800039f0       0x60 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
+                0x0000000080003a50                . = ALIGN (0x10)
+                0x0000000080003a50                __data_end = .
 
-.sbss           0x00000000800037d0       0x70
-                0x00000000800037d0                __sbss_start = .
+.sbss           0x0000000080003a50       0x70
+                0x0000000080003a50                __sbss_start = .
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
  .sbss.g_systick_increment
-                0x00000000800037d0        0x8 ./riscv_hal/riscv_hal.o
+                0x0000000080003a50        0x8 ./riscv_hal/riscv_hal.o
  .sbss.g_stdio_uart
-                0x00000000800037d8        0x8 ./riscv_hal/syscall.o
+                0x0000000080003a58        0x8 ./riscv_hal/syscall.o
  .sbss.g_stdio_uart_init_done
-                0x00000000800037e0        0x4 ./riscv_hal/syscall.o
- .sbss.xStart   0x00000000800037e4        0x8 ./FreeRTOS/portable/MemMang/heap_2.o
- .sbss.xEnd     0x00000000800037ec        0x8 ./FreeRTOS/portable/MemMang/heap_2.o
+                0x0000000080003a60        0x4 ./riscv_hal/syscall.o
+ .sbss.xStart   0x0000000080003a64        0x8 ./FreeRTOS/portable/MemMang/heap_2.o
+ .sbss.xEnd     0x0000000080003a6c        0x8 ./FreeRTOS/portable/MemMang/heap_2.o
  .sbss.xHeapHasBeenInitialised.2777
-                0x00000000800037f4        0x4 ./FreeRTOS/portable/MemMang/heap_2.o
+                0x0000000080003a74        0x4 ./FreeRTOS/portable/MemMang/heap_2.o
  .sbss.g_startscheduler
-                0x00000000800037f8        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
-                0x00000000800037f8                g_startscheduler
+                0x0000000080003a78        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x0000000080003a78                g_startscheduler
  .sbss.pxCurrentTCB
-                0x00000000800037fc        0x4 ./FreeRTOS/tasks.o
-                0x00000000800037fc                pxCurrentTCB
+                0x0000000080003a7c        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003a7c                pxCurrentTCB
  .sbss.pxDelayedTaskList
-                0x0000000080003800        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003a80        0x4 ./FreeRTOS/tasks.o
  .sbss.pxOverflowDelayedTaskList
-                0x0000000080003804        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003a84        0x4 ./FreeRTOS/tasks.o
  .sbss.uxTasksDeleted
-                0x0000000080003808        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003a88        0x4 ./FreeRTOS/tasks.o
  .sbss.uxCurrentNumberOfTasks
-                0x000000008000380c        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003a8c        0x4 ./FreeRTOS/tasks.o
  .sbss.xTickCount
-                0x0000000080003810        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003a90        0x4 ./FreeRTOS/tasks.o
  .sbss.uxTopReadyPriority
-                0x0000000080003814        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003a94        0x4 ./FreeRTOS/tasks.o
  .sbss.xSchedulerRunning
-                0x0000000080003818        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003a98        0x4 ./FreeRTOS/tasks.o
  .sbss.uxPendedTicks
-                0x000000008000381c        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003a9c        0x4 ./FreeRTOS/tasks.o
  .sbss.xYieldPending
-                0x0000000080003820        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003aa0        0x4 ./FreeRTOS/tasks.o
  .sbss.xNumOfOverflows
-                0x0000000080003824        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003aa4        0x4 ./FreeRTOS/tasks.o
  .sbss.uxTaskNumber
-                0x0000000080003828        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003aa8        0x4 ./FreeRTOS/tasks.o
  .sbss.xNextTaskUnblockTime
-                0x000000008000382c        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003aac        0x4 ./FreeRTOS/tasks.o
  .sbss.uxSchedulerSuspended
-                0x0000000080003830        0x4 ./FreeRTOS/tasks.o
+                0x0000000080003ab0        0x4 ./FreeRTOS/tasks.o
  *(.scommon)
-                0x0000000080003840                . = ALIGN (0x10)
- *fill*         0x0000000080003834        0xc 
-                0x0000000080003840                __sbss_end = .
+                0x0000000080003ac0                . = ALIGN (0x10)
+ *fill*         0x0000000080003ab4        0xc 
+                0x0000000080003ac0                __sbss_end = .
 
-.bss            0x0000000080003840    0x195e0
-                0x0000000080003840                __bss_start = .
+.bss            0x0000000080003ac0    0x195e0
+                0x0000000080003ac0                __bss_start = .
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss.ucHeap    0x0000000080003840    0x19000 ./FreeRTOS/portable/MemMang/heap_2.o
+ .bss.ucHeap    0x0000000080003ac0    0x19000 ./FreeRTOS/portable/MemMang/heap_2.o
  .bss.pxReadyTasksLists
-                0x000000008001c840       0x64 ./FreeRTOS/tasks.o
+                0x000000008001cac0       0x64 ./FreeRTOS/tasks.o
  .bss.xDelayedTaskList1
-                0x000000008001c8a4       0x14 ./FreeRTOS/tasks.o
+                0x000000008001cb24       0x14 ./FreeRTOS/tasks.o
  .bss.xDelayedTaskList2
-                0x000000008001c8b8       0x14 ./FreeRTOS/tasks.o
+                0x000000008001cb38       0x14 ./FreeRTOS/tasks.o
  .bss.xPendingReadyList
-                0x000000008001c8cc       0x14 ./FreeRTOS/tasks.o
+                0x000000008001cb4c       0x14 ./FreeRTOS/tasks.o
  .bss.xTasksWaitingTermination
-                0x000000008001c8e0       0x14 ./FreeRTOS/tasks.o
+                0x000000008001cb60       0x14 ./FreeRTOS/tasks.o
  .bss.xSuspendedTaskList
-                0x000000008001c8f4       0x14 ./FreeRTOS/tasks.o
- .bss           0x000000008001c908        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-errno.o)
- .bss           0x000000008001c908        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-impure.o)
- .bss           0x000000008001c908        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-sysisatty.o)
- .bss           0x000000008001c908        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-syswrite.o)
- .bss           0x000000008001c908        0x0 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-writer.o)
+                0x000000008001cb74       0x14 ./FreeRTOS/tasks.o
  *(COMMON)
- COMMON         0x000000008001c908      0x434 ./riscv_hal/riscv_hal.o
-                0x000000008001c908                incommingPacket
- COMMON         0x000000008001cd3c        0x4 ./riscv_hal/syscall.o
-                0x000000008001cd3c                errno
- COMMON         0x000000008001cd40       0xd4 ./main.o
-                0x000000008001cd40                g_uart
-                0x000000008001cd48                TaskList
-                0x000000008001ce10                ProcessorAddr
-                0x000000008001ce20                . = ALIGN (0x10)
- *fill*         0x000000008001ce14        0xc 
-                0x000000008001ce20                __bss_end = .
-                0x000000008001ce20                _end = .
+ COMMON         0x000000008001cb88      0x434 ./riscv_hal/riscv_hal.o
+                0x000000008001cb88                incommingPacket
+ COMMON         0x000000008001cfbc        0x4 ./riscv_hal/syscall.o
+                0x000000008001cfbc                errno
+ COMMON         0x000000008001cfc0       0xd4 ./main.o
+                0x000000008001cfc0                g_uart
+                0x000000008001cfc8                TaskList
+                0x000000008001d090                ProcessorAddr
+                0x000000008001d0a0                . = ALIGN (0x10)
+ *fill*         0x000000008001d094        0xc 
+                0x000000008001d0a0                __bss_end = .
+                0x000000008001d0a0                _end = .
 
-.heap           0x000000008001ce20    0x10000
-                0x000000008001ce20                __heap_start = .
-                0x000000008002ce20                . = (. + HEAP_SIZE)
- *fill*         0x000000008001ce20    0x10000 
-                0x000000008002ce20                __heap_end = .
-                0x000000008002ce20                . = ALIGN (0x10)
-                0x000000008002ce20                _heap_end = __heap_end
+.heap           0x000000008001d0a0    0x10000
+                0x000000008001d0a0                __heap_start = .
+                0x000000008002d0a0                . = (. + HEAP_SIZE)
+ *fill*         0x000000008001d0a0    0x10000 
+                0x000000008002d0a0                __heap_end = .
+                0x000000008002d0a0                . = ALIGN (0x10)
+                0x000000008002d0a0                _heap_end = __heap_end
 
-.stack          0x000000008002ce20    0x10000
-                0x000000008002ce20                __stack_bottom = .
-                0x000000008003ce20                . = (. + STACK_SIZE)
- *fill*         0x000000008002ce20    0x10000 
-                0x000000008003ce20                __stack_top = .
+.stack          0x000000008002d0a0    0x10000
+                0x000000008002d0a0                __stack_bottom = .
+                0x000000008003d0a0                . = (. + STACK_SIZE)
+ *fill*         0x000000008002d0a0    0x10000 
+                0x000000008003d0a0                __stack_top = .
 OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
 
-.debug_line     0x0000000000000000     0x9210
+.debug_line     0x0000000000000000     0x8b54
  .debug_line    0x0000000000000000      0x237 ./riscv_hal/entry.o
- .debug_line    0x0000000000000237      0x49e ./riscv_hal/init.o
- .debug_line    0x00000000000006d5      0x984 ./riscv_hal/riscv_hal.o
- .debug_line    0x0000000000001059      0x818 ./riscv_hal/riscv_hal_stubs.o
- .debug_line    0x0000000000001871      0x9a3 ./riscv_hal/syscall.o
- .debug_line    0x0000000000002214      0x185 ./hal/hw_reg_access.o
- .debug_line    0x0000000000002399      0x764 ./drivers/CoreUARTapb/core_uart_apb.o
- .debug_line    0x0000000000002afd      0x71f ./FreeRTOS/portable/MemMang/heap_2.o
- .debug_line    0x000000000000321c      0x9ab ./FreeRTOS/portable/GCC/RISCV/port.o
- .debug_line    0x0000000000003bc7      0x652 ./FreeRTOS/list.o
- .debug_line    0x0000000000004219      0x6e9 ./FreeRTOS/string.o
- .debug_line    0x0000000000004902     0x29a6 ./FreeRTOS/tasks.o
- .debug_line    0x00000000000072a8      0xadb ./FreeRTOS/chronos.o
- .debug_line    0x0000000000007d83      0x620 ./FreeRTOS/applications.o
- .debug_line    0x00000000000083a3      0x69b ./FreeRTOS/system_call.o
- .debug_line    0x0000000000008a3e      0x7d2 ./main.o
+ .debug_line    0x0000000000000237      0x40e ./riscv_hal/init.o
+ .debug_line    0x0000000000000645      0x8f6 ./riscv_hal/riscv_hal.o
+ .debug_line    0x0000000000000f3b      0x788 ./riscv_hal/riscv_hal_stubs.o
+ .debug_line    0x00000000000016c3      0x913 ./riscv_hal/syscall.o
+ .debug_line    0x0000000000001fd6      0x185 ./hal/hw_reg_access.o
+ .debug_line    0x000000000000215b      0x6d4 ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_line    0x000000000000282f      0x68f ./FreeRTOS/portable/MemMang/heap_2.o
+ .debug_line    0x0000000000002ebe      0x91b ./FreeRTOS/portable/GCC/RISCV/port.o
+ .debug_line    0x00000000000037d9      0x5c2 ./FreeRTOS/list.o
+ .debug_line    0x0000000000003d9b      0x659 ./FreeRTOS/string.o
+ .debug_line    0x00000000000043f4     0x2916 ./FreeRTOS/tasks.o
+ .debug_line    0x0000000000006d0a      0xa4b ./FreeRTOS/chronos.o
+ .debug_line    0x0000000000007755      0x590 ./FreeRTOS/applications.o
+ .debug_line    0x0000000000007ce5      0x72d ./FreeRTOS/system_call.o
+ .debug_line    0x0000000000008412      0x742 ./main.o
 
-.debug_info     0x0000000000000000     0xc2d2
+.debug_info     0x0000000000000000     0xc360
  .debug_info    0x0000000000000000       0x26 ./riscv_hal/entry.o
  .debug_info    0x0000000000000026      0xb0b ./riscv_hal/init.o
  .debug_info    0x0000000000000b31     0x104a ./riscv_hal/riscv_hal.o
@@ -2673,10 +2675,10 @@ OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
  .debug_info    0x0000000000006cfd     0x1f88 ./FreeRTOS/tasks.o
  .debug_info    0x0000000000008c85     0x10d8 ./FreeRTOS/chronos.o
  .debug_info    0x0000000000009d5d      0xaf0 ./FreeRTOS/applications.o
- .debug_info    0x000000000000a84d      0xca7 ./FreeRTOS/system_call.o
- .debug_info    0x000000000000b4f4      0xdde ./main.o
+ .debug_info    0x000000000000a84d      0xd35 ./FreeRTOS/system_call.o
+ .debug_info    0x000000000000b582      0xdde ./main.o
 
-.debug_abbrev   0x0000000000000000     0x251f
+.debug_abbrev   0x0000000000000000     0x2530
  .debug_abbrev  0x0000000000000000       0x14 ./riscv_hal/entry.o
  .debug_abbrev  0x0000000000000014      0x268 ./riscv_hal/init.o
  .debug_abbrev  0x000000000000027c      0x335 ./riscv_hal/riscv_hal.o
@@ -2691,8 +2693,8 @@ OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
  .debug_abbrev  0x0000000000001620      0x39a ./FreeRTOS/tasks.o
  .debug_abbrev  0x00000000000019ba      0x34d ./FreeRTOS/chronos.o
  .debug_abbrev  0x0000000000001d07      0x276 ./FreeRTOS/applications.o
- .debug_abbrev  0x0000000000001f7d      0x2c6 ./FreeRTOS/system_call.o
- .debug_abbrev  0x0000000000002243      0x2dc ./main.o
+ .debug_abbrev  0x0000000000001f7d      0x2d7 ./FreeRTOS/system_call.o
+ .debug_abbrev  0x0000000000002254      0x2dc ./main.o
 
 .debug_aranges  0x0000000000000000      0x7c8
  .debug_aranges
@@ -2728,7 +2730,7 @@ OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
  .debug_aranges
                 0x0000000000000778       0x50 ./main.o
 
-.debug_str      0x0000000000000000    0x12277
+.debug_str      0x0000000000000000    0x12289
  .debug_str     0x0000000000000000       0x59 ./riscv_hal/entry.o
  .debug_str     0x0000000000000059     0x8be4 ./riscv_hal/init.o
                                        0x8e84 (size before relaxing)
@@ -2756,9 +2758,9 @@ OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
                                        0xad91 (size before relaxing)
  .debug_str     0x00000000000116a7       0x6b ./FreeRTOS/applications.o
                                        0xa9aa (size before relaxing)
- .debug_str     0x0000000000011712       0xc8 ./FreeRTOS/system_call.o
-                                       0xaeb8 (size before relaxing)
- .debug_str     0x00000000000117da      0xa9d ./main.o
+ .debug_str     0x0000000000011712       0xda ./FreeRTOS/system_call.o
+                                       0xaeca (size before relaxing)
+ .debug_str     0x00000000000117ec      0xa9d ./main.o
                                        0xd70b (size before relaxing)
 
 .debug_ranges   0x0000000000000000      0x6a8
@@ -2892,7 +2894,7 @@ OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
  .comment       0x0000000000000039       0x3a ./FreeRTOS/system_call.o
  .comment       0x0000000000000039       0x3a ./main.o
 
-.debug_frame    0x0000000000000000     0x1c40
+.debug_frame    0x0000000000000000     0x1c04
  .debug_frame   0x0000000000000000       0x94 ./riscv_hal/init.o
  .debug_frame   0x0000000000000094      0x168 ./riscv_hal/riscv_hal.o
  .debug_frame   0x00000000000001fc      0x468 ./riscv_hal/riscv_hal_stubs.o
@@ -2905,10 +2907,8 @@ OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
  .debug_frame   0x0000000000000e38      0x7b8 ./FreeRTOS/tasks.o
  .debug_frame   0x00000000000015f0      0x2a8 ./FreeRTOS/chronos.o
  .debug_frame   0x0000000000001898       0x98 ./FreeRTOS/applications.o
- .debug_frame   0x0000000000001930      0x170 ./FreeRTOS/system_call.o
- .debug_frame   0x0000000000001aa0       0xec ./main.o
- *fill*         0x0000000000001b8c        0x4 
- .debug_frame   0x0000000000001b90       0x28 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-errno.o)
- .debug_frame   0x0000000000001bb8       0x28 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-sysisatty.o)
- .debug_frame   0x0000000000001be0       0x28 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-syswrite.o)
- .debug_frame   0x0000000000001c08       0x38 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/libg_nano.a(lib_a-writer.o)
+ .debug_frame   0x0000000000001930      0x178 ./FreeRTOS/system_call.o
+ .debug_frame   0x0000000000001aa8       0xec ./main.o
+ .debug_frame   0x0000000000001b94       0x20 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-errno.o)
+ .debug_frame   0x0000000000001bb4       0x20 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-syswrite.o)
+ .debug_frame   0x0000000000001bd4       0x30 /Imperas/lib/Linux32/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-writer.o)

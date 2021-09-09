@@ -41,7 +41,7 @@ int sys_Testing(unsigned int arg0, unsigned int arg1, unsigned int arg2, unsigne
 
 /* Syscall Handler */
 void handle_syscall(){
-	/*unsigned int arg0, arg1, arg2, arg3, arg4, arg5, type;
+	unsigned int arg0, arg1, arg2, arg3, arg4, arg5, type;
 	unsigned int *pointer;
 	register long temp asm("t4") = 0;
 	asm("addi	t4, sp, 0");
@@ -66,11 +66,11 @@ void handle_syscall(){
 
 	pointer = (unsigned int *)(temp + (36*4));
 	type = *pointer;
-	*/
-	/*switch (type){
+	
+	switch (type){
 
 		case SYS_TESTING:
-			prints("Detectei uma chamada teste de sistema!");
+			prints("Detectei uma chamada teste de sistema!\n");
 			printsv("arg0 ", arg0);
 			printsv("arg1 ", arg1);
 			printsv("arg2 ", arg2);
@@ -80,7 +80,7 @@ void handle_syscall(){
 			break;
 
 		default:
-			printsv("Systemcall não identificada!");
+			prints("Systemcall não identificada!\n");
 			printsv("arg0 ", arg0);
 			printsv("arg1 ", arg1);
 			printsv("arg2 ", arg2);
@@ -88,7 +88,7 @@ void handle_syscall(){
 			printsv("arg4 ", arg4);
 			printsv("type ", type);
 			break;
-	}*/
+	}
 	return;
 	////////////////////////////////////////////////////
 	// Utilize para encontrar os argumentos na pilha!!!
