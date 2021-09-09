@@ -1,48 +1,21 @@
-#ifndef __CHRONOS_H__
-#define __CHRONOS_H__
+#include "chronos.h"
 
 #include "riscv_hal/riscv_plic.h"
 #include "hw_reg_access.h"
+#include "FreeRTOS.h"
+#include "FreeRTOSConfig.h"
+#include "task.h"
 #include "hwaddr.h"
 #include "message.h"
 #include "packet.h"
 #include "services.h"
-#include "hwaddr.h"
+#include "applications.h"
 
-////////////////////////////////////////////////////////////
-// PIPE 
-#define PIPE_SIZE           4 // Defines the PIPE size
-#define PIPE_OCCUPIED       1
-#define PIPE_FREE           -1
-#define PIPE_TRANSMITTING   -2
-#define PIPE_WAIT           0xFFFFFFFF
-//////////////////////////////
-//////////////////////////////
+// Stores the processorAddress
+extern unsigned int ProcessorAddr;
 
-////////////////////////////////////////////////////////////
-// Prints a string
-void prints(char *text); 
-
-// Prints an integer
-void printi(int value); 
-
-// Prints a string followed by a integer
-void printsv(char *text1, int value1); 
-
-// Prints two strings and two integers interspersed
-void printsvsv(char *text1, int value1, char *text2, int value2);
-
-// Gets the X coordinate from the address
-unsigned int getXpos(unsigned int addr);
-
-// Gets the Y coordinate from the address
-unsigned int getYpos(unsigned int addr);
-
-// Enables interruptions incomming from NI
-void NI_enable_irq(int which);
-
-// Disables interruptions incomming from NI
-void NI_disable_irq(int which);
+// Stores information about each running task
+extern Task TaskList[ MAX_LOCAL_TASKS ];
 
 ////////////////////////////////////////////////////////////
 // Initialize Chronos stuff
@@ -50,15 +23,21 @@ void Chronos_init(){
     //Informs the Router this tile ID, that is provided by Harness
     HW_set_32bit_reg(ROUTER_BASE, HW_get_32bit_reg(MY_ID)); 
     
-    // Reads this processor address
-    unsigned int myaddr = HW_get_32bit_reg(ROUTER_BASE);
+    // Reads this processor address, calculated by the router
+    ProcessorAddr = HW_get_32bit_reg(ROUTER_BASE);
 
     // Informs the PRINTER this tile address
-    HW_set_32bit_reg(PRINTER_CHAR, getXpos(myaddr));
-    HW_set_32bit_reg(PRINTER_CHAR, getYpos(myaddr));
+    HW_set_32bit_reg(PRINTER_CHAR, getXpos(ProcessorAddr));
+    HW_set_32bit_reg(PRINTER_CHAR, getYpos(ProcessorAddr));
 
     // Enables interruption from NI
     NI_enable_irq(TX_RX);
+
+    // Informs the NI the address to store incoming packets
+    HW_set_32bit_reg(NI_ADDR, (unsigned int)&incommingPacket);
+    
+    // Initialize the TaskList
+    API_TaskListInit(MAX_LOCAL_TASKS);
 
     return;
 }
@@ -176,7 +155,6 @@ char* myItoa(int value, char* buffer, int base){
     if (base < 2 || base > 32) {
         return buffer;
     }
- 
     // consider the absolute value of the number
     int n;
     if (value < 0)
@@ -197,24 +175,28 @@ char* myItoa(int value, char* buffer, int base){
  
         n = n / base;
     }
- 
     // if the number is 0
     if (i == 0) {
         buffer[i++] = '0';
     }
- 
     // If the base is 10 and the value is negative, the resulting string
     // is preceded with a minus sign (-)
     // With any other base, value is always considered unsigned
     if (value < 0 && base == 10) {
         buffer[i++] = '-';
     }
- 
     buffer[i] = '\0'; // null terminate string
- 
     // reverse the string and return it
     return reverse(buffer, 0, i - 1);
 }
 
+////////////////////////////////////////////////////////////
+// Receives a message and alocates it in the application structure
+void ReceiveMessage(Message *theMessage, unsigned int from){
+    unsigned int taskID = API_GetTaskID();
+    printsvsv("msg pointer: ", (unsigned int)theMessage, "from: ", from);
+    printsv("Minha task ID: ", taskID);
+    //SendMessageRequest(from);
+    return;
+}
 
-#endif

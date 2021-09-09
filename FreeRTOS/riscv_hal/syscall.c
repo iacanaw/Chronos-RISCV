@@ -19,8 +19,6 @@
 #include <string.h>
 
 #include "encoding.h"
-#include "chronos/chronos.h"
-
 
 #ifdef MSCC_STDIO_THRU_CORE_UART_APB
 

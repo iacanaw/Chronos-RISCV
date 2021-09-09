@@ -5,8 +5,8 @@
 #include <stdio.h>
 #include "hw_platform.h"
 #include "core_uart_apb.h"
-#include "task.h"
-#include "chronos/chronos.h"
+#include "chronos.h"
+#include "system_call.h"
 
 const char * g_hello_msg = "\r\nFreeRTOS Example\r\n";
 
@@ -37,6 +37,16 @@ void vApplicationIdleHook( void );
  */
 void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName );
 
+/*
+ * Stores the processor address
+ */
+unsigned int ProcessorAddr;
+
+/*
+ * Stores information about each running task
+ */
+Task TaskList[ MAX_LOCAL_TASKS ];
+
 /*-----------------------------------------------------------*/
 
 int main( void )
@@ -57,11 +67,20 @@ int main( void )
 	UART_polled_tx_string( &g_uart, (const uint8_t *)"\n Chronos platform initializing... \n" );
 	Chronos_init();
 	UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This terminal belongs to the address: " );
-	myItoa(HW_get_32bit_reg(ROUTER_BASE), str, 16);
+	myItoa(ProcessorAddr, str, 16);
     UART_polled_tx_string( &g_uart, (const uint8_t *)str); UART_polled_tx_string( &g_uart, (const uint8_t *)"\n");
-		
+	
+	//AppsToMap = 0;
+	
+	if (ProcessorAddr == 0x0000){
+		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This processor is the Global Master: \n" );
+	} else {
+		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This processor is a Slave: \n" );
+	}
+
 	/* Create the two test tasks. */
 	xTaskCreate( vUartTestTask1, "UArt1", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
+	//API_CreateTask();
 	xTaskCreate( vUartTestTask2, "UArt2", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
 
 	/* Start the kernel.  From here on, only tasks and interrupts will run. */
@@ -120,7 +139,8 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 static void vUartTestTask1( void *pvParameters )
 {
 	( void ) pvParameters;
-
+	Message msg1;
+	sys_Testing(101, 202, 303, 404, 505, 606);
 	for( ;; )
 	{
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 1\r\n" );
@@ -134,7 +154,8 @@ static void vUartTestTask1( void *pvParameters )
 static void vUartTestTask2( void *pvParameters )
 {
 	( void ) pvParameters;
-	
+	//Message msg2;
+	//sys_Receive(&msg2, 2);
 	for( ;; )
 	{
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 2\r\n" );

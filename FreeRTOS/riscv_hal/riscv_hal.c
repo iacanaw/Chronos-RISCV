@@ -11,7 +11,10 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <unistd.h>
+#include "chronos.h"
 
+#include "../FreeRTOS/include/system_call.h"
+#include "../FreeRTOS/include/chronos.h"
 #include "riscv_hal.h"
 
 #ifdef __cplusplus
@@ -191,12 +194,37 @@ void handle_m_soft_interrupt()
     /*Clear software interrupt*/
     PRCI->MSIP[0] = 0x00;
 }
+
+/* syscall funcion defined at system_call.c */
+extern void handle_syscall();
+
 /*------------------------------------------------------------------------------
  * Trap/Interrupt handler
  */
-uintptr_t handle_trap(uintptr_t mcause, uintptr_t epc)
+uintptr_t handle_trap(uintptr_t mcause, uintptr_t epc, unsigned int *svc_args)
 {
-    if ((mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE)  == IRQ_M_EXT))
+    unsigned int arg0, arg1, arg2, arg3, arg4, arg5, arg7;
+    arg0 = svc_args[0];
+    arg1 = svc_args[1];
+    arg2 = svc_args[2];
+    arg3 = svc_args[3];    
+    arg4 = svc_args[4];
+    arg5 = svc_args[5];
+    arg7 = svc_args[7];
+    printsv("arg0-", arg0);
+    printsv("arg1-", arg1);
+    printsv("arg2-", arg2);
+    printsv("arg3-", arg3);
+    printsv("arg4-", arg4);
+    printsv("arg5-", arg5);
+    printsv("arg7-", arg7);
+    prints("Entrei em handle_trap\n");
+    printsvsv("mcause ", mcause, "epc ", epc);
+    if (mcause == ENV_CALL_M || mcause == ENV_CALL_H || mcause == ENV_CALL_S || mcause == ENV_CALL_U){
+        prints("identifiquei uma chamada de sistema\n");
+        handle_syscall();
+    }
+    else if ((mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE)  == IRQ_M_EXT))
     {
         handle_m_ext_interrupt();
     }

@@ -1,0 +1,5583 @@
+arg0--2147477520 
+arg1--2147234112 
+arg2-0 
+arg3-0 
+arg4--2147483600 
+arg5-0 
+arg7--2147233952 
+Entrei em handle_trap
+mcause -2147483645 epc -2147478500 
+arg0--2147477256 
+arg1--2147460936 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147460776 
+Entrei em handle_trap
+mcause -2147483645 epc -2147478500 
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema
+Cheguei aqui!!!!!!! sucessooo :D
+arg0--2147470896 
+arg1--2147466152 
+arg2-0 
+arg3-0 
+arg4--1515870811 
+arg5--1515870811 
+arg7--2147465976 
+Entrei em handle_trap
+mcause 11 epc -2147470996 
+identifiquei uma chamada de sistema

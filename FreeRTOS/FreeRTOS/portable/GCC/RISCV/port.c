@@ -380,3 +380,4 @@ void vPortYield( void )
 	raise_soft_interrupt();
 }
 
+extern void SyscallHandler(unsigned int *svc_args);

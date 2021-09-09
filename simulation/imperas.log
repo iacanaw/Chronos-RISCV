@@ -1,4 +1,4 @@
-Info Session started: Fri Sep  3 01:51:23 2021
+Info Session started: Thu Sep  9 10:43:25 2021
 
 Info ------------- ENVIRONMENT -------------
 Info IMPERAS_ARCH                             = Linux64
@@ -101,7 +101,7 @@ Copyright (c) 2005-2021 Imperas Software Ltd.  Contains Imperas Proprietary Info
 Licensed Software, All Rights Reserved.
 Visit www.IMPERAS.com for multicore debug, verification and analysis solutions.
 
-CpuManagerStandard started: Fri Sep  3 01:51:23 2021
+CpuManagerStandard started: Thu Sep  9 10:43:25 2021
 
 
 Warning (CF_PMM) Parameter 'top/u2/uart0/outfile' matches 2 entries on the command line or in control file(s):
@@ -113,7 +113,7 @@ Info (CF_PMM_R)     Ignored :  40 --override uart0/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart0/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:   3 --override uart0/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  41 --override uart0/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart0' Server connected to 39063
+Info (PSE_SER) 'top/u2/uart0' Server connected to 40803
 Warning (CF_PMM) Parameter 'top/u2/uart1/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:   8 --override uart1/outfile=simulation/uart1.log
 Info (CF_PMM_R)     Ignored :  46 --override uart1/outfile=simulation/uart1.log
@@ -123,7 +123,7 @@ Info (CF_PMM_R)     Ignored :  44 --override uart1/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart1/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:   7 --override uart1/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  45 --override uart1/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart1' Server connected to 45467
+Info (PSE_SER) 'top/u2/uart1' Server connected to 43319
 Warning (CF_PMM) Parameter 'top/u2/uart2/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  12 --override uart2/outfile=simulation/uart2.log
 Info (CF_PMM_R)     Ignored :  50 --override uart2/outfile=simulation/uart2.log
@@ -133,7 +133,7 @@ Info (CF_PMM_R)     Ignored :  48 --override uart2/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart2/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  11 --override uart2/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  49 --override uart2/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart2' Server connected to 40245
+Info (PSE_SER) 'top/u2/uart2' Server connected to 45007
 Warning (CF_PMM) Parameter 'top/u2/uart3/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  16 --override uart3/outfile=simulation/uart3.log
 Info (CF_PMM_R)     Ignored :  54 --override uart3/outfile=simulation/uart3.log
@@ -143,7 +143,7 @@ Info (CF_PMM_R)     Ignored :  52 --override uart3/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart3/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  15 --override uart3/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  53 --override uart3/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart3' Server connected to 38605
+Info (PSE_SER) 'top/u2/uart3' Server connected to 42891
 Warning (CF_PMM) Parameter 'top/u2/uart4/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  20 --override uart4/outfile=simulation/uart4.log
 Info (CF_PMM_R)     Ignored :  58 --override uart4/outfile=simulation/uart4.log
@@ -153,7 +153,7 @@ Info (CF_PMM_R)     Ignored :  56 --override uart4/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart4/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  19 --override uart4/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  57 --override uart4/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart4' Server connected to 39585
+Info (PSE_SER) 'top/u2/uart4' Server connected to 46783
 Warning (CF_PMM) Parameter 'top/u2/uart5/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  24 --override uart5/outfile=simulation/uart5.log
 Info (CF_PMM_R)     Ignored :  62 --override uart5/outfile=simulation/uart5.log
@@ -163,7 +163,7 @@ Info (CF_PMM_R)     Ignored :  60 --override uart5/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart5/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  23 --override uart5/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  61 --override uart5/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart5' Server connected to 40013
+Info (PSE_SER) 'top/u2/uart5' Server connected to 35325
 Warning (CF_PMM) Parameter 'top/u2/uart6/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  28 --override uart6/outfile=simulation/uart6.log
 Info (CF_PMM_R)     Ignored :  66 --override uart6/outfile=simulation/uart6.log
@@ -173,7 +173,7 @@ Info (CF_PMM_R)     Ignored :  64 --override uart6/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart6/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  27 --override uart6/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  65 --override uart6/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart6' Server connected to 41131
+Info (PSE_SER) 'top/u2/uart6' Server connected to 34423
 Warning (CF_PMM) Parameter 'top/u2/uart7/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  32 --override uart7/outfile=simulation/uart7.log
 Info (CF_PMM_R)     Ignored :  70 --override uart7/outfile=simulation/uart7.log
@@ -183,7 +183,7 @@ Info (CF_PMM_R)     Ignored :  68 --override uart7/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart7/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  31 --override uart7/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  69 --override uart7/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart7' Server connected to 36123
+Info (PSE_SER) 'top/u2/uart7' Server connected to 42235
 Warning (CF_PMM) Parameter 'top/u2/uart8/outfile' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  36 --override uart8/outfile=simulation/uart8.log
 Info (CF_PMM_R)     Ignored :  74 --override uart8/outfile=simulation/uart8.log
@@ -193,25 +193,304 @@ Info (CF_PMM_R)     Ignored :  72 --override uart8/console=T
 Warning (CF_PMM) Parameter 'top/u2/uart8/finishOnDisconnect' matches 2 entries on the command line or in control file(s):
 Info (CF_PMM_R)     Accepted:  35 --override uart8/finishOnDisconnect=T
 Info (CF_PMM_R)     Ignored :  73 --override uart8/finishOnDisconnect=T
-Info (PSE_SER) 'top/u2/uart8' Server connected to 38041
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OR_FNF) File 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf' was not found.
-Error (OP_FIP) Failed to build platform 'top'
-Info Session ended: Fri Sep  3 01:51:25 2021
+Info (PSE_SER) 'top/u2/uart8' Server connected to 34889
+Info (OR_OF) Target 'top/u2/cpu0' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu1' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu2' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu3' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu4' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu5' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu6' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu7' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu8' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu0' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu1' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu2' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu3' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu4' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu5' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu6' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu7' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (OR_OF) Target 'top/u2/cpu8' has object file read from 'FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf'
+Info (OR_PH) Program Headers:
+Info (OR_PH) Type           Offset     VirtAddr   PhysAddr   FileSiz    MemSiz     Flags Align
+Info (OR_PD) LOAD           0x00001000 0x80000000 0x80000000 0x00003990 0x0003cfe0 RWE   1000
+Info (HARNESS INFO) >>>>>> INICIALIZANDO PE 0
+Info (MY_ADRESS) top/u2/router0: My Address: 0 0
+Info (MYADRESS) top/u2/router0: MY ID = 0
+Info (NI) top/u2/ni0: Recebi endereco 1: 8001cac8
+Info (HARNESS INFO) >>>>>> INICIALIZANDO PE 1
+Info (MY_ADRESS) top/u2/router1: My Address: 1 0
+Info (MYADRESS) top/u2/router1: MY ID = 1
+Info (NI) top/u2/ni1: Recebi endereco 1: 8001cac8
+Info (HARNESS INFO) >>>>>> INICIALIZANDO PE 2
+Info (MY_ADRESS) top/u2/router2: My Address: 2 0
+Info (MYADRESS) top/u2/router2: MY ID = 2
+Info (NI) top/u2/ni2: Recebi endereco 1: 8001cac8
+Info (HARNESS INFO) >>>>>> INICIALIZANDO PE 3
+Info (MY_ADRESS) top/u2/router3: My Address: 0 1
+Info (MYADRESS) top/u2/router3: MY ID = 3
+Info (NI) top/u2/ni3: Recebi endereco 1: 8001cac8
+Info (HARNESS INFO) >>>>>> INICIALIZANDO PE 4
+Info (MY_ADRESS) top/u2/router4: My Address: 1 1
+Info (MYADRESS) top/u2/router4: MY ID = 4
+Info (NI) top/u2/ni4: Recebi endereco 1: 8001cac8
+Info (HARNESS INFO) >>>>>> INICIALIZANDO PE 5
+Info (MY_ADRESS) top/u2/router5: My Address: 2 1
+Info (MYADRESS) top/u2/router5: MY ID = 5
+Info (NI) top/u2/ni5: Recebi endereco 1: 8001cac8
+Info (HARNESS INFO) >>>>>> INICIALIZANDO PE 6
+Info (MY_ADRESS) top/u2/router6: My Address: 0 2
+Info (MYADRESS) top/u2/router6: MY ID = 6
+Info (NI) top/u2/ni6: Recebi endereco 1: 8001cac8
+Info (HARNESS INFO) >>>>>> INICIALIZANDO PE 7
+Info (MY_ADRESS) top/u2/router7: My Address: 1 2
+Info (MYADRESS) top/u2/router7: MY ID = 7
+Info (NI) top/u2/ni7: Recebi endereco 1: 8001cac8
+Info (HARNESS INFO) >>>>>> INICIALIZANDO PE 8
+Info (MY_ADRESS) top/u2/router8: My Address: 2 2
+Info (MYADRESS) top/u2/router8: MY ID = 8
+Info (NI) top/u2/ni8: Recebi endereco 1: 8001cac8
+Info (PSE_SER) 'top/u2/uart8' Socket disconnected - terminating simulation
+Info (PSE_SER) 'top/u2/uart8' Disconnected from port 34889
+Info 
+Info ---------------------------------------------------
+Info PSE SIMULATION TIME STATISTICS
+Info    0.00 seconds: PSE THREAD 'top/u2/prci0'
+Info    0.00 seconds: PSE THREAD 'top/u2/prci1'
+Info    0.00 seconds: PSE THREAD 'top/u2/prci2'
+Info    0.00 seconds: PSE THREAD 'top/u2/prci3'
+Info    0.00 seconds: PSE THREAD 'top/u2/prci4'
+Info    0.00 seconds: PSE THREAD 'top/u2/prci5'
+Info    0.00 seconds: PSE THREAD 'top/u2/prci6'
+Info    0.00 seconds: PSE THREAD 'top/u2/prci7'
+Info    0.00 seconds: PSE THREAD 'top/u2/prci8'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart8'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart7'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart7'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart6'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart6'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart5'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart5'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart4'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart4'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart3'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart3'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart2'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart2'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart1'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart1'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart0'
+Info    0.00 seconds: PSE THREAD 'top/u2/uart0'
+Info    0.04 seconds: PSE 'top/u2/iterator' (and 28,810 terminated callbacks)
+Info    0.17 seconds: PSE 'top/u2/printer8' (and 88,218 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/ni8' (and 3,213 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/router8' (and 3,218 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci8' (and 19 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/plic8' (and 319 terminated callbacks)
+Info    0.11 seconds: PSE 'top/u2/uart8' (and 1 terminated thread, 275 terminated callbacks)
+Info    0.15 seconds: PSE 'top/u2/printer7' (and 88,218 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/ni7' (and 3,213 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/router7' (and 3,218 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci7' (and 19 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/plic7' (and 319 terminated callbacks)
+Info    0.10 seconds: PSE 'top/u2/uart7' (and 275 terminated callbacks)
+Info    0.16 seconds: PSE 'top/u2/printer6' (and 88,224 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/ni6' (and 3,213 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/router6' (and 3,218 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci6' (and 19 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/plic6' (and 319 terminated callbacks)
+Info    0.11 seconds: PSE 'top/u2/uart6' (and 271 terminated callbacks)
+Info    0.16 seconds: PSE 'top/u2/printer5' (and 88,218 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/ni5' (and 3,213 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/router5' (and 3,218 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci5' (and 19 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/plic5' (and 319 terminated callbacks)
+Info    0.09 seconds: PSE 'top/u2/uart5' (and 275 terminated callbacks)
+Info    0.17 seconds: PSE 'top/u2/printer4' (and 88,218 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/ni4' (and 3,213 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/router4' (and 3,218 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci4' (and 19 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/plic4' (and 319 terminated callbacks)
+Info    0.10 seconds: PSE 'top/u2/uart4' (and 275 terminated callbacks)
+Info    0.16 seconds: PSE 'top/u2/printer3' (and 88,224 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/ni3' (and 3,213 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/router3' (and 3,218 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci3' (and 19 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/plic3' (and 319 terminated callbacks)
+Info    0.09 seconds: PSE 'top/u2/uart3' (and 271 terminated callbacks)
+Info    0.16 seconds: PSE 'top/u2/printer2' (and 88,218 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/ni2' (and 3,213 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/router2' (and 3,218 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci2' (and 19 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/plic2' (and 319 terminated callbacks)
+Info    0.12 seconds: PSE 'top/u2/uart2' (and 275 terminated callbacks)
+Info    0.16 seconds: PSE 'top/u2/printer1' (and 88,218 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/ni1' (and 3,213 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/router1' (and 3,218 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci1' (and 19 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/plic1' (and 319 terminated callbacks)
+Info    0.10 seconds: PSE 'top/u2/uart1' (and 275 terminated callbacks)
+Info    0.16 seconds: PSE 'top/u2/printer0' (and 88,211 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/ni0' (and 3,213 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/router0' (and 3,218 terminated callbacks)
+Info    0.00 seconds: PSE 'top/u2/prci0' (and 19 terminated callbacks)
+Info    0.01 seconds: PSE 'top/u2/plic0' (and 319 terminated callbacks)
+Info    0.12 seconds: PSE 'top/u2/uart0' (and 291 terminated callbacks)
+Info    0.02 seconds: PSE 'top/u2/tea' (and 3,201 terminated callbacks)
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'top/u2/cpu8' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002aec
+Info   Simulated instructions: 2,000,000
+Info   Simulated MIPS        : 1.1
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'top/u2/cpu7' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002aec
+Info   Simulated instructions: 2,000,000
+Info   Simulated MIPS        : 1.1
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'top/u2/cpu6' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80000d70
+Info   Simulated instructions: 2,000,000
+Info   Simulated MIPS        : 1.1
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'top/u2/cpu5' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002aec
+Info   Simulated instructions: 2,000,000
+Info   Simulated MIPS        : 1.1
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'top/u2/cpu4' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002aec
+Info   Simulated instructions: 2,000,000
+Info   Simulated MIPS        : 1.1
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'top/u2/cpu3' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80000d70
+Info   Simulated instructions: 2,000,000
+Info   Simulated MIPS        : 1.1
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'top/u2/cpu2' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002aec
+Info   Simulated instructions: 2,000,000
+Info   Simulated MIPS        : 1.1
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'top/u2/cpu1' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002aec
+Info   Simulated instructions: 2,000,000
+Info   Simulated MIPS        : 1.1
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info CPU 'top/u2/cpu0' STATISTICS
+Info   Type                  : riscv (RVB32I+MSU)
+Info   Nominal MIPS          : 50
+Info   Final program counter : 0x80002b0c
+Info   Simulated instructions: 2,000,000
+Info   Simulated MIPS        : 1.1
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info TOTAL
+Info   Simulated instructions: 18,000,000
+Info   Simulated MIPS        : 9.6
+Info ---------------------------------------------------
+Info 
+Info ---------------------------------------------------
+Info SIMULATION TIME STATISTICS
+Info   Simulated time        : 0.04 seconds
+Info   User time             : 1.21 seconds
+Info   System time           : 0.67 seconds
+Info   Elapsed time          : 1.88 seconds
+Info ---------------------------------------------------
+
+CpuManagerStandard finished: Thu Sep  9 10:43:28 2021
+
+
+CpuManagerStandard (64-Bit) v20210408.0 Open Virtual Platform simulator from www.IMPERAS.com.
+Visit www.IMPERAS.com for multicore debug, verification and analysis solutions.
+
+Info Session ended: Thu Sep  9 10:43:28 2021
 

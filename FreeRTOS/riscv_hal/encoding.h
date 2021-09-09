@@ -89,6 +89,12 @@ extern "C" {
 #define IRQ_H_EXT           10
 #define IRQ_M_EXT           11
 
+/* Added by Iaçanã to support system call*/
+#define ENV_CALL_M          11
+#define ENV_CALL_H          10
+#define ENV_CALL_S          9
+#define ENV_CALL_U          8
+
 #define DEFAULT_RSTVEC      0x00001000
 #define DEFAULT_NMIVEC      0x00001004
 #define DEFAULT_MTVEC       0x00001010
