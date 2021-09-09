@@ -201,23 +201,8 @@ extern void handle_syscall();
 /*------------------------------------------------------------------------------
  * Trap/Interrupt handler
  */
-uintptr_t handle_trap(uintptr_t mcause, uintptr_t epc, unsigned int *svc_args)
+uintptr_t handle_trap(uintptr_t mcause, uintptr_t epc)
 {
-    unsigned int arg0, arg1, arg2, arg3, arg4, arg5, arg7;
-    arg0 = svc_args[0];
-    arg1 = svc_args[1];
-    arg2 = svc_args[2];
-    arg3 = svc_args[3];    
-    arg4 = svc_args[4];
-    arg5 = svc_args[5];
-    arg7 = svc_args[7];
-    printsv("arg0-", arg0);
-    printsv("arg1-", arg1);
-    printsv("arg2-", arg2);
-    printsv("arg3-", arg3);
-    printsv("arg4-", arg4);
-    printsv("arg5-", arg5);
-    printsv("arg7-", arg7);
     prints("Entrei em handle_trap\n");
     printsvsv("mcause ", mcause, "epc ", epc);
     if (mcause == ENV_CALL_M || mcause == ENV_CALL_H || mcause == ENV_CALL_S || mcause == ENV_CALL_U){

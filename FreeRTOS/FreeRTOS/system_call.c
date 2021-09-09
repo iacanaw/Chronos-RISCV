@@ -40,10 +40,68 @@ int sys_Testing(unsigned int arg0, unsigned int arg1, unsigned int arg2, unsigne
 }
 
 /* Syscall Handler */
-void handle_syscall(unsigned int *svc_args){
-    
-    vPortEnterCritical();
-    prints("Cheguei aqui!!!!!!! sucessooo :D\n");
-    vPortExitCritical();
-    return;
+void handle_syscall(){
+	/*unsigned int arg0, arg1, arg2, arg3, arg4, arg5, type;
+	unsigned int *pointer;
+	register long temp asm("t4") = 0;
+	asm("addi	t4, sp, 0");
+	
+	pointer = (unsigned int *)(temp + (29*4));
+	arg0 =  *pointer;
+
+	pointer = (unsigned int *)(temp + (30*4));
+	arg1 = *pointer;
+	
+	pointer = (unsigned int *)(temp + (31*4));
+	arg2 = *pointer;
+
+	pointer = (unsigned int *)(temp + (32*4));
+	arg3 = *pointer;
+
+	pointer = (unsigned int *)(temp + (33*4));
+	arg4 = *pointer;
+
+	pointer = (unsigned int *)(temp + (34*4));
+	arg4 = *pointer;
+
+	pointer = (unsigned int *)(temp + (36*4));
+	type = *pointer;
+	*/
+	/*switch (type){
+
+		case SYS_TESTING:
+			prints("Detectei uma chamada teste de sistema!");
+			printsv("arg0 ", arg0);
+			printsv("arg1 ", arg1);
+			printsv("arg2 ", arg2);
+			printsv("arg3 ", arg3);
+			printsv("arg4 ", arg4);
+			printsv("type ", type);
+			break;
+
+		default:
+			printsv("Systemcall não identificada!");
+			printsv("arg0 ", arg0);
+			printsv("arg1 ", arg1);
+			printsv("arg2 ", arg2);
+			printsv("arg3 ", arg3);
+			printsv("arg4 ", arg4);
+			printsv("type ", type);
+			break;
+	}*/
+	return;
+	////////////////////////////////////////////////////
+	// Utilize para encontrar os argumentos na pilha!!!
+	// int i;
+	// unsigned int *p;
+	// unsigned int value;
+	// register long temp asm("t4") = 0;
+	// asm("addi	t4, sp, 0");
+	// for (i = 0; i < 64; i++){
+	// 	p = (temp + (i*4));
+	// 	value = *p;
+	// 	printsvsv("i: ", i, " value: ", value);
+	// }
+    // prints("Cheguei aqui!!!!!!! sucessooo :D\n");
+	////////////////////////////////////////////////////
 }
