@@ -196,33 +196,27 @@ void handle_m_soft_interrupt()
 }
 
 /* syscall funcion defined at system_call.c */
-extern void handle_syscall();
+extern unsigned int handle_syscall();
 
 /*------------------------------------------------------------------------------
  * Trap/Interrupt handler
  */
 uintptr_t handle_trap(uintptr_t mcause, uintptr_t epc)
 {
-    prints("Entrei em handle_trap\n");
-    printsvsv("mcause ", mcause, "epc ", epc);
     if (mcause == ENV_CALL_M || mcause == ENV_CALL_H || mcause == ENV_CALL_S || mcause == ENV_CALL_U){
         handle_syscall();
-        //epc = epc + 4;
+        epc = (uintptr_t) (epc + 4);
     }
-    else if ((mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE)  == IRQ_M_EXT))
-    {
+    else if ((mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE)  == IRQ_M_EXT)){
         handle_m_ext_interrupt();
     }
-    else if ((mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE)  == IRQ_M_TIMER))
-    {
+    else if ((mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE)  == IRQ_M_TIMER)){
         handle_m_timer_interrupt();
     }
-    else if ((mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE)  == IRQ_M_SOFT))
-    {
+    else if ((mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE)  == IRQ_M_SOFT)){
         handle_m_soft_interrupt();
     }
-    else
-    {
+    else{
         write(1, "trap\n", 5);
         _exit(1 + mcause);
     }

@@ -5,46 +5,50 @@
 
 /* Receives a message */
 int sys_Receive(unsigned int addr, unsigned int from){
-	long test;
 	prints("1 testando receive!\n");
     printsv("SYS_RECV_MSG ", SYS_RECV_MSG);
     printsv("addr ", addr);
     printsv("from ", from);
-	test = syscall_errno(SYS_RECV_MSG, addr, from, 0, 0, 0, 0);
+	__internal_syscall(SYS_RECV_MSG, addr, from, 0, 0, 0, 0);
 	prints("2 testando receive!\n");
-	return test;
+	return 1;
 }
 
 /* Sends a message */
 int sys_Send(unsigned int addr, unsigned int to){
-	return syscall_errno(SYS_SEND_MSG, addr, to, 0, 0, 0, 0);
+	__internal_syscall(SYS_SEND_MSG, addr, to, 0, 0, 0, 0);
+	return 1;
 }
 
 /* Finishes a task */
 int sys_Exit(){
-	return syscall_errno(SYS_END_TASK, 0, 0, 0, 0, 0, 0);
+	__internal_syscall(SYS_END_TASK, 0, 0, 0, 0, 0, 0);
+	return 1;
 }
 
 /* Prints one value using the printer peripheral */
 int sys_Printi(unsigned int value){
-	return syscall_errno(SYS_PRINTI, value, 0, 0, 0, 0, 0);
+	__internal_syscall(SYS_PRINTI, value, 0, 0, 0, 0, 0);
+	return 1;	
 }
 
 /* Prints a string using the printer peripheral */
 int sys_Prints(unsigned int addr){
-	return syscall_errno(SYS_PRINTS, addr, 0, 0, 0, 0, 0);
+	__internal_syscall(SYS_PRINTS, addr, 0, 0, 0, 0, 0);
+	return 1;
 }
 
 int sys_Testing(unsigned int arg0, unsigned int arg1, unsigned int arg2, unsigned int arg3, unsigned int arg4, unsigned int arg5){
-    return syscall_errno(SYS_TESTING, arg0, arg1, arg2, arg3, arg4, arg5);
+	__internal_syscall(SYS_TESTING, arg0, arg1, arg2, arg3, arg4, arg5);
+	return 1;
 }
 
 /* Syscall Handler */
-void handle_syscall(){
+unsigned int handle_syscall(){
 	unsigned int arg0, arg1, arg2, arg3, arg4, arg5, type;
 	unsigned int *pointer;
-	register long temp asm("t4") = 0;
-	asm("addi	t4, sp, 0");
+	register long temp asm("s2") = 0;
+	asm("addi	s2, sp, 0");
 	
 	pointer = (unsigned int *)(temp + (29*4));
 	arg0 =  *pointer;
@@ -70,7 +74,7 @@ void handle_syscall(){
 	switch (type){
 
 		case SYS_TESTING:
-			prints("Detectei uma chamada teste de sistema!\n");
+			prints("Detectei uma chamada TESTE de sistema!\n");
 			printsv("arg0 ", arg0);
 			printsv("arg1 ", arg1);
 			printsv("arg2 ", arg2);
@@ -89,7 +93,7 @@ void handle_syscall(){
 			printsv("type ", type);
 			break;
 	}
-	return;
+	return 87;
 	////////////////////////////////////////////////////
 	// Utilize para encontrar os argumentos na pilha!!!
 	// int i;

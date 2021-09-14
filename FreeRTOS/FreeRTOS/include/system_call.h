@@ -31,12 +31,8 @@
 #define SYS_PRINTS          ( 50 )
 #define SYS_TESTING         ( 66 )
 
-static inline long __syscall_error(long a0) {
-	errno = -a0;
-	return -1;
-}
 
-static inline long __internal_syscall(long n, long _a0, long _a1, long _a2, long _a3, long _a4, long _a5) {
+static inline void __internal_syscall(long n, long _a0, long _a1, long _a2, long _a3, long _a4, long _a5) {
 	register long a0 asm("a0") = _a0;
 	register long a1 asm("a1") = _a1;
 	register long a2 asm("a2") = _a2;
@@ -44,20 +40,8 @@ static inline long __internal_syscall(long n, long _a0, long _a1, long _a2, long
 	register long a4 asm("a4") = _a4;
 	register long a5 asm("a5") = _a5;
 	register long syscall_id asm("a7") = n;
-
-	asm volatile ("ecall"
-			: "+r"(a0) : "r"(a1), "r"(a2), "r"(a3), "r"(a4), "r"(a5), "r"(syscall_id));
-
-	return a0;
-}
-
-static inline long syscall_errno(long n, long _a0, long _a1, long _a2, long _a3, long _a4, long _a5) {
-	long a0 = __internal_syscall(n, _a0, _a1, _a2, _a3, _a4, _a5);
-
-	if (a0 < 0)
-		return __syscall_error (a0);
-	else
-		return a0;
+	asm ("ecall");
+	return;
 }
 
 /* Testing syscall*/
