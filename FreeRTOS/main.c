@@ -21,6 +21,7 @@ UART_instance_t g_uart;
 
 static void vUartTestTask1( void *pvParameters );
 static void vUartTestTask2( void *pvParameters );
+static void GlobalManagerTask( void *pvParameters );
 
 /*
  * FreeRTOS hook for when malloc fails, enable in FreeRTOSConfig.
@@ -74,14 +75,18 @@ int main( void )
 	
 	if (ProcessorAddr == 0x0000){
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This processor is the Global Master: \n" );
+		/* Create the GlobalManager task */
+		xTaskCreate( GlobalManagerTask, "GlobalMaster", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
 	} else {
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This processor is a Slave: \n" );
+		
+		/* Create the two test tasks. */
+		xTaskCreate( vUartTestTask1, "UArt1", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
+		//API_CreateTask();
+		xTaskCreate( vUartTestTask2, "UArt2", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
 	}
 
-	/* Create the two test tasks. */
-	xTaskCreate( vUartTestTask1, "UArt1", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
-	//API_CreateTask();
-	xTaskCreate( vUartTestTask2, "UArt2", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
+	
 
 	/* Start the kernel.  From here on, only tasks and interrupts will run. */
 	vTaskStartScheduler();
@@ -139,8 +144,6 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 static void vUartTestTask1( void *pvParameters )
 {
 	( void ) pvParameters;
-	Message msg1;
-	sys_Testing(101, 202, 303, 404, 505, 606);
 	for( ;; )
 	{
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 1\r\n" );
@@ -154,11 +157,21 @@ static void vUartTestTask1( void *pvParameters )
 static void vUartTestTask2( void *pvParameters )
 {
 	( void ) pvParameters;
-	//Message msg2;
-	//sys_Receive(&msg2, 2);
 	for( ;; )
 	{
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 2\r\n" );
 	    vTaskDelay(5);
+	}
+}
+
+/*-----------------------------------------------------------*/
+
+static void GlobalManagerTask( void *pvParameters ){
+	( void ) pvParameters;
+	int i;
+	for(i=0;;i++){
+		vTaskDelay(5);
+		printsv("GlobalMasterActive", i);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)"GlobalMasterActive\r\n" );
 	}
 }

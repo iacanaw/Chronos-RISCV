@@ -22,7 +22,7 @@ int main()
     volatile int p;
 
     //SYSCALL_PRINTF(0,0,0,start_print);
-    sys_Testing(1,2,3,4,5,6);
+    sys_Testing(1,(unsigned int)&start_print,3,4,5,6);
 
     for (i=0; i<PRODCONS_ITERATIONS; i++) {
         // SYSCALL_PRINTF(0,0,0,"CONS");

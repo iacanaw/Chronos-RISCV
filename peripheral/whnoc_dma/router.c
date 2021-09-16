@@ -334,7 +334,7 @@ unsigned int bufferPop(unsigned int port){
 
         //Log info about the end of transmittion of a packet
         if (routingTable[port] == LOCAL){
-            value = ntohl(currentTime); // Register the out-iteration in the last flit
+            //value = ntohl(currentTime); // Register the out-iteration in the last flit COMENTADO
             localDeliveredPckts++;
             // bhmMessage("I", "Router", "Packet delivered at %d-(%d,%d) - total delivered: %d\n",myID, positionX(myAddress), positionY(myAddress), localDeliveredPckts);
         }
@@ -378,11 +378,10 @@ unsigned int bufferPop(unsigned int port){
         if(positionY(myAddress)>positionY(localBuffer_packetDest)) difY = positionY(myAddress) - positionY(localBuffer_packetDest);
         else difY = positionY(localBuffer_packetDest) - positionY(myAddress);
         // Adds both difs to determine the amount of hops
-        value = ntohl(difX + difY);
+        //value = ntohl(difX + difY); COMENTADO
     }
-    else if(port == LOCAL && flitCountOut[port] == IN_TIME){
-        value = ntohl(enteringTime);
-    }
+    //else if(port == LOCAL && flitCountOut[port] == IN_TIME){COMENTADO
+        //value = ntohl(enteringTime);COMENTADO    }
 
     // Update the buffer status
     //bhmMessage("INFO", "POP", "Foi pop!\n");

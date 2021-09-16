@@ -1,7 +1,2 @@
-Detectei uma chamada TESTE de sistema!
-arg0 101 
-arg1 202 
-arg2 303 
-arg3 404 
-arg4 606 
-type 66 
+GlobalMasterActive0 
+GlobalMasterActive1 

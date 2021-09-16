@@ -5,6 +5,6 @@
 #define PRODCONS_ITERATIONS 10
 
 #define cons 1
-#define prod 2
+#define prod 0
 
 #endif /*__PROD_CONS_H__*/

@@ -1,7 +1,7 @@
 #ifndef __MESSAGE_H__
 #define __MESSAGE_H__
 
-#define MSG_SIZE 256
+#define MSG_SIZE 128
 
 typedef struct {
     unsigned int length;

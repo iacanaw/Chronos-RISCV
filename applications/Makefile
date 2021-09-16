@@ -24,11 +24,11 @@ all: clean $(obj_files) $(elf_files) $(lst_files) lst
 
 %.elf: %.o
 	$(V) echo "Linking Application $@"
-	$(V) riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -fPIC -nostartfiles -o $@ $(patsubst %.elf,%.o,$@)
+	$(V) riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -fPIC -T "Imperas_custom.ld" -nostartfiles -o $@ $(patsubst %.elf,%.o,$@)
 
 %.o: %.c
 	$(V) echo "Compiling Application interrupt $@"
-	$(V) riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -fPIC -nostartfiles -w -c -D$(CROSS) -o $@ $(patsubst %.o,%.c,$@)
+	$(V) riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -fPIC -T "Imperas_custom.ld" -nostartfiles -w -c -D$(CROSS) -o $@ $(patsubst %.o,%.c,$@)
 
 lst:
 	$(V) echo "List Tasks in $(BIN_NAME).tsk"
