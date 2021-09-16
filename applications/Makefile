@@ -5,30 +5,30 @@ ifndef IMPERAS_HOME
 	IMPERAS_ERROR := $(error "IMPERAS_HOME not defined")
 endif
 
-CROSS=ARM_CORTEX_$(PROCESSOR)
-SRC?= $(wildcard *.c)
-outputs := $(patsubst %.c,%.o,$(wildcard *.c))
-elf_files:= $(patsubst %.c,%.elf,$(wildcard *.c))
-lst_files:= $(patsubst %.c,%.lst,$(wildcard *.c))
-SRCINC?=
+CROSS=RISCV32IM
+#SRC?= $(wildcard *.c)
+obj_files := $(patsubst %.c,%.o,$(wildcard *.c))
+elf_files := $(patsubst %.c,%.elf,$(wildcard *.c))
+lst_files := $(patsubst %.c,%.lst,$(wildcard *.c))
+#SRCINC?=
 
 $(CROSS)_LINKER_SCRIPT=-T ../Imperas_custom.ld
 
--include $(IMPERAS_HOME)/lib/$(IMPERAS_ARCH)/CrossCompiler/$(CROSS).makefile.include
+#-include $(IMPERAS_HOME)/lib/$(IMPERAS_ARCH)/CrossCompiler/$(CROSS).makefile.include
 
-all: clean $(outputs) $(elf_files) $(lst_files) lst
+all: clean $(obj_files) $(elf_files) $(lst_files) lst
 
 %.lst: %.elf
 	$(V) echo "Objdump Application $@"
-	$(V) $(IMPERAS_OBJDUMP) --insn-width=4 -j .rodata -j .text -j .data -j .bss -dz $(patsubst %.lst,%.elf,$@) > $@
+	$(V) riscv-none-embed-objdump --insn-width=4 -j .rodata -j .text -j .data -j .bss -dz $(patsubst %.lst,%.elf,$@) > $@
 
 %.elf: %.o
 	$(V) echo "Linking Application $@"
-	$(V) $(IMPERAS_LINK) -nostartfiles -g -o $@ $(patsubst %.elf,%.o,$@)
+	$(V) riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -fPIC -nostartfiles -o $@ $(patsubst %.elf,%.o,$@)
 
 %.o: %.c
 	$(V) echo "Compiling Application interrupt $@"
-	$(V) $(IMPERAS_CC) -nostartfiles -w -c $(IMPERAS_CFLAGS) -D$(CROSS) -o $@ $(patsubst %.o,%.c,$@)
+	$(V) riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -fPIC -nostartfiles -w -c -D$(CROSS) -o $@ $(patsubst %.o,%.c,$@)
 
 lst:
 	$(V) echo "List Tasks in $(BIN_NAME).tsk"

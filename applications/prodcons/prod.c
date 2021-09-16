@@ -22,7 +22,8 @@ int main()
 
     volatile int t;
 
-    SYSCALL_PRINTF(0,0,0,start_print);
+    //SYSCALL_PRINTF(0,0,0,start_print);
+    sys_Testing(1,2,3,4,5,6);
 
     for (i=0;i<128;i++) {
         msg.msg[i]=i;
@@ -32,14 +33,15 @@ int main()
 
     msg.msg[9] = 0xB0A;
 
-    for (i=0; i<SYNTHETIC_ITERATIONS; i++) {
+    for (i=0; i<PRODCONS_ITERATIONS; i++) {
         /* SYSCALL_PRINTF(1,0,0,i+10000); */
-        SYSCALL_SEND(cons,0,0,&msg);
+        //SYSCALL_SEND(cons,0,0,&msg);
+        sys_Testing(1,2,3,4,5,6);
     }
 
-    SYSCALL_PRINTF(0,0,0,end_print);
+    //SYSCALL_PRINTF(0,0,0,end_print);
 
-    SYSCALL_DELETE(0,0,0,0);
+    //SYSCALL_DELETE(0,0,0,0);
 
 }
 

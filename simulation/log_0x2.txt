@@ -1,4 +1,4 @@
-Detectei uma chamada teste de sistema!
+Detectei uma chamada TESTE de sistema!
 arg0 101 
 arg1 202 
 arg2 303 

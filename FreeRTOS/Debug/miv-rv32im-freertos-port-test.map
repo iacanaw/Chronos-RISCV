@@ -116,11 +116,23 @@ Discarded input sections
  .group         0x0000000000000000        0xc ./riscv_hal/riscv_hal.o
  .group         0x0000000000000000        0xc ./riscv_hal/riscv_hal.o
  .group         0x0000000000000000        0xc ./riscv_hal/riscv_hal.o
- .group         0x0000000000000000        0xc ./riscv_hal/riscv_hal.o
- .group         0x0000000000000000        0xc ./riscv_hal/riscv_hal.o
  .text          0x0000000000000000        0x0 ./riscv_hal/riscv_hal.o
  .data          0x0000000000000000        0x0 ./riscv_hal/riscv_hal.o
  .bss           0x0000000000000000        0x0 ./riscv_hal/riscv_hal.o
+ .text.__internal_syscall
+                0x0000000000000000       0x58 ./riscv_hal/riscv_hal.o
+ .text.sys_Receive
+                0x0000000000000000       0x54 ./riscv_hal/riscv_hal.o
+ .text.sys_Send
+                0x0000000000000000       0x54 ./riscv_hal/riscv_hal.o
+ .text.sys_Exit
+                0x0000000000000000       0x4c ./riscv_hal/riscv_hal.o
+ .text.sys_Printi
+                0x0000000000000000       0x50 ./riscv_hal/riscv_hal.o
+ .text.sys_Prints
+                0x0000000000000000       0x50 ./riscv_hal/riscv_hal.o
+ .text.sys_Testing
+                0x0000000000000000       0x68 ./riscv_hal/riscv_hal.o
  .text.__disable_irq
                 0x0000000000000000       0x30 ./riscv_hal/riscv_hal.o
  .text.SysTick_Config
@@ -329,8 +341,6 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x1c ./riscv_hal/syscall.o
  .debug_macro   0x0000000000000000       0x3d ./riscv_hal/syscall.o
  .debug_macro   0x0000000000000000      0x51a ./riscv_hal/syscall.o
- .debug_macro   0x0000000000000000       0x10 ./riscv_hal/syscall.o
- .debug_macro   0x0000000000000000      0x241 ./riscv_hal/syscall.o
  .debug_macro   0x0000000000000000       0x16 ./riscv_hal/syscall.o
  .debug_macro   0x0000000000000000      0x2f8 ./riscv_hal/syscall.o
  .group         0x0000000000000000        0xc ./hal/hal_irq.o
@@ -1844,96 +1854,18 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x16 ./FreeRTOS/applications.o
  .debug_macro   0x0000000000000000       0x58 ./FreeRTOS/applications.o
  .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./FreeRTOS/system_call.o
  .text          0x0000000000000000        0x0 ./FreeRTOS/system_call.o
  .data          0x0000000000000000        0x0 ./FreeRTOS/system_call.o
  .bss           0x0000000000000000        0x0 ./FreeRTOS/system_call.o
- .text.sys_Receive
-                0x0000000000000000       0xb8 ./FreeRTOS/system_call.o
- .text.sys_Send
-                0x0000000000000000       0x54 ./FreeRTOS/system_call.o
- .text.sys_Exit
-                0x0000000000000000       0x4c ./FreeRTOS/system_call.o
- .text.sys_Printi
-                0x0000000000000000       0x50 ./FreeRTOS/system_call.o
- .text.sys_Prints
-                0x0000000000000000       0x50 ./FreeRTOS/system_call.o
+ .debug_info    0x0000000000000000       0x21 ./FreeRTOS/system_call.o
+ .debug_abbrev  0x0000000000000000       0x13 ./FreeRTOS/system_call.o
+ .debug_aranges
+                0x0000000000000000       0x18 ./FreeRTOS/system_call.o
+ .debug_macro   0x0000000000000000       0x11 ./FreeRTOS/system_call.o
  .debug_macro   0x0000000000000000      0x748 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x22 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x8e ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x51 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0xef ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x6a ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000      0x1df ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000      0x2f8 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x28 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000      0x174 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x58 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x19 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x34 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x34 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x58 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x1f ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x43 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x20 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000      0x18e ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000      0x330 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x10 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x35 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0xfa ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000      0x15d ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0xa6 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x10 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x1f ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000      0x3ca ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0xc0 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x9a ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x58 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x10 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x16 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x16 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x58 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x10 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000      0x241 ./FreeRTOS/system_call.o
- .debug_macro   0x0000000000000000       0x28 ./FreeRTOS/system_call.o
- .group         0x0000000000000000        0xc ./main.o
- .group         0x0000000000000000        0xc ./main.o
+ .debug_line    0x0000000000000000       0x3a ./FreeRTOS/system_call.o
+ .debug_str     0x0000000000000000     0x249f ./FreeRTOS/system_call.o
+ .comment       0x0000000000000000       0x3a ./FreeRTOS/system_call.o
  .group         0x0000000000000000        0xc ./main.o
  .group         0x0000000000000000        0xc ./main.o
  .group         0x0000000000000000        0xc ./main.o
@@ -1990,6 +1922,16 @@ Discarded input sections
  .text          0x0000000000000000        0x0 ./main.o
  .data          0x0000000000000000        0x0 ./main.o
  .bss           0x0000000000000000        0x0 ./main.o
+ .text.sys_Receive
+                0x0000000000000000       0x54 ./main.o
+ .text.sys_Send
+                0x0000000000000000       0x54 ./main.o
+ .text.sys_Exit
+                0x0000000000000000       0x4c ./main.o
+ .text.sys_Printi
+                0x0000000000000000       0x50 ./main.o
+ .text.sys_Prints
+                0x0000000000000000       0x50 ./main.o
  .sdata.g_hello_msg
                 0x0000000000000000        0x4 ./main.o
  .text.vApplicationStackOverflowHook
@@ -2046,9 +1988,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x16 ./main.o
  .debug_macro   0x0000000000000000       0x16 ./main.o
  .debug_macro   0x0000000000000000       0x58 ./main.o
- .debug_macro   0x0000000000000000       0x10 ./main.o
- .debug_macro   0x0000000000000000      0x241 ./main.o
- .debug_macro   0x0000000000000000       0x28 ./main.o
+ .debug_macro   0x0000000000000000       0x2e ./main.o
  .text          0x0000000000000000        0x0 /soft64/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-sysisatty.o)
  .data          0x0000000000000000        0x0 /soft64/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-sysisatty.o)
  .bss           0x0000000000000000        0x0 /soft64/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-sysisatty.o)
@@ -2114,7 +2054,7 @@ END GROUP
                 0x0000000000010000                STACK_SIZE = 0x10000
                 0x0000000000010000                HEAP_SIZE = 0x10000
 
-.text           0x0000000080000000     0x37d0
+.text           0x0000000080000000     0x3780
  *(SORT_NONE(.text.entry))
  .text.entry    0x0000000080000000      0x15c ./riscv_hal/entry.o
                 0x0000000080000000                _start
@@ -2145,270 +2085,269 @@ END GROUP
  .text.handle_m_soft_interrupt
                 0x00000000800004bc       0x30 ./riscv_hal/riscv_hal.o
                 0x00000000800004bc                handle_m_soft_interrupt
- .text.handle_trap
-                0x00000000800004ec      0x110 ./riscv_hal/riscv_hal.o
-                0x00000000800004ec                handle_trap
- .text.Invalid_IRQHandler
-                0x00000000800005fc       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x00000000800005fc                Invalid_IRQHandler
- .text.External_3_IRQHandler
-                0x000000008000061c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000061c                External_3_IRQHandler
- .text.External_4_IRQHandler
-                0x000000008000063c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000063c                External_4_IRQHandler
- .text.External_5_IRQHandler
-                0x000000008000065c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000065c                External_5_IRQHandler
- .text.External_6_IRQHandler
-                0x000000008000067c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000067c                External_6_IRQHandler
- .text.External_7_IRQHandler
-                0x000000008000069c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000069c                External_7_IRQHandler
- .text.External_8_IRQHandler
-                0x00000000800006bc       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x00000000800006bc                External_8_IRQHandler
- .text.External_9_IRQHandler
-                0x00000000800006dc       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x00000000800006dc                External_9_IRQHandler
- .text.External_10_IRQHandler
-                0x00000000800006fc       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x00000000800006fc                External_10_IRQHandler
- .text.External_11_IRQHandler
-                0x000000008000071c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000071c                External_11_IRQHandler
- .text.External_12_IRQHandler
-                0x000000008000073c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000073c                External_12_IRQHandler
- .text.External_13_IRQHandler
-                0x000000008000075c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000075c                External_13_IRQHandler
- .text.External_14_IRQHandler
-                0x000000008000077c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000077c                External_14_IRQHandler
- .text.External_15_IRQHandler
-                0x000000008000079c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000079c                External_15_IRQHandler
- .text.External_16_IRQHandler
-                0x00000000800007bc       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x00000000800007bc                External_16_IRQHandler
- .text.External_17_IRQHandler
-                0x00000000800007dc       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x00000000800007dc                External_17_IRQHandler
- .text.External_18_IRQHandler
-                0x00000000800007fc       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x00000000800007fc                External_18_IRQHandler
- .text.External_19_IRQHandler
-                0x000000008000081c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000081c                External_19_IRQHandler
- .text.External_20_IRQHandler
-                0x000000008000083c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000083c                External_20_IRQHandler
- .text.External_21_IRQHandler
-                0x000000008000085c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000085c                External_21_IRQHandler
- .text.External_22_IRQHandler
-                0x000000008000087c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000087c                External_22_IRQHandler
- .text.External_23_IRQHandler
-                0x000000008000089c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000089c                External_23_IRQHandler
- .text.External_24_IRQHandler
-                0x00000000800008bc       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x00000000800008bc                External_24_IRQHandler
- .text.External_25_IRQHandler
-                0x00000000800008dc       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x00000000800008dc                External_25_IRQHandler
- .text.External_26_IRQHandler
-                0x00000000800008fc       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x00000000800008fc                External_26_IRQHandler
- .text.External_27_IRQHandler
-                0x000000008000091c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000091c                External_27_IRQHandler
- .text.External_28_IRQHandler
-                0x000000008000093c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000093c                External_28_IRQHandler
- .text.External_29_IRQHandler
-                0x000000008000095c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000095c                External_29_IRQHandler
- .text.External_30_IRQHandler
-                0x000000008000097c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000097c                External_30_IRQHandler
- .text.External_31_IRQHandler
-                0x000000008000099c       0x20 ./riscv_hal/riscv_hal_stubs.o
-                0x000000008000099c                External_31_IRQHandler
- .text.write_hex
-                0x00000000800009bc       0xe8 ./riscv_hal/syscall.o
-                0x00000000800009bc                write_hex
- .text._exit    0x0000000080000aa4       0x50 ./riscv_hal/syscall.o
-                0x0000000080000aa4                _exit
- .text._isatty  0x0000000080000af4       0x50 ./riscv_hal/syscall.o
-                0x0000000080000af4                _isatty
- .text.stub     0x0000000080000b44       0x30 ./riscv_hal/syscall.o
- .text._write   0x0000000080000b74       0xe8 ./riscv_hal/syscall.o
-                0x0000000080000b74                _write
- .text          0x0000000080000c5c       0xd8 ./hal/hw_reg_access.o
-                0x0000000080000c5c                HW_set_32bit_reg
-                0x0000000080000c64                HW_get_32bit_reg
-                0x0000000080000c6c                HW_set_32bit_reg_field
-                0x0000000080000c94                HW_get_32bit_reg_field
-                0x0000000080000ca4                HW_set_16bit_reg
-                0x0000000080000cac                HW_get_16bit_reg
-                0x0000000080000cb4                HW_set_16bit_reg_field
-                0x0000000080000cdc                HW_get_16bit_reg_field
-                0x0000000080000cec                HW_set_8bit_reg
-                0x0000000080000cf4                HW_get_8bit_reg
-                0x0000000080000cfc                HW_set_8bit_reg_field
-                0x0000000080000d24                HW_get_8bit_reg_field
- .text.UART_init
-                0x0000000080000d34      0x118 ./drivers/CoreUARTapb/core_uart_apb.o
-                0x0000000080000d34                UART_init
- .text.UART_send
-                0x0000000080000e4c       0xb4 ./drivers/CoreUARTapb/core_uart_apb.o
-                0x0000000080000e4c                UART_send
- .text.UART_polled_tx_string
-                0x0000000080000f00       0xb0 ./drivers/CoreUARTapb/core_uart_apb.o
-                0x0000000080000f00                UART_polled_tx_string
- .text.pvPortMalloc
-                0x0000000080000fb0      0x1dc ./FreeRTOS/portable/MemMang/heap_2.o
-                0x0000000080000fb0                pvPortMalloc
- .text.vPortFree
-                0x000000008000118c       0xcc ./FreeRTOS/portable/MemMang/heap_2.o
-                0x000000008000118c                vPortFree
- .text.prvHeapInit
-                0x0000000080001258       0x74 ./FreeRTOS/portable/MemMang/heap_2.o
- .text.raise_soft_interrupt
-                0x00000000800012cc       0x4c ./FreeRTOS/portable/GCC/RISCV/port.o
- .text.vPortEnterCritical
-                0x0000000080001318       0x34 ./FreeRTOS/portable/GCC/RISCV/port.o
-                0x0000000080001318                vPortEnterCritical
- .text.vPortExitCritical
-                0x000000008000134c       0x40 ./FreeRTOS/portable/GCC/RISCV/port.o
-                0x000000008000134c                vPortExitCritical
- .text.prvSetNextTimerInterrupt
-                0x000000008000138c       0xcc ./FreeRTOS/portable/GCC/RISCV/port.o
- .text.vPortSetupTimer
-                0x0000000080001458       0xcc ./FreeRTOS/portable/GCC/RISCV/port.o
-                0x0000000080001458                vPortSetupTimer
- .text.prvTaskExitError
-                0x0000000080001524       0x2c ./FreeRTOS/portable/GCC/RISCV/port.o
- .text.pxPortInitialiseStack
-                0x0000000080001550       0x94 ./FreeRTOS/portable/GCC/RISCV/port.o
-                0x0000000080001550                pxPortInitialiseStack
- .text.SysTick_Handler
-                0x00000000800015e4       0xcc ./FreeRTOS/portable/GCC/RISCV/port.o
-                0x00000000800015e4                SysTick_Handler
- .text.xPortStartScheduler
-                0x00000000800016b0       0x44 ./FreeRTOS/portable/GCC/RISCV/port.o
-                0x00000000800016b0                xPortStartScheduler
- .text.Software_IRQHandler
-                0x00000000800016f4       0xdc ./FreeRTOS/portable/GCC/RISCV/port.o
-                0x00000000800016f4                Software_IRQHandler
- .text.vPortYield
-                0x00000000800017d0       0x28 ./FreeRTOS/portable/GCC/RISCV/port.o
-                0x00000000800017d0                vPortYield
- .text.vListInitialise
-                0x00000000800017f8       0x64 ./FreeRTOS/list.o
-                0x00000000800017f8                vListInitialise
- .text.vListInitialiseItem
-                0x000000008000185c       0x28 ./FreeRTOS/list.o
-                0x000000008000185c                vListInitialiseItem
- .text.vListInsertEnd
-                0x0000000080001884       0x88 ./FreeRTOS/list.o
-                0x0000000080001884                vListInsertEnd
- .text.vListInsert
-                0x000000008000190c       0xd4 ./FreeRTOS/list.o
-                0x000000008000190c                vListInsert
- .text.uxListRemove
-                0x00000000800019e0       0x98 ./FreeRTOS/list.o
-                0x00000000800019e0                uxListRemove
- .text.memset   0x0000000080001a78       0xe8 ./FreeRTOS/string.o
-                0x0000000080001a78                memset
- .text.strlen   0x0000000080001b60       0x50 ./FreeRTOS/string.o
-                0x0000000080001b60                strlen
- .text.xTaskGenericCreate
-                0x0000000080001bb0      0x21c ./FreeRTOS/tasks.o
-                0x0000000080001bb0                xTaskGenericCreate
- .text.vTaskDelay
-                0x0000000080001dcc       0x84 ./FreeRTOS/tasks.o
-                0x0000000080001dcc                vTaskDelay
- .text.vTaskStartScheduler
-                0x0000000080001e50       0x90 ./FreeRTOS/tasks.o
-                0x0000000080001e50                vTaskStartScheduler
- .text.vTaskSuspendAll
-                0x0000000080001ee0       0x28 ./FreeRTOS/tasks.o
-                0x0000000080001ee0                vTaskSuspendAll
- .text.xTaskResumeAll
-                0x0000000080001f08      0x160 ./FreeRTOS/tasks.o
-                0x0000000080001f08                xTaskResumeAll
- .text.xTaskIncrementTick
-                0x0000000080002068      0x1ec ./FreeRTOS/tasks.o
-                0x0000000080002068                xTaskIncrementTick
- .text.vTaskSwitchContext
-                0x0000000080002254       0xec ./FreeRTOS/tasks.o
-                0x0000000080002254                vTaskSwitchContext
- .text.prvIdleTask
-                0x0000000080002340       0x34 ./FreeRTOS/tasks.o
- .text.prvInitialiseTCBVariables
-                0x0000000080002374      0x138 ./FreeRTOS/tasks.o
- .text.prvInitialiseTaskLists
-                0x00000000800024ac       0xc0 ./FreeRTOS/tasks.o
- .text.prvCheckTasksWaitingTermination
-                0x000000008000256c       0xa0 ./FreeRTOS/tasks.o
- .text.prvAddCurrentTaskToDelayedList
-                0x000000008000260c       0x88 ./FreeRTOS/tasks.o
- .text.prvAllocateTCBAndStack
-                0x0000000080002694       0xc0 ./FreeRTOS/tasks.o
- .text.prvDeleteTCB
-                0x0000000080002754       0x40 ./FreeRTOS/tasks.o
- .text.prvResetNextTaskUnblockTime
-                0x0000000080002794       0x60 ./FreeRTOS/tasks.o
- .text.PLIC_EnableIRQ
-                0x00000000800027f4       0xb4 ./FreeRTOS/chronos.o
- .text.PLIC_SetPriority
-                0x00000000800028a8       0x3c ./FreeRTOS/chronos.o
- .text.Chronos_init
-                0x00000000800028e4       0xc8 ./FreeRTOS/chronos.o
-                0x00000000800028e4                Chronos_init
- .text.prints   0x00000000800029ac       0x70 ./FreeRTOS/chronos.o
-                0x00000000800029ac                prints
- .text.printi   0x0000000080002a1c       0x3c ./FreeRTOS/chronos.o
-                0x0000000080002a1c                printi
- .text.printsv  0x0000000080002a58       0x48 ./FreeRTOS/chronos.o
-                0x0000000080002a58                printsv
- .text.getXpos  0x0000000080002aa0       0x2c ./FreeRTOS/chronos.o
-                0x0000000080002aa0                getXpos
- .text.getYpos  0x0000000080002acc       0x28 ./FreeRTOS/chronos.o
-                0x0000000080002acc                getYpos
- .text.NI_enable_irq
-                0x0000000080002af4       0x94 ./FreeRTOS/chronos.o
-                0x0000000080002af4                NI_enable_irq
- .text.External_1_IRQHandler
-                0x0000000080002b88       0x48 ./FreeRTOS/chronos.o
-                0x0000000080002b88                External_1_IRQHandler
- .text.External_2_IRQHandler
-                0x0000000080002bd0       0x48 ./FreeRTOS/chronos.o
-                0x0000000080002bd0                External_2_IRQHandler
- .text.mySwap   0x0000000080002c18       0x4c ./FreeRTOS/chronos.o
-                0x0000000080002c18                mySwap
- .text.reverse  0x0000000080002c64       0x80 ./FreeRTOS/chronos.o
-                0x0000000080002c64                reverse
- .text.myItoa   0x0000000080002ce4      0x1a0 ./FreeRTOS/chronos.o
-                0x0000000080002ce4                myItoa
- .text.API_TaskListInit
-                0x0000000080002e84       0xf0 ./FreeRTOS/applications.o
-                0x0000000080002e84                API_TaskListInit
- .text.__internal_syscall
-                0x0000000080002f74       0x58 ./FreeRTOS/system_call.o
- .text.sys_Testing
-                0x0000000080002fcc       0x64 ./FreeRTOS/system_call.o
-                0x0000000080002fcc                sys_Testing
  .text.handle_syscall
-                0x0000000080003030      0x1fc ./FreeRTOS/system_call.o
-                0x0000000080003030                handle_syscall
+                0x00000000800004ec      0x1fc ./riscv_hal/riscv_hal.o
+                0x00000000800004ec                handle_syscall
+ .text.handle_trap
+                0x00000000800006e8      0x110 ./riscv_hal/riscv_hal.o
+                0x00000000800006e8                handle_trap
+ .text.Invalid_IRQHandler
+                0x00000000800007f8       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x00000000800007f8                Invalid_IRQHandler
+ .text.External_3_IRQHandler
+                0x0000000080000818       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000818                External_3_IRQHandler
+ .text.External_4_IRQHandler
+                0x0000000080000838       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000838                External_4_IRQHandler
+ .text.External_5_IRQHandler
+                0x0000000080000858       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000858                External_5_IRQHandler
+ .text.External_6_IRQHandler
+                0x0000000080000878       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000878                External_6_IRQHandler
+ .text.External_7_IRQHandler
+                0x0000000080000898       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000898                External_7_IRQHandler
+ .text.External_8_IRQHandler
+                0x00000000800008b8       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x00000000800008b8                External_8_IRQHandler
+ .text.External_9_IRQHandler
+                0x00000000800008d8       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x00000000800008d8                External_9_IRQHandler
+ .text.External_10_IRQHandler
+                0x00000000800008f8       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x00000000800008f8                External_10_IRQHandler
+ .text.External_11_IRQHandler
+                0x0000000080000918       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000918                External_11_IRQHandler
+ .text.External_12_IRQHandler
+                0x0000000080000938       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000938                External_12_IRQHandler
+ .text.External_13_IRQHandler
+                0x0000000080000958       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000958                External_13_IRQHandler
+ .text.External_14_IRQHandler
+                0x0000000080000978       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000978                External_14_IRQHandler
+ .text.External_15_IRQHandler
+                0x0000000080000998       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000998                External_15_IRQHandler
+ .text.External_16_IRQHandler
+                0x00000000800009b8       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x00000000800009b8                External_16_IRQHandler
+ .text.External_17_IRQHandler
+                0x00000000800009d8       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x00000000800009d8                External_17_IRQHandler
+ .text.External_18_IRQHandler
+                0x00000000800009f8       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x00000000800009f8                External_18_IRQHandler
+ .text.External_19_IRQHandler
+                0x0000000080000a18       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000a18                External_19_IRQHandler
+ .text.External_20_IRQHandler
+                0x0000000080000a38       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000a38                External_20_IRQHandler
+ .text.External_21_IRQHandler
+                0x0000000080000a58       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000a58                External_21_IRQHandler
+ .text.External_22_IRQHandler
+                0x0000000080000a78       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000a78                External_22_IRQHandler
+ .text.External_23_IRQHandler
+                0x0000000080000a98       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000a98                External_23_IRQHandler
+ .text.External_24_IRQHandler
+                0x0000000080000ab8       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000ab8                External_24_IRQHandler
+ .text.External_25_IRQHandler
+                0x0000000080000ad8       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000ad8                External_25_IRQHandler
+ .text.External_26_IRQHandler
+                0x0000000080000af8       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000af8                External_26_IRQHandler
+ .text.External_27_IRQHandler
+                0x0000000080000b18       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000b18                External_27_IRQHandler
+ .text.External_28_IRQHandler
+                0x0000000080000b38       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000b38                External_28_IRQHandler
+ .text.External_29_IRQHandler
+                0x0000000080000b58       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000b58                External_29_IRQHandler
+ .text.External_30_IRQHandler
+                0x0000000080000b78       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000b78                External_30_IRQHandler
+ .text.External_31_IRQHandler
+                0x0000000080000b98       0x20 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000080000b98                External_31_IRQHandler
+ .text.write_hex
+                0x0000000080000bb8       0xe8 ./riscv_hal/syscall.o
+                0x0000000080000bb8                write_hex
+ .text._exit    0x0000000080000ca0       0x50 ./riscv_hal/syscall.o
+                0x0000000080000ca0                _exit
+ .text._isatty  0x0000000080000cf0       0x50 ./riscv_hal/syscall.o
+                0x0000000080000cf0                _isatty
+ .text.stub     0x0000000080000d40       0x30 ./riscv_hal/syscall.o
+ .text._write   0x0000000080000d70       0xe8 ./riscv_hal/syscall.o
+                0x0000000080000d70                _write
+ .text          0x0000000080000e58       0xd8 ./hal/hw_reg_access.o
+                0x0000000080000e58                HW_set_32bit_reg
+                0x0000000080000e60                HW_get_32bit_reg
+                0x0000000080000e68                HW_set_32bit_reg_field
+                0x0000000080000e90                HW_get_32bit_reg_field
+                0x0000000080000ea0                HW_set_16bit_reg
+                0x0000000080000ea8                HW_get_16bit_reg
+                0x0000000080000eb0                HW_set_16bit_reg_field
+                0x0000000080000ed8                HW_get_16bit_reg_field
+                0x0000000080000ee8                HW_set_8bit_reg
+                0x0000000080000ef0                HW_get_8bit_reg
+                0x0000000080000ef8                HW_set_8bit_reg_field
+                0x0000000080000f20                HW_get_8bit_reg_field
+ .text.UART_init
+                0x0000000080000f30      0x118 ./drivers/CoreUARTapb/core_uart_apb.o
+                0x0000000080000f30                UART_init
+ .text.UART_send
+                0x0000000080001048       0xb4 ./drivers/CoreUARTapb/core_uart_apb.o
+                0x0000000080001048                UART_send
+ .text.UART_polled_tx_string
+                0x00000000800010fc       0xb0 ./drivers/CoreUARTapb/core_uart_apb.o
+                0x00000000800010fc                UART_polled_tx_string
+ .text.pvPortMalloc
+                0x00000000800011ac      0x1dc ./FreeRTOS/portable/MemMang/heap_2.o
+                0x00000000800011ac                pvPortMalloc
+ .text.vPortFree
+                0x0000000080001388       0xcc ./FreeRTOS/portable/MemMang/heap_2.o
+                0x0000000080001388                vPortFree
+ .text.prvHeapInit
+                0x0000000080001454       0x74 ./FreeRTOS/portable/MemMang/heap_2.o
+ .text.raise_soft_interrupt
+                0x00000000800014c8       0x4c ./FreeRTOS/portable/GCC/RISCV/port.o
+ .text.vPortEnterCritical
+                0x0000000080001514       0x34 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x0000000080001514                vPortEnterCritical
+ .text.vPortExitCritical
+                0x0000000080001548       0x40 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x0000000080001548                vPortExitCritical
+ .text.prvSetNextTimerInterrupt
+                0x0000000080001588       0xcc ./FreeRTOS/portable/GCC/RISCV/port.o
+ .text.vPortSetupTimer
+                0x0000000080001654       0xcc ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x0000000080001654                vPortSetupTimer
+ .text.prvTaskExitError
+                0x0000000080001720       0x2c ./FreeRTOS/portable/GCC/RISCV/port.o
+ .text.pxPortInitialiseStack
+                0x000000008000174c       0x94 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x000000008000174c                pxPortInitialiseStack
+ .text.SysTick_Handler
+                0x00000000800017e0       0xcc ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x00000000800017e0                SysTick_Handler
+ .text.xPortStartScheduler
+                0x00000000800018ac       0x44 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x00000000800018ac                xPortStartScheduler
+ .text.Software_IRQHandler
+                0x00000000800018f0       0xdc ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x00000000800018f0                Software_IRQHandler
+ .text.vPortYield
+                0x00000000800019cc       0x28 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x00000000800019cc                vPortYield
+ .text.vListInitialise
+                0x00000000800019f4       0x64 ./FreeRTOS/list.o
+                0x00000000800019f4                vListInitialise
+ .text.vListInitialiseItem
+                0x0000000080001a58       0x28 ./FreeRTOS/list.o
+                0x0000000080001a58                vListInitialiseItem
+ .text.vListInsertEnd
+                0x0000000080001a80       0x88 ./FreeRTOS/list.o
+                0x0000000080001a80                vListInsertEnd
+ .text.vListInsert
+                0x0000000080001b08       0xd4 ./FreeRTOS/list.o
+                0x0000000080001b08                vListInsert
+ .text.uxListRemove
+                0x0000000080001bdc       0x98 ./FreeRTOS/list.o
+                0x0000000080001bdc                uxListRemove
+ .text.memset   0x0000000080001c74       0xe8 ./FreeRTOS/string.o
+                0x0000000080001c74                memset
+ .text.strlen   0x0000000080001d5c       0x50 ./FreeRTOS/string.o
+                0x0000000080001d5c                strlen
+ .text.xTaskGenericCreate
+                0x0000000080001dac      0x21c ./FreeRTOS/tasks.o
+                0x0000000080001dac                xTaskGenericCreate
+ .text.vTaskDelay
+                0x0000000080001fc8       0x84 ./FreeRTOS/tasks.o
+                0x0000000080001fc8                vTaskDelay
+ .text.vTaskStartScheduler
+                0x000000008000204c       0x90 ./FreeRTOS/tasks.o
+                0x000000008000204c                vTaskStartScheduler
+ .text.vTaskSuspendAll
+                0x00000000800020dc       0x28 ./FreeRTOS/tasks.o
+                0x00000000800020dc                vTaskSuspendAll
+ .text.xTaskResumeAll
+                0x0000000080002104      0x160 ./FreeRTOS/tasks.o
+                0x0000000080002104                xTaskResumeAll
+ .text.xTaskIncrementTick
+                0x0000000080002264      0x1ec ./FreeRTOS/tasks.o
+                0x0000000080002264                xTaskIncrementTick
+ .text.vTaskSwitchContext
+                0x0000000080002450       0xec ./FreeRTOS/tasks.o
+                0x0000000080002450                vTaskSwitchContext
+ .text.prvIdleTask
+                0x000000008000253c       0x34 ./FreeRTOS/tasks.o
+ .text.prvInitialiseTCBVariables
+                0x0000000080002570      0x138 ./FreeRTOS/tasks.o
+ .text.prvInitialiseTaskLists
+                0x00000000800026a8       0xc0 ./FreeRTOS/tasks.o
+ .text.prvCheckTasksWaitingTermination
+                0x0000000080002768       0xa0 ./FreeRTOS/tasks.o
+ .text.prvAddCurrentTaskToDelayedList
+                0x0000000080002808       0x88 ./FreeRTOS/tasks.o
+ .text.prvAllocateTCBAndStack
+                0x0000000080002890       0xc0 ./FreeRTOS/tasks.o
+ .text.prvDeleteTCB
+                0x0000000080002950       0x40 ./FreeRTOS/tasks.o
+ .text.prvResetNextTaskUnblockTime
+                0x0000000080002990       0x60 ./FreeRTOS/tasks.o
+ .text.PLIC_EnableIRQ
+                0x00000000800029f0       0xb4 ./FreeRTOS/chronos.o
+ .text.PLIC_SetPriority
+                0x0000000080002aa4       0x3c ./FreeRTOS/chronos.o
+ .text.Chronos_init
+                0x0000000080002ae0       0xc8 ./FreeRTOS/chronos.o
+                0x0000000080002ae0                Chronos_init
+ .text.prints   0x0000000080002ba8       0x70 ./FreeRTOS/chronos.o
+                0x0000000080002ba8                prints
+ .text.printi   0x0000000080002c18       0x3c ./FreeRTOS/chronos.o
+                0x0000000080002c18                printi
+ .text.printsv  0x0000000080002c54       0x48 ./FreeRTOS/chronos.o
+                0x0000000080002c54                printsv
+ .text.getXpos  0x0000000080002c9c       0x2c ./FreeRTOS/chronos.o
+                0x0000000080002c9c                getXpos
+ .text.getYpos  0x0000000080002cc8       0x28 ./FreeRTOS/chronos.o
+                0x0000000080002cc8                getYpos
+ .text.NI_enable_irq
+                0x0000000080002cf0       0x94 ./FreeRTOS/chronos.o
+                0x0000000080002cf0                NI_enable_irq
+ .text.External_1_IRQHandler
+                0x0000000080002d84       0x48 ./FreeRTOS/chronos.o
+                0x0000000080002d84                External_1_IRQHandler
+ .text.External_2_IRQHandler
+                0x0000000080002dcc       0x48 ./FreeRTOS/chronos.o
+                0x0000000080002dcc                External_2_IRQHandler
+ .text.mySwap   0x0000000080002e14       0x4c ./FreeRTOS/chronos.o
+                0x0000000080002e14                mySwap
+ .text.reverse  0x0000000080002e60       0x80 ./FreeRTOS/chronos.o
+                0x0000000080002e60                reverse
+ .text.myItoa   0x0000000080002ee0      0x1a0 ./FreeRTOS/chronos.o
+                0x0000000080002ee0                myItoa
+ .text.API_TaskListInit
+                0x0000000080003080       0xf0 ./FreeRTOS/applications.o
+                0x0000000080003080                API_TaskListInit
  .text.PLIC_init
-                0x000000008000322c       0xd0 ./main.o
+                0x0000000080003170       0xd0 ./main.o
+ .text.__internal_syscall
+                0x0000000080003240       0x58 ./main.o
+ .text.sys_Testing
+                0x0000000080003298       0x64 ./main.o
  .text.main     0x00000000800032fc      0x14c ./main.o
                 0x00000000800032fc                main
  .text.vApplicationMallocFailedHook
@@ -2440,16 +2379,14 @@ END GROUP
  *(.rodata .rodata.* .gnu.linkonce.r.*)
  .rodata        0x0000000080003570        0x6 ./riscv_hal/init.o
  *fill*         0x0000000080003576        0x2 
- .rodata        0x0000000080003578        0x6 ./riscv_hal/riscv_hal.o
- *fill*         0x000000008000357e        0x2 
- .rodata        0x0000000080003580       0x26 ./riscv_hal/syscall.o
- *fill*         0x00000000800035a6        0x2 
- .rodata        0x00000000800035a8        0x5 ./FreeRTOS/tasks.o
- *fill*         0x00000000800035ad        0x3 
- .rodata        0x00000000800035b0       0x68 ./FreeRTOS/chronos.o
- .rodata        0x0000000080003618       0xc7 ./FreeRTOS/system_call.o
- *fill*         0x00000000800036df        0x1 
- .rodata        0x00000000800036e0       0xe3 ./main.o
+ .rodata        0x0000000080003578       0x7e ./riscv_hal/riscv_hal.o
+ *fill*         0x00000000800035f6        0x2 
+ .rodata        0x00000000800035f8       0x26 ./riscv_hal/syscall.o
+ *fill*         0x000000008000361e        0x2 
+ .rodata        0x0000000080003620        0x5 ./FreeRTOS/tasks.o
+ *fill*         0x0000000080003625        0x3 
+ .rodata        0x0000000080003628       0x68 ./FreeRTOS/chronos.o
+ .rodata        0x0000000080003690       0xe3 ./main.o
  *(.gcc_except_table)
  *(.eh_frame_hdr)
  *(.eh_frame)
@@ -2466,39 +2403,39 @@ END GROUP
  *(.fini_array)
  *(SORT_BY_NAME(.fini_array.*))
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x00000000800037d0                . = ALIGN (0x10)
- *fill*         0x00000000800037c3        0xd 
+                0x0000000080003780                . = ALIGN (0x10)
+ *fill*         0x0000000080003773        0xd 
 
-.rela.dyn       0x00000000800037d0        0x0
+.rela.dyn       0x0000000080003780        0x0
  .rela.text.entry
-                0x00000000800037d0        0x0 ./riscv_hal/entry.o
+                0x0000000080003780        0x0 ./riscv_hal/entry.o
  .rela.text._init
-                0x00000000800037d0        0x0 ./riscv_hal/entry.o
+                0x0000000080003780        0x0 ./riscv_hal/entry.o
  .rela.data.ext_irq_handler_table
-                0x00000000800037d0        0x0 ./riscv_hal/entry.o
+                0x0000000080003780        0x0 ./riscv_hal/entry.o
  .rela.text._isatty
-                0x00000000800037d0        0x0 ./riscv_hal/entry.o
+                0x0000000080003780        0x0 ./riscv_hal/entry.o
  .rela.text.stub
-                0x00000000800037d0        0x0 ./riscv_hal/entry.o
+                0x0000000080003780        0x0 ./riscv_hal/entry.o
  .rela.text.Chronos_init
-                0x00000000800037d0        0x0 ./riscv_hal/entry.o
+                0x0000000080003780        0x0 ./riscv_hal/entry.o
  .rela.text.API_TaskListInit
-                0x00000000800037d0        0x0 ./riscv_hal/entry.o
+                0x0000000080003780        0x0 ./riscv_hal/entry.o
  .rela.text.main
-                0x00000000800037d0        0x0 ./riscv_hal/entry.o
+                0x0000000080003780        0x0 ./riscv_hal/entry.o
  .rela.text.vUartTestTask1
-                0x00000000800037d0        0x0 ./riscv_hal/entry.o
+                0x0000000080003780        0x0 ./riscv_hal/entry.o
  .rela.text.vUartTestTask2
-                0x00000000800037d0        0x0 ./riscv_hal/entry.o
+                0x0000000080003780        0x0 ./riscv_hal/entry.o
  .rela.text._write_r
-                0x00000000800037d0        0x0 ./riscv_hal/entry.o
+                0x0000000080003780        0x0 ./riscv_hal/entry.o
  .rela.data.impure_data
-                0x00000000800037d0        0x0 ./riscv_hal/entry.o
+                0x0000000080003780        0x0 ./riscv_hal/entry.o
 
-.sdata          0x00000000800037d0       0x20
-                0x00000000800037d0                __sdata_load = LOADADDR (.sdata)
-                0x00000000800037d0                __sdata_start = .
-                0x0000000080003fd0                PROVIDE (__global_pointer$ = (. + 0x800))
+.sdata          0x0000000080003780       0x20
+                0x0000000080003780                __sdata_load = LOADADDR (.sdata)
+                0x0000000080003780                __sdata_start = .
+                0x0000000080003f80                PROVIDE (__global_pointer$ = (. + 0x800))
  *(.srodata.cst16)
  *(.srodata.cst8)
  *(.srodata.cst4)
@@ -2506,268 +2443,260 @@ END GROUP
  *(.srodata*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
  .sdata.xFreeBytesRemaining
-                0x00000000800037d0        0x4 ./FreeRTOS/portable/MemMang/heap_2.o
+                0x0000000080003780        0x4 ./FreeRTOS/portable/MemMang/heap_2.o
  .sdata.uxCriticalNesting
-                0x00000000800037d4        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
- .sdata.mtime   0x00000000800037d8        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x0000000080003784        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
+ .sdata.mtime   0x0000000080003788        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
  .sdata.mtimecmp
-                0x00000000800037dc        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x000000008000378c        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
  .sdata._impure_ptr
-                0x00000000800037e0        0x4 /soft64/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
-                0x00000000800037e0                _impure_ptr
-                0x00000000800037f0                . = ALIGN (0x10)
- *fill*         0x00000000800037e4        0xc 
-                0x00000000800037f0                __sdata_end = .
+                0x0000000080003790        0x4 /soft64/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
+                0x0000000080003790                _impure_ptr
+                0x00000000800037a0                . = ALIGN (0x10)
+ *fill*         0x0000000080003794        0xc 
+                0x00000000800037a0                __sdata_end = .
 
-.data           0x00000000800037f0       0xe0
-                0x00000000800037f0                __data_load = LOADADDR (.data)
-                0x00000000800037f0                __data_start = .
+.data           0x00000000800037a0       0xe0
+                0x00000000800037a0                __data_load = LOADADDR (.data)
+                0x00000000800037a0                __data_start = .
  *(.got.plt)
  *(.got)
  *(.shdata)
  *(.data .data.* .gnu.linkonce.d.*)
  .data.ext_irq_handler_table
-                0x00000000800037f0       0x80 ./riscv_hal/riscv_hal.o
-                0x00000000800037f0                ext_irq_handler_table
+                0x00000000800037a0       0x80 ./riscv_hal/riscv_hal.o
+                0x00000000800037a0                ext_irq_handler_table
  .data.impure_data
-                0x0000000080003870       0x60 /soft64/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
-                0x00000000800038d0                . = ALIGN (0x10)
-                0x00000000800038d0                __data_end = .
+                0x0000000080003820       0x60 /soft64/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
+                0x0000000080003880                . = ALIGN (0x10)
+                0x0000000080003880                __data_end = .
 
-.sbss           0x00000000800038d0       0x70
-                0x00000000800038d0                __sbss_start = .
+.sbss           0x0000000080003880       0x70
+                0x0000000080003880                __sbss_start = .
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
  .sbss.g_systick_increment
-                0x00000000800038d0        0x8 ./riscv_hal/riscv_hal.o
+                0x0000000080003880        0x8 ./riscv_hal/riscv_hal.o
  .sbss.g_stdio_uart
-                0x00000000800038d8        0x8 ./riscv_hal/syscall.o
+                0x0000000080003888        0x8 ./riscv_hal/syscall.o
  .sbss.g_stdio_uart_init_done
-                0x00000000800038e0        0x4 ./riscv_hal/syscall.o
- .sbss.xStart   0x00000000800038e4        0x8 ./FreeRTOS/portable/MemMang/heap_2.o
- .sbss.xEnd     0x00000000800038ec        0x8 ./FreeRTOS/portable/MemMang/heap_2.o
+                0x0000000080003890        0x4 ./riscv_hal/syscall.o
+ .sbss.xStart   0x0000000080003894        0x8 ./FreeRTOS/portable/MemMang/heap_2.o
+ .sbss.xEnd     0x000000008000389c        0x8 ./FreeRTOS/portable/MemMang/heap_2.o
  .sbss.xHeapHasBeenInitialised.2777
-                0x00000000800038f4        0x4 ./FreeRTOS/portable/MemMang/heap_2.o
+                0x00000000800038a4        0x4 ./FreeRTOS/portable/MemMang/heap_2.o
  .sbss.g_startscheduler
-                0x00000000800038f8        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
-                0x00000000800038f8                g_startscheduler
+                0x00000000800038a8        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x00000000800038a8                g_startscheduler
  .sbss.pxCurrentTCB
-                0x00000000800038fc        0x4 ./FreeRTOS/tasks.o
-                0x00000000800038fc                pxCurrentTCB
+                0x00000000800038ac        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038ac                pxCurrentTCB
  .sbss.pxDelayedTaskList
-                0x0000000080003900        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038b0        0x4 ./FreeRTOS/tasks.o
  .sbss.pxOverflowDelayedTaskList
-                0x0000000080003904        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038b4        0x4 ./FreeRTOS/tasks.o
  .sbss.uxTasksDeleted
-                0x0000000080003908        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038b8        0x4 ./FreeRTOS/tasks.o
  .sbss.uxCurrentNumberOfTasks
-                0x000000008000390c        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038bc        0x4 ./FreeRTOS/tasks.o
  .sbss.xTickCount
-                0x0000000080003910        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038c0        0x4 ./FreeRTOS/tasks.o
  .sbss.uxTopReadyPriority
-                0x0000000080003914        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038c4        0x4 ./FreeRTOS/tasks.o
  .sbss.xSchedulerRunning
-                0x0000000080003918        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038c8        0x4 ./FreeRTOS/tasks.o
  .sbss.uxPendedTicks
-                0x000000008000391c        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038cc        0x4 ./FreeRTOS/tasks.o
  .sbss.xYieldPending
-                0x0000000080003920        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038d0        0x4 ./FreeRTOS/tasks.o
  .sbss.xNumOfOverflows
-                0x0000000080003924        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038d4        0x4 ./FreeRTOS/tasks.o
  .sbss.uxTaskNumber
-                0x0000000080003928        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038d8        0x4 ./FreeRTOS/tasks.o
  .sbss.xNextTaskUnblockTime
-                0x000000008000392c        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038dc        0x4 ./FreeRTOS/tasks.o
  .sbss.uxSchedulerSuspended
-                0x0000000080003930        0x4 ./FreeRTOS/tasks.o
+                0x00000000800038e0        0x4 ./FreeRTOS/tasks.o
  *(.scommon)
-                0x0000000080003940                . = ALIGN (0x10)
- *fill*         0x0000000080003934        0xc 
-                0x0000000080003940                __sbss_end = .
+                0x00000000800038f0                . = ALIGN (0x10)
+ *fill*         0x00000000800038e4        0xc 
+                0x00000000800038f0                __sbss_end = .
 
-.bss            0x0000000080003940    0x195e0
-                0x0000000080003940                __bss_start = .
+.bss            0x00000000800038f0    0x195e0
+                0x00000000800038f0                __bss_start = .
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss.ucHeap    0x0000000080003940    0x19000 ./FreeRTOS/portable/MemMang/heap_2.o
+ .bss.ucHeap    0x00000000800038f0    0x19000 ./FreeRTOS/portable/MemMang/heap_2.o
  .bss.pxReadyTasksLists
-                0x000000008001c940       0x64 ./FreeRTOS/tasks.o
+                0x000000008001c8f0       0x64 ./FreeRTOS/tasks.o
  .bss.xDelayedTaskList1
-                0x000000008001c9a4       0x14 ./FreeRTOS/tasks.o
+                0x000000008001c954       0x14 ./FreeRTOS/tasks.o
  .bss.xDelayedTaskList2
-                0x000000008001c9b8       0x14 ./FreeRTOS/tasks.o
+                0x000000008001c968       0x14 ./FreeRTOS/tasks.o
  .bss.xPendingReadyList
-                0x000000008001c9cc       0x14 ./FreeRTOS/tasks.o
+                0x000000008001c97c       0x14 ./FreeRTOS/tasks.o
  .bss.xTasksWaitingTermination
-                0x000000008001c9e0       0x14 ./FreeRTOS/tasks.o
+                0x000000008001c990       0x14 ./FreeRTOS/tasks.o
  .bss.xSuspendedTaskList
-                0x000000008001c9f4       0x14 ./FreeRTOS/tasks.o
+                0x000000008001c9a4       0x14 ./FreeRTOS/tasks.o
  *(COMMON)
- COMMON         0x000000008001ca08      0x434 ./riscv_hal/riscv_hal.o
-                0x000000008001ca08                incommingPacket
- COMMON         0x000000008001ce3c        0x4 ./riscv_hal/syscall.o
-                0x000000008001ce3c                errno
- COMMON         0x000000008001ce40       0xd4 ./main.o
-                0x000000008001ce40                g_uart
-                0x000000008001ce48                TaskList
-                0x000000008001cf10                ProcessorAddr
-                0x000000008001cf20                . = ALIGN (0x10)
- *fill*         0x000000008001cf14        0xc 
-                0x000000008001cf20                __bss_end = .
-                0x000000008001cf20                _end = .
+ COMMON         0x000000008001c9b8      0x434 ./riscv_hal/riscv_hal.o
+                0x000000008001c9b8                incommingPacket
+ COMMON         0x000000008001cdec        0x4 ./riscv_hal/syscall.o
+                0x000000008001cdec                errno
+ COMMON         0x000000008001cdf0       0xd4 ./main.o
+                0x000000008001cdf0                g_uart
+                0x000000008001cdf8                TaskList
+                0x000000008001cec0                ProcessorAddr
+                0x000000008001ced0                . = ALIGN (0x10)
+ *fill*         0x000000008001cec4        0xc 
+                0x000000008001ced0                __bss_end = .
+                0x000000008001ced0                _end = .
 
-.heap           0x000000008001cf20    0x10000
-                0x000000008001cf20                __heap_start = .
-                0x000000008002cf20                . = (. + HEAP_SIZE)
- *fill*         0x000000008001cf20    0x10000 
-                0x000000008002cf20                __heap_end = .
-                0x000000008002cf20                . = ALIGN (0x10)
-                0x000000008002cf20                _heap_end = __heap_end
+.heap           0x000000008001ced0    0x10000
+                0x000000008001ced0                __heap_start = .
+                0x000000008002ced0                . = (. + HEAP_SIZE)
+ *fill*         0x000000008001ced0    0x10000 
+                0x000000008002ced0                __heap_end = .
+                0x000000008002ced0                . = ALIGN (0x10)
+                0x000000008002ced0                _heap_end = __heap_end
 
-.stack          0x000000008002cf20    0x10000
-                0x000000008002cf20                __stack_bottom = .
-                0x000000008003cf20                . = (. + STACK_SIZE)
- *fill*         0x000000008002cf20    0x10000 
-                0x000000008003cf20                __stack_top = .
+.stack          0x000000008002ced0    0x10000
+                0x000000008002ced0                __stack_bottom = .
+                0x000000008003ced0                . = (. + STACK_SIZE)
+ *fill*         0x000000008002ced0    0x10000 
+                0x000000008003ced0                __stack_top = .
 OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
 
-.debug_line     0x0000000000000000     0x8e78
+.debug_line     0x0000000000000000     0x8b36
  .debug_line    0x0000000000000000      0x237 ./riscv_hal/entry.o
  .debug_line    0x0000000000000237      0x44e ./riscv_hal/init.o
- .debug_line    0x0000000000000685      0x928 ./riscv_hal/riscv_hal.o
- .debug_line    0x0000000000000fad      0x7c8 ./riscv_hal/riscv_hal_stubs.o
- .debug_line    0x0000000000001775      0x953 ./riscv_hal/syscall.o
- .debug_line    0x00000000000020c8      0x185 ./hal/hw_reg_access.o
- .debug_line    0x000000000000224d      0x714 ./drivers/CoreUARTapb/core_uart_apb.o
- .debug_line    0x0000000000002961      0x6cf ./FreeRTOS/portable/MemMang/heap_2.o
- .debug_line    0x0000000000003030      0x95b ./FreeRTOS/portable/GCC/RISCV/port.o
- .debug_line    0x000000000000398b      0x602 ./FreeRTOS/list.o
- .debug_line    0x0000000000003f8d      0x699 ./FreeRTOS/string.o
- .debug_line    0x0000000000004626     0x2956 ./FreeRTOS/tasks.o
- .debug_line    0x0000000000006f7c      0xa8b ./FreeRTOS/chronos.o
- .debug_line    0x0000000000007a07      0x5d0 ./FreeRTOS/applications.o
- .debug_line    0x0000000000007fd7      0x71f ./FreeRTOS/system_call.o
- .debug_line    0x00000000000086f6      0x782 ./main.o
+ .debug_line    0x0000000000000685      0xbba ./riscv_hal/riscv_hal.o
+ .debug_line    0x000000000000123f      0x7c8 ./riscv_hal/riscv_hal_stubs.o
+ .debug_line    0x0000000000001a07      0x953 ./riscv_hal/syscall.o
+ .debug_line    0x000000000000235a      0x185 ./hal/hw_reg_access.o
+ .debug_line    0x00000000000024df      0x714 ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_line    0x0000000000002bf3      0x6cf ./FreeRTOS/portable/MemMang/heap_2.o
+ .debug_line    0x00000000000032c2      0x95b ./FreeRTOS/portable/GCC/RISCV/port.o
+ .debug_line    0x0000000000003c1d      0x602 ./FreeRTOS/list.o
+ .debug_line    0x000000000000421f      0x699 ./FreeRTOS/string.o
+ .debug_line    0x00000000000048b8     0x2956 ./FreeRTOS/tasks.o
+ .debug_line    0x000000000000720e      0xa8b ./FreeRTOS/chronos.o
+ .debug_line    0x0000000000007c99      0x5d0 ./FreeRTOS/applications.o
+ .debug_line    0x0000000000008269      0x8cd ./main.o
 
-.debug_info     0x0000000000000000     0xc298
+.debug_info     0x0000000000000000     0xbacc
  .debug_info    0x0000000000000000       0x26 ./riscv_hal/entry.o
  .debug_info    0x0000000000000026      0xb0b ./riscv_hal/init.o
- .debug_info    0x0000000000000b31     0x104a ./riscv_hal/riscv_hal.o
- .debug_info    0x0000000000001b7b      0x3e0 ./riscv_hal/riscv_hal_stubs.o
- .debug_info    0x0000000000001f5b     0x1219 ./riscv_hal/syscall.o
- .debug_info    0x0000000000003174       0x26 ./hal/hw_reg_access.o
- .debug_info    0x000000000000319a      0xc02 ./drivers/CoreUARTapb/core_uart_apb.o
- .debug_info    0x0000000000003d9c      0xbd6 ./FreeRTOS/portable/MemMang/heap_2.o
- .debug_info    0x0000000000004972      0xc95 ./FreeRTOS/portable/GCC/RISCV/port.o
- .debug_info    0x0000000000005607      0xb83 ./FreeRTOS/list.o
- .debug_info    0x000000000000618a      0xb73 ./FreeRTOS/string.o
- .debug_info    0x0000000000006cfd     0x1f88 ./FreeRTOS/tasks.o
- .debug_info    0x0000000000008c85     0x10d8 ./FreeRTOS/chronos.o
- .debug_info    0x0000000000009d5d      0xaf0 ./FreeRTOS/applications.o
- .debug_info    0x000000000000a84d      0xc6d ./FreeRTOS/system_call.o
- .debug_info    0x000000000000b4ba      0xdde ./main.o
+ .debug_info    0x0000000000000b31     0x12ee ./riscv_hal/riscv_hal.o
+ .debug_info    0x0000000000001e1f      0x3e0 ./riscv_hal/riscv_hal_stubs.o
+ .debug_info    0x00000000000021ff     0x1219 ./riscv_hal/syscall.o
+ .debug_info    0x0000000000003418       0x26 ./hal/hw_reg_access.o
+ .debug_info    0x000000000000343e      0xc02 ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_info    0x0000000000004040      0xbd6 ./FreeRTOS/portable/MemMang/heap_2.o
+ .debug_info    0x0000000000004c16      0xc95 ./FreeRTOS/portable/GCC/RISCV/port.o
+ .debug_info    0x00000000000058ab      0xb83 ./FreeRTOS/list.o
+ .debug_info    0x000000000000642e      0xb73 ./FreeRTOS/string.o
+ .debug_info    0x0000000000006fa1     0x1f88 ./FreeRTOS/tasks.o
+ .debug_info    0x0000000000008f29     0x10d8 ./FreeRTOS/chronos.o
+ .debug_info    0x000000000000a001      0xaf0 ./FreeRTOS/applications.o
+ .debug_info    0x000000000000aaf1      0xfdb ./main.o
 
-.debug_abbrev   0x0000000000000000     0x24f8
+.debug_abbrev   0x0000000000000000     0x235e
  .debug_abbrev  0x0000000000000000       0x14 ./riscv_hal/entry.o
  .debug_abbrev  0x0000000000000014      0x268 ./riscv_hal/init.o
- .debug_abbrev  0x000000000000027c      0x335 ./riscv_hal/riscv_hal.o
- .debug_abbrev  0x00000000000005b1       0xc0 ./riscv_hal/riscv_hal_stubs.o
- .debug_abbrev  0x0000000000000671      0x2f8 ./riscv_hal/syscall.o
- .debug_abbrev  0x0000000000000969       0x14 ./hal/hw_reg_access.o
- .debug_abbrev  0x000000000000097d      0x25b ./drivers/CoreUARTapb/core_uart_apb.o
- .debug_abbrev  0x0000000000000bd8      0x2c5 ./FreeRTOS/portable/MemMang/heap_2.o
- .debug_abbrev  0x0000000000000e9d      0x31d ./FreeRTOS/portable/GCC/RISCV/port.o
- .debug_abbrev  0x00000000000011ba      0x22e ./FreeRTOS/list.o
- .debug_abbrev  0x00000000000013e8      0x238 ./FreeRTOS/string.o
- .debug_abbrev  0x0000000000001620      0x39a ./FreeRTOS/tasks.o
- .debug_abbrev  0x00000000000019ba      0x34d ./FreeRTOS/chronos.o
- .debug_abbrev  0x0000000000001d07      0x276 ./FreeRTOS/applications.o
- .debug_abbrev  0x0000000000001f7d      0x29f ./FreeRTOS/system_call.o
- .debug_abbrev  0x000000000000221c      0x2dc ./main.o
+ .debug_abbrev  0x000000000000027c      0x3e0 ./riscv_hal/riscv_hal.o
+ .debug_abbrev  0x000000000000065c       0xc0 ./riscv_hal/riscv_hal_stubs.o
+ .debug_abbrev  0x000000000000071c      0x2f8 ./riscv_hal/syscall.o
+ .debug_abbrev  0x0000000000000a14       0x14 ./hal/hw_reg_access.o
+ .debug_abbrev  0x0000000000000a28      0x25b ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_abbrev  0x0000000000000c83      0x2c5 ./FreeRTOS/portable/MemMang/heap_2.o
+ .debug_abbrev  0x0000000000000f48      0x31d ./FreeRTOS/portable/GCC/RISCV/port.o
+ .debug_abbrev  0x0000000000001265      0x22e ./FreeRTOS/list.o
+ .debug_abbrev  0x0000000000001493      0x238 ./FreeRTOS/string.o
+ .debug_abbrev  0x00000000000016cb      0x39a ./FreeRTOS/tasks.o
+ .debug_abbrev  0x0000000000001a65      0x34d ./FreeRTOS/chronos.o
+ .debug_abbrev  0x0000000000001db2      0x276 ./FreeRTOS/applications.o
+ .debug_abbrev  0x0000000000002028      0x336 ./main.o
 
-.debug_aranges  0x0000000000000000      0x7b8
+.debug_aranges  0x0000000000000000      0x7d8
  .debug_aranges
                 0x0000000000000000       0x20 ./riscv_hal/entry.o
  .debug_aranges
                 0x0000000000000020       0x38 ./riscv_hal/init.o
  .debug_aranges
-                0x0000000000000058       0x68 ./riscv_hal/riscv_hal.o
+                0x0000000000000058       0xa8 ./riscv_hal/riscv_hal.o
  .debug_aranges
-                0x00000000000000c0      0x130 ./riscv_hal/riscv_hal_stubs.o
+                0x0000000000000100      0x130 ./riscv_hal/riscv_hal_stubs.o
  .debug_aranges
-                0x00000000000001f0       0xc0 ./riscv_hal/syscall.o
+                0x0000000000000230       0xc0 ./riscv_hal/syscall.o
  .debug_aranges
-                0x00000000000002b0       0x20 ./hal/hw_reg_access.o
+                0x00000000000002f0       0x20 ./hal/hw_reg_access.o
  .debug_aranges
-                0x00000000000002d0       0x48 ./drivers/CoreUARTapb/core_uart_apb.o
+                0x0000000000000310       0x48 ./drivers/CoreUARTapb/core_uart_apb.o
  .debug_aranges
-                0x0000000000000318       0x40 ./FreeRTOS/portable/MemMang/heap_2.o
+                0x0000000000000358       0x40 ./FreeRTOS/portable/MemMang/heap_2.o
  .debug_aranges
-                0x0000000000000358       0x80 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x0000000000000398       0x80 ./FreeRTOS/portable/GCC/RISCV/port.o
  .debug_aranges
-                0x00000000000003d8       0x40 ./FreeRTOS/list.o
+                0x0000000000000418       0x40 ./FreeRTOS/list.o
  .debug_aranges
-                0x0000000000000418       0x48 ./FreeRTOS/string.o
+                0x0000000000000458       0x48 ./FreeRTOS/string.o
  .debug_aranges
-                0x0000000000000460      0x1c8 ./FreeRTOS/tasks.o
+                0x00000000000004a0      0x1c8 ./FreeRTOS/tasks.o
  .debug_aranges
-                0x0000000000000628       0xb0 ./FreeRTOS/chronos.o
+                0x0000000000000668       0xb0 ./FreeRTOS/chronos.o
  .debug_aranges
-                0x00000000000006d8       0x38 ./FreeRTOS/applications.o
+                0x0000000000000718       0x38 ./FreeRTOS/applications.o
  .debug_aranges
-                0x0000000000000710       0x58 ./FreeRTOS/system_call.o
- .debug_aranges
-                0x0000000000000768       0x50 ./main.o
+                0x0000000000000750       0x88 ./main.o
 
-.debug_str      0x0000000000000000    0x12267
+.debug_str      0x0000000000000000    0x1224d
  .debug_str     0x0000000000000000       0x5a ./riscv_hal/entry.o
  .debug_str     0x000000000000005a     0x8be4 ./riscv_hal/init.o
                                        0x8e85 (size before relaxing)
- .debug_str     0x0000000000008c3e     0x3f91 ./riscv_hal/riscv_hal.o
-                                       0xcf23 (size before relaxing)
- .debug_str     0x000000000000cbcf      0x306 ./riscv_hal/riscv_hal_stubs.o
+ .debug_str     0x0000000000008c3e     0x3d2d ./riscv_hal/riscv_hal.o
+                                       0xcb52 (size before relaxing)
+ .debug_str     0x000000000000c96b      0x306 ./riscv_hal/riscv_hal_stubs.o
                                        0x666b (size before relaxing)
- .debug_str     0x000000000000ced5     0x10f0 ./riscv_hal/syscall.o
+ .debug_str     0x000000000000cc71     0x13f6 ./riscv_hal/syscall.o
                                        0xa40c (size before relaxing)
- .debug_str     0x000000000000dfc5       0x17 ./hal/hw_reg_access.o
+ .debug_str     0x000000000000e067       0x17 ./hal/hw_reg_access.o
                                          0x5c (size before relaxing)
- .debug_str     0x000000000000dfdc      0xe38 ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_str     0x000000000000e07e      0xe38 ./drivers/CoreUARTapb/core_uart_apb.o
                                        0x840b (size before relaxing)
- .debug_str     0x000000000000ee14      0x3c6 ./FreeRTOS/portable/MemMang/heap_2.o
+ .debug_str     0x000000000000eeb6      0x3c6 ./FreeRTOS/portable/MemMang/heap_2.o
                                        0xaaec (size before relaxing)
- .debug_str     0x000000000000f1da      0x1aa ./FreeRTOS/portable/GCC/RISCV/port.o
+ .debug_str     0x000000000000f27c      0x1aa ./FreeRTOS/portable/GCC/RISCV/port.o
                                        0xa87f (size before relaxing)
- .debug_str     0x000000000000f384      0x11e ./FreeRTOS/list.o
+ .debug_str     0x000000000000f426      0x11e ./FreeRTOS/list.o
                                        0xa0e2 (size before relaxing)
- .debug_str     0x000000000000f4a2      0x85e ./FreeRTOS/string.o
+ .debug_str     0x000000000000f544      0x85e ./FreeRTOS/string.o
                                        0x6aa7 (size before relaxing)
- .debug_str     0x000000000000fd00     0x186c ./FreeRTOS/tasks.o
+ .debug_str     0x000000000000fda2     0x186c ./FreeRTOS/tasks.o
                                        0xc164 (size before relaxing)
- .debug_str     0x000000000001156c      0x13c ./FreeRTOS/chronos.o
+ .debug_str     0x000000000001160e      0x137 ./FreeRTOS/chronos.o
                                        0xad92 (size before relaxing)
- .debug_str     0x00000000000116a8       0x6b ./FreeRTOS/applications.o
+ .debug_str     0x0000000000011745       0x6b ./FreeRTOS/applications.o
                                        0xa9ab (size before relaxing)
- .debug_str     0x0000000000011713       0xb7 ./FreeRTOS/system_call.o
-                                       0xaea8 (size before relaxing)
- .debug_str     0x00000000000117ca      0xa9d ./main.o
-                                       0xd70c (size before relaxing)
+ .debug_str     0x00000000000117b0      0xa9d ./main.o
+                                       0xd31a (size before relaxing)
 
-.debug_ranges   0x0000000000000000      0x698
+.debug_ranges   0x0000000000000000      0x6c8
  .debug_ranges  0x0000000000000000       0x28 ./riscv_hal/init.o
- .debug_ranges  0x0000000000000028       0x58 ./riscv_hal/riscv_hal.o
- .debug_ranges  0x0000000000000080      0x120 ./riscv_hal/riscv_hal_stubs.o
- .debug_ranges  0x00000000000001a0       0xb0 ./riscv_hal/syscall.o
- .debug_ranges  0x0000000000000250       0x38 ./drivers/CoreUARTapb/core_uart_apb.o
- .debug_ranges  0x0000000000000288       0x30 ./FreeRTOS/portable/MemMang/heap_2.o
- .debug_ranges  0x00000000000002b8       0x70 ./FreeRTOS/portable/GCC/RISCV/port.o
- .debug_ranges  0x0000000000000328       0x30 ./FreeRTOS/list.o
- .debug_ranges  0x0000000000000358       0x38 ./FreeRTOS/string.o
- .debug_ranges  0x0000000000000390      0x1b8 ./FreeRTOS/tasks.o
- .debug_ranges  0x0000000000000548       0xa0 ./FreeRTOS/chronos.o
- .debug_ranges  0x00000000000005e8       0x28 ./FreeRTOS/applications.o
- .debug_ranges  0x0000000000000610       0x48 ./FreeRTOS/system_call.o
- .debug_ranges  0x0000000000000658       0x40 ./main.o
+ .debug_ranges  0x0000000000000028       0x98 ./riscv_hal/riscv_hal.o
+ .debug_ranges  0x00000000000000c0      0x120 ./riscv_hal/riscv_hal_stubs.o
+ .debug_ranges  0x00000000000001e0       0xb0 ./riscv_hal/syscall.o
+ .debug_ranges  0x0000000000000290       0x38 ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_ranges  0x00000000000002c8       0x30 ./FreeRTOS/portable/MemMang/heap_2.o
+ .debug_ranges  0x00000000000002f8       0x70 ./FreeRTOS/portable/GCC/RISCV/port.o
+ .debug_ranges  0x0000000000000368       0x30 ./FreeRTOS/list.o
+ .debug_ranges  0x0000000000000398       0x38 ./FreeRTOS/string.o
+ .debug_ranges  0x00000000000003d0      0x1b8 ./FreeRTOS/tasks.o
+ .debug_ranges  0x0000000000000588       0xa0 ./FreeRTOS/chronos.o
+ .debug_ranges  0x0000000000000628       0x28 ./FreeRTOS/applications.o
+ .debug_ranges  0x0000000000000650       0x78 ./main.o
 
-.debug_macro    0x0000000000000000     0x55b7
+.debug_macro    0x0000000000000000     0x5364
  .debug_macro   0x0000000000000000      0x1cb ./riscv_hal/init.o
  .debug_macro   0x00000000000001cb      0x748 ./riscv_hal/init.o
  .debug_macro   0x0000000000000913       0x19 ./riscv_hal/init.o
@@ -2804,66 +2733,65 @@ OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
  .debug_macro   0x00000000000017ff       0x3d ./riscv_hal/init.o
  .debug_macro   0x000000000000183c      0x51a ./riscv_hal/init.o
  .debug_macro   0x0000000000001d56      0x2f8 ./riscv_hal/init.o
- .debug_macro   0x000000000000204e      0x321 ./riscv_hal/riscv_hal.o
- .debug_macro   0x000000000000236f       0x28 ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002397       0x16 ./riscv_hal/riscv_hal.o
- .debug_macro   0x00000000000023ad       0xfa ./riscv_hal/riscv_hal.o
- .debug_macro   0x00000000000024a7      0x15d ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002604       0xa6 ./riscv_hal/riscv_hal.o
- .debug_macro   0x00000000000026aa       0x10 ./riscv_hal/riscv_hal.o
- .debug_macro   0x00000000000026ba       0x1f ./riscv_hal/riscv_hal.o
- .debug_macro   0x00000000000026d9      0x3ca ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002aa3       0xc0 ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002b63       0x9a ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002bfd       0x58 ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002c55       0x10 ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002c65       0x16 ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002c7b       0x16 ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002c91       0x58 ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002ce9       0x10 ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002cf9      0x241 ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002f3a       0x28 ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002f62       0x10 ./riscv_hal/riscv_hal.o
- .debug_macro   0x0000000000002f72      0x165 ./riscv_hal/riscv_hal_stubs.o
- .debug_macro   0x00000000000030d7       0x10 ./riscv_hal/riscv_hal_stubs.o
- .debug_macro   0x00000000000030e7       0xcf ./riscv_hal/riscv_hal_stubs.o
- .debug_macro   0x00000000000031b6       0xbe ./riscv_hal/riscv_hal_stubs.o
- .debug_macro   0x0000000000003274      0x2b2 ./riscv_hal/syscall.o
- .debug_macro   0x0000000000003526       0x8e ./riscv_hal/syscall.o
- .debug_macro   0x00000000000035b4       0x51 ./riscv_hal/syscall.o
- .debug_macro   0x0000000000003605       0x58 ./riscv_hal/syscall.o
- .debug_macro   0x000000000000365d       0x16 ./riscv_hal/syscall.o
- .debug_macro   0x0000000000003673       0x10 ./riscv_hal/syscall.o
- .debug_macro   0x0000000000003683       0x10 ./riscv_hal/syscall.o
- .debug_macro   0x0000000000003693       0x35 ./riscv_hal/syscall.o
- .debug_macro   0x00000000000036c8      0x122 ./riscv_hal/syscall.o
- .debug_macro   0x00000000000037ea       0x1c ./riscv_hal/syscall.o
- .debug_macro   0x0000000000003806       0x10 ./riscv_hal/syscall.o
- .debug_macro   0x0000000000003816       0x10 ./riscv_hal/syscall.o
- .debug_macro   0x0000000000003826       0x16 ./riscv_hal/syscall.o
- .debug_macro   0x000000000000383c      0x15a ./riscv_hal/syscall.o
- .debug_macro   0x0000000000003996       0x40 ./riscv_hal/syscall.o
- .debug_macro   0x00000000000039d6       0x58 ./riscv_hal/syscall.o
- .debug_macro   0x0000000000003a2e      0x232 ./drivers/CoreUARTapb/core_uart_apb.o
- .debug_macro   0x0000000000003c60      0x106 ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_macro   0x000000000000204e      0x305 ./riscv_hal/riscv_hal.o
+ .debug_macro   0x0000000000002353       0x28 ./riscv_hal/riscv_hal.o
+ .debug_macro   0x000000000000237b       0x16 ./riscv_hal/riscv_hal.o
+ .debug_macro   0x0000000000002391       0xfa ./riscv_hal/riscv_hal.o
+ .debug_macro   0x000000000000248b      0x15d ./riscv_hal/riscv_hal.o
+ .debug_macro   0x00000000000025e8       0xa6 ./riscv_hal/riscv_hal.o
+ .debug_macro   0x000000000000268e       0x10 ./riscv_hal/riscv_hal.o
+ .debug_macro   0x000000000000269e       0x1f ./riscv_hal/riscv_hal.o
+ .debug_macro   0x00000000000026bd      0x3ca ./riscv_hal/riscv_hal.o
+ .debug_macro   0x0000000000002a87       0xc0 ./riscv_hal/riscv_hal.o
+ .debug_macro   0x0000000000002b47       0x9a ./riscv_hal/riscv_hal.o
+ .debug_macro   0x0000000000002be1       0x58 ./riscv_hal/riscv_hal.o
+ .debug_macro   0x0000000000002c39       0x10 ./riscv_hal/riscv_hal.o
+ .debug_macro   0x0000000000002c49       0x16 ./riscv_hal/riscv_hal.o
+ .debug_macro   0x0000000000002c5f       0x16 ./riscv_hal/riscv_hal.o
+ .debug_macro   0x0000000000002c75       0x58 ./riscv_hal/riscv_hal.o
+ .debug_macro   0x0000000000002ccd       0x2e ./riscv_hal/riscv_hal.o
+ .debug_macro   0x0000000000002cfb       0x10 ./riscv_hal/riscv_hal.o
+ .debug_macro   0x0000000000002d0b      0x165 ./riscv_hal/riscv_hal_stubs.o
+ .debug_macro   0x0000000000002e70       0x10 ./riscv_hal/riscv_hal_stubs.o
+ .debug_macro   0x0000000000002e80       0xcf ./riscv_hal/riscv_hal_stubs.o
+ .debug_macro   0x0000000000002f4f       0xbe ./riscv_hal/riscv_hal_stubs.o
+ .debug_macro   0x000000000000300d      0x2b2 ./riscv_hal/syscall.o
+ .debug_macro   0x00000000000032bf       0x8e ./riscv_hal/syscall.o
+ .debug_macro   0x000000000000334d       0x51 ./riscv_hal/syscall.o
+ .debug_macro   0x000000000000339e       0x58 ./riscv_hal/syscall.o
+ .debug_macro   0x00000000000033f6       0x10 ./riscv_hal/syscall.o
+ .debug_macro   0x0000000000003406      0x241 ./riscv_hal/syscall.o
+ .debug_macro   0x0000000000003647       0x16 ./riscv_hal/syscall.o
+ .debug_macro   0x000000000000365d       0x10 ./riscv_hal/syscall.o
+ .debug_macro   0x000000000000366d       0x10 ./riscv_hal/syscall.o
+ .debug_macro   0x000000000000367d       0x35 ./riscv_hal/syscall.o
+ .debug_macro   0x00000000000036b2      0x122 ./riscv_hal/syscall.o
+ .debug_macro   0x00000000000037d4       0x1c ./riscv_hal/syscall.o
+ .debug_macro   0x00000000000037f0       0x10 ./riscv_hal/syscall.o
+ .debug_macro   0x0000000000003800       0x10 ./riscv_hal/syscall.o
+ .debug_macro   0x0000000000003810       0x16 ./riscv_hal/syscall.o
+ .debug_macro   0x0000000000003826      0x15a ./riscv_hal/syscall.o
+ .debug_macro   0x0000000000003980       0x40 ./riscv_hal/syscall.o
+ .debug_macro   0x00000000000039c0       0x58 ./riscv_hal/syscall.o
+ .debug_macro   0x0000000000003a18      0x232 ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_macro   0x0000000000003c4a      0x106 ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_macro   0x0000000000003d50       0x16 ./drivers/CoreUARTapb/core_uart_apb.o
  .debug_macro   0x0000000000003d66       0x16 ./drivers/CoreUARTapb/core_uart_apb.o
- .debug_macro   0x0000000000003d7c       0x16 ./drivers/CoreUARTapb/core_uart_apb.o
- .debug_macro   0x0000000000003d92       0x97 ./drivers/CoreUARTapb/core_uart_apb.o
- .debug_macro   0x0000000000003e29       0xfd ./drivers/CoreUARTapb/core_uart_apb.o
- .debug_macro   0x0000000000003f26      0x16f ./drivers/CoreUARTapb/core_uart_apb.o
- .debug_macro   0x0000000000004095      0x1ee ./FreeRTOS/portable/MemMang/heap_2.o
- .debug_macro   0x0000000000004283      0x1d0 ./FreeRTOS/portable/GCC/RISCV/port.o
- .debug_macro   0x0000000000004453      0x174 ./FreeRTOS/portable/GCC/RISCV/port.o
- .debug_macro   0x00000000000045c7       0x10 ./FreeRTOS/portable/GCC/RISCV/port.o
- .debug_macro   0x00000000000045d7      0x1c0 ./FreeRTOS/list.o
- .debug_macro   0x0000000000004797      0x123 ./FreeRTOS/string.o
- .debug_macro   0x00000000000048ba      0x111 ./FreeRTOS/string.o
- .debug_macro   0x00000000000049cb      0x25e ./FreeRTOS/tasks.o
- .debug_macro   0x0000000000004c29       0x11 ./FreeRTOS/tasks.o
- .debug_macro   0x0000000000004c3a      0x21c ./FreeRTOS/chronos.o
- .debug_macro   0x0000000000004e56      0x214 ./FreeRTOS/applications.o
- .debug_macro   0x000000000000506a      0x225 ./FreeRTOS/system_call.o
- .debug_macro   0x000000000000528f      0x328 ./main.o
+ .debug_macro   0x0000000000003d7c       0x97 ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_macro   0x0000000000003e13       0xfd ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_macro   0x0000000000003f10      0x16f ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_macro   0x000000000000407f      0x1ee ./FreeRTOS/portable/MemMang/heap_2.o
+ .debug_macro   0x000000000000426d      0x1d0 ./FreeRTOS/portable/GCC/RISCV/port.o
+ .debug_macro   0x000000000000443d      0x174 ./FreeRTOS/portable/GCC/RISCV/port.o
+ .debug_macro   0x00000000000045b1       0x10 ./FreeRTOS/portable/GCC/RISCV/port.o
+ .debug_macro   0x00000000000045c1      0x1c0 ./FreeRTOS/list.o
+ .debug_macro   0x0000000000004781      0x123 ./FreeRTOS/string.o
+ .debug_macro   0x00000000000048a4      0x111 ./FreeRTOS/string.o
+ .debug_macro   0x00000000000049b5      0x25e ./FreeRTOS/tasks.o
+ .debug_macro   0x0000000000004c13       0x11 ./FreeRTOS/tasks.o
+ .debug_macro   0x0000000000004c24      0x21c ./FreeRTOS/chronos.o
+ .debug_macro   0x0000000000004e40      0x214 ./FreeRTOS/applications.o
+ .debug_macro   0x0000000000005054      0x310 ./main.o
 
 .comment        0x0000000000000000       0x39
  .comment       0x0000000000000000       0x39 ./riscv_hal/init.o
@@ -2879,23 +2807,21 @@ OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
  .comment       0x0000000000000039       0x3a ./FreeRTOS/tasks.o
  .comment       0x0000000000000039       0x3a ./FreeRTOS/chronos.o
  .comment       0x0000000000000039       0x3a ./FreeRTOS/applications.o
- .comment       0x0000000000000039       0x3a ./FreeRTOS/system_call.o
  .comment       0x0000000000000039       0x3a ./main.o
 
-.debug_frame    0x0000000000000000     0x1ba0
+.debug_frame    0x0000000000000000     0x1c88
  .debug_frame   0x0000000000000000       0x94 ./riscv_hal/init.o
- .debug_frame   0x0000000000000094      0x168 ./riscv_hal/riscv_hal.o
- .debug_frame   0x00000000000001fc      0x468 ./riscv_hal/riscv_hal_stubs.o
- .debug_frame   0x0000000000000664      0x2ec ./riscv_hal/syscall.o
- .debug_frame   0x0000000000000950       0xf0 ./drivers/CoreUARTapb/core_uart_apb.o
- .debug_frame   0x0000000000000a40       0xbc ./FreeRTOS/portable/MemMang/heap_2.o
- .debug_frame   0x0000000000000afc      0x1bc ./FreeRTOS/portable/GCC/RISCV/port.o
- .debug_frame   0x0000000000000cb8       0xb0 ./FreeRTOS/list.o
- .debug_frame   0x0000000000000d68       0xd0 ./FreeRTOS/string.o
- .debug_frame   0x0000000000000e38      0x7b8 ./FreeRTOS/tasks.o
- .debug_frame   0x00000000000015f0      0x2a8 ./FreeRTOS/chronos.o
- .debug_frame   0x0000000000001898       0x98 ./FreeRTOS/applications.o
- .debug_frame   0x0000000000001930      0x134 ./FreeRTOS/system_call.o
- .debug_frame   0x0000000000001a64       0xec ./main.o
- .debug_frame   0x0000000000001b50       0x20 /soft64/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-syswrite.o)
- .debug_frame   0x0000000000001b70       0x30 /soft64/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-writer.o)
+ .debug_frame   0x0000000000000094      0x28c ./riscv_hal/riscv_hal.o
+ .debug_frame   0x0000000000000320      0x468 ./riscv_hal/riscv_hal_stubs.o
+ .debug_frame   0x0000000000000788      0x2ec ./riscv_hal/syscall.o
+ .debug_frame   0x0000000000000a74       0xf0 ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_frame   0x0000000000000b64       0xbc ./FreeRTOS/portable/MemMang/heap_2.o
+ .debug_frame   0x0000000000000c20      0x1bc ./FreeRTOS/portable/GCC/RISCV/port.o
+ .debug_frame   0x0000000000000ddc       0xb0 ./FreeRTOS/list.o
+ .debug_frame   0x0000000000000e8c       0xd0 ./FreeRTOS/string.o
+ .debug_frame   0x0000000000000f5c      0x7b8 ./FreeRTOS/tasks.o
+ .debug_frame   0x0000000000001714      0x2a8 ./FreeRTOS/chronos.o
+ .debug_frame   0x00000000000019bc       0x98 ./FreeRTOS/applications.o
+ .debug_frame   0x0000000000001a54      0x1e4 ./main.o
+ .debug_frame   0x0000000000001c38       0x20 /soft64/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-syswrite.o)
+ .debug_frame   0x0000000000001c58       0x30 /soft64/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-writer.o)

@@ -12,7 +12,6 @@ riscv_hal/riscv_hal.o: ../riscv_hal/riscv_hal.c \
  ../FreeRTOS/include/services.h ../FreeRTOS/include/applications.h \
  ../FreeRTOS/include/chronos.h \
  ../riscv_hal/../FreeRTOS/include/system_call.h \
- ../riscv_hal/../FreeRTOS/include/chronos.h \
  ../riscv_hal/../FreeRTOS/include/chronos.h ../riscv_hal/riscv_hal.h \
  ../riscv_hal/riscv_plic.h
 
@@ -59,8 +58,6 @@ riscv_hal/riscv_hal.o: ../riscv_hal/riscv_hal.c \
 ../FreeRTOS/include/chronos.h:
 
 ../riscv_hal/../FreeRTOS/include/system_call.h:
-
-../riscv_hal/../FreeRTOS/include/chronos.h:
 
 ../riscv_hal/../FreeRTOS/include/chronos.h:
 
