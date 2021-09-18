@@ -17,6 +17,10 @@ extern unsigned int ProcessorAddr;
 // Stores information about each running task
 extern Task TaskList[ MAX_LOCAL_TASKS ];
 
+extern volatile unsigned int SendingQueue[PIPE_SIZE*2];
+extern volatile unsigned int SendingQueue_front;
+extern volatile unsigned int SendingQueue_tail;
+
 ////////////////////////////////////////////////////////////
 // Initialize Chronos stuff
 void Chronos_init(){
@@ -38,6 +42,11 @@ void Chronos_init(){
     
     // Initialize the TaskList
     API_TaskListInit(MAX_LOCAL_TASKS);
+
+    // Initialize the Message & Service PIPE
+    API_PipeInitialization();
+    SendingQueue_front = 0;
+    SendingQueue_tail = 0;
 
     return;
 }
@@ -93,7 +102,7 @@ unsigned int getYpos(unsigned int addr) { return (addr & 0x000000FF); }
 void SendRaw(unsigned int addr) {
     HW_set_32bit_reg(NI_ADDR, addr);
     HW_set_32bit_reg(NI_TX, TX);
-    prints("Mensagem enviada!");
+    prints("Mensagem enviada!\n");
     return;
 }
 
@@ -123,13 +132,16 @@ void NI_disable_irq(int which){
 // Interruptions handler for TX
 uint8_t External_1_IRQHandler(void){ 
     prints("INTERRUPTION TX\n");
+    API_ClearPipeSlot(SendingSlot);
+    API_Try2Send();
+
     HW_set_32bit_reg(NI_TX, DONE);
     return 0;
 }
 
 ////////////////////////////////////////////////////////////
 // Interruptions handler for RX
-uint8_t External_2_IRQHandler(void){ 
+uint8_t External_2_IRQHandler(void){
     prints("INTERRUPTION RX\n");
     HW_set_32bit_reg(NI_RX, DONE);
     return 0;
@@ -197,6 +209,68 @@ void ReceiveMessage(Message *theMessage, unsigned int from){
     printsvsv("msg pointer: ", (unsigned int)theMessage, "from: ", from);
     printsv("Minha task ID: ", taskID);
     //SendMessageRequest(from);
+    return;
+}
+
+////////////////////////////////////////////////////////////
+// Returns the PE address for a giver pair of coords
+unsigned int makeAddress(unsigned int x, unsigned int y) {
+    unsigned int address = 0x00000000;
+    return (address | (x << 8) | y);
+}
+
+////////////////////////////////////////////////////////////
+// Pushes one slot to the sending queue
+void API_PushSendQueue(unsigned int type, unsigned int slot){
+    SendingQueue[SendingQueue_front] = type | slot;
+    if(SendingQueue_front == (PIPE_SIZE*2)-1){
+        SendingQueue_front = 0;
+    } else {
+        SendingQueue_front++;
+    }
+    API_Try2Send();
+    return;
+}
+
+////////////////////////////////////////////////////////////
+// Pushes one slot to the sending queue
+unsigned int API_PopSendQueue(){
+    unsigned int element;
+    if (SendingQueue_front == SendingQueue_tail){
+        return EMPTY;
+    } else {
+        element = SendingQueue[SendingQueue_tail];
+        if (SendingQueue_tail == (PIPE_SIZE*2)-1){
+            SendingQueue_tail = 0;
+        } else {
+            SendingQueue_tail++;
+        }
+        return element;
+    }
+}
+
+////////////////////////////////////////////////////////////
+// Try to send some packet! 
+void API_Try2Send(){
+    unsigned int toSend;
+    //prints("API_Try2Send\n");
+    // Try to send the packet to NI if it's available
+    vPortEnterCritical();
+        // Checks if the NI is available to transmitt something
+        if (HW_get_32bit_reg(NI_TX) == NI_STATUS_OFF){
+            toSend = API_PopSendQueue();
+            //printsv("toSend ", toSend);
+            if (toSend != EMPTY){
+                if((toSend & 0xFFFF0000) ==  SERVICE){
+                    SendRaw((unsigned int)&ServicePipe[toSend & 0x0000FFFF].header);
+                }
+                else if((toSend & 0xFFFF0000) ==  MESSAGE){
+                    SendRaw((unsigned int)&MessagePipe[toSend & 0x0000FFFF].header);
+                }
+                SendingSlot = toSend;
+            }
+    
+    } vPortExitCritical();
     return;
 }
 

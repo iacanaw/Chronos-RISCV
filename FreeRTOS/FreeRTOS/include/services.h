@@ -3,5 +3,7 @@
 
 #define MESSAGE_REQUEST					0x00000010U
 #define MESSAGE_DELIVERY				0x00000020U
+#define REPOSITORY_WAKEUP               0x00000100U
+#define REPOSITORY_APP_INFO             0x00000200U
 
 #endif

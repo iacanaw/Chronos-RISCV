@@ -24,21 +24,32 @@
 #define GLOBAL_MASTER_ADDR  0x0000
 #define MAX_LOCAL_TASKS     10
 ////////////////////////////////////////////////////////////
-// PIPE 
-#define PIPE_SIZE           4 // Defines the PIPE size
-#define PIPE_OCCUPIED       1
-#define PIPE_FREE           -1
-#define PIPE_TRANSMITTING   -2
-#define PIPE_WAIT           0xFFFFFFFF
+// PERIPHERAL PORTS
+#define PERIPH_EAST         0x00010000
+#define PERIPH_WEST         0x00020000
+#define PERIPH_NORTH        0x00030000
+#define PERIPH_SOUTH        0x00040000
 ////////////////////////////////////////////////////////////
-// SERVICE PACKET SLOTS
-#define SPS_EMPTY           1
-#define SPS_OCCUPIED        0
-//////////////////////////////
-//////////////////////////////
+// SENDING QUEUE
+#define SERVICE             0x10100000
+#define MESSAGE             0x20200000
+#define EMPTY               0x30300000
+////////////////////////////////////////////////////////////
+// NI STATUS
+#define NI_STATUS_ON        0x0011
+#define NI_STATUS_OFF       0x00FF
+#define NI_STATUS_INTER     0x0F0F
+#define NI_STATUS_HANDLING  0x0EEE
+
 
 // Auxiliar Packet used by the NI to store incomming packets
 volatile unsigned int incommingPacket[ PACKET_MAX_SIZE ];
+
+// Sending Queue
+volatile unsigned int SendingQueue[PIPE_SIZE*2];
+volatile unsigned int SendingQueue_front;
+volatile unsigned int SendingQueue_tail;
+volatile unsigned int SendingSlot;
 
 // Initiate chronos stuff
 void Chronos_init();
@@ -56,6 +67,8 @@ unsigned int getXpos(unsigned int addr);
 unsigned int getYpos(unsigned int addr);
 // Configure the NI to transmitt a given packet
 void SendRaw(unsigned int addr);
+// Try to send some packet! 
+void API_Try2Send();
 // Enables interruptions incomming from NI
 void NI_enable_irq(int which);
 // Disables interruptions incomming from NI
@@ -70,5 +83,11 @@ void mySwap(char *x, char *y);
 char* reverse(char *buffer, int i, int j);
 // Receives a message and alocates it in the application structure
 void ReceiveMessage(Message *theMessage, unsigned int from);
+// Returns the PE address for a giver pair of coords
+unsigned int makeAddress(unsigned int x, unsigned int y);
+// Pushes one slot to the sending queue
+void API_PushSendQueue(unsigned int type, unsigned int slot);
+// Pops the first slot from the sending queue
+unsigned int API_PopSendQueue();
 
 #endif

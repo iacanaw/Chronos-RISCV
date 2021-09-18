@@ -13,7 +13,9 @@ C_SRCS += \
 ../FreeRTOS/timers.c \
 ../FreeRTOS/chronos.c \
 ../FreeRTOS/applications.c \
-../FreeRTOS/system_call.c
+../FreeRTOS/system_call.c \
+../FreeRTOS/packet.c \
+../FreeRTOS/globalMaster.c
 
 OBJS += \
 ./FreeRTOS/croutine.o \
@@ -25,7 +27,9 @@ OBJS += \
 ./FreeRTOS/timers.o \
 ./FreeRTOS/chronos.o \
 ./FreeRTOS/applications.o \
-./FreeRTOS/system_call.o
+./FreeRTOS/system_call.o \
+./FreeRTOS/packet.o \
+./FreeRTOS/globalMaster.o
 
 C_DEPS += \
 ./FreeRTOS/croutine.d \
@@ -37,7 +41,9 @@ C_DEPS += \
 ./FreeRTOS/timers.d \
 ./FreeRTOS/chronos.d \
 ./FreeRTOS/applications.d \
-./FreeRTOS/system_call.d
+./FreeRTOS/system_call.d \
+./FreeRTOS/packet.d \
+./FreeRTOS/globalMaster.d
 
 
 # Each subdirectory must supply rules for building sources it contributes

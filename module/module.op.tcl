@@ -216,6 +216,7 @@ ihwconnect   -instancename stk8   -busslaveport sp1 -bus cpu8Bus -loaddress 0xff
 #define PLIC_BASE_ADDR         0x40000000UL
 
 ihwaddperipheral -instancename tea -modelfile peripheral/tea/pse.pse
+ihwaddperipheral -instancename repository -modelfile peripheral/repository/pse.pse
 
 ihwaddperipheral -instancename uart0 \
                  -vendor microsemi.ovpworld.org -library peripheral -type CoreUARTapb -version 1.0
@@ -594,6 +595,8 @@ ihwconnect -instancename plic8 -netport irqS2 -net intNI_RX8
 ihwconnect -instancename ni8 -netport INT_NI_RX  -net intNI_RX8
 ihwaddpacketnet -instancename data_0_0_TEA
 ihwaddpacketnet -instancename ctrl_0_0_TEA
+ihwaddpacketnet -instancename data_0_0_REPOSITORY
+ihwaddpacketnet -instancename ctrl_0_0_REPOSITORY
 ihwaddpacketnet -instancename data_0_0_L
 ihwaddpacketnet -instancename ctrl_0_0_L
 ihwaddpacketnet -instancename data_0_0_E
@@ -657,6 +660,10 @@ ihwconnect -instancename router0 -packetnetport portDataWest -packetnet data_0_0
 ihwconnect -instancename router0 -packetnetport portControlWest -packetnet ctrl_0_0_TEA
 ihwconnect -instancename tea -packetnetport portData -packetnet data_0_0_TEA
 ihwconnect -instancename tea -packetnetport portControl -packetnet ctrl_0_0_TEA
+ihwconnect -instancename router0 -packetnetport portDataSouth -packetnet data_0_0_REPOSITORY
+ihwconnect -instancename router0 -packetnetport portControlSouth -packetnet ctrl_0_0_REPOSITORY
+ihwconnect -instancename repository -packetnetport portData -packetnet data_0_0_REPOSITORY
+ihwconnect -instancename repository -packetnetport portControl -packetnet ctrl_0_0_REPOSITORY
 ihwconnect -instancename router0 -packetnetport portDataLocal -packetnet data_0_0_L
 ihwconnect -instancename ni0 -packetnetport dataPort -packetnet data_0_0_L
 ihwconnect -instancename router0 -packetnetport portControlLocal -packetnet ctrl_0_0_L

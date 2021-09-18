@@ -132,6 +132,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     optPacketnetP ctrl_0_0_TEA_pkn = opPacketnetNew(mi, "ctrl_0_0_TEA", 0, 0);
 
+    optPacketnetP data_0_0_REPOSITORY_pkn = opPacketnetNew(mi, "data_0_0_REPOSITORY", 0, 0);
+
+    optPacketnetP ctrl_0_0_REPOSITORY_pkn = opPacketnetNew(mi, "ctrl_0_0_REPOSITORY", 0, 0);
+
     optPacketnetP data_0_0_L_pkn = opPacketnetNew(mi, "data_0_0_L", 0, 0);
 
     optPacketnetP ctrl_0_0_L_pkn = opPacketnetNew(mi, "ctrl_0_0_L", 0, 0);
@@ -1028,6 +1032,22 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         0
     );
 
+    // PSE repository
+
+    const char *repository_path = "peripheral/repository/pse.pse";
+    opPeripheralNew(
+        mi,
+        repository_path,
+        "repository",
+        OP_CONNECTIONS(
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_0_0_REPOSITORY_pkn, "portData"),
+                OP_PACKETNET_CONNECT(ctrl_0_0_REPOSITORY_pkn, "portControl")
+            )
+        ),
+        0
+    );
+
     // PSE uart0
 
     const char *uart0_path = opVLNVString(
@@ -1121,6 +1141,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_PACKETNET_CONNECTIONS(
                 OP_PACKETNET_CONNECT(data_0_0_TEA_pkn, "portDataWest"),
                 OP_PACKETNET_CONNECT(ctrl_0_0_TEA_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_0_0_REPOSITORY_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_0_0_REPOSITORY_pkn, "portControlSouth"),
                 OP_PACKETNET_CONNECT(data_0_0_L_pkn, "portDataLocal"),
                 OP_PACKETNET_CONNECT(ctrl_0_0_L_pkn, "portControlLocal"),
                 OP_PACKETNET_CONNECT(data_0_0_E_pkn, "portDataEast"),

@@ -68,6 +68,7 @@ echo "#define CORE16550_BASE_ADDR    0x70007000UL" >> module.op.tcl
 echo "#define PLIC_BASE_ADDR         0x40000000UL" >> module.op.tcl
 echo "" >> module.op.tcl
 echo "ihwaddperipheral -instancename tea -modelfile peripheral/tea/pse.pse" >> module.op.tcl
+echo "ihwaddperipheral -instancename repository -modelfile peripheral/repository/pse.pse" >> module.op.tcl
 echo "" >> module.op.tcl
 for i in $(seq 0 $N);
 do
@@ -132,6 +133,10 @@ done
 echo "ihwaddpacketnet -instancename data_0_0_TEA" >> module.op.tcl
 echo "ihwaddpacketnet -instancename ctrl_0_0_TEA" >> module.op.tcl
 
+# Creates the wire to connect the REPOSITORY with one router
+echo "ihwaddpacketnet -instancename data_0_0_REPOSITORY" >> module.op.tcl
+echo "ihwaddpacketnet -instancename ctrl_0_0_REPOSITORY" >> module.op.tcl
+
 # Creates all ports to make the connection between routers (data and control)
 for i in $(seq 0 $(($Y-1)));
 	do
@@ -178,6 +183,12 @@ echo "ihwconnect -instancename router0 -packetnetport portDataWest -packetnet da
 echo "ihwconnect -instancename router0 -packetnetport portControlWest -packetnet ctrl_0_0_TEA" >> module.op.tcl
 echo "ihwconnect -instancename tea -packetnetport portData -packetnet data_0_0_TEA" >> module.op.tcl
 echo "ihwconnect -instancename tea -packetnetport portControl -packetnet ctrl_0_0_TEA" >> module.op.tcl
+
+# Connects the REPOSITORY peripheral to one given PE
+echo "ihwconnect -instancename router0 -packetnetport portDataSouth -packetnet data_0_0_REPOSITORY" >> module.op.tcl
+echo "ihwconnect -instancename router0 -packetnetport portControlSouth -packetnet ctrl_0_0_REPOSITORY" >> module.op.tcl
+echo "ihwconnect -instancename repository -packetnetport portData -packetnet data_0_0_REPOSITORY" >> module.op.tcl
+echo "ihwconnect -instancename repository -packetnetport portControl -packetnet ctrl_0_0_REPOSITORY" >> module.op.tcl
 
 # Connects each router to its neighbor
 cont=0;

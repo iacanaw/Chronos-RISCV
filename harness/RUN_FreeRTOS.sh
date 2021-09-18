@@ -1,10 +1,27 @@
 #!/bin/bash
 
 
-echo "=================="
+echo "==============================="
 echo "CLEANING THE SIMULATION FOLDER"
 cd ../simulation
 rm -f *.txt
+cd ../harness
+echo "====================="
+echo "COMPILING APLICATIONS"
+cd ../applications
+for d in */ ; do
+  cd $d
+  make all
+  cd ..
+done
+echo "======================="
+echo "CREATING THE REPOSITORY"
+python3 repositoryMaker.py myscenario
+for d in */ ; do
+  cd $d
+  make clean
+  cd ..
+done
 cd ../harness
 echo "=================="
 echo "COMPILING FREERTOS"
@@ -42,6 +59,12 @@ make NOVLNV=1
 echo "================="
 echo "COMPILING THE TEA"
 cd ../tea
+rm -rf obj
+rm -f pse.pse
+make NOVLNV=1
+echo "========================"
+echo "COMPILING THE REPOSITORY"
+cd ../repository
 rm -rf obj
 rm -f pse.pse
 make NOVLNV=1

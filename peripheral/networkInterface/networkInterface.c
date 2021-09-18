@@ -325,6 +325,7 @@ PPM_REG_WRITE_CB(statusRXWrite) {
     if(command == DONE){
         if(control_RX == NI_STATUS_INTER){    
             control_RX = NI_STATUS_OFF;
+            bhmMessage("I", "statusWrite", "RX Turning interruption off!");
             ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
             setGO();
         }
@@ -390,6 +391,7 @@ PPM_REG_WRITE_CB(statusTXWrite) {
     else if(command == DONE){
         if(control_TX == NI_STATUS_INTER){    
             control_TX = NI_STATUS_OFF;
+            bhmMessage("I", "statusWrite", "TX Turning interruption off!");
             ppmWriteNet(handles.INT_NI_TX, 0);  // Turn the interruption signal down
         }
         else{

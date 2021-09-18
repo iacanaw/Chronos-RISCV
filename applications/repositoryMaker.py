@@ -15,6 +15,7 @@ appsTasks = []
 appsTaskSize = []
 appsTaskBss = []
 appsTaskCode = []
+bigCode = 0
 
 with open(SCENARIO) as file:
     scenario = yaml.load(file, Loader=yaml.SafeLoader)
@@ -60,8 +61,10 @@ for i in range(len(appsName)):
                 elif line == '':
                     break
             taskCode.append(copy.deepcopy(code))
-            print("TaskSize: " + str(taskSize[j]))
-            print("BSS Size: " + str(taskBss[j]))
+            print("         TaskSize: " + str(taskSize[j]))
+            if taskSize[j] > bigCode:
+                bigCode = taskSize[j]
+            print("         BSS Size: " + str(taskBss[j]))
     appsTaskBss.append(copy.deepcopy(taskBss))
     appsTaskSize.append(copy.deepcopy(taskSize))
     appsTaskCode.append(copy.deepcopy(taskCode))
@@ -75,6 +78,7 @@ with open('repository.h', 'w') as file:
     file.write('#define INFO_SIZE ' + str(10) + '\n' )
     file.write('#define MAX_TASKS ' + str(15) + '\n' )
     file.write('#define MASTER_ADDR 0x0000\n')
+    file.write('#define BIG_CODE ' + str(bigCode) + '\n')
     file.write('// Application IDs\n')
     for i in range(len(appsName)):
         file.write('#define ' + appsName[i] + " " + str(i) + "\n" )
@@ -114,9 +118,9 @@ with open('repository.h', 'w') as file:
             file.write('\t\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
             file.write('\t\t  ' + str('0x%08X'%4294967295) + ' } // nothing \n')
         file.write('\t}')
-    file.write('\n};\n')
+    file.write('\n};\n\n')
 
-    file.write('static unsigned int tasksCode[NUM_APPS][MAX_TASKS][] = {\n')
+    file.write('static unsigned int tasksCode[NUM_APPS][MAX_TASKS][BIG_CODE] = {\n')
     for i in range(len(appsName)):
         if i > 0:
             file.write(',\n')
@@ -132,7 +136,7 @@ with open('repository.h', 'w') as file:
                 else:
                     file.write('\t\t  0x' + appsTaskCode[i][j][l] + ',  // line ' + str(l) + '\n')
         file.write('\t}')
-    file.write('\n};\n')
+    file.write('\n};\n\n')
 
     file.write("#endif /*__REPOSITORY_H__*/\n")
     

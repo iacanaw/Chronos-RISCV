@@ -1,14 +1,31 @@
 #ifndef _PACKET_H_
 #define _PACKET_H_
 
+#include "message.h"
 
 #define PKT_HEADER_SIZE     13
+#define PKT_SERVICE_SIZE	PKT_HEADER_SIZE-2 // minus two because we do not count the both address & size flits
 #define PACKET_MAX_SIZE     MSG_SIZE + PKT_HEADER_SIZE
+////////////////////////////////////////////////////////////
+// PIPE 
+#define PIPE_SIZE           4 			// Defines the PIPE size
+#define PIPE_OCCUPIED       1			
+#define PIPE_FREE           -1			
+#define PIPE_TRANSMITTING   -2			
+#define PIPE_SYS_HOLDER		0xFEFEFEFE	// System as holder of one pipe position
+#define PIPE_FULL			0xFDFDFDFD 	// Returns this when the pipe is full
+////////////////////////////////////////////////////////////
+// SERVICE PACKET SLOTS
+#define SPS_EMPTY           1
+#define SPS_OCCUPIED        0
+//////////////////////////////
+//////////////////////////////
+
 
 typedef struct {
-	unsigned int header;				// Its the first flit of packet, keeps the target NoC router
-	unsigned int payload_size;			// Stores the number of flits that forms the remaining of packet
-	unsigned int service;				// Store the packet service code (see services.h file)
+	unsigned int header;				//** Its the first flit of packet, keeps the target NoC router
+	unsigned int payload_size;			//** Stores the number of flits that forms the remaining of packet
+	unsigned int service;				//** Store the packet service code (see services.h file)
 	union {								//--Union
 		   unsigned int producer_task;  // Informs the producer task id
 		   unsigned int task_ID;        // Informs the task id
@@ -77,10 +94,32 @@ typedef struct {
 } ServiceHeader;
 
 typedef struct{
-	uint8_t 		status;						// Stores this packet status
+	unsigned int	status;						// Stores this packet status
+	unsigned int 	holder;
 	ServiceHeader 	header;
 	Message 		msg;
-} Packet;
+} MessagePacket;
+
+typedef struct{
+	unsigned int	status;						// Stores this packet status
+	unsigned int 	holder;	
+	ServiceHeader 	header;
+} ServicePacket;
+
+volatile MessagePacket MessagePipe[PIPE_SIZE];
+volatile ServicePacket ServicePipe[PIPE_SIZE];
+
+// Initialize the PIPE, setting the status of each slot to FREE
+void API_PipeInitialization();
+
+// Returns a free Message slot 
+unsigned int API_GetMessageSlot();
+
+// Returns a free Service slot
+unsigned int API_GetServiceSlot();
+
+// Clear one PipeSlot after send it ('typeSlot' is a combination of type (message/service) & slot)
+void API_ClearPipeSlot(unsigned int typeSlot);
 
 //API_createPacket(Message *theMessage, unsigned int dest_task_id, unsigned int service);
 

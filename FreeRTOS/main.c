@@ -7,6 +7,7 @@
 #include "core_uart_apb.h"
 #include "chronos.h"
 #include "system_call.h"
+#include "globalMaster.h"
 
 const char * g_hello_msg = "\r\nFreeRTOS Example\r\n";
 
@@ -84,9 +85,7 @@ int main( void )
 		xTaskCreate( vUartTestTask1, "UArt1", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
 		//API_CreateTask();
 		xTaskCreate( vUartTestTask2, "UArt2", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
-	}
-
-	
+	}	
 
 	/* Start the kernel.  From here on, only tasks and interrupts will run. */
 	vTaskStartScheduler();
@@ -169,6 +168,8 @@ static void vUartTestTask2( void *pvParameters )
 static void GlobalManagerTask( void *pvParameters ){
 	( void ) pvParameters;
 	int i;
+	// Informs the Repository that the GLOBALMASTER is ready to receive the application info
+	API_RepositoryWakeUp();
 	for(i=0;;i++){
 		vTaskDelay(5);
 		printsv("GlobalMasterActive", i);

@@ -52,11 +52,11 @@
 #define FALSE               0
 // states
 #define IDLE                0x1111
-#define TX                  0x2222
-#define RX                  0x3333
 #define WAIT_PE             0x4444
-
-#define DONE                0x5555
+#define TX                  0x00002222U
+#define RX                  0x00003333U
+#define TX_RX               0x00007777U
+#define DONE                0x00005555U
 #define BLOCKED             0xF2F2
 #define UNBLOCKED           0xF3F3
 #define READY               0x6666

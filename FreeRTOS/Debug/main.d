@@ -12,7 +12,7 @@ main.o: ../main.c ../FreeRTOS/include/FreeRTOS.h ../FreeRTOSConfig.h \
  ../FreeRTOS/include/hwaddr.h ../FreeRTOS/include/message.h \
  ../FreeRTOS/include/packet.h ../FreeRTOS/include/services.h \
  ../FreeRTOS/include/applications.h ../FreeRTOS/include/chronos.h \
- ../FreeRTOS/include/system_call.h
+ ../FreeRTOS/include/system_call.h ../FreeRTOS/include/globalMaster.h
 
 ../FreeRTOS/include/FreeRTOS.h:
 
@@ -71,3 +71,5 @@ main.o: ../main.c ../FreeRTOS/include/FreeRTOS.h ../FreeRTOSConfig.h \
 ../FreeRTOS/include/chronos.h:
 
 ../FreeRTOS/include/system_call.h:
+
+../FreeRTOS/include/globalMaster.h:

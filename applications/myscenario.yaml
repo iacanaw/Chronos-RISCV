@@ -5,9 +5,3 @@ apps:
    tasks:
     prod: 0
     cons: 1
- - name: prodcons
-   period: 0
-   executions: 2
-   tasks:
-    prod: 0
-    cons: 1
