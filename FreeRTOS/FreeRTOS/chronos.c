@@ -10,6 +10,7 @@
 #include "packet.h"
 #include "services.h"
 #include "applications.h"
+#include "globalMaster.h"
 
 // Stores the processorAddress
 extern unsigned int ProcessorAddr;
@@ -38,7 +39,7 @@ void Chronos_init(){
     NI_enable_irq(TX_RX);
 
     // Informs the NI the address to store incoming packets
-    HW_set_32bit_reg(NI_ADDR, (unsigned int)&incommingPacket);
+    HW_set_32bit_reg(NI_ADDR, (unsigned int)&incommingPacket.header);
     
     // Initialize the TaskList
     API_TaskListInit(MAX_LOCAL_TASKS);
@@ -72,20 +73,24 @@ void printi(int value) {
 ////////////////////////////////////////////////////////////
 // Prints a string followed by a integer
 void printsv(char *text1, int value1) {
-    prints(text1);
-    printi(value1);
-    prints("\n");
+    //vPortEnterCritical();
+        prints(text1);
+        printi(value1);
+        prints("\n");
+    //vPortExitCritical();
     return;
 }
 
 ////////////////////////////////////////////////////////////
 // Prints two strings and two integers interspersed
 void printsvsv(char *text1, int value1, char *text2, int value2) {
-    prints(text1);
-    printi(value1);
-    prints(text2);
-    printi(value2);
-    prints("\n");
+    //vPortEnterCritical();
+        prints(text1);
+        printi(value1);
+        prints(text2);
+        printi(value2);
+        prints("\n");
+    //vPortExitCritical();
     return;
 }
 
@@ -100,8 +105,10 @@ unsigned int getYpos(unsigned int addr) { return (addr & 0x000000FF); }
 ///////////////////////////////////////////////////////////////////
 // Configure the NI to transmitt a given packet
 void SendRaw(unsigned int addr) {
-    HW_set_32bit_reg(NI_ADDR, addr);
-    HW_set_32bit_reg(NI_TX, TX);
+    vPortEnterCritical();
+        HW_set_32bit_reg(NI_ADDR, addr);
+        HW_set_32bit_reg(NI_TX, TX);
+    vPortExitCritical();
     prints("Mensagem enviada!\n");
     return;
 }
@@ -142,7 +149,52 @@ uint8_t External_1_IRQHandler(void){
 ////////////////////////////////////////////////////////////
 // Interruptions handler for RX
 uint8_t External_2_IRQHandler(void){
+    prints("==========================\n");
     prints("INTERRUPTION RX\n");
+    printsv("Flit 0 : ", incommingPacket.header);
+    printsv("Flit 1 : ", incommingPacket.payload_size);
+    printsv("Flit 2 : ", incommingPacket.service);
+    printsv("Flit 3 : ", incommingPacket.flit3);
+    printsv("Flit 4 : ", incommingPacket.flit4);
+    printsv("Flit 5 : ", incommingPacket.flit5);
+    printsv("Flit 6 : ", incommingPacket.flit6);
+    printsv("Flit 7 : ", incommingPacket.flit7);
+    printsv("Flit 8 : ", incommingPacket.flit8);
+    printsv("Flit 9 : ", incommingPacket.flit9);
+    printsv("Flit 10: ", incommingPacket.flit10);
+    printsv("Flit 11: ", incommingPacket.flit11);
+    printsv("Flit 12: ", incommingPacket.flit12);
+
+
+    switch (incommingPacket.service){
+        unsigned int aux;
+
+        case REPOSITORY_APP_INFO: // When the repository informs the GM that exist a new Application available:
+            API_AddApplication(incommingPacket.application_id,
+                               incommingPacket.aplication_period, 
+                               incommingPacket.application_executions, 
+                               incommingPacket.application_n_tasks);
+            break;
+        
+        case TASK_ALLOCATION_SEND: // When the GM asks one Slave to allocate one task
+            /*aux = taskAllocation(incommingPacket.task_id,
+                                 incommingPacket.task_txt_size,
+                                 incommingPacket.task_bss_size,
+                                 incommingPacket.task_start_point,
+                                 incommingPacket.task_app_id);*/
+            aux = 0;
+            if(aux == ERRO){
+                printsv("Erro ao alocar uma task! ", aux);
+            } else {
+                printsv("Tarefa alocada com sucesso! ", aux);
+            }
+            break;
+
+        default:
+            printsv("ERROR External_2_IRQHandler Unknown-Service", incommingPacket.service);
+            break;
+    }
+    prints("==========================\n");
     HW_set_32bit_reg(NI_RX, DONE);
     return 0;
 }
@@ -269,8 +321,7 @@ void API_Try2Send(){
                 }
                 SendingSlot = toSend;
             }
-    
-    } vPortExitCritical();
+        } 
+    vPortExitCritical();
     return;
 }
-

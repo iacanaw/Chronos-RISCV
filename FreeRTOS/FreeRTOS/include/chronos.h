@@ -41,15 +41,15 @@
 #define NI_STATUS_INTER     0x0F0F
 #define NI_STATUS_HANDLING  0x0EEE
 
-
 // Auxiliar Packet used by the NI to store incomming packets
-volatile unsigned int incommingPacket[ PACKET_MAX_SIZE ];
+volatile ServiceHeader incommingPacket;
 
 // Sending Queue
 volatile unsigned int SendingQueue[PIPE_SIZE*2];
 volatile unsigned int SendingQueue_front;
 volatile unsigned int SendingQueue_tail;
 volatile unsigned int SendingSlot;
+
 
 // Initiate chronos stuff
 void Chronos_init();
@@ -89,5 +89,8 @@ unsigned int makeAddress(unsigned int x, unsigned int y);
 void API_PushSendQueue(unsigned int type, unsigned int slot);
 // Pops the first slot from the sending queue
 unsigned int API_PopSendQueue();
+// Try to allocate a task into the system
+unsigned int taskAllocation(unsigned int taskID, unsigned int taskSize, unsigned int bssSize, unsigned int startPoint, unsigned int applicationID);
+
 
 #endif

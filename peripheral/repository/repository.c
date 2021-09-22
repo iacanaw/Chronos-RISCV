@@ -123,6 +123,7 @@ PPM_PACKETNET_CB(controlUpdate) {
 
 PPM_PACKETNET_CB(dataUpdate) {
     unsigned int newFlit = *(unsigned int *)data;
+    unsigned int status = 0;
     //bhmMessage("I", "REPO", "Chegou um flit: %x", newFlit);
     inPacket[in_packetPointer] = newFlit;           // stores the incoming flit
     in_packetPointer++;                             // increases the packet pointer
@@ -132,6 +133,8 @@ PPM_PACKETNET_CB(dataUpdate) {
     }
     else if (in_packetPointer >= in_packetSize+2){  // register that the packet was received with success
         packetReceived = 1;
+        status = 1;
+        ppmPacketnetWrite(handles.portControlLocal, &status, sizeof(status));
     }
 
     // REMOVER- SÒ PRA N DAR ERRO NA COMPILAÇÂO!

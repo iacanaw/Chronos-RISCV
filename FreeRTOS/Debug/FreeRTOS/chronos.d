@@ -12,7 +12,8 @@ FreeRTOS/chronos.o: ../FreeRTOS/chronos.c ../FreeRTOS/include/chronos.h \
  ../FreeRTOS/include/chronos.h ../FreeRTOS/include/FreeRTOS.h \
  ../FreeRTOS/include/task.h ../FreeRTOS/include/hwaddr.h \
  ../FreeRTOS/include/message.h ../FreeRTOS/include/packet.h \
- ../FreeRTOS/include/services.h ../FreeRTOS/include/applications.h
+ ../FreeRTOS/include/services.h ../FreeRTOS/include/applications.h \
+ ../FreeRTOS/include/globalMaster.h
 
 ../FreeRTOS/include/chronos.h:
 
@@ -69,3 +70,5 @@ FreeRTOS/chronos.o: ../FreeRTOS/chronos.c ../FreeRTOS/include/chronos.h \
 ../FreeRTOS/include/services.h:
 
 ../FreeRTOS/include/applications.h:
+
+../FreeRTOS/include/globalMaster.h:

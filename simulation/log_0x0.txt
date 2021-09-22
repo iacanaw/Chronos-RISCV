@@ -1,14 +1,241 @@
 Mensagem enviada!
 INTERRUPTION TX
+==========================
 INTERRUPTION RX
+Flit 0 : 0 
+Flit 1 : 11 
+Flit 2 : 512 
+Flit 3 : 0 
+Flit 4 : 0 
+Flit 5 : 3 
+Flit 6 : 2 
+Flit 7 : 0 
+Flit 8 : 0 
+Flit 9 : 0 
+Flit 10: 0 
+Flit 11: 0 
+Flit 12: 0 
+New application registered - ID: 0 
+==========================
 GlobalMasterActive0 
+==========================
+INTERRUPTION RX
+Flit 0 : 0 
+Flit 1 : 11 
+Flit 2 : 512 
+Flit 3 : 1 
+Flit 4 : 5 
+Flit 5 : 2 
+Flit 6 : 2 
+Flit 7 : 0 
+Flit 8 : 0 
+Flit 9 : 0 
+Flit 10: 0 
+Flit 11: 0 
+Flit 12: 0 
+New application registered - ID: 1 
+==========================
+Checking app 0 
+	NR: 0  TICK: 0 
+	NR: 0  LS: 4294967295 
+	NT: 2  SLOTS: 16 
+Application 0  Task 0 
+Alocados em 2  slot 0 
+Application 0  Task 1 
+Alocados em 257  slot 0 
+Checking app 1 
+	NR: 5  TICK: 0 
+	NR: 5  LS: 4294967295 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 
 GlobalMasterActive1 
+Checking app 0 
+	NR: 0  TICK: 1 
+	NR: 0  LS: 0 
+Checking app 1 
+	NR: 5  TICK: 1 
+	NR: 5  LS: 4294967295 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 
 GlobalMasterActive2 
+Checking app 0 
+	NR: 0  TICK: 2 
+	NR: 0  LS: 0 
+Checking app 1 
+	NR: 5  TICK: 2 
+	NR: 5  LS: 4294967295 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 
 GlobalMasterActive3 
+Checking app 0 
+	NR: 0  TICK: 3 
+	NR: 0  LS: 0 
+Checking app 1 
+	NR: 5  TICK: 3 
+	NR: 5  LS: 4294967295 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 
 GlobalMasterActive4 
+Checking app 0 
+	NR: 0  TICK: 4 
+	NR: 0  LS: 0 
+Checking app 1 
+	NR: 5  TICK: 4 
+	NR: 5  LS: 4294967295 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 
 GlobalMasterActive5 
+Checking app 0 
+	NR: 0  TICK: 5 
+	NR: 0  LS: 0 
+Checking app 1 
+	NR: 5  TICK: 5 
+	NR: 5  LS: 4294967295 
+	NT: 2  SLOTS: 14 
+Application 1  Task 0 
+Alocados em 512  slot 0 
+Application 1  Task 1 
+Alocados em 514  slot 0 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 
 GlobalMasterActive6 
+Checking app 0 
+	NR: 0  TICK: 6 
+	NR: 0  LS: 0 
+Checking app 1 
+	NR: 5  TICK: 6 
+	NR: 5  LS: 5 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 
 GlobalMasterActive7 
+Checking app 0 
+	NR: 0  TICK: 7 
+	NR: 0  LS: 0 
+Checking app 1 
+	NR: 5  TICK: 7 
+	NR: 5  LS: 5 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 
 GlobalMasterActive8 
+Checking app 0 
+	NR: 0  TICK: 8 
+	NR: 0  LS: 0 
+Checking app 1 
+	NR: 5  TICK: 8 
+	NR: 5  LS: 5 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 
 GlobalMasterActive9 
+Checking app 0 
+	NR: 0  TICK: 9 
+	NR: 0  LS: 0 
+Checking app 1 
+	NR: 5  TICK: 9 
+	NR: 5  LS: 5 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 
 GlobalMasterActive10 
+Checking app 0 
+	NR: 0  TICK: 10 
+	NR: 0  LS: 0 
+Checking app 1 
+	NR: 5  TICK: 10 
+	NR: 5  LS: 5 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 
+GlobalMasterActive11 
+Checking app 0 
+	NR: 0  TICK: 11 
+	NR: 0  LS: 0 
+Checking app 1 
+	NR: 5  TICK: 11 
+	NR: 5  LS: 5 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 
+GlobalMasterActive12 
+Checking app 0 
+	NR: 0  TICK: 12 
+	NR: 0  LS: 0 
+Checking app 1 
+	NR: 5  TICK: 12 
+	NR: 5  LS: 5 
+Checking app 2 
+Checking app 3 
+Checking app 4 
+Checking app 5 
+Checking app 6 
+Checking app 7 
+Checking app 8 
+Checking app 9 

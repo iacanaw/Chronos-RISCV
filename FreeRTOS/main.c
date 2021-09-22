@@ -167,12 +167,30 @@ static void vUartTestTask2( void *pvParameters )
 
 static void GlobalManagerTask( void *pvParameters ){
 	( void ) pvParameters;
-	int i;
+	int tick;
+	// Initialize the priority vector with the pattern policy
+	GeneratePatternMatrix();
+
+	// Initialize the System Tiles Info
+	API_TilesReset();
+
+	// Initialize the applications vector
+    API_ApplicationsReset();
+
 	// Informs the Repository that the GLOBALMASTER is ready to receive the application info
 	API_RepositoryWakeUp();
-	for(i=0;;i++){
-		vTaskDelay(5);
-		printsv("GlobalMasterActive", i);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)"GlobalMasterActive\r\n" );
+
+	for(;;){
+		tick = xTaskGetTickCount();
+		printsv("GlobalMasterActive", tick);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)"GlobalMasterRoutine...\r\n" );
+
+		// Checks if there is some task to allocate...
+		API_AllocateTasks(tick);
+
+
+
+
+		vTaskDelay(1);
 	}
 }

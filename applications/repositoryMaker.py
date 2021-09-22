@@ -14,6 +14,7 @@ appsExecutions = []
 appsTasks = []
 appsTaskSize = []
 appsTaskBss = []
+appsTaskStart = []
 appsTaskCode = []
 bigCode = 0
 
@@ -34,9 +35,11 @@ for i in range(len(appsName)):
     taskSize = []
     taskBss = []
     taskCode = []
+    taskStart = []
     for j in range(len(appsTasks[i])):
         taskSize.append(0)
         taskBss.append(0)
+        taskStart.append(0)
         code = []
         bss = False
         print("       Task " + str(j) + " - " + appsTasks[i][j])
@@ -54,7 +57,10 @@ for i in range(len(appsName)):
                         if value[0] == '':
                             value[0] = "00000000"
                         code.append(value[0])
-                    #print(value[0])
+                        #print(value[0])
+
+                if "<main>:" in line:
+                    taskStart[j] = copy.deepcopy(taskSize[j]);
                         
                 if ".bss" in line: #identify when the bss has begun
                     bss = True
@@ -62,10 +68,12 @@ for i in range(len(appsName)):
                     break
             taskCode.append(copy.deepcopy(code))
             print("         TaskSize: " + str(taskSize[j]))
+            print("         TaskStart: " + str(taskStart[j]))
             if taskSize[j] > bigCode:
                 bigCode = taskSize[j]
             print("         BSS Size: " + str(taskBss[j]))
     appsTaskBss.append(copy.deepcopy(taskBss))
+    appsTaskStart.append(copy.deepcopy(taskStart))
     appsTaskSize.append(copy.deepcopy(taskSize))
     appsTaskCode.append(copy.deepcopy(taskCode))
 
@@ -110,8 +118,8 @@ with open('repository.h', 'w') as file:
             file.write('\t\t{ ' + str('0x%08X'%j) + ',  // task id '+ appsTasks[i][j] + '\n')
             file.write('\t\t  ' + str('0x%08X'%appsTaskSize[i][j]) + ',  // task size \n')
             file.write('\t\t  ' + str('0x%08X'%appsTaskBss[i][j]) + ',  // bss size \n')
-            file.write('\t\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
-            file.write('\t\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
+            file.write('\t\t  ' + str('0x%08X'%appsTaskStart[i][j]) + ',  // start point \n')
+            file.write('\t\t  ' + str('0x%08X'%i) + ',  // task appID \n')
             file.write('\t\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
             file.write('\t\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
             file.write('\t\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')

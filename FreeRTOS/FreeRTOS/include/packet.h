@@ -7,7 +7,7 @@
 #define PKT_SERVICE_SIZE	PKT_HEADER_SIZE-2 // minus two because we do not count the both address & size flits
 #define PACKET_MAX_SIZE     MSG_SIZE + PKT_HEADER_SIZE
 ////////////////////////////////////////////////////////////
-// PIPE 
+// PIPE
 #define PIPE_SIZE           4 			// Defines the PIPE size
 #define PIPE_OCCUPIED       1			
 #define PIPE_FREE           -1			
@@ -23,72 +23,57 @@
 
 
 typedef struct {
-	unsigned int header;				//** Its the first flit of packet, keeps the target NoC router
-	unsigned int payload_size;			//** Stores the number of flits that forms the remaining of packet
-	unsigned int service;				//** Store the packet service code (see services.h file)
-	union {								//--Union
-		   unsigned int producer_task;  // Informs the producer task id
-		   unsigned int task_ID;        // Informs the task id
-		   unsigned int app_ID;         // Informs the application id
-		   unsigned int total_inst;     //
+	union{
+		unsigned int flit0;
+		unsigned int header;				// ** Its the first flit of packet, keeps the target NoC router
 	};
-	union {								//--Union
-	   unsigned int consumer_task;
-	   unsigned int cluster_ID;
-	   unsigned int master_ID;
-	   unsigned int hops;
-	   unsigned int period;
-	   unsigned int router_injection; 
-	   unsigned int power_estimator_error;
+	union{
+		unsigned int flit1;
+		unsigned int payload_size;			// ** Stores the number of flits that forms the remaining of packet
 	};
-	unsigned int source_PE;				// Store the packet source PE address
-	unsigned int timestamp;				// Store the packet timestamp, filled automatically by send_packet function
-	unsigned int transaction;			// Unused field
-	union {								//--Union
-		unsigned int msg_lenght;
-		unsigned int resolution;
-		unsigned int priority;
-		unsigned int deadline;
-		unsigned int pkt_latency;
-		unsigned int stack_size;
-		unsigned int requesting_task;
-		unsigned int released_proc;
-		unsigned int app_task_number;
-		unsigned int app_descriptor_size;
-		unsigned int allocated_processor;
-		unsigned int requesting_processor;
-		unsigned int real_sampling_window; //envia o sampling window real do pacote
-		unsigned int power_mode_change;
+	union{
+		unsigned int flit2;
+		unsigned int service;				// ** Store the packet service code (see services.h file)
 	};
-	union {								//--Union
-		unsigned int tasks_of_same_app;
-		unsigned int troughput_deadline;
-		unsigned int pkt_size;
-		unsigned int data_size;
-		unsigned int energy_total; 
-		unsigned int dyn_voltage; //Varia a tensão
-		unsigned int insert_request;
+	union{
+		unsigned int flit3;
+		unsigned int application_id;		// ** Informs the application ID
+		unsigned int task_id;				// ** Store the task ID
 	};
-	union {								//--Union
-		unsigned int code_size;
-		unsigned int max_free_procs;
-		unsigned int execution_time;
-		unsigned int dyn_freq; // varia a frequencia
-		unsigned int router_congestion; 
-		unsigned int power_mode;
+	union{
+		unsigned int flit4;
+		unsigned int aplication_period;		// ** Informs the GlobalMaster the period of a given application (the time in miliseconds that the application must wait after its finish to start again)
+		unsigned int task_txt_size;			// ** Informs the task .txt size (in words) 
 	};
-	union {								//--Union
-		unsigned int bss_size;
-		unsigned int request_size;
-		unsigned int DVFS_control; // varia a frequencia
-		unsigned int cpu_slack_time;
-		unsigned int idle_PEs_into_cluster;
+	union{
+		unsigned int flit5;
+		unsigned int application_executions;// ** Informs the GlobalMaster the number of times that a given application must execute
+		unsigned int task_bss_size;			// ** Informs the task .bss size (in words)
 	};
-	union {								//--Union
-		unsigned int initial_address;
-		unsigned int program_counter;
-		unsigned int utilization;
-		unsigned int energy_leakage; 
+	union{
+		unsigned int flit6;
+		unsigned int application_n_tasks;	// ** Informs the GlobalMaster the number of tasks that a given application have
+		unsigned int task_start_point;		// ** Informs the main() start point for that task
+	};
+	union{
+		unsigned int flit7;
+		unsigned int task_app_id;			// ** Informs to witch application that task is from
+	};
+	union{
+		unsigned int flit8;			
+	};
+	union{
+		unsigned int flit9;
+	};
+	union{
+		unsigned int flit10;
+	};
+	union{
+		unsigned int flit11;
+	};
+	union{
+		unsigned int flit12;
+		unsigned int task_dest_addr;		// ** Informs the destination address for a given task
 	};
 	//Add new variables here ...
 } ServiceHeader;
