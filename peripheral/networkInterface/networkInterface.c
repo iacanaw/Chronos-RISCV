@@ -99,14 +99,14 @@ void usi2vec(){
 
 // Sets the local status to GO, allowing flits to be transmitted to the NI
 void setGO(){
-    //bhmMessage("I", "CONTROL", "GO!\n");
+    ////bhmMessage("I", "CONTROL", "GO!\n");
     myStatus = GO;
     ppmPacketnetWrite(handles.controlPort, &myStatus, sizeof(myStatus));
 }
 
 // Sets the local status to STALL, blocking the flits inside the local router
 void setSTALL(){
-    //bhmMessage("I", "CONTROL", "STALL!\n");
+    ////bhmMessage("I", "CONTROL", "STALL!\n");
     myStatus = STALL;
     ppmPacketnetWrite(handles.controlPort, &myStatus, sizeof(myStatus));
 }
@@ -123,7 +123,7 @@ void writeMem(unsigned int flit, unsigned int addr){
     usi2vec();
     ppmAddressSpaceHandle h = ppmOpenAddressSpace("MWRITE");
     if(!h) {
-        bhmMessage("I", "NI_ITERATOR", "ERROR_WRITE h handling!");
+        //bhmMessage("I", "NI_ITERATOR", "ERROR_WRITE h handling!");
         while(1){} // error handling
     }
     ppmWriteAddressSpace(h, addr, sizeof(chFlit), chFlit);
@@ -135,7 +135,7 @@ void writeMem(unsigned int flit, unsigned int addr){
 unsigned int readMem(unsigned int addr){
     ppmAddressSpaceHandle h = ppmOpenAddressSpace("MREAD");
     if(!h) {
-        bhmMessage("I", "NI_ITERATOR", "ERROR_READ h handling!");
+        //bhmMessage("I", "NI_ITERATOR", "ERROR_READ h handling!");
         while(1){} // error handling
     }
     ppmReadAddressSpace(h, addr, sizeof(chFlit), chFlit);
@@ -152,6 +152,7 @@ void niIteration(){
         if(transmittingCount != EMPTY){
             // Reads a flit from the memory
             usFlit = readMem(transmittingAddress);
+            //bhmMessage("I", "TX", "Sending flit %x", usFlit);
 
             // Runs the logic to get the packet size and the end-of-packet 
             if(transmittingCount == HEADER){
@@ -187,7 +188,7 @@ void resetReceivingAddress(){
 
 PPM_REG_READ_CB(addressRead) {
     if(bytes != 4) {
-        bhmMessage("E", "PPM_RNB", "Only 4 byte access permitted");
+        //bhmMessage("E", "PPM_RNB", "Only 4 byte access permitted");
         return 0;
     }
     // YOUR CODE HERE (addressRead)
@@ -196,24 +197,24 @@ PPM_REG_READ_CB(addressRead) {
 
 PPM_REG_WRITE_CB(addressWrite) {
     if(bytes != 4) {
-        bhmMessage("E", "PPM_WNB", "Only 4 byte access permitted");
+        //bhmMessage("E", "PPM_WNB", "Only 4 byte access permitted");
         return;
     }
     // In the beggining of everything the PE will write two addresses in the NI
     //  They will be used to write the incomming packet
     if(addressStart == 0xFFFFFFFF){
         addressStart = htonl(data);
-        bhmMessage("I", "NI", "Recebi endereco 1: %x", addressStart);
+        //bhmMessage("I", "NI", "Recebi endereco 1: %x", addressStart);
     }
     else if(control_RX == NI_STATUS_WAITING){
         receivingAddress = htonl(data);
         control_RX = NI_STATUS_ON;
-        bhmMessage("I", "NI", "Recebi endereco 2: %x", addressStart);
+        //bhmMessage("I", "NI", "Recebi endereco 2: %x", addressStart);
     }
     else{
         // When receiving the another address, then it is an address with a packet to transmitt
         auxAddress = htonl(data);
-        bhmMessage("I", "NI", ">Recebi endereco 3: %x", auxAddress);
+        //bhmMessage("I", "NI", ">Recebi endereco 3: %x", auxAddress);
     }
     *(Uns32*)user = data;
 }
@@ -244,7 +245,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
 
     // Receiving process
     if(control_RX == NI_STATUS_ON){
-        bhmMessage("I", "NI", "Escrevendo dado %d na posicao %x\n", flit, receivingAddress);
+        //bhmMessage("I", "NI", "Escrevendo dado %d na posicao %x\n", flit, receivingAddress);
         if(receivingField == HEADER){
             receivingField = SIZE;
             writeMem(flit, receivingAddress);
@@ -267,7 +268,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
             control_RX = NI_STATUS_WAITING;
             setSTALL();
             ppmWriteNet(handles.INT_NI_RX, 1); // Turns the interruption on
-            bhmMessage("I", "NI_RX", "Levantando interrupt RX - WAITING\n");
+            //bhmMessage("I", "NI_RX", "Levantando interrupt RX - WAITING\n");
         }
     }
 
@@ -280,7 +281,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
         // if the processor is ready to receive the message
         //if(RXallowed == 1){
             ppmWriteNet(handles.INT_NI_RX, 1); // Turns the interruption on
-            bhmMessage("I", "NI_RX", "Levantando interrupt RX - DELIVER\n");
+            //bhmMessage("I", "NI_RX", "Levantando interrupt RX - DELIVER\n");
         /*}
         // if the processor is not ready to receive the message
         else{
@@ -290,12 +291,12 @@ PPM_PACKETNET_CB(dataPortUpd) {
 }
 
 PPM_PACKETNET_CB(rxInterruptionPort) {
-    bhmMessage("I", "NI_RX", "Recebi algo em rxInterruptionPort\n");
+    //bhmMessage("I", "NI_RX", "Recebi algo em rxInterruptionPort\n");
 }
 
 PPM_REG_READ_CB(statusRXRead) {
     if(bytes != 4) {
-        bhmMessage("E", "PPM_RNB", "Only 4 byte access permitted");
+        //bhmMessage("E", "PPM_RNB", "Only 4 byte access permitted");
         return 0;
     }
     DMAC_ab8_data.statusRX.value = htonl(control_RX);
@@ -304,24 +305,24 @@ PPM_REG_READ_CB(statusRXRead) {
 
 PPM_REG_WRITE_CB(statusRXWrite) {
     if(bytes != 4) {
-        bhmMessage("E", "PPM_WNB", "Only 4 byte access permitted");
+        //bhmMessage("E", "PPM_WNB", "Only 4 byte access permitted");
         return;
     }
     unsigned int command = htonl(data);
     if(command == DONE){
         if(control_RX == NI_STATUS_INTER){    
             control_RX = NI_STATUS_OFF;
-            bhmMessage("I", "statusWrite", "RX Turning interruption off!");
+            //bhmMessage("I", "statusWrite", "RX Turning interruption off!");
             ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
             setGO();
         }
         else if(control_RX == NI_STATUS_ON){
-            bhmMessage("I", "statusWrite", "RX Proceed with the packet reception!");
+            //bhmMessage("I", "statusWrite", "RX Proceed with the packet reception!");
             ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
             setGO();
         }
         else{
-            bhmMessage("I", "statusWrite", "ERROR_DONE_RX: UNEXPECTED STATE REACHED"); while(1){}
+            //bhmMessage("I", "statusWrite", "ERROR_DONE_RX: UNEXPECTED STATE REACHED"); while(1){}
         }
     }
     /*else if (command == UNBLOCKED){
@@ -353,18 +354,18 @@ PPM_REG_WRITE_CB(statusRXWrite) {
 
 PPM_REG_READ_CB(statusTXRead) {
     if(bytes != 4) {
-        bhmMessage("E", "PPM_RNB", "Only 4 byte access permitted");
+        //bhmMessage("E", "PPM_RNB", "Only 4 byte access permitted");
         return 0;
     }
     DMAC_ab8_data.statusTX.value = htonl(control_TX);
     //informIteration(); // Used only when operating at LOCAL ITERATIONS
-    //bhmMessage("INFO", "reading NIcmdTXC", "Lendo!");
+    ////bhmMessage("INFO", "reading NIcmdTXC", "Lendo!");
     return *(Uns32*)user;
 }
 
 PPM_REG_WRITE_CB(statusTXWrite) {
     if(bytes != 4) {
-        bhmMessage("E", "PPM_WNB", "Only 4 byte access permitted");
+        //bhmMessage("E", "PPM_WNB", "Only 4 byte access permitted");
         return;
     }
     unsigned int command = htonl(data);
@@ -376,24 +377,24 @@ PPM_REG_WRITE_CB(statusTXWrite) {
             niIteration();  // Send a flit to the ROUTER, this way it will inform the iterator that this PE is waiting for "iterations"
         }
         else{
-            bhmMessage("I", "statusWrite", "ERROR_TX: UNEXPECTED STATE REACHED"); while(1){}
+            //bhmMessage("I", "statusWrite", "ERROR_TX: UNEXPECTED STATE REACHED"); while(1){}
         }
     }
     else if(command == DONE){
         if(control_TX == NI_STATUS_INTER){    
             control_TX = NI_STATUS_OFF;
-            bhmMessage("I", "statusWrite", "TX Turning interruption off!");
+            //bhmMessage("I", "statusWrite", "TX Turning interruption off!");
             ppmWriteNet(handles.INT_NI_TX, 0);  // Turn the interruption signal down
         }
         else{
-            bhmMessage("I", "statusWrite", "ERROR_DONE_TX: UNEXPECTED STATE REACHED"); while(1){}
+            //bhmMessage("I", "statusWrite", "ERROR_DONE_TX: UNEXPECTED STATE REACHED"); while(1){}
         }
     }
     *(Uns32*)user = data;
 }
 
 PPM_PACKETNET_CB(txInterruptionPort) {
-    bhmMessage("I", "NI_RX", "Recebi algo em txInterruptionPort\n");
+    //bhmMessage("I", "NI_RX", "Recebi algo em txInterruptionPort\n");
 }
 
 PPM_CONSTRUCTOR_CB(constructor) {
@@ -408,11 +409,11 @@ PPM_DESTRUCTOR_CB(destructor) {
 
 
 PPM_SAVE_STATE_FN(peripheralSaveState) {
-    bhmMessage("E", "PPM_RSNI", "Model does not implement save/restore");
+    //bhmMessage("E", "PPM_RSNI", "Model does not implement save/restore");
 }
 
 PPM_RESTORE_STATE_FN(peripheralRestoreState) {
-    bhmMessage("E", "PPM_RSNI", "Model does not implement save/restore");
+    //bhmMessage("E", "PPM_RSNI", "Model does not implement save/restore");
 }
 
 

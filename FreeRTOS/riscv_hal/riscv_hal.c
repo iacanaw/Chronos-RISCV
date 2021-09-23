@@ -11,6 +11,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <unistd.h>
+#include "core_uart_apb.h"
 #include "chronos.h"
 
 #include "../FreeRTOS/include/system_call.h"
@@ -25,6 +26,10 @@ extern "C" {
 
 #define SUCCESS 0
 #define ERROR   1
+
+extern UART_instance_t g_uart;
+
+char str[20];
 
 /*------------------------------------------------------------------------------
  * 
@@ -234,6 +239,28 @@ unsigned int handle_syscall(){
 			printsv("arg4 ", arg4);
 			printsv("type ", type);
 			break;
+
+        case SYS_PRINTS:
+            prints(arg0);
+            UART_polled_tx_string( &g_uart, arg0 );
+            break;
+        
+        case SYS_PRINTI:
+            printi(arg0);
+            myItoa(arg0, str, 10);
+            UART_polled_tx_string( &g_uart, (const uint8_t *)str );
+            break;
+        
+        case SYS_SEND_MSG:
+            API_SendMessage(arg0, arg1);
+            break;
+        
+        case SYS_RECV_MSG:
+            API_SendMessageReq(arg0, arg1);
+            break;
+        
+        case SYS_END_TASK:
+            break;
 
 		default:
 			prints("Systemcall não identificada!\n");

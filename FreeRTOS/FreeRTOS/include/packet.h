@@ -44,11 +44,14 @@ typedef struct {
 		unsigned int flit4;
 		unsigned int aplication_period;		// ** Informs the GlobalMaster the period of a given application (the time in miliseconds that the application must wait after its finish to start again)
 		unsigned int task_txt_size;			// ** Informs the task .txt size (in words) 
+		unsigned int producer_task;			// ** Informs the receiver the producer task
 	};
 	union{
 		unsigned int flit5;
 		unsigned int application_executions;// ** Informs the GlobalMaster the number of times that a given application must execute
 		unsigned int task_bss_size;			// ** Informs the task .bss size (in words)
+		unsigned int destination_task;		// ** Holds the destination taskID
+		unsigned int producer_task_id;		// ** Holds the producer taskID
 	};
 	union{
 		unsigned int flit6;

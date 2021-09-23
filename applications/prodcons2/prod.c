@@ -1,48 +1,26 @@
-/*
- * prod.c
- *
- *  Created on: 07/03/2013
- *      Author: mruaro
- *
- *  Changed on: 16/09/2016 - Geancarlo Abich
- *
- */
-
 #include "prodcons.h"
 
-static char start_print[]=  "PROD Start";
-static char end_print[]=    "PROD End";
+static char start_print[]=  "PROD2 Start\n";
+static char end_print[]=    "PROD2 End\n";
 
-Message msg;
+static Message mensagem;
 
-int main()
-{
-
+int main(){
     int i;
 
-    volatile int t;
+    sys_Prints((unsigned int)&start_print);
 
-    //SYSCALL_PRINTF(0,0,0,start_print);
-    sys_Testing(1,2,3,4,5,6);
-
-    for (i=0;i<128;i++) {
-        msg.msg[i]=i;
+    for (i=0;i<MSG_SIZE;i++) {
+        mensagem.msg[i]=i;
     }
 
-    msg.length = 10;
+    mensagem.length = 10;
 
-    msg.msg[9] = 0xB0A;
+    mensagem.msg[9] = 0xB0A;
 
     for (i=0; i<PRODCONS_ITERATIONS; i++) {
-        /* SYSCALL_PRINTF(1,0,0,i+10000); */
-        //SYSCALL_SEND(cons,0,0,&msg);
-        sys_Testing(1,2,3,4,5,6);
+        sys_Send(&mensagem, cons);
     }
 
-    //SYSCALL_PRINTF(0,0,0,end_print);
-
-    //SYSCALL_DELETE(0,0,0,0);
-
+    sys_Prints((unsigned int)&end_print);
 }
-
-

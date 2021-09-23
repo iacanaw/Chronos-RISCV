@@ -4,8 +4,8 @@
 #define MSG_SIZE 128
 
 typedef struct {
-    unsigned int length;
-    unsigned int msg[ MSG_SIZE ];
+    volatile unsigned int length;
+    volatile unsigned int msg[ MSG_SIZE ];
 } Message;
 
 #endif /* __MESSAGE_H__ */

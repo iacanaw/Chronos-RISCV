@@ -14,11 +14,14 @@ void API_TaskListInit(){
     unsigned int i, j;
     for (i = 0; i < NUM_MAX_TASKS; i++){
         TaskList[i].status = TASK_SLOT_EMPTY;
+        for (j = 0; j < NUM_MAX_APP_TASKS; j++){
+            TaskList[i].PendingReq[j] = FALSE;
+        }
     }
     return;
 }
 
-unsigned int API_GetTaskID(){
+unsigned int API_GetCurrentTaskSlot(){
     // The handle of the currently running ( calling ) task on the kernel.
     TaskHandle_t xHandle = xTaskGetCurrentTaskHandle();
     unsigned int i = 0;
@@ -48,10 +51,8 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
     TaskList[tslot].AppID = task_app_id;
     TaskList[tslot].taskSize = 4 * (txt_size + bss_size); // it multiply by four because each word has 32 bits and the memory is addressed by byte - so each word is composed by 4 addresses
 
-    TaskList[tslot].taskAddr = pvPortMalloc(TaskList[tslot].taskSize); //vPortFree(TaskList[tslot].taskAddr);
-    //printsv("Consegui endereco1: ", TaskList[tslot].taskAddr);
+    TaskList[tslot].taskAddr = pvPortMalloc(TaskList[tslot].taskSize); //vPortFree(TaskList[tslot].taskAddr);    
     TaskList[tslot].mainAddr =  TaskList[tslot].taskAddr + (4 * start_point);
-    //printsv("Main começa no endereco: ", TaskList[tslot].mainAddr);
 
     return tslot;
 }

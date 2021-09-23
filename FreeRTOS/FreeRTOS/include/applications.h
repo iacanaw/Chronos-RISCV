@@ -18,11 +18,12 @@ typedef struct {
     unsigned int TaskID;
     unsigned int AppID;
     TaskHandle_t TaskHandler;
-    unsigned int waitingMsg;
-    Message* MsgToReceive;
+    volatile unsigned int waitingMsg;
+    Message *MsgToReceive;
     unsigned int taskSize;
     unsigned int taskAddr;
     unsigned int mainAddr;
+    unsigned int PendingReq[NUM_MAX_APP_TASKS];
     volatile unsigned int appNumTasks;
     volatile unsigned int TasksMap[NUM_MAX_APP_TASKS];
 } Task;
@@ -37,7 +38,7 @@ unsigned int API_GetFreeTaskSlot();
 // Initiate the TaskList with NULL values
 void API_TaskListInit();
 // Returns the running taskID
-unsigned int API_GetTaskID();
+unsigned int API_GetCurrentTaskSlot();
 // Creates a new task filling the TaskList
 unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int task_app_id);
 // Starts the execution of a task that is alocated in a given spot

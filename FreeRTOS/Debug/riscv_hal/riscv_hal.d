@@ -1,4 +1,5 @@
 riscv_hal/riscv_hal.o: ../riscv_hal/riscv_hal.c \
+ ../drivers/CoreUARTapb/core_uart_apb.h ../hal/cpu_types.h \
  ../FreeRTOS/include/chronos.h ../riscv_hal/riscv_plic.h \
  ../riscv_hal/encoding.h ../hal/hw_reg_access.h ../hal/cpu_types.h \
  ../FreeRTOS/include/FreeRTOS.h ../FreeRTOSConfig.h \
@@ -13,6 +14,10 @@ riscv_hal/riscv_hal.o: ../riscv_hal/riscv_hal.c \
  ../riscv_hal/../FreeRTOS/include/system_call.h \
  ../riscv_hal/../FreeRTOS/include/chronos.h ../riscv_hal/riscv_hal.h \
  ../riscv_hal/riscv_plic.h
+
+../drivers/CoreUARTapb/core_uart_apb.h:
+
+../hal/cpu_types.h:
 
 ../FreeRTOS/include/chronos.h:
 

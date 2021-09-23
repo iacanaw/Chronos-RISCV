@@ -105,11 +105,8 @@ unsigned int getYpos(unsigned int addr) { return (addr & 0x000000FF); }
 ///////////////////////////////////////////////////////////////////
 // Configure the NI to transmitt a given packet
 void SendRaw(unsigned int addr) {
-    vPortEnterCritical();
-        HW_set_32bit_reg(NI_ADDR, addr);
-        HW_set_32bit_reg(NI_TX, TX);
-    vPortExitCritical();
-    prints("Mensagem enviada!\n");
+    HW_set_32bit_reg(NI_ADDR, addr);
+    HW_set_32bit_reg(NI_TX, TX);
     return;
 }
 
@@ -149,21 +146,21 @@ uint8_t External_1_IRQHandler(void){
 ////////////////////////////////////////////////////////////
 // Interruptions handler for RX
 uint8_t External_2_IRQHandler(void){
-    prints("==========================\n");
-    prints("INTERRUPTION RX\n");
-    printsv("Flit 0 : ", incommingPacket.header);
-    printsv("Flit 1 : ", incommingPacket.payload_size);
-    printsv("Flit 2 : ", incommingPacket.service);
-    printsv("Flit 3 : ", incommingPacket.flit3);
-    printsv("Flit 4 : ", incommingPacket.flit4);
-    printsv("Flit 5 : ", incommingPacket.flit5);
-    printsv("Flit 6 : ", incommingPacket.flit6);
-    printsv("Flit 7 : ", incommingPacket.flit7);
-    printsv("Flit 8 : ", incommingPacket.flit8);
-    printsv("Flit 9 : ", incommingPacket.flit9);
-    printsv("Flit 10: ", incommingPacket.flit10);
-    printsv("Flit 11: ", incommingPacket.flit11);
-    printsv("Flit 12: ", incommingPacket.flit12);
+    // prints("==========================\n");
+    // prints("INTERRUPTION RX\n");
+    // printsv("Flit 0 : ", incommingPacket.header);
+    // printsv("Flit 1 : ", incommingPacket.payload_size);
+    // printsv("Flit 2 : ", incommingPacket.service);
+    // printsv("Flit 3 : ", incommingPacket.flit3);
+    // printsv("Flit 4 : ", incommingPacket.flit4);
+    // printsv("Flit 5 : ", incommingPacket.flit5);
+    // printsv("Flit 6 : ", incommingPacket.flit6);
+    // printsv("Flit 7 : ", incommingPacket.flit7);
+    // printsv("Flit 8 : ", incommingPacket.flit8);
+    // printsv("Flit 9 : ", incommingPacket.flit9);
+    // printsv("Flit 10: ", incommingPacket.flit10);
+    // printsv("Flit 11: ", incommingPacket.flit11);
+    // printsv("Flit 12: ", incommingPacket.flit12);
 
 
     switch (incommingPacket.service){
@@ -210,11 +207,39 @@ uint8_t External_2_IRQHandler(void){
             printsv("Starting Task: ", incommingPacket.task_id);
             break;
 
+        case MESSAGE_REQUEST:
+            // check the pipe
+            prints("Chegou um message request! \n");
+            aux = API_CheckMessagePipe(incommingPacket.application_id, incommingPacket.task_app_id);
+            
+            if (aux == ERRO){
+                // register an messagerequest
+                API_AddPendingReq(incommingPacket.task_id, incommingPacket.task_app_id, incommingPacket.producer_task_id);
+            } else {
+                API_PushSendQueue(MESSAGE, aux);
+            }
+            break;
+        
+        case MESSAGE_DELIVERY:
+            prints("Tem uma mensagem chegando...\n");
+            aux = API_GetTaskSlot(incommingPacket.application_id, incommingPacket.destination_task);
+            incommingPacket.service = MESSAGE_DELIVERY_FINISH;
+            HW_set_32bit_reg(NI_ADDR, &TaskList[aux].MsgToReceive);
+            break;
+        
+        case MESSAGE_DELIVERY_FINISH:
+            prints("Terminou de entregar a mensagem!!\n");
+            aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
+            printsv("> taskslot: ", aux);
+            TaskList[aux].waitingMsg = FALSE;
+            break;
+            
+
         default:
             printsv("ERROR External_2_IRQHandler Unknown-Service", incommingPacket.service);
             break;
     }
-    prints("==========================\n");
+    // prints("==========================\n");
     HW_set_32bit_reg(NI_RX, DONE);
     return 0;
 }
@@ -277,7 +302,7 @@ char* myItoa(int value, char* buffer, int base){
 ////////////////////////////////////////////////////////////
 // Receives a message and alocates it in the application structure
 void ReceiveMessage(Message *theMessage, unsigned int from){
-    unsigned int taskID = API_GetTaskID();
+    unsigned int taskID = API_GetCurrentTaskSlot();
     printsvsv("msg pointer: ", (unsigned int)theMessage, "from: ", from);
     printsv("Minha task ID: ", taskID);
     //SendMessageRequest(from);
@@ -350,7 +375,7 @@ void API_AckTaskAllocation(unsigned int task_id, unsigned int app_id){
     unsigned int mySlot;
     do{
         mySlot = API_GetServiceSlot();
-        //vTaskDelay(1);
+        if(mySlot == PIPE_FULL) vTaskDelay(1);
     }while(mySlot == PIPE_FULL);
     //printsv("I got a free service slot!! -> ", mySlot);
 
@@ -366,3 +391,91 @@ void API_AckTaskAllocation(unsigned int task_id, unsigned int app_id){
     return;    
 }
 
+void API_SendMessage(unsigned int addr, unsigned int taskID){
+    unsigned int mySlot;
+    unsigned int taskSlot;
+    unsigned int i;
+    Message *theMessage;
+    do{
+        mySlot = API_GetMessageSlot();
+        if(mySlot == PIPE_FULL) vTaskDelay(1);
+    }while(mySlot == PIPE_FULL);
+    
+    theMessage = addr;
+
+    taskSlot = API_GetCurrentTaskSlot();
+    
+    MessagePipe[mySlot].holder = taskSlot;
+
+    MessagePipe[mySlot].header.header           = TaskList[taskSlot].TasksMap[taskID];
+    MessagePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE + theMessage->length + 1;
+    MessagePipe[mySlot].header.service          = MESSAGE_DELIVERY;
+    MessagePipe[mySlot].header.application_id   = TaskList[taskSlot].AppID;
+    MessagePipe[mySlot].header.producer_task    = TaskList[taskSlot].TaskID;
+    MessagePipe[mySlot].header.destination_task = taskID;
+    MessagePipe[mySlot].msg.length              = theMessage->length;
+    for (i = (PKT_SERVICE_SIZE+1); i < theMessage->length; i++){
+        MessagePipe[mySlot].msg.msg[i]          = theMessage->msg[i-PKT_SERVICE_SIZE-1];
+    }
+    
+    if (TaskList[taskSlot].PendingReq[taskID] == TRUE){
+        API_PushSendQueue(MESSAGE, mySlot);
+    }
+
+    return;
+}
+
+void API_SendMessageReq(unsigned int addr, unsigned int taskID){
+    unsigned int taskSlot;
+    unsigned int mySlot;
+
+    // Update task info
+    taskSlot = API_GetCurrentTaskSlot();
+    TaskList[taskSlot].waitingMsg = TRUE;
+    TaskList[taskSlot].MsgToReceive = addr;
+
+    // Sends the message request
+    do{
+        mySlot = API_GetServiceSlot();
+        if(mySlot == PIPE_FULL) vTaskDelay(1);
+    }while(mySlot == PIPE_FULL);
+
+    ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
+
+    ServicePipe[mySlot].header.header           = TaskList[taskSlot].TasksMap[taskID];
+    ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
+    ServicePipe[mySlot].header.service          = MESSAGE_REQUEST;
+    ServicePipe[mySlot].header.task_id          = TaskList[taskSlot].TaskID;
+    ServicePipe[mySlot].header.task_app_id      = TaskList[taskSlot].AppID;
+    ServicePipe[mySlot].header.producer_task_id = taskID;
+
+    API_PushSendQueue(SERVICE, mySlot);
+    prints("Enviando um Message Request!\n");
+    // Bloquear a tarefa!
+    while(TaskList[taskSlot].waitingMsg == TRUE){ 
+        printsvsv("taskslot ", taskSlot, " esperando mensgaem ", 0);
+        vTaskDelay(1); 
+    }
+    prints("Pacote recebido!\n");
+    return;
+}
+
+unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int task_app_id){
+    unsigned int i;
+    for (i = 0; i < PIPE_SIZE; i++){
+        if(MessagePipe->status == PIPE_OCCUPIED){
+            if(MessagePipe->header.application_id == task_app_id){
+                if(MessagePipe->header.destination_task == requester_task_id){
+                    return i;
+                }
+            }
+        }
+    }
+    return ERRO;
+}
+
+void API_AddPendingReq(unsigned int requester_task_id, unsigned int task_app_id, unsigned int producer_task_id){
+    unsigned int slot = API_GetTaskSlot(producer_task_id, task_app_id);
+    TaskList[slot].PendingReq[requester_task_id] = TRUE;
+    return;
+}
