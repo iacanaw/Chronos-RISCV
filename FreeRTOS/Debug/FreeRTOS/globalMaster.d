@@ -9,9 +9,9 @@ FreeRTOS/globalMaster.o: ../FreeRTOS/globalMaster.c \
  ../FreeRTOS/include/mpu_wrappers.h ../FreeRTOS/include/task.h \
  ../FreeRTOS/include/list.h ../FreeRTOS/include/hwaddr.h \
  ../FreeRTOS/include/message.h ../FreeRTOS/include/packet.h \
- ../FreeRTOS/include/services.h ../FreeRTOS/include/applications.h \
- ../FreeRTOS/include/chronos.h ../FreeRTOS/include/message.h \
- ../FreeRTOS/include/packet.h ../FreeRTOS/include/services.h
+ ../FreeRTOS/include/services.h ../FreeRTOS/include/chronos.h \
+ ../FreeRTOS/include/message.h ../FreeRTOS/include/packet.h \
+ ../FreeRTOS/include/services.h
 
 ../FreeRTOS/include/globalMaster.h:
 
@@ -52,8 +52,6 @@ FreeRTOS/globalMaster.o: ../FreeRTOS/globalMaster.c \
 ../FreeRTOS/include/packet.h:
 
 ../FreeRTOS/include/services.h:
-
-../FreeRTOS/include/applications.h:
 
 ../FreeRTOS/include/chronos.h:
 

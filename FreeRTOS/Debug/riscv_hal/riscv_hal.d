@@ -9,8 +9,7 @@ riscv_hal/riscv_hal.o: ../riscv_hal/riscv_hal.c \
  ../FreeRTOS/include/mpu_wrappers.h ../FreeRTOS/include/task.h \
  ../FreeRTOS/include/list.h ../FreeRTOS/include/hwaddr.h \
  ../FreeRTOS/include/message.h ../FreeRTOS/include/packet.h \
- ../FreeRTOS/include/services.h ../FreeRTOS/include/applications.h \
- ../FreeRTOS/include/chronos.h \
+ ../FreeRTOS/include/services.h \
  ../riscv_hal/../FreeRTOS/include/system_call.h \
  ../riscv_hal/../FreeRTOS/include/chronos.h ../riscv_hal/riscv_hal.h \
  ../riscv_hal/riscv_plic.h
@@ -52,10 +51,6 @@ riscv_hal/riscv_hal.o: ../riscv_hal/riscv_hal.c \
 ../FreeRTOS/include/packet.h:
 
 ../FreeRTOS/include/services.h:
-
-../FreeRTOS/include/applications.h:
-
-../FreeRTOS/include/chronos.h:
 
 ../riscv_hal/../FreeRTOS/include/system_call.h:
 

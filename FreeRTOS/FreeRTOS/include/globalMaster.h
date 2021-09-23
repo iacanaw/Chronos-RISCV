@@ -2,20 +2,18 @@
 #define _GLOBAL_MASTER_H_
 
 #include "chronos.h"
+#include "message.h"
+#include "packet.h"
+#include "services.h"
 
 ////////////////////////////////////////////////////////////
-#define NUM_MAX_APPS        10
-#define NUM_MAX_APP_TASKS   10
-#define NUM_MAX_TASKS       2
-
 #define NONE                -1
 
 // Define TASK status
 #define TASK_RUNNING        1
 #define TASK_FINISHED       2
 #define TASK_ALLOCATING     3
-#define TASK_WAITING        4
-#define TASK_REALOCATE      5
+#define TASK_ALLOCATED      4
 
 // Stores the ADDRESS of each tile ordered by the current priotity policy
 unsigned int priorityMatrix[DIM_X*DIM_Y];
@@ -78,6 +76,8 @@ unsigned int getNextPriorityAddr();
 unsigned int API_GetSystemTasksSlots();
 // Gets a free slot from one given tile
 unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsigned int task);
+// Sends the packet to the Repository, informing were it must send the task code 
+void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int dest_addr);
 
 
 

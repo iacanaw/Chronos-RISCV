@@ -1,0 +1,72 @@
+==========================
+INTERRUPTION RX
+Flit 0 : 2 
+Flit 1 : 345 
+Flit 2 : 48 
+Flit 3 : 0 
+Flit 4 : 205 
+Flit 5 : 129 
+Flit 6 : 143 
+Flit 7 : 0 
+Flit 8 : 4294967295 
+Flit 9 : 4294967295 
+Flit 10: 4294967295 
+Flit 11: 4294967295 
+Flit 12: 4294967295 
+==========================
+==========================
+INTERRUPTION RX
+Flit 0 : 2 
+Flit 1 : 345 
+Flit 2 : 51 
+Flit 3 : 0 
+Flit 4 : 205 
+Flit 5 : 129 
+Flit 6 : 143 
+Flit 7 : 0 
+Flit 8 : 4294967295 
+Flit 9 : 4294967295 
+Flit 10: 4294967295 
+Flit 11: 4294967295 
+Flit 12: 4294967295 
+Mensagem enviada!
+==========================
+INTERRUPTION TX
+==========================
+INTERRUPTION RX
+Flit 0 : 2 
+Flit 1 : 14 
+Flit 2 : 1024 
+Flit 3 : 0 
+Flit 4 : 0 
+Flit 5 : 0 
+Flit 6 : 0 
+Flit 7 : 0 
+Flit 8 : 0 
+Flit 9 : 0 
+Flit 10: 0 
+Flit 11: 0 
+Flit 12: 0 
+==========================
+==========================
+INTERRUPTION RX
+Flit 0 : 2 
+Flit 1 : 14 
+Flit 2 : 1025 
+Flit 3 : 0 
+Flit 4 : 0 
+Flit 5 : 0 
+Flit 6 : 0 
+Flit 7 : 0 
+Flit 8 : 0 
+Flit 9 : 0 
+Flit 10: 0 
+Flit 11: 0 
+Flit 12: 0 
+Detectei uma chamada TESTE de sistema!
+arg0 1 
+arg1 2 
+arg2 3 
+arg3 4 
+arg4 6 
+type 66 

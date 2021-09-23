@@ -10,7 +10,7 @@
 #include "message.h"
 #include "packet.h"
 #include "services.h"
-#include "applications.h"
+//#include "applications.h"
 
 ////////////////////////////////////////////////////////////
 // DEFINES
@@ -22,7 +22,9 @@
 #define DIM_X               3
 #define DIM_Y               3
 #define GLOBAL_MASTER_ADDR  0x0000
-#define MAX_LOCAL_TASKS     10
+#define NUM_MAX_APPS        12
+#define NUM_MAX_APP_TASKS   10
+#define NUM_MAX_TASKS       2
 ////////////////////////////////////////////////////////////
 // PERIPHERAL PORTS
 #define PERIPH_EAST         0x00010000

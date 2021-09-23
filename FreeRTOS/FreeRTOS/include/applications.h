@@ -7,21 +7,39 @@
 #include "message.h"
 #include "packet.h"
 #include "chronos.h"
+//#include "globalMaster.h"
+
+#define TASK_SLOT_EMPTY          0
+#define TASK_SLOT_RUNNING        1
+#define TASK_SLOT_WAITING_START  2
 
 typedef struct {
+    unsigned int status;
     unsigned int TaskID;
     unsigned int AppID;
     TaskHandle_t TaskHandler;
     unsigned int waitingMsg;
     Message* MsgToReceive;
+    unsigned int taskSize;
+    unsigned int taskAddr;
+    unsigned int mainAddr;
+    volatile unsigned int appNumTasks;
+    volatile unsigned int TasksMap[NUM_MAX_APP_TASKS];
 } Task;
 
+// Vector of Tasks running in a given PE
+Task TaskList[NUM_MAX_TASKS];
+
+// Getts the slot were the task is located
+unsigned int API_GetTaskSlot(unsigned int task_id, unsigned int app_id);
+// Gets an empty taskslot
+unsigned int API_GetFreeTaskSlot();
 // Initiate the TaskList with NULL values
 void API_TaskListInit();
 // Returns the running taskID
 unsigned int API_GetTaskID();
-// Gets an empty slot inside the TaskList
-unsigned int API_GetTaskSlot();
 // Creates a new task filling the TaskList
-void API_CreateTask();
+unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int task_app_id);
+// Starts the execution of a task that is alocated in a given spot
+void API_TaskStart(unsigned int slot);
 #endif

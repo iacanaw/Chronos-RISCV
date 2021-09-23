@@ -9,9 +9,9 @@ FreeRTOS/applications.o: ../FreeRTOS/applications.c \
  ../FreeRTOS/include/packet.h ../FreeRTOS/include/chronos.h \
  ../riscv_hal/riscv_plic.h ../hal/hw_reg_access.h ../hal/cpu_types.h \
  ../FreeRTOS/include/hwaddr.h ../FreeRTOS/include/services.h \
- ../FreeRTOS/include/applications.h ../FreeRTOS/include/FreeRTOS.h \
- ../FreeRTOS/include/task.h ../FreeRTOS/include/message.h \
- ../FreeRTOS/include/packet.h ../FreeRTOS/include/chronos.h
+ ../FreeRTOS/include/FreeRTOS.h ../FreeRTOS/include/task.h \
+ ../FreeRTOS/include/message.h ../FreeRTOS/include/packet.h \
+ ../FreeRTOS/include/chronos.h
 
 ../FreeRTOS/include/applications.h:
 
@@ -52,8 +52,6 @@ FreeRTOS/applications.o: ../FreeRTOS/applications.c \
 ../FreeRTOS/include/hwaddr.h:
 
 ../FreeRTOS/include/services.h:
-
-../FreeRTOS/include/applications.h:
 
 ../FreeRTOS/include/FreeRTOS.h:
 

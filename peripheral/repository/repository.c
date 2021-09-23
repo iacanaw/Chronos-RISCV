@@ -20,7 +20,7 @@
 unsigned int routerCredit = 0;
 
 // Used to handle packets
-unsigned int inPacket[13+10];
+volatile unsigned int inPacket[13+10];
 unsigned int outPacket[13+BIG_CODE];
 unsigned int sendingPacket = 0;
 unsigned int out_packetPointer = 0;
@@ -40,7 +40,6 @@ void iterate(){
         case REPO_IDLE:
             // if some packet was received...
             if (packetReceived == 1){
-                packetReceived = 0;
                 in_packetPointer = 0;
                 bhmMessage("I", "REPO", "Terminou de chegar um pacote!");
                 for (i = 0; i < in_packetSize+2; i++){
@@ -48,7 +47,39 @@ void iterate(){
                 }
                 if (inPacket[2] == REPOSITORY_WAKEUP){
                     status = REPO_STARTING;
-                }                   
+
+                    // Enables a new packet to get inside the Repository
+                    packetReceived = 0;
+                    ppmPacketnetWrite(handles.portControl, &packetReceived, sizeof(packetReceived));
+                }
+                else if (inPacket[2] == TASK_ALLOCATION_SEND){
+                    if(sendingPacket == 0){
+                        outPacket[0] = inPacket[12];
+                        outPacket[1] = tasksInfo[inPacket[7]][inPacket[3]][2] + tasksInfo[inPacket[7]][inPacket[3]][1] + 11; 
+                        outPacket[2] = TASK_ALLOCATION_SEND;
+                        outPacket[3] = tasksInfo[inPacket[7]][inPacket[3]][0]; //task id
+                        outPacket[4] = tasksInfo[inPacket[7]][inPacket[3]][1]; //task size
+                        outPacket[5] = tasksInfo[inPacket[7]][inPacket[3]][2]; //bss size
+                        outPacket[6] = tasksInfo[inPacket[7]][inPacket[3]][3]; //start point
+                        outPacket[7] = tasksInfo[inPacket[7]][inPacket[3]][4]; //taskappid
+                        outPacket[8] = -1;
+                        outPacket[9] = -1;
+                        outPacket[10] = -1;
+                        outPacket[11] = -1;
+                        outPacket[12] = -1;
+                        for(i=13; i<((tasksInfo[inPacket[7]][inPacket[3]][1])+13); i++){
+                            // indecifravel, eu sei ._.
+                            outPacket[i] = tasksCode[tasksInfo[inPacket[7]][inPacket[3]][4]][tasksInfo[inPacket[7]][inPacket[3]][0]][i-13]; 
+                            //bhmMessage("I", "REPO", "flit %d = %x!", i, outPacket[i]);
+                        }
+                        // Set the flag to send the packet
+                        sendingPacket = 1;
+
+                        // Enables a new packet to get inside the Repository
+                        packetReceived = 0;
+                        ppmPacketnetWrite(handles.portControl, &packetReceived, sizeof(packetReceived));      
+                    }
+                }
             }
             break;
 
@@ -123,7 +154,7 @@ PPM_PACKETNET_CB(controlUpdate) {
 
 PPM_PACKETNET_CB(dataUpdate) {
     unsigned int newFlit = *(unsigned int *)data;
-    unsigned int status = 0;
+    unsigned int myStatus = 0;
     //bhmMessage("I", "REPO", "Chegou um flit: %x", newFlit);
     inPacket[in_packetPointer] = newFlit;           // stores the incoming flit
     in_packetPointer++;                             // increases the packet pointer
@@ -133,8 +164,8 @@ PPM_PACKETNET_CB(dataUpdate) {
     }
     else if (in_packetPointer >= in_packetSize+2){  // register that the packet was received with success
         packetReceived = 1;
-        status = 1;
-        ppmPacketnetWrite(handles.portControlLocal, &status, sizeof(status));
+        myStatus = 1;
+        ppmPacketnetWrite(handles.portControl, &myStatus, sizeof(myStatus));
     }
 
     // REMOVER- SÒ PRA N DAR ERRO NA COMPILAÇÂO!

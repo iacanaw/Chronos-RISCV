@@ -16,7 +16,7 @@
 extern unsigned int ProcessorAddr;
 
 // Stores information about each running task
-extern Task TaskList[ MAX_LOCAL_TASKS ];
+extern Task TaskList[ NUM_MAX_TASKS ];
 
 extern volatile unsigned int SendingQueue[PIPE_SIZE*2];
 extern volatile unsigned int SendingQueue_front;
@@ -42,7 +42,7 @@ void Chronos_init(){
     HW_set_32bit_reg(NI_ADDR, (unsigned int)&incommingPacket.header);
     
     // Initialize the TaskList
-    API_TaskListInit(MAX_LOCAL_TASKS);
+    API_TaskListInit();
 
     // Initialize the Message & Service PIPE
     API_PipeInitialization();
@@ -177,17 +177,37 @@ uint8_t External_2_IRQHandler(void){
             break;
         
         case TASK_ALLOCATION_SEND: // When the GM asks one Slave to allocate one task
-            /*aux = taskAllocation(incommingPacket.task_id,
-                                 incommingPacket.task_txt_size,
-                                 incommingPacket.task_bss_size,
-                                 incommingPacket.task_start_point,
-                                 incommingPacket.task_app_id);*/
-            aux = 0;
-            if(aux == ERRO){
-                printsv("Erro ao alocar uma task! ", aux);
-            } else {
-                printsv("Tarefa alocada com sucesso! ", aux);
-            }
+            // aux will receive the taskslot 
+            aux = API_TaskAllocation(incommingPacket.task_id,
+                                     incommingPacket.task_txt_size,
+                                     incommingPacket.task_bss_size,
+                                     incommingPacket.task_start_point,
+                                     incommingPacket.task_app_id);
+
+            // Informs the NI were to write the application
+            HW_set_32bit_reg(NI_ADDR, TaskList[aux].taskAddr);
+            incommingPacket.service = TASK_ALLOCATION_FINISHED;
+            break;
+
+        case TASK_ALLOCATION_FINISHED:
+            API_AckTaskAllocation(incommingPacket.task_id, incommingPacket.task_app_id);
+            break;
+
+        case TASK_ALLOCATION_SUCCESS:
+            API_TaskAllocated(incommingPacket.task_id, incommingPacket.task_app_id);
+            break;
+
+        case TASK_START:
+            aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
+            // Informs the NI were to write the application
+            HW_set_32bit_reg(NI_ADDR, &TaskList[aux].appNumTasks);
+            incommingPacket.service = TASK_RUN;
+            break;
+        
+        case TASK_RUN:
+            aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
+            API_TaskStart(aux);
+            printsv("Starting Task: ", incommingPacket.task_id);
             break;
 
         default:
@@ -325,3 +345,24 @@ void API_Try2Send(){
     vPortExitCritical();
     return;
 }
+
+void API_AckTaskAllocation(unsigned int task_id, unsigned int app_id){
+    unsigned int mySlot;
+    do{
+        mySlot = API_GetServiceSlot();
+        //vTaskDelay(1);
+    }while(mySlot == PIPE_FULL);
+    //printsv("I got a free service slot!! -> ", mySlot);
+
+    ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
+
+    ServicePipe[mySlot].header.header           = makeAddress(0, 0);
+    ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
+    ServicePipe[mySlot].header.service          = TASK_ALLOCATION_SUCCESS;
+    ServicePipe[mySlot].header.task_id          = task_id;
+    ServicePipe[mySlot].header.task_app_id      = app_id;
+
+    API_PushSendQueue(SERVICE, mySlot);
+    return;    
+}
+

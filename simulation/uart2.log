@@ -9,8 +9,6 @@ Task - 1
 Task - 1
 Task - 1
 Task - 2
-Task - 1
-Task - 1
-Task - 2
-Task - 1
-Task - 1
+trap
+
+Progam has exited with code:0x00000007

@@ -232,7 +232,7 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
         mySlot = API_GetServiceSlot();
         //vTaskDelay(1);
     }while(mySlot == PIPE_FULL);
-    //printsv("I got a free service slot!! -> ", mySlot);
+    printsv("I got a free service slot!! -> ", mySlot);
 
     ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
 
@@ -245,4 +245,44 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
 
     API_PushSendQueue(SERVICE, mySlot);
     return;    
+}
+
+void API_TaskAllocated(unsigned int task_id, unsigned int app_id){
+    unsigned int i;
+    applications[app_id].tasks[task_id].status = TASK_ALLOCATED;
+
+    for(i = 0; i < applications[app_id].numTasks; i++){
+        if(applications[app_id].tasks[i].status != TASK_ALLOCATED){
+            return;
+        }
+    }
+    printsvsv("Application ", app_id, " is allocated!", 1);
+    API_ApplicationStart(app_id);
+    prints("\tStart command sent to every task.\n");
+    return;
+}
+
+void API_ApplicationStart(unsigned int app_id){
+    unsigned int i, j;
+    unsigned int mySlot;
+    for(i = 0; i < applications[app_id].numTasks; i++){
+        do{
+            mySlot = API_GetMessageSlot();
+            //vTaskDelay(1);
+        }while(mySlot == PIPE_FULL);
+
+        MessagePipe[mySlot].holder = PIPE_SYS_HOLDER;
+
+        MessagePipe[mySlot].header.header           = applications[app_id].tasks[i].addr;
+        MessagePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE + applications[app_id].numTasks + 1;
+        MessagePipe[mySlot].header.service          = TASK_START;
+        MessagePipe[mySlot].header.task_id          = i;
+        MessagePipe[mySlot].header.task_app_id      = app_id;
+        MessagePipe[mySlot].msg.length              = applications[app_id].numTasks;
+        for(j = 0; j < applications[app_id].numTasks; j++){
+            MessagePipe[mySlot].msg.msg[j]          = applications[app_id].tasks[j].addr;
+            printsvsv("task ", j, " addr ", MessagePipe[mySlot].msg.msg[j]);
+        }
+        API_PushSendQueue(MESSAGE, mySlot);
+    }
 }

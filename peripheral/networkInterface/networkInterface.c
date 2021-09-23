@@ -156,11 +156,6 @@ void niIteration(){
             // Runs the logic to get the packet size and the end-of-packet 
             if(transmittingCount == HEADER){
                 transmittingCount = SIZE;
-
-                //debug
-                /*if(htonl(usFlit) == 0x0000){
-                    flag_print = 1;
-                }*/
             }
             else if(transmittingCount == SIZE){
                 transmittingCount = htonl(usFlit);
@@ -168,11 +163,6 @@ void niIteration(){
             else{
                 transmittingCount = transmittingCount - 1;    
             }
-
-            // debug
-            /*if(flag_print == 1){
-                bhmMessage("INFO", "NI_PRINTER", "Printing flit %x: %d\n", (int)transmittingCount, (int)htonl(usFlit));
-            }*/
 
             // Increments the memory pointer to get the next flit
             transmittingAddress = transmittingAddress + 4;
@@ -182,22 +172,10 @@ void niIteration(){
         }
         // If the packet transmittion is done, change the NI status to IDLE
         if(transmittingCount == EMPTY){
-            //flag_print = 0; // debug
-            // Changes the TX status to INTERRUPTION
-            //bhmMessage("INFO", "NI_INR", ">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Delivering a packet!\n");
             control_TX = NI_STATUS_INTER; 
             ppmWriteNet(handles.INT_NI_TX, 1); // Turns the interruption on
         }
     }
-    // This is needed to handle the interruption delivery when the packet arrived during another interruption
-    /*if(control_RX == NI_STATUS_ON && receivingCount == EMPTY && control_TX != NI_STATUS_INTER){
-        //bhmMessage("INFO", "NIITERATION", "-------------------------------___SPECIAL!!!!\n");
-        //bhmWaitDelay(QUANTUM_DELAY);
-        control_RX = NI_STATUS_INTER;
-        writeMem(htonl(NI_INT_TYPE_RX), intTypeAddr); // Writes the interruption type to the processor
-        //bhmMessage("INFO", "NI", "INT1\n");
-        ppmWriteNet(handles.INT_NI, 1); // Turns the interruption on
-    }*/
 }
 
 // Resets the receiving address to the first position of the array
@@ -226,6 +204,11 @@ PPM_REG_WRITE_CB(addressWrite) {
     if(addressStart == 0xFFFFFFFF){
         addressStart = htonl(data);
         bhmMessage("I", "NI", "Recebi endereco 1: %x", addressStart);
+    }
+    else if(control_RX == NI_STATUS_WAITING){
+        receivingAddress = htonl(data);
+        control_RX = NI_STATUS_ON;
+        bhmMessage("I", "NI", "Recebi endereco 2: %x", addressStart);
     }
     else{
         // When receiving the another address, then it is an address with a packet to transmitt
@@ -268,23 +251,26 @@ PPM_PACKETNET_CB(dataPortUpd) {
             receivingAddress = receivingAddress + 4;    // Increments the pointer, to write the next flit
         }
         else if(receivingField == SIZE){
-            receivingField = PAYLOAD;
+            receivingField = 1;
             receivingCount = htonl(flit);
             writeMem(flit, receivingAddress);
             receivingAddress = receivingAddress + 4;    // Increments the pointer, to write the next flit
         }
         else{
+            receivingField++;
             receivingCount = receivingCount - 1;
             writeMem(flit, receivingAddress);
             receivingAddress = receivingAddress + 4;    // Increments the pointer, to write the next flit
         }
+
+        if(receivingField == 12 && receivingCount != EMPTY){ // end of the header reception!
+            control_RX = NI_STATUS_WAITING;
+            setSTALL();
+            ppmWriteNet(handles.INT_NI_RX, 1); // Turns the interruption on
+            bhmMessage("I", "NI_RX", "Levantando interrupt RX - WAITING\n");
+        }
     }
 
-    /*if(flag_print_rx == 1){
-        bhmMessage("I", "INPUT", "receivingCount %x ~~~~~~~~~~Recebendo flit:%x",receivingCount, htonl(flit));
-    }*/
-    // bhmMessage("I", "INPUT", "receivingCount %x ~~~~~~~~~~Recebendo flit:%x",receivingCount, htonl(flit));
-    
     // Detects the receiving finale
     if(receivingCount == EMPTY && control_RX == NI_STATUS_ON){
         //flag_print_rx = 0; // debug
@@ -294,7 +280,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
         // if the processor is ready to receive the message
         //if(RXallowed == 1){
             ppmWriteNet(handles.INT_NI_RX, 1); // Turns the interruption on
-            bhmMessage("I", "NI_RX", "Levantando interrupt RX\n");
+            bhmMessage("I", "NI_RX", "Levantando interrupt RX - DELIVER\n");
         /*}
         // if the processor is not ready to receive the message
         else{
@@ -326,6 +312,11 @@ PPM_REG_WRITE_CB(statusRXWrite) {
         if(control_RX == NI_STATUS_INTER){    
             control_RX = NI_STATUS_OFF;
             bhmMessage("I", "statusWrite", "RX Turning interruption off!");
+            ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
+            setGO();
+        }
+        else if(control_RX == NI_STATUS_ON){
+            bhmMessage("I", "statusWrite", "RX Proceed with the packet reception!");
             ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
             setGO();
         }

@@ -44,11 +44,6 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName );
  */
 unsigned int ProcessorAddr;
 
-/*
- * Stores information about each running task
- */
-Task TaskList[ MAX_LOCAL_TASKS ];
-
 /*-----------------------------------------------------------*/
 
 int main( void )

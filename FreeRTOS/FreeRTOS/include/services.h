@@ -6,8 +6,11 @@
 #define REPOSITORY_WAKEUP               0x00000100U
 #define REPOSITORY_APP_INFO             0x00000200U
 #define TASK_ALLOCATION_SEND            0x00000030U
+#define TASK_ALLOCATION_FINISHED        0x00000033U
 #define TASK_ALLOCATION_SUCCESS         0x00000035U
-#define TASK_ALLOCATION_FAIL            0x00000036U
+//#define TASK_ALLOCATION_FAIL            0x00000036U
 #define REPOSITORY_TASK_REQUEST         0x00000300U
+#define TASK_START                      0x00000400U
+#define TASK_RUN                        0x00000401U
 
 #endif
