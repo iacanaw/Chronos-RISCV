@@ -82,18 +82,20 @@ typedef struct {
 } ServiceHeader;
 
 typedef struct{
-	unsigned int	status;						// Stores this packet status
-	unsigned int 	holder;
-	ServiceHeader 	header;
-	Message 		msg;
+	volatile unsigned int	status;						// Stores this packet status
+	volatile unsigned int 	holder;
+	volatile unsigned int 	msgID;
+	volatile ServiceHeader 	header;
+	volatile Message 		msg;
 } MessagePacket;
 
 typedef struct{
-	unsigned int	status;						// Stores this packet status
-	unsigned int 	holder;	
-	ServiceHeader 	header;
+	volatile unsigned int	status;						// Stores this packet status
+	volatile unsigned int 	holder;	
+	volatile ServiceHeader 	header;
 } ServicePacket;
 
+unsigned int messageID;
 volatile MessagePacket MessagePipe[PIPE_SIZE];
 volatile ServicePacket ServicePipe[PIPE_SIZE];
 
@@ -109,6 +111,8 @@ unsigned int API_GetServiceSlot();
 // Clear one PipeSlot after send it ('typeSlot' is a combination of type (message/service) & slot)
 void API_ClearPipeSlot(unsigned int typeSlot);
 
+// 
+unsigned int API_checkPipe(unsigned int taskSlot);
 //API_createPacket(Message *theMessage, unsigned int dest_task_id, unsigned int service);
 
 #endif

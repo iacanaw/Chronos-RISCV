@@ -137,9 +137,8 @@ void NI_disable_irq(int which){
 uint8_t External_1_IRQHandler(void){ 
     prints("INTERRUPTION TX\n");
     API_ClearPipeSlot(SendingSlot);
-    API_Try2Send();
-
     HW_set_32bit_reg(NI_TX, DONE);
+    API_Try2Send();
     return 0;
 }
 
@@ -167,6 +166,7 @@ uint8_t External_2_IRQHandler(void){
         unsigned int aux;
 
         case REPOSITORY_APP_INFO: // When the repository informs the GM that exist a new Application available:
+            prints("REPOSITORY_APP_INFO\n");
             API_AddApplication(incommingPacket.application_id,
                                incommingPacket.aplication_period, 
                                incommingPacket.application_executions, 
@@ -175,6 +175,7 @@ uint8_t External_2_IRQHandler(void){
         
         case TASK_ALLOCATION_SEND: // When the GM asks one Slave to allocate one task
             // aux will receive the taskslot 
+            prints("TASK_ALLOCATION_SEND\n");
             aux = API_TaskAllocation(incommingPacket.task_id,
                                      incommingPacket.task_txt_size,
                                      incommingPacket.task_bss_size,
@@ -187,50 +188,55 @@ uint8_t External_2_IRQHandler(void){
             break;
 
         case TASK_ALLOCATION_FINISHED:
+            prints("TASK_ALLOCATION_FINISHED\n");
             API_AckTaskAllocation(incommingPacket.task_id, incommingPacket.task_app_id);
             break;
 
         case TASK_ALLOCATION_SUCCESS:
+            prints("TASK_ALLOCATION_SUCCESS\n");
             API_TaskAllocated(incommingPacket.task_id, incommingPacket.task_app_id);
             break;
 
         case TASK_START:
+            prints("Chegou um TASK_START!\n");
             aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
             // Informs the NI were to write the application
-            HW_set_32bit_reg(NI_ADDR, &TaskList[aux].appNumTasks);
+            HW_set_32bit_reg(NI_ADDR, (unsigned int)&TaskList[aux].appNumTasks);
             incommingPacket.service = TASK_RUN;
             break;
         
         case TASK_RUN:
+            prints("Chegou um TASK_RUN!\n");
             aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
-            API_TaskStart(aux);
             printsv("Starting Task: ", incommingPacket.task_id);
+            API_TaskStart(aux);
             break;
 
         case MESSAGE_REQUEST:
             // check the pipe
             prints("Chegou um message request! \n");
-            aux = API_CheckMessagePipe(incommingPacket.application_id, incommingPacket.task_app_id);
-            
+            aux = API_CheckMessagePipe(incommingPacket.task_id, incommingPacket.task_app_id);
             if (aux == ERRO){
                 // register an messagerequest
+                prints("Mensagem não encontrada, adicionando ao PendingReq!\n");
                 API_AddPendingReq(incommingPacket.task_id, incommingPacket.task_app_id, incommingPacket.producer_task_id);
             } else {
+                prints("Mensagem encontrada!\n");
                 API_PushSendQueue(MESSAGE, aux);
             }
             break;
         
         case MESSAGE_DELIVERY:
             prints("Tem uma mensagem chegando...\n");
-            aux = API_GetTaskSlot(incommingPacket.application_id, incommingPacket.destination_task);
+            aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
             incommingPacket.service = MESSAGE_DELIVERY_FINISH;
-            HW_set_32bit_reg(NI_ADDR, &TaskList[aux].MsgToReceive);
+            //printsv("MESSAGE_DELIVERY addr: ", TaskList[aux].MsgToReceive);
+            HW_set_32bit_reg(NI_ADDR, TaskList[aux].MsgToReceive);
             break;
         
         case MESSAGE_DELIVERY_FINISH:
             prints("Terminou de entregar a mensagem!!\n");
             aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
-            printsv("> taskslot: ", aux);
             TaskList[aux].waitingMsg = FALSE;
             break;
             
@@ -350,24 +356,27 @@ unsigned int API_PopSendQueue(){
 // Try to send some packet! 
 void API_Try2Send(){
     unsigned int toSend;
-    //prints("API_Try2Send\n");
+    prints("API_Try2Send\n");
     // Try to send the packet to NI if it's available
-    vPortEnterCritical();
+    //vPortEnterCritical();
         // Checks if the NI is available to transmitt something
         if (HW_get_32bit_reg(NI_TX) == NI_STATUS_OFF){
+            prints("NI_TX free\n");
             toSend = API_PopSendQueue();
-            //printsv("toSend ", toSend);
+            printsv("toSend ", toSend);
             if (toSend != EMPTY){
+                SendingSlot = toSend;
                 if((toSend & 0xFFFF0000) ==  SERVICE){
                     SendRaw((unsigned int)&ServicePipe[toSend & 0x0000FFFF].header);
                 }
                 else if((toSend & 0xFFFF0000) ==  MESSAGE){
                     SendRaw((unsigned int)&MessagePipe[toSend & 0x0000FFFF].header);
                 }
-                SendingSlot = toSend;
             }
-        } 
-    vPortExitCritical();
+        } else {
+            prints("NI_TX occupied\n");
+        }
+    //vPortExitCritical();
     return;
 }
 
@@ -404,7 +413,7 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
     theMessage = addr;
 
     taskSlot = API_GetCurrentTaskSlot();
-    
+    printsv("Adding a msg in the PIPE slot ", mySlot);
     MessagePipe[mySlot].holder = taskSlot;
 
     MessagePipe[mySlot].header.header           = TaskList[taskSlot].TasksMap[taskID];
@@ -414,8 +423,8 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
     MessagePipe[mySlot].header.producer_task    = TaskList[taskSlot].TaskID;
     MessagePipe[mySlot].header.destination_task = taskID;
     MessagePipe[mySlot].msg.length              = theMessage->length;
-    for (i = (PKT_SERVICE_SIZE+1); i < theMessage->length; i++){
-        MessagePipe[mySlot].msg.msg[i]          = theMessage->msg[i-PKT_SERVICE_SIZE-1];
+    for (i = 0; i < theMessage->length; i++){
+        MessagePipe[mySlot].msg.msg[i]          = theMessage->msg[i];
     }
     
     if (TaskList[taskSlot].PendingReq[taskID] == TRUE){
@@ -433,6 +442,7 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
     taskSlot = API_GetCurrentTaskSlot();
     TaskList[taskSlot].waitingMsg = TRUE;
     TaskList[taskSlot].MsgToReceive = addr;
+    //printsv("API_SendMessageReq addr: ", addr);
 
     // Sends the message request
     do{
@@ -450,28 +460,34 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
     ServicePipe[mySlot].header.producer_task_id = taskID;
 
     API_PushSendQueue(SERVICE, mySlot);
-    prints("Enviando um Message Request!\n");
+    prints("Esperando Mensagem!\n");
     // Bloquear a tarefa!
     while(TaskList[taskSlot].waitingMsg == TRUE){ 
-        printsvsv("taskslot ", taskSlot, " esperando mensgaem ", 0);
+        printsvsv("taskslot ", taskSlot, " esperando mensagem ", 0);
         vTaskDelay(1); 
     }
-    prints("Pacote recebido!\n");
+    prints("Mensagem Recebida!\n");
     return;
 }
 
 unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int task_app_id){
     unsigned int i;
+    unsigned int sel = ERRO;
+    unsigned int smallID = 268435455;
     for (i = 0; i < PIPE_SIZE; i++){
-        if(MessagePipe->status == PIPE_OCCUPIED){
-            if(MessagePipe->header.application_id == task_app_id){
-                if(MessagePipe->header.destination_task == requester_task_id){
-                    return i;
+        if(MessagePipe[i].status == PIPE_OCCUPIED){
+            if(MessagePipe[i].header.application_id == task_app_id){
+                if(MessagePipe[i].header.destination_task == requester_task_id){
+                    //if(MessagePipe[i].msgID < smallID){
+                    //    smallID = MessagePipe[i].msgID;
+                        sel = i;
+                    //}
                 }
             }
         }
     }
-    return ERRO;
+    //printsv("returning sel: ", sel);
+    return sel;
 }
 
 void API_AddPendingReq(unsigned int requester_task_id, unsigned int task_app_id, unsigned int producer_task_id){

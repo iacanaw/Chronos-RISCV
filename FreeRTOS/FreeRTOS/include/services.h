@@ -13,5 +13,6 @@
 #define REPOSITORY_TASK_REQUEST         0x00000300U
 #define TASK_START                      0x00000400U
 #define TASK_RUN                        0x00000401U
+#define TASK_FINISH                     0x00000500U
 
 #endif

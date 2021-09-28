@@ -20,8 +20,7 @@ const char * g_hello_msg = "\r\nFreeRTOS Example\r\n";
 UART_instance_t g_uart;
 /*-----------------------------------------------------------*/
 
-static void vUartTestTask1( void *pvParameters );
-static void vUartTestTask2( void *pvParameters );
+static void vUartAliveTask( void *pvParameters );
 static void GlobalManagerTask( void *pvParameters );
 
 /*
@@ -72,14 +71,12 @@ int main( void )
 	if (ProcessorAddr == 0x0000){
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This processor is the Global Master: \n" );
 		/* Create the GlobalManager task */
-		xTaskCreate( GlobalManagerTask, "GlobalMaster", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
+		xTaskCreate( GlobalManagerTask, "GlobalMaster", 1000, NULL, (configMAX_PRIORITIES - 1), NULL );
 	} else {
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This processor is a Slave: \n" );
 		
 		/* Create the two test tasks. */
-		xTaskCreate( vUartTestTask1, "UArt1", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
-		//API_CreateTask();
-		xTaskCreate( vUartTestTask2, "UArt2", 1000, NULL, uartPRIMARY_PRIORITY, NULL );
+		xTaskCreate( vUartAliveTask, "Alive", 1000, NULL, 0, NULL );
 	}	
 
 	/* Start the kernel.  From here on, only tasks and interrupts will run. */
@@ -135,26 +132,19 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 }
 /*-----------------------------------------------------------*/
 
-static void vUartTestTask1( void *pvParameters )
+static void vUartAliveTask( void *pvParameters )
 {
 	( void ) pvParameters;
-	for( ;; )
-	{
-		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 1\r\n" );
-	    vTaskDelay(2);
-	}
-}
-
-
-/*-----------------------------------------------------------*/
-
-static void vUartTestTask2( void *pvParameters )
-{
-	( void ) pvParameters;
-	for( ;; )
-	{
-		UART_polled_tx_string( &g_uart, (const uint8_t *)"Task - 2\r\n" );
-	    vTaskDelay(5);
+	char str[20];
+	unsigned int i;
+	for( i = 0 ;; i++ ){
+		myItoa(ProcessorAddr, str, 16);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)" PE is alive - " );
+		myItoa(i, str, 10);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)" -\r\n" );
+	    vTaskDelay(1);
 	}
 }
 

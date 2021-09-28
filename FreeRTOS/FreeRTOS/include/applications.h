@@ -19,7 +19,7 @@ typedef struct {
     unsigned int AppID;
     TaskHandle_t TaskHandler;
     volatile unsigned int waitingMsg;
-    Message *MsgToReceive;
+    unsigned int MsgToReceive;
     unsigned int taskSize;
     unsigned int taskAddr;
     unsigned int mainAddr;
@@ -43,4 +43,7 @@ unsigned int API_GetCurrentTaskSlot();
 unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int task_app_id);
 // Starts the execution of a task that is alocated in a given spot
 void API_TaskStart(unsigned int slot);
+
+
+void API_FinishRunningTask(unsigned int finishAddr);
 #endif

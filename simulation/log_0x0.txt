@@ -1,0 +1,117 @@
+API_Try2Send
+NI_TX free
+toSend 269484032 
+GlobalMasterActive0 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+REPOSITORY_APP_INFO
+New application registered - ID: 0 
+REPOSITORY_APP_INFO
+New application registered - ID: 1 
+API_Try2Send
+NI_TX free
+toSend 269484032 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+API_Try2Send
+NI_TX free
+toSend 269484032 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+TASK_ALLOCATION_SUCCESS
+TASK_ALLOCATION_SUCCESS
+Application 0  is allocated!1 
+task 0  addr 2 
+task 1  addr 257 
+API_Try2Send
+NI_TX free
+toSend 538968064 
+task 0  addr 2 
+task 1  addr 257 
+API_Try2Send
+NI_TX occupied
+Terminei API_ApplicationStart
+	Start command sent to every task.
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 538968065 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+GlobalMasterActive1 
+GlobalMasterActive2 
+GlobalMasterActive3 
+GlobalMasterActive4 
+GlobalMasterActive5 
+API_Try2Send
+NI_TX free
+toSend 269484032 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+API_Try2Send
+NI_TX free
+toSend 269484032 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+TASK_ALLOCATION_SUCCESS
+TASK_ALLOCATION_SUCCESS
+Application 1  is allocated!1 
+task 0  addr 512 
+task 1  addr 514 
+API_Try2Send
+NI_TX free
+toSend 538968064 
+task 0  addr 512 
+task 1  addr 514 
+API_Try2Send
+NI_TX occupied
+Terminei API_ApplicationStart
+	Start command sent to every task.
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 538968065 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+GlobalMasterActive6 
+GlobalMasterActive7 
+GlobalMasterActive8 
+GlobalMasterActive9 
+GlobalMasterActive10 
+GlobalMasterActive11 
+GlobalMasterActive12 
+GlobalMasterActive13 
+GlobalMasterActive14 
+GlobalMasterActive15 
+GlobalMasterActive16 
+GlobalMasterActive17 
+GlobalMasterActive18 
+GlobalMasterActive19 
+GlobalMasterActive20 
+GlobalMasterActive21 
+GlobalMasterActive22 
+GlobalMasterActive23 
+GlobalMasterActive24 
+GlobalMasterActive25 
+GlobalMasterActive26 
+GlobalMasterActive27 
+GlobalMasterActive28 
+GlobalMasterActive29 
+GlobalMasterActive30 
+GlobalMasterActive31 
+GlobalMasterActive32 
+GlobalMasterActive33 

@@ -1,0 +1,114 @@
+TASK_ALLOCATION_SEND
+TASK_ALLOCATION_FINISHED
+API_Try2Send
+NI_TX free
+toSend 269484032 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+Chegou um TASK_START!
+Chegou um TASK_RUN!
+Starting Task: 0 
+PROD2 Start 
+Adding a msg in the PIPE slot 0 
+Adding a msg in the PIPE slot 1 
+Adding a msg in the PIPE slot 2 
+Adding a msg in the PIPE slot 3 
+Chegou um message request! 
+Mensagem encontrada!
+API_Try2Send
+NI_TX free
+toSend 538968067 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+Adding a msg in the PIPE slot 3 
+Chegou um message request! 
+Mensagem encontrada!
+API_Try2Send
+NI_TX free
+toSend 538968067 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+Adding a msg in the PIPE slot 3 
+Chegou um message request! 
+Mensagem encontrada!
+API_Try2Send
+NI_TX free
+toSend 538968067 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+Adding a msg in the PIPE slot 3 
+Chegou um message request! 
+Mensagem encontrada!
+API_Try2Send
+NI_TX free
+toSend 538968067 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+Adding a msg in the PIPE slot 3 
+Chegou um message request! 
+Mensagem encontrada!
+API_Try2Send
+NI_TX free
+toSend 538968067 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+Adding a msg in the PIPE slot 3 
+Chegou um message request! 
+Mensagem encontrada!
+API_Try2Send
+NI_TX free
+toSend 538968067 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+Adding a msg in the PIPE slot 3 
+PROD2 End 
+Chegou um message request! 
+Mensagem encontrada!
+API_Try2Send
+NI_TX free
+toSend 538968067 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+Chegou um message request! 
+Mensagem encontrada!
+API_Try2Send
+NI_TX free
+toSend 538968066 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+Chegou um message request! 
+Mensagem encontrada!
+API_Try2Send
+NI_TX free
+toSend 538968065 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 
+Chegou um message request! 
+Mensagem encontrada!
+API_Try2Send
+NI_TX free
+toSend 538968064 
+INTERRUPTION TX
+API_Try2Send
+NI_TX free
+toSend 808452096 

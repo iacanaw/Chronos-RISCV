@@ -152,7 +152,7 @@ void niIteration(){
         if(transmittingCount != EMPTY){
             // Reads a flit from the memory
             usFlit = readMem(transmittingAddress);
-            //bhmMessage("I", "TX", "Sending flit %x", usFlit);
+            bhmMessage("I", "TX", "Sending flit %x", usFlit);
 
             // Runs the logic to get the packet size and the end-of-packet 
             if(transmittingCount == HEADER){

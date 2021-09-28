@@ -51,7 +51,7 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
     TaskList[tslot].AppID = task_app_id;
     TaskList[tslot].taskSize = 4 * (txt_size + bss_size); // it multiply by four because each word has 32 bits and the memory is addressed by byte - so each word is composed by 4 addresses
 
-    TaskList[tslot].taskAddr = pvPortMalloc(TaskList[tslot].taskSize); //vPortFree(TaskList[tslot].taskAddr);    
+    TaskList[tslot].taskAddr = (unsigned int)pvPortMalloc(TaskList[tslot].taskSize); //vPortFree(TaskList[tslot].taskAddr);    
     TaskList[tslot].mainAddr =  TaskList[tslot].taskAddr + (4 * start_point);
 
     return tslot;
@@ -78,3 +78,17 @@ void API_TaskStart(unsigned int slot){
 }
 
 
+void API_FinishRunningTask(unsigned int finishAddr){
+    unsigned int slot = API_GetCurrentTaskSlot();
+    unsigned int wait = 1;
+    unsigned int *finishVar = finishAddr;
+    if(API_checkPipe(slot) == 1){
+        finishVar[0] = 557;
+        return;
+    }
+    finishVar[0] = 117;
+    vTaskDelete(TaskList[slot].TaskHandler);
+    vPortFree(TaskList[slot].taskAddr);
+    //API_InformFinishTask();
+    return;
+}

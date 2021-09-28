@@ -505,7 +505,7 @@ PPM_NET_CB(irqUpdate) {
     Uns32 id  = indexFromUserData(userData, S_MAX+1);;
     Bool  old = IRQS[id];
     Bool  new = (value != 0);
-    bhmMessage("I", "PLIC", "irqUpdate %d", (int)id);
+    //bhmMessage("I", "PLIC", "irqUpdate %d", (int)id);
     if (PSE_DIAG_LOW) {
         if (old != new) {
             bhmMessage("I", PREFIX, "irqS%d %d->%d\n", id, old, new);

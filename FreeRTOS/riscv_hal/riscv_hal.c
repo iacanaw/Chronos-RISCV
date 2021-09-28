@@ -252,14 +252,17 @@ unsigned int handle_syscall(){
             break;
         
         case SYS_SEND_MSG:
+            //              addr, task
             API_SendMessage(arg0, arg1);
             break;
         
         case SYS_RECV_MSG:
+            //                 addr, task
             API_SendMessageReq(arg0, arg1);
             break;
         
         case SYS_END_TASK:
+            API_FinishRunningTask(arg0);
             break;
 
 		default:

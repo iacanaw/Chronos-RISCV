@@ -4,24 +4,59 @@
  This terminal belongs to the address: 101
 
  This processor is a Slave: 
-Task - 2
-Task - 1
-itChegou msg de:8241 0FlTask - 1
-Chegou msg de:8241 0FlChegou msg de:8241 0FlTask - 1
-Chegou msg de:8241 0FlTask - 2
-Chegou msg de:8241 0FlTask - 1
-Chegou msg de:8241 0FlTask - 1
-Task - 2
-Task - 1
-Task - 1
-Task - 1
-Task - 2
-Task - 1
-Task - 1
-Task - 2
-Task - 1
-Task - 1
-Task - 1
-Task - 2
-Task - 1
-Task - 1
+101 PE is alive - 0 -
+CONS1 Start 
+
+Chegou a mensagem numero: 1 - tamanho: 25 .
+101 PE is alive - 1 -
+
+Chegou a mensagem numero: 2 - tamanho: 25 .
+101 PE is alive - 2 -
+
+Chegou a mensagem numero: 3 - tamanho: 25 .
+101 PE is alive - 3 -
+
+Chegou a mensagem numero: 4 - tamanho: 25 .
+101 PE is alive - 4 -
+
+Chegou a mensagem numero: 5 - tamanho: 25 .
+101 PE is alive - 5 -
+
+Chegou a mensagem numero: 6 - tamanho: 25 .
+101 PE is alive - 6 -
+
+Chegou a mensagem numero: 7 - tamanho: 25 .
+101 PE is alive - 7 -
+
+Chegou a mensagem numero: 8 - tamanho: 25 .
+101 PE is alive - 8 -
+
+Chegou a mensagem numero: 9 - tamanho: 25 .
+101 PE is alive - 9 -
+
+Chegou a mensagem numero: 10 - tamanho: 25 .
+CONS1 End 
+101 PE is alive - 10 -
+101 PE is alive - 11 -
+101 PE is alive - 12 -
+101 PE is alive - 13 -
+101 PE is alive - 14 -
+101 PE is alive - 15 -
+101 PE is alive - 16 -
+101 PE is alive - 17 -
+101 PE is alive - 18 -
+101 PE is alive - 19 -
+101 PE is alive - 20 -
+101 PE is alive - 21 -
+101 PE is alive - 22 -
+101 PE is alive - 23 -
+101 PE is alive - 24 -
+101 PE is alive - 25 -
+101 PE is alive - 26 -
+101 PE is alive - 27 -
+101 PE is alive - 28 -
+101 PE is alive - 29 -
+101 PE is alive - 30 -
+101 PE is alive - 31 -
+101 PE is alive - 32 -
+101 PE is alive - 33 -

@@ -232,7 +232,7 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
         mySlot = API_GetServiceSlot();
         if(mySlot == PIPE_FULL) vTaskDelay(1);
     }while(mySlot == PIPE_FULL);
-    printsv("I got a free service slot!! -> ", mySlot);
+    //printsv("I got a free service slot!! -> ", mySlot);
 
     ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
 
@@ -268,7 +268,10 @@ void API_ApplicationStart(unsigned int app_id){
     for(i = 0; i < applications[app_id].numTasks; i++){
         do{
             mySlot = API_GetMessageSlot();
-            if(mySlot == PIPE_FULL) vTaskDelay(1);
+            if(mySlot == PIPE_FULL){ 
+                vTaskDelay(1);
+                prints(">>>>>>>>pipe full!\n");
+            }
         }while(mySlot == PIPE_FULL);
 
         MessagePipe[mySlot].holder = PIPE_SYS_HOLDER;
@@ -285,4 +288,5 @@ void API_ApplicationStart(unsigned int app_id){
         }
         API_PushSendQueue(MESSAGE, mySlot);
     }
+    prints("Terminei API_ApplicationStart\n");
 }

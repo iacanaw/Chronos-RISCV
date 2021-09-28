@@ -79,6 +79,7 @@ unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsign
 // Sends the packet to the Repository, informing were it must send the task code 
 void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int dest_addr);
 
+void API_ApplicationStart(unsigned int app_id);
 
-
+void API_TaskAllocated(unsigned int task_id, unsigned int app_id);
 #endif
