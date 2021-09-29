@@ -1,153 +1,52 @@
-TASK_ALLOCATION_SEND
-TASK_ALLOCATION_FINISHED
-API_Try2Send
-NI_TX free
-toSend 269484032 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-Chegou um TASK_START!
-Chegou um TASK_RUN!
 Starting Task: 1 
 CONS1 Start 
-API_Try2Send
-NI_TX free
-toSend 269484032 
 Esperando Mensagem!
 taskslot 0  esperando mensagem 0 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-Tem uma mensagem chegando...
-Terminou de entregar a mensagem!!
 Mensagem Recebida!
 
 Chegou a mensagem numero: 1  - tamanho: 25  .
-API_Try2Send
-NI_TX free
-toSend 269484032 
 Esperando Mensagem!
 taskslot 0  esperando mensagem 0 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-Tem uma mensagem chegando...
-Terminou de entregar a mensagem!!
 Mensagem Recebida!
 
 Chegou a mensagem numero: 2  - tamanho: 25  .
-API_Try2Send
-NI_TX free
-toSend 269484032 
 Esperando Mensagem!
 taskslot 0  esperando mensagem 0 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-Tem uma mensagem chegando...
-Terminou de entregar a mensagem!!
 Mensagem Recebida!
 
 Chegou a mensagem numero: 3  - tamanho: 25  .
-API_Try2Send
-NI_TX free
-toSend 269484032 
 Esperando Mensagem!
 taskslot 0  esperando mensagem 0 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-Tem uma mensagem chegando...
-Terminou de entregar a mensagem!!
 Mensagem Recebida!
 
 Chegou a mensagem numero: 4  - tamanho: 25  .
-API_Try2Send
-NI_TX free
-toSend 269484032 
 Esperando Mensagem!
 taskslot 0  esperando mensagem 0 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-Tem uma mensagem chegando...
-Terminou de entregar a mensagem!!
 Mensagem Recebida!
 
 Chegou a mensagem numero: 5  - tamanho: 25  .
-API_Try2Send
-NI_TX free
-toSend 269484032 
 Esperando Mensagem!
 taskslot 0  esperando mensagem 0 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-Tem uma mensagem chegando...
-Terminou de entregar a mensagem!!
 Mensagem Recebida!
 
 Chegou a mensagem numero: 6  - tamanho: 25  .
-API_Try2Send
-NI_TX free
-toSend 269484032 
 Esperando Mensagem!
 taskslot 0  esperando mensagem 0 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-Tem uma mensagem chegando...
-Terminou de entregar a mensagem!!
 Mensagem Recebida!
 
 Chegou a mensagem numero: 7  - tamanho: 25  .
-API_Try2Send
-NI_TX free
-toSend 269484032 
 Esperando Mensagem!
 taskslot 0  esperando mensagem 0 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-Tem uma mensagem chegando...
-Terminou de entregar a mensagem!!
 Mensagem Recebida!
 
 Chegou a mensagem numero: 8  - tamanho: 25  .
-API_Try2Send
-NI_TX free
-toSend 269484032 
 Esperando Mensagem!
 taskslot 0  esperando mensagem 0 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-Tem uma mensagem chegando...
-Terminou de entregar a mensagem!!
 Mensagem Recebida!
 
 Chegou a mensagem numero: 9  - tamanho: 25  .
-API_Try2Send
-NI_TX free
-toSend 269484032 
 Esperando Mensagem!
 taskslot 0  esperando mensagem 0 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-Tem uma mensagem chegando...
-Terminou de entregar a mensagem!!
 Mensagem Recebida!
 
 Chegou a mensagem numero: 10  - tamanho: 25  .

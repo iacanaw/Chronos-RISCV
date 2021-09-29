@@ -144,7 +144,7 @@ static void vUartAliveTask( void *pvParameters )
 		myItoa(i, str, 10);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)" -\r\n" );
-	    vTaskDelay(1);
+	    vTaskDelay(10);
 	}
 }
 
@@ -153,6 +153,7 @@ static void vUartAliveTask( void *pvParameters )
 static void GlobalManagerTask( void *pvParameters ){
 	( void ) pvParameters;
 	int tick;
+	char str[20];
 	// Initialize the priority vector with the pattern policy
 	GeneratePatternMatrix();
 
@@ -167,15 +168,14 @@ static void GlobalManagerTask( void *pvParameters ){
 
 	for(;;){
 		tick = xTaskGetTickCount();
+		myItoa(tick, str, 10);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
 		printsv("GlobalMasterActive", tick);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)"GlobalMasterRoutine...\r\n" );
+		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
 
 		// Checks if there is some task to allocate...
 		API_AllocateTasks(tick);
 
-
-
-
-		vTaskDelay(1);
+		asm ("wfi");
 	}
 }

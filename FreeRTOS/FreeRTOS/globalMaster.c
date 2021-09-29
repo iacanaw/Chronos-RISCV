@@ -270,7 +270,7 @@ void API_ApplicationStart(unsigned int app_id){
             mySlot = API_GetMessageSlot();
             if(mySlot == PIPE_FULL){ 
                 vTaskDelay(1);
-                prints(">>>>>>>>pipe full!\n");
+                //prints("pipe full!\n");
             }
         }while(mySlot == PIPE_FULL);
 
@@ -284,7 +284,7 @@ void API_ApplicationStart(unsigned int app_id){
         MessagePipe[mySlot].msg.length              = applications[app_id].numTasks;
         for(j = 0; j < applications[app_id].numTasks; j++){
             MessagePipe[mySlot].msg.msg[j]          = applications[app_id].tasks[j].addr;
-            printsvsv("task ", j, " addr ", MessagePipe[mySlot].msg.msg[j]);
+            //printsvsv("task ", j, " addr ", MessagePipe[mySlot].msg.msg[j]);
         }
         API_PushSendQueue(MESSAGE, mySlot);
     }

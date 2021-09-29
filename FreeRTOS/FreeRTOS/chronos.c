@@ -135,7 +135,7 @@ void NI_disable_irq(int which){
 ////////////////////////////////////////////////////////////
 // Interruptions handler for TX
 uint8_t External_1_IRQHandler(void){ 
-    prints("INTERRUPTION TX\n");
+    //prints("INTERRUPTION TX\n");
     API_ClearPipeSlot(SendingSlot);
     HW_set_32bit_reg(NI_TX, DONE);
     API_Try2Send();
@@ -166,7 +166,7 @@ uint8_t External_2_IRQHandler(void){
         unsigned int aux;
 
         case REPOSITORY_APP_INFO: // When the repository informs the GM that exist a new Application available:
-            prints("REPOSITORY_APP_INFO\n");
+            //prints("REPOSITORY_APP_INFO\n");
             API_AddApplication(incommingPacket.application_id,
                                incommingPacket.aplication_period, 
                                incommingPacket.application_executions, 
@@ -175,7 +175,7 @@ uint8_t External_2_IRQHandler(void){
         
         case TASK_ALLOCATION_SEND: // When the GM asks one Slave to allocate one task
             // aux will receive the taskslot 
-            prints("TASK_ALLOCATION_SEND\n");
+            //prints("TASK_ALLOCATION_SEND\n");
             aux = API_TaskAllocation(incommingPacket.task_id,
                                      incommingPacket.task_txt_size,
                                      incommingPacket.task_bss_size,
@@ -188,17 +188,17 @@ uint8_t External_2_IRQHandler(void){
             break;
 
         case TASK_ALLOCATION_FINISHED:
-            prints("TASK_ALLOCATION_FINISHED\n");
+            //prints("TASK_ALLOCATION_FINISHED\n");
             API_AckTaskAllocation(incommingPacket.task_id, incommingPacket.task_app_id);
             break;
 
         case TASK_ALLOCATION_SUCCESS:
-            prints("TASK_ALLOCATION_SUCCESS\n");
+            //prints("TASK_ALLOCATION_SUCCESS\n");
             API_TaskAllocated(incommingPacket.task_id, incommingPacket.task_app_id);
             break;
 
         case TASK_START:
-            prints("Chegou um TASK_START!\n");
+            //prints("Chegou um TASK_START!\n");
             aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
             // Informs the NI were to write the application
             HW_set_32bit_reg(NI_ADDR, (unsigned int)&TaskList[aux].appNumTasks);
@@ -206,7 +206,7 @@ uint8_t External_2_IRQHandler(void){
             break;
         
         case TASK_RUN:
-            prints("Chegou um TASK_RUN!\n");
+            //prints("Chegou um TASK_RUN!\n");
             aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
             printsv("Starting Task: ", incommingPacket.task_id);
             API_TaskStart(aux);
@@ -214,20 +214,20 @@ uint8_t External_2_IRQHandler(void){
 
         case MESSAGE_REQUEST:
             // check the pipe
-            prints("Chegou um message request! \n");
+            //prints("Chegou um message request! \n");
             aux = API_CheckMessagePipe(incommingPacket.task_id, incommingPacket.task_app_id);
             if (aux == ERRO){
                 // register an messagerequest
-                prints("Mensagem não encontrada, adicionando ao PendingReq!\n");
+                //prints("Mensagem não encontrada, adicionando ao PendingReq!\n");
                 API_AddPendingReq(incommingPacket.task_id, incommingPacket.task_app_id, incommingPacket.producer_task_id);
             } else {
-                prints("Mensagem encontrada!\n");
+                //prints("Mensagem encontrada!\n");
                 API_PushSendQueue(MESSAGE, aux);
             }
             break;
         
         case MESSAGE_DELIVERY:
-            prints("Tem uma mensagem chegando...\n");
+            //prints("Tem uma mensagem chegando...\n");
             aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
             incommingPacket.service = MESSAGE_DELIVERY_FINISH;
             //printsv("MESSAGE_DELIVERY addr: ", TaskList[aux].MsgToReceive);
@@ -235,7 +235,7 @@ uint8_t External_2_IRQHandler(void){
             break;
         
         case MESSAGE_DELIVERY_FINISH:
-            prints("Terminou de entregar a mensagem!!\n");
+            //prints("Terminou de entregar a mensagem!!\n");
             aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
             TaskList[aux].waitingMsg = FALSE;
             break;
@@ -356,14 +356,14 @@ unsigned int API_PopSendQueue(){
 // Try to send some packet! 
 void API_Try2Send(){
     unsigned int toSend;
-    prints("API_Try2Send\n");
+    //prints("API_Try2Send\n");
     // Try to send the packet to NI if it's available
-    //vPortEnterCritical();
+    vPortEnterCritical();
         // Checks if the NI is available to transmitt something
         if (HW_get_32bit_reg(NI_TX) == NI_STATUS_OFF){
-            prints("NI_TX free\n");
+            //prints("NI_TX free\n");
             toSend = API_PopSendQueue();
-            printsv("toSend ", toSend);
+            //printsv("toSend ", toSend);
             if (toSend != EMPTY){
                 SendingSlot = toSend;
                 if((toSend & 0xFFFF0000) ==  SERVICE){
@@ -374,9 +374,9 @@ void API_Try2Send(){
                 }
             }
         } else {
-            prints("NI_TX occupied\n");
+            //prints("NI_TX occupied\n");
         }
-    //vPortExitCritical();
+    vPortExitCritical();
     return;
 }
 
@@ -427,9 +427,11 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
         MessagePipe[mySlot].msg.msg[i]          = theMessage->msg[i];
     }
     
+    vPortEnterCritical();
     if (TaskList[taskSlot].PendingReq[taskID] == TRUE){
         API_PushSendQueue(MESSAGE, mySlot);
     }
+    vPortExitCritical();
 
     return;
 }

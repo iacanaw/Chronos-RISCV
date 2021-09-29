@@ -1,92 +1,21 @@
-API_Try2Send
-NI_TX free
-toSend 269484032 
-GlobalMasterActive0 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-REPOSITORY_APP_INFO
-New application registered - ID: 0 
-REPOSITORY_APP_INFO
+GlobalMasterAcNew application registered - ID: 0 
+tive0 
 New application registered - ID: 1 
-API_Try2Send
-NI_TX free
-toSend 269484032 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-API_Try2Send
-NI_TX free
-toSend 269484032 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-TASK_ALLOCATION_SUCCESS
-TASK_ALLOCATION_SUCCESS
+GlobalMasterActive0 
+GlobalMasterActive0 
 Application 0  is allocated!1 
-task 0  addr 2 
-task 1  addr 257 
-API_Try2Send
-NI_TX free
-toSend 538968064 
-task 0  addr 2 
-task 1  addr 257 
-API_Try2Send
-NI_TX occupied
 Terminei API_ApplicationStart
 	Start command sent to every task.
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 538968065 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
 GlobalMasterActive1 
 GlobalMasterActive2 
 GlobalMasterActive3 
 GlobalMasterActive4 
 GlobalMasterActive5 
-API_Try2Send
-NI_TX free
-toSend 269484032 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-API_Try2Send
-NI_TX free
-toSend 269484032 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
-TASK_ALLOCATION_SUCCESS
-TASK_ALLOCATION_SUCCESS
+GlobalMasterActive5 
+GlobalMasterActive5 
 Application 1  is allocated!1 
-task 0  addr 512 
-task 1  addr 514 
-API_Try2Send
-NI_TX free
-toSend 538968064 
-task 0  addr 512 
-task 1  addr 514 
-API_Try2Send
-NI_TX occupied
 Terminei API_ApplicationStart
 	Start command sent to every task.
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 538968065 
-INTERRUPTION TX
-API_Try2Send
-NI_TX free
-toSend 808452096 
 GlobalMasterActive6 
 GlobalMasterActive7 
 GlobalMasterActive8 
@@ -115,3 +44,26 @@ GlobalMasterActive30
 GlobalMasterActive31 
 GlobalMasterActive32 
 GlobalMasterActive33 
+GlobalMasterActive34 
+GlobalMasterActive35 
+GlobalMasterActive36 
+GlobalMasterActive37 
+GlobalMasterActive38 
+GlobalMasterActive39 
+GlobalMasterActive40 
+GlobalMasterActive41 
+GlobalMasterActive42 
+GlobalMasterActive43 
+GlobalMasterActive44 
+GlobalMasterActive45 
+GlobalMasterActive46 
+GlobalMasterActive47 
+GlobalMasterActive48 
+GlobalMasterActive49 
+GlobalMasterActive50 
+GlobalMasterActive51 
+GlobalMasterActive52 
+GlobalMasterActive53 
+GlobalMasterActive54 
+GlobalMasterActive55 
+GlobalMasterActive56 
