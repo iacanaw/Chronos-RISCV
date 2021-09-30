@@ -170,6 +170,37 @@ void API_AllocateTasks(unsigned int tick){
     return;
 }
 
+void API_DealocateTask(unsigned int task_id, unsigned int app_id){
+    unsigned int i, flag, tick;
+    applications[app_id].tasks[task_id].status = TASK_FINISHED;
+    // verify if every task has finished
+    flag = 1;
+    for (i = 0; i < applications[app_id].numTasks; i++){
+        //printsvsv("checking ", i, "task is: ", applications[app_id].tasks[i].status);
+        if(applications[app_id].tasks[i].status != TASK_FINISHED){
+            flag = 0;
+            break;
+        }
+    }
+    // in positive case
+    if(flag){
+        // register that the application has executed another time
+        tick = xTaskGetTickCount();
+        applications[app_id].executed++;
+        printsvsv("Application ", app_id, "was executed in ", (tick - applications[app_id].lastStart));
+        applications[app_id].lastFinish = tick;
+        // if the application must run another time
+        if(applications[app_id].appExec > applications[app_id].executed){
+            printsv("\t\tThis application still need to run: ", (applications[app_id].appExec - applications[app_id].executed));
+            applications[app_id].nextRun = tick + applications[app_id].lastFinish;
+        } else { // if the application has finished its runs
+            prints("\t\tThis application is DONE!\n");
+            applications[app_id].occupied = FALSE;
+        }        
+    }
+    return;
+}
+
 // Gets the address of the next tile in the priority list 
 unsigned int getNextPriorityAddr(){
     int i;
@@ -193,6 +224,7 @@ unsigned int getNextPriorityAddr(){
             break;
     }
     return addr;
+    //return 0x101;
 }
 
 // Gets a free slot from one given tile
@@ -207,6 +239,17 @@ unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsign
     return ERRO;
 }
 
+// Clear a slot occupied by a given task
+unsigned int API_ClearTaskSlotFromTile(unsigned int addr, unsigned int app, unsigned int task){
+    int i;
+    for(i = 0; i < NUM_MAX_TASKS; i++){
+        if(Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] == (app << 16) | task){
+            Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] = NONE;
+            return 1;
+        }
+    }
+    return ERRO;
+}
 
 // Iterates around the system tiles to sum the amount of tasks slots available
 unsigned int API_GetSystemTasksSlots(){
@@ -267,10 +310,11 @@ void API_ApplicationStart(unsigned int app_id){
     unsigned int mySlot;
     for(i = 0; i < applications[app_id].numTasks; i++){
         do{
+            vPortEnterCritical();
             mySlot = API_GetMessageSlot();
             if(mySlot == PIPE_FULL){ 
+                vPortExitCritical();
                 vTaskDelay(1);
-                //prints("pipe full!\n");
             }
         }while(mySlot == PIPE_FULL);
 
@@ -284,9 +328,8 @@ void API_ApplicationStart(unsigned int app_id){
         MessagePipe[mySlot].msg.length              = applications[app_id].numTasks;
         for(j = 0; j < applications[app_id].numTasks; j++){
             MessagePipe[mySlot].msg.msg[j]          = applications[app_id].tasks[j].addr;
-            //printsvsv("task ", j, " addr ", MessagePipe[mySlot].msg.msg[j]);
         }
         API_PushSendQueue(MESSAGE, mySlot);
+        vPortExitCritical();
     }
-    prints("Terminei API_ApplicationStart\n");
 }

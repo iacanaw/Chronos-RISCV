@@ -1,30 +1,46 @@
-GlobalMasterAcNew application registered - ID: 0 
-tive0 
+GlobaNew application registered - ID: 0 
+lMasterActive0 
 New application registered - ID: 1 
 GlobalMasterActive0 
-GlobalMasterActive0 
 Application 0  is allocated!1 
-Terminei API_ApplicationStart
 	Start command sent to every task.
+GlobalMasterActive0 
 GlobalMasterActive1 
 GlobalMasterActive2 
 GlobalMasterActive3 
 GlobalMasterActive4 
 GlobalMasterActive5 
 GlobalMasterActive5 
-GlobalMasterActive5 
 Application 1  is allocated!1 
-Terminei API_ApplicationStart
 	Start command sent to every task.
+GlobalMasterActive5 
 GlobalMasterActive6 
 GlobalMasterActive7 
 GlobalMasterActive8 
 GlobalMasterActive9 
 GlobalMasterActive10 
+FINISHED: Task 0 from application 0 
+checking 0 task is: 2 
+checking 1 task is: 4 
+FINISHED: Task 1 from application 0 
+checking 0 task is: 2 
+checking 1 task is: 4 
+GlobalMasterActive10 
 GlobalMasterActive11 
 GlobalMasterActive12 
 GlobalMasterActive13 
 GlobalMasterActive14 
+GlobalMasterActivFINISHED: Task 0 from application 1 
+checking 0 task is: 2 
+checking 1 task is: 2 
+Application 0 was executed in 15 
+		This application still need to run: 2 
+e15 
+FINISHED: Task 1 from application 1 
+checking 0 task is: 2 
+checking 1 task is: 2 
+Application 1 was executed in 10 
+		This application still need to run: 2 
 GlobalMasterActive15 
 GlobalMasterActive16 
 GlobalMasterActive17 
@@ -41,6 +57,12 @@ GlobalMasterActive27
 GlobalMasterActive28 
 GlobalMasterActive29 
 GlobalMasterActive30 
+Application 0  is allocated!1 
+	Start command sent to every task.
+GlobalMasterActive30 
+Application 1  is allocated!1 
+	Start command sent to every task.
+GlobalMasterActive30 
 GlobalMasterActive31 
 GlobalMasterActive32 
 GlobalMasterActive33 
@@ -50,6 +72,23 @@ GlobalMasterActive36
 GlobalMasterActive37 
 GlobalMasterActive38 
 GlobalMasterActive39 
+GlobalMasterActivFINISHED: Task 0 from application 0 
+checking 0 task is: 2 
+checking 1 task is: 4 
+e40 
+FINISHED: Task 0 from application 1 
+checking 0 task is: 2 
+checking 1 task is: 2 
+Application 0 was executed in 10 
+		This application still need to run: 1 
+FINISHED: Task 1 from application 0 
+checking 0 task is: 2 
+checking 1 task is: 4 
+FINISHED: Task 1 from application 1 
+checking 0 task is: 2 
+checking 1 task is: 2 
+Application 1 was executed in 10 
+		This application still need to run: 1 
 GlobalMasterActive40 
 GlobalMasterActive41 
 GlobalMasterActive42 
@@ -67,3 +106,180 @@ GlobalMasterActive53
 GlobalMasterActive54 
 GlobalMasterActive55 
 GlobalMasterActive56 
+GlobalMasterActive57 
+GlobalMasterActive58 
+GlobalMasterActive59 
+GlobalMasterActive60 
+GlobalMasterActive61 
+GlobalMasterActive62 
+GlobalMasterActive63 
+GlobalMasterActive64 
+GlobalMasterActive65 
+GlobalMasterActive66 
+GlobalMasterActive67 
+GlobalMasterActive68 
+GlobalMasterActive69 
+GlobalMasterActive70 
+GlobalMasterActive71 
+GlobalMasterActive72 
+GlobalMasterActive73 
+GlobalMasterActive74 
+GlobalMasterActive75 
+GlobalMasterActive76 
+GlobalMasterActive77 
+GlobalMasterActive78 
+GlobalMasterActive79 
+GlobalMasterActive80 
+Application 0  is allocated!1 
+	Start command sent to every task.
+Application 1  is allocated!1 
+	Start command sent to every task.
+GlobalMasterActive80 
+GlobalMasterActive81 
+GlobalMasterActive82 
+GlobalMasterActive83 
+GlobalMasterActive84 
+GlobalMasterActive85 
+GlobalMasterActive86 
+GlobalMasterActive87 
+GlobalMasterActive88 
+GlobalMasterActive89 
+GlobalMasterActivFINISHED: Task 0 from application 1 
+checking 0 task is: 4 
+e90 
+FINISHED: Task 0 from application 0 
+checking 0 task is: 2 
+checking 1 task is: 2 
+Application 0 was executed in 10 
+		This application is DONE!
+FINISHED: Task 1 from application 0 
+checking 0 task is: 2 
+checking 1 task is: 4 
+FINISHED: Task 1 from application 1 
+checking 0 task is: 2 
+checking 1 task is: 2 
+Application 1 was executed in 10 
+		This application is DONE!
+GlobalMasterActive91 
+GlobalMasterActive92 
+GlobalMasterActive93 
+GlobalMasterActive94 
+GlobalMasterActive95 
+GlobalMasterActive96 
+GlobalMasterActive97 
+GlobalMasterActive98 
+GlobalMasterActive99 
+GlobalMasterActive100 
+GlobalMasterActive101 
+GlobalMasterActive102 
+GlobalMasterActive103 
+GlobalMasterActive104 
+GlobalMasterActive105 
+GlobalMasterActive106 
+GlobalMasterActive107 
+GlobalMasterActive108 
+GlobalMasterActive109 
+GlobalMasterActive110 
+GlobalMasterActive111 
+GlobalMasterActive112 
+GlobalMasterActive113 
+GlobalMasterActive114 
+GlobalMasterActive115 
+GlobalMasterActive116 
+GlobalMasterActive117 
+GlobalMasterActive118 
+GlobalMasterActive119 
+GlobalMasterActive120 
+GlobalMasterActive121 
+GlobalMasterActive122 
+GlobalMasterActive123 
+GlobalMasterActive124 
+GlobalMasterActive125 
+GlobalMasterActive126 
+GlobalMasterActive127 
+GlobalMasterActive128 
+GlobalMasterActive129 
+GlobalMasterActive130 
+GlobalMasterActive131 
+GlobalMasterActive132 
+GlobalMasterActive133 
+GlobalMasterActive134 
+GlobalMasterActive135 
+GlobalMasterActive136 
+GlobalMasterActive137 
+GlobalMasterActive138 
+GlobalMasterActive139 
+GlobalMasterActive140 
+GlobalMasterActive141 
+GlobalMasterActive142 
+GlobalMasterActive143 
+GlobalMasterActive144 
+GlobalMasterActive145 
+GlobalMasterActive146 
+GlobalMasterActive147 
+GlobalMasterActive148 
+GlobalMasterActive149 
+GlobalMasterActive150 
+GlobalMasterActive151 
+GlobalMasterActive152 
+GlobalMasterActive153 
+GlobalMasterActive154 
+GlobalMasterActive155 
+GlobalMasterActive156 
+GlobalMasterActive157 
+GlobalMasterActive158 
+GlobalMasterActive159 
+GlobalMasterActive160 
+GlobalMasterActive161 
+GlobalMasterActive162 
+GlobalMasterActive163 
+GlobalMasterActive164 
+GlobalMasterActive165 
+GlobalMasterActive166 
+GlobalMasterActive167 
+GlobalMasterActive168 
+GlobalMasterActive169 
+GlobalMasterActive170 
+GlobalMasterActive171 
+GlobalMasterActive172 
+GlobalMasterActive173 
+GlobalMasterActive174 
+GlobalMasterActive175 
+GlobalMasterActive176 
+GlobalMasterActive177 
+GlobalMasterActive178 
+GlobalMasterActive179 
+GlobalMasterActive180 
+GlobalMasterActive181 
+GlobalMasterActive182 
+GlobalMasterActive183 
+GlobalMasterActive184 
+GlobalMasterActive185 
+GlobalMasterActive186 
+GlobalMasterActive187 
+GlobalMasterActive188 
+GlobalMasterActive189 
+GlobalMasterActive190 
+GlobalMasterActive191 
+GlobalMasterActive192 
+GlobalMasterActive193 
+GlobalMasterActive194 
+GlobalMasterActive195 
+GlobalMasterActive196 
+GlobalMasterActive197 
+GlobalMasterActive198 
+GlobalMasterActive199 
+GlobalMasterActive200 
+GlobalMasterActive201 
+GlobalMasterActive202 
+GlobalMasterActive203 
+GlobalMasterActive204 
+GlobalMasterActive205 
+GlobalMasterActive206 
+GlobalMasterActive207 
+GlobalMasterActive208 
+GlobalMasterActive209 
+GlobalMasterActive210 
+GlobalMasterActive211 
+GlobalMasterActive212 
+GlobalMasterActive213 

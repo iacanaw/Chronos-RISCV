@@ -24,7 +24,7 @@
 #define GLOBAL_MASTER_ADDR  0x0000
 #define NUM_MAX_APPS        12
 #define NUM_MAX_APP_TASKS   10
-#define NUM_MAX_TASKS       2
+#define NUM_MAX_TASKS       5
 ////////////////////////////////////////////////////////////
 // PERIPHERAL PORTS
 #define PERIPH_EAST         0x00010000
@@ -93,7 +93,8 @@ void API_PushSendQueue(unsigned int type, unsigned int slot);
 unsigned int API_PopSendQueue();
 // Try to allocate a task into the system
 unsigned int taskAllocation(unsigned int taskID, unsigned int taskSize, unsigned int bssSize, unsigned int startPoint, unsigned int applicationID);
-
+// Informs the GlobalMaster that this task has finish its execution
+void API_SendFinishTask();
 
 
 void API_AckTaskAllocation(unsigned int task_id, unsigned int app_id);

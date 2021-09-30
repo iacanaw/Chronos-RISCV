@@ -78,17 +78,16 @@ void API_TaskStart(unsigned int slot){
 }
 
 
-void API_FinishRunningTask(unsigned int finishAddr){
+void API_FinishRunningTask(){
     unsigned int slot = API_GetCurrentTaskSlot();
-    unsigned int wait = 1;
-    unsigned int *finishVar = finishAddr;
-    if(API_checkPipe(slot) == 1){
-        finishVar[0] = 557;
-        return;
+    while(API_checkPipe(slot) == 1){
+        vTaskDelay(1);
     }
-    finishVar[0] = 117;
-    vTaskDelete(TaskList[slot].TaskHandler);
     vPortFree(TaskList[slot].taskAddr);
-    //API_InformFinishTask();
+    API_SendFinishTask(TaskList[slot].TaskID, TaskList[slot].AppID);
+    printsvsv("Task ", TaskList[slot].TaskID, "deleted with sucsess! From application ", TaskList[slot].AppID);
+    TaskList[slot].status = TASK_SLOT_EMPTY;
+    vTaskDelete(TaskList[slot].TaskHandler);
     return;
 }
+

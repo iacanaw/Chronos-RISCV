@@ -245,7 +245,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
 
     // Receiving process
     if(control_RX == NI_STATUS_ON){
-        //bhmMessage("I", "NI", "Escrevendo dado %d na posicao %x\n", flit, receivingAddress);
+        bhmMessage("I", "NI", "Escrevendo dado %x na posicao %x\n", flit, receivingAddress);
         if(receivingField == HEADER){
             receivingField = SIZE;
             writeMem(flit, receivingAddress);

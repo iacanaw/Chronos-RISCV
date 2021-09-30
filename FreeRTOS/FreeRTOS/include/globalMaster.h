@@ -10,7 +10,6 @@
 #define NONE                -1
 
 // Define TASK status
-#define TASK_RUNNING        1
 #define TASK_FINISHED       2
 #define TASK_ALLOCATING     3
 #define TASK_ALLOCATED      4
@@ -78,6 +77,10 @@ unsigned int API_GetSystemTasksSlots();
 unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsigned int task);
 // Sends the packet to the Repository, informing were it must send the task code 
 void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int dest_addr);
+
+void API_DealocateTask(unsigned int task_id, unsigned int app_id);
+
+unsigned int API_ClearTaskSlotFromTile(unsigned int addr, unsigned int app, unsigned int task);
 
 void API_ApplicationStart(unsigned int app_id);
 

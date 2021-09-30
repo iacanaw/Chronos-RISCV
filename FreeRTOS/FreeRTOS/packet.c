@@ -60,9 +60,11 @@ unsigned int API_GetServiceSlot(){
 void API_ClearPipeSlot(unsigned int typeSlot){
     unsigned type = typeSlot & 0xFFFF0000;
     unsigned slot = typeSlot & 0x0000FFFF;
+    
     if (type == SERVICE){
         ServicePipe[slot].status = PIPE_FREE;
     } else { // type == MESSAGE
+        //printsv("cleaning message pipe slot: ", slot);
         MessagePipe[slot].status = PIPE_FREE;
     }
     return;
@@ -71,8 +73,14 @@ void API_ClearPipeSlot(unsigned int typeSlot){
 unsigned int API_checkPipe(unsigned int taskSlot){
     unsigned int i;
     for(i = 0; i < PIPE_SIZE; i++){
-        if(MessagePipe[i].status == PIPE_OCCUPIED && MessagePipe[i].holder == taskSlot){
-            return 1;
+        // printsv("i: ", i);
+        // printsv("status: ", MessagePipe[i].status);
+        // printsv("holder: ", MessagePipe[i].holder);
+        // prints("---\n");
+        if(MessagePipe[i].status == PIPE_OCCUPIED){
+            if(MessagePipe[i].holder == taskSlot){
+                return 1;
+            }
         }
     }
     return 0;

@@ -73,24 +73,20 @@ void printi(int value) {
 ////////////////////////////////////////////////////////////
 // Prints a string followed by a integer
 void printsv(char *text1, int value1) {
-    //vPortEnterCritical();
-        prints(text1);
-        printi(value1);
-        prints("\n");
-    //vPortExitCritical();
+    prints(text1);
+    printi(value1);
+    prints("\n");
     return;
 }
 
 ////////////////////////////////////////////////////////////
 // Prints two strings and two integers interspersed
 void printsvsv(char *text1, int value1, char *text2, int value2) {
-    //vPortEnterCritical();
-        prints(text1);
-        printi(value1);
-        prints(text2);
-        printi(value2);
-        prints("\n");
-    //vPortExitCritical();
+    prints(text1);
+    printi(value1);
+    prints(text2);
+    printi(value2);
+    prints("\n");
     return;
 }
 
@@ -186,6 +182,12 @@ uint8_t External_2_IRQHandler(void){
             HW_set_32bit_reg(NI_ADDR, TaskList[aux].taskAddr);
             incommingPacket.service = TASK_ALLOCATION_FINISHED;
             break;
+        
+        case TASK_FINISH:
+            printsvsv("FINISHED: Task ", incommingPacket.task_id, "from application ", incommingPacket.task_app_id);
+            API_ClearTaskSlotFromTile(incommingPacket.task_dest_addr, incommingPacket.task_app_id, incommingPacket.task_id);
+            API_DealocateTask(incommingPacket.task_app_id, incommingPacket.task_id);
+            break;
 
         case TASK_ALLOCATION_FINISHED:
             //prints("TASK_ALLOCATION_FINISHED\n");
@@ -214,14 +216,14 @@ uint8_t External_2_IRQHandler(void){
 
         case MESSAGE_REQUEST:
             // check the pipe
-            //prints("Chegou um message request! \n");
+            prints("Chegou um message request! \n");
             aux = API_CheckMessagePipe(incommingPacket.task_id, incommingPacket.task_app_id);
             if (aux == ERRO){
                 // register an messagerequest
-                //prints("Mensagem não encontrada, adicionando ao PendingReq!\n");
+                prints("Mensagem não encontrada, adicionando ao PendingReq!\n");
                 API_AddPendingReq(incommingPacket.task_id, incommingPacket.task_app_id, incommingPacket.producer_task_id);
             } else {
-                //prints("Mensagem encontrada!\n");
+                prints("Mensagem encontrada no pipe!\n");
                 API_PushSendQueue(MESSAGE, aux);
             }
             break;
@@ -406,8 +408,13 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
     unsigned int i;
     Message *theMessage;
     do{
+        vPortEnterCritical();
         mySlot = API_GetMessageSlot();
-        if(mySlot == PIPE_FULL) vTaskDelay(1);
+        prints("esperando um message slot...\n");
+        if(mySlot == PIPE_FULL){ 
+            vPortExitCritical();
+            vTaskDelay(1);
+        }
     }while(mySlot == PIPE_FULL);
     
     theMessage = addr;
@@ -427,13 +434,32 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
         MessagePipe[mySlot].msg.msg[i]          = theMessage->msg[i];
     }
     
-    vPortEnterCritical();
     if (TaskList[taskSlot].PendingReq[taskID] == TRUE){
         API_PushSendQueue(MESSAGE, mySlot);
     }
     vPortExitCritical();
-
     return;
+}
+
+void API_SendFinishTask(unsigned int task_id, unsigned int app_id){
+    unsigned int mySlot;
+    do{
+        mySlot = API_GetServiceSlot();
+        if(mySlot == PIPE_FULL){ 
+            vTaskDelay(1);
+        }
+    }while(mySlot == PIPE_FULL);
+
+    ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
+
+    ServicePipe[mySlot].header.header           = makeAddress(0, 0);
+    ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
+    ServicePipe[mySlot].header.service          = TASK_FINISH;
+    ServicePipe[mySlot].header.task_id          = task_id;
+    ServicePipe[mySlot].header.task_app_id      = app_id;
+    ServicePipe[mySlot].header.task_dest_addr   = ProcessorAddr;
+    API_PushSendQueue(SERVICE, mySlot);
+    return;    
 }
 
 void API_SendMessageReq(unsigned int addr, unsigned int taskID){
@@ -480,13 +506,16 @@ unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int t
         if(MessagePipe[i].status == PIPE_OCCUPIED){
             if(MessagePipe[i].header.application_id == task_app_id){
                 if(MessagePipe[i].header.destination_task == requester_task_id){
-                    //if(MessagePipe[i].msgID < smallID){
-                    //    smallID = MessagePipe[i].msgID;
+                    if(MessagePipe[i].msgID < smallID){
+                        smallID = MessagePipe[i].msgID;
                         sel = i;
-                    //}
+                    }
                 }
             }
         }
+    }
+    if(sel != ERRO){
+        MessagePipe[sel].status == PIPE_TRANSMITTING;
     }
     //printsv("returning sel: ", sel);
     return sel;

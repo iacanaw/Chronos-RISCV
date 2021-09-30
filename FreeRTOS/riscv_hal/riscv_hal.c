@@ -262,7 +262,7 @@ unsigned int handle_syscall(){
             break;
         
         case SYS_END_TASK:
-            API_FinishRunningTask(arg0);
+            API_FinishRunningTask();
             break;
 
 		default:
@@ -275,7 +275,7 @@ unsigned int handle_syscall(){
 			printsv("type ", type);
 			break;
 	}
-	return 87;
+	return 42;
 	////////////////////////////////////////////////////
 	// Utilize para encontrar os argumentos na pilha!!!
 	// int i;

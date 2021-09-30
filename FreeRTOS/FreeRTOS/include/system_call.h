@@ -28,8 +28,6 @@
 #define SYS_PRINTS          ( 50 )
 #define SYS_TESTING         ( 66 )
 
-volatile static unsigned int canFinish; 
-
 static void __internal_syscall(long n, long _a0, long _a1, long _a2, long _a3, long _a4, long _a5) {
 	register long a0 asm("a0") = _a0;
 	register long a1 asm("a1") = _a1;
@@ -54,12 +52,6 @@ static int sys_Send(unsigned int addr, unsigned int to){
 	return 1;
 }
 
-/* Finishes a task */
-static int sys_Exit(){
-	__internal_syscall(SYS_END_TASK, 0, 0, 0, 0, 0, 0);
-	return 1;
-}
-
 /* Prints one value using the printer peripheral */
 static int sys_Printi(unsigned int value){
 	__internal_syscall(SYS_PRINTI, value, 0, 0, 0, 0, 0);
@@ -72,10 +64,9 @@ static int sys_Prints(unsigned int addr){
 	return 1;
 }
 
+/* Finishes a task */
 static int sys_Finish(){
-	do{
-		__internal_syscall(SYS_END_TASK, (unsigned int)&canFinish, 0, 0, 0, 0, 0);	
-	}while(canFinish!=117);
+	__internal_syscall(SYS_END_TASK, 0, 0, 0, 0, 0, 0);	
 	return 1;
 }
 
