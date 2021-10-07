@@ -86,9 +86,10 @@ void API_TilesReset(){
         for (n = 0; n < DIM_Y; n++){
             Tiles[m][n].temperature = 273;
             Tiles[m][n].frequency = 1000;
-            for(i = 0; i < NUM_MAX_TASKS; i++){
+            Tiles[m][n].taskSlots = NUM_MAX_TASKS;
+            /*for(i = 0; i < NUM_MAX_TASKS; i++){
                 Tiles[m][n].AppTask[i] = NONE;
-            }
+            }*/
         }
     }    
     return;
@@ -192,7 +193,7 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
         // if the application must run another time
         if(applications[app_id].appExec > applications[app_id].executed){
             printsv("\t\tThis application still need to run: ", (applications[app_id].appExec - applications[app_id].executed));
-            applications[app_id].nextRun = tick + applications[app_id].lastFinish;
+            applications[app_id].nextRun = tick + applications[app_id].appPeriod;
         } else { // if the application has finished its runs
             prints("\t\tThis application is DONE!\n");
             applications[app_id].occupied = FALSE;
@@ -203,7 +204,7 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
 
 // Gets the address of the next tile in the priority list 
 unsigned int getNextPriorityAddr(){
-    int i;
+    /*int i;
     unsigned int addr = makeAddress(0,0);
     for(;;){
         // Checks if it's a valid address
@@ -223,31 +224,46 @@ unsigned int getNextPriorityAddr(){
         if( addr != makeAddress(0,0))
             break;
     }
-    return addr;
-    //return 0x101;
+    return addr;*/
+    return 0x101;
 }
 
 // Gets a free slot from one given tile
 unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsigned int task){
-    int i;
+    /*int i;
+    printsv("procurnado um slot no tile ", addr);
     for(i = 0; i < NUM_MAX_TASKS; i++){
         if(Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] == NONE){
+            printsv("\t achei!! > ", i);
             Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] = (app << 16) | task;
             return i;
         }
+    }*/
+    if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots > 0){
+        Tiles[getXpos(addr)][getYpos(addr)].taskSlots = Tiles[getXpos(addr)][getYpos(addr)].taskSlots - 1;
+        return 1;
+    }else {
+        return ERRO;
     }
-    return ERRO;
 }
 
 // Clear a slot occupied by a given task
 unsigned int API_ClearTaskSlotFromTile(unsigned int addr, unsigned int app, unsigned int task){
-    int i;
+    Tiles[getXpos(addr)][getYpos(addr)].taskSlots++;
+    if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots >= NUM_MAX_TASKS){
+        return ERRO;
+    }
+    else{
+        return 1;
+    }
+    /*int i;
     for(i = 0; i < NUM_MAX_TASKS; i++){
         if(Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] == (app << 16) | task){
+            printsv("limpei o slot tile", addr);
             Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] = NONE;
             return 1;
         }
-    }
+    }*/
     return ERRO;
 }
 
@@ -258,11 +274,12 @@ unsigned int API_GetSystemTasksSlots(){
     for(m = 0; m < DIM_X; m++){
         for(n = 0; n < DIM_Y; n++){
             if(makeAddress(m,n) != makeAddress(0,0)){
-                for(i = 0; i < NUM_MAX_TASKS; i++){
+                sum += Tiles[m][n].taskSlots;
+                /*for(i = 0; i < NUM_MAX_TASKS; i++){
                     if(Tiles[m][n].AppTask[i] == NONE){
                         sum++;
                     }
-                }
+                }*/
             }
         }
     }
@@ -273,9 +290,12 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
     unsigned int mySlot;
     do{
         mySlot = API_GetServiceSlot();
-        if(mySlot == PIPE_FULL) vTaskDelay(1);
+        if(mySlot == PIPE_FULL){ 
+            vTaskDelay(1);
+            //prints("esperando slot\n");
+        }
     }while(mySlot == PIPE_FULL);
-    //printsv("I got a free service slot!! -> ", mySlot);
+    printsv("I got a free service slot!! -> ", mySlot);
 
     ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
 
@@ -299,7 +319,7 @@ void API_TaskAllocated(unsigned int task_id, unsigned int app_id){
             return;
         }
     }
-    printsvsv("Application ", app_id, " is allocated!", 1);
+    printsv("Application allocated: ", app_id);
     API_ApplicationStart(app_id);
     prints("\tStart command sent to every task.\n");
     return;

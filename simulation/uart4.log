@@ -5,68 +5,45 @@
 
  This processor is a Slave: 
 101 PE is alive - 0 -
+PROD1 Start 
 CONS1 Start 
-
 Chegou a mensagem numero: 1 - tamanho: 25 .
-
 Chegou a mensagem numero: 2 - tamanho: 25 .
-
 Chegou a mensagem numero: 3 - tamanho: 25 .
-
+PROD2 Start 
+CONS2 Start 
 Chegou a mensagem numero: 4 - tamanho: 25 .
-
 Chegou a mensagem numero: 5 - tamanho: 25 .
-
+PROD1 End 
 Chegou a mensagem numero: 6 - tamanho: 25 .
-
 Chegou a mensagem numero: 7 - tamanho: 25 .
-
 Chegou a mensagem numero: 8 - tamanho: 25 .
-
+Chegou a mensagem numero: 1 - tamanho: 25 .
 Chegou a mensagem numero: 9 - tamanho: 25 .
-
+Chegou a mensagem numero: 2 - tamanho: 25 .
 Chegou a mensagem numero: 10 - tamanho: 25 .
 CONS1 End 
+Chegou a mensagem numero: 3 - tamanho: 25 .
 101 PE is alive - 1 -
-101 PE is alive - 2 -
-101 PE is alive - 3 -
-101 PE is alive - 4 -
-101 PE is alive - 5 -
-101 PE is alive - 6 -
-101 PE is alive - 7 -
-101 PE is alive - 8 -
-CONS1 Start 
-
-Chegou a mensagem numero: 1 - tamanho: 25 .
-
-Chegou a mensagem numero: 2 - tamanho: 25 .
-
-Chegou a mensagem numero: 3 - tamanho: 25 .
-
 Chegou a mensagem numero: 4 - tamanho: 25 .
-
+PROD1 Start 
+CONS1 Start 
 Chegou a mensagem numero: 5 - tamanho: 25 .
-
+Chegou a mensagem numero: 1 - tamanho: 25 .
+PROD2 End 
 Chegou a mensagem numero: 6 - tamanho: 25 .
-
 Chegou a mensagem numero: 7 - tamanho: 25 .
-
 Chegou a mensagem numero: 8 - tamanho: 25 .
-
+Chegou a mensagem numero: 2 - tamanho: 25 .
 Chegou a mensagem numero: 9 - tamanho: 25 .
-
+Chegou a mensagem numero: 3 - tamanho: 25 .
 Chegou a mensagem numero: 10 - tamanho: 25 .
-CONS1 End 
-101 PE is alive - 9 -
-101 PE is alive - 10 -
-101 PE is alive - 11 -
-101 PE is alive - 12 -
-101 PE is alive - 13 -
-101 PE is alive - 14 -
-101 PE is alive - 15 -
-101 PE is alive - 16 -
-101 PE is alive - 17 -
-101 PE is alive - 18 -
-101 PE is alive - 19 -
-101 PE is alive - 20 -
-101 PE is alive - 21 -
+CONS2 End 
+Chegou a mensagem numero: 4 - tamanho: 25 .
+Chegou a mensagem numero: 5 - tamanho: 25 .
+PROD1 End 
+Chegou a mensagem numero: 6 - tamanho: 25 .
+Chegou a mensagem numero: 7 - tamanho: 25 .
+101 PE itrap
+
+Progam has exited with code:0x00000007

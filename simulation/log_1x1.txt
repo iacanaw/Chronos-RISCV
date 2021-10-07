@@ -1,108 +1,467 @@
-Starting Task: 1 
+SendingQueue_front: 0 
+SendingQueue_front: 1 
+Chegou um TASK_START!
+Chegou um TASK_RUN!
+Starting Task: 0 from app: 0 
+PROD1 Start 
+esperando um message slot...
+Adding a msg in the PIPE slot 0 
+esperando um message slot...
+Adding a msg in the PIPE slot 1 
+esperando um message slot...
+Adding a msg in the PIPE slot 2 
+esperando um message slot...
+Adding a msg in the PIPE slot 3 
+esperando um message slot...
+Chegou um TASK_START!
+Chegou um TASK_RUN!
+Starting Task: 1 from app: 0 
 CONS1 Start 
+SendingQueue_front: 2 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot 1  esperando mensagem 0 
+Chegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+esperando um message slot...
+Adding a msg in the PIPE slot 0 
+esperando um message slot...
 Mensagem Recebida!
-
 Chegou a mensagem numero: 1  - tamanho: 25  .
+SendingQueue_front: 4 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot 1  esperando mensagem Chegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+0 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+esperando um message slot...
+Adding a msg in the PIPE slot 1 
+esperando um message slot...
 Mensagem Recebida!
-
 Chegou a mensagem numero: 2  - tamanho: 25  .
+SendingQueue_front: 6 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot 1  esperando mensagChegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+em 0 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+esperando um message slot...
+Adding a msg in the PIPE slot 2 
+esperando um message slot...
 Mensagem Recebida!
-
-Chegou a mensagem numero: 3  - tamanho: 25  .
+Chegou a mensagem numero: 3  - tamanho: SendingQueue_front: 0 
+25 SendingQueue_front: 1 
+ .
+SendingQueue_front: 2 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot 1  esperando meChegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+nsagem 0 
+Chegou um TASK_START!
+Chegou um TASK_RUN!
+Starting Task: 0 from app: 1 
+PROD2 Start 
+esperando um message slot...
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+Chegou um TASK_START!
+Chegou um TASK_RUN!
+Starting Task: 1 from app: 1 
+CONS2 Start 
+SendingQueue_front: 4 
+Esperando Mensagem!
+taskslot 3  esperando mensagem 0 
+Chegou um message request! App: 1 Task: 1 
+Mensagem não encontrada, adicionando ao PendingReq!
+esperando um message slot...
+Adding a msg in the PIPE slot 3 
+esperando um message slot...
 Mensagem Recebida!
-
 Chegou a mensagem numero: 4  - tamanho: 25  .
+SendingQueue_front: 5 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot Chegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 6 
+1  esperando mensagem 0 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+esperando um message slot...
+taskslot 3  esperando mensagem 0 
+esperando um message slot...
+Adding a msg in the PIPE slot 0 
+esperando um message slot...
 Mensagem Recebida!
-
 Chegou a mensagem numero: 5  - tamanho: 25  .
+SendingQueue_front: 7 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot Chegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 0 
+1  esperando mensagem 0 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+esperando um message slot...
+taskslot 3  esperando mensagem 0 
+esperando um message slot...
+Adding a msg in the PIPE slot 1 
+PROD1 End 
 Mensagem Recebida!
-
 Chegou a mensagem numero: 6  - tamanho: 25  .
+SendingQueue_front: 1 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+Chegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 2 
+taskslot 1  esperando mensagem 0 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+esperando um message slot...
+taskslot 3  esperando mensagem 0 
 Mensagem Recebida!
-
 Chegou a mensagem numero: 7  - tamanho: 25  .
+SendingQueue_front: 3 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
-Mensagem Recebida!
+taskslot 1  esperando mensagem 0 Chegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 4 
 
+esperando um message slot...
+Adding a msg in the PIPE slot 2 
+>>>>>Achei aqui no pending!
+SendingQueue_front: 5 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+esperando um message slot...
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147534216 
+done...
+----------
+taskslot 3  esperando mensagem 0 
+Mensagem Recebida!
 Chegou a mensagem numero: 8  - tamanho: 25  .
+SendingQueue_front: 6 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot 1  esperando mensagem Chegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+0 
+esperando um message slot...
+Adding a msg in the PIPE slot 2 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+esperando um message slot...
+Adding a msg in the PIPE slot 0 
+esperando um message slot...
+Adding a msg in the PIPE slot 3 
+esperando um message slot...
 Mensagem Recebida!
-
+Chegou a mensagem numero: 1  - tamanho: 25  .
+SendingQueue_front: 0 
+Esperando Mensagem!
+Chegou um message request! App: 1 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+taskslot 3  esperando mensagem 0 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147534216 
+done...
+----------
+Mensagem Recebida!
 Chegou a mensagem numero: 9  - tamanho: 25  .
+SendingQueue_front: 2 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot 1  esperando mensaChegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+gem 0 
+esperando um message slot...
+Adding a msg in the PIPE slot 2 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+esperando um message slot...
+Adding a msg in the PIPE slot 1 
+esperando um message slot...
 Mensagem Recebida!
-
+Chegou a mensagem numero: 2  - tamanho: 25  .
+SendingQueue_front: 4 
+Esperando MensageChegou um message request! App: 1 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+m!
+taskslot 3  esperando mensagem 0 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147534216 
+done...
+----------
+SendingQueue_front: 6 
+Task 0 deleted with sucsess! From application 0 
+Mensagem Recebida!
 Chegou a mensagem numero: 10  - tamanho: 25  .
 CONS1 End 
+SendingQueue_front: 7 
 Task 1 deleted with sucsess! From application 0 
-Starting Task: 1 
-CONS1 Start 
-Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+esperando um message slot...
+Adding a msg in the PIPE slot 0 
+esperando um message slot...
 Mensagem Recebida!
-
-Chegou a mensagem numero: 1  - tamanho: 25  .
-Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
-Mensagem Recebida!
-
-Chegou a mensagem numero: 2  - tamanho: 25  .
-Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
-Mensagem Recebida!
-
 Chegou a mensagem numero: 3  - tamanho: 25  .
+SendingQueue_front: 0 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot Chegou um message request! App: 1 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+3  esperando mensagem 0 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147534216 
+done...
+----------
+esperando um message slot...
+Adding a msg in the PIPE slot 3 
+esperando um message slot...
 Mensagem Recebida!
-
-Chegou a mensagem numero: 4  - tamanho: 25  .
+Chegou a mensagem numero: 4  - tamanho: SendingQueue_front: 2 
+25  .
+SendingQueue_front: 3 
+SendingQueue_front: 4 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot 3  esperandoChegou um message request! App: 1 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+ mensagem 0 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147534216 
+done...
+----------
+Chegou um TASK_START!
+Chegou um TASK_RUN!
+Starting Task: 0 from app: 0 
+PROD1 Start 
+esperando um message slot...
+Adding a msg in the PIPE slot 2 
+esperando um message slot...
+Chegou um TASK_START!
+Chegou um TASK_RUN!
+Starting Task: 1 from app: 0 
+CONS1 Start 
+SendingQueue_front: 6 
+Esperando Mensagem!
+taskslot 1  esperando mensagem 0 
+Chegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+esperando um message slot...
+Adding a msg in the PIPE slot 2 
+esperando um message slot...
 Mensagem Recebida!
-
 Chegou a mensagem numero: 5  - tamanho: 25  .
-Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+SendingQueue_front: 0 
+EsperandoChegou um message request! App: 1 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+ Mensagem!
+taskslot 3  esperando mensagem Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147534216 
+done...
+----------
+0 
+esperando um message slot...
 Mensagem Recebida!
-
+Chegou a mensagem numero: 1  - tamanho: 25  .
+SendingQueue_front: 2 
+Esperando Mensagem!
+taskslotChegou um message request! App: 0 Task: 1 
+Mensagem não encontrada, adicionando ao PendingReq!
+ 1  esperando mensagem 0 
+esperando um message slot...
+Adding a msg in the PIPE slot 1 
+PROD2 End 
+Mensagem Recebida!
 Chegou a mensagem numero: 6  - tamanho: 25  .
+SendingQueue_front: 3 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot 3  esperando mensagem 0 
+Chegou um message request! App: 1 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 4 
+esperando um message slot...
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147534216 
+done...
+----------
+taskslot 1  esperando mensagem 0 
 Mensagem Recebida!
-
 Chegou a mensagem numero: 7  - tamanho: 25  .
+SendingQueue_front: 5 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot 3  eChegou um message request! App: 1 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 6 
+sperando mensagem 0 
+esperando um message slot...
+Adding a msg in the PIPE slot 0 
+>>>>>Achei aqui no pending!
+SendingQueue_front: 7 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147534216 
+done...
+----------
+esperando um message slot...
+taskslot 1 Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+ esperando mensagem 0 
 Mensagem Recebida!
-
 Chegou a mensagem numero: 8  - tamanho: 25  .
+SendingQueue_front: 0 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslot 3 Chegou um message request! App: 1 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+ esperando mensagem 0 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147534216 
+done...
+----------
+esperando um message slot...
+Adding a msg in the PIPE slot 0 
+esperando um message slot...
+Adding a msg in the PIPE slot 2 
+esperando um message slot...
+Adding a msg in the PIPE slot 3 
+esperando um message slot...
 Mensagem Recebida!
-
+Chegou a mensagem numero: 2  - tamanho: 25  .
+SendingQueue_front: 2 
+EspChegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+erando Mensagem!
+taskslot 1  esperando mensaTem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+gem 0 
+Mensagem Recebida!
 Chegou a mensagem numero: 9  - tamanho: 25  .
+SendingQueue_front: 4 
 Esperando Mensagem!
-taskslot 0  esperando mensagem 0 
+taskslotChegou um message request! App: 1 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+ 3  esperando mensagem 0 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147534216 
+done...
+----------
+esperando um message slot...
+Adding a msg in the PIPE slot 0 
+esperando um message slot...
+Adding a msg in the PIPE slot 1 
+esperando um message slot...
 Mensagem Recebida!
-
+Chegou a mensagem numero: 3  - tamanho: 25  .
+SendingQueue_front: 6 
+Chegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+Esperando Mensagem!
+taskslot 1  esperando mTem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+ensagem 0 
+SendingQueue_front: 0 
+Task 0 deleted with sucsess! From application 1 
+Mensagem Recebida!
 Chegou a mensagem numero: 10  - tamanho: 25  .
-CONS1 End 
-Task 1 deleted with sucsess! From application 0 
+CONS2 End 
+SendingQueue_front: 1 
+Task 1 deleted with sucsess! From application 1 
+esperando um message slot...
+Adding a msg in the PIPE slot 2 
+esperando um message slot...
+Mensagem Recebida!
+Chegou a mensagem numero: 4  - tamanho: 25  .
+SendingQueue_front: 2 
+Esperando Mensagem!
+Chegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+taskslot 1  esperando mensagem 0 
+Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+esperando um message slot...
+Adding a msg in the PIPE slot 3 
+esperando um message slot...
+Mensagem Recebida!
+Chegou a mensagem numero: 5  - tamanho: 25  .
+SendingQueue_front: 4 
+EsperandChegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+o Mensagem!
+taskslot 1  esperando mensagem Tem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+0 
+esperando um message slot...
+Adding a msg in the PIPE slot 0 
+PROD1 End 
+Mensagem Recebida!
+Chegou a mensagem numero: 6  - tamanho: 25  .
+SendingQueue_front: 6 
+Chegou um message request! App: 0 Task: 1 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+Esperando Mensagem!
+taskslot 1  esperandTem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+o mensagem 0 
+Mensagem Recebida!
+Chegou a mensagem numero: 7  - tamanho: 25  .
+SendingQueue_front: 0 
+ERROR External_2_IRQHandler Unknown-Service32871 
+EsperTem uma mensagem chegando...
+MESSAGE_DELIVERY addr: 2147522956 
+done...
+----------
+ando Mensagem!
+taskslot 1  esperando mensagem 0 

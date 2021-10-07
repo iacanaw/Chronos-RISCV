@@ -22,11 +22,12 @@ unsigned int priorityPointer;
 typedef struct{
     unsigned int temperature;   // In Kelvin
     unsigned int frequency;     // in MegaHertz
-    unsigned int AppTask[NUM_MAX_TASKS];
+    //unsigned int AppTask[NUM_MAX_TASKS];
+    unsigned int taskSlots;
 } Tile;
 
 // Tiles Info
-Tile Tiles[DIM_X][DIM_Y];
+volatile Tile Tiles[DIM_X][DIM_Y];
 
 // Task info
 typedef struct{

@@ -312,7 +312,7 @@ uintptr_t handle_trap(uintptr_t mcause, uintptr_t epc)
     }
     else{
         write(1, "trap\n", 5);
-        _exit(1 + mcause);
+        _exit(mcause);
     }
     return epc;
 }

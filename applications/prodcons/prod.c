@@ -1,12 +1,13 @@
 #include "prodcons.h"
 
-static char start_print[]=  "PROD1 Start \n";
-static char end_print[]=    "PROD1 End \n";
+static char start_print[] = "PROD1 Start \n";
+static char end_print[] =   "PROD1 End \n";
 
 volatile static Message mensagem;
 
 int main(){
     int i;
+    
     sys_Prints((unsigned int)&start_print);
 
     for (i=0;i<MSG_SIZE;i++) {
@@ -15,9 +16,8 @@ int main(){
 
     mensagem.length = 25;
 
-    mensagem.msg[9] = 0xB0A;
-
     for (i=0; i<PRODCONS_ITERATIONS; i++) {
+        mensagem.msg[9] = 0xB0A + i;
         sys_Send(&mensagem, cons);
     }
 

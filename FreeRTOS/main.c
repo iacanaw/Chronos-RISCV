@@ -176,6 +176,7 @@ static void GlobalManagerTask( void *pvParameters ){
 		// Checks if there is some task to allocate...
 		API_AllocateTasks(tick);
 
-		asm ("wfi");
+		vTaskDelay(1);
+		//asm ("wfi"); 
 	}
 }
