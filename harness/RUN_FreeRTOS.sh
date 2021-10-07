@@ -43,6 +43,7 @@ echo "COMPILING THE ITERATOR"
 cd ../iterator
 rm -rf obj
 rm -f pse.pse
+./iteratorGenerator.sh 3 3
 make NOVLNV=1
 echo "=================="
 echo "COMPILING THE PLIC"
