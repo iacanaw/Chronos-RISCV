@@ -8,6 +8,7 @@
     library="peripheral"
     name="networkInterface"
     nbyte="F"
+    recursive="F"
     releasestatus="0"
     saveRestore="F"
     vendor="gaph"
@@ -67,6 +68,16 @@
         mustbeconnected="F"
         name="controlPort"
         updatefunction="controlPortUpd"
+        updatefunctionargument="0"/>
+    <packetnetport maxbytes="8"
+        mustbeconnected="F"
+        name="txInterruption"
+        updatefunction="txInterruptionPort"
+        updatefunctionargument="0"/>
+    <packetnetport maxbytes="8"
+        mustbeconnected="F"
+        name="rxInterruption"
+        updatefunction="rxInterruptionPort"
         updatefunctionargument="0"/>
     <netport name="INT_NI_TX"
         type="output">

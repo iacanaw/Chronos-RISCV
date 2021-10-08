@@ -26,27 +26,34 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-#ifndef NETWORKINTERFACE_MACROS_IGEN_H
-#define NETWORKINTERFACE_MACROS_IGEN_H  
+#include "tea.igen.h"
+#include <string.h>
 
-// Before including this file in the application, define the indicated macros
-// to fix the base address of each slave port.
+//////////////////////////////// Callback stubs ////////////////////////////////
 
-// Set the macro 'DMAC' to the base of port 'DMAC'
-#ifndef DMAC
-#error DMAC is undefined. It needs to be set to the port base address
-#endif
+PPM_PACKETNET_CB(controlUpdate) {
+}
+
+PPM_PACKETNET_CB(dataUpdate) {
+}
+
+PPM_CONSTRUCTOR_CB(constructor) {
+    // YOUR CODE HERE (pre constructor)
+    periphConstructor();
+    // YOUR CODE HERE (post constructor)
+}
+
+PPM_DESTRUCTOR_CB(destructor) {
+    // YOUR CODE HERE (destructor)
+}
 
 
-#define DMAC_AB8_POFFSET                0x0
-#define DMAC_AB8_ADDRESS_POFFSET        0x0
-#define DMAC_AB8_ADDRESS                (DMAC + DMAC_AB8_POFFSET + DMAC_AB8_ADDRESS_POFFSET)
+PPM_SAVE_STATE_FN(peripheralSaveState) {
+    bhmMessage("E", "PPM_RSNI", "Model does not implement save/restore");
+}
 
-#define DMAC_AB8_STATUSTX_POFFSET       0x4
-#define DMAC_AB8_STATUSTX               (DMAC + DMAC_AB8_POFFSET + DMAC_AB8_STATUSTX_POFFSET)
-
-#define DMAC_AB8_STATUSRX_POFFSET       0x8
-#define DMAC_AB8_STATUSRX               (DMAC + DMAC_AB8_POFFSET + DMAC_AB8_STATUSRX_POFFSET)
+PPM_RESTORE_STATE_FN(peripheralRestoreState) {
+    bhmMessage("E", "PPM_RSNI", "Model does not implement save/restore");
+}
 
 
-#endif
