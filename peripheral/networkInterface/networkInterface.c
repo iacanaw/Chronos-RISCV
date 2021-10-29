@@ -123,7 +123,7 @@ void writeMem(unsigned int flit, unsigned int addr){
     usi2vec();
     ppmAddressSpaceHandle h = ppmOpenAddressSpace("MWRITE");
     if(!h) {
-        //bhmMessage("I", "NI_ITERATOR", "ERROR_WRITE h handling!");
+        bhmMessage("I", "NI_ITERATOR", "ERROR_WRITE h handling!");
         while(1){} // error handling
     }
     ppmWriteAddressSpace(h, addr, sizeof(chFlit), chFlit);
@@ -135,7 +135,7 @@ void writeMem(unsigned int flit, unsigned int addr){
 unsigned int readMem(unsigned int addr){
     ppmAddressSpaceHandle h = ppmOpenAddressSpace("MREAD");
     if(!h) {
-        //bhmMessage("I", "NI_ITERATOR", "ERROR_READ h handling!");
+        bhmMessage("I", "NI_ITERATOR", "ERROR_READ h handling!");
         while(1){} // error handling
     }
     ppmReadAddressSpace(h, addr, sizeof(chFlit), chFlit);
@@ -152,7 +152,7 @@ void niIteration(){
         if(transmittingCount != EMPTY){
             // Reads a flit from the memory
             usFlit = readMem(transmittingAddress);
-            bhmMessage("I", "TX", "Sending flit %x", usFlit);
+            bhmMessage("I", "TX", "Sending flit %x: %x", transmittingCount, usFlit);
 
             // Runs the logic to get the packet size and the end-of-packet 
             if(transmittingCount == HEADER){
@@ -174,7 +174,9 @@ void niIteration(){
         // If the packet transmittion is done, change the NI status to IDLE
         if(transmittingCount == EMPTY){
             control_TX = NI_STATUS_INTER; 
-            ppmWriteNet(handles.INT_NI_TX, 1); // Turns the interruption on
+            bhmMessage("I", "NI_RX", "Levantando interrupt TX - FINISHED TRANSMITTING\n");
+            //ppmWriteNet(handles.INT_NI_TX, 1); // Turns the interruption on
+            ppmWriteNet(handles.INT_NI_RX, 1); // Turns the interruption on
         }
     }
 }
@@ -182,6 +184,8 @@ void niIteration(){
 // Resets the receiving address to the first position of the array
 void resetReceivingAddress(){
     receivingAddress = addressStart;
+    bhmMessage("INFO", "NI_RX", "Reseting addr: %x", receivingAddress);
+    return;
 }
 
 //////////////////////////////// Callback stubs ////////////////////////////////
@@ -206,17 +210,11 @@ PPM_REG_WRITE_CB(addressWrite) {
         addressStart = htonl(data);
         //bhmMessage("I", "NI", "Recebi endereco 1: %x", addressStart);
     }
-    else if(control_RX == NI_STATUS_WAITING){
-        receivingAddress = htonl(data);
-        control_RX = NI_STATUS_ON;
-        //bhmMessage("I", "NI", "Recebi endereco 2: %x", addressStart);
-    }
     else{
         // When receiving the another address, then it is an address with a packet to transmitt
         auxAddress = htonl(data);
-        //bhmMessage("I", "NI", ">Recebi endereco 3: %x", auxAddress);
+        bhmMessage("I", "NI_ADDR", "Recebi endereco: %x", auxAddress);
     }
-    *(Uns32*)user = data;
 }
 
 // Receiving a control information from the router...
@@ -245,48 +243,42 @@ PPM_PACKETNET_CB(dataPortUpd) {
 
     // Receiving process
     if(control_RX == NI_STATUS_ON){
-        bhmMessage("I", "NI", "Escrevendo dado %x na posicao %x\n", flit, receivingAddress);
+        //bhmMessage("I", "NI", "Escrevendo dado %x na posicao %x\n", flit, receivingAddress);
         if(receivingField == HEADER){
             receivingField = SIZE;
             writeMem(flit, receivingAddress);
             receivingAddress = receivingAddress + 4;    // Increments the pointer, to write the next flit
+            bhmMessage("INFO", "NI_RX", "HEADER:\t\t%x", flit);
         }
         else if(receivingField == SIZE){
             receivingField = 1;
             receivingCount = htonl(flit);
             writeMem(flit, receivingAddress);
             receivingAddress = receivingAddress + 4;    // Increments the pointer, to write the next flit
+            bhmMessage("INFO", "NI_RX", "SIZE:\t\t\t%x", flit);
         }
         else{
             receivingField++;
             receivingCount = receivingCount - 1;
             writeMem(flit, receivingAddress);
             receivingAddress = receivingAddress + 4;    // Increments the pointer, to write the next flit
+            bhmMessage("INFO", "NI_RX", "PAYLOAD %i:\t\t%x @ %x", receivingField, flit, receivingAddress-4);
         }
 
         if(receivingField == 12 && receivingCount != EMPTY){ // end of the header reception!
             control_RX = NI_STATUS_WAITING;
             setSTALL();
             ppmWriteNet(handles.INT_NI_RX, 1); // Turns the interruption on
-            //bhmMessage("I", "NI_RX", "Levantando interrupt RX - WAITING\n");
+            bhmMessage("I", "NI_RX", "Levantando interrupt RX - WAITING\n");
         }
     }
 
     // Detects the receiving finale
     if(receivingCount == EMPTY && control_RX == NI_STATUS_ON){
-        //flag_print_rx = 0; // debug
         setSTALL();
         control_RX = NI_STATUS_INTER;
-        //writeMem(htonl(NI_INT_TYPE_RX), intTypeAddr); // Writes the interruption type to the processor
-        // if the processor is ready to receive the message
-        //if(RXallowed == 1){
-            ppmWriteNet(handles.INT_NI_RX, 1); // Turns the interruption on
-            //bhmMessage("I", "NI_RX", "Levantando interrupt RX - DELIVER\n");
-        /*}
-        // if the processor is not ready to receive the message
-        else{
-            RXwaiting = 1;
-        }*/
+        ppmWriteNet(handles.INT_NI_RX, 1); // Turns the interruption on
+        bhmMessage("I", "NI_RX", "Levantando interrupt RX - DELIVER\n");
     }
 }
 
@@ -296,11 +288,11 @@ PPM_PACKETNET_CB(rxInterruptionPort) {
 
 PPM_REG_READ_CB(statusRXRead) {
     if(bytes != 4) {
-        //bhmMessage("E", "PPM_RNB", "Only 4 byte access permitted");
+        bhmMessage("E", "PPM_RNB", "Only 4 byte access permitted");
         return 0;
     }
-    DMAC_ab8_data.statusRX.value = htonl(control_RX);
-    return *(Uns32*)user;
+    //DMAC_ab8_data.statusRX.value = htonl(control_RX);
+    return control_RX;
 }
 
 PPM_REG_WRITE_CB(statusRXWrite) {
@@ -309,58 +301,61 @@ PPM_REG_WRITE_CB(statusRXWrite) {
         return;
     }
     unsigned int command = htonl(data);
-    if(command == DONE){
-        if(control_RX == NI_STATUS_INTER){    
+    if(command == INTERRUPTION_ACK){
+        bhmMessage("I", "statusWrite", "Turning interruption off!");
+        ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
+        return;
+    }
+
+    if(control_RX == NI_STATUS_ON){
+        if(command == DONE){
+            if(control_TX != NI_STATUS_INTER){ // turns the interruption signal down only if the TX is also finished
+                //ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
+                //bhmMessage("I", "statusWrite", "Turning interruption off!0");
+            }
+            bhmMessage("I", "statusWrite", "RX Proceed with the packet reception at addr: %x", receivingAddress);
+            setGO();
+        }else {
+            bhmMessage("I", "statusWrite", "RX ERROR0!");
+        }
+    } else if(control_RX == NI_STATUS_INTER){
+        if(command == DONE){
+            if(control_TX != NI_STATUS_INTER){ // turns the interruption signal down only if the TX is also finished
+                //ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
+                //bhmMessage("I", "statusWrite", "Turning interruption off!1");
+            }
             control_RX = NI_STATUS_OFF;
-            //bhmMessage("I", "statusWrite", "RX Turning interruption off!");
-            ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
+            bhmMessage("I", "statusWrite", "RX Turning interruption off!");
             setGO();
+        } else {
+            bhmMessage("I", "statusWrite", "RX ERROR1!");
         }
-        else if(control_RX == NI_STATUS_ON){
-            //bhmMessage("I", "statusWrite", "RX Proceed with the packet reception!");
-            ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
-            setGO();
-        }
-        else{
-            //bhmMessage("I", "statusWrite", "ERROR_DONE_RX: UNEXPECTED STATE REACHED"); while(1){}
-        }
+    } else if(control_RX == NI_STATUS_WAITING){
+        receivingAddress = htonl(data);
+        control_RX = NI_STATUS_ON;
+        bhmMessage("I", "statusWrite", "RX Received packet addr: %x", data);
     }
-    /*else if (command == UNBLOCKED){
-        RXallowed = 1;
-        if(RXwaiting == 1){
-            RXwaiting = 0;
-            ppmWriteNet(handles.INT_NI_RX, 1); // Turns the interruption on
-        }
+    else{
+        bhmMessage("I", "statusWrite", "RX ERROR2!");
     }
-    else if(command == BLOCKED){
-        RXallowed = 0;
-    }*/
-
-
-    // When the processor is ready to receive a message
-    /*else if(command == READY){
-        // if the message is already in the auxiliar vector
-        if(RXwaiting == 1){
-            RXwaiting = 0;
-            ppmWriteNet(handles.INT_NI_RX, 1); // Turns the interruption on
-        }
-        // if the message isn't here yet
-        else{
-            RXallowed = 1;
-        }
-    }*/
+    
     *(Uns32*)user = data;
 }
 
 PPM_REG_READ_CB(statusTXRead) {
     if(bytes != 4) {
-        //bhmMessage("E", "PPM_RNB", "Only 4 byte access permitted");
+        bhmMessage("E", "PPM_RNB", "Only 4 byte access permitted");
         return 0;
     }
     DMAC_ab8_data.statusTX.value = htonl(control_TX);
-    //informIteration(); // Used only when operating at LOCAL ITERATIONS
-    ////bhmMessage("INFO", "reading NIcmdTXC", "Lendo!");
-    return *(Uns32*)user;
+    //bhmMessage("I", "NI_TX", "Reading TX - status: %x", control_TX);
+    if(control_TX == NI_STATUS_OFF || control_TX == NI_STATUS_STARTING){
+        //bhmMessage("I", "NI_TX", "Recebi um TX_STARTING");
+        control_TX = NI_STATUS_STARTING;
+        return (unsigned int)NI_STATUS_OFF;
+    }
+    else
+        return control_TX;
 }
 
 PPM_REG_WRITE_CB(statusTXWrite) {
@@ -369,25 +364,43 @@ PPM_REG_WRITE_CB(statusTXWrite) {
         return;
     }
     unsigned int command = htonl(data);
+    if(command == INTERRUPTION_ACK){
+        bhmMessage("I", "statusWrite", "Turning interruption off!");
+        ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
+        return;
+    }
+
     if(command == TX){
-        if(control_TX == NI_STATUS_OFF){
+        bhmMessage("I", "NI_TX", "Recebi um TX");
+        if(control_TX == NI_STATUS_STARTING || control_TX == NI_STATUS_OFF){
             control_TX = NI_STATUS_ON;
             transmittingAddress = auxAddress;
             transmittingCount = HEADER;
             niIteration();  // Send a flit to the ROUTER, this way it will inform the iterator that this PE is waiting for "iterations"
         }
         else{
-            //bhmMessage("I", "statusWrite", "ERROR_TX: UNEXPECTED STATE REACHED"); while(1){}
+            bhmMessage("I", "statusWrite", "ERROR_TX: UNEXPECTED STATE REACHED"); while(1){}
         }
     }
     else if(command == DONE){
+        bhmMessage("I", "NI_TX", "Recebi um TX_DONE");
         if(control_TX == NI_STATUS_INTER){    
             control_TX = NI_STATUS_OFF;
             //bhmMessage("I", "statusWrite", "TX Turning interruption off!");
-            ppmWriteNet(handles.INT_NI_TX, 0);  // Turn the interruption signal down
+            //ppmWriteNet(handles.INT_NI_TX, 0);  // Turn the interruption signal down
+            if(control_RX != NI_STATUS_INTER){ // turns the interruption signal down only if the TX is also finished
+                //ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
+                //bhmMessage("I", "statusWrite", "Turning interruption off!2");
+            }
         }
         else{
-            //bhmMessage("I", "statusWrite", "ERROR_DONE_TX: UNEXPECTED STATE REACHED"); while(1){}
+            bhmMessage("I", "statusWrite", "ERROR_DONE_TX: UNEXPECTED STATE REACHED"); while(1){}
+        }
+    }
+    else if (command == RESET){
+        if(control_TX == NI_STATUS_STARTING){
+            //bhmMessage("I", "NI_TX", "Recebi um TX_RESET");
+            control_TX = NI_STATUS_OFF;
         }
     }
     *(Uns32*)user = data;

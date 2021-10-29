@@ -1,13 +1,12 @@
 apps:
- - name: prodcons
+ - name: dijkstra
    period: 0
-   executions: 10
+   executions: 1
    tasks:
-    prod: 0
-    cons: 1
- - name: prodcons2
-   period: 3
-   executions: 5
-   tasks:
-    prod: 0
-    cons: 1
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6

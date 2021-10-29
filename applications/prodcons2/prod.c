@@ -14,7 +14,7 @@ int main(){
         mensagem.msg[i]=i;
     }
 
-    mensagem.length = 25;
+    mensagem.length = 84;
 
     for (i=0; i<PRODCONS_ITERATIONS; i++) {
         mensagem.msg[9] = 0xC0A + i;

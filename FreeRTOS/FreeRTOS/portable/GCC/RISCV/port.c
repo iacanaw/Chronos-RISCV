@@ -259,6 +259,11 @@ void vPortSysTickHandler( void )
 		__asm volatile("lw	t0, 31 * 4(sp)");
 		__asm volatile("csrw	mepc, t0");
 
+		// Added by Iaçanã
+		__asm volatile("lui	t0, 0x2");
+  		__asm volatile("addi t0,t0,-2048");
+		__asm volatile("csrs mstatus,t0");
+
 		__asm volatile("lw	x1, 0x0(sp)");
 		__asm volatile("lw   x4, 3 * 4(sp)");
 		__asm volatile("lw   x5, 4 * 4(sp)");
@@ -335,6 +340,11 @@ void Software_IRQHandler(void)
 
 		__asm volatile("lw	t0, 31 * 4(sp)");
 		__asm volatile("csrw	mepc, t0");
+
+		// Added by Iaçanã
+		__asm volatile("lui	t0, 0x2");
+  		__asm volatile("addi t0,t0,-2048");
+		__asm volatile("csrs mstatus,t0");
 
 		__asm volatile("lw	x1, 0x0(sp)");
 		__asm volatile("lw   x4, 3 * 4(sp)");

@@ -30,9 +30,9 @@ typedef struct{
 volatile Tile Tiles[DIM_X][DIM_Y];
 
 // Task info
-typedef struct{
-    unsigned int status;
-    unsigned int addr;
+typedef struct{ 
+    unsigned int status; 
+    unsigned int addr;   
     unsigned int slot;
 } TaskInfo;
 
@@ -52,7 +52,7 @@ typedef struct{
 } Application;
  
 // Application Info
-Application applications[NUM_MAX_APPS];
+volatile Application applications[NUM_MAX_APPS];
 
 // Informs the Repository that the GLOBALMASTER is ready to receive the application info
 void API_RepositoryWakeUp();

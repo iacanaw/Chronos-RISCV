@@ -10,8 +10,20 @@
 void API_RepositoryWakeUp(){
     unsigned int mySlot;
     do{
+        vPortEnterCritical();
         mySlot = API_GetServiceSlot();
-        if(mySlot == PIPE_FULL) vTaskDelay(1);
+        if(mySlot == PIPE_FULL){
+            // vPortExitCritical();
+            // while(HW_get_32bit_reg(NI_TX) == NI_STATUS_ON){ /* pooling */}
+            // vPortEnterCritical();
+            if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
+                API_ClearPipeSlot(SendingSlot);
+                HW_set_32bit_reg(NI_TX, DONE);
+                API_Try2Send();
+            }
+            vPortExitCritical();
+            //asm("wfi");
+        }
     }while(mySlot == PIPE_FULL);
     //printsv("I got a free service slot!! -> ", mySlot);
 
@@ -22,6 +34,7 @@ void API_RepositoryWakeUp(){
     ServicePipe[mySlot].header.service      = REPOSITORY_WAKEUP;
 
     API_PushSendQueue(SERVICE, mySlot);
+    vPortExitCritical();
     return;    
 }
 
@@ -52,6 +65,7 @@ unsigned int API_GetApplicationSlot(unsigned int appID){
             return i;
         }
     }
+    prints("returning erro3\n");
     return ERRO;
 }
 
@@ -65,6 +79,7 @@ unsigned int API_GetApplicationFreeSlot(){
             return i;
         }
     }
+    prints("returning erro4\n");
     return ERRO;
 }
 
@@ -204,14 +219,16 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
 
 // Gets the address of the next tile in the priority list 
 unsigned int getNextPriorityAddr(){
-    /*int i;
+    int i;
     unsigned int addr = makeAddress(0,0);
     for(;;){
         // Checks if it's a valid address
         if (priorityMatrix[priorityPointer] != makeAddress(0,0)){
-            for(i = 0; i < NUM_MAX_TASKS; i++){
-                if (Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] == NONE)
+            if (Tiles[getXpos(addr)][getYpos(addr)].taskSlots > 0){
+            //for(i = 0; i < NUM_MAX_TASKS; i++){
+                //if (Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] == NONE)
                     addr = priorityMatrix[priorityPointer];
+            //}
             }
         }
 
@@ -224,8 +241,8 @@ unsigned int getNextPriorityAddr(){
         if( addr != makeAddress(0,0))
             break;
     }
-    return addr;*/
-    return 0x101;
+    return addr;
+    //return 0x101;
 }
 
 // Gets a free slot from one given tile
@@ -243,6 +260,7 @@ unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsign
         Tiles[getXpos(addr)][getYpos(addr)].taskSlots = Tiles[getXpos(addr)][getYpos(addr)].taskSlots - 1;
         return 1;
     }else {
+        prints("returning erro5\n");
         return ERRO;
     }
 }
@@ -251,19 +269,13 @@ unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsign
 unsigned int API_ClearTaskSlotFromTile(unsigned int addr, unsigned int app, unsigned int task){
     Tiles[getXpos(addr)][getYpos(addr)].taskSlots++;
     if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots >= NUM_MAX_TASKS){
+        prints("returning erro6\n");
         return ERRO;
     }
     else{
         return 1;
     }
-    /*int i;
-    for(i = 0; i < NUM_MAX_TASKS; i++){
-        if(Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] == (app << 16) | task){
-            printsv("limpei o slot tile", addr);
-            Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] = NONE;
-            return 1;
-        }
-    }*/
+    prints("returning erro7\n");
     return ERRO;
 }
 
@@ -275,11 +287,6 @@ unsigned int API_GetSystemTasksSlots(){
         for(n = 0; n < DIM_Y; n++){
             if(makeAddress(m,n) != makeAddress(0,0)){
                 sum += Tiles[m][n].taskSlots;
-                /*for(i = 0; i < NUM_MAX_TASKS; i++){
-                    if(Tiles[m][n].AppTask[i] == NONE){
-                        sum++;
-                    }
-                }*/
             }
         }
     }
@@ -289,10 +296,19 @@ unsigned int API_GetSystemTasksSlots(){
 void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int dest_addr){
     unsigned int mySlot;
     do{
+        vPortEnterCritical();
         mySlot = API_GetServiceSlot();
-        if(mySlot == PIPE_FULL){ 
-            vTaskDelay(1);
-            //prints("esperando slot\n");
+        if(mySlot == PIPE_FULL){
+            //vPortExitCritical();
+            // while(HW_get_32bit_reg(NI_TX) == NI_STATUS_ON){ /* pooling */}
+            // vPortEnterCritical();
+            if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
+                API_ClearPipeSlot(SendingSlot);
+                HW_set_32bit_reg(NI_TX, DONE);
+                API_Try2Send();
+            }
+            vPortExitCritical();
+            //asm("wfi");
         }
     }while(mySlot == PIPE_FULL);
     printsv("I got a free service slot!! -> ", mySlot);
@@ -307,6 +323,7 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
     ServicePipe[mySlot].header.task_dest_addr   = dest_addr;
 
     API_PushSendQueue(SERVICE, mySlot);
+    vPortExitCritical();
     return;    
 }
 
@@ -316,6 +333,7 @@ void API_TaskAllocated(unsigned int task_id, unsigned int app_id){
 
     for(i = 0; i < applications[app_id].numTasks; i++){
         if(applications[app_id].tasks[i].status != TASK_ALLOCATED){
+            //printi(i);
             return;
         }
     }
@@ -332,9 +350,17 @@ void API_ApplicationStart(unsigned int app_id){
         do{
             vPortEnterCritical();
             mySlot = API_GetMessageSlot();
-            if(mySlot == PIPE_FULL){ 
+            if(mySlot == PIPE_FULL){
+                //vPortExitCritical();
+                // while(HW_get_32bit_reg(NI_TX) == NI_STATUS_ON){ /* pooling */}
+                // vPortEnterCritical();
+                if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
+                    API_ClearPipeSlot(SendingSlot);
+                    HW_set_32bit_reg(NI_TX, DONE);
+                    API_Try2Send();
+                }
                 vPortExitCritical();
-                vTaskDelay(1);
+                //asm("wfi");
             }
         }while(mySlot == PIPE_FULL);
 
@@ -352,4 +378,5 @@ void API_ApplicationStart(unsigned int app_id){
         API_PushSendQueue(MESSAGE, mySlot);
         vPortExitCritical();
     }
+    return;
 }

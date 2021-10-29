@@ -47,21 +47,67 @@ for i in range(len(appsName)):
         with open (taskfilename, 'r') as taskFile:
             while True:
                 line = taskFile.readline()
-                if "	" in line: 
+                if "<.rodata>" in line:
+                    value = re.split(r' ', line)
+                    rodataAddr = int(value[0], 16)
+                    txtEndAddr = int(lastAddr, 16)
+                    wordgap = (rodataAddr - txtEndAddr) / 4
+                    #print("wordgap: " + str(wordgap))
+                    for k in range(int(wordgap)):
+                        #print(txtEndAddr)
+                        taskSize[j] += 1
+                        code.append("00000000")
+
+                elif "	" in line: 
                     if bss == True:
                         taskBss[j] += 1
                     else: 
                         taskSize[j] += 1
                         value = re.split(r'\t+', line)
+                        lastAddr = value[0][:-1] # [:-1] removes the last character 
                         value = re.split(r' ', value[1])
+                        # case the line is empty
                         if value[0] == '':
                             value[0] = "00000000"
-                        code.append(value[0])
-                        #print(value[0])
 
+                        # there is a space between each half-word
+                        # example:
+                        # 80000a64:	    6974 676e     ting
+                        if len(value[0]) == 4 and len(value[1]) == 4:
+                            fullWord = value[0] + value[1]
+                            #print("data fullWord: ", fullWord)
+                            code.append(fullWord)
+
+                        # the last word is incomplete
+                        # example:
+                        # 80000bb8:	    000a         
+                        elif len(value[0]) == 4 and len(value) == 11:
+                            fullWord = value[0] + "0000"
+                            code.append(fullWord)
+
+                        # case we have just half word in each line
+                        # example:
+                        # 80000a5c:	    0001      	nop
+                        # 80000a5e:	    0000      	unimp
+                        elif len(value[0]) == 4:
+                            fullWord = value[0];
+                            line = taskFile.readline()
+                            print(len(value))
+                            value = re.split(r'\t+', line)
+                            value = re.split(r' ', value[1])
+                            fullWord = fullWord + value[0]
+                            #print("roda fullWord: ", fullWord)
+                            code.append(fullWord)
+
+                        # in case of a regular command
+                        # example:
+                        # 800004e8:	    59878793 	addi	a5,a5,1432 # 80000a7c <msg>
+                        else:   
+                            code.append(value[0])
+                        
                 if "<main>:" in line:
                     taskStart[j] = copy.deepcopy(taskSize[j]);
-                        
+
                 if ".bss" in line: #identify when the bss has begun
                     bss = True
                 elif line == '':

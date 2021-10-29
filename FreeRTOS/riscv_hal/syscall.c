@@ -261,24 +261,6 @@ ssize_t _write(int fd, const void* ptr, size_t len)
   return stub(EBADF);
 }
 
-/* Starting Chronos Stuff */
-
-/*void SendMessage(Message *theMessage, unsigned int dest_task_id){
-    vPortEnterCritical();
-        unsigned int pkt_addr = API_createPacket(&theMessage, dest_task_id, MESSAGE_DELIVERY);
-        SendRaw(pkt_addr);
-    vPortExitCritical();
-    return;
-}*/
-
-/*void ReceiveMessage(unsigned int source_task_id){
-    vPortEnterCritical();
-        unsigned int pkt_addr = API_createPacket(0, source_task_id, MESSAGE_REQUEST);
-        SendRaw(pkt_addr);
-    vPortExitCritical();
-    return;
-}*/
-
 #ifdef __cplusplus
 }
 #endif

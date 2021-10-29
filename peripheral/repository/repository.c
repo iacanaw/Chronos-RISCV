@@ -41,9 +41,9 @@ void iterate(){
             // if some packet was received...
             if (packetReceived == 1){
                 in_packetPointer = 0;
-                bhmMessage("I", "REPO", "Terminou de chegar um pacote!");
+                //bhmMessage("I", "REPO", "Terminou de chegar um pacote!");
                 for (i = 0; i < in_packetSize+2; i++){
-                    bhmMessage("I", "REPO", "Flit %d: %x", i, inPacket[i]);
+                    //bhmMessage("I", "REPO", "Flit %d: %x", i, inPacket[i]);
                 }
                 if (inPacket[2] == REPOSITORY_WAKEUP){
                     status = REPO_STARTING;
@@ -131,7 +131,7 @@ PPM_PACKETNET_CB(controlUpdate) {
         if(sendingPacket){
             if(routerCredit == 0){
                 // send one flit to the router
-                bhmMessage("I", "REPO", "Flit %d sent: %x", out_packetPointer, outPacket[out_packetPointer]);
+                //bhmMessage("I", "REPO", "Flit %d sent: %x", out_packetPointer, outPacket[out_packetPointer]);
                 ppmPacketnetWrite(handles.portData, &outPacket[out_packetPointer], sizeof(outPacket[out_packetPointer]));
                 
                 // Stores the size of the packet

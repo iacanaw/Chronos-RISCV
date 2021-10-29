@@ -101,19 +101,20 @@ trap_entry:
   SREG x30, 29 * REGBYTES(sp)
   SREG x31, 30 * REGBYTES(sp)
 
-
   csrr t0, mepc
   SREG t0, 31 * REGBYTES(sp)
 
   csrr a0, mcause
   csrr a1, mepc
   mv a2, sp
-  jal handle_trap
+  call handle_trap
   csrw mepc, a0
 
   # Remain in M-mode after mret
   li t0, MSTATUS_MPP
   csrs mstatus, t0
+  #li t0, MSTATUS_MPIE
+  #csrs mstatus, t0
 
   LREG x1, 0 * REGBYTES(sp)
   LREG x2, 1 * REGBYTES(sp)

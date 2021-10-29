@@ -57,6 +57,8 @@
 #define RX                  0x00003333U
 #define TX_RX               0x00007777U
 #define DONE                0x00005555U
+#define INTERRUPTION_ACK    0x00001234U
+#define RESET               0x00008888U
 #define BLOCKED             0xF2F2
 #define UNBLOCKED           0xF3F3
 #define READY               0x6666
@@ -65,6 +67,7 @@
 #define NI_STATUS_WAITING   0x0022
 #define NI_STATUS_OFF       0x00FF
 #define NI_STATUS_INTER     0x0F0F
+#define NI_STATUS_STARTING  0x0ABC
 
 #define NI_INT_TYPE_CLEAR   0x0000
 #define NI_INT_TYPE_TX      0xF222

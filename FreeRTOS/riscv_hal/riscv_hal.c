@@ -133,6 +133,7 @@ void handle_m_timer_interrupt()
     PRCI->MTIMECMP[read_csr(mhartid)] = PRCI->MTIME + g_systick_increment;
 
     set_csr(mie, MIP_MTIP);
+    return;
 }
 
 /*------------------------------------------------------------------------------
@@ -190,6 +191,7 @@ void handle_m_ext_interrupt()
     {
         PLIC_DisableIRQ((IRQn_Type)int_num);
     }
+    return;
 }
 
 void handle_m_soft_interrupt()
@@ -198,14 +200,15 @@ void handle_m_soft_interrupt()
 
     /*Clear software interrupt*/
     PRCI->MSIP[0] = 0x00;
+    return;
 }
 
 /* syscall funcion defined at system_call.c */
-unsigned int handle_syscall(){
+void handle_syscall(){
 	unsigned int arg0, arg1, arg2, arg3, arg4, arg5, type;
 	unsigned int *pointer;
-	register long temp asm("s2") = 0;
-	asm("addi	s2, sp, 0");
+	register long temp asm("t0") = 0;
+	asm("addi	t0, sp, 0");
 	
 	pointer = (unsigned int *)(temp + (29*4));
 	arg0 =  *pointer;
@@ -227,6 +230,15 @@ unsigned int handle_syscall(){
 
 	pointer = (unsigned int *)(temp + (36*4));
 	type = *pointer;
+
+    /*int i;
+    unsigned int *p;
+    unsigned int value;
+    for (i = 0; i < 64; i++){
+		p = (temp + (i*4));
+		value = *p;
+		printsvsv("i: ", i, " value: ", value);
+	}*/
 	
 	switch (type){
 
@@ -275,7 +287,7 @@ unsigned int handle_syscall(){
 			printsv("type ", type);
 			break;
 	}
-	return 42;
+	return;
 	////////////////////////////////////////////////////
 	// Utilize para encontrar os argumentos na pilha!!!
 	// int i;
@@ -297,7 +309,7 @@ unsigned int handle_syscall(){
  */
 uintptr_t handle_trap(uintptr_t mcause, uintptr_t epc)
 {
-    if (mcause == ENV_CALL_M || mcause == ENV_CALL_H || mcause == ENV_CALL_S || mcause == ENV_CALL_U){
+    if (!(mcause & MCAUSE_INT) && ((mcause & MCAUSE_CAUSE) == ENV_CALL_M || (mcause & MCAUSE_CAUSE) == ENV_CALL_H || (mcause & MCAUSE_CAUSE) == ENV_CALL_S || (mcause & MCAUSE_CAUSE) == ENV_CALL_U)){
         handle_syscall();
         epc = (uintptr_t) (epc + 4);
     }
@@ -312,8 +324,11 @@ uintptr_t handle_trap(uintptr_t mcause, uintptr_t epc)
     }
     else{
         write(1, "trap\n", 5);
+        printsv("epc: ", epc);
+        printsv("mcause: ", mcause);
         _exit(mcause);
     }
+    //printsv("handle_trap returns: ", epc);
     return epc;
 }
 

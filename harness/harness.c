@@ -38,6 +38,9 @@ struct optionsS {
     .configurecpuinstance = False,
 };
 
+#define PRINT_FETCH         0
+#define PRINT_FETCH_PE      7
+
 /*static OP_CONSTRUCT_FN(moduleConstruct) {
     const char *u1_path = "module";
     opModuleNew(
@@ -99,6 +102,75 @@ optModuleAttr modelAttrs = {
     .postSimulateCB       = modulePostSimulate,
     .destructCB           = moduleDestruct,
 };*/
+#if PRINT_FETCH
+
+int getProcessorID(optProcessorP processor){
+    int processorID;
+    char processorName[7] = "@@@@@@@";
+    strcpy(processorName,opObjectName(processor)); 
+    if(((int)processorName[5] - 48) >= 0 && ((int)processorName[5] - 48) <= 9){
+        processorID = ((int)processorName[3] - 48)*100 + ((int)processorName[4] - 48)*10 + ((int)processorName[5] - 48);
+    }
+    else if(((int)processorName[4] - 48) >= 0 && ((int)processorName[4] - 48) <= 9){
+        processorID = ((int)processorName[3] - 48)*10 + ((int)processorName[4] - 48);
+    }
+    else processorID = ((int)processorName[3] - 48);
+    //ERROR CATCHER!
+    if(processorID < 0 || processorID > N_PES){
+        opMessage("I", "FETCH CALLBACK", "~~~~> Ocorreu um erro! %d",processorID);
+        while(1){}     
+    }
+    return processorID;
+}
+
+unsigned int saiu_int = 0;
+unsigned int entrou_int = 0;
+
+static OP_MONITOR_FN(fetchCallBack) { 
+    /* get the processor id*/
+    int processorID = getProcessorID(processor);
+
+    /*get the waiting packet flag*/
+    //char value[4];
+    //opProcessorRead(processor, 0x0FFFFFFC, &value, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    //unsigned int intValue = htonl(vec2usi(value));
+    
+    /*if the processor is not waiting a packet then run the disassemble*/
+    //if(!intValue){
+        //char instruction[60];
+        //strcpy(instruction,opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED));
+        //sscanf(instruction,"%s %*s\n",instruction);
+    //if (processorID == 7)
+        if( strcmp(opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), "mret") == 0){
+            saiu_int++;
+            opMessage("I", "FETCH", "PE%d- saiu do handler %d vezes & entrou %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
+        }
+        else if (addr == 0x80000030){
+            entrou_int++;
+            opMessage("I", "FETCH", "PE%d- saiu do handler %d vezes & entrou %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
+        }
+
+        //opMessage("I", "FETCH", "PE%d- %s @ %x", processorID, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
+
+        //                         BASE ADDRESS -  (INSTRUCTION TYPE OFFSET)
+        //unsigned int countAddress = 0x0FFFFFF8 - (getInstructionType(instruction)*4);
+
+        /* Load the atual value and add one */
+        /*char read_EI[4];
+        opProcessorRead(processor, countAddress, &read_EI, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        unsigned int read_executedInstructions = vec2usi(read_EI);
+        read_executedInstructions = htonl(read_executedInstructions) + 1;*/
+
+        /* Store the atual value */
+        /*char EI[4];
+        EI[3] = (htonl(read_executedInstructions) >> 24) & 0x000000FF;
+        EI[2] = (htonl(read_executedInstructions) >> 16) & 0x000000FF;
+        EI[1] = (htonl(read_executedInstructions) >> 8) & 0x000000FF;
+        EI[0] = htonl(read_executedInstructions) & 0x000000FF;
+        opProcessorWrite(processor, countAddress, EI, 4, 1, True, OP_HOSTENDIAN_TARGET);*/
+    //}
+}
+#endif
 
 int main(int argc, const char *argv[]) {
     int runningPE;
@@ -147,6 +219,10 @@ int main(int argc, const char *argv[]) {
                 firstRun--;
                 // Go to the next processor
 			    opMessage("I", "HARNESS INFO", ">>>>>> INICIALIZANDO PE %d", runningPE);  // alzemiro modification
+#if PRINT_FETCH
+                 if (runningPE == PRINT_FETCH_PE)
+                     opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, fetchCallBack, "fetch");
+#endif            
             }
 
   			// simulate processor for INSTRUCTIONS PER_TIME_SLICE instructions

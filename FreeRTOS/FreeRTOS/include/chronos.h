@@ -24,7 +24,7 @@
 #define GLOBAL_MASTER_ADDR  0x0000
 #define NUM_MAX_APPS        12      // The maximum number of Applications
 #define NUM_MAX_APP_TASKS   10      // The maximum number of Tasks that a given Application can have
-#define NUM_MAX_TASKS       6       // The maxinum number of Tasks that can be allocated in a given PE at the same time
+#define NUM_MAX_TASKS       6      // The maxinum number of Tasks that can be allocated in a given PE at the same time
 ////////////////////////////////////////////////////////////
 // PERIPHERAL PORTS
 #define PERIPH_EAST         0x00010000
@@ -41,6 +41,7 @@
 #define NI_STATUS_ON        0x0011
 #define NI_STATUS_OFF       0x00FF
 #define NI_STATUS_INTER     0x0F0F
+#define NI_STATUS_WAITING   0x0022
 #define NI_STATUS_HANDLING  0x0EEE
 
 // Auxiliar Packet used by the NI to store incomming packets
