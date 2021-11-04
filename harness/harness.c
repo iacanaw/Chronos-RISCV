@@ -29,7 +29,7 @@
 
 // Quantum defines
 #define INSTRUCTIONS_PER_SECOND 1000000000.0                                            // 1GHz (assuming 1 instruction per cycle)
-#define INSTRUCTIONS_PER_TIME_SLICE 25000.0                                               //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
+#define INSTRUCTIONS_PER_TIME_SLICE 57000.0                                             //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
 #define QUANTUM_TIME_SLICE (INSTRUCTIONS_PER_TIME_SLICE / INSTRUCTIONS_PER_SECOND)      // 0.0000010 //
 
 struct optionsS {
@@ -40,6 +40,8 @@ struct optionsS {
 
 #define PRINT_FETCH         0
 #define PRINT_FETCH_PE      7
+
+//int simulationFinished;
 
 /*static OP_CONSTRUCT_FN(moduleConstruct) {
     const char *u1_path = "module";
@@ -126,7 +128,7 @@ int getProcessorID(optProcessorP processor){
 unsigned int saiu_int = 0;
 unsigned int entrou_int = 0;
 
-static OP_MONITOR_FN(fetchCallBack) { 
+static OP_MONITOR_FN(fetchCallback) { 
     /* get the processor id*/
     int processorID = getProcessorID(processor);
 
@@ -172,14 +174,25 @@ static OP_MONITOR_FN(fetchCallBack) {
 }
 #endif
 
+static OP_MONITOR_FN(FinishCallback){
+    opMessage("I", "HARNESS", " >>> SIMULAÇÃO FINALIZADA COM SUCESSO!");
+    //simulationFinished++;
+    opProcessorFinish(processor, 0);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback){
+    opMessage("I", "HARNESS", " >>> DETECTADA MODIFICAÇÃO NA FREQUENCIA!");
+    return;
+}
+
 int main(int argc, const char *argv[]) {
-    int runningPE;
-    int countQuantum = 0;
-    int finishedProcessors = 0;
-    optTime myTime = QUANTUM_TIME_SLICE;
-    optStopReason stopReason = OP_SR_SCHED;
+    int             runningPE       = 0;
+    float           myTime          = 0;
+    optProcessorP   stopProcessor   = 0;
+    Bool            finished        = False;
+    //optTime myTime = QUANTUM_TIME_SLICE;
 	optProcessorP proc;
-    
     opSessionInit(OP_VERSION);
     /* create the root module with reduced Quantum (in line with Custom Scheduler) */
 	optParamP params = OP_PARAMS(OP_PARAM_DOUBLE_SET(OP_FP_QUANTUM, QUANTUM_TIME_SLICE));
@@ -193,66 +206,58 @@ int main(int argc, const char *argv[]) {
     optModuleP mi = opRootModuleNew(&modelAttrs, MODULE_NAME, params);
     optModuleP modNew = opModuleNew(mi, MODULE_DIR, MODULE_INSTANCE, 0, 0);
 
-    // must advance to next phase for the API calls that follow
-	opRootModulePreSimulate(mi);
-
     // flag to add the callbacks during the first quantum
 	int firstRun = N_PES;
+
+    while ((proc = opProcessorNext(modNew, proc))) {
+        char id[4];
+        id[3] = ((9-firstRun) >> 24) & 0x000000FF;
+        id[2] = ((9-firstRun) >> 16) & 0x000000FF;
+        id[1] = ((9-firstRun) >> 8) & 0x000000FF;
+        id[0] = (9-firstRun) & 0x000000FF;
+        opProcessorWrite(proc, 0x8FFFFFFC, id, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        firstRun--;
+        // Go to the next processor
+        opMessage("I", "HARNESS INFO", "================== INICIALIZANDO PE %d ==================", runningPE);
     
-    do{
-        // move time forward by time slice on root module
-		// NOTE: This matches the standard scheduler which moves time forward in
-		//       the system and then executes instructions on all processors
-        opRootModuleTimeAdvance(mi, myTime);
+        if (runningPE == 0){
+            opMessage("I", "HARNESS INFO", "\t > MONITOR DE FINALIZAÇÃO ADICIONADO!");
+            opProcessorFetchMonitorAdd(proc, 0x80000e04, 0x80000e07, FinishCallback, "finish");
+        }
+        
+        opMessage("I", "HARNESS INFO", "\t > MONITOR DE FREQUENCIA ADICIONADO!");
+        opProcessorWriteMonitorAdd (proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback, "frequency");
 
-        // reset the PE index
-        runningPE = 0;
-
-        while ((proc = opProcessorNext(modNew, proc))) {
-            if(firstRun){
-                char id[4];
-                id[3] = ((9-firstRun) >> 24) & 0x000000FF;
-                id[2] = ((9-firstRun) >> 16) & 0x000000FF;
-                id[1] = ((9-firstRun) >> 8) & 0x000000FF;
-                id[0] = (9-firstRun) & 0x000000FF;
-                opProcessorWrite(proc, 0x8FFFFFFC, id, 4, 1, True, OP_HOSTENDIAN_TARGET);
-                firstRun--;
-                // Go to the next processor
-			    opMessage("I", "HARNESS INFO", ">>>>>> INICIALIZANDO PE %d", runningPE);  // alzemiro modification
 #if PRINT_FETCH
-                 if (runningPE == PRINT_FETCH_PE)
-                     opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, fetchCallBack, "fetch");
-#endif            
-            }
+        if (runningPE == PRINT_FETCH_PE)
+            opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback, "fetch");
+#endif     
+        runningPE++;
+    }
 
-  			// simulate processor for INSTRUCTIONS PER_TIME_SLICE instructions
-            stopReason = opProcessorSimulate(proc, INSTRUCTIONS_PER_TIME_SLICE);
-            if (stopReason == OP_SR_EXIT) {
-				finishedProcessors++;
-			}
-            runningPE++;
+    /* Simulation loop */
+    while(!finished) {
+        myTime += 0.1;
+        opRootModuleSetSimulationStopTime(mi, myTime);
+        stopProcessor = opRootModuleSimulate(mi);
+        optStopReason sr = stopProcessor ? opProcessorStopReason(stopProcessor)
+                                         : OP_SR_EXIT;
+        switch(sr) {
+            case OP_SR_EXIT:
+                opMessage("I", "HARNESS", "Simulation time: %.1f seconds elapsed...", myTime);
+                break; 
+            
+            case OP_SR_FINISH:
+                finished = True;
+                break;
+            
+            default:
+                opMessage("I", "HARNESS", "Processor %s icount %u stopped with unexpected reason 0x%x (%s)\n", opObjectName (stopProcessor), (Uns32)opProcessorICount(stopProcessor), sr, opStopReasonString(sr) );
+                break;
         }
+        
+    }
 
-        // increments the number of simulated quanta
-        countQuantum++;
-        if (countQuantum % 10000 == 0) {
-            opMessage("I", "HARNESS INFO", "Iniciando Quantum %d - elapsed time: %lfs / %.2lfms", countQuantum, (countQuantum * QUANTUM_TIME_SLICE),
-                     (countQuantum * QUANTUM_TIME_SLICE * 1000));  // alzemiro modification
-        }
-
-        break; 
-        // checks if all processors has exited
-        if (finishedProcessors == N_PES) {
-			opMessage("I", "HARNESS", "Simulation Complete (%s) e %d quantums", opStopReasonString(stopReason), countQuantum);
-			break;  // finish simulation loop
-		}
-
-        myTime += QUANTUM_TIME_SLICE;
-
-    }while(1);
-
-
-    opRootModuleSimulate(mi);
     opSessionTerminate();
 
     return (opErrors() ? 1 : 0);    // set exit based upon any errors
