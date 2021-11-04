@@ -264,6 +264,10 @@ void vPortSysTickHandler( void )
   		__asm volatile("addi t0,t0,-2048");
 		__asm volatile("csrs mstatus,t0");
 
+		__asm volatile("lw	t0, 32 * 4(sp)");
+		__asm volatile("slli t0, t0, 0x4");
+		__asm volatile("csrs mstatus, t0");
+
 		__asm volatile("lw	x1, 0x0(sp)");
 		__asm volatile("lw   x4, 3 * 4(sp)");
 		__asm volatile("lw   x5, 4 * 4(sp)");
@@ -294,7 +298,7 @@ void vPortSysTickHandler( void )
 		__asm volatile("lw   x30, 29 * 4(sp)");
 		__asm volatile("lw   x31, 30 * 4(sp)");
 
-		__asm volatile("addi	sp, sp, 4 * 32");
+		__asm volatile("addi	sp, sp, 4 * 33");
 
 		__asm volatile("mret");
 	}
@@ -346,6 +350,10 @@ void Software_IRQHandler(void)
   		__asm volatile("addi t0,t0,-2048");
 		__asm volatile("csrs mstatus,t0");
 
+		__asm volatile("lw	t0, 32 * 4(sp)");
+		__asm volatile("slli t0, t0, 0x4");
+		__asm volatile("csrs mstatus, t0");
+
 		__asm volatile("lw	x1, 0x0(sp)");
 		__asm volatile("lw   x4, 3 * 4(sp)");
 		__asm volatile("lw   x5, 4 * 4(sp)");
@@ -376,7 +384,7 @@ void Software_IRQHandler(void)
 		__asm volatile("lw   x30, 29 * 4(sp)");
 		__asm volatile("lw   x31, 30 * 4(sp)");
 
-		__asm volatile("addi	sp, sp, 4 * 32");
+		__asm volatile("addi	sp, sp, 4 * 33");
 
 	    // Moved by Imperas (causing corruption of a5 at this position)
 		//PRCI->MSIP[0] = 0x00;

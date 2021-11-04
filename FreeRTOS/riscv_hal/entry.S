@@ -67,7 +67,7 @@ handle_reset:
 
 
 trap_entry:
-  addi sp, sp, -32*REGBYTES
+  addi sp, sp, -33*REGBYTES
 
   SREG x1, 0 * REGBYTES(sp)
   SREG x2, 1 * REGBYTES(sp)
@@ -101,8 +101,14 @@ trap_entry:
   SREG x30, 29 * REGBYTES(sp)
   SREG x31, 30 * REGBYTES(sp)
 
+  # Stores the return addr in the stack
   csrr t0, mepc
   SREG t0, 31 * REGBYTES(sp)
+
+  # store the MIE value in the stack
+  li t0, MSTATUS_MIE
+  csrrc t0, mstatus, t0 
+  SREG t0, 32 * REGBYTES(sp) 
 
   csrr a0, mcause
   csrr a1, mepc
@@ -116,6 +122,11 @@ trap_entry:
   #li t0, MSTATUS_MPIE
   #csrs mstatus, t0
 
+  # Restore the interruption status after MRET
+  LREG x5, 32 * REGBYTES(sp)  # load the old MIE value to t0
+  slli t0, t0, 4              # shifts it to the MPIE position
+  csrs mstatus, t0            # restore the MIE value into the MPIE
+  
   LREG x1, 0 * REGBYTES(sp)
   LREG x2, 1 * REGBYTES(sp)
   LREG x3, 2 * REGBYTES(sp)
@@ -148,7 +159,7 @@ trap_entry:
   LREG x30, 29 * REGBYTES(sp)
   LREG x31, 30 * REGBYTES(sp)
 
-  addi sp, sp, 32*REGBYTES
+  addi sp, sp, 33*REGBYTES
   mret
 
 #endif
