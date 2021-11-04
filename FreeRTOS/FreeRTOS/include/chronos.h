@@ -108,4 +108,6 @@ unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int t
 
 void API_AddPendingReq(unsigned int requester_task_id, unsigned int task_app_id, unsigned int producer_task_id);
 
+unsigned int API_NI_Handler();
+
 #endif

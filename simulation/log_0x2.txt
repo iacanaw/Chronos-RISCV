@@ -1,0 +1,1872 @@
+RX interruption catched - 1 
+TASK_ALLOCATION_SEND
+Got slot: 0 
+Task total size (txt+bss): 2304 
+Task addr: 2147530780 
+Task slot: 0 
+Task slot TaskAddr: 2147530780 
+RX interruption catched - 2 
+TASK_ALLOCATION_FINISHED
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched - 2 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 4 
+Chegou um TASK_START!
+RX interruption catched - 5 
+Chegou um TASK_RUN!
+Enabling Task: 0 from app: 0 
+Slot: 0 
+Starting Task 0  from app 0 
+Starting Dijkstra_0.SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 6 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 7 
+Chegou um message request! App: 0 Task: 5 
+Mensagem não encontrada, adicionando ao PendingReq!
+RX interruption catched - 8 
+Tem uma mensagem chegando...
+RX interruption catched - 9 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 10 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 11 
+Tem uma mensagem chegando...
+RX interruption catched - 12 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 13 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 14 
+Tem uma mensagem chegando...
+RX interruption catched - 15 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 16 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 17 
+Tem uma mensagem chegando...
+RX interruption catched - 18 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 19 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 20 
+Tem uma mensagem chegando...
+RX interruption catched - 21 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 22 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 23 
+Tem uma mensagem chegando...
+RX interruption catched - 24 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 25 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 26 
+Tem uma mensagem chegando...
+RX interruption catched - 27 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 28 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 29 
+Tem uma mensagem chegando...
+RX interruption catched - 30 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 31 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 32 
+Tem uma mensagem chegando...
+RX interruption catched - 33 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 34 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 35 
+Tem uma mensagem chegando...
+RX interruption catched - 36 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 37 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 38 
+Tem uma mensagem chegando...
+RX interruption catched - 39 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 40 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 41 
+Tem uma mensagem chegando...
+RX interruption catched - 42 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 43 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 44 
+Tem uma mensagem chegando...
+RX interruption catched - 45 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 46 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 47 
+Tem uma mensagem chegando...
+RX interruption catched - 48 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 49 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 50 
+Tem uma mensagem chegando...
+RX interruption catched - 51 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 52 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 53 
+Tem uma mensagem chegando...
+RX interruption catched - 54 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 55 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 56 
+Tem uma mensagem chegando...
+RX interruption catched - 57 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 58 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 59 
+Tem uma mensagem chegando...
+RX interruption catched - 60 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 61 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 62 
+Tem uma mensagem chegando...
+RX interruption catched - 63 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 64 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 65 
+Tem uma mensagem chegando...
+RX interruption catched - 66 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 67 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 68 
+Tem uma mensagem chegando...
+RX interruption catched - 69 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 70 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 71 
+Tem uma mensagem chegando...
+RX interruption catched - 72 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 73 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 74 
+Tem uma mensagem chegando...
+RX interruption catched - 75 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 76 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 77 
+Tem uma mensagem chegando...
+RX interruption catched - 78 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 79 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 80 
+Tem uma mensagem chegando...
+RX interruption catched - 81 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 82 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 83 
+Tem uma mensagem chegando...
+RX interruption catched - 84 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 85 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 86 
+Tem uma mensagem chegando...
+RX interruption catched - 87 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 88 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 89 
+Tem uma mensagem chegando...
+RX interruption catched - 90 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 91 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 92 
+Tem uma mensagem chegando...
+RX interruption catched - 93 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 94 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 95 
+Tem uma mensagem chegando...
+RX interruption catched - 96 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 97 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 98 
+Tem uma mensagem chegando...
+RX interruption catched - 99 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 100 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 101 
+Tem uma mensagem chegando...
+RX interruption catched - 102 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 103 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 104 
+Tem uma mensagem chegando...
+RX interruption catched - 105 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 106 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 107 
+Tem uma mensagem chegando...
+RX interruption catched - 108 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 109 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 110 
+Tem uma mensagem chegando...
+RX interruption catched - 111 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 112 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 113 
+Tem uma mensagem chegando...
+RX interruption catched - 114 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 115 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 116 
+Tem uma mensagem chegando...
+RX interruption catched - 117 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 118 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 119 
+Tem uma mensagem chegando...
+RX interruption catched - 120 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 121 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 122 
+Tem uma mensagem chegando...
+RX interruption catched - 123 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 124 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 125 
+Tem uma mensagem chegando...
+RX interruption catched - 126 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 127 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 128 
+Tem uma mensagem chegando...
+RX interruption catched - 129 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 130 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 131 
+Tem uma mensagem chegando...
+RX interruption catched - 132 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 133 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 134 
+Tem uma mensagem chegando...
+RX interruption catched - 135 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 136 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 137 
+Tem uma mensagem chegando...
+RX interruption catched - 138 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 139 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 140 
+Tem uma mensagem chegando...
+RX interruption catched - 141 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 142 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 143 
+Tem uma mensagem chegando...
+RX interruption catched - 144 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 145 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 146 
+Tem uma mensagem chegando...
+RX interruption catched - 147 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 148 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 149 
+Tem uma mensagem chegando...
+RX interruption catched - 150 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 151 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 152 
+Tem uma mensagem chegando...
+RX interruption catched - 153 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 154 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 155 
+Tem uma mensagem chegando...
+RX interruption catched - 156 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 157 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 158 
+Tem uma mensagem chegando...
+RX interruption catched - 159 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 160 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 161 
+Tem uma mensagem chegando...
+RX interruption catched - 162 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 163 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 164 
+Tem uma mensagem chegando...
+RX interruption catched - 165 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 166 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 167 
+Tem uma mensagem chegando...
+RX interruption catched - 168 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 169 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 170 
+Tem uma mensagem chegando...
+RX interruption catched - 171 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 172 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 173 
+Tem uma mensagem chegando...
+RX interruption catched - 174 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 175 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 176 
+Tem uma mensagem chegando...
+RX interruption catched - 177 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 178 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 179 
+Tem uma mensagem chegando...
+RX interruption catched - 180 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 181 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 182 
+Tem uma mensagem chegando...
+RX interruption catched - 183 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 184 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 185 
+Tem uma mensagem chegando...
+RX interruption catched - 186 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 187 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 188 
+Tem uma mensagem chegando...
+RX interruption catched - 189 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 190 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 191 
+Tem uma mensagem chegando...
+RX interruption catched - 192 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 193 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 194 
+Tem uma mensagem chegando...
+RX interruption catched - 195 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 196 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 197 
+Tem uma mensagem chegando...
+RX interruption catched - 198 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 199 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 200 
+Tem uma mensagem chegando...
+RX interruption catched - 201 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 202 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 203 
+Tem uma mensagem chegando...
+RX interruption catched - 204 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 205 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 206 
+Tem uma mensagem chegando...
+RX interruption catched - 207 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 208 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 209 
+Tem uma mensagem chegando...
+RX interruption catched - 210 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 211 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 212 
+Tem uma mensagem chegando...
+RX interruption catched - 213 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 214 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 215 
+Tem uma mensagem chegando...
+RX interruption catched - 216 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 217 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 218 
+Tem uma mensagem chegando...
+RX interruption catched - 219 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 220 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 221 
+Tem uma mensagem chegando...
+RX interruption catched - 222 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 223 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 224 
+Tem uma mensagem chegando...
+RX interruption catched - 225 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 226 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 227 
+Tem uma mensagem chegando...
+RX interruption catched - 228 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 229 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 230 
+Tem uma mensagem chegando...
+RX interruption catched - 231 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 232 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 233 
+Tem uma mensagem chegando...
+RX interruption catched - 234 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 235 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 236 
+Tem uma mensagem chegando...
+RX interruption catched - 237 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 238 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 239 
+Tem uma mensagem chegando...
+RX interruption catched - 240 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 241 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 242 
+Tem uma mensagem chegando...
+RX interruption catched - 243 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 244 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 245 
+Tem uma mensagem chegando...
+RX interruption catched - 246 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 247 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 248 
+Tem uma mensagem chegando...
+RX interruption catched - 249 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 250 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 251 
+Tem uma mensagem chegando...
+RX interruption catched - 252 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 253 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 254 
+Tem uma mensagem chegando...
+RX interruption catched - 255 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 256 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 257 
+Tem uma mensagem chegando...
+RX interruption catched - 258 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 259 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 260 
+Tem uma mensagem chegando...
+RX interruption catched - 261 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 262 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 263 
+Tem uma mensagem chegando...
+RX interruption catched - 264 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 265 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 266 
+Tem uma mensagem chegando...
+RX interruption catched - 267 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 268 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 269 
+Tem uma mensagem chegando...
+RX interruption catched - 270 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 271 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 272 
+Tem uma mensagem chegando...
+RX interruption catched - 273 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 274 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 275 
+Tem uma mensagem chegando...
+RX interruption catched - 276 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 277 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 278 
+Tem uma mensagem chegando...
+RX interruption catched - 279 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 280 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 281 
+Tem uma mensagem chegando...
+RX interruption catched - 282 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 283 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 284 
+Tem uma mensagem chegando...
+RX interruption catched - 285 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 286 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 287 
+Tem uma mensagem chegando...
+RX interruption catched - 288 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 289 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 290 
+Tem uma mensagem chegando...
+RX interruption catched - 291 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 292 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 293 
+Tem uma mensagem chegando...
+RX interruption catched - 294 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 295 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 296 
+Tem uma mensagem chegando...
+RX interruption catched - 297 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 298 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 299 
+Tem uma mensagem chegando...
+RX interruption catched - 300 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 301 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 302 
+Tem uma mensagem chegando...
+RX interruption catched - 303 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 304 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 305 
+Tem uma mensagem chegando...
+RX interruption catched - 306 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 307 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 308 
+Tem uma mensagem chegando...
+RX interruption catched - 309 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 310 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 311 
+Tem uma mensagem chegando...
+RX interruption catched - 312 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 313 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 314 
+Tem uma mensagem chegando...
+RX interruption catched - 315 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 316 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 317 
+Tem uma mensagem chegando...
+RX interruption catched - 318 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 319 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 320 
+Tem uma mensagem chegando...
+RX interruption catched - 321 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 322 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 323 
+Tem uma mensagem chegando...
+RX interruption catched - 324 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 325 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 326 
+Tem uma mensagem chegando...
+RX interruption catched - 327 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 328 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 329 
+Tem uma mensagem chegando...
+RX interruption catched - 330 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 331 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 332 
+Tem uma mensagem chegando...
+RX interruption catched - 333 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 334 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 335 
+Tem uma mensagem chegando...
+RX interruption catched - 336 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 337 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 338 
+Tem uma mensagem chegando...
+RX interruption catched - 339 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 340 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 341 
+Tem uma mensagem chegando...
+RX interruption catched - 342 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 343 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 344 
+Tem uma mensagem chegando...
+RX interruption catched - 345 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 346 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 347 
+Tem uma mensagem chegando...
+RX interruption catched - 348 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 349 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 350 
+Tem uma mensagem chegando...
+RX interruption catched - 351 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 352 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 353 
+Tem uma mensagem chegando...
+RX interruption catched - 354 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 355 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 356 
+Tem uma mensagem chegando...
+RX interruption catched - 357 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 358 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 359 
+Tem uma mensagem chegando...
+RX interruption catched - 360 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 361 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 362 
+Tem uma mensagem chegando...
+RX interruption catched - 363 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 364 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 365 
+Tem uma mensagem chegando...
+RX interruption catched - 366 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 367 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 368 
+Tem uma mensagem chegando...
+RX interruption catched - 369 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 370 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 371 
+Tem uma mensagem chegando...
+RX interruption catched - 372 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 373 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 374 
+Tem uma mensagem chegando...
+RX interruption catched - 375 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 376 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 377 
+Tem uma mensagem chegando...
+RX interruption catched - 378 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 379 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 380 
+Tem uma mensagem chegando...
+RX interruption catched - 381 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 382 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 383 
+Tem uma mensagem chegando...
+RX interruption catched - 384 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 385 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 386 
+Tem uma mensagem chegando...
+RX interruption catched - 387 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 388 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 389 
+Tem uma mensagem chegando...
+RX interruption catched - 390 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 391 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 392 
+Tem uma mensagem chegando...
+RX interruption catched - 393 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 394 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 395 
+Tem uma mensagem chegando...
+RX interruption catched - 396 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 397 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 398 
+Tem uma mensagem chegando...
+RX interruption catched - 399 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 400 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 401 
+Tem uma mensagem chegando...
+RX interruption catched - 402 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 403 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 404 
+Tem uma mensagem chegando...
+RX interruption catched - 405 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 406 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 407 
+Tem uma mensagem chegando...
+RX interruption catched - 408 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 409 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 410 
+Tem uma mensagem chegando...
+RX interruption catched - 411 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 412 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 413 
+Tem uma mensagem chegando...
+RX interruption catched - 414 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 415 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 416 
+Tem uma mensagem chegando...
+RX interruption catched - 417 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 418 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 419 
+Tem uma mensagem chegando...
+RX interruption catched - 420 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 421 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 422 
+Tem uma mensagem chegando...
+RX interruption catched - 423 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 424 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 425 
+Tem uma mensagem chegando...
+RX interruption catched - 426 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 427 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 428 
+Tem uma mensagem chegando...
+RX interruption catched - 429 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 430 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 431 
+Tem uma mensagem chegando...
+RX interruption catched - 432 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 433 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 434 
+Tem uma mensagem chegando...
+RX interruption catched - 435 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 436 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 437 
+Tem uma mensagem chegando...
+RX interruption catched - 438 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 439 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 440 
+Tem uma mensagem chegando...
+RX interruption catched - 441 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 442 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 443 
+Tem uma mensagem chegando...
+RX interruption catched - 444 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 445 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 446 
+Tem uma mensagem chegando...
+RX interruption catched - 447 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 448 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 449 
+Tem uma mensagem chegando...
+RX interruption catched - 450 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 451 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 452 
+Tem uma mensagem chegando...
+RX interruption catched - 453 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 454 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 455 
+Tem uma mensagem chegando...
+RX interruption catched - 456 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 457 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 458 
+Tem uma mensagem chegando...
+RX interruption catched - 459 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 460 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 461 
+Tem uma mensagem chegando...
+RX interruption catched - 462 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 463 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 464 
+Tem uma mensagem chegando...
+RX interruption catched - 465 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 466 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 467 
+Tem uma mensagem chegando...
+RX interruption catched - 468 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 469 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 470 
+Tem uma mensagem chegando...
+RX interruption catched - 471 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 472 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 473 
+Tem uma mensagem chegando...
+RX interruption catched - 474 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 475 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 476 
+Tem uma mensagem chegando...
+RX interruption catched - 477 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 478 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 479 
+Tem uma mensagem chegando...
+RX interruption catched - 480 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 481 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 482 
+Tem uma mensagem chegando...
+RX interruption catched - 483 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 484 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 485 
+Tem uma mensagem chegando...
+RX interruption catched - 486 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 487 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 488 
+Tem uma mensagem chegando...
+RX interruption catched - 489 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 490 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 491 
+Tem uma mensagem chegando...
+RX interruption catched - 492 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 493 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 494 
+Tem uma mensagem chegando...
+RX interruption catched - 495 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 496 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 497 
+Tem uma mensagem chegando...
+RX interruption catched - 498 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 499 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 500 
+Tem uma mensagem chegando...
+RX interruption catched - 501 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 502 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 503 
+Tem uma mensagem chegando...
+RX interruption catched - 504 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 505 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 506 
+Tem uma mensagem chegando...
+RX interruption catched - 507 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 508 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 509 
+Tem uma mensagem chegando...
+RX interruption catched - 510 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 511 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 512 
+Tem uma mensagem chegando...
+RX interruption catched - 513 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 514 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 515 
+Tem uma mensagem chegando...
+RX interruption catched - 516 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 517 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 518 
+Tem uma mensagem chegando...
+RX interruption catched - 519 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 520 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 521 
+Tem uma mensagem chegando...
+RX interruption catched - 522 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 523 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 524 
+Tem uma mensagem chegando...
+RX interruption catched - 525 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 526 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 527 
+Tem uma mensagem chegando...
+RX interruption catched - 528 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 529 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 530 
+Tem uma mensagem chegando...
+RX interruption catched - 531 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 532 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 533 
+Tem uma mensagem chegando...
+RX interruption catched - 534 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 535 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 536 
+Tem uma mensagem chegando...
+RX interruption catched - 537 
+Mensagem Recebida!
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 538 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 539 
+Tem uma mensagem chegando...
+RX interruption catched - 540 
+Mensagem Recebida!
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 541 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 542 
+Tem uma mensagem chegando...
+RX interruption catched - 543 
+Mensagem Recebida!
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 544 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 545 
+Tem uma mensagem chegando...
+RX interruption catched - 546 
+Mensagem Recebida!
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 547 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 548 
+Tem uma mensagem chegando...
+RX interruption catched - 549 
+Mensagem Recebida!
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 550 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 551 
+Tem uma mensagem chegando...
+RX interruption catched - 552 
+Mensagem Recebida!
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 553 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 554 
+Tem uma mensagem chegando...
+RX interruption catched - 555 
+Mensagem Recebida!
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 556 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 557 
+Tem uma mensagem chegando...
+RX interruption catched - 558 
+Mensagem Recebida!
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+taskslot 0  esperando mensagem 0 
+TX interruption catched - 559 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 560 
+Tem uma mensagem chegando...
+RX interruption catched - 561 

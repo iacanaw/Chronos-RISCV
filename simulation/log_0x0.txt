@@ -1,0 +1,271 @@
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched - 1 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 1 
+New application registered - ID: 0 
+GlobalMasterActive0 
+I got a free service slot!! -> 0 
+SendingQueue_front: 1 
+API_TrTX interruption catched - 2 
+API_Try2Send failed - empty SendQueue!
+y2Send success!
+I got a free service slot!! -> 0 
+SendingQueue_front: 2 
+API_Try2Send success!
+I got a TX interruption catched - 3 
+API_Try2Send failed - empty SendQueue!
+free service slot!! -> 1 
+SendinRX interruption catched - 4 
+TASK_ALLOCATION_SUCCESS
+gQueue_front: 3 
+API_Try2Send success!
+TX interruption catched - 5 
+API_Try2Send failed - empty SendQueue!
+I got a free service slRX interruption catched - 6 
+TASK_ALLOCATION_SUCCESS
+ot!! -> 0 
+SendingQueue_front: 4 
+ATX interruption catched - 7 
+API_Try2Send failed - empty SendQueue!
+PI_Try2Send success!
+RX interruption catched - 8 
+TASK_ALLOCATION_SUCCESS
+I got a free service slot!! -> 0 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched - 9 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 9 
+TASK_ALLOCATION_SUCCESS
+I got a free service slot!! -> 0 
+SendingQueue_front: 6 
+API_TTX interruption catched - 11 
+API_Try2Send failed - empty SendQueue!
+ry2Send success!
+RX interruption catched - 12 
+TASK_ALLOCATION_SUCCESS
+I got a free service slot!! -> 0 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched - 13 
+API_Try2Send failed - empty SendQueue!
+RX interruption catched - 13 
+TASK_ALLOCATION_SUCCESS
+RX interruption catched - 15 
+TASK_ALLOCATION_SUCCESS
+Application allocated: 0 
+SendingQueue_front: 0 
+API_Try2Send success!
+SendingQueue_front: 1 
+API_Try2Send failed - NI_TX occupied!
+SendingQueue_front: 2 
+API_Try2Send failed - NI_TX occupied!
+SendingQueue_front: 3 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched - 15 
+API_Try2Send success!
+RX interruption catched - 15 
+TX interruption catched - 15 
+API_Try2Send success!
+SendingQueue_front: 4 
+API_Try2Send failed - NI_TX occupied!
+SendingQueue_front: 5 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched - 15 
+API_Try2Send success!
+SendingQueue_front: 6 
+API_Try2Send failed - NI_TX occupied!
+	Start command sent to every task.
+TX interruption catched - 15 
+API_Try2Send success!
+TX interruption catched - 16 
+API_Try2Send success!
+TX interruption catched - 17 
+API_Try2Send success!
+TX interruption catched - 18 
+API_Try2Send failed - empty SendQueue!
+GlobalMasterActive1 
+GlobalMasterActive2 
+GlobalMasterActive3 
+GlobalMasterActive4 
+GlobalMasterActive5 
+GlobalMasterActive6 
+GlobalMasterActive7 
+GlobalMasterActive8 
+GlobalMasterActive9 
+GlobalMasterActive10 
+GlobalMasterActive11 
+GlobalMasterActive12 
+GlobalMasterActive13 
+GlobalMasterActive14 
+GlobalMasterActive15 
+GlobalMasterActive16 
+GlobalMasterActive17 
+GlobalMasterActive18 
+GlobalMasterActive19 
+GlobalMasterActive20 
+GlobalMasterActive21 
+GlobalMasterActive22 
+GlobalMasterActive23 
+GlobalMasterActive24 
+GlobalMasterActive25 
+GlobalMasterActive26 
+GlobalMasterActive27 
+GlobalMasterActive28 
+GlobalMasterActive29 
+GlobalMasterActive30 
+GlobalMasterActive31 
+GlobalMasterActive32 
+GlobalMasterActive33 
+GlobalMasterActive34 
+GlobalMasterActive35 
+GlobalMasterActive36 
+GlobalMasterActive37 
+GlobalMasterActive38 
+GlobalMasterActive39 
+GlobalMasterActive40 
+GlobalMasterActive41 
+GlobalMasterActive42 
+GlobalMasterActive43 
+GlobalMasterActive44 
+GlobalMasterActive45 
+GlobalMasterActive46 
+GlobalMasterActive47 
+GlobalMasterActive48 
+GlobalMasterActive49 
+GlobalMasterActive50 
+GlobalMasterActive51 
+GlobalMasterActive52 
+GlobalMasterActive53 
+GlobalMasterActive54 
+GlobalMasterActive55 
+GlobalMasterActive56 
+GlobalMasterActive57 
+GlobalMasterActive58 
+GlobalMasterActive59 
+GlobalMasterActive60 
+GlobalMasterActive61 
+GlobalMasterActive62 
+GlobalMasterActive63 
+GlobalMasterActive64 
+GlobalMasterActive65 
+GlobalMasterActive66 
+GlobalMasterActive67 
+GlobalMasterActive68 
+GlobalMasterActive69 
+GlobalMasterActive70 
+GlobalMasterActive71 
+GlobalMasterActive72 
+GlobalMasterActive73 
+GlobalMasterActive74 
+GlobalMasterActive75 
+GlobalMasterActive76 
+GlobalMasterActive77 
+GlobalMasterActive78 
+GlobalMasterActive79 
+GlobalMasterActive80 
+GlobalMasterActive81 
+GlobalMasterActive82 
+GlobalMasterActive83 
+GlobalMasterActive84 
+GlobalMasterActive85 
+GlobalMasterActive86 
+GlobalMasterActive87 
+GlobalMasterActive88 
+GlobalMasterActive89 
+GlobalMasterActive90 
+GlobalMasterActive91 
+GlobalMasterActive92 
+GlobalMasterActive93 
+GlobalMasterActive94 
+GlobalMasterActive95 
+GlobalMasterActive96 
+GlobalMasterActive97 
+GlobalMasterActive98 
+GlobalMasterActive99 
+GlobalMasterActive100 
+GlobalMasterActive101 
+GlobalMasterActive102 
+GlobalMasterActive103 
+GlobalMasterActive104 
+GlobalMasterActive105 
+GlobalMasterActive106 
+GlobalMasterActive107 
+GlobalMasterActive108 
+GlobalMasterActive109 
+GlobalMasterActive110 
+GlobalMasterActive111 
+GlobalMasterActive112 
+GlobalMasterActive113 
+GlobalMasterActive114 
+GlobalMasterActive115 
+GlobalMasterActive116 
+GlobalMasterActive117 
+GlobalMasterActive118 
+GlobalMasterActive119 
+GlobalMasterActive120 
+GlobalMasterActive121 
+GlobalMasterActive122 
+GlobalMasterActive123 
+GlobalMasterActive124 
+GlobalMasterActive125 
+GlobalMasterActive126 
+GlobalMasterActive127 
+GlobalMasterActive128 
+GlobalMasterActive129 
+GlobalMasterActive130 
+GlobalMasterActive131 
+GlobalMasterActive132 
+GlobalMasterActive133 
+GlobalMasterActive134 
+GlobalMasterActive135 
+GlobalMasterActive136 
+GlobalMasterActive137 
+GlobalMasterActive138 
+GlobalMasterActive139 
+GlobalMasterActive140 
+GlobalMasterActive141 
+GlobalMasterActive142 
+GlobalMasterActive143 
+GlobalMasterActive144 
+GlobalMasterActive145 
+GlobalMasterActive146 
+GlobalMasterActive147 
+GlobalMasterActive148 
+GlobalMasterActive149 
+GlobalMasterActive150 
+GlobalMasterActive151 
+GlobalMasterActive152 
+GlobalMasterActive153 
+GlobalMasterActive154 
+GlobalMasterActive155 
+GlobalMasterActive156 
+GlobalMasterActive157 
+GlobalMasterActive158 
+GlobalMasterActive159 
+GlobalMasterActive160 
+GlobalMasterActive161 
+GlobalMasterActive162 
+GlobalMasterActive163 
+GlobalMasterActive164 
+GlobalMasterActive165 
+GlobalMasterActive166 
+GlobalMasterActive167 
+GlobalMasterActive168 
+GlobalMasterActive169 
+GlobalMasterActive170 
+GlobalMasterActive171 
+GlobalMasterActive172 
+GlobalMasterActive173 
+GlobalMasterActive174 
+GlobalMasterActive175 
+GlobalMasterActive176 
+GlobalMasterActive177 
+GlobalMasterActive178 
+GlobalMasterActive179 
+GlobalMasterActive180 
+GlobalMasterActive181 
+GlobalMasterActive182 
+GlobalMasterActive183 
+GlobalMasterActive184 

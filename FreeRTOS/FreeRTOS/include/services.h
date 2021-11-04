@@ -15,4 +15,6 @@
 #define TASK_RUN                        0x00000401U
 #define TASK_FINISH                     0x00000500U
 
+#define SOLVED                          0x0000FFFFU
+
 #endif

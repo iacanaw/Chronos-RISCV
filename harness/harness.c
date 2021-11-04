@@ -143,11 +143,11 @@ static OP_MONITOR_FN(fetchCallBack) {
     //if (processorID == 7)
         if( strcmp(opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), "mret") == 0){
             saiu_int++;
-            opMessage("I", "FETCH", "PE%d- saiu do handler %d vezes & entrou %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
+            opMessage("I", "FETCH", "PE%d- SAIU do handler %d vezes & entrou %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
         }
         else if (addr == 0x80000030){
             entrou_int++;
-            opMessage("I", "FETCH", "PE%d- saiu do handler %d vezes & entrou %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
+            opMessage("I", "FETCH", "PE%d- saiu do handler %d vezes & ENTROU %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
         }
 
         //opMessage("I", "FETCH", "PE%d- %s @ %x", processorID, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);

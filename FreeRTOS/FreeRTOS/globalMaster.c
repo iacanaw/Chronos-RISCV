@@ -10,19 +10,10 @@
 void API_RepositoryWakeUp(){
     unsigned int mySlot;
     do{
-        vPortEnterCritical();
         mySlot = API_GetServiceSlot();
         if(mySlot == PIPE_FULL){
-            // vPortExitCritical();
-            // while(HW_get_32bit_reg(NI_TX) == NI_STATUS_ON){ /* pooling */}
-            // vPortEnterCritical();
-            if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
-                API_ClearPipeSlot(SendingSlot);
-                HW_set_32bit_reg(NI_TX, DONE);
-                API_Try2Send();
-            }
-            vPortExitCritical();
-            //asm("wfi");
+            // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            API_NI_Handler();
         }
     }while(mySlot == PIPE_FULL);
     //printsv("I got a free service slot!! -> ", mySlot);
@@ -34,7 +25,6 @@ void API_RepositoryWakeUp(){
     ServicePipe[mySlot].header.service      = REPOSITORY_WAKEUP;
 
     API_PushSendQueue(SERVICE, mySlot);
-    vPortExitCritical();
     return;    
 }
 
@@ -296,19 +286,10 @@ unsigned int API_GetSystemTasksSlots(){
 void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int dest_addr){
     unsigned int mySlot;
     do{
-        vPortEnterCritical();
         mySlot = API_GetServiceSlot();
         if(mySlot == PIPE_FULL){
-            //vPortExitCritical();
-            // while(HW_get_32bit_reg(NI_TX) == NI_STATUS_ON){ /* pooling */}
-            // vPortEnterCritical();
-            if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
-                API_ClearPipeSlot(SendingSlot);
-                HW_set_32bit_reg(NI_TX, DONE);
-                API_Try2Send();
-            }
-            vPortExitCritical();
-            //asm("wfi");
+            // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            API_NI_Handler();
         }
     }while(mySlot == PIPE_FULL);
     printsv("I got a free service slot!! -> ", mySlot);
@@ -323,7 +304,6 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
     ServicePipe[mySlot].header.task_dest_addr   = dest_addr;
 
     API_PushSendQueue(SERVICE, mySlot);
-    vPortExitCritical();
     return;    
 }
 
@@ -348,19 +328,10 @@ void API_ApplicationStart(unsigned int app_id){
     unsigned int mySlot;
     for(i = 0; i < applications[app_id].numTasks; i++){
         do{
-            vPortEnterCritical();
             mySlot = API_GetMessageSlot();
             if(mySlot == PIPE_FULL){
-                //vPortExitCritical();
-                // while(HW_get_32bit_reg(NI_TX) == NI_STATUS_ON){ /* pooling */}
-                // vPortEnterCritical();
-                if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
-                    API_ClearPipeSlot(SendingSlot);
-                    HW_set_32bit_reg(NI_TX, DONE);
-                    API_Try2Send();
-                }
-                vPortExitCritical();
-                //asm("wfi");
+                // Runs the NI Handler to send/receive packets, opening space in the PIPE
+                API_NI_Handler();
             }
         }while(mySlot == PIPE_FULL);
 
@@ -376,7 +347,6 @@ void API_ApplicationStart(unsigned int app_id){
             MessagePipe[mySlot].msg.msg[j]          = applications[app_id].tasks[j].addr;
         }
         API_PushSendQueue(MESSAGE, mySlot);
-        vPortExitCritical();
     }
     return;
 }
