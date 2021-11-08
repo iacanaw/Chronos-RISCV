@@ -22,10 +22,10 @@ Idx Name           Size      VMA       LMA       File off  Algn  Flags
   8 .debug_info    0000f605  00000000  00000000  00013912  2**0  CONTENTS, READONLY, DEBUGGING
   9 .debug_abbrev  00002a7e  00000000  00000000  00022f17  2**0  CONTENTS, READONLY, DEBUGGING
  10 .debug_aranges 00000920  00000000  00000000  00025998  2**3  CONTENTS, READONLY, DEBUGGING
- 11 .debug_str     00012bbc  00000000  00000000  000262b8  2**0  CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges  000007f0  00000000  00000000  00038e74  2**0  CONTENTS, READONLY, DEBUGGING
- 13 .debug_macro   000058dd  00000000  00000000  00039664  2**0  CONTENTS, READONLY, DEBUGGING
- 14 .comment       00000039  00000000  00000000  0003ef41  2**0  CONTENTS, READONLY
+ 11 .debug_str     00012bbe  00000000  00000000  000262b8  2**0  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges  000007f0  00000000  00000000  00038e76  2**0  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_macro   000058dd  00000000  00000000  00039666  2**0  CONTENTS, READONLY, DEBUGGING
+ 14 .comment       00000039  00000000  00000000  0003ef43  2**0  CONTENTS, READONLY
  15 .debug_frame   000021cc  00000000  00000000  0003ef7c  2**2  CONTENTS, READONLY, DEBUGGING
 SYMBOL TABLE:
 80000000 l    d  .text	00000000 .text
@@ -3544,8 +3544,8 @@ static void prvSetNextTimerInterrupt(void)
 	time += (configCPU_CLOCK_HZ / configTICK_RATE_HZ);
 800016f4:	fe842683          	lw	a3,-24(s0)
 800016f8:	fec42703          	lw	a4,-20(s0)
-800016fc:	000145b7          	lui	a1,0x14
-80001700:	43858593          	addi	a1,a1,1080 # 14438 <HEAP_SIZE+0x4438>
+800016fc:	000f45b7          	lui	a1,0xf4
+80001700:	24058593          	addi	a1,a1,576 # f4240 <RAM_SIZE+0x74240>
 80001704:	00000613          	li	a2,0
 80001708:	00b687b3          	add	a5,a3,a1
 8000170c:	00078513          	mv	a0,a5
@@ -3624,8 +3624,8 @@ void vPortSetupTimer(void)
 	time += (configCPU_CLOCK_HZ / configTICK_RATE_HZ);
 800017c0:	fe842683          	lw	a3,-24(s0)
 800017c4:	fec42703          	lw	a4,-20(s0)
-800017c8:	000145b7          	lui	a1,0x14
-800017cc:	43858593          	addi	a1,a1,1080 # 14438 <HEAP_SIZE+0x4438>
+800017c8:	000f45b7          	lui	a1,0xf4
+800017cc:	24058593          	addi	a1,a1,576 # f4240 <RAM_SIZE+0x74240>
 800017d0:	00000613          	li	a2,0
 800017d4:	00b687b3          	add	a5,a3,a1
 800017d8:	00078513          	mv	a0,a5

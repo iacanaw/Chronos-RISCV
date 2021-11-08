@@ -84,7 +84,7 @@ do
 	echo "" >> module.op.tcl
 	echo "ihwaddperipheral -instancename prci"$i" -vendor riscv.ovpworld.org -library peripheral -type CLINT -version 1.0" >> module.op.tcl
 	echo "ihwconnect -instancename prci"$i" -bus cpu"$i"Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF" >> module.op.tcl
-	echo "ihwsetparameter -name clockMHz -handle prci"$i" -type double -value 1.0" >> module.op.tcl
+	echo "ihwsetparameter -name clockMHz -handle prci"$i" -type double -value 1000.0" >> module.op.tcl
 	echo "" >> module.op.tcl
 	echo "ihwaddperipheral -instancename router"$i" -modelfile peripheral/whnoc_dma/pse.pse" >> module.op.tcl
 	echo "ihwconnect -instancename router"$i" -busslaveport localPort -bus cpu"$i"Bus -loaddress 0x50000000 -hiaddress 0x50000003" >> module.op.tcl

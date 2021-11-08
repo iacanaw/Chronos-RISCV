@@ -1104,7 +1104,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x9a ./FreeRTOS/croutine.o
  .debug_macro   0x0000000000000000       0x43 ./FreeRTOS/croutine.o
  .debug_line    0x0000000000000000      0x415 ./FreeRTOS/croutine.o
- .debug_str     0x0000000000000000     0xabf3 ./FreeRTOS/croutine.o
+ .debug_str     0x0000000000000000     0xabf5 ./FreeRTOS/croutine.o
  .comment       0x0000000000000000       0x3a ./FreeRTOS/croutine.o
  .group         0x0000000000000000        0xc ./FreeRTOS/event_groups.o
  .group         0x0000000000000000        0xc ./FreeRTOS/event_groups.o
@@ -1208,7 +1208,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x9a ./FreeRTOS/event_groups.o
  .debug_macro   0x0000000000000000       0x91 ./FreeRTOS/event_groups.o
  .debug_line    0x0000000000000000      0xb42 ./FreeRTOS/event_groups.o
- .debug_str     0x0000000000000000     0xb379 ./FreeRTOS/event_groups.o
+ .debug_str     0x0000000000000000     0xb37b ./FreeRTOS/event_groups.o
  .comment       0x0000000000000000       0x3a ./FreeRTOS/event_groups.o
  .debug_frame   0x0000000000000000      0x1a0 ./FreeRTOS/event_groups.o
  .group         0x0000000000000000        0xc ./FreeRTOS/list.o
@@ -1416,7 +1416,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x9a ./FreeRTOS/queue.o
  .debug_macro   0x0000000000000000       0xb0 ./FreeRTOS/queue.o
  .debug_line    0x0000000000000000     0x18a0 ./FreeRTOS/queue.o
- .debug_str     0x0000000000000000     0xb95c ./FreeRTOS/queue.o
+ .debug_str     0x0000000000000000     0xb95e ./FreeRTOS/queue.o
  .comment       0x0000000000000000       0x3a ./FreeRTOS/queue.o
  .debug_frame   0x0000000000000000      0x404 ./FreeRTOS/queue.o
  COMMON         0x0000000000000000       0x40 ./FreeRTOS/queue.o
@@ -1699,7 +1699,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xb0 ./FreeRTOS/timers.o
  .debug_macro   0x0000000000000000       0x91 ./FreeRTOS/timers.o
  .debug_line    0x0000000000000000      0x440 ./FreeRTOS/timers.o
- .debug_str     0x0000000000000000     0xb905 ./FreeRTOS/timers.o
+ .debug_str     0x0000000000000000     0xb907 ./FreeRTOS/timers.o
  .comment       0x0000000000000000       0x3a ./FreeRTOS/timers.o
  .group         0x0000000000000000        0xc ./FreeRTOS/chronos.o
  .group         0x0000000000000000        0xc ./FreeRTOS/chronos.o
@@ -3038,40 +3038,40 @@ OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
  .debug_aranges
                 0x0000000000000898       0x88 ./main.o
 
-.debug_str      0x0000000000000000    0x12bbc
+.debug_str      0x0000000000000000    0x12bbe
  .debug_str     0x0000000000000000       0x4f ./riscv_hal/entry.o
  .debug_str     0x000000000000004f     0x8be4 ./riscv_hal/init.o
                                        0x8e7a (size before relaxing)
- .debug_str     0x0000000000008c33     0x42f4 ./riscv_hal/riscv_hal.o
-                                       0xd131 (size before relaxing)
- .debug_str     0x000000000000cf27      0x306 ./riscv_hal/riscv_hal_stubs.o
+ .debug_str     0x0000000000008c33     0x42f6 ./riscv_hal/riscv_hal.o
+                                       0xd133 (size before relaxing)
+ .debug_str     0x000000000000cf29      0x306 ./riscv_hal/riscv_hal_stubs.o
                                        0x6660 (size before relaxing)
- .debug_str     0x000000000000d22d     0x12db ./riscv_hal/syscall.o
+ .debug_str     0x000000000000d22f     0x12db ./riscv_hal/syscall.o
                                        0xa401 (size before relaxing)
- .debug_str     0x000000000000e508       0x17 ./hal/hw_reg_access.o
+ .debug_str     0x000000000000e50a       0x17 ./hal/hw_reg_access.o
                                          0x51 (size before relaxing)
- .debug_str     0x000000000000e51f      0xe38 ./drivers/CoreUARTapb/core_uart_apb.o
+ .debug_str     0x000000000000e521      0xe38 ./drivers/CoreUARTapb/core_uart_apb.o
                                        0x8400 (size before relaxing)
- .debug_str     0x000000000000f357      0x3c6 ./FreeRTOS/portable/MemMang/heap_2.o
-                                       0xaae1 (size before relaxing)
- .debug_str     0x000000000000f71d      0x1aa ./FreeRTOS/portable/GCC/RISCV/port.o
-                                       0xa874 (size before relaxing)
- .debug_str     0x000000000000f8c7      0x11e ./FreeRTOS/list.o
-                                       0xa0d7 (size before relaxing)
- .debug_str     0x000000000000f9e5      0x85e ./FreeRTOS/string.o
+ .debug_str     0x000000000000f359      0x3c6 ./FreeRTOS/portable/MemMang/heap_2.o
+                                       0xaae3 (size before relaxing)
+ .debug_str     0x000000000000f71f      0x1aa ./FreeRTOS/portable/GCC/RISCV/port.o
+                                       0xa876 (size before relaxing)
+ .debug_str     0x000000000000f8c9      0x11e ./FreeRTOS/list.o
+                                       0xa0d9 (size before relaxing)
+ .debug_str     0x000000000000f9e7      0x85e ./FreeRTOS/string.o
                                        0x6a9c (size before relaxing)
- .debug_str     0x0000000000010243     0x186c ./FreeRTOS/tasks.o
-                                       0xc159 (size before relaxing)
- .debug_str     0x0000000000011aaf      0x3e0 ./FreeRTOS/chronos.o
-                                       0xb55b (size before relaxing)
- .debug_str     0x0000000000011e8f      0x186 ./FreeRTOS/globalMaster.o
-                                       0xb04d (size before relaxing)
- .debug_str     0x0000000000012015       0x98 ./FreeRTOS/applications.o
-                                       0xafb9 (size before relaxing)
- .debug_str     0x00000000000120ad       0x7b ./FreeRTOS/packet.o
-                                       0xae10 (size before relaxing)
- .debug_str     0x0000000000012128      0xa94 ./main.o
-                                       0xd9dc (size before relaxing)
+ .debug_str     0x0000000000010245     0x186c ./FreeRTOS/tasks.o
+                                       0xc15b (size before relaxing)
+ .debug_str     0x0000000000011ab1      0x3e0 ./FreeRTOS/chronos.o
+                                       0xb55d (size before relaxing)
+ .debug_str     0x0000000000011e91      0x186 ./FreeRTOS/globalMaster.o
+                                       0xb04f (size before relaxing)
+ .debug_str     0x0000000000012017       0x98 ./FreeRTOS/applications.o
+                                       0xafbb (size before relaxing)
+ .debug_str     0x00000000000120af       0x7b ./FreeRTOS/packet.o
+                                       0xae12 (size before relaxing)
+ .debug_str     0x000000000001212a      0xa94 ./main.o
+                                       0xd9de (size before relaxing)
 
 .debug_ranges   0x0000000000000000      0x7f0
  .debug_ranges  0x0000000000000000       0x28 ./riscv_hal/init.o

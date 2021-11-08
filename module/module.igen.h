@@ -1121,7 +1121,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             )
         ),
         OP_PARAMS(
-             OP_PARAM_DOUBLE_SET("clockMHz", 1.0)
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
         )
     );
 
@@ -1268,7 +1268,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             )
         ),
         OP_PARAMS(
-             OP_PARAM_DOUBLE_SET("clockMHz", 1.0)
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
         )
     );
 
@@ -1413,7 +1413,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             )
         ),
         OP_PARAMS(
-             OP_PARAM_DOUBLE_SET("clockMHz", 1.0)
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
         )
     );
 
@@ -1556,7 +1556,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             )
         ),
         OP_PARAMS(
-             OP_PARAM_DOUBLE_SET("clockMHz", 1.0)
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
         )
     );
 
@@ -1701,7 +1701,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             )
         ),
         OP_PARAMS(
-             OP_PARAM_DOUBLE_SET("clockMHz", 1.0)
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
         )
     );
 
@@ -1848,7 +1848,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             )
         ),
         OP_PARAMS(
-             OP_PARAM_DOUBLE_SET("clockMHz", 1.0)
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
         )
     );
 
@@ -1993,7 +1993,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             )
         ),
         OP_PARAMS(
-             OP_PARAM_DOUBLE_SET("clockMHz", 1.0)
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
         )
     );
 
@@ -2136,7 +2136,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             )
         ),
         OP_PARAMS(
-             OP_PARAM_DOUBLE_SET("clockMHz", 1.0)
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
         )
     );
 
@@ -2281,7 +2281,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             )
         ),
         OP_PARAMS(
-             OP_PARAM_DOUBLE_SET("clockMHz", 1.0)
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
         )
     );
 

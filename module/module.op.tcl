@@ -229,7 +229,7 @@ ihwsetparameter -name num_targets -handle plic0 -type Uns32 -value 1
 
 ihwaddperipheral -instancename prci0 -vendor riscv.ovpworld.org -library peripheral -type CLINT -version 1.0
 ihwconnect -instancename prci0 -bus cpu0Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
-ihwsetparameter -name clockMHz -handle prci0 -type double -value 1.0
+ihwsetparameter -name clockMHz -handle prci0 -type double -value 1000.0
 
 ihwaddperipheral -instancename router0 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router0 -busslaveport localPort -bus cpu0Bus -loaddress 0x50000000 -hiaddress 0x50000003
@@ -254,7 +254,7 @@ ihwsetparameter -name num_targets -handle plic1 -type Uns32 -value 1
 
 ihwaddperipheral -instancename prci1 -vendor riscv.ovpworld.org -library peripheral -type CLINT -version 1.0
 ihwconnect -instancename prci1 -bus cpu1Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
-ihwsetparameter -name clockMHz -handle prci1 -type double -value 1.0
+ihwsetparameter -name clockMHz -handle prci1 -type double -value 1000.0
 
 ihwaddperipheral -instancename router1 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router1 -busslaveport localPort -bus cpu1Bus -loaddress 0x50000000 -hiaddress 0x50000003
@@ -279,7 +279,7 @@ ihwsetparameter -name num_targets -handle plic2 -type Uns32 -value 1
 
 ihwaddperipheral -instancename prci2 -vendor riscv.ovpworld.org -library peripheral -type CLINT -version 1.0
 ihwconnect -instancename prci2 -bus cpu2Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
-ihwsetparameter -name clockMHz -handle prci2 -type double -value 1.0
+ihwsetparameter -name clockMHz -handle prci2 -type double -value 1000.0
 
 ihwaddperipheral -instancename router2 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router2 -busslaveport localPort -bus cpu2Bus -loaddress 0x50000000 -hiaddress 0x50000003
@@ -304,7 +304,7 @@ ihwsetparameter -name num_targets -handle plic3 -type Uns32 -value 1
 
 ihwaddperipheral -instancename prci3 -vendor riscv.ovpworld.org -library peripheral -type CLINT -version 1.0
 ihwconnect -instancename prci3 -bus cpu3Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
-ihwsetparameter -name clockMHz -handle prci3 -type double -value 1.0
+ihwsetparameter -name clockMHz -handle prci3 -type double -value 1000.0
 
 ihwaddperipheral -instancename router3 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router3 -busslaveport localPort -bus cpu3Bus -loaddress 0x50000000 -hiaddress 0x50000003
@@ -329,7 +329,7 @@ ihwsetparameter -name num_targets -handle plic4 -type Uns32 -value 1
 
 ihwaddperipheral -instancename prci4 -vendor riscv.ovpworld.org -library peripheral -type CLINT -version 1.0
 ihwconnect -instancename prci4 -bus cpu4Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
-ihwsetparameter -name clockMHz -handle prci4 -type double -value 1.0
+ihwsetparameter -name clockMHz -handle prci4 -type double -value 1000.0
 
 ihwaddperipheral -instancename router4 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router4 -busslaveport localPort -bus cpu4Bus -loaddress 0x50000000 -hiaddress 0x50000003
@@ -354,7 +354,7 @@ ihwsetparameter -name num_targets -handle plic5 -type Uns32 -value 1
 
 ihwaddperipheral -instancename prci5 -vendor riscv.ovpworld.org -library peripheral -type CLINT -version 1.0
 ihwconnect -instancename prci5 -bus cpu5Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
-ihwsetparameter -name clockMHz -handle prci5 -type double -value 1.0
+ihwsetparameter -name clockMHz -handle prci5 -type double -value 1000.0
 
 ihwaddperipheral -instancename router5 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router5 -busslaveport localPort -bus cpu5Bus -loaddress 0x50000000 -hiaddress 0x50000003
@@ -379,7 +379,7 @@ ihwsetparameter -name num_targets -handle plic6 -type Uns32 -value 1
 
 ihwaddperipheral -instancename prci6 -vendor riscv.ovpworld.org -library peripheral -type CLINT -version 1.0
 ihwconnect -instancename prci6 -bus cpu6Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
-ihwsetparameter -name clockMHz -handle prci6 -type double -value 1.0
+ihwsetparameter -name clockMHz -handle prci6 -type double -value 1000.0
 
 ihwaddperipheral -instancename router6 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router6 -busslaveport localPort -bus cpu6Bus -loaddress 0x50000000 -hiaddress 0x50000003
@@ -404,7 +404,7 @@ ihwsetparameter -name num_targets -handle plic7 -type Uns32 -value 1
 
 ihwaddperipheral -instancename prci7 -vendor riscv.ovpworld.org -library peripheral -type CLINT -version 1.0
 ihwconnect -instancename prci7 -bus cpu7Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
-ihwsetparameter -name clockMHz -handle prci7 -type double -value 1.0
+ihwsetparameter -name clockMHz -handle prci7 -type double -value 1000.0
 
 ihwaddperipheral -instancename router7 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router7 -busslaveport localPort -bus cpu7Bus -loaddress 0x50000000 -hiaddress 0x50000003
@@ -429,7 +429,7 @@ ihwsetparameter -name num_targets -handle plic8 -type Uns32 -value 1
 
 ihwaddperipheral -instancename prci8 -vendor riscv.ovpworld.org -library peripheral -type CLINT -version 1.0
 ihwconnect -instancename prci8 -bus cpu8Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF
-ihwsetparameter -name clockMHz -handle prci8 -type double -value 1.0
+ihwsetparameter -name clockMHz -handle prci8 -type double -value 1000.0
 
 ihwaddperipheral -instancename router8 -modelfile peripheral/whnoc_dma/pse.pse
 ihwconnect -instancename router8 -busslaveport localPort -bus cpu8Bus -loaddress 0x50000000 -hiaddress 0x50000003
