@@ -22,7 +22,7 @@ extern volatile unsigned int SendingQueue[PIPE_SIZE*2];
 extern volatile unsigned int SendingQueue_front;
 extern volatile unsigned int SendingQueue_tail;
 
-volatile unsigned int NI_IRCount;
+//volatile unsigned int NI_IRCount;
 
 ////////////////////////////////////////////////////////////
 // Initialize Chronos stuff
@@ -39,7 +39,7 @@ void Chronos_init(){
 
     // Enables interruption from NI
     NI_enable_irq(TX_RX);
-    NI_IRCount = 0;
+    //NI_IRCount = 0;
     //NI_enable_irq(RX);
 
     // Informs the NI the address to store incoming packets
@@ -52,6 +52,9 @@ void Chronos_init(){
     API_PipeInitialization();
     SendingQueue_front = 0;
     SendingQueue_tail = 0;
+
+    // Set the system to Idle
+    API_setFreqIdle();
 
     return;
 }
@@ -150,7 +153,7 @@ uint8_t External_1_IRQHandler(void){
 // Interruptions handler for RX
 uint8_t External_2_IRQHandler(void){
     unsigned int aux;
-    NI_IRCount++;
+    //NI_IRCount++;
     
     API_NI_Handler();
 
@@ -449,14 +452,14 @@ unsigned int API_NI_Handler(){
         //HW_set_32bit_reg(NI_RX, INTERRUPTION_ACK);
 
         if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
-            printsv("TX interruption catched - ", NI_IRCount);
+            prints("TX interruption catched\n"); // - ", NI_IRCount);
             API_ClearPipeSlot(SendingSlot); // clear the pipe slot that was transmitted
             HW_set_32bit_reg(NI_TX, DONE);  // releases the interruption
             API_Try2Send();                 // tries to send another packet (if available)
             count++;
         }
         if(HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING) {
-            printsv("RX interruption catched - ", NI_IRCount);
+            prints("RX interruption catched\n"); // - ", NI_IRCount);
             service = incommingPacket.service;
             incommingPacket.service = SOLVED;
             switch (service){
@@ -566,5 +569,14 @@ unsigned int API_NI_Handler(){
         }
     }while(HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING || HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER);
     
+    for(aux = 0; aux < NUM_MAX_TASKS; aux++){
+        if(TaskList[aux].status == TASK_SLOT_READY){
+            printsvsv("Starting Task ", TaskList[aux].TaskID, " from app ", TaskList[aux].AppID);
+            API_setFreqScale(1000);
+            API_TaskStart(aux);
+            //printsv("FreqScale: ", API_getFreqScale());
+        }
+    }
+
     return count;
 }

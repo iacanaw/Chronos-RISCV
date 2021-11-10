@@ -29,7 +29,7 @@
 
 // Quantum defines
 #define INSTRUCTIONS_PER_SECOND 1000000000.0                                            // 1GHz (assuming 1 instruction per cycle)
-#define INSTRUCTIONS_PER_TIME_SLICE 57000.0                                             //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
+#define INSTRUCTIONS_PER_TIME_SLICE 25000.0                                             //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
 #define QUANTUM_TIME_SLICE (INSTRUCTIONS_PER_TIME_SLICE / INSTRUCTIONS_PER_SECOND)      // 0.0000010 //
 
 struct optionsS {
@@ -38,39 +38,23 @@ struct optionsS {
     .configurecpuinstance = False,
 };
 
-#define PRINT_FETCH         0
-#define PRINT_FETCH_PE      7
-
 unsigned int peCount[N_PES];
-float           myTime          = 0;
+double pe_DeRate[N_PES];
+float myTime = 0;
 
-//int simulationFinished;
-
-/*static OP_CONSTRUCT_FN(moduleConstruct) {
-    const char *u1_path = "module";
-    opModuleNew(
-        mi,       // parent module
-        u1_path,       // modelfile
-        "u1",   // name
-        0,
-        0
-    );
-}*/
-
-/*static void cmdParser(optCmdParserP parser) {
-}*/
-
-/*typedef struct optModuleObjectS {
-    // insert module persistent data here
-} optModuleObject;*/
-
-/*static OP_PRE_SIMULATE_FN(modulePreSimulate) {
-// insert modulePreSimulate code here
-}*/
-
-/*static OP_SIMULATE_STARTING_FN(moduleSimulate) {
-// insert moduleSimulate code here
-}*/
+unsigned int vec2usi(char *vec){
+    unsigned int auxValue = 0x00000000;
+    unsigned int aux;
+    aux = 0x000000FF & vec[3]; 
+    auxValue = ((aux << 24) & 0xFF000000);
+    aux = 0x000000FF & vec[2];
+    auxValue = auxValue | ((aux << 16) & 0x00FF0000);
+    aux = 0x000000FF & vec[1];
+    auxValue = auxValue | ((aux << 8) & 0x0000FF00);
+    aux = 0x000000FF & vec[0];
+    auxValue = auxValue | ((aux) & 0x000000FF);
+    return auxValue;
+}
 
 static OP_POST_SIMULATE_FN(modulePostSimulate) {
 // insert modulePostSimulate code here
@@ -93,20 +77,6 @@ optModuleAttr modelAttrs = {
     .destructCB = moduleDestruct,
 };
 
-/*optModuleAttr modelAttrs = {
-    .versionString       = OP_VERSION,
-    .type                = OP_MODULE,
-    .name                = MODULE_NAME,
-    .objectSize          = sizeof(optModuleObject),
-    .releaseStatus       = OP_UNSET,
-    .purpose             = OP_PP_BAREMETAL,
-    .visibility          = OP_VISIBLE,
-    .constructCB          = moduleConstruct,
-    .preSimulateCB        = modulePreSimulate,
-    .simulateCB           = moduleSimulate,
-    .postSimulateCB       = modulePostSimulate,
-    .destructCB           = moduleDestruct,
-};*/
 #if PRINT_FETCH
 #endif
 int getProcessorID(optProcessorP processor){
@@ -128,84 +98,99 @@ int getProcessorID(optProcessorP processor){
     return processorID;
 }
 
-unsigned int saiu_int = 0;
-unsigned int entrou_int = 0;
+// unsigned int saiu_int = 0;
+// unsigned int entrou_int = 0;
 
-static OP_MONITOR_FN(FetchCallback) { 
-    /* get the processor id*/
-    int processorID = getProcessorID(processor);
+// static OP_MONITOR_FN(FetchCallback) { 
+//     /* get the processor id*/
+//     int processorID = getProcessorID(processor);
 
-    /*get the waiting packet flag*/
-    //char value[4];
-    //opProcessorRead(processor, 0x0FFFFFFC, &value, 4, 1, True, OP_HOSTENDIAN_TARGET);
-    //unsigned int intValue = htonl(vec2usi(value));
+//     /*get the waiting packet flag*/
+//     //char value[4];
+//     //opProcessorRead(processor, 0x0FFFFFFC, &value, 4, 1, True, OP_HOSTENDIAN_TARGET);
+//     //unsigned int intValue = htonl(vec2usi(value));
     
-    /*if the processor is not waiting a packet then run the disassemble*/
-    //if(!intValue){
-        //char instruction[60];
-        //strcpy(instruction,opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED));
-        //sscanf(instruction,"%s %*s\n",instruction);
-    //if (processorID == 7)
+//     /*if the processor is not waiting a packet then run the disassemble*/
+//     //if(!intValue){
+//         //char instruction[60];
+//         //strcpy(instruction,opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED));
+//         //sscanf(instruction,"%s %*s\n",instruction);
+//     //if (processorID == 7)
       
       
-    peCount[processorID]++;
+//     peCount[processorID]++;
 
-    if(myTime >= 0.4){
-        opProcessorDerate(processor, 75);
-    }
-      
-        // if( strcmp(opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), "mret") == 0){
-        //     saiu_int++;
-        //     opMessage("I", "FETCH", "PE%d- SAIU do handler %d vezes & entrou %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
-        // }
-        // else if (addr == 0x80000030){
-        //     entrou_int++;
-        //     opMessage("I", "FETCH", "PE%d- saiu do handler %d vezes & ENTROU %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
-        // }
+//     if(processorID == 2){
+//         if( strcmp(opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), "mret") == 0){
+//             saiu_int++;
+//             opMessage("I", "FETCH", "PE%d- SAIU do handler %d vezes & entrou %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
+//         }
+//         else if (addr == 0x80000030){
+//             entrou_int++;
+//             opMessage("I", "FETCH", "PE%d- saiu do handler %d vezes & ENTROU %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
+//         }
+//         if( entrou_int-saiu_int == -1){
+//             opMessage("I", "FETCH", "PE deu RUIM!");
+//             opProcessorTraceBufferDump(processor);
+//             opProcessorHalt(processor);
+//         }
+//     }
 
       
       
       
-        //opMessage("I", "FETCH", "PE%d- %s @ %x", processorID, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
+//         //opMessage("I", "FETCH", "PE%d- %s @ %x", processorID, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
 
-        //                         BASE ADDRESS -  (INSTRUCTION TYPE OFFSET)
-        //unsigned int countAddress = 0x0FFFFFF8 - (getInstructionType(instruction)*4);
+//         //                         BASE ADDRESS -  (INSTRUCTION TYPE OFFSET)
+//         //unsigned int countAddress = 0x0FFFFFF8 - (getInstructionType(instruction)*4);
 
-        /* Load the atual value and add one */
-        /*char read_EI[4];
-        opProcessorRead(processor, countAddress, &read_EI, 4, 1, True, OP_HOSTENDIAN_TARGET);
-        unsigned int read_executedInstructions = vec2usi(read_EI);
-        read_executedInstructions = htonl(read_executedInstructions) + 1;*/
+//         /* Load the atual value and add one */
+//         /*char read_EI[4];
+//         opProcessorRead(processor, countAddress, &read_EI, 4, 1, True, OP_HOSTENDIAN_TARGET);
+//         unsigned int read_executedInstructions = vec2usi(read_EI);
+//         read_executedInstructions = htonl(read_executedInstructions) + 1;*/
 
-        /* Store the atual value */
-        /*char EI[4];
-        EI[3] = (htonl(read_executedInstructions) >> 24) & 0x000000FF;
-        EI[2] = (htonl(read_executedInstructions) >> 16) & 0x000000FF;
-        EI[1] = (htonl(read_executedInstructions) >> 8) & 0x000000FF;
-        EI[0] = htonl(read_executedInstructions) & 0x000000FF;
-        opProcessorWrite(processor, countAddress, EI, 4, 1, True, OP_HOSTENDIAN_TARGET);*/
-    //}
-}
-//#endif
+//         /* Store the atual value */
+//         /*char EI[4];
+//         EI[3] = (htonl(read_executedInstructions) >> 24) & 0x000000FF;
+//         EI[2] = (htonl(read_executedInstructions) >> 16) & 0x000000FF;
+//         EI[1] = (htonl(read_executedInstructions) >> 8) & 0x000000FF;
+//         EI[0] = htonl(read_executedInstructions) & 0x000000FF;
+//         opProcessorWrite(processor, countAddress, EI, 4, 1, True, OP_HOSTENDIAN_TARGET);*/
+//     //}
+// }
+// //#endif
 
 static OP_MONITOR_FN(FinishCallback){
     opMessage("I", "HARNESS", " >>> SIMULAÇÃO FINALIZADA COM SUCESSO!");
-    //simulationFinished++;
     opProcessorFinish(processor, 0);
     return;
 }
 
 static OP_MONITOR_FN(FreqCallback){
-    opMessage("I", "HARNESS", " >>> DETECTADA MODIFICAÇÃO NA FREQUENCIA!");
+    //opMessage("I", "HARNESS", " >>> DETECTADA MODIFICAÇÃO NA FREQUENCIA!");
+    // gets the processor ID
+    int processorID = getProcessorID(processor);
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale == 100){
+        freqScale = 50;
+    }
+    opMessage("I", "HARNESS", " >>> PE %d changing to %.1f%% of its nominal frequency -- (%.0fMHz)", processorID, 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
     return;
 }
 
 int main(int argc, const char *argv[]) {
     int             runningPE       = 0;
-    //float           myTime          = 0;
     optProcessorP   stopProcessor   = 0;
     Bool            finished        = False;
-    //optTime myTime = QUANTUM_TIME_SLICE;
 	optProcessorP proc;
     opSessionInit(OP_VERSION);
     /* create the root module with reduced Quantum (in line with Custom Scheduler) */
@@ -215,22 +200,18 @@ int main(int argc, const char *argv[]) {
     if (!opCmdParseArgs(parser, argc, argv)) {
 		opMessage("E", MODULE_NAME, "Command line parse incomplete");
 	}
-    //cmdParser(parser);
     opCmdParseArgs(parser, argc, argv);
     optModuleP mi = opRootModuleNew(&modelAttrs, MODULE_NAME, params);
     optModuleP modNew = opModuleNew(mi, MODULE_DIR, MODULE_INSTANCE, 0, 0);
 
-    // flag to add the callbacks during the first quantum
-	int firstRun = N_PES;
-
     while ((proc = opProcessorNext(modNew, proc))) {
         char id[4];
-        id[3] = ((9-firstRun) >> 24) & 0x000000FF;
-        id[2] = ((9-firstRun) >> 16) & 0x000000FF;
-        id[1] = ((9-firstRun) >> 8) & 0x000000FF;
-        id[0] = (9-firstRun) & 0x000000FF;
+        id[3] = (runningPE >> 24) & 0x000000FF;
+        id[2] = (runningPE >> 16) & 0x000000FF;
+        id[1] = (runningPE >> 8) & 0x000000FF;
+        id[0] = runningPE & 0x000000FF;
         opProcessorWrite(proc, 0x8FFFFFFC, id, 4, 1, True, OP_HOSTENDIAN_TARGET);
-        firstRun--;
+
         // Go to the next processor
         opMessage("I", "HARNESS INFO", "================== INICIALIZANDO PE %d ==================", runningPE);
     
@@ -243,7 +224,7 @@ int main(int argc, const char *argv[]) {
         opProcessorWriteMonitorAdd (proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback, "frequency");
 
         
-        opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback, "fetch");
+        //opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback, "fetch");
         
 
 #if PRINT_FETCH
@@ -256,16 +237,9 @@ int main(int argc, const char *argv[]) {
     /* Simulation loop */
     while(!finished) {
         myTime += 0.1;
-        for(int x = 0; x < N_PES; x++){
-            peCount[x] = 0;
-        }
         opRootModuleSetSimulationStopTime(mi, myTime);
         stopProcessor = opRootModuleSimulate(mi);
-        for(int x = 0; x < N_PES; x++){
-            opMessage("I", "HARNESS", "PE[%d]: %d", x, peCount[x]);
-        }
         
-        opMessage("I", "HARNESS", "-----------------------------------");
         optStopReason sr = stopProcessor ? opProcessorStopReason(stopProcessor)
                                          : OP_SR_EXIT;
         switch(sr) {

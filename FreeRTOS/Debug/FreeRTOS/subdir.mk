@@ -15,7 +15,8 @@ C_SRCS += \
 ../FreeRTOS/globalMaster.c \
 ../FreeRTOS/applications.c \
 ../FreeRTOS/system_call.c \
-../FreeRTOS/packet.c 
+../FreeRTOS/packet.c \
+../FreeRTOS/dvfs.c
 
 OBJS += \
 ./FreeRTOS/croutine.o \
@@ -29,7 +30,8 @@ OBJS += \
 ./FreeRTOS/globalMaster.o \
 ./FreeRTOS/applications.o \
 ./FreeRTOS/system_call.o \
-./FreeRTOS/packet.o 
+./FreeRTOS/packet.o \
+./FreeRTOS/dvfs.o
 
 
 C_DEPS += \
@@ -44,7 +46,8 @@ C_DEPS += \
 ./FreeRTOS/globalMaster.d \
 ./FreeRTOS/applications.d \
 ./FreeRTOS/system_call.d \
-./FreeRTOS/packet.d 
+./FreeRTOS/packet.d \
+./FreeRTOS/dvfs.d
 
 
 

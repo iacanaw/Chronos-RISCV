@@ -1,59 +1,61 @@
-SendingQueue_front: 0 
-API_Try2Send success!
-GlobalMasterActive0 
-TX interruption catched - 1 
+API_setFreqIdle
+ SendingQueue_front: 0 
+TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched - 1 
+RX interruption catched
 New application registered - ID: 0 
-GlobalMasterActive1 
+API_Try2Send success!
+GlobalMasterActive4 
+GlobalMasterActive7 
 I got a free service slot!! -> 0 
 SendingQueue_front: 1 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 API_Try2Send success!
-I got a free service slot!! -> 1 
+I got a free service slot!! -> 0 
 SendingQueue_front: 2 
-API_Try2Send failed - NI_TX occupied!
-I TX interruption catched - 2 
-API_Try2Send success!
-got a free service slot!! -> 2 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+API_RX interruption catched
+TASK_ALLOCATION_SUCCESS
+Try2Send success!
+I got a free service slot!! -> 0 
 SendingQueue_front: 3 
-API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+API_Try2Send success!
 I got a free service slot!! -> 0 
 SendingQueue_front: 4 
-API_Try2Send failed - TX interruption catched - 3 
-API_Try2Send success!
-NI_TX occupied!
-I got a free service slot!! -> 1 
-SendingQueue_front: 5 
-API_Try2Send failed - NI_TX occupied!
-I got a free service slot!! -> 3 
-STX interruption catched - 4 
-API_Try2Send success!
-RX interruption catched - 4 
-TASK_ALLOCATION_SUCCESS
-endingQueue_front: 6 
-API_Try2Send failed - NI_TX occupied!
-I got a free service slot!! -> 2 
-SendingQueue_front: 7 
-TX interruption catched - 5 
-API_Try2Send success!
-RX interruption catched - 5 
-TASK_ALLOCATION_SUCCESS
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched - 6 
-API_Try2Send success!
-RX interruption catched - 6 
-TASK_ALLOCATION_SUCCESS
-TX interruption catched - 7 
-API_Try2Send success!
-RX interruption catched - 7 
-TASK_ALLOCATION_SUCCESS
-TX interruption catched - 8 
+TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched - 8 
+RX interruption catched
 TASK_ALLOCATION_SUCCESS
-RX interruption catched - 9 
+API_Try2Send success!
+I got a free service slot!! -> 0 
+SendingQueue_front: 5 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
 TASK_ALLOCATION_SUCCESS
-RX interruption catched - 10 
+API_Try2Send success!
+I got a free service slot!! -> 0 
+SendingQueue_front: 6 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+API_Try2Send success!
+I got a free service slot!! -> 0 
+SendingQueue_front: 7 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+API_Try2Send success!
+GlobalMasterActive32 
+RX interruption catched
 TASK_ALLOCATION_SUCCESS
 Application allocated: 0 
 SendingQueue_front: 0 
@@ -64,829 +66,1138 @@ SendingQueue_front: 2
 API_Try2Send failed - NI_TX occupied!
 SendingQueue_front: 3 
 API_Try2Send failed - NI_TX occupied!
-TX interruption catched - 10 
+TX interruption catched
 API_Try2Send success!
-RX interruption catched - 10 
+RX interruption catched
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 SendingQueue_front: 4 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched - 10 
 API_Try2Send success!
 SendingQueue_front: 5 
 API_Try2Send failed - NI_TX occupied!
-TX interruption catched - 10 
-API_Try2Send success!
-TX interruption catched - 10 
-API_Try2Send success!
 SendingQueue_front: 6 
 API_Try2Send failed - NI_TX occupied!
 	Start command sent to every task.
-TX interruption catched - 12 
+TX interruption catched
 API_Try2Send success!
-TX interruption catched - 13 
+TX interruption catched
 API_Try2Send success!
-TX interruption catched - 14 
+TX interruption catched
 API_Try2Send failed - empty SendQueue!
-GlobalMasterActive2 
-GlobalMasterActive3 
-GlobalMasterActive4 
-GlobalMasterActive5 
-GlobalMasterActive6 
-GlobalMasterActive7 
-GlobalMasterActive8 
-GlobalMasterActive9 
-GlobalMasterActive10 
-GlobalMasterActive11 
-GlobalMasterActive12 
-GlobalMasterActive13 
-GlobalMasterActive14 
-GlobalMasterActive15 
-GlobalMasterActive16 
-GlobalMasterActive17 
-GlobalMasterActive18 
-GlobalMasterActive19 
-GlobalMasterActive20 
-GlobalMasterActive21 
-GlobalMasterActive22 
-GlobalMasterActive23 
-GlobalMasterActive24 
-GlobalMasterActive25 
-GlobalMasterActive26 
-GlobalMasterActive27 
-GlobalMasterActive28 
-GlobalMasterActive29 
-GlobalMasterActive30 
-GlobalMasterActive31 
-GlobalMasterActive32 
-GlobalMasterActive33 
-GlobalMasterActive34 
 GlobalMasterActive35 
-GlobalMasterActive36 
-GlobalMasterActive37 
 GlobalMasterActive38 
-GlobalMasterActive39 
-GlobalMasterActive40 
 GlobalMasterActive41 
-GlobalMasterActive42 
-GlobalMasterActive43 
 GlobalMasterActive44 
-GlobalMasterActive45 
-GlobalMasterActive46 
 GlobalMasterActive47 
-GlobalMasterActive48 
-GlobalMasterActive49 
 GlobalMasterActive50 
-GlobalMasterActive51 
-GlobalMasterActive52 
 GlobalMasterActive53 
-GlobalMasterActive54 
-GlobalMasterActive55 
 GlobalMasterActive56 
-GlobalMasterActive57 
-GlobalMasterActive58 
 GlobalMasterActive59 
-GlobalMasterActive60 
-GlobalMasterActive61 
 GlobalMasterActive62 
-GlobalMasterActive63 
-GlobalMasterActive64 
 GlobalMasterActive65 
-GlobalMasterActive66 
-GlobalMasterActive67 
 GlobalMasterActive68 
-GlobalMasterActive69 
-GlobalMasterActive70 
 GlobalMasterActive71 
-GlobalMasterActive72 
-GlobalMasterActive73 
 GlobalMasterActive74 
-GlobalMasterActive75 
-GlobalMasterActive76 
 GlobalMasterActive77 
-GlobalMasterActive78 
-GlobalMasterActive79 
 GlobalMasterActive80 
-GlobalMasterActive81 
-GlobalMasterActive82 
 GlobalMasterActive83 
-GlobalMasterActive84 
-GlobalMasterActive85 
 GlobalMasterActive86 
-GlobalMasterActive87 
-GlobalMasterActive88 
 GlobalMasterActive89 
-GlobalMasterActive90 
-GlobalMasterActive91 
 GlobalMasterActive92 
-GlobalMasterActive93 
-GlobalMasterActive94 
 GlobalMasterActive95 
-GlobalMasterActive96 
-GlobalMasterActive97 
 GlobalMasterActive98 
-GlobalMasterActive99 
-GlobalMasterActive100 
 GlobalMasterActive101 
-GlobalMasterActive102 
-GlobalMasterActive103 
 GlobalMasterActive104 
-GlobalMasterActive105 
-GlobalMasterActive106 
 GlobalMasterActive107 
-GlobalMasterActive108 
-GlobalMasterActive109 
 GlobalMasterActive110 
-GlobalMasterActive111 
-GlobalMasterActive112 
 GlobalMasterActive113 
-GlobalMasterActive114 
-GlobalMasterActive115 
 GlobalMasterActive116 
-GlobalMasterActive117 
-GlobalMasterActive118 
 GlobalMasterActive119 
-GlobalMasterActive120 
-GlobalMasterActive121 
 GlobalMasterActive122 
-GlobalMasterActive123 
-GlobalMasterActive124 
 GlobalMasterActive125 
-GlobalMasterActive126 
-GlobalMasterActive127 
 GlobalMasterActive128 
-GlobalMasterActive129 
-GlobalMasterActive130 
 GlobalMasterActive131 
-GlobalMasterActive132 
-GlobalMasterActive133 
 GlobalMasterActive134 
-GlobalMasterActive135 
-GlobalMasterActive136 
 GlobalMasterActive137 
-GlobalMasterActive138 
-GlobalMasterActive139 
 GlobalMasterActive140 
-GlobalMasterActive141 
-GlobalMasterActive142 
 GlobalMasterActive143 
-GlobalMasterActive144 
-GlobalMasterActive145 
 GlobalMasterActive146 
-GlobalMasterActive147 
-GlobalMasterActive148 
 GlobalMasterActive149 
-GlobalMasterActive150 
-GlobalMasterActive151 
 GlobalMasterActive152 
-GlobalMasterActive153 
-GlobalMasterActive154 
 GlobalMasterActive155 
-GlobalMasterActive156 
-GlobalMasterActive157 
 GlobalMasterActive158 
-GlobalMasterActive159 
-GlobalMasterActive160 
 GlobalMasterActive161 
-GlobalMasterActive162 
-GlobalMasterActive163 
 GlobalMasterActive164 
-GlobalMasterActive165 
-GlobalMasterActive166 
 GlobalMasterActive167 
-GlobalMasterActive168 
-GlobalMasterActive169 
 GlobalMasterActive170 
-GlobalMasterActive171 
-GlobalMasterActive172 
 GlobalMasterActive173 
-GlobalMasterActive174 
-GlobalMasterActive175 
 GlobalMasterActive176 
-GlobalMasterActive177 
-GlobalMasterActive178 
 GlobalMasterActive179 
-GlobalMasterActive180 
-GlobalMasterActive181 
 GlobalMasterActive182 
-GlobalMasterActive183 
-GlobalMasterActive184 
 GlobalMasterActive185 
-GlobalMasterActive186 
-GlobalMasterActive187 
 GlobalMasterActive188 
-GlobalMasterActive189 
-GlobalMasterActive190 
 GlobalMasterActive191 
-GlobalMasterActive192 
-GlobalMasterActive193 
 GlobalMasterActive194 
-GlobalMasterActive195 
-GlobalMasterActive196 
 GlobalMasterActive197 
-GlobalMasterActive198 
-GlobalMasterActive199 
 GlobalMasterActive200 
-GlobalMasterActive201 
-GlobalMasterActive202 
 GlobalMasterActive203 
-GlobalMasterActive204 
-GlobalMasterActive205 
 GlobalMasterActive206 
-GlobalMasterActive207 
-GlobalMasterActive208 
 GlobalMasterActive209 
-GlobalMasterActive210 
-GlobalMasterActive211 
 GlobalMasterActive212 
-GlobalMasterActive213 
-GlobalMasterActive214 
 GlobalMasterActive215 
-GlobalMasterActive216 
-GlobalMasterActive217 
 GlobalMasterActive218 
-GlobalMasterActive219 
-GlobalMasterActive220 
 GlobalMasterActive221 
-GlobalMasterActive222 
-GlobalMasterActive223 
 GlobalMasterActive224 
-GlobalMasterActive225 
-GlobalMasterActive226 
 GlobalMasterActive227 
-GlobalMasterActive228 
-GlobalMasterActive229 
 GlobalMasterActive230 
-GlobalMasterActive231 
-GlobalMasterActive232 
 GlobalMasterActive233 
-GlobalMasterActive234 
-GlobalMasterActive235 
 GlobalMasterActive236 
-GlobalMasterActive237 
-GlobalMasterActive238 
 GlobalMasterActive239 
-GlobalMasterActive240 
-GlobalMasterActive241 
 GlobalMasterActive242 
-GlobalMasterActive243 
-GlobalMasterActive244 
 GlobalMasterActive245 
-GlobalMasterActive246 
-GlobalMasterActive247 
 GlobalMasterActive248 
-GlobalMasterActive249 
-GlobalMasterActive250 
 GlobalMasterActive251 
-GlobalMasterActive252 
-GlobalMasterActive253 
 GlobalMasterActive254 
-GlobalMasterActive255 
-GlobalMasterActive256 
 GlobalMasterActive257 
-GlobalMasterActive258 
-GlobalMasterActive259 
 GlobalMasterActive260 
-GlobalMasterActive261 
-GlobalMasterActive262 
 GlobalMasterActive263 
-GlobalMasterActive264 
-GlobalMasterActive265 
 GlobalMasterActive266 
-GlobalMasterActive267 
-GlobalMasterActive268 
 GlobalMasterActive269 
-GlobalMasterActive270 
-GlobalMasterActive271 
 GlobalMasterActive272 
-GlobalMasterActive273 
-GlobalMasterActive274 
 GlobalMasterActive275 
-GlobalMasterActive276 
-GlobalMasterActive277 
 GlobalMasterActive278 
-GlobalMasterActive279 
-GlobalMasterActive280 
 GlobalMasterActive281 
-GlobalMasterActive282 
-GlobalMasterActive283 
 GlobalMasterActive284 
-GlobalMasterActive285 
-GlobalMasterActive286 
 GlobalMasterActive287 
-GlobalMasterActive288 
-GlobalMasterActive289 
 GlobalMasterActive290 
-GlobalMasterActive291 
-GlobalMasterActive292 
 GlobalMasterActive293 
-GlobalMasterActive294 
-GlobalMasterActive295 
 GlobalMasterActive296 
-GlobalMasterActive297 
-GlobalMasterActive298 
 GlobalMasterActive299 
-GlobalMasterActive300 
-GlobalMasterActive301 
 GlobalMasterActive302 
-GlobalMasterActive303 
-GlobalMasterActive304 
 GlobalMasterActive305 
-GlobalMasterActive306 
-GlobalMasterActive307 
 GlobalMasterActive308 
-GlobalMasterActive309 
-GlobalMasterActive310 
 GlobalMasterActive311 
-GlobalMasterActive312 
-GlobalMasterActive313 
 GlobalMasterActive314 
-GlobalMasterActive315 
-GlobalMasterActive316 
 GlobalMasterActive317 
-GlobalMasterActive318 
-GlobalMasterActive319 
 GlobalMasterActive320 
-GlobalMasterActive321 
-GlobalMasterActive322 
 GlobalMasterActive323 
-GlobalMasterActive324 
-GlobalMasterActive325 
 GlobalMasterActive326 
-GlobalMasterActive327 
-GlobalMasterActive328 
 GlobalMasterActive329 
-GlobalMasterActive330 
-GlobalMasterActive331 
 GlobalMasterActive332 
-GlobalMasterActive333 
-GlobalMasterActive334 
 GlobalMasterActive335 
-GlobalMasterActive336 
-GlobalMasterActive337 
 GlobalMasterActive338 
-GlobalMasterActive339 
-GlobalMasterActive340 
 GlobalMasterActive341 
-GlobalMasterActive342 
-GlobalMasterActive343 
 GlobalMasterActive344 
-GlobalMasterActive345 
-GlobalMasterActive346 
 GlobalMasterActive347 
-GlobalMasterActive348 
-GlobalMasterActive349 
 GlobalMasterActive350 
-GlobalMasterActive351 
-GlobalMasterActive352 
 GlobalMasterActive353 
-GlobalMasterActive354 
-GlobalMasterActive355 
 GlobalMasterActive356 
-GlobalMasterActive357 
-GlobalMasterActive358 
 GlobalMasterActive359 
-GlobalMasterActive360 
-GlobalMasterActive361 
 GlobalMasterActive362 
-GlobalMasterActive363 
-GlobalMasterActive364 
 GlobalMasterActive365 
-GlobalMasterActive366 
-GlobalMasterActive367 
 GlobalMasterActive368 
-GlobalMasterActive369 
-GlobalMasterActive370 
 GlobalMasterActive371 
-GlobalMasterActive372 
-GlobalMasterActive373 
 GlobalMasterActive374 
-GlobalMasterActive375 
-GlobalMasterActive376 
 GlobalMasterActive377 
-GlobalMasterActive378 
-GlobalMasterActive379 
 GlobalMasterActive380 
-GlobalMasterActive381 
-GlobalMasterActive382 
 GlobalMasterActive383 
-GlobalMasterActive384 
-GlobalMasterActive385 
 GlobalMasterActive386 
-GlobalMasterActive387 
-GlobalMasterActive388 
 GlobalMasterActive389 
-GlobalMasterActive390 
-GlobalMasterActive391 
 GlobalMasterActive392 
-GlobalMasterActive393 
-GlobalMasterActive394 
 GlobalMasterActive395 
-GlobalMasterActive396 
-GlobalMasterActive397 
 GlobalMasterActive398 
-GlobalMasterActive399 
-GlobalMasterActive400 
 GlobalMasterActive401 
-GlobalMasterActive402 
-GlobalMasterActive403 
 GlobalMasterActive404 
-GlobalMasterActive405 
-GlobalMasterActive406 
 GlobalMasterActive407 
-GlobalMasterActive408 
-GlobalMasterActive409 
 GlobalMasterActive410 
-GlobalMasterActive411 
-GlobalMasterActive412 
 GlobalMasterActive413 
-GlobalMasterActive414 
-GlobalMasterActive415 
 GlobalMasterActive416 
-GlobalMasterActive417 
-GlobalMasterActive418 
 GlobalMasterActive419 
-GlobalMasterActive420 
-GlobalMasterActive421 
 GlobalMasterActive422 
-GlobalMasterActive423 
-GlobalMasterActive424 
 GlobalMasterActive425 
-GlobalMasterActive426 
-GlobalMasterActive427 
 GlobalMasterActive428 
-GlobalMasterActive429 
-GlobalMasterActive430 
 GlobalMasterActive431 
-GlobalMasterActive432 
-GlobalMasterActive433 
 GlobalMasterActive434 
-GlobalMasterActive435 
-GlobalMasterActive436 
 GlobalMasterActive437 
-GlobalMasterActive438 
-GlobalMasterActive439 
 GlobalMasterActive440 
-GlobalMasterActive441 
-GlobalMasterActive442 
 GlobalMasterActive443 
-GlobalMasterActive444 
-GlobalMasterActive445 
 GlobalMasterActive446 
-GlobalMasterActive447 
-GlobalMasterActive448 
 GlobalMasterActive449 
-GlobalMasterActive450 
-GlobalMasterActive451 
 GlobalMasterActive452 
-GlobalMasterActive453 
-GlobalMasterActive454 
 GlobalMasterActive455 
-GlobalMasterActive456 
-GlobalMasterActive457 
 GlobalMasterActive458 
-GlobalMasterActive459 
-GlobalMasterActive460 
 GlobalMasterActive461 
-GlobalMasterActive462 
-GlobalMasterActive463 
 GlobalMasterActive464 
-GlobalMasterActive465 
-GlobalMasterActive466 
 GlobalMasterActive467 
-GlobalMasterActive468 
-GlobalMasterActive469 
 GlobalMasterActive470 
-GlobalMasterActive471 
-GlobalMasterActive472 
 GlobalMasterActive473 
-GlobalMasterActive474 
-GlobalMasterActive475 
 GlobalMasterActive476 
-GlobalMasterActive477 
-GlobalMasterActive478 
 GlobalMasterActive479 
-GlobalMasterActive480 
-GlobalMasterActive481 
 GlobalMasterActive482 
-GlobalMasterActive483 
-GlobalMasterActive484 
 GlobalMasterActive485 
-GlobalMasterActive486 
-GlobalMasterActive487 
 GlobalMasterActive488 
-GlobalMasterActive489 
-GlobalMasterActive490 
 GlobalMasterActive491 
-GlobalMasterActive492 
-GlobalMasterActive493 
 GlobalMasterActive494 
-GlobalMasterActive495 
-GlobalMasterActive496 
 GlobalMasterActive497 
-GlobalMasterActive498 
-GlobalMasterActive499 
 GlobalMasterActive500 
-GlobalMasterActive501 
-GlobalMasterActive502 
 GlobalMasterActive503 
-GlobalMasterActive504 
-GlobalMasterActive505 
 GlobalMasterActive506 
-GlobalMasterActive507 
-GlobalMasterActive508 
 GlobalMasterActive509 
-GlobalMasterActive510 
-GlobalMasterActive511 
 GlobalMasterActive512 
-GlobalMasterActive513 
-GlobalMasterActive514 
 GlobalMasterActive515 
-GlobalMasterActive516 
-GlobalMasterActive517 
 GlobalMasterActive518 
-GlobalMasterActive519 
-GlobalMasterActive520 
 GlobalMasterActive521 
-GlobalMasterActive522 
-GlobalMasterActive523 
 GlobalMasterActive524 
-GlobalMasterActive525 
-GlobalMasterActive526 
 GlobalMasterActive527 
-GlobalMasterActive528 
-GlobalMasterActive529 
 GlobalMasterActive530 
-GlobalMasterActive531 
-GlobalMasterActive532 
 GlobalMasterActive533 
-GlobalMasterActive534 
-GlobalMasterActive535 
 GlobalMasterActive536 
-GlobalMasterActive537 
-GlobalMasterActive538 
 GlobalMasterActive539 
-GlobalMasterActive540 
-GlobalMasterActive541 
 GlobalMasterActive542 
-GlobalMasterActive543 
-GlobalMasterActive544 
 GlobalMasterActive545 
-GlobalMasterActive546 
-GlobalMasterActive547 
 GlobalMasterActive548 
-GlobalMasterActive549 
-GlobalMasterActive550 
 GlobalMasterActive551 
-GlobalMasterActive552 
-GlobalMasterActive553 
 GlobalMasterActive554 
-GlobalMasterActive555 
-GlobalMasterActive556 
 GlobalMasterActive557 
-GlobalMasterActive558 
-GlobalMasterActive559 
 GlobalMasterActive560 
-GlobalMasterActive561 
-GlobalMasterActive562 
 GlobalMasterActive563 
-GlobalMasterActive564 
-GlobalMasterActive565 
 GlobalMasterActive566 
-GlobalMasterActive567 
-GlobalMasterActive568 
 GlobalMasterActive569 
-GlobalMasterActive570 
-GlobalMasterActive571 
 GlobalMasterActive572 
-GlobalMasterActive573 
-GlobalMasterActive574 
 GlobalMasterActive575 
-GlobalMasterActive576 
-GlobalMasterActive577 
 GlobalMasterActive578 
-GlobalMasterActive579 
-GlobalMasterActive580 
 GlobalMasterActive581 
-GlobalMasterActive582 
-GlobalMasterActive583 
 GlobalMasterActive584 
-GlobalMasterActive585 
-GlobalMasterActive586 
 GlobalMasterActive587 
-GlobalMasterActive588 
-GlobalMasterActive589 
 GlobalMasterActive590 
-GlobalMasterActive591 
-GlobalMasterActive592 
 GlobalMasterActive593 
-GlobalMasterActive594 
-GlobalMasterActive595 
 GlobalMasterActive596 
-GlobalMasterActive597 
-GlobalMasterActive598 
 GlobalMasterActive599 
-GlobalMasterActive600 
-GlobalMasterActive601 
 GlobalMasterActive602 
-GlobalMasterActive603 
-GlobalMasterActive604 
 GlobalMasterActive605 
-GlobalMasterActive606 
-GlobalMasterActive607 
 GlobalMasterActive608 
-GlobalMasterActive609 
-GlobalMasterActive610 
 GlobalMasterActive611 
-GlobalMasterActive612 
-GlobalMasterActive613 
 GlobalMasterActive614 
-GlobalMasterActive615 
-GlobalMasterActive616 
 GlobalMasterActive617 
-GlobalMasterActive618 
-GlobalMasterActive619 
 GlobalMasterActive620 
-GlobalMasterActive621 
-GlobalMasterActive622 
 GlobalMasterActive623 
-GlobalMasterActive624 
-GlobalMasterActive625 
 GlobalMasterActive626 
-GlobalMasterActive627 
-GlobalMasterActive628 
 GlobalMasterActive629 
-GlobalMasterActive630 
-GlobalMasterActive631 
 GlobalMasterActive632 
-GlobalMasterActive633 
-GlobalMasterActive634 
 GlobalMasterActive635 
-GlobalMasterActive636 
-GlobalMasterActive637 
 GlobalMasterActive638 
-GlobalMasterActive639 
-GlobalMasterActive640 
 GlobalMasterActive641 
-GlobalMasterActive642 
-GlobalMasterActive643 
 GlobalMasterActive644 
-GlobalMasterActive645 
-GlobalMasterActive646 
 GlobalMasterActive647 
-GlobalMasterActive648 
-GlobalMasterActive649 
 GlobalMasterActive650 
-GlobalMasterActive651 
-GlobalMasterActive652 
 GlobalMasterActive653 
-GlobalMasterActive654 
-GlobalMasterActive655 
 GlobalMasterActive656 
-GlobalMasterActive657 
-GlobalMasterActive658 
 GlobalMasterActive659 
-GlobalMasterActive660 
-GlobalMasterActive661 
 GlobalMasterActive662 
-GlobalMasterActive663 
-GlobalMasterActive664 
 GlobalMasterActive665 
-GlobalMasterActive666 
-GlobalMasterActive667 
 GlobalMasterActive668 
-GlobalMasterActive669 
-GlobalMasterActive670 
 GlobalMasterActive671 
-GlobalMasterActive672 
-GlobalMasterActive673 
 GlobalMasterActive674 
-GlobalMasterActive675 
-GlobalMasterActive676 
 GlobalMasterActive677 
-GlobalMasterActive678 
-GlobalMasterActive679 
 GlobalMasterActive680 
-GlobalMasterActive681 
-GlobalMasterActive682 
 GlobalMasterActive683 
-GlobalMasterActive684 
-GlobalMasterActive685 
 GlobalMasterActive686 
-GlobalMasterActive687 
-GlobalMasterActive688 
 GlobalMasterActive689 
-GlobalMasterActive690 
-GlobalMasterActive691 
 GlobalMasterActive692 
-GlobalMasterActive693 
-GlobalMasterActive694 
 GlobalMasterActive695 
-GlobalMasterActive696 
-GlobalMasterActive697 
 GlobalMasterActive698 
-GlobalMasterActive699 
-GlobalMasterActive700 
 GlobalMasterActive701 
-GlobalMasterActive702 
-GlobalMasterActive703 
 GlobalMasterActive704 
-GlobalMasterActive705 
-GlobalMasterActive706 
 GlobalMasterActive707 
-GlobalMasterActive708 
-GlobalMasterActive709 
 GlobalMasterActive710 
-GlobalMasterActive711 
-GlobalMasterActive712 
 GlobalMasterActive713 
-GlobalMasterActive714 
-GlobalMasterActive715 
 GlobalMasterActive716 
-GlobalMasterActive717 
-GlobalMasterActive718 
 GlobalMasterActive719 
-GlobalMasterActive720 
-GlobalMasterActive721 
 GlobalMasterActive722 
-GlobalMasterActive723 
-GlobalMasterActive724 
 GlobalMasterActive725 
-GlobalMasterActive726 
-GlobalMasterActive727 
 GlobalMasterActive728 
-GlobalMasterActive729 
-GlobalMasterActive730 
 GlobalMasterActive731 
-GlobalMasterActive732 
-GlobalMasterActive733 
 GlobalMasterActive734 
-GlobalMasterActive735 
-GlobalMasterActive736 
 GlobalMasterActive737 
-GlobalMasterActive738 
-GlobalMasterActive739 
 GlobalMasterActive740 
-GlobalMasterActive741 
-GlobalMasterActive742 
 GlobalMasterActive743 
-GlobalMasterActive744 
-GlobalMasterActive745 
 GlobalMasterActive746 
-GlobalMasterActive747 
-GlobalMasterActive748 
 GlobalMasterActive749 
-GlobalMasterActive750 
-GlobalMasterActive751 
 GlobalMasterActive752 
-GlobalMasterActive753 
-GlobalMasterActive754 
 GlobalMasterActive755 
-GlobalMasterActive756 
-GlobalMasterActive757 
 GlobalMasterActive758 
-GlobalMasterActive759 
-GlobalMasterActive760 
 GlobalMasterActive761 
-GlobalMasterActive762 
-GlobalMasterActive763 
 GlobalMasterActive764 
-GlobalMasterActive765 
-GlobalMasterActive766 
 GlobalMasterActive767 
-GlobalMasterActive768 
-GlobalMasterActive769 
 GlobalMasterActive770 
-GlobalMasterActive771 
-GlobalMasterActive772 
 GlobalMasterActive773 
-GlobalMasterActive774 
-GlobalMasterActive775 
 GlobalMasterActive776 
-GlobalMasterActive777 
-GlobalMasterActive778 
 GlobalMasterActive779 
-GlobalMasterActive780 
-GlobalMasterActive781 
 GlobalMasterActive782 
-GlobalMasterActive783 
-GlobalMasterActive784 
 GlobalMasterActive785 
-GlobalMasterActive786 
-GlobalMasterActive787 
 GlobalMasterActive788 
-GlobalMasterActive789 
-GlobalMasterActive790 
 GlobalMasterActive791 
-GlobalMasterActive792 
-GlobalMasterActive793 
 GlobalMasterActive794 
-GlobalMasterActive795 
-GlobalMasterActive796 
 GlobalMasterActive797 
-GlobalMasterActive798 
-GlobalMasterActive799 
 GlobalMasterActive800 
-GlobalMasterActive801 
-GlobalMasterActive802 
 GlobalMasterActive803 
-GlobalMasterActive804 
-GlobalMasterActive805 
+GlobalMasterActive806 
+GlobalMasterActive809 
+GlobalMasterActive812 
+GlobalMasterActive815 
+GlobalMasterActive818 
+GlobalMasterActive821 
+GlobalMasterActive824 
+GlobalMasterActive827 
+GlobalMasterActive830 
+GlobalMasterActive833 
+GlobalMasterActive836 
+GlobalMasterActive839 
+GlobalMasterActive842 
+GlobalMasterActive845 
+GlobalMasterActive848 
+GlobalMasterActive851 
+GlobalMasterActive854 
+GlobalMasterActive857 
+GlobalMasterActive860 
+GlobalMasterActive863 
+GlobalMasterActive866 
+GlobalMasterActive869 
+GlobalMasterActive872 
+GlobalMasterActive875 
+GlobalMasterActive878 
+GlobalMasterActive881 
+GlobalMasterActive884 
+GlobalMasterActive887 
+GlobalMasterActive890 
+GlobalMasterActive893 
+GlobalMasterActive896 
+GlobalMasterActive899 
+GlobalMasterActive902 
+GlobalMasterActive905 
+GlobalMasterActive908 
+GlobalMasterActive911 
+GlobalMasterActive914 
+GlobalMasterActive917 
+GlobalMasterActive920 
+GlobalMasterActive923 
+GlobalMasterActive926 
+GlobalMasterActive929 
+GlobalMasterActive932 
+GlobalMasterActive935 
+GlobalMasterActive938 
+GlobalMasterActive941 
+GlobalMasterActive944 
+GlobalMasterActive947 
+GlobalMasterActive950 
+GlobalMasterActive953 
+GlobalMasterActive956 
+GlobalMasterActive959 
+GlobalMasterActive962 
+GlobalMasterActive965 
+GlobalMasterActive968 
+GlobalMasterActive971 
+GlobalMasterActive974 
+GlobalMasterActive977 
+GlobalMasterActive980 
+GlobalMasterActive983 
+GlobalMasterActive986 
+GlobalMasterActive989 
+GlobalMasterActive992 
+GlobalMasterActive995 
+GlobalMasterActive998 
+GlobalMasterActive1001 
+GlobalMasterActive1004 
+GlobalMasterActive1007 
+GlobalMasterActive1010 
+GlobalMasterActive1013 
+GlobalMasterActive1016 
+GlobalMasterActive1019 
+GlobalMasterActive1022 
+GlobalMasterActive1025 
+GlobalMasterActive1028 
+GlobalMasterActive1031 
+GlobalMasterActive1034 
+GlobalMasterActive1037 
+GlobalMasterActive1040 
+GlobalMasterActive1043 
+GlobalMasterActive1046 
+GlobalMasterActive1049 
+GlobalMasterActive1052 
+GlobalMasterActive1055 
+GlobalMasterActive1058 
+GlobalMasterActive1061 
+GlobalMasterActive1064 
+GlobalMasterActive1067 
+GlobalMasterActive1070 
+GlobalMasterActive1073 
+GlobalMasterActive1076 
+GlobalMasterActive1079 
+GlobalMasterActive1082 
+GlobalMasterActive1085 
+GlobalMasterActive1088 
+GlobalMasterActive1091 
+GlobalMasterActive1094 
+GlobalMasterActive1097 
+GlobalMasterActive1100 
+GlobalMasterActive1103 
+GlobalMasterActive1106 
+GlobalMasterActive1109 
+GlobalMasterActive1112 
+GlobalMasterActive1115 
+GlobalMasterActive1118 
+GlobalMasterActive1121 
+GlobalMasterActive1124 
+GlobalMasterActive1127 
+GlobalMasterActive1130 
+GlobalMasterActive1133 
+GlobalMasterActive1136 
+GlobalMasterActive1139 
+GlobalMasterActive1142 
+GlobalMasterActive1145 
+GlobalMasterActive1148 
+GlobalMasterActive1151 
+GlobalMasterActive1154 
+GlobalMasterActive1157 
+GlobalMasterActive1160 
+GlobalMasterActive1163 
+GlobalMasterActive1166 
+GlobalMasterActive1169 
+GlobalMasterActive1172 
+GlobalMasterActive1175 
+GlobalMasterActive1178 
+GlobalMasterActive1181 
+GlobalMasterActive1184 
+GlobalMasterActive1187 
+GlobalMasterActive1190 
+GlobalMasterActive1193 
+GlobalMasterActive1196 
+GlobalMasterActive1199 
+GlobalMasterActive1202 
+GlobalMasterActive1205 
+GlobalMasterActive1208 
+GlobalMasterActive1211 
+GlobalMasterActive1214 
+GlobalMasterActive1217 
+GlobalMasterActive1220 
+GlobalMasterActive1223 
+GlobalMasterActive1226 
+GlobalMasterActive1229 
+GlobalMasterActive1232 
+GlobalMasterActive1235 
+GlobalMasterActive1238 
+GlobalMasterActive1241 
+GlobalMasterActive1244 
+GlobalMasterActive1247 
+GlobalMasterActive1250 
+GlobalMasterActive1253 
+GlobalMasterActive1256 
+GlobalMasterActive1259 
+GlobalMasterActive1262 
+GlobalMasterActive1265 
+GlobalMasterActive1268 
+GlobalMasterActive1271 
+GlobalMasterActive1274 
+GlobalMasterActive1277 
+GlobalMasterActive1280 
+GlobalMasterActive1283 
+GlobalMasterActive1286 
+GlobalMasterActive1289 
+GlobalMasterActive1292 
+GlobalMasterActive1295 
+GlobalMasterActive1298 
+GlobalMasterActive1301 
+GlobalMasterActive1304 
+GlobalMasterActive1307 
+GlobalMasterActive1310 
+GlobalMasterActive1313 
+GlobalMasterActive1316 
+GlobalMasterActive1319 
+GlobalMasterActive1322 
+GlobalMasterActive1325 
+GlobalMasterActive1328 
+GlobalMasterActive1331 
+GlobalMasterActive1334 
+GlobalMasterActive1337 
+GlobalMasterActive1340 
+GlobalMasterActive1343 
+GlobalMasterActive1346 
+GlobalMasterActive1349 
+GlobalMasterActive1352 
+GlobalMasterActive1355 
+GlobalMasterActive1358 
+GlobalMasterActive1361 
+GlobalMasterActive1364 
+GlobalMasterActive1367 
+GlobalMasterActive1370 
+GlobalMasterActive1373 
+GlobalMasterActive1376 
+GlobalMasterActive1379 
+GlobalMasterActive1382 
+GlobalMasterActive1385 
+GlobalMasterActive1388 
+GlobalMasterActive1391 
+GlobalMasterActive1394 
+GlobalMasterActive1397 
+GlobalMasterActive1400 
+GlobalMasterActive1403 
+GlobalMasterActive1406 
+GlobalMasterActive1409 
+GlobalMasterActive1412 
+GlobalMasterActive1415 
+GlobalMasterActive1418 
+GlobalMasterActive1421 
+GlobalMasterActive1424 
+GlobalMasterActive1427 
+GlobalMasterActive1430 
+GlobalMasterActive1433 
+GlobalMasterActive1436 
+GlobalMasterActive1439 
+GlobalMasterActive1442 
+GlobalMasterActive1445 
+GlobalMasterActive1448 
+GlobalMasterActive1451 
+GlobalMasterActive1454 
+GlobalMasterActive1457 
+GlobalMasterActive1460 
+GlobalMasterActive1463 
+GlobalMasterActive1466 
+GlobalMasterActive1469 
+GlobalMasterActive1472 
+GlobalMasterActive1475 
+GlobalMasterActive1478 
+GlobalMasterActive1481 
+GlobalMasterActive1484 
+GlobalMasterActive1487 
+GlobalMasterActive1490 
+GlobalMasterActive1493 
+GlobalMasterActive1496 
+GlobalMasterActive1499 
+GlobalMasterActive1502 
+GlobalMasterActive1505 
+GlobalMasterActive1508 
+RX interruption catched
+FINISHED: Task 6 from application 0 
+returning erro6
+RX interruption catched
+FINISHED: Task 0 from application 0 
+returning erro6
+RX interruption catched
+FINISHED: Task 1 from application 0 
+returning erro6
+RX interruption catched
+FINISHED: Task 2 from application 0 
+returning erro6
+RX interruption catched
+FINISHED: Task 3 from application 0 
+returning erro6
+RX interruption catched
+FINISHED: Task 5 from application 0 
+returning erro6
+RX interruption catched
+FINISHED: Task 4 from application 0 
+returning erro6
+Application 0 was executed in 1503 
+		This application still need to run: 1 
+GlobalMasterActive1513 
+GlobalMasterActive1516 
+I got a free service slot!! -> 0 
+SendingQueue_front: 7 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+API_Try2Send success!
+I got a free service slot!! -> 0 
+SendingQueue_front: 0 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+API_Try2Send success!
+I got a free service slot!! -> 0 
+SendingQueue_front: 1 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+API_Try2Send success!
+I got a free service slot!! -> 0 
+SendingQueue_front: 2 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+API_Try2Send success!
+I got a free service slot!! -> 0 
+SendingQueue_front: 3 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+API_Try2Send success!
+I got a free service slot!! -> 0 
+SendingQueue_front: 4 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+API_Try2Send success!
+I got a free service slot!! -> 0 
+SendingQueue_front: 5 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+API_Try2Send success!
+GlobalMasterActive1541 
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+Application allocated: 0 
+SendingQueue_front: 6 
+API_Try2Send success!
+SendingQueue_front: 7 
+API_Try2Send failed - NI_TX occupied!
+SendingQueue_front: 0 
+API_Try2Send failed - NI_TX occupied!
+SendingQueue_front: 1 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+RX interruption catched
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+SendingQueue_front: 2 
+API_Try2Send success!
+SendingQueue_front: 3 
+API_Try2Send failed - NI_TX occupied!
+SendingQueue_front: 4 
+API_Try2Send failed - NI_TX occupied!
+	Start command sent to every task.
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send success!
+GlobalMasterActiveTX interruption catched
+API_Try2Send failed - empty SendQueue!
+1544 
+GlobalMasterActive1548 
+GlobalMasterActive1551 
+GlobalMasterActive1554 
+GlobalMasterActive1557 
+GlobalMasterActive1560 
+GlobalMasterActive1563 
+GlobalMasterActive1566 
+GlobalMasterActive1569 
+GlobalMasterActive1572 
+GlobalMasterActive1575 
+GlobalMasterActive1578 
+GlobalMasterActive1581 
+GlobalMasterActive1584 
+GlobalMasterActive1587 
+GlobalMasterActive1590 
+GlobalMasterActive1593 
+GlobalMasterActive1596 
+GlobalMasterActive1599 
+GlobalMasterActive1602 
+GlobalMasterActive1605 
+GlobalMasterActive1608 
+GlobalMasterActive1611 
+GlobalMasterActive1614 
+GlobalMasterActive1617 
+GlobalMasterActive1620 
+GlobalMasterActive1623 
+GlobalMasterActive1626 
+GlobalMasterActive1629 
+GlobalMasterActive1632 
+GlobalMasterActive1635 
+GlobalMasterActive1638 
+GlobalMasterActive1641 
+GlobalMasterActive1644 
+GlobalMasterActive1647 
+GlobalMasterActive1650 
+GlobalMasterActive1653 
+GlobalMasterActive1656 
+GlobalMasterActive1659 
+GlobalMasterActive1662 
+GlobalMasterActive1665 
+GlobalMasterActive1668 
+GlobalMasterActive1671 
+GlobalMasterActive1674 
+GlobalMasterActive1677 
+GlobalMasterActive1680 
+GlobalMasterActive1683 
+GlobalMasterActive1686 
+GlobalMasterActive1689 
+GlobalMasterActive1692 
+GlobalMasterActive1695 
+GlobalMasterActive1698 
+GlobalMasterActive1701 
+GlobalMasterActive1704 
+GlobalMasterActive1707 
+GlobalMasterActive1710 
+GlobalMasterActive1713 
+GlobalMasterActive1716 
+GlobalMasterActive1719 
+GlobalMasterActive1722 
+GlobalMasterActive1725 
+GlobalMasterActive1728 
+GlobalMasterActive1731 
+GlobalMasterActive1734 
+GlobalMasterActive1737 
+GlobalMasterActive1740 
+GlobalMasterActive1743 
+GlobalMasterActive1746 
+GlobalMasterActive1749 
+GlobalMasterActive1752 
+GlobalMasterActive1755 
+GlobalMasterActive1758 
+GlobalMasterActive1761 
+GlobalMasterActive1764 
+GlobalMasterActive1767 
+GlobalMasterActive1770 
+GlobalMasterActive1773 
+GlobalMasterActive1776 
+GlobalMasterActive1779 
+GlobalMasterActive1782 
+GlobalMasterActive1785 
+GlobalMasterActive1788 
+GlobalMasterActive1791 
+GlobalMasterActive1794 
+GlobalMasterActive1797 
+GlobalMasterActive1800 
+GlobalMasterActive1803 
+GlobalMasterActive1806 
+GlobalMasterActive1809 
+GlobalMasterActive1812 
+GlobalMasterActive1815 
+GlobalMasterActive1818 
+GlobalMasterActive1821 
+GlobalMasterActive1824 
+GlobalMasterActive1827 
+GlobalMasterActive1830 
+GlobalMasterActive1833 
+GlobalMasterActive1836 
+GlobalMasterActive1839 
+GlobalMasterActive1842 
+GlobalMasterActive1845 
+GlobalMasterActive1848 
+GlobalMasterActive1851 
+GlobalMasterActive1854 
+GlobalMasterActive1857 
+GlobalMasterActive1860 
+GlobalMasterActive1863 
+GlobalMasterActive1866 
+GlobalMasterActive1869 
+GlobalMasterActive1872 
+GlobalMasterActive1875 
+GlobalMasterActive1878 
+GlobalMasterActive1881 
+GlobalMasterActive1884 
+GlobalMasterActive1887 
+GlobalMasterActive1890 
+GlobalMasterActive1893 
+GlobalMasterActive1896 
+GlobalMasterActive1899 
+GlobalMasterActive1902 
+GlobalMasterActive1905 
+GlobalMasterActive1908 
+GlobalMasterActive1911 
+GlobalMasterActive1914 
+GlobalMasterActive1917 
+GlobalMasterActive1920 
+GlobalMasterActive1923 
+GlobalMasterActive1926 
+GlobalMasterActive1929 
+GlobalMasterActive1932 
+GlobalMasterActive1935 
+GlobalMasterActive1938 
+GlobalMasterActive1941 
+GlobalMasterActive1944 
+GlobalMasterActive1947 
+GlobalMasterActive1950 
+GlobalMasterActive1953 
+GlobalMasterActive1956 
+GlobalMasterActive1959 
+GlobalMasterActive1962 
+GlobalMasterActive1965 
+GlobalMasterActive1968 
+GlobalMasterActive1971 
+GlobalMasterActive1974 
+GlobalMasterActive1977 
+GlobalMasterActive1980 
+GlobalMasterActive1983 
+GlobalMasterActive1986 
+GlobalMasterActive1989 
+GlobalMasterActive1992 
+GlobalMasterActive1995 
+GlobalMasterActive1998 
+GlobalMasterActive2001 
+GlobalMasterActive2004 
+GlobalMasterActive2007 
+GlobalMasterActive2010 
+GlobalMasterActive2013 
+GlobalMasterActive2016 
+GlobalMasterActive2019 
+GlobalMasterActive2022 
+GlobalMasterActive2025 
+GlobalMasterActive2028 
+GlobalMasterActive2031 
+GlobalMasterActive2034 
+GlobalMasterActive2037 
+GlobalMasterActive2040 
+GlobalMasterActive2043 
+GlobalMasterActive2046 
+GlobalMasterActive2049 
+GlobalMasterActive2052 
+GlobalMasterActive2055 
+GlobalMasterActive2058 
+GlobalMasterActive2061 
+GlobalMasterActive2064 
+GlobalMasterActive2067 
+GlobalMasterActive2070 
+GlobalMasterActive2073 
+GlobalMasterActive2076 
+GlobalMasterActive2079 
+GlobalMasterActive2082 
+GlobalMasterActive2085 
+GlobalMasterActive2088 
+GlobalMasterActive2091 
+GlobalMasterActive2094 
+GlobalMasterActive2097 
+GlobalMasterActive2100 
+GlobalMasterActive2103 
+GlobalMasterActive2106 
+GlobalMasterActive2109 
+GlobalMasterActive2112 
+GlobalMasterActive2115 
+GlobalMasterActive2118 
+GlobalMasterActive2121 
+GlobalMasterActive2124 
+GlobalMasterActive2127 
+GlobalMasterActive2130 
+GlobalMasterActive2133 
+GlobalMasterActive2136 
+GlobalMasterActive2139 
+GlobalMasterActive2142 
+GlobalMasterActive2145 
+GlobalMasterActive2148 
+GlobalMasterActive2151 
+GlobalMasterActive2154 
+GlobalMasterActive2157 
+GlobalMasterActive2160 
+GlobalMasterActive2163 
+GlobalMasterActive2166 
+GlobalMasterActive2169 
+GlobalMasterActive2172 
+GlobalMasterActive2175 
+GlobalMasterActive2178 
+GlobalMasterActive2181 
+GlobalMasterActive2184 
+GlobalMasterActive2187 
+GlobalMasterActive2190 
+GlobalMasterActive2193 
+GlobalMasterActive2196 
+GlobalMasterActive2199 
+GlobalMasterActive2202 
+GlobalMasterActive2205 
+GlobalMasterActive2208 
+GlobalMasterActive2211 
+GlobalMasterActive2214 
+GlobalMasterActive2217 
+GlobalMasterActive2220 
+GlobalMasterActive2223 
+GlobalMasterActive2226 
+GlobalMasterActive2229 
+GlobalMasterActive2232 
+GlobalMasterActive2235 
+GlobalMasterActive2238 
+GlobalMasterActive2241 
+GlobalMasterActive2244 
+GlobalMasterActive2247 
+GlobalMasterActive2250 
+GlobalMasterActive2253 
+GlobalMasterActive2256 
+GlobalMasterActive2259 
+GlobalMasterActive2262 
+GlobalMasterActive2265 
+GlobalMasterActive2268 
+GlobalMasterActive2271 
+GlobalMasterActive2274 
+GlobalMasterActive2277 
+GlobalMasterActive2280 
+GlobalMasterActive2283 
+GlobalMasterActive2286 
+GlobalMasterActive2289 
+GlobalMasterActive2292 
+GlobalMasterActive2295 
+GlobalMasterActive2298 
+GlobalMasterActive2301 
+GlobalMasterActive2304 
+GlobalMasterActive2307 
+GlobalMasterActive2310 
+GlobalMasterActive2313 
+GlobalMasterActive2316 
+GlobalMasterActive2319 
+GlobalMasterActive2322 
+GlobalMasterActive2325 
+GlobalMasterActive2328 
+GlobalMasterActive2331 
+GlobalMasterActive2334 
+GlobalMasterActive2337 
+GlobalMasterActive2340 
+GlobalMasterActive2343 
+GlobalMasterActive2346 
+GlobalMasterActive2349 
+GlobalMasterActive2352 
+GlobalMasterActive2355 
+GlobalMasterActive2358 
+GlobalMasterActive2361 
+GlobalMasterActive2364 
+GlobalMasterActive2367 
+GlobalMasterActive2370 
+GlobalMasterActive2373 
+GlobalMasterActive2376 
+GlobalMasterActive2379 
+GlobalMasterActive2382 
+GlobalMasterActive2385 
+GlobalMasterActive2388 
+GlobalMasterActive2391 
+GlobalMasterActive2394 
+GlobalMasterActive2397 
+GlobalMasterActive2400 
+GlobalMasterActive2403 
+GlobalMasterActive2406 
+GlobalMasterActive2409 
+GlobalMasterActive2412 
+GlobalMasterActive2415 
+GlobalMasterActive2418 
+GlobalMasterActive2421 
+GlobalMasterActive2424 
+GlobalMasterActive2427 
+GlobalMasterActive2430 
+GlobalMasterActive2433 
+GlobalMasterActive2436 
+GlobalMasterActive2439 
+GlobalMasterActive2442 
+GlobalMasterActive2445 
+GlobalMasterActive2448 
+GlobalMasterActive2451 
+GlobalMasterActive2454 
+GlobalMasterActive2457 
+GlobalMasterActive2460 
+GlobalMasterActive2463 
+GlobalMasterActive2466 
+GlobalMasterActive2469 
+GlobalMasterActive2472 
+GlobalMasterActive2475 
+GlobalMasterActive2478 
+GlobalMasterActive2481 
+GlobalMasterActive2484 
+GlobalMasterActive2487 
+GlobalMasterActive2490 
+GlobalMasterActive2493 
+GlobalMasterActive2496 
+GlobalMasterActive2499 
+GlobalMasterActive2502 
+GlobalMasterActive2505 
+GlobalMasterActive2508 
+GlobalMasterActive2511 
+GlobalMasterActive2514 
+GlobalMasterActive2517 
+GlobalMasterActive2520 
+GlobalMasterActive2523 
+GlobalMasterActive2526 
+GlobalMasterActive2529 
+GlobalMasterActive2532 
+GlobalMasterActive2535 
+GlobalMasterActive2538 
+GlobalMasterActive2541 
+GlobalMasterActive2544 
+GlobalMasterActive2547 
+GlobalMasterActive2550 
+GlobalMasterActive2553 
+GlobalMasterActive2556 
+GlobalMasterActive2559 
+GlobalMasterActive2562 
+GlobalMasterActive2565 
+GlobalMasterActive2568 
+GlobalMasterActive2571 
+GlobalMasterActive2574 
+GlobalMasterActive2577 
+GlobalMasterActive2580 
+GlobalMasterActive2583 
+GlobalMasterActive2586 
+GlobalMasterActive2589 
+GlobalMasterActive2592 
+GlobalMasterActive2595 
+GlobalMasterActive2598 
+GlobalMasterActive2601 
+GlobalMasterActive2604 
+GlobalMasterActive2607 
+GlobalMasterActive2610 
+GlobalMasterActive2613 
+GlobalMasterActive2616 
+GlobalMasterActive2619 
+GlobalMasterActive2622 
+GlobalMasterActive2625 
+GlobalMasterActive2628 
+GlobalMasterActive2631 
+GlobalMasterActive2634 
+GlobalMasterActive2637 
+GlobalMasterActive2640 
+GlobalMasterActive2643 
+GlobalMasterActive2646 
+GlobalMasterActive2649 
+GlobalMasterActive2652 
+GlobalMasterActive2655 
+GlobalMasterActive2658 
+GlobalMasterActive2661 
+GlobalMasterActive2664 
+GlobalMasterActive2667 
+GlobalMasterActive2670 
+GlobalMasterActive2673 
+GlobalMasterActive2676 
+GlobalMasterActive2679 
+GlobalMasterActive2682 
+GlobalMasterActive2685 
+GlobalMasterActive2688 
+GlobalMasterActive2691 
+GlobalMasterActive2694 
+GlobalMasterActive2697 
+GlobalMasterActive2700 
+GlobalMasterActive2703 
+GlobalMasterActive2706 
+GlobalMasterActive2709 
+GlobalMasterActive2712 
+GlobalMasterActive2715 
+GlobalMasterActive2718 
+GlobalMasterActive2721 
+GlobalMasterActive2724 
+GlobalMasterActive2727 
+GlobalMasterActive2730 
+GlobalMasterActive2733 
+GlobalMasterActive2736 
+GlobalMasterActive2739 
+GlobalMasterActive2742 
+GlobalMasterActive2745 
+GlobalMasterActive2748 
+GlobalMasterActive2751 
+GlobalMasterActive2754 
+GlobalMasterActive2757 
+GlobalMasterActive2760 
+GlobalMasterActive2763 
+GlobalMasterActive2766 
+GlobalMasterActive2769 
+GlobalMasterActive2772 
+GlobalMasterActive2775 
+GlobalMasterActive2778 
+GlobalMasterActive2781 
+GlobalMasterActive2784 
+GlobalMasterActive2787 
+GlobalMasterActive2790 
+GlobalMasterActive2793 
+GlobalMasterActive2796 
+GlobalMasterActive2799 
+GlobalMasterActive2802 
+GlobalMasterActive2805 
+GlobalMasterActive2808 
+GlobalMasterActive2811 
+GlobalMasterActive2814 
+GlobalMasterActive2817 
+GlobalMasterActive2820 
+GlobalMasterActive2823 
+GlobalMasterActive2826 
+GlobalMasterActive2829 
+GlobalMasterActive2832 
+GlobalMasterActive2835 
+GlobalMasterActive2838 
+GlobalMasterActive2841 
+GlobalMasterActive2844 
+GlobalMasterActive2847 
+GlobalMasterActive2850 
+GlobalMasterActive2853 
+GlobalMasterActive2856 
+GlobalMasterActive2859 
+GlobalMasterActive2862 
+GlobalMasterActive2865 
+GlobalMasterActive2868 
+GlobalMasterActive2871 
+GlobalMasterActive2874 
+GlobalMasterActive2877 
+GlobalMasterActive2880 
+GlobalMasterActive2883 
+GlobalMasterActive2886 
+GlobalMasterActive2889 
+GlobalMasterActive2892 
+GlobalMasterActive2895 
+GlobalMasterActive2898 
+GlobalMasterActive2901 
+GlobalMasterActive2904 
+GlobalMasterActive2907 
+GlobalMasterActive2910 
+GlobalMasterActive2913 
+GlobalMasterActive2916 
+GlobalMasterActive2919 
+GlobalMasterActive2922 
+GlobalMasterActive2925 
+GlobalMasterActive2928 
+GlobalMasterActive2931 
+GlobalMasterActive2934 
+GlobalMasterActive2937 
+GlobalMasterActive2940 
+GlobalMasterActive2943 
+GlobalMasterActive2946 
+GlobalMasterActive2949 
+GlobalMasterActive2952 
+GlobalMasterActive2955 
+GlobalMasterActive2958 
+GlobalMasterActive2961 
+GlobalMasterActive2964 
+GlobalMasterActive2967 
+GlobalMasterActive2970 
+GlobalMasterActive2973 
+GlobalMasterActive2976 
+GlobalMasterActive2979 
+GlobalMasterActive2982 
+GlobalMasterActive2985 
+GlobalMasterActive2988 
+GlobalMasterActive2991 
+GlobalMasterActive2994 
+GlobalMasterActive2997 
+GlobalMasterActive3000 
+GlobalMasterActive3003 
+GlobalMasterActive3006 
+GlobalMasterActive3009 
+GlobalMasterActive3012 
+GlobalMasterActive3015 
+GlobalMasterActive3018 
+RX interruption catched
+FINISHED: Task 6 from application 0 
+returning erro6
+RX interruption catched
+FINISHED: Task 1 from application 0 
+returning erro6
+RX interruption catched
+FINISHED: Task 0 from application 0 
+returning erro6
+RX interruption catched
+FINISHED: Task 3 from application 0 
+returning erro6
+RX interruption catched
+FINISHED: Task 4 from application 0 
+returning erro6
+RX interruption catched
+FINISHED: Task 2 from application 0 
+returning erro6
+RX interruption catched
+FINISHED: Task 5 from application 0 
+returning erro6
+Application 0 was executed in 1505 
+		This application is DONE!

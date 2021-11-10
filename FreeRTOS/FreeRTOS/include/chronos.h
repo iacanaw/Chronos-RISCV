@@ -10,7 +10,6 @@
 #include "message.h"
 #include "packet.h"
 #include "services.h"
-//#include "applications.h"
 
 ////////////////////////////////////////////////////////////
 // DEFINES

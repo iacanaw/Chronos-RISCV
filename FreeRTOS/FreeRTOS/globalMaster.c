@@ -202,6 +202,14 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
         } else { // if the application has finished its runs
             prints("\t\tThis application is DONE!\n");
             applications[app_id].occupied = FALSE;
+
+            // To finish the simulation!!
+            for(i = 0; i < NUM_MAX_APPS; i++){
+                if (applications[i].occupied == TRUE){
+                    return;
+                }
+            }
+            _exit(0xfe10);
         }        
     }
     return;

@@ -21,7 +21,7 @@ const char * g_hello_msg = "\r\nFreeRTOS Example\r\n";
 UART_instance_t g_uart;
 /*-----------------------------------------------------------*/
 
-static void vUartAliveTask( void *pvParameters );
+//static void vUartAliveTask( void *pvParameters );
 static void GlobalManagerTask( void *pvParameters );
 
 /*
@@ -86,7 +86,7 @@ int main( void )
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This processor is a Slave: \n" );
 		
 		/* Create the two test tasks. */
-		xTaskCreate( vUartAliveTask, "Alive", 1024*3, NULL, (tskIDLE_PRIORITY + 1), NULL );
+		//xTaskCreate( vUartAliveTask, "Alive", 1024*3, NULL, (tskIDLE_PRIORITY + 1), NULL );
 	}	
 
 	/* Start the kernel.  From here on, only tasks and interrupts will run. */
@@ -142,38 +142,38 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 }
 /*-----------------------------------------------------------*/
 
-static void vUartAliveTask( void *pvParameters )
-{
-	( void ) pvParameters;
-	char str[20];
-	unsigned int i, j;
-	/*register long sp1 asm("s2") = 0;
-	register long sp2 asm("s3") = 0;
-	asm("addi	s2, sp, 0");
-	printsv("meu sp1: ", sp1);*/
+// static void vUartAliveTask( void *pvParameters )
+// {
+// 	( void ) pvParameters;
+// 	char str[20];
+// 	unsigned int i, j;
+// 	/*register long sp1 asm("s2") = 0;
+// 	register long sp2 asm("s3") = 0;
+// 	asm("addi	s2, sp, 0");
+// 	printsv("meu sp1: ", sp1);*/
 
-	for( i = 0 ;; i++ ){
-		/*asm("addi	s3, sp, 0");
-		printsvsv("meu sp2: ", sp2, " dif: ", sp2-sp1);*/
-		// Start every task that is ready!
-		for(j = 0; j < NUM_MAX_TASKS; j++){
-			if(TaskList[j].status == TASK_SLOT_READY){
-				printsvsv("Starting Task ", TaskList[j].TaskID, " from app ", TaskList[j].AppID);
-				API_TaskStart(j);
-			}
-		}
-		//prints("hello!\n");
-		/*myItoa(ProcessorAddr, str, 16);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)" PE is alive - " );
-		myItoa(i, str, 10);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)" -\r\n" );*/
-	    //asm("wfi");
-		vPortYield();
-		//vTaskDelay(1);
-	}
-}
+// 	for( i = 0 ;; i++ ){
+// 		/*asm("addi	s3, sp, 0");
+// 		printsvsv("meu sp2: ", sp2, " dif: ", sp2-sp1);*/
+// 		// Start every task that is ready!
+// 		for(j = 0; j < NUM_MAX_TASKS; j++){
+// 			if(TaskList[j].status == TASK_SLOT_READY){
+// 				printsvsv("Starting Task ", TaskList[j].TaskID, " from app ", TaskList[j].AppID);
+// 				API_TaskStart(j);
+// 			}
+// 		}
+// 		//prints("hello!\n");
+// 		/*myItoa(ProcessorAddr, str, 16);
+// 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
+// 		UART_polled_tx_string( &g_uart, (const uint8_t *)" PE is alive - " );
+// 		myItoa(i, str, 10);
+// 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
+// 		UART_polled_tx_string( &g_uart, (const uint8_t *)" -\r\n" );*/
+// 	    //asm("wfi");
+// 		vPortYield();
+// 		//vTaskDelay(1);
+// 	}
+// }
 
 /*-----------------------------------------------------------*/
 
