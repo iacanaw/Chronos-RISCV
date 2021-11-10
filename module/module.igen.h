@@ -299,7 +299,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         ),
         OP_PARAMS(
              OP_PARAM_BOOL_SET("simulateexceptions", 1)
-            ,OP_PARAM_DOUBLE_SET("mips", 50)
+            ,OP_PARAM_DOUBLE_SET("mips", 100)
             ,OP_PARAM_ENUM_SET("variant", "RVB32I")
             ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
             ,OP_PARAM_BOOL_SET("external_int_id", True)
@@ -337,7 +337,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         OP_PARAMS(
              OP_PARAM_BOOL_SET("simulateexceptions", 1)
             ,OP_PARAM_UNS32_SET("cpuid", 1)
-            ,OP_PARAM_DOUBLE_SET("mips", 50)
+            ,OP_PARAM_DOUBLE_SET("mips", 100)
             ,OP_PARAM_ENUM_SET("variant", "RVB32I")
             ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
             ,OP_PARAM_BOOL_SET("external_int_id", True)
@@ -375,7 +375,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         OP_PARAMS(
              OP_PARAM_BOOL_SET("simulateexceptions", 1)
             ,OP_PARAM_UNS32_SET("cpuid", 2)
-            ,OP_PARAM_DOUBLE_SET("mips", 50)
+            ,OP_PARAM_DOUBLE_SET("mips", 100)
             ,OP_PARAM_ENUM_SET("variant", "RVB32I")
             ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
             ,OP_PARAM_BOOL_SET("external_int_id", True)
@@ -413,7 +413,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         OP_PARAMS(
              OP_PARAM_BOOL_SET("simulateexceptions", 1)
             ,OP_PARAM_UNS32_SET("cpuid", 3)
-            ,OP_PARAM_DOUBLE_SET("mips", 50)
+            ,OP_PARAM_DOUBLE_SET("mips", 100)
             ,OP_PARAM_ENUM_SET("variant", "RVB32I")
             ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
             ,OP_PARAM_BOOL_SET("external_int_id", True)
@@ -451,7 +451,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         OP_PARAMS(
              OP_PARAM_BOOL_SET("simulateexceptions", 1)
             ,OP_PARAM_UNS32_SET("cpuid", 4)
-            ,OP_PARAM_DOUBLE_SET("mips", 50)
+            ,OP_PARAM_DOUBLE_SET("mips", 100)
             ,OP_PARAM_ENUM_SET("variant", "RVB32I")
             ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
             ,OP_PARAM_BOOL_SET("external_int_id", True)
@@ -489,7 +489,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         OP_PARAMS(
              OP_PARAM_BOOL_SET("simulateexceptions", 1)
             ,OP_PARAM_UNS32_SET("cpuid", 5)
-            ,OP_PARAM_DOUBLE_SET("mips", 50)
+            ,OP_PARAM_DOUBLE_SET("mips", 100)
             ,OP_PARAM_ENUM_SET("variant", "RVB32I")
             ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
             ,OP_PARAM_BOOL_SET("external_int_id", True)
@@ -527,7 +527,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         OP_PARAMS(
              OP_PARAM_BOOL_SET("simulateexceptions", 1)
             ,OP_PARAM_UNS32_SET("cpuid", 6)
-            ,OP_PARAM_DOUBLE_SET("mips", 50)
+            ,OP_PARAM_DOUBLE_SET("mips", 100)
             ,OP_PARAM_ENUM_SET("variant", "RVB32I")
             ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
             ,OP_PARAM_BOOL_SET("external_int_id", True)
@@ -565,7 +565,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         OP_PARAMS(
              OP_PARAM_BOOL_SET("simulateexceptions", 1)
             ,OP_PARAM_UNS32_SET("cpuid", 7)
-            ,OP_PARAM_DOUBLE_SET("mips", 50)
+            ,OP_PARAM_DOUBLE_SET("mips", 100)
             ,OP_PARAM_ENUM_SET("variant", "RVB32I")
             ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
             ,OP_PARAM_BOOL_SET("external_int_id", True)
@@ -603,7 +603,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         OP_PARAMS(
              OP_PARAM_BOOL_SET("simulateexceptions", 1)
             ,OP_PARAM_UNS32_SET("cpuid", 8)
-            ,OP_PARAM_DOUBLE_SET("mips", 50)
+            ,OP_PARAM_DOUBLE_SET("mips", 100)
             ,OP_PARAM_ENUM_SET("variant", "RVB32I")
             ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
             ,OP_PARAM_BOOL_SET("external_int_id", True)

@@ -41,6 +41,9 @@ struct optionsS {
 #define PRINT_FETCH         0
 #define PRINT_FETCH_PE      7
 
+unsigned int peCount[N_PES];
+float           myTime          = 0;
+
 //int simulationFinished;
 
 /*static OP_CONSTRUCT_FN(moduleConstruct) {
@@ -105,7 +108,7 @@ optModuleAttr modelAttrs = {
     .destructCB           = moduleDestruct,
 };*/
 #if PRINT_FETCH
-
+#endif
 int getProcessorID(optProcessorP processor){
     int processorID;
     char processorName[7] = "@@@@@@@";
@@ -128,7 +131,7 @@ int getProcessorID(optProcessorP processor){
 unsigned int saiu_int = 0;
 unsigned int entrou_int = 0;
 
-static OP_MONITOR_FN(fetchCallback) { 
+static OP_MONITOR_FN(FetchCallback) { 
     /* get the processor id*/
     int processorID = getProcessorID(processor);
 
@@ -143,15 +146,26 @@ static OP_MONITOR_FN(fetchCallback) {
         //strcpy(instruction,opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED));
         //sscanf(instruction,"%s %*s\n",instruction);
     //if (processorID == 7)
-        if( strcmp(opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), "mret") == 0){
-            saiu_int++;
-            opMessage("I", "FETCH", "PE%d- SAIU do handler %d vezes & entrou %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
-        }
-        else if (addr == 0x80000030){
-            entrou_int++;
-            opMessage("I", "FETCH", "PE%d- saiu do handler %d vezes & ENTROU %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
-        }
+      
+      
+    peCount[processorID]++;
 
+    if(myTime >= 0.4){
+        opProcessorDerate(processor, 75);
+    }
+      
+        // if( strcmp(opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), "mret") == 0){
+        //     saiu_int++;
+        //     opMessage("I", "FETCH", "PE%d- SAIU do handler %d vezes & entrou %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
+        // }
+        // else if (addr == 0x80000030){
+        //     entrou_int++;
+        //     opMessage("I", "FETCH", "PE%d- saiu do handler %d vezes & ENTROU %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
+        // }
+
+      
+      
+      
         //opMessage("I", "FETCH", "PE%d- %s @ %x", processorID, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
 
         //                         BASE ADDRESS -  (INSTRUCTION TYPE OFFSET)
@@ -172,7 +186,7 @@ static OP_MONITOR_FN(fetchCallback) {
         opProcessorWrite(processor, countAddress, EI, 4, 1, True, OP_HOSTENDIAN_TARGET);*/
     //}
 }
-#endif
+//#endif
 
 static OP_MONITOR_FN(FinishCallback){
     opMessage("I", "HARNESS", " >>> SIMULAÇÃO FINALIZADA COM SUCESSO!");
@@ -188,7 +202,7 @@ static OP_MONITOR_FN(FreqCallback){
 
 int main(int argc, const char *argv[]) {
     int             runningPE       = 0;
-    float           myTime          = 0;
+    //float           myTime          = 0;
     optProcessorP   stopProcessor   = 0;
     Bool            finished        = False;
     //optTime myTime = QUANTUM_TIME_SLICE;
@@ -228,6 +242,10 @@ int main(int argc, const char *argv[]) {
         opMessage("I", "HARNESS INFO", "\t > MONITOR DE FREQUENCIA ADICIONADO!");
         opProcessorWriteMonitorAdd (proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback, "frequency");
 
+        
+        opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback, "fetch");
+        
+
 #if PRINT_FETCH
         if (runningPE == PRINT_FETCH_PE)
             opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback, "fetch");
@@ -238,8 +256,16 @@ int main(int argc, const char *argv[]) {
     /* Simulation loop */
     while(!finished) {
         myTime += 0.1;
+        for(int x = 0; x < N_PES; x++){
+            peCount[x] = 0;
+        }
         opRootModuleSetSimulationStopTime(mi, myTime);
         stopProcessor = opRootModuleSimulate(mi);
+        for(int x = 0; x < N_PES; x++){
+            opMessage("I", "HARNESS", "PE[%d]: %d", x, peCount[x]);
+        }
+        
+        opMessage("I", "HARNESS", "-----------------------------------");
         optStopReason sr = stopProcessor ? opProcessorStopReason(stopProcessor)
                                          : OP_SR_EXIT;
         switch(sr) {
