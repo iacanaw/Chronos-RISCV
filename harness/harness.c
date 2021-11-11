@@ -32,6 +32,111 @@
 #define INSTRUCTIONS_PER_TIME_SLICE 25000.0                                             //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
 #define QUANTUM_TIME_SLICE (INSTRUCTIONS_PER_TIME_SLICE / INSTRUCTIONS_PER_SECOND)      // 0.0000010 //
 
+#define BRANCH  1
+#define ARITH   2
+#define JUMP    3
+#define MOVE    4
+#define LOAD    5
+#define STORE   6
+#define SHIFT   7
+#define NOP     8
+#define LOGICAL 9
+#define MULTDIV 10
+#define WEIRD   11
+
+char branchInstructions[][12]   = {"beqz","bgez","bnez","beq","bne","blt","bge","bltu","bgeu","bltz","bgtz","blez","bgt","ble","bgtu","bleu","EndList@"};
+char arithInstructions[][12]    = {"add","addi","sub","lui","auipc","slt","slti","sltu","sltiu","EndList@"};
+char jumpInstructions[][12]     = {"mret","ret","jal","jalr","j","jr","call","EndList@"};
+char moveInstructions[][12]     = {"mv","EndList@"};
+char loadInstructions[][12]     = {"lb","lh","lw","lbu","lhu","EndList@"};
+char storeInstructions[][12]    = {"sb","sh","sw","EndList@"};
+char shiftInstructions[][12]    = {"sll","slli","srl","srli","sra","srai","EndList@"};
+char nopInstructions[][12]      = {"nop","EndList@"};
+char logicalInstructions[][12]  = {"and","not","andi","or","ori","xor","xori","csrr","csrwi","csrci","csrw","csrs","csrsi","csrrw","csrrs","csrrc","csrrwi","csrrsi","csrrci","EndList@"};
+char multDivInstructions[][12]  = {"mul","rem","remu","div","divu","EndList@"};
+char weirdInstructions[][12]    = {"ecall","ebreak","eret","mrts","mrth","hrts","wfi","sfence.vm","fence","fence.i","scall","sbreak","rdcycle","rdcycleh","rdtime","rdtimeh","rdinstret","rdinstreth","EndList@"};
+
+unsigned int getInstructionType(char *instruction){
+    int i = 0;
+    while(strcmp(branchInstructions[i],"EndList@") != 0) { // Branch type
+        if(strcmp(branchInstructions[i],instruction) == 0){
+            return BRANCH;
+        }
+        i++;
+    }
+    i = 0;
+    while(strcmp(arithInstructions[i],"EndList@") != 0) { // Arith type
+        if(strcmp(arithInstructions[i],instruction) == 0){
+            return ARITH;
+        }
+        i++;
+    }
+    i = 0;
+    while(strcmp(jumpInstructions[i],"EndList@") != 0) { // Jump type
+        if(strcmp(jumpInstructions[i],instruction) == 0){
+            return JUMP;
+        }
+        i++;
+    }
+    i = 0;
+    while(strcmp(moveInstructions[i],"EndList@") != 0) { // Move type
+        if(strcmp(moveInstructions[i],instruction) == 0){
+            return MOVE;
+        }
+        i++;
+    }
+    i = 0;
+    while(strcmp(loadInstructions[i],"EndList@") != 0) { // Load type
+        if(strcmp(loadInstructions[i],instruction) == 0){
+            return LOAD;
+        }
+        i++;
+    }
+    i = 0;
+    while(strcmp(storeInstructions[i],"EndList@") != 0) { // Store type
+        if(strcmp(storeInstructions[i],instruction) == 0){
+            return STORE;
+        }
+        i++;
+    }
+    i = 0;
+    while(strcmp(shiftInstructions[i],"EndList@") != 0) { // Shift type
+        if(strcmp(shiftInstructions[i],instruction) == 0){
+            return SHIFT;
+        }
+        i++;
+    }
+    i = 0;
+    while(strcmp(nopInstructions[i],"EndList@") != 0) { // NOP type
+        if(strcmp(nopInstructions[i],instruction) == 0){
+            return NOP;
+        }
+        i++;
+    }
+    i = 0;
+    while(strcmp(logicalInstructions[i],"EndList@") != 0) { // Logical type
+        if(strcmp(logicalInstructions[i],instruction) == 0){
+            return LOGICAL;
+        }
+        i++;
+    }
+    i = 0;
+    while(strcmp(multDivInstructions[i],"EndList@") != 0) { // Multiplication and Division type
+        if(strcmp(multDivInstructions[i],instruction) == 0){
+            return MULTDIV;
+        }
+        i++;
+    }
+    i = 0;
+    while(strcmp(weirdInstructions[i],"EndList@") != 0) { // Weird stuff type
+        if(strcmp(weirdInstructions[i],instruction) == 0){
+            return WEIRD;
+        }
+        i++;
+    }
+    return 66;
+}
+
 struct optionsS {
 	Bool configurecpuinstance;
 } options = {
@@ -77,8 +182,6 @@ optModuleAttr modelAttrs = {
     .destructCB = moduleDestruct,
 };
 
-#if PRINT_FETCH
-#endif
 int getProcessorID(optProcessorP processor){
     int processorID;
     char processorName[7] = "@@@@@@@";
@@ -101,65 +204,78 @@ int getProcessorID(optProcessorP processor){
 // unsigned int saiu_int = 0;
 // unsigned int entrou_int = 0;
 
-// static OP_MONITOR_FN(FetchCallback) { 
-//     /* get the processor id*/
-//     int processorID = getProcessorID(processor);
+unsigned int load[N_PES];
+unsigned int store[N_PES];
+unsigned int others[N_PES];
+unsigned int fetch[N_PES];
 
-//     /*get the waiting packet flag*/
-//     //char value[4];
-//     //opProcessorRead(processor, 0x0FFFFFFC, &value, 4, 1, True, OP_HOSTENDIAN_TARGET);
-//     //unsigned int intValue = htonl(vec2usi(value));
+static OP_MONITOR_FN(FetchCallback) { 
+    // get the processor ID
+    int processorID = getProcessorID(processor);
+    fetch[processorID]++;
+
+    //char instruction[4];
+    //unsigned int instruction32 = vec2usi(instruction);
+    // opProcessorRead(processor, addr, &instruction, 4, 1, True, OP_HOSTENDIAN_TARGET);
     
-//     /*if the processor is not waiting a packet then run the disassemble*/
-//     //if(!intValue){
-//         //char instruction[60];
-//         //strcpy(instruction,opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED));
-//         //sscanf(instruction,"%s %*s\n",instruction);
-//     //if (processorID == 7)
-      
-      
-//     peCount[processorID]++;
+    // if((instruction32 & 0x0000007F) == 0x00000003){
+    //     load[processorID]++;
+    // }
+    // else if((instruction32 & 0x0000007F) == 0x00000023){
+    //     store[processorID]++;
+    // }
+    // else{
+    //     others[processorID]++;
+    // }
 
-//     if(processorID == 2){
-//         if( strcmp(opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), "mret") == 0){
-//             saiu_int++;
-//             opMessage("I", "FETCH", "PE%d- SAIU do handler %d vezes & entrou %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
-//         }
-//         else if (addr == 0x80000030){
-//             entrou_int++;
-//             opMessage("I", "FETCH", "PE%d- saiu do handler %d vezes & ENTROU %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
-//         }
-//         if( entrou_int-saiu_int == -1){
-//             opMessage("I", "FETCH", "PE deu RUIM!");
-//             opProcessorTraceBufferDump(processor);
-//             opProcessorHalt(processor);
-//         }
-//     }
+    /*if(fetch[processorID] > 10000){
+        opMessage("I", "HARNESS", "Nas ultimas 10k instrucoes o PE%d executou %d loads, %d stores e %d outras instruções", processorID, load[processorID], store[processorID], others[processorID]);
 
-      
-      
-      
-//         //opMessage("I", "FETCH", "PE%d- %s @ %x", processorID, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
+        fetch[processorID] = 0;
+        load[processorID] = 0;
+        store[processorID] = 0;
+        others[processorID] = 0;
+    }*/
 
-//         //                         BASE ADDRESS -  (INSTRUCTION TYPE OFFSET)
-//         //unsigned int countAddress = 0x0FFFFFF8 - (getInstructionType(instruction)*4);
+    char instruction[60];
+    strcpy(instruction,opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED));
+    sscanf(instruction,"%s %*s\n",instruction);
+    
+    unsigned int tipo = getInstructionType(instruction);
+    
+    if(tipo == LOAD){
+        load[processorID]++;
+    }
+    else if(tipo == STORE){
+        store[processorID]++;
+    }
+    else{
+        others[processorID]++;
+    }
 
-//         /* Load the atual value and add one */
-//         /*char read_EI[4];
-//         opProcessorRead(processor, countAddress, &read_EI, 4, 1, True, OP_HOSTENDIAN_TARGET);
-//         unsigned int read_executedInstructions = vec2usi(read_EI);
-//         read_executedInstructions = htonl(read_executedInstructions) + 1;*/
+    // if(66 == tipo){
+    //     opMessage("I", "HARNESS", "ERRO: INSTRUÇÃO NÃO ENCONTRADA: %s", instruction);
+    //     while(1){}
+    // }
+    // else{
+    //     //                         BASE ADDRESS -  (INSTRUCTION TYPE OFFSET)
+    //     //unsigned int counterAddress = 0x8FFFFFF8 - (tipo*4); // *4 porque é endereçado por palavra (32bits)
+    //     char counterValue_8bit[4];
+    //     //Reads the current count value
+    //     //opProcessorRead(processor, counterAddress, &counterValue_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    //     unsigned int read_executedInstructions = vec2usi(counterValue_8bit);
+    //     read_executedInstructions = read_executedInstructions + 1;
 
-//         /* Store the atual value */
-//         /*char EI[4];
-//         EI[3] = (htonl(read_executedInstructions) >> 24) & 0x000000FF;
-//         EI[2] = (htonl(read_executedInstructions) >> 16) & 0x000000FF;
-//         EI[1] = (htonl(read_executedInstructions) >> 8) & 0x000000FF;
-//         EI[0] = htonl(read_executedInstructions) & 0x000000FF;
-//         opProcessorWrite(processor, countAddress, EI, 4, 1, True, OP_HOSTENDIAN_TARGET);*/
-//     //}
-// }
-// //#endif
+    //     //Stores the new count value
+    //     counterValue_8bit[3] = ((read_executedInstructions) >> 24) & 0x000000FF;
+    //     counterValue_8bit[2] = ((read_executedInstructions) >> 16) & 0x000000FF;
+    //     counterValue_8bit[1] = ((read_executedInstructions) >> 8) & 0x000000FF;
+    //     counterValue_8bit[0] = (read_executedInstructions) & 0x000000FF;
+    //     //opProcessorWrite(processor, counterAddress, counterValue_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    // }
+
+    return;
+}
 
 static OP_MONITOR_FN(FinishCallback){
     opMessage("I", "HARNESS", " >>> SIMULAÇÃO FINALIZADA COM SUCESSO!");
@@ -168,7 +284,6 @@ static OP_MONITOR_FN(FinishCallback){
 }
 
 static OP_MONITOR_FN(FreqCallback){
-    //opMessage("I", "HARNESS", " >>> DETECTADA MODIFICAÇÃO NA FREQUENCIA!");
     // gets the processor ID
     int processorID = getProcessorID(processor);
 
@@ -179,7 +294,7 @@ static OP_MONITOR_FN(FreqCallback){
 
     // translates from fixed point to float
     float freqScale = 100 - (float)((float)readFreq_32bit / 10);
-    if(freqScale == 100){
+    if(freqScale == 100){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
         freqScale = 50;
     }
     opMessage("I", "HARNESS", " >>> PE %d changing to %.1f%% of its nominal frequency -- (%.0fMHz)", processorID, 100-freqScale, 10*(100-freqScale));
@@ -204,6 +319,13 @@ int main(int argc, const char *argv[]) {
     optModuleP mi = opRootModuleNew(&modelAttrs, MODULE_NAME, params);
     optModuleP modNew = opModuleNew(mi, MODULE_DIR, MODULE_INSTANCE, 0, 0);
 
+    for(int i = 0; i < N_PES; i++){
+        load[i] = 0;
+        store[i] = 0;
+        others[i] = 0;
+        fetch[i] = 0;
+    }
+
     while ((proc = opProcessorNext(modNew, proc))) {
         char id[4];
         id[3] = (runningPE >> 24) & 0x000000FF;
@@ -224,13 +346,8 @@ int main(int argc, const char *argv[]) {
         opProcessorWriteMonitorAdd (proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback, "frequency");
 
         
-        //opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback, "fetch");
+        opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback, "fetch");
         
-
-#if PRINT_FETCH
-        if (runningPE == PRINT_FETCH_PE)
-            opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback, "fetch");
-#endif     
         runningPE++;
     }
 
@@ -256,6 +373,10 @@ int main(int argc, const char *argv[]) {
                 break;
         }
         
+    }
+
+    for(int processorID = 0; processorID < N_PES; processorID++){
+        opMessage("I", "HARNESS", "PE%d executou %d loads, %d stores e %d outras instruções", processorID, load[processorID], store[processorID], others[processorID]);
     }
 
     opSessionTerminate();

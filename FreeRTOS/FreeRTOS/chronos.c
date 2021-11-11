@@ -27,6 +27,9 @@ extern volatile unsigned int SendingQueue_tail;
 ////////////////////////////////////////////////////////////
 // Initialize Chronos stuff
 void Chronos_init(){
+    // Resets the amount of each executed instruction
+    resetExecutedInstructions();
+
     //Informs the Router this tile ID, that is provided by Harness
     HW_set_32bit_reg(ROUTER_BASE, HW_get_32bit_reg(MY_ID)); 
     
@@ -42,12 +45,15 @@ void Chronos_init(){
     //NI_IRCount = 0;
     //NI_enable_irq(RX);
 
+    // Configures the timer to interrupt at each ms
+    HW_set_32bit_reg(TIMER_BASE, 1000);
+
     // Informs the NI the address to store incoming packets
     HW_set_32bit_reg(NI_ADDR, (unsigned int)&incommingPacket.header);
     
     // Initialize the TaskList
     API_TaskListInit();
-
+    
     // Initialize the Message & Service PIPE
     API_PipeInitialization();
     SendingQueue_front = 0;
@@ -159,6 +165,18 @@ uint8_t External_2_IRQHandler(void){
 
     return 0;
 }
+
+uint8_t External_3_IRQHandler(void){
+    
+
+    printExecutedInstructions();
+
+    // releases the interruption
+    HW_set_32bit_reg(TIMER_BASE, 0xFFFFFFFF);
+    
+    return 0;
+}
+
 
 ////////////////////////////////////////////////////////////
 // https://www.techiedelight.com/implement-itoa-function-in-c/
@@ -574,9 +592,9 @@ unsigned int API_NI_Handler(){
             printsvsv("Starting Task ", TaskList[aux].TaskID, " from app ", TaskList[aux].AppID);
             API_setFreqScale(1000);
             API_TaskStart(aux);
-            //printsv("FreqScale: ", API_getFreqScale());
         }
     }
+    //printExecutedInstructions();
 
     return count;
 }

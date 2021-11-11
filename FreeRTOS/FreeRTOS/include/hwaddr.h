@@ -25,4 +25,7 @@
 #define PRINTER_CHAR            0x50000020U
 #define PRINTER_INT             0x50000024U
 
+/**************** Timer mapped register ***************/
+#define TIMER_BASE              0x5000001CU
+
 #endif

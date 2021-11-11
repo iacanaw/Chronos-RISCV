@@ -192,7 +192,7 @@ static void timerThread(void *user) {
     if (timerP->stopCount > timerP->startCount) {
         timerP->threadDelay = (double)((timerP->stopCount - timerP->startCount)) / config.clockMHz;
         double nextQ   = bhmGetCurrentTime();           // time of next quantum start (minimum delay possible)
-        bhmMessage("I", "CLINT", "bhmGetCurrentTime() = %f", nextQ);
+        //bhmMessage("I", "CLINT", "bhmGetCurrentTime() = %f", nextQ);
         double toNextQ = nextQ - timerP->threadStarted; // time to next quantum start
         if (toNextQ > timerP->threadDelay) {            // if cannot generate required delay, warn and generate minimal
             if (PSE_DIAG_LOW) {
@@ -225,7 +225,7 @@ static void timerThread(void *user) {
             "timer[%u] Expired now=%0.2f", hartid, now
         );
     }
-    bhmMessage("I", "CLINT", "Interrupt = 1");
+    //bhmMessage("I", "CLINT", "Interrupt = 1");
     ppmWriteNet(MTimerInterrupt[hartid], 1);
 }
 
@@ -366,7 +366,7 @@ PPM_REG_WRITE_CB(mtimecmpWrite) {
     mtimecmp[hartid] = value;
 
     // clear interrupt
-    bhmMessage("I", "CLINT", "Interrupt = 0");
+    //bhmMessage("I", "CLINT", "Interrupt = 0");
     ppmWriteNet(MTimerInterrupt[hartid], 0);
 
     if (value != oldValue) {

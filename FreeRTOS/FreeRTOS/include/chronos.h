@@ -79,6 +79,8 @@ void NI_disable_irq(int which);
 uint8_t External_1_IRQHandler(void);
 // Interruptions handler for RX
 uint8_t External_2_IRQHandler(void);
+// Interrumption handler for Timer
+uint8_t External_3_IRQHandler(void);
 // An alternative implemenation of ITOA and its support functions
 char* myItoa(int value, char* buffer, int base);
 void mySwap(char *x, char *y);

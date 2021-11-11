@@ -16,7 +16,8 @@ C_SRCS += \
 ../FreeRTOS/applications.c \
 ../FreeRTOS/system_call.c \
 ../FreeRTOS/packet.c \
-../FreeRTOS/dvfs.c
+../FreeRTOS/dvfs.c \
+../FreeRTOS/thermal.c 
 
 OBJS += \
 ./FreeRTOS/croutine.o \
@@ -31,7 +32,8 @@ OBJS += \
 ./FreeRTOS/applications.o \
 ./FreeRTOS/system_call.o \
 ./FreeRTOS/packet.o \
-./FreeRTOS/dvfs.o
+./FreeRTOS/dvfs.o \
+./FreeRTOS/thermal.o
 
 
 C_DEPS += \
@@ -47,7 +49,8 @@ C_DEPS += \
 ./FreeRTOS/applications.d \
 ./FreeRTOS/system_call.d \
 ./FreeRTOS/packet.d \
-./FreeRTOS/dvfs.d
+./FreeRTOS/dvfs.d \
+./FreeRTOS/thermal.d
 
 
 

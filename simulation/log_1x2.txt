@@ -3,9 +3,9 @@ API_setFreqIdle
 TASK_ALLOCATION_SEND
 Got slot: 0 
 Task total size (txt+bss): 3172 
-Task addr: 2147518748 
+Task addr: 2147519580 
 Task slot: 0 
-Task slot TaskAddr: 2147518748 
+Task slot TaskAddr: 2147519580 
 RX interruption catched
 TASK_ALLOCATION_FINISHED
 SendingQueue_front: 0 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+SECONDS=0;
 echo "==============================="
 echo "CLEANING THE SIMULATION FOLDER"
 cd ../simulation
@@ -45,9 +45,21 @@ rm -rf obj
 rm -f pse.pse
 ./iteratorGenerator.sh 3 3
 make NOVLNV=1
+echo "==================="
+echo "COMPILING THE TIMER"
+cd ../timer
+rm -rf obj
+rm -f pse.pse
+make NOVLNV=1
 echo "=================="
 echo "COMPILING THE PLIC"
 cd ../plic
+rm -rf obj
+rm -f pse.pse
+make NOVLNV=1
+echo "==================="
+echo "COMPILING THE CLINT"
+cd ../CLINT
 rm -rf obj
 rm -f pse.pse
 make NOVLNV=1
@@ -84,6 +96,7 @@ make NOVLNV=1
 cd ..
 echo "====================="
 echo "COMPILING THE HARNESS"
+rm harness/harness.Linux64.exe
 make -C harness
 
 FREERTOS_ELF=FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf
@@ -144,6 +157,8 @@ harness/harness.${IMPERAS_ARCH}.exe             \
   --program  cpu8=${FREERTOS_ELF}               \
   --override uart8/console=T                    \
   --override uart8/finishOnDisconnect=T         \
-  --override uart8/outfile=simulation/uart8.log $* --verbose --output simulation/imperas.log
+  --override uart8/outfile=simulation/uart8.log $* --verbose --parallelperipherals --output simulation/imperas.log
 #--imperasintercepts                                     \
 # 
+
+echo "Simulation total time elapsed: "$SECONDS

@@ -95,38 +95,47 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
     optNetP MSWInterrupt0_n = opNetNew(mi, "MSWInterrupt0", 0, 0);
     optNetP intNI_TX0_n = opNetNew(mi, "intNI_TX0", 0, 0);
     optNetP intNI_RX0_n = opNetNew(mi, "intNI_RX0", 0, 0);
+    optNetP intTIMER0_n = opNetNew(mi, "intTIMER0", 0, 0);
     optNetP MTimerInterrupt1_n = opNetNew(mi, "MTimerInterrupt1", 0, 0);
     optNetP MSWInterrupt1_n = opNetNew(mi, "MSWInterrupt1", 0, 0);
     optNetP intNI_TX1_n = opNetNew(mi, "intNI_TX1", 0, 0);
     optNetP intNI_RX1_n = opNetNew(mi, "intNI_RX1", 0, 0);
+    optNetP intTIMER1_n = opNetNew(mi, "intTIMER1", 0, 0);
     optNetP MTimerInterrupt2_n = opNetNew(mi, "MTimerInterrupt2", 0, 0);
     optNetP MSWInterrupt2_n = opNetNew(mi, "MSWInterrupt2", 0, 0);
     optNetP intNI_TX2_n = opNetNew(mi, "intNI_TX2", 0, 0);
     optNetP intNI_RX2_n = opNetNew(mi, "intNI_RX2", 0, 0);
+    optNetP intTIMER2_n = opNetNew(mi, "intTIMER2", 0, 0);
     optNetP MTimerInterrupt3_n = opNetNew(mi, "MTimerInterrupt3", 0, 0);
     optNetP MSWInterrupt3_n = opNetNew(mi, "MSWInterrupt3", 0, 0);
     optNetP intNI_TX3_n = opNetNew(mi, "intNI_TX3", 0, 0);
     optNetP intNI_RX3_n = opNetNew(mi, "intNI_RX3", 0, 0);
+    optNetP intTIMER3_n = opNetNew(mi, "intTIMER3", 0, 0);
     optNetP MTimerInterrupt4_n = opNetNew(mi, "MTimerInterrupt4", 0, 0);
     optNetP MSWInterrupt4_n = opNetNew(mi, "MSWInterrupt4", 0, 0);
     optNetP intNI_TX4_n = opNetNew(mi, "intNI_TX4", 0, 0);
     optNetP intNI_RX4_n = opNetNew(mi, "intNI_RX4", 0, 0);
+    optNetP intTIMER4_n = opNetNew(mi, "intTIMER4", 0, 0);
     optNetP MTimerInterrupt5_n = opNetNew(mi, "MTimerInterrupt5", 0, 0);
     optNetP MSWInterrupt5_n = opNetNew(mi, "MSWInterrupt5", 0, 0);
     optNetP intNI_TX5_n = opNetNew(mi, "intNI_TX5", 0, 0);
     optNetP intNI_RX5_n = opNetNew(mi, "intNI_RX5", 0, 0);
+    optNetP intTIMER5_n = opNetNew(mi, "intTIMER5", 0, 0);
     optNetP MTimerInterrupt6_n = opNetNew(mi, "MTimerInterrupt6", 0, 0);
     optNetP MSWInterrupt6_n = opNetNew(mi, "MSWInterrupt6", 0, 0);
     optNetP intNI_TX6_n = opNetNew(mi, "intNI_TX6", 0, 0);
     optNetP intNI_RX6_n = opNetNew(mi, "intNI_RX6", 0, 0);
+    optNetP intTIMER6_n = opNetNew(mi, "intTIMER6", 0, 0);
     optNetP MTimerInterrupt7_n = opNetNew(mi, "MTimerInterrupt7", 0, 0);
     optNetP MSWInterrupt7_n = opNetNew(mi, "MSWInterrupt7", 0, 0);
     optNetP intNI_TX7_n = opNetNew(mi, "intNI_TX7", 0, 0);
     optNetP intNI_RX7_n = opNetNew(mi, "intNI_RX7", 0, 0);
+    optNetP intTIMER7_n = opNetNew(mi, "intTIMER7", 0, 0);
     optNetP MTimerInterrupt8_n = opNetNew(mi, "MTimerInterrupt8", 0, 0);
     optNetP MSWInterrupt8_n = opNetNew(mi, "MSWInterrupt8", 0, 0);
     optNetP intNI_TX8_n = opNetNew(mi, "intNI_TX8", 0, 0);
     optNetP intNI_RX8_n = opNetNew(mi, "intNI_RX8", 0, 0);
+    optNetP intTIMER8_n = opNetNew(mi, "intTIMER8", 0, 0);
 
     optPacketnetP data_0_0_TEA_pkn = opPacketnetNew(mi, "data_0_0_TEA", 0, 0);
 
@@ -1086,7 +1095,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip0_n, "irqT0"),
                 OP_NET_CONNECT(intNI_TX0_n, "irqS1"),
-                OP_NET_CONNECT(intNI_RX0_n, "irqS2")
+                OP_NET_CONNECT(intNI_RX0_n, "irqS2"),
+                OP_NET_CONNECT(intTIMER0_n, "irqS3")
             )
         ),
         OP_PARAMS(
@@ -1097,16 +1107,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE prci0
 
-    const char *prci0_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "CLINT",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *prci0_path = "peripheral/CLINT/pse.pse";
     opPeripheralNew(
         mi,
         prci0_path,
@@ -1195,6 +1196,24 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         0
     );
 
+    // PSE timer0
+
+    const char *timer0_path = "peripheral/timer/pse.pse";
+    opPeripheralNew(
+        mi,
+        timer0_path,
+        "timer0",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu0Bus_b, "TIMEREG", .slave=1, .addrLo=0x5000001cULL, .addrHi=0x5000001fULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intTIMER0_n, "INT_TIMER")
+            )
+        ),
+        0
+    );
+
     // PSE uart1
 
     const char *uart1_path = opVLNVString(
@@ -1233,7 +1252,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip1_n, "irqT0"),
                 OP_NET_CONNECT(intNI_TX1_n, "irqS1"),
-                OP_NET_CONNECT(intNI_RX1_n, "irqS2")
+                OP_NET_CONNECT(intNI_RX1_n, "irqS2"),
+                OP_NET_CONNECT(intTIMER1_n, "irqS3")
             )
         ),
         OP_PARAMS(
@@ -1244,16 +1264,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE prci1
 
-    const char *prci1_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "CLINT",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *prci1_path = "peripheral/CLINT/pse.pse";
     opPeripheralNew(
         mi,
         prci1_path,
@@ -1340,6 +1351,24 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         0
     );
 
+    // PSE timer1
+
+    const char *timer1_path = "peripheral/timer/pse.pse";
+    opPeripheralNew(
+        mi,
+        timer1_path,
+        "timer1",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu1Bus_b, "TIMEREG", .slave=1, .addrLo=0x5000001cULL, .addrHi=0x5000001fULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intTIMER1_n, "INT_TIMER")
+            )
+        ),
+        0
+    );
+
     // PSE uart2
 
     const char *uart2_path = opVLNVString(
@@ -1378,7 +1407,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip2_n, "irqT0"),
                 OP_NET_CONNECT(intNI_TX2_n, "irqS1"),
-                OP_NET_CONNECT(intNI_RX2_n, "irqS2")
+                OP_NET_CONNECT(intNI_RX2_n, "irqS2"),
+                OP_NET_CONNECT(intTIMER2_n, "irqS3")
             )
         ),
         OP_PARAMS(
@@ -1389,16 +1419,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE prci2
 
-    const char *prci2_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "CLINT",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *prci2_path = "peripheral/CLINT/pse.pse";
     opPeripheralNew(
         mi,
         prci2_path,
@@ -1483,6 +1504,24 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         0
     );
 
+    // PSE timer2
+
+    const char *timer2_path = "peripheral/timer/pse.pse";
+    opPeripheralNew(
+        mi,
+        timer2_path,
+        "timer2",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu2Bus_b, "TIMEREG", .slave=1, .addrLo=0x5000001cULL, .addrHi=0x5000001fULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intTIMER2_n, "INT_TIMER")
+            )
+        ),
+        0
+    );
+
     // PSE uart3
 
     const char *uart3_path = opVLNVString(
@@ -1521,7 +1560,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip3_n, "irqT0"),
                 OP_NET_CONNECT(intNI_TX3_n, "irqS1"),
-                OP_NET_CONNECT(intNI_RX3_n, "irqS2")
+                OP_NET_CONNECT(intNI_RX3_n, "irqS2"),
+                OP_NET_CONNECT(intTIMER3_n, "irqS3")
             )
         ),
         OP_PARAMS(
@@ -1532,16 +1572,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE prci3
 
-    const char *prci3_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "CLINT",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *prci3_path = "peripheral/CLINT/pse.pse";
     opPeripheralNew(
         mi,
         prci3_path,
@@ -1628,6 +1659,24 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         0
     );
 
+    // PSE timer3
+
+    const char *timer3_path = "peripheral/timer/pse.pse";
+    opPeripheralNew(
+        mi,
+        timer3_path,
+        "timer3",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu3Bus_b, "TIMEREG", .slave=1, .addrLo=0x5000001cULL, .addrHi=0x5000001fULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intTIMER3_n, "INT_TIMER")
+            )
+        ),
+        0
+    );
+
     // PSE uart4
 
     const char *uart4_path = opVLNVString(
@@ -1666,7 +1715,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip4_n, "irqT0"),
                 OP_NET_CONNECT(intNI_TX4_n, "irqS1"),
-                OP_NET_CONNECT(intNI_RX4_n, "irqS2")
+                OP_NET_CONNECT(intNI_RX4_n, "irqS2"),
+                OP_NET_CONNECT(intTIMER4_n, "irqS3")
             )
         ),
         OP_PARAMS(
@@ -1677,16 +1727,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE prci4
 
-    const char *prci4_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "CLINT",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *prci4_path = "peripheral/CLINT/pse.pse";
     opPeripheralNew(
         mi,
         prci4_path,
@@ -1775,6 +1816,24 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         0
     );
 
+    // PSE timer4
+
+    const char *timer4_path = "peripheral/timer/pse.pse";
+    opPeripheralNew(
+        mi,
+        timer4_path,
+        "timer4",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu4Bus_b, "TIMEREG", .slave=1, .addrLo=0x5000001cULL, .addrHi=0x5000001fULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intTIMER4_n, "INT_TIMER")
+            )
+        ),
+        0
+    );
+
     // PSE uart5
 
     const char *uart5_path = opVLNVString(
@@ -1813,7 +1872,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip5_n, "irqT0"),
                 OP_NET_CONNECT(intNI_TX5_n, "irqS1"),
-                OP_NET_CONNECT(intNI_RX5_n, "irqS2")
+                OP_NET_CONNECT(intNI_RX5_n, "irqS2"),
+                OP_NET_CONNECT(intTIMER5_n, "irqS3")
             )
         ),
         OP_PARAMS(
@@ -1824,16 +1884,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE prci5
 
-    const char *prci5_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "CLINT",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *prci5_path = "peripheral/CLINT/pse.pse";
     opPeripheralNew(
         mi,
         prci5_path,
@@ -1920,6 +1971,24 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         0
     );
 
+    // PSE timer5
+
+    const char *timer5_path = "peripheral/timer/pse.pse";
+    opPeripheralNew(
+        mi,
+        timer5_path,
+        "timer5",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu5Bus_b, "TIMEREG", .slave=1, .addrLo=0x5000001cULL, .addrHi=0x5000001fULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intTIMER5_n, "INT_TIMER")
+            )
+        ),
+        0
+    );
+
     // PSE uart6
 
     const char *uart6_path = opVLNVString(
@@ -1958,7 +2027,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip6_n, "irqT0"),
                 OP_NET_CONNECT(intNI_TX6_n, "irqS1"),
-                OP_NET_CONNECT(intNI_RX6_n, "irqS2")
+                OP_NET_CONNECT(intNI_RX6_n, "irqS2"),
+                OP_NET_CONNECT(intTIMER6_n, "irqS3")
             )
         ),
         OP_PARAMS(
@@ -1969,16 +2039,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE prci6
 
-    const char *prci6_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "CLINT",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *prci6_path = "peripheral/CLINT/pse.pse";
     opPeripheralNew(
         mi,
         prci6_path,
@@ -2063,6 +2124,24 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         0
     );
 
+    // PSE timer6
+
+    const char *timer6_path = "peripheral/timer/pse.pse";
+    opPeripheralNew(
+        mi,
+        timer6_path,
+        "timer6",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu6Bus_b, "TIMEREG", .slave=1, .addrLo=0x5000001cULL, .addrHi=0x5000001fULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intTIMER6_n, "INT_TIMER")
+            )
+        ),
+        0
+    );
+
     // PSE uart7
 
     const char *uart7_path = opVLNVString(
@@ -2101,7 +2180,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip7_n, "irqT0"),
                 OP_NET_CONNECT(intNI_TX7_n, "irqS1"),
-                OP_NET_CONNECT(intNI_RX7_n, "irqS2")
+                OP_NET_CONNECT(intNI_RX7_n, "irqS2"),
+                OP_NET_CONNECT(intTIMER7_n, "irqS3")
             )
         ),
         OP_PARAMS(
@@ -2112,16 +2192,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE prci7
 
-    const char *prci7_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "CLINT",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *prci7_path = "peripheral/CLINT/pse.pse";
     opPeripheralNew(
         mi,
         prci7_path,
@@ -2208,6 +2279,24 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         0
     );
 
+    // PSE timer7
+
+    const char *timer7_path = "peripheral/timer/pse.pse";
+    opPeripheralNew(
+        mi,
+        timer7_path,
+        "timer7",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu7Bus_b, "TIMEREG", .slave=1, .addrLo=0x5000001cULL, .addrHi=0x5000001fULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intTIMER7_n, "INT_TIMER")
+            )
+        ),
+        0
+    );
+
     // PSE uart8
 
     const char *uart8_path = opVLNVString(
@@ -2246,7 +2335,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
             OP_NET_CONNECTIONS(
                 OP_NET_CONNECT(eip8_n, "irqT0"),
                 OP_NET_CONNECT(intNI_TX8_n, "irqS1"),
-                OP_NET_CONNECT(intNI_RX8_n, "irqS2")
+                OP_NET_CONNECT(intNI_RX8_n, "irqS2"),
+                OP_NET_CONNECT(intTIMER8_n, "irqS3")
             )
         ),
         OP_PARAMS(
@@ -2257,16 +2347,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     // PSE prci8
 
-    const char *prci8_path = opVLNVString(
-        0, // use the default VLNV path
-        "riscv.ovpworld.org",
-        "peripheral",
-        "CLINT",
-        "1.0",
-        OP_PERIPHERAL,
-        1   // report errors
-    );
-
+    const char *prci8_path = "peripheral/CLINT/pse.pse";
     opPeripheralNew(
         mi,
         prci8_path,
@@ -2346,6 +2427,24 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
                 OP_BUS_CONNECT(cpu8Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE timer8
+
+    const char *timer8_path = "peripheral/timer/pse.pse";
+    opPeripheralNew(
+        mi,
+        timer8_path,
+        "timer8",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu8Bus_b, "TIMEREG", .slave=1, .addrLo=0x5000001cULL, .addrHi=0x5000001fULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intTIMER8_n, "INT_TIMER")
             )
         ),
         0

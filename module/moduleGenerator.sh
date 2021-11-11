@@ -82,7 +82,8 @@ do
 	echo "ihwsetparameter -name num_sources -handle plic"$i" -type Uns32 -value 256" >> module.op.tcl
 	echo "ihwsetparameter -name num_targets -handle plic"$i" -type Uns32 -value 1" >> module.op.tcl
 	echo "" >> module.op.tcl
-	echo "ihwaddperipheral -instancename prci"$i" -vendor riscv.ovpworld.org -library peripheral -type CLINT -version 1.0" >> module.op.tcl
+	#echo "ihwaddperipheral -instancename prci"$i" -vendor riscv.ovpworld.org -library peripheral -type CLINT -version 1.0" >> module.op.tcl
+	echo "ihwaddperipheral -instancename prci"$i" -modelfile peripheral/CLINT/pse.pse" >> module.op.tcl
 	echo "ihwconnect -instancename prci"$i" -bus cpu"$i"Bus -busslaveport port0 -loaddress 0x44000000 -hiaddress 0x4400BFFF" >> module.op.tcl
 	echo "ihwsetparameter -name clockMHz -handle prci"$i" -type double -value 1000.0" >> module.op.tcl
 	echo "" >> module.op.tcl
@@ -98,6 +99,10 @@ do
 	echo "" >> module.op.tcl
 	echo "ihwaddperipheral -instancename printer"$i" -modelfile peripheral/printer/pse.pse" >> module.op.tcl
 	echo "ihwconnect -instancename printer"$i" -busslaveport PRINTREGS -bus cpu"$i"Bus -loaddress 0x50000020 -hiaddress 0x50000027" >> module.op.tcl
+	echo "" >> module.op.tcl
+	echo "ihwaddperipheral -instancename timer"$i" -modelfile peripheral/timer/pse.pse" >> module.op.tcl
+	echo "ihwconnect -instancename timer"$i" -busslaveport TIMEREG -bus cpu"$i"Bus -loaddress 0x5000001C -hiaddress 0x5000001F" >> module.op.tcl
+	echo "" >> module.op.tcl
 done
 
 echo "########################### interrupts ############################" >> module.op.tcl
@@ -127,6 +132,9 @@ do
 	echo "ihwaddnet -instancename intNI_RX"$i >> module.op.tcl
 	echo "ihwconnect -instancename plic"$i" -netport irqS2 -net intNI_RX"$i >> module.op.tcl
 	echo "ihwconnect -instancename ni"$i" -netport INT_NI_RX  -net intNI_RX"$i >> module.op.tcl
+	echo "ihwaddnet -instancename intTIMER"$i >> module.op.tcl
+	echo "ihwconnect -instancename plic"$i" -netport irqS3 -net intTIMER"$i >> module.op.tcl
+	echo "ihwconnect -instancename timer"$i" -netport INT_TIMER  -net intTIMER"$i >> module.op.tcl
 done
 
 # Creates the wire to connect the TEA with one router
