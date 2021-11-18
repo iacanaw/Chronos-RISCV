@@ -129,23 +129,6 @@ static OP_MONITOR_FN(FetchCallback) {
         others[processorID]++;
     }
 
-    // if(processorID == 0){
-    //     opMessage("I", "FETCH", "PE%d- %s @ %x", processorID, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
-    // }
-    // if(processorID == 8){
-    //     // if(saiu_int >= 9){
-    //     //     opMessage("I", "FETCH", "PE%d- %s @ %x", processorID, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
-    //     // }
-    //     if( strcmp(opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), "mret") == 0){
-    //         saiu_int++;
-    //         opMessage("I", "FETCH", "PE%d- SAIU do handler %d vezes & entrou %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
-    //     }
-    //     else if (addr == 0x80000030){
-    //         entrou_int++;
-    //         opMessage("I", "FETCH", "PE%d- saiu do handler %d vezes & ENTROU %d vezes --------> dif: %d ", processorID, saiu_int, entrou_int, entrou_int-saiu_int);    
-    //     }
-    // }
-
     if(fetch[processorID] > 100){
         //opMessage("I", "HARNESS", "Nas ultimas 10k instrucoes o PE%d executou %d loads, %d stores e %d outras instruções", processorID, load[processorID], store[processorID], others[processorID]);
         fetch[processorID] = 0;
