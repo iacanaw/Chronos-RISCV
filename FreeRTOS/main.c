@@ -23,11 +23,11 @@ UART_instance_t g_uart;
 
 //static void vUartAliveTask( void *pvParameters );
 static void GlobalManagerTask( void *pvParameters );
-
+//static void NI_Handler( void *pvParameters );
 /*
  * Tasks to handle the NI interruptions
  */
-static void NI_RX_Handler( void *pvParameters );
+//static void NI_RX_Handler( void *pvParameters );
 //static void NI_TX_Handler( void *pvParameters );
 
 /*
@@ -87,7 +87,8 @@ int main( void )
 		
 		/* Create the two test tasks. */
 		//xTaskCreate( vUartAliveTask, "Alive", 1024*3, NULL, (tskIDLE_PRIORITY + 1), NULL );
-	}	
+	}
+	//xTaskCreate( NI_Handler, "Handler", 1024*6, NULL, (tskIDLE_PRIORITY + 2), NULL );
 
 	/* Start the kernel.  From here on, only tasks and interrupts will run. */
 	vTaskStartScheduler();
@@ -209,25 +210,149 @@ static void GlobalManagerTask( void *pvParameters ){
 	}
 }
 
-/*-----------------------------------------------------------*/
+// static void NI_Handler( void *pvParameters ){
+// 	unsigned int aux;
+//     unsigned int service;
+//     //unsigned int count = 0;
+// 	while(1){
+// 		UART_polled_tx_string( &g_uart, (const uint8_t *)" NI_Handler...\r\n" );
+// 		do{
+// 			if (HW_get_32bit_reg(NI_TIMER) == NI_STATUS_INTER){
+// 				printExecutedInstructions();
+// 				resetExecutedInstructions();
+// 				HW_set_32bit_reg(NI_TIMER, DONE);
+// 			}
 
-/*static void NI_TX_Handler( void *pvParameters ){
-	// Enables interruption from NI
-    NI_enable_irq(TX_RX);
-	for(;;){
-		//prints("blá!\n");
-		while(HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
-			vPortEnterCritical();
-			printsv("TX interruption catched - ", NI_IRCount);
-			API_ClearPipeSlot(SendingSlot); // clear the pipe slot that was transmitted
-			HW_set_32bit_reg(NI_TX, DONE);  // releases the interruption
-			API_Try2Send();                 // tries to send another packet (if available)
-			vPortExitCritical();
-		}
-		//HW_set_32bit_reg(NI_TX, RESET);
-		asm("wfi");
-	}
-}*/
+// 			if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
+// 				prints("TX interruption catched\n"); // - ", NI_IRCount);
+// 				API_ClearPipeSlot(SendingSlot); // clear the pipe slot that was transmitted
+// 				HW_set_32bit_reg(NI_TX, DONE);  // releases the interruption
+// 				API_Try2Send();                 // tries to send another packet (if available)
+// 				//count++;
+// 			}
+
+// 			if( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING) {
+// 				prints("RX interruption catched\n"); // - ", NI_IRCount);
+// 				service = incommingPacket.service;
+// 				incommingPacket.service = SOLVED;
+// 				switch (service){
+// 					case REPOSITORY_APP_INFO: // When the repository informs the GM that exist a new Application available:
+// 						//prints("REPOSITORY_APP_INFO\n");
+// 						API_AddApplication(incommingPacket.application_id,
+// 										incommingPacket.aplication_period, 
+// 										incommingPacket.application_executions, 
+// 										incommingPacket.application_n_tasks);
+// 						break;
+					
+// 					case TASK_ALLOCATION_SEND: // When the GM asks one Slave to allocate one task
+// 						prints("TASK_ALLOCATION_SEND\n");
+// 						aux = API_TaskAllocation(incommingPacket.task_id,
+// 												incommingPacket.task_txt_size,
+// 												incommingPacket.task_bss_size,
+// 												incommingPacket.task_start_point,
+// 												incommingPacket.task_app_id);
+// 						printsv("Task slot: ", aux);
+// 						printsv("Task slot TaskAddr: ", TaskList[aux].taskAddr);
+// 						// Informs the NI were to write the application
+// 						HW_set_32bit_reg(NI_RX, TaskList[aux].taskAddr);
+// 						incommingPacket.service = TASK_ALLOCATION_FINISHED;
+// 						break;
+					
+// 					case TASK_FINISH:
+// 						printsvsv("FINISHED: Task ", incommingPacket.task_id, "from application ", incommingPacket.task_app_id);
+// 						API_ClearTaskSlotFromTile(incommingPacket.task_dest_addr, incommingPacket.task_app_id, incommingPacket.task_id);
+// 						API_DealocateTask(incommingPacket.task_id, incommingPacket.task_app_id);
+// 						break;
+
+// 					case TASK_ALLOCATION_FINISHED:
+// 						prints("TASK_ALLOCATION_FINISHED\n");
+// 						API_AckTaskAllocation(incommingPacket.task_id, incommingPacket.task_app_id);
+// 						/*for(aux = 0; aux < NUM_MAX_TASKS; aux++){
+// 							prints("========\n");
+// 							printsv("TaskSlot ", aux);
+// 							printsv("status: ", TaskList[aux].status);
+// 							printsv("taskSize: ", TaskList[aux].taskSize);
+// 							printsv("taskAddr: ", TaskList[aux].taskAddr);
+// 							printsv("mainAddr: ", TaskList[aux].mainAddr);
+// 							printsv("taskHandler: ", (unsigned int)TaskList[aux].TaskHandler);
+// 						}*/
+// 						break;
+
+// 					case TASK_ALLOCATION_SUCCESS:
+// 						prints("TASK_ALLOCATION_SUCCESS\n");
+// 						//printi(incommingPacket.task_id);
+// 						API_TaskAllocated(incommingPacket.task_id, incommingPacket.task_app_id);
+// 						break;
+
+// 					case TASK_START:
+// 						prints("Chegou um TASK_START!\n");
+// 						aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
+// 						// Informs the NI were to write the application
+// 						HW_set_32bit_reg(NI_RX, (unsigned int)&TaskList[aux].appNumTasks);
+// 						incommingPacket.service = TASK_RUN;
+// 						break;
+					
+// 					case TASK_RUN:
+// 						prints("Chegou um TASK_RUN!\n");
+// 						aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
+// 						TaskList[aux].status = TASK_SLOT_READY;
+// 						printsvsv("Enabling Task: ", incommingPacket.task_id, "from app: ", incommingPacket.task_app_id);
+// 						printsv("Slot: ", aux);
+// 						break;
+
+// 					case MESSAGE_REQUEST:
+// 						// check the pipe
+// 						printsvsv("Chegou um message request! App: ", incommingPacket.task_app_id, "Task: ", incommingPacket.task_id);
+// 						aux = API_CheckMessagePipe(incommingPacket.task_id, incommingPacket.task_app_id);
+// 						if (aux == ERRO){
+// 							// register an messagerequest
+// 							prints("Mensagem não encontrada, adicionando ao PendingReq!\n");
+// 							API_AddPendingReq(incommingPacket.task_id, incommingPacket.task_app_id, incommingPacket.producer_task_id);
+// 						} else {
+// 							prints("Mensagem encontrada no pipe!\n");
+// 							API_PushSendQueue(MESSAGE, aux);
+// 							// API_Try2Send();
+// 						}
+// 						break;
+					
+// 					case MESSAGE_DELIVERY:
+// 						prints("Tem uma mensagem chegando...\n");
+// 						aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
+// 						//printsv("MESSAGE_DELIVERY addr: ", TaskList[aux].MsgToReceive);
+// 						HW_set_32bit_reg(NI_RX, TaskList[aux].MsgToReceive);
+// 						incommingPacket.service = MESSAGE_DELIVERY_FINISH;
+// 						//prints("done...\n----------\n");
+// 						break;
+					
+// 					case MESSAGE_DELIVERY_FINISH:
+// 						//prints("Terminou de entregar a mensagem!!\n");
+// 						aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
+// 						TaskList[aux].waitingMsg = FALSE;
+// 						break;
+
+// 					case SOLVED:
+// 						break;
+						
+// 					default:
+// 						printsv("ERROR External_2_IRQHandler Unknown-Service ", incommingPacket.service);
+// 						break;
+// 				}
+// 				HW_set_32bit_reg(NI_RX, DONE);
+// 				//count++;
+// 			}
+		
+// 		} while( HW_get_32bit_reg(NI_TIMER) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING || HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER);
+		
+// 		for(aux = 0; aux < NUM_MAX_TASKS; aux++){
+// 			if(TaskList[aux].status == TASK_SLOT_READY){
+// 				printsvsv("Starting Task ", TaskList[aux].TaskID, " from app ", TaskList[aux].AppID);
+// 				API_setFreqScale(1000);
+// 				API_TaskStart(aux);
+// 			}
+// 		}
+// 		vTaskSuspend(xTaskGetCurrentTaskHandle());
+// 	}
+// }
 
 // static void NI_RX_Handler( void *pvParameters ){
 // 	unsigned int aux;

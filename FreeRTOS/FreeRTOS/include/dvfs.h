@@ -7,7 +7,7 @@ volatile unsigned int *frequencyScale = FREQUENCY_SCALE;
 
 // 1GHz is the main frequency - other frequencies are relative to it
 // FIXED POINT MATH: 1 means 0.1% ---- 10 means 1%
-#define FREQ_IDLE   10       // 10MHz = 1% of 1GHz
+#define FREQ_IDLE   100      // 100MHz = 10% of 1GHz
 #define FREQ_1GHz   1000     // 1GHz
 #define FREQ_500MHz 500      // 500MHz = 50% of 1GHZ
 #define FREQ_250MHz 250      // 250MHz = 25% of 1GHZ

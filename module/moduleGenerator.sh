@@ -93,15 +93,12 @@ do
 	echo "ihwconnect -instancename router"$i" -busmasterport RWRITE -bus cpu"$i"Bus" >> module.op.tcl
 	echo "" >> module.op.tcl
 	echo "ihwaddperipheral -instancename ni"$i" -modelfile peripheral/networkInterface/pse.pse" >> module.op.tcl
-	echo "ihwconnect -instancename ni"$i" -busslaveport DMAC -bus cpu"$i"Bus -loaddress 0x50000004 -hiaddress 0x5000000F" >> module.op.tcl
+	echo "ihwconnect -instancename ni"$i" -busslaveport DMAC -bus cpu"$i"Bus -loaddress 0x50000004 -hiaddress 0x50000013" >> module.op.tcl
 	echo "ihwconnect -instancename ni"$i" -busmasterport MREAD  -bus cpu"$i"Bus" >> module.op.tcl
 	echo "ihwconnect -instancename ni"$i" -busmasterport MWRITE -bus cpu"$i"Bus" >> module.op.tcl
 	echo "" >> module.op.tcl
 	echo "ihwaddperipheral -instancename printer"$i" -modelfile peripheral/printer/pse.pse" >> module.op.tcl
 	echo "ihwconnect -instancename printer"$i" -busslaveport PRINTREGS -bus cpu"$i"Bus -loaddress 0x50000020 -hiaddress 0x50000027" >> module.op.tcl
-	echo "" >> module.op.tcl
-	echo "ihwaddperipheral -instancename timer"$i" -modelfile peripheral/timer/pse.pse" >> module.op.tcl
-	echo "ihwconnect -instancename timer"$i" -busslaveport TIMEREG -bus cpu"$i"Bus -loaddress 0x5000001C -hiaddress 0x5000001F" >> module.op.tcl
 	echo "" >> module.op.tcl
 done
 
@@ -126,15 +123,10 @@ do
 	echo "ihwaddnet -instancename MSWInterrupt"$i >> module.op.tcl
 	echo "ihwconnect -net MSWInterrupt"$i" -instancename prci"$i" -netport MSWInterrupt0" >> module.op.tcl
 	echo "ihwconnect -net MSWInterrupt"$i" -instancename cpu"$i"  -netport MSWInterrupt" >> module.op.tcl
-	echo "ihwaddnet -instancename intNI_TX"$i >> module.op.tcl
-	echo "ihwconnect -instancename plic"$i" -netport irqS1 -net intNI_TX"$i >> module.op.tcl
-	echo "ihwconnect -instancename ni"$i" -netport INT_NI_TX  -net intNI_TX"$i >> module.op.tcl
-	echo "ihwaddnet -instancename intNI_RX"$i >> module.op.tcl
-	echo "ihwconnect -instancename plic"$i" -netport irqS2 -net intNI_RX"$i >> module.op.tcl
-	echo "ihwconnect -instancename ni"$i" -netport INT_NI_RX  -net intNI_RX"$i >> module.op.tcl
-	echo "ihwaddnet -instancename intTIMER"$i >> module.op.tcl
-	echo "ihwconnect -instancename plic"$i" -netport irqS3 -net intTIMER"$i >> module.op.tcl
-	echo "ihwconnect -instancename timer"$i" -netport INT_TIMER  -net intTIMER"$i >> module.op.tcl
+	echo "ihwaddnet -instancename intNI"$i >> module.op.tcl
+	echo "ihwconnect -instancename plic"$i" -netport irqS2 -net intNI"$i >> module.op.tcl
+	echo "ihwconnect -instancename ni"$i" -netport INT_NI  -net intNI"$i >> module.op.tcl
+	echo "" >> module.op.tcl
 done
 
 # Creates the wire to connect the TEA with one router

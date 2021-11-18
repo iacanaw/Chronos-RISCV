@@ -126,7 +126,7 @@ uint32_t SysTick_Config(uint32_t ticks)
  */
 void handle_m_timer_interrupt()
 {
-    clear_csr(mie, MIP_MTIP);
+    clear_csr(mie, MIP_MTIP); //  MIP_MTIP (1 << 7)
 
     SysTick_Handler();
 
@@ -231,15 +231,6 @@ void handle_syscall(){
 	pointer = (unsigned int *)(temp + (36*4));
 	type = *pointer;
 
-    /*int i;
-    unsigned int *p;
-    unsigned int value;
-    for (i = 0; i < 64; i++){
-		p = (temp + (i*4));
-		value = *p;
-		printsvsv("i: ", i, " value: ", value);
-	}*/
-	
 	switch (type){
 
 		case SYS_TESTING:
@@ -328,7 +319,9 @@ uintptr_t handle_trap(uintptr_t mcause, uintptr_t epc)
         printsv("mcause: ", mcause);
         _exit(mcause);
     }
-    //printsv("handle_trap returns: ", epc);
+    
+    // Added by Iaçanã, solves several interruption problems!
+    portDISABLE_INTERRUPTS(); 
     return epc;
 }
 

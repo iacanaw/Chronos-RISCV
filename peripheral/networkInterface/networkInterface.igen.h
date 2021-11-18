@@ -1,22 +1,3 @@
-/*
- * Copyright (c) 2005-2021 Imperas Software Ltd., www.imperas.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied.
- *
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -67,6 +48,9 @@ typedef struct DMAC_ab8_dataS {
     union { 
         Uns32 value;
     } statusRX;
+    union { 
+        Uns32 value;
+    } timer;
 } DMAC_ab8_dataT, *DMAC_ab8_dataTP;
 
 #ifdef _PSE_
@@ -80,12 +64,9 @@ typedef struct handlesS {
     ppmAddressSpaceHandle MREAD;
     ppmAddressSpaceHandle MWRITE;
     void                 *DMAC;
-    ppmNetHandle          INT_NI_TX;
-    ppmNetHandle          INT_NI_RX;
+    ppmNetHandle          INT_NI;
     ppmPacketnetHandle    dataPort;
     ppmPacketnetHandle    controlPort;
-    ppmPacketnetHandle    txInterruption;
-    ppmPacketnetHandle    rxInterruption;
 } handlesT, *handlesTP;
 
 extern handlesT handles;
@@ -96,12 +77,12 @@ PPM_REG_READ_CB(addressRead);
 PPM_REG_WRITE_CB(addressWrite);
 PPM_PACKETNET_CB(controlPortUpd);
 PPM_PACKETNET_CB(dataPortUpd);
-PPM_PACKETNET_CB(rxInterruptionPort);
 PPM_REG_READ_CB(statusRXRead);
 PPM_REG_WRITE_CB(statusRXWrite);
 PPM_REG_READ_CB(statusTXRead);
 PPM_REG_WRITE_CB(statusTXWrite);
-PPM_PACKETNET_CB(txInterruptionPort);
+PPM_REG_READ_CB(timerRead);
+PPM_REG_WRITE_CB(timerWrite);
 PPM_CONSTRUCTOR_CB(periphConstructor);
 PPM_DESTRUCTOR_CB(periphDestructor);
 PPM_DOC_FN(installDocs);
@@ -116,6 +97,7 @@ PPM_RESTORE_STATE_FN(peripheralRestoreState);
 #define DMAC_AB8_ADDRESS_WIDTH          32
 #define DMAC_AB8_STATUSTX_WIDTH         32
 #define DMAC_AB8_STATUSRX_WIDTH         32
+#define DMAC_AB8_TIMER_WIDTH            32
 
 #endif
 

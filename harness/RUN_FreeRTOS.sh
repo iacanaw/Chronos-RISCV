@@ -157,8 +157,8 @@ harness/harness.${IMPERAS_ARCH}.exe             \
   --program  cpu8=${FREERTOS_ELF}               \
   --override uart8/console=T                    \
   --override uart8/finishOnDisconnect=T         \
-  --override uart8/outfile=simulation/uart8.log $* --verbose --parallelperipherals --output simulation/imperas.log
+  --override uart8/outfile=simulation/uart8.log $* --verbose --output simulation/imperas.log
 #--imperasintercepts                                     \
-# 
+# --parallelperipherals
 
-echo "Simulation total time elapsed: "$SECONDS
+echo "Simulation total time elapsed: "$SECONDS" seconds..."

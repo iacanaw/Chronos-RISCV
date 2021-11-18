@@ -12,7 +12,7 @@
 static unsigned int appInfo[NUM_APPS][INFO_SIZE] = {
 	{ 0x00000000,  // app id dijkstra
 	  0x00000005,  // app period 
-	  0x00000001,  // app executions 
+	  0x00000002,  // app executions 
 	  0x00000007,  // number of tasks 
 	  0xFFFFFFFF,  // nothing 
 	  0xFFFFFFFF,  // nothing 

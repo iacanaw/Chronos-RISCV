@@ -1,148 +1,143 @@
-/*
- * Copyright (c) 2005-2021 Imperas Software Ltd., www.imperas.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied.
- *
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
+
+// ////////////////////////////////////////////////////////////////////////////////
+// //
+// //                W R I T T E N   B Y   I M P E R A S   I G E N
+// //
+// //                             Version 20210408.0
+// //
+// ////////////////////////////////////////////////////////////////////////////////
 
 
-////////////////////////////////////////////////////////////////////////////////
-//
-//                W R I T T E N   B Y   I M P E R A S   I G E N
-//
-//                             Version 20210408.0
-//
-////////////////////////////////////////////////////////////////////////////////
+// #include "networkInterface.igen.h"
+// /////////////////////////////// Port Declarations //////////////////////////////
 
+// DMAC_ab8_dataT DMAC_ab8_data;
 
-#include "networkInterface.igen.h"
-/////////////////////////////// Port Declarations //////////////////////////////
+// handlesT handles;
 
-DMAC_ab8_dataT DMAC_ab8_data;
+// /////////////////////////////// Diagnostic level ///////////////////////////////
 
-handlesT handles;
+// // Test this variable to determine what diagnostics to output.
+// // eg. if (diagnosticLevel >= 1) bhmMessage("I", "networkInterface", "Example");
+// //     Predefined macros PSE_DIAG_LOW, PSE_DIAG_MEDIUM and PSE_DIAG_HIGH may be used
+// Uns32 diagnosticLevel;
 
-/////////////////////////////// Diagnostic level ///////////////////////////////
+// /////////////////////////// Diagnostic level callback //////////////////////////
 
-// Test this variable to determine what diagnostics to output.
-// eg. if (diagnosticLevel >= 1) bhmMessage("I", "networkInterface", "Example");
-//     Predefined macros PSE_DIAG_LOW, PSE_DIAG_MEDIUM and PSE_DIAG_HIGH may be used
-Uns32 diagnosticLevel;
+// static void setDiagLevel(Uns32 new) {
+//     diagnosticLevel = new;
+// }
 
-/////////////////////////// Diagnostic level callback //////////////////////////
+// ///////////////////////////// MMR Generic callbacks ////////////////////////////
 
-static void setDiagLevel(Uns32 new) {
-    diagnosticLevel = new;
-}
+// static PPM_VIEW_CB(view32) {  *(Uns32*)data = *(Uns32*)user; }
 
-///////////////////////////// MMR Generic callbacks ////////////////////////////
+// //////////////////////////////// Bus Slave Ports ///////////////////////////////
 
-static PPM_VIEW_CB(view32) {  *(Uns32*)data = *(Uns32*)user; }
+// static void installSlavePorts(void) {
+//     handles.DMAC = ppmCreateSlaveBusPort("DMAC", 16);
+//     if (!handles.DMAC) {
+//         bhmMessage("E", "PPM_SPNC", "Could not connect port 'DMAC'");
+//     }
 
-//////////////////////////////// Bus Slave Ports ///////////////////////////////
+// }
 
-static void installSlavePorts(void) {
-    handles.DMAC = ppmCreateSlaveBusPort("DMAC", 12);
-    if (!handles.DMAC) {
-        bhmMessage("E", "PPM_SPNC", "Could not connect port 'DMAC'");
-    }
+// //////////////////////////// Memory mapped registers ///////////////////////////
 
-}
+// static void installRegisters(void) {
 
-//////////////////////////// Memory mapped registers ///////////////////////////
+//     {
+//         ppmCreateRegister(
+//             "ab8_address",
+//             0,
+//             handles.DMAC,
+//             0x0,
+//             4,
+//             addressRead,
+//             addressWrite,
+//             view32,
+//             &(DMAC_ab8_data.address.value),
+//             True
+//         );
+//     }
+//     {
+//         ppmCreateRegister(
+//             "ab8_statusTX",
+//             0,
+//             handles.DMAC,
+//             0x4,
+//             4,
+//             statusTXRead,
+//             statusTXWrite,
+//             view32,
+//             &(DMAC_ab8_data.statusTX.value),
+//             True
+//         );
+//     }
+//     {
+//         ppmCreateRegister(
+//             "ab8_statusRX",
+//             0,
+//             handles.DMAC,
+//             0x8,
+//             4,
+//             statusRXRead,
+//             statusRXWrite,
+//             view32,
+//             &(DMAC_ab8_data.statusRX.value),
+//             True
+//         );
+//     }
+//     {
+//         ppmCreateRegister(
+//             "ab8_timer",
+//             0,
+//             handles.DMAC,
+//             0xc,
+//             4,
+//             timerRead,
+//             timerWrite,
+//             view32,
+//             &(DMAC_ab8_data.timer.value),
+//             True
+//         );
+//     }
 
-static void installRegisters(void) {
+// }
 
-    {
-        ppmCreateRegister(
-            "ab8_address",
-            0,
-            handles.DMAC,
-            0x0,
-            4,
-            addressRead,
-            addressWrite,
-            view32,
-            &(DMAC_ab8_data.address.value),
-            True
-        );
-    }
-    {
-        ppmCreateRegister(
-            "ab8_statusTX",
-            0,
-            handles.DMAC,
-            0x4,
-            4,
-            statusTXRead,
-            statusTXWrite,
-            view32,
-            &(DMAC_ab8_data.statusTX.value),
-            True
-        );
-    }
-    {
-        ppmCreateRegister(
-            "ab8_statusRX",
-            0,
-            handles.DMAC,
-            0x8,
-            4,
-            statusRXRead,
-            statusRXWrite,
-            view32,
-            &(DMAC_ab8_data.statusRX.value),
-            True
-        );
-    }
+// /////////////////////////////// Bus Master Ports ///////////////////////////////
 
-}
+// static void installMasterPorts(void) {
+//     handles.MREAD = ppmOpenAddressSpace("MREAD");
+//     handles.MWRITE = ppmOpenAddressSpace("MWRITE");
+// }
 
-/////////////////////////////// Bus Master Ports ///////////////////////////////
+// PPM_DOC_FN(installDocs){
 
-static void installMasterPorts(void) {
-    handles.MREAD = ppmOpenAddressSpace("MREAD");
-    handles.MWRITE = ppmOpenAddressSpace("MWRITE");
-}
+//     ppmDocNodeP Root1_node = ppmDocAddSection(0, "Root");
+//     {
+//         ppmDocNodeP doc2_node = ppmDocAddSection(Root1_node, "Description");
+//         ppmDocAddText(doc2_node, "A OVP DMA for a router");
+//     }
+// }
+// ////////////////////////////////// Constructor /////////////////////////////////
 
-PPM_DOC_FN(installDocs){
+// PPM_CONSTRUCTOR_CB(periphConstructor) {
+//     installSlavePorts();
+//     installRegisters();
+//     installMasterPorts();
+// }
 
-    ppmDocNodeP Root1_node = ppmDocAddSection(0, "Root");
-    {
-        ppmDocNodeP doc2_node = ppmDocAddSection(Root1_node, "Description");
-        ppmDocAddText(doc2_node, "A OVP DMA for a router");
-    }
-}
-////////////////////////////////// Constructor /////////////////////////////////
+// ///////////////////////////////////// Main /////////////////////////////////////
 
-PPM_CONSTRUCTOR_CB(periphConstructor) {
-    installSlavePorts();
-    installRegisters();
-    installMasterPorts();
-}
+// int main(int argc, char *argv[]) {
 
-///////////////////////////////////// Main /////////////////////////////////////
+//     diagnosticLevel = 0;
+//     bhmInstallDiagCB(setDiagLevel);
+//     constructor();
 
-int main(int argc, char *argv[]) {
-
-    diagnosticLevel = 0;
-    bhmInstallDiagCB(setDiagLevel);
-    constructor();
-
-    bhmWaitEvent(bhmGetSystemEvent(BHM_SE_END_OF_SIMULATION));
-    destructor();
-    return 0;
-}
+//     bhmWaitEvent(bhmGetSystemEvent(BHM_SE_END_OF_SIMULATION));
+//     destructor();
+//     return 0;
+// }
 

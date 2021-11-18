@@ -24,7 +24,7 @@ Uns32 diagnosticLevel;
 
 /////////////////////////////// Global Variable ////////////////////////////////
 
-double timer_us = 0; // interruption timer in us ~~ default is off (zero)!
+volatile double timer_us = (double)0.0; // interruption timer in us ~~ default is off (zero)!
 
 /////////////////////////// Diagnostic level callback //////////////////////////
 
@@ -90,13 +90,14 @@ PPM_REG_READ_CB(cfgRead) {
 }
 
 PPM_REG_WRITE_CB(cfgWrite) {
-    unsigned int value = data;
+    unsigned int value = (double)data;
     if(value == 0xFFFFFFFF){
+        //bhmMessage("I", "TIMER", "Timer turning interruption down!");
         ppmWriteNet(handles.INT_TIMER, 0);
     }
     else{
-        bhmMessage("I", "TIMER", "Timer set to interrupt the processor once every %d us!",value);
         timer_us = (double)value;
+        bhmMessage("I", "TIMER", "Timer set to interrupt the processor once every %.2lf us!",timer_us);
     }
     *(Uns32*)user = data;
 }
@@ -128,11 +129,13 @@ int main(int argc, char *argv[]) {
     constructor();
 
     while(1){
-        if(timer_us == 0){
-            bhmWaitDelay(100); // if the timer is unset then waits for 10 us to check if the timer was reprogrammed
+        if(timer_us == (double)0.0){
+            bhmWaitDelay(1000); // if the timer is unset then waits for 10 us to check if the timer was reprogrammed
         }
         else{
+            //bhmMessage("I", "TIMER", "Timer set to turn interruption on in %lf us - current time: %lf",timer_us,bhmGetCurrentTime());
             bhmWaitDelay(timer_us); // Every time_us 
+            //bhmMessage("I", "TIMER", "Timer turning interruption up! at %lf",bhmGetCurrentTime());
             ppmWriteNet(handles.INT_TIMER, 1);
         }
     }

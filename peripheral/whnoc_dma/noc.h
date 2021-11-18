@@ -56,7 +56,7 @@
 #define TX                  0x00002222U
 #define RX                  0x00003333U
 #define TX_RX               0x00007777U
-#define DONE                0x00005555U
+#define DONE                0x80005555U
 #define INTERRUPTION_ACK    0x00001234U
 #define RESET               0x00008888U
 #define BLOCKED             0xF2F2

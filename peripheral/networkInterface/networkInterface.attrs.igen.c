@@ -1,22 +1,3 @@
-/*
- * Copyright (c) 2005-2021 Imperas Software Ltd., www.imperas.com
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *   http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND,
- * either express or implied.
- *
- * See the License for the specific language governing permissions and
- * limitations under the License.
- *
- */
-
 
 ////////////////////////////////////////////////////////////////////////////////
 //
@@ -42,7 +23,7 @@ static ppmBusPort busPorts[] = {
     {
         .name            = "DMAC",
         .type            = PPM_SLAVE_PORT,
-        .addrHi          = 0xb,
+        .addrHi          = 0xf,
         .mustBeConnected = 1,
         .remappable      = 0,
         .description     = 0,
@@ -79,18 +60,11 @@ static PPM_BUS_PORT_FN(nextBusPort) {
 
 static ppmNetPort netPorts[] = {
     {
-        .name            = "INT_NI_TX",
+        .name            = "INT_NI",
         .type            = PPM_OUTPUT_PORT,
         .mustBeConnected = 0,
-        .description     = "NI TX Interrupt Request",
-        .handlePtr       = &handles.INT_NI_TX,
-    },
-    {
-        .name            = "INT_NI_RX",
-        .type            = PPM_OUTPUT_PORT,
-        .mustBeConnected = 0,
-        .description     = "NI RX Interrupt Request",
-        .handlePtr       = &handles.INT_NI_RX,
+        .description     = "NI Interrupt Request",
+        .handlePtr       = &handles.INT_NI,
     },
     { 0 }
 };
@@ -109,8 +83,6 @@ static PPM_NET_PORT_FN(nextNetPort) {
 
 Uns8 dataPort_pnsd[4];
 Uns8 controlPort_pnsd[8];
-Uns8 txInterruption_pnsd[8];
-Uns8 rxInterruption_pnsd[8];
 
 static ppmPacketnetPort packetnetPorts[] = {
     {
@@ -131,26 +103,6 @@ static ppmPacketnetPort packetnetPorts[] = {
         .sharedDataBytes = 8,
         .handlePtr       = &handles.controlPort,
         .packetnetCB     = controlPortUpd,
-        .userData        = (void*)0
-    },
-    {
-        .name            = "txInterruption",
-        .mustBeConnected = 0,
-        .description     = 0,
-        .sharedData      = txInterruption_pnsd,
-        .sharedDataBytes = 8,
-        .handlePtr       = &handles.txInterruption,
-        .packetnetCB     = txInterruptionPort,
-        .userData        = (void*)0
-    },
-    {
-        .name            = "rxInterruption",
-        .mustBeConnected = 0,
-        .description     = 0,
-        .sharedData      = rxInterruption_pnsd,
-        .sharedDataBytes = 8,
-        .handlePtr       = &handles.rxInterruption,
-        .packetnetCB     = rxInterruptionPort,
         .userData        = (void*)0
     },
     { 0 }

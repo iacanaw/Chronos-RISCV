@@ -40,17 +40,6 @@ void Chronos_init(){
     HW_set_32bit_reg(PRINTER_CHAR, getXpos(ProcessorAddr));
     HW_set_32bit_reg(PRINTER_CHAR, getYpos(ProcessorAddr));
 
-    // Enables interruption from NI
-    NI_enable_irq(TX_RX);
-    //NI_IRCount = 0;
-    //NI_enable_irq(RX);
-
-    // Configures the timer to interrupt at each ms
-    HW_set_32bit_reg(TIMER_BASE, 1000);
-
-    // Informs the NI the address to store incoming packets
-    HW_set_32bit_reg(NI_ADDR, (unsigned int)&incommingPacket.header);
-    
     // Initialize the TaskList
     API_TaskListInit();
     
@@ -58,6 +47,15 @@ void Chronos_init(){
     API_PipeInitialization();
     SendingQueue_front = 0;
     SendingQueue_tail = 0;
+
+    // Configures the timer to interrupt at each ms
+    HW_set_32bit_reg(NI_TIMER, 1000);
+
+    // Informs the NI the address to store incoming packets
+    HW_set_32bit_reg(NI_ADDR, (unsigned int)&incommingPacket.header);
+    
+    // Enables interruption from NI
+    NI_enable_irq(TX_RX);
 
     // Set the system to Idle
     API_setFreqIdle();
@@ -86,24 +84,20 @@ void printi(int value) {
 ////////////////////////////////////////////////////////////
 // Prints a string followed by a integer
 void printsv(char *text1, int value1) {
-    //vPortEnterCritical();
     prints(text1);
     printi(value1);
     prints("\n");
-    //vPortExitCritical();
     return;
 }
 
 ////////////////////////////////////////////////////////////
 // Prints two strings and two integers interspersed
 void printsvsv(char *text1, int value1, char *text2, int value2) {
-    //vPortEnterCritical();
     prints(text1);
     printi(value1);
     prints(text2);
     printi(value2);
     prints("\n");
-    //vPortExitCritical();
     return;
 }
 
@@ -126,57 +120,25 @@ void SendRaw(unsigned int addr) {
 ////////////////////////////////////////////////////////////
 // Enables interruptions incomming from NI
 void NI_enable_irq(int which){
-	if (which == TX || which == TX_RX){
-        PLIC_EnableIRQ(NI_TX_IRQn);
-        PLIC_SetPriority(NI_TX_IRQn, 1);
-    }
-    if (which == RX || which == TX_RX){
-        PLIC_EnableIRQ(NI_RX_IRQn);
-        PLIC_SetPriority(NI_RX_IRQn, 2);
-    }
+    PLIC_EnableIRQ(NI_RX_IRQn);
+    PLIC_SetPriority(NI_RX_IRQn, 1);
     return;
 }
 
 ////////////////////////////////////////////////////////////
 // Disables interruptions incomming from NI
 void NI_disable_irq(int which){
-	if (which == TX || which == TX_RX) PLIC_DisableIRQ(NI_TX_IRQn);
-    if (which == RX || which == TX_RX) PLIC_DisableIRQ(NI_RX_IRQn);
+    PLIC_DisableIRQ(NI_RX_IRQn);
     return;
 }
 
 ////////////////////////////////////////////////////////////
-// Interruptions handler for TX
-uint8_t External_1_IRQHandler(void){ 
-    /*prints("INTERRUPTION TX\n");
-    API_ClearPipeSlot(SendingSlot);
-    HW_set_32bit_reg(NI_TX, DONE);
-    API_Try2Send();*/
-    return 0;
-}
-
-////////////////////////////////////////////////////////////
-// Interruptions handler for RX
-uint8_t External_2_IRQHandler(void){
-    unsigned int aux;
-    //NI_IRCount++;
-    
+// Interruption handler for the NI
+uint8_t External_2_IRQHandler(void){    
     API_NI_Handler();
 
     return 0;
 }
-
-uint8_t External_3_IRQHandler(void){
-    
-
-    printExecutedInstructions();
-
-    // releases the interruption
-    HW_set_32bit_reg(TIMER_BASE, 0xFFFFFFFF);
-    
-    return 0;
-}
-
 
 ////////////////////////////////////////////////////////////
 // https://www.techiedelight.com/implement-itoa-function-in-c/
@@ -462,13 +424,11 @@ void API_AddPendingReq(unsigned int requester_task_id, unsigned int task_app_id,
 }
 
 
-unsigned int API_NI_Handler(){
+void API_NI_Handler(){
     unsigned int aux;
     unsigned int service;
     unsigned int count = 0;
     do{
-        //HW_set_32bit_reg(NI_RX, INTERRUPTION_ACK);
-
         if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
             prints("TX interruption catched\n"); // - ", NI_IRCount);
             API_ClearPipeSlot(SendingSlot); // clear the pipe slot that was transmitted
@@ -476,7 +436,8 @@ unsigned int API_NI_Handler(){
             API_Try2Send();                 // tries to send another packet (if available)
             count++;
         }
-        if(HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING) {
+
+        if( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING) {
             prints("RX interruption catched\n"); // - ", NI_IRCount);
             service = incommingPacket.service;
             incommingPacket.service = SOLVED;
@@ -585,7 +546,8 @@ unsigned int API_NI_Handler(){
             HW_set_32bit_reg(NI_RX, DONE);
             count++;
         }
-    }while(HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING || HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER);
+    
+    } while( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING || HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER);
     
     for(aux = 0; aux < NUM_MAX_TASKS; aux++){
         if(TaskList[aux].status == TASK_SLOT_READY){
@@ -594,7 +556,12 @@ unsigned int API_NI_Handler(){
             API_TaskStart(aux);
         }
     }
-    //printExecutedInstructions();
-
-    return count;
+    
+    if (HW_get_32bit_reg(NI_TIMER) == NI_STATUS_INTER){
+        printExecutedInstructions();
+        resetExecutedInstructions();
+        HW_set_32bit_reg(NI_TIMER, DONE);
+    }
+    
+    return;
 }
