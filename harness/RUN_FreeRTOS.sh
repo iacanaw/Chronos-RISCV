@@ -96,6 +96,10 @@ make NOVLNV=1
 cd ..
 echo "====================="
 echo "COMPILING THE HARNESS"
+cd harness
+sh harnessGenerator.sh 3 3
+cd ..
+rm -rf harness/obj
 rm harness/harness.Linux64.exe
 make -C harness
 
@@ -157,7 +161,7 @@ harness/harness.${IMPERAS_ARCH}.exe             \
   --program  cpu8=${FREERTOS_ELF}               \
   --override uart8/console=T                    \
   --override uart8/finishOnDisconnect=T         \
-  --override uart8/outfile=simulation/uart8.log $* --verbose  --output simulation/imperas.log
+  --override uart8/outfile=simulation/uart8.log $* --verbose --parallelmax --parallelperipherals --output simulation/imperas.log
 #--imperasintercepts                                     \
 # --parallelperipherals
 
