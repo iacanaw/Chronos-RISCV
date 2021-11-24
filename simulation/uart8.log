@@ -4,4 +4,8 @@
  This terminal belongs to the address: 202
 
  This processor is a Slave: 
-Starting Dijkstra_3.
+Starting Dijkstra_1.PROD1 Start 
+PROD1 End 
+PROD1 Start 
+PROD1 End 
+Dijkstra_1 finished.

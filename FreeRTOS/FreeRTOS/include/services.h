@@ -14,6 +14,9 @@
 #define TASK_START                      0x00000400U
 #define TASK_RUN                        0x00000401U
 #define TASK_FINISH                     0x00000500U
+#define ENERGY_PACKET                   0x00000050U
+#define TEMPERATURE_PACKET              0x00000055U
+#define FINISH_TEMPERATURE_PACKET       0x00000056U
 
 #define SOLVED                          0x0000FFFFU
 

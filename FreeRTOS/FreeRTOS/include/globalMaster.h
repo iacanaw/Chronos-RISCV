@@ -18,6 +18,10 @@
 unsigned int priorityMatrix[DIM_X*DIM_Y];
 unsigned int priorityPointer;
 
+// Stores the estimated system temperature
+volatile unsigned int SystemTemperature[DIM_X*DIM_Y];
+unsigned int temperatureUpdated;
+
 // Tile Struct
 typedef struct{
     unsigned int temperature;   // In Kelvin

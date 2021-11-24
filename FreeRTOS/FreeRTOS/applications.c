@@ -26,7 +26,7 @@ unsigned int API_GetCurrentTaskSlot(){
     TaskHandle_t xHandle = xTaskGetCurrentTaskHandle();
     unsigned int i = 0;
     for ( i = 0 ; i < NUM_MAX_TASKS ; i++ ) {
-        if ( TaskList[ i ].TaskHandler == xHandle ) {
+        if ( TaskList[ i ].TaskHandler == xHandle && TaskList[i].status != TASK_SLOT_EMPTY ) {
             return( i );
         }
     }
@@ -113,6 +113,7 @@ void API_TaskStart(unsigned int slot){
 void API_FinishRunningTask(){
     int i;
     unsigned int slot = API_GetCurrentTaskSlot();
+    printsvsv("Finishing task:", TaskList[slot].TaskID, "app: ", TaskList[slot].AppID);
     while(API_checkPipe(slot) == 1){
         vTaskDelay(1);
     }

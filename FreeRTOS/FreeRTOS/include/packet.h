@@ -39,12 +39,14 @@ typedef struct {
 		unsigned int flit3;
 		unsigned int application_id;		// ** Informs the application ID
 		unsigned int task_id;				// ** Store the task ID
+		unsigned int source_addr;			// ** Store the packet producer addr
 	};
 	union{
 		unsigned int flit4;
 		unsigned int aplication_period;		// ** Informs the GlobalMaster the period of a given application (the time in miliseconds that the application must wait after its finish to start again)
 		unsigned int task_txt_size;			// ** Informs the task .txt size (in words) 
 		unsigned int producer_task;			// ** Informs the receiver the producer task
+		unsigned int spent_energy;			// ** Informs the amount of energy spent during the last window
 	};
 	union{
 		unsigned int flit5;

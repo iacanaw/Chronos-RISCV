@@ -4,4 +4,19 @@
  This terminal belongs to the address: 101
 
  This processor is a Slave: 
-Starting Dijkstra_1.
+CONS1 Start 
+Chegou a mensagem numero: 0 - tamanho: 25 .
+Chegou a mensagem numero: 1 - tamanho: 25 .
+Chegou a mensagem numero: 2 - tamanho: 25 .
+Chegou a mensagem numero: 3 - tamanho: 25 .
+Chegou a mensagem numero: 4 - tamanho: 25 .
+Chegou a mensagem numero: 5 - tamanho: 25 .
+Chegou a mensagem numero: 6 - tamanho: 25 .
+Chegou a mensagem numero: 7 - tamanho: 25 .
+Chegou a mensagem numero: 8 - tamanho: 25 .
+Chegou a mensagem numero: 9 - tamanho: 25 .
+CONS1 End 
+PROD1 Start 
+PROD1 End 
+PROD1 Start 
+PROD1 End 

@@ -24,6 +24,7 @@ void API_PipeInitialization(){
 unsigned int API_GetMessageSlot(){
     int i;
     unsigned int sel = PIPE_FULL;
+    vTaskEnterCritical();
     for( i = 0; i < PIPE_SIZE; i++ ){
         if (MessagePipe[i].status == PIPE_FREE){
             MessagePipe[i].status = PIPE_OCCUPIED;
@@ -39,6 +40,7 @@ unsigned int API_GetMessageSlot(){
             MessagePipe[i].msgID = (MessagePipe[i].msgID & 0x000000FF);
         }
     }
+    vTaskExitCritical();
     return sel;
 }
 
@@ -46,12 +48,15 @@ unsigned int API_GetMessageSlot(){
 // Returns a free Service slot
 unsigned int API_GetServiceSlot(){
     int i;
+    vTaskEnterCritical();
     for( i = 0; i < PIPE_SIZE; i++ ){
         if (ServicePipe[i].status == PIPE_FREE){
             ServicePipe[i].status = PIPE_OCCUPIED;
+            vTaskExitCritical();
             return i;
         }
     }
+    vTaskExitCritical();
     return PIPE_FULL;
 }
 
@@ -63,9 +68,11 @@ void API_ClearPipeSlot(unsigned int typeSlot){
     
     if (type == SERVICE){
         ServicePipe[slot].status = PIPE_FREE;
+        ServicePipe[slot].holder = PIPE_FREE;
     } else { // type == MESSAGE
         //printsv("cleaning message pipe slot: ", slot);
         MessagePipe[slot].status = PIPE_FREE;
+        MessagePipe[slot].holder = PIPE_FREE;
     }
     return;
 }
@@ -73,10 +80,10 @@ void API_ClearPipeSlot(unsigned int typeSlot){
 unsigned int API_checkPipe(unsigned int taskSlot){
     unsigned int i;
     for(i = 0; i < PIPE_SIZE; i++){
-        // printsv("i: ", i);
-        // printsv("status: ", MessagePipe[i].status);
-        // printsv("holder: ", MessagePipe[i].holder);
-        // prints("---\n");
+        printsv("i: ", i);
+        printsv("status: ", MessagePipe[i].status);
+        printsv("holder: ", MessagePipe[i].holder);
+        prints("---\n");
         if(MessagePipe[i].status == PIPE_OCCUPIED){
             if(MessagePipe[i].holder == taskSlot){
                 return 1;

@@ -11,13 +11,13 @@ C_SRCS += \
 ../FreeRTOS/string.c \
 ../FreeRTOS/tasks.c \
 ../FreeRTOS/timers.c \
-../FreeRTOS/chronos.c \
 ../FreeRTOS/globalMaster.c \
 ../FreeRTOS/applications.c \
 ../FreeRTOS/system_call.c \
 ../FreeRTOS/packet.c \
 ../FreeRTOS/dvfs.c \
-../FreeRTOS/thermal.c 
+../FreeRTOS/thermal.c \
+../FreeRTOS/chronos.c
 
 OBJS += \
 ./FreeRTOS/croutine.o \
@@ -27,13 +27,13 @@ OBJS += \
 ./FreeRTOS/string.o \
 ./FreeRTOS/tasks.o \
 ./FreeRTOS/timers.o \
-./FreeRTOS/chronos.o \
 ./FreeRTOS/globalMaster.o \
 ./FreeRTOS/applications.o \
 ./FreeRTOS/system_call.o \
 ./FreeRTOS/packet.o \
 ./FreeRTOS/dvfs.o \
-./FreeRTOS/thermal.o
+./FreeRTOS/thermal.o \
+./FreeRTOS/chronos.o 
 
 
 C_DEPS += \
@@ -44,13 +44,13 @@ C_DEPS += \
 ./FreeRTOS/string.d \
 ./FreeRTOS/tasks.d \
 ./FreeRTOS/timers.d \
-./FreeRTOS/chronos.d \
 ./FreeRTOS/globalMaster.d \
 ./FreeRTOS/applications.d \
 ./FreeRTOS/system_call.d \
 ./FreeRTOS/packet.d \
 ./FreeRTOS/dvfs.d \
-./FreeRTOS/thermal.d
+./FreeRTOS/thermal.d \
+./FreeRTOS/chronos.d 
 
 
 

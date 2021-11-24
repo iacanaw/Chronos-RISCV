@@ -266,7 +266,7 @@ unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsign
 // Clear a slot occupied by a given task
 unsigned int API_ClearTaskSlotFromTile(unsigned int addr, unsigned int app, unsigned int task){
     Tiles[getXpos(addr)][getYpos(addr)].taskSlots++;
-    if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots >= NUM_MAX_TASKS){
+    if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots > NUM_MAX_TASKS){
         prints("returning erro6\n");
         return ERRO;
     }
@@ -300,7 +300,7 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
             API_NI_Handler();
         }
     }while(mySlot == PIPE_FULL);
-    printsv("I got a free service slot!! -> ", mySlot);
+    printsv("I got a free service slo-!! -> ", mySlot);
 
     ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
 

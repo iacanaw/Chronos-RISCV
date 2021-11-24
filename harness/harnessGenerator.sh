@@ -20,7 +20,7 @@ echo "#define N_PES "$N >> harness.c
 echo "" >> harness.c
 echo "// Quantum defines" >> harness.c
 echo "#define INSTRUCTIONS_PER_SECOND 1000000000.0                                            // 1GHz (assuming 1 instruction per cycle)" >> harness.c
-echo "#define INSTRUCTIONS_PER_TIME_SLICE 25000.0                                             //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)" >> harness.c
+echo "#define INSTRUCTIONS_PER_TIME_SLICE 10000.0                                             //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)" >> harness.c
 echo "#define QUANTUM_TIME_SLICE (double)(INSTRUCTIONS_PER_TIME_SLICE / INSTRUCTIONS_PER_SECOND)" >> harness.c
 echo "" >> harness.c
 echo "// Address to save the instruction counters" >> harness.c
@@ -82,7 +82,7 @@ echo "    .postSimulateCB = modulePostSimulate," >> harness.c
 echo "    .destructCB = moduleDestruct," >> harness.c
 echo "};" >> harness.c
 echo "" >> harness.c
-echo "int getProcessorID(optProcessorP processor){" >> harness.c
+echo "/*int getProcessorID(optProcessorP processor){" >> harness.c
 echo "    int processorID;" >> harness.c
 echo "    char processorName[7] = \"@@@@@@@\";" >> harness.c
 echo "    strcpy(processorName,opObjectName(processor)); " >> harness.c
@@ -99,7 +99,7 @@ echo "        opMessage(\"I\", \"FETCH CALLBACK\", \"~~~~> Ocorreu um erro! %d\"
 echo "        while(1){}     " >> harness.c
 echo "    }" >> harness.c
 echo "    return processorID;" >> harness.c
-echo "}" >> harness.c
+echo "}*/" >> harness.c
 echo "" >> harness.c
 echo "// unsigned int saiu_int = 0;" >> harness.c
 echo "// unsigned int entrou_int = 0;" >> harness.c
@@ -110,6 +110,9 @@ do
     echo "    char aux_8bits[4];" >> harness.c
     echo "    opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
     echo "    unsigned int instruction32 = vec2usi(aux_8bits);" >> harness.c
+    echo "    fetch"$i"++;" >> harness.c
+    echo "" >> harness.c
+    echo "    //opMessage(\"I\", \"FETCH\", \"PE%d- %s @ %x\", "$i", opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);" >> harness.c
     echo "    " >> harness.c
     echo "    // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60" >> harness.c
     echo "    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) " >> harness.c
@@ -163,25 +166,26 @@ echo "    opProcessorFinish(processor, 0);" >> harness.c
 echo "    return;" >> harness.c
 echo "}" >> harness.c
 echo "" >> harness.c
-echo "static OP_MONITOR_FN(FreqCallback){" >> harness.c
-echo "    // gets the processor ID" >> harness.c
-echo "    int processorID = getProcessorID(processor);" >> harness.c
-echo "" >> harness.c
-echo "    // reads the frequency scale, provided by the system" >> harness.c
-echo "    char readFreq_8bit[4];" >> harness.c
-echo "    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
-echo "    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);" >> harness.c
-echo "" >> harness.c
-echo "    // translates from fixed point to float" >> harness.c
-echo "    float freqScale = 100 - (float)((float)readFreq_32bit / 10);" >> harness.c
-echo "    if(freqScale == 100){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency" >> harness.c
-echo "        freqScale = 50;" >> harness.c
-echo "    }" >> harness.c
-echo "    opMessage(\"I\", \"HARNESS\", \" >>> PE %d changing to %.1f%% of its nominal frequency -- (%.0fMHz)\", processorID, 100-freqScale, 10*(100-freqScale));" >> harness.c
-echo "    opProcessorDerate(processor, freqScale);" >> harness.c
-echo "    return;" >> harness.c
-echo "}" >> harness.c
-echo "" >> harness.c
+for i in $(seq 0 $N);
+do
+    echo "static OP_MONITOR_FN(FreqCallback"$i"){" >> harness.c
+    echo "" >> harness.c
+    echo "    // reads the frequency scale, provided by the system" >> harness.c
+    echo "    char readFreq_8bit[4];" >> harness.c
+    echo "    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
+    echo "    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);" >> harness.c
+    echo "" >> harness.c
+    echo "    // translates from fixed point to float" >> harness.c
+    echo "    float freqScale = 100 - (float)((float)readFreq_32bit / 10);" >> harness.c
+    echo "    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency" >> harness.c
+    echo "        freqScale = 90;" >> harness.c
+    echo "    }" >> harness.c
+    echo "    opMessage(\"I\", \"HARNESS\", \" >>> PE "$i" changing to %.1f%% of its nominal frequency -- (%.0fMHz)\", 100-freqScale, 10*(100-freqScale));" >> harness.c
+    echo "    opProcessorDerate(processor, freqScale);" >> harness.c
+    echo "    return;" >> harness.c
+    echo "}" >> harness.c
+    echo "" >> harness.c
+done
 echo "int main(int argc, const char *argv[]) {" >> harness.c
 echo "    int             runningPE       = 0;" >> harness.c
 echo "    optProcessorP   stopProcessor   = 0;" >> harness.c
@@ -215,16 +219,16 @@ echo "            opMessage(\"I\", \"HARNESS INFO\", \"\t > MONITOR DE FINALIZAÃ
 echo "            opProcessorFetchMonitorAdd(proc, 0x80000e04, 0x80000e07, FinishCallback, \"finish\");" >> harness.c
 echo "        }" >> harness.c
 echo "        " >> harness.c
-echo "        opMessage(\"I\", \"HARNESS INFO\", \"\t > MONITOR DE FREQUENCIA ADICIONADO!\");" >> harness.c
-echo "        opProcessorWriteMonitorAdd (proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback, \"frequency\");" >> harness.c
-echo "" >> harness.c
-echo "        " >> harness.c
 echo "        switch(runningPE){" >> harness.c
 for i in $(seq 0 $N);
 do
-echo "            case "$i":" >> harness.c
-echo "                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback"$i", \"fetch"$i"\");" >> harness.c
-echo "                break;" >> harness.c
+    echo "            case "$i":" >> harness.c
+    echo "                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback"$i", \"frequency"$i"\");" >> harness.c
+    echo "                opMessage(\"I\", \"HARNESS INFO\", \"\t > MONITOR DE FREQUENCIA "$i" ADICIONADO!\");" >> harness.c
+
+    echo "                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback"$i", \"fetch"$i"\");" >> harness.c
+    echo "                opMessage(\"I\", \"HARNESS INFO\", \"	 > MONITOR DE FETCH "$i" ADICIONADO!\");" >> harness.c
+    echo "                break;" >> harness.c
 echo "" >> harness.c
 done
 echo "            default: " >> harness.c

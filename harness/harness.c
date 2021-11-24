@@ -11,7 +11,7 @@
 
 // Quantum defines
 #define INSTRUCTIONS_PER_SECOND 1000000000.0                                            // 1GHz (assuming 1 instruction per cycle)
-#define INSTRUCTIONS_PER_TIME_SLICE 25000.0                                             //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
+#define INSTRUCTIONS_PER_TIME_SLICE 10000.0                                             //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
 #define QUANTUM_TIME_SLICE (double)(INSTRUCTIONS_PER_TIME_SLICE / INSTRUCTIONS_PER_SECOND)
 
 // Address to save the instruction counters
@@ -101,7 +101,7 @@ optModuleAttr modelAttrs = {
     .destructCB = moduleDestruct,
 };
 
-int getProcessorID(optProcessorP processor){
+/*int getProcessorID(optProcessorP processor){
     int processorID;
     char processorName[7] = "@@@@@@@";
     strcpy(processorName,opObjectName(processor)); 
@@ -118,15 +118,18 @@ int getProcessorID(optProcessorP processor){
         while(1){}     
     }
     return processorID;
-}
+}*/
 
-// unsigned int saiu_int = 0;
-// unsigned int entrou_int = 0;
+//unsigned int saiu_int = 0;
+//unsigned int entrou_int = 0;
 
 static OP_MONITOR_FN(FetchCallback0) { 
     char aux_8bits[4];
     opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
     unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch0++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 0, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
     if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
@@ -176,6 +179,9 @@ static OP_MONITOR_FN(FetchCallback1) {
     char aux_8bits[4];
     opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
     unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch1++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 1, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
     if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
@@ -225,6 +231,9 @@ static OP_MONITOR_FN(FetchCallback2) {
     char aux_8bits[4];
     opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
     unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch2++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 2, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
     if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
@@ -274,6 +283,9 @@ static OP_MONITOR_FN(FetchCallback3) {
     char aux_8bits[4];
     opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
     unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch3++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 3, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
     if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
@@ -323,6 +335,9 @@ static OP_MONITOR_FN(FetchCallback4) {
     char aux_8bits[4];
     opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
     unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch4++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 4, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
     if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
@@ -372,6 +387,9 @@ static OP_MONITOR_FN(FetchCallback5) {
     char aux_8bits[4];
     opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
     unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch5++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 5, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
     if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
@@ -421,6 +439,9 @@ static OP_MONITOR_FN(FetchCallback6) {
     char aux_8bits[4];
     opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
     unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch6++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 6, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
     if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
@@ -470,6 +491,9 @@ static OP_MONITOR_FN(FetchCallback7) {
     char aux_8bits[4];
     opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
     unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch7++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 7, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
     if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
@@ -519,6 +543,9 @@ static OP_MONITOR_FN(FetchCallback8) {
     char aux_8bits[4];
     opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
     unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch8++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 8, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
     if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
@@ -571,9 +598,7 @@ static OP_MONITOR_FN(FinishCallback){
     return;
 }
 
-static OP_MONITOR_FN(FreqCallback){
-    // gets the processor ID
-    int processorID = getProcessorID(processor);
+static OP_MONITOR_FN(FreqCallback0){
 
     // reads the frequency scale, provided by the system
     char readFreq_8bit[4];
@@ -582,10 +607,146 @@ static OP_MONITOR_FN(FreqCallback){
 
     // translates from fixed point to float
     float freqScale = 100 - (float)((float)readFreq_32bit / 10);
-    if(freqScale == 100){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
-        freqScale = 50;
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
     }
-    opMessage("I", "HARNESS", " >>> PE %d changing to %.1f%% of its nominal frequency -- (%.0fMHz)", processorID, 100-freqScale, 10*(100-freqScale));
+    opMessage("I", "HARNESS", " >>> PE 0 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback1){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 1 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback2){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 2 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback3){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 3 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback4){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 4 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback5){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 5 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback6){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 6 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback7){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 7 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback8){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 8 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
     opProcessorDerate(processor, freqScale);
     return;
 }
@@ -623,45 +784,68 @@ int main(int argc, const char *argv[]) {
             opProcessorFetchMonitorAdd(proc, 0x80000e04, 0x80000e07, FinishCallback, "finish");
         }
         
-        opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA ADICIONADO!");
-        opProcessorWriteMonitorAdd (proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback, "frequency");
-
-        
         switch(runningPE){
             case 0:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback0, "frequency0");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 0 ADICIONADO!");
                 opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback0, "fetch0");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 0 ADICIONADO!");
                 break;
 
             case 1:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback1, "frequency1");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 1 ADICIONADO!");
                 opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback1, "fetch1");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 1 ADICIONADO!");
                 break;
 
             case 2:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback2, "frequency2");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 2 ADICIONADO!");
                 opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback2, "fetch2");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 2 ADICIONADO!");
                 break;
 
             case 3:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback3, "frequency3");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 3 ADICIONADO!");
                 opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback3, "fetch3");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 3 ADICIONADO!");
                 break;
 
             case 4:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback4, "frequency4");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 4 ADICIONADO!");
                 opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback4, "fetch4");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 4 ADICIONADO!");
                 break;
 
             case 5:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback5, "frequency5");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 5 ADICIONADO!");
                 opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback5, "fetch5");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 5 ADICIONADO!");
                 break;
 
             case 6:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback6, "frequency6");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 6 ADICIONADO!");
                 opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback6, "fetch6");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 6 ADICIONADO!");
                 break;
 
             case 7:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback7, "frequency7");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 7 ADICIONADO!");
                 opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback7, "fetch7");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 7 ADICIONADO!");
                 break;
 
             case 8:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback8, "frequency8");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 8 ADICIONADO!");
                 opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback8, "fetch8");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 8 ADICIONADO!");
                 break;
 
             default: 

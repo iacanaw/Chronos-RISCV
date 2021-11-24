@@ -60,13 +60,13 @@ unsigned int control_in_STALLGO = GO;
 unsigned int myStatus = GO;
 
 // TX Status
-unsigned int control_TX = NI_STATUS_OFF;
+volatile unsigned int control_TX = NI_STATUS_OFF;
 
 // RX Status
-unsigned int control_RX = NI_STATUS_OFF;
+volatile unsigned int control_RX = NI_STATUS_OFF;
 
 // Timer Status
-unsigned int control_TIMER = NI_STATUS_OFF;
+volatile unsigned int control_TIMER = NI_STATUS_OFF;
 
 // Stores the amount of time that the timer must wait until interrupt again
 volatile double timer_us = (double)0.0;
@@ -412,6 +412,7 @@ PPM_REG_WRITE_CB(timerWrite) {
     } else { 
         if(command == DONE){
             control_TIMER = NI_STATUS_OFF;
+            bhmMessage("I", "TIMER", "Timer turning interruption down! at %lf",bhmGetCurrentTime());
             interruptionOff();
         }
         else{
@@ -575,7 +576,7 @@ int main(int argc, char *argv[]) {
         else{
             //bhmMessage("I", "TIMER", "Timer set to turn interruption on in %lf us - current time: %lf",timer_us,bhmGetCurrentTime());
             bhmWaitDelay(timer_us); // Every time_us 
-            //bhmMessage("I", "TIMER", "Timer turning interruption up! at %lf",bhmGetCurrentTime());
+            bhmMessage("I", "TIMER", "Timer turning interruption up! at %lf",bhmGetCurrentTime());
             control_TIMER = NI_STATUS_INTER;
             interruptionOn();
         }

@@ -1,93 +1,99 @@
 #include "dvfs.h"
 
 void API_setFreqIdle(){
-    prints("API_setFreqIdle\n ");
-    *frequencyScale = FREQ_IDLE;
+    selectedFrequencyScale = FREQ_IDLE;
     return;
 }
 
 void API_setFreqScale(unsigned int scale){
-    *frequencyScale = scale;
+    selectedFrequencyScale = scale;
     return;
 }
 
 unsigned int API_getFreqScale(){
-    return *frequencyScale;
+    return HW_get_32bit_reg(FREQUENCY_SCALE);
+}
+
+void API_applyFreqScale(){
+    if(selectedFrequencyScale != API_getFreqScale()){
+        HW_set_32bit_reg(FREQUENCY_SCALE, selectedFrequencyScale);
+    }
+    return;
 }
 
 void API_freqStepUp(){
-    if(*frequencyScale == FREQ_IDLE){
-        *frequencyScale = FREQ_100MHz;
+    if(selectedFrequencyScale == FREQ_IDLE){
+        selectedFrequencyScale = FREQ_150MHz;
     }
-    else if(*frequencyScale==FREQ_100MHz){
-        *frequencyScale = FREQ_250MHz;
+    else if(selectedFrequencyScale==FREQ_150MHz){
+        selectedFrequencyScale = FREQ_250MHz;
     }
-    else if(*frequencyScale==FREQ_250MHz){
-        *frequencyScale = FREQ_500MHz;
+    else if(selectedFrequencyScale==FREQ_250MHz){
+        selectedFrequencyScale = FREQ_500MHz;
     } 
-    else if(*frequencyScale==FREQ_500MHz){
-        *frequencyScale = FREQ_1GHz;
+    else if(selectedFrequencyScale==FREQ_500MHz){
+        selectedFrequencyScale = FREQ_1GHz;
     }
-    else if(*frequencyScale==FREQ_1GHz){
-        *frequencyScale = FREQ_1GHz;
+    else if(selectedFrequencyScale==FREQ_1GHz){
+        selectedFrequencyScale = FREQ_1GHz;
     }
     else {
-        if(*frequencyScale > FREQ_1GHz){
-            *frequencyScale = FREQ_1GHz;
+        if(selectedFrequencyScale > FREQ_1GHz){
+            selectedFrequencyScale = FREQ_1GHz;
         }
-        else if(*frequencyScale > FREQ_500MHz){
-            *frequencyScale = FREQ_1GHz;
+        else if(selectedFrequencyScale > FREQ_500MHz){
+            selectedFrequencyScale = FREQ_1GHz;
         }
-        else if(*frequencyScale > FREQ_250MHz){
-            *frequencyScale = FREQ_500MHz;
+        else if(selectedFrequencyScale > FREQ_250MHz){
+            selectedFrequencyScale = FREQ_500MHz;
         }
-        else if(*frequencyScale > FREQ_100MHz){
-            *frequencyScale = FREQ_250MHz;
+        else if(selectedFrequencyScale > FREQ_150MHz){
+            selectedFrequencyScale = FREQ_250MHz;
         }
-        else if(*frequencyScale > FREQ_IDLE){
-            *frequencyScale = FREQ_100MHz;
+        else if(selectedFrequencyScale > FREQ_IDLE){
+            selectedFrequencyScale = FREQ_150MHz;
         }
         else{
-            *frequencyScale = FREQ_IDLE;
+            selectedFrequencyScale = FREQ_IDLE;
         }
     }
     return;
 }
 
 void API_freqStepDown(){
-    if(*frequencyScale == FREQ_IDLE){
-        *frequencyScale = FREQ_IDLE;
+    if(selectedFrequencyScale == FREQ_IDLE){
+        selectedFrequencyScale = FREQ_IDLE;
     }
-    else if(*frequencyScale == FREQ_100MHz){
-        *frequencyScale = FREQ_IDLE;
+    else if(selectedFrequencyScale == FREQ_150MHz){
+        selectedFrequencyScale = FREQ_IDLE;
     }
-    else if(*frequencyScale == FREQ_250MHz){
-        *frequencyScale = FREQ_100MHz;
+    else if(selectedFrequencyScale == FREQ_250MHz){
+        selectedFrequencyScale = FREQ_150MHz;
     }
-    else if(*frequencyScale == FREQ_500MHz){
-        *frequencyScale = FREQ_250MHz;
+    else if(selectedFrequencyScale == FREQ_500MHz){
+        selectedFrequencyScale = FREQ_250MHz;
     }
-    else if(*frequencyScale == FREQ_1GHz){
-        *frequencyScale = FREQ_500MHz;
+    else if(selectedFrequencyScale == FREQ_1GHz){
+        selectedFrequencyScale = FREQ_500MHz;
     }
     else{
-        if(*frequencyScale < FREQ_IDLE){
-            *frequencyScale = FREQ_IDLE;
+        if(selectedFrequencyScale < FREQ_IDLE){
+            selectedFrequencyScale = FREQ_IDLE;
         }
-        else if(*frequencyScale < FREQ_100MHz){
-            *frequencyScale = FREQ_IDLE;
+        else if(selectedFrequencyScale < FREQ_150MHz){
+            selectedFrequencyScale = FREQ_IDLE;
         }
-        else if(*frequencyScale < FREQ_250MHz){
-            *frequencyScale = FREQ_100MHz;
+        else if(selectedFrequencyScale < FREQ_250MHz){
+            selectedFrequencyScale = FREQ_150MHz;
         }
-        else if(*frequencyScale < FREQ_500MHz){
-            *frequencyScale = FREQ_250MHz;
+        else if(selectedFrequencyScale < FREQ_500MHz){
+            selectedFrequencyScale = FREQ_250MHz;
         }
-        else if(*frequencyScale < FREQ_1GHz){
-            *frequencyScale = FREQ_500MHz;
+        else if(selectedFrequencyScale < FREQ_1GHz){
+            selectedFrequencyScale = FREQ_500MHz;
         }
         else{
-            *frequencyScale = FREQ_1GHz;
+            selectedFrequencyScale = FREQ_1GHz;
         }
     }
     return;

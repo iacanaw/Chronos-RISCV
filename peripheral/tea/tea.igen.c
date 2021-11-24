@@ -42,7 +42,7 @@
 #define CLUSTER_SIZE        (DIM_X*DIM_Y)  
 #define SYSTEM_SIZE         (DIM_X*DIM_Y)  
 #define MONITOR_WINDOW      250000
-#define WINDOW_TIME         0.25                //ns - required to calculate power related to energy
+#define WINDOW_TIME         0.25                 //ns - required to calculate power related to energy
 #define SCALING_FACTOR      20                  //simulating McPat results with 2 GHz frequency
 #define MASTER_ADDR         0x0000              // x=0 y=0 
 #define HEADER_SIZE         2                   // sendTime, service
@@ -65,7 +65,7 @@ double t_steady[THERMAL_NODES];
 double TempTraceEnd[THERMAL_NODES];
 
 
-unsigned int thePacket[SYSTEM_SIZE+1+2+3];
+unsigned int thePacket[SYSTEM_SIZE+13 ];
 unsigned int sendPacketToMaster = 0;
 unsigned int packetPointer = 0;
 
@@ -75,6 +75,8 @@ unsigned int msg_size = 0;
 unsigned int source_pe = 0;
 unsigned int x_data_counter = 0;
 unsigned int y_data_counter = 0;
+
+unsigned int samples_received = 0;
 
 void load_matrices(double Binv[THERMAL_NODES][SYSTEM_SIZE], double Cexp[THERMAL_NODES][THERMAL_NODES]){
     FILE *binvpointer;
@@ -115,7 +117,7 @@ void load_matrices(double Binv[THERMAL_NODES][SYSTEM_SIZE], double Cexp[THERMAL_
       (((x) & 0x0000ff00) <<  8) | (((x) & 0x000000ff) << 24))
 
 unsigned int htonl(unsigned int x){
-    return __bswap_constant_32(x);
+    return x;//__bswap_constant_32(x);
 }
 
 ///////////////////////////////////////////////////////////////////
@@ -248,11 +250,11 @@ PPM_PACKETNET_CB(controlUpdate) {
         if(sendPacketToMaster){
             if(routerCredit == 0){
                 // send one flit to the router
-                //bhmMessage("I", "Input", "send %d flit to the router\n", packetPointer);
+                //bhmMessage("I", "Input", "send %d flit to the router: %d\n", packetPointer, thePacket[packetPointer]);
                 ppmPacketnetWrite(handles.portData, &thePacket[packetPointer], sizeof(thePacket[packetPointer]));
                 
                 // Updates packet pointer
-                if(packetPointer < SYSTEM_SIZE+3+2+1){
+                if(packetPointer < SYSTEM_SIZE+12){
                     packetPointer++;
                 }
                 else{
@@ -274,24 +276,23 @@ PPM_PACKETNET_CB(dataUpdate) {
         y_data_counter = 0; // atualmente sempre vem do 00
         source_pe = 0x0000;
     }
-    /*else if(flit_in_counter == 5){  // Quinto flit - SOURCE
+    else if(flit_in_counter == 4){  // quarto flit - SOURCE
         source_pe =  htonl(newFlit);
         x_data_counter = getXpos(source_pe);
         y_data_counter = getYpos(source_pe);
-    }*/
-    else if(flit_in_counter >= 5 && flit_in_counter < 5+(DIM_Y*DIM_X)){ // Power information
-        power[y_data_counter][x_data_counter] = htonl(newFlit);
-        bhmMessage("I", "Input", "power[%d][%d]: %d\n",x_data_counter, y_data_counter, power[y_data_counter][x_data_counter]);
-        if(x_data_counter == getXpos(source_pe)+CLUSTER_X-1){ // ATUAL_X = ORIG_X + TAM_CLUSTER
-            x_data_counter = getXpos(source_pe);
-            y_data_counter++;
-        }
-        else{
-            x_data_counter++;
-        }
     }
-    else if(flit_in_counter == msg_size+2){ // Acabar a mensagem
-        
+    else if(flit_in_counter == 5){  // quinto flit - energia do PE
+        power[y_data_counter][x_data_counter] =  htonl(newFlit);
+        bhmMessage("I", "Input", "power[%d][%d]: %d\n",x_data_counter, y_data_counter, power[y_data_counter][x_data_counter]);
+        samples_received++;
+    }
+    else if(flit_in_counter >= 13){
+        flit_in_counter = 0;
+    }
+    
+    if(samples_received >= DIM_X*DIM_Y){ // Acabou de receber as energias
+        samples_received = 0;
+        //bhmMessage("I", "INFO", "TEA RECEBEU TODAS AS ENERGIAS!");
         ////////////////////////////////////////////////////////////////////////
         /*CALCULAR STEADY*/
         /*Avança os ponteiros da matriz B*/
@@ -300,9 +301,10 @@ PPM_PACKETNET_CB(dataUpdate) {
         int yi, xi;
         for (yi = 0; yi < DIM_X; yi++)
             for(xi = 0; xi < DIM_Y; xi++)
-                power_trace[index++] = (double)(power[yi][xi]*SCALING_FACTOR)/(1280000*WINDOW_TIME);
+                power_trace[index++] = (((double)(power[yi][xi]/100) * 64) / (1000000000 * 0.001)) ;
+                //power_trace[index++] = (double)(power[yi][xi]*SCALING_FACTOR)/(1280000*WINDOW_TIME);
 
-        power_trace[0] = power_trace[0]*0.1;
+        //power_trace[0] = power_trace[0]*0.1;
 
         computeSteadyStateTemp(t_steady, power_trace);
 
@@ -312,9 +314,6 @@ PPM_PACKETNET_CB(dataUpdate) {
 
         temp_matex(TempTraceEnd, power_trace);
 
-        bhmMessage("I", "Input", "TUDO CALCULADO!!! cool!\n");
-
-        flit_in_counter = 0;
         source_pe =  0;
         x_data_counter = 0;
         y_data_counter = 0;
@@ -322,18 +321,16 @@ PPM_PACKETNET_CB(dataUpdate) {
         // Packet to master
         int i;
         int tempi;
-        thePacket[0] = htonl(0x00); // Header (destine address)
-        thePacket[1] = htonl(DIM_X*DIM_Y + 5); 
-        thePacket[2] = htonl(0);    // sendTime 
-        thePacket[3] = htonl(0x50); // #define TEMPERATURE_PACKET  0x50 (api.h)
-        for(i=0; i<DIM_Y*DIM_X; i++){
+        thePacket[0] = MASTER_ADDR; // Header (destine address)
+        thePacket[1] = htonl(DIM_X*DIM_Y + 11); 
+        thePacket[2] = htonl(0x55); // #define TEMPERATURE_PACKET  0x55 (api.h)
+        for(i = 0; i < DIM_Y*DIM_X; i++){
             tempi = TempTraceEnd[i]*100;
-            //bhmMessage("I", "Input", "tempi %d %d\n", i, tempi);
-            thePacket[i+4] = htonl(tempi);
+            thePacket[i+13] = htonl(tempi);
+            bhmMessage("I", "Input", "temperature %d: %d", i, tempi);
         }
         sendPacketToMaster = 1;
     }
-    ///////
 }
 
 PPM_CONSTRUCTOR_CB(constructor) {

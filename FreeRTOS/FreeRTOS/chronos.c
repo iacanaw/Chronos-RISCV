@@ -22,6 +22,9 @@ extern volatile unsigned int SendingQueue[PIPE_SIZE*2];
 extern volatile unsigned int SendingQueue_front;
 extern volatile unsigned int SendingQueue_tail;
 
+extern volatile unsigned int SystemTemperature[DIM_Y*DIM_X];
+extern unsigned int temperatureUpdated;
+
 //volatile unsigned int NI_IRCount;
 
 ////////////////////////////////////////////////////////////
@@ -59,7 +62,7 @@ void Chronos_init(){
 
     // Set the system to Idle
     API_setFreqIdle();
-
+    API_freqStepUp();
     return;
 }
 
@@ -215,6 +218,7 @@ unsigned int makeAddress(unsigned int x, unsigned int y) {
 ////////////////////////////////////////////////////////////
 // Pushes one slot to the sending queue
 void API_PushSendQueue(unsigned int type, unsigned int slot){
+    vTaskEnterCritical();
     SendingQueue[SendingQueue_front] = type | slot;
     printsv("SendingQueue_front: ", SendingQueue_front);
     if(SendingQueue_front == (PIPE_SIZE*2)-1){
@@ -223,6 +227,7 @@ void API_PushSendQueue(unsigned int type, unsigned int slot){
         SendingQueue_front++;
     }
     API_Try2Send();
+    vTaskExitCritical();
     return;
 }
 
@@ -249,7 +254,6 @@ void API_Try2Send(){
     unsigned int toSend;
     // Try to send the packet to NI if it's available
     // Checks if the NI is available to transmitt something
-    //vPortEnterCritical();
     if (HW_get_32bit_reg(NI_TX) == NI_STATUS_OFF){
         toSend = API_PopSendQueue();
         if (toSend != EMPTY){
@@ -268,7 +272,6 @@ void API_Try2Send(){
     } else {
         prints("API_Try2Send failed - NI_TX occupied!\n");
     }
-    //vPortExitCritical();
     return;
 }
 
@@ -310,7 +313,9 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
     theMessage = addr;
 
     taskSlot = API_GetCurrentTaskSlot();
+    printsv("taskSlot: ", taskSlot);
     printsvsv("Adding a msg to task ", taskID, " in the PIPE slot ", mySlot);
+    printsv("from app: ", TaskList[taskSlot].AppID);
     MessagePipe[mySlot].holder = taskSlot;
 
     MessagePipe[mySlot].header.header           = TaskList[taskSlot].TasksMap[taskID];
@@ -398,7 +403,9 @@ unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int t
     unsigned int i;
     unsigned int sel = ERRO;
     unsigned int smallID = 268435455;
+    //vTaskEnterCritical();
     for (i = 0; i < PIPE_SIZE; i++){
+        //printsv("testing ", i);
         if(MessagePipe[i].status == PIPE_OCCUPIED){
             if(MessagePipe[i].header.application_id == task_app_id){
                 if(MessagePipe[i].header.destination_task == requester_task_id){
@@ -413,7 +420,7 @@ unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int t
     if(sel != ERRO){
         MessagePipe[sel].status == PIPE_TRANSMITTING;
     }
-    //printsv("returning sel: ", sel);
+    //vTaskExitCritical();
     return sel;
 }
 
@@ -473,15 +480,6 @@ void API_NI_Handler(){
                 case TASK_ALLOCATION_FINISHED:
                     prints("TASK_ALLOCATION_FINISHED\n");
                     API_AckTaskAllocation(incommingPacket.task_id, incommingPacket.task_app_id);
-                    /*for(aux = 0; aux < NUM_MAX_TASKS; aux++){
-                        prints("========\n");
-                        printsv("TaskSlot ", aux);
-                        printsv("status: ", TaskList[aux].status);
-                        printsv("taskSize: ", TaskList[aux].taskSize);
-                        printsv("taskAddr: ", TaskList[aux].taskAddr);
-                        printsv("mainAddr: ", TaskList[aux].mainAddr);
-                        printsv("taskHandler: ", (unsigned int)TaskList[aux].TaskHandler);
-                    }*/
                     break;
 
                 case TASK_ALLOCATION_SUCCESS:
@@ -502,8 +500,19 @@ void API_NI_Handler(){
                     prints("Chegou um TASK_RUN!\n");
                     aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
                     TaskList[aux].status = TASK_SLOT_READY;
-                    printsvsv("Enabling Task: ", incommingPacket.task_id, "from app: ", incommingPacket.task_app_id);
-                    printsv("Slot: ", aux);
+                    API_setFreqScale(1000);
+                    printsvsv("Starting Task ", TaskList[aux].TaskID, " from app ", TaskList[aux].AppID);
+                    printsv("taskSlot run: ", aux);
+                    API_TaskStart(aux);
+                    //printsvsv("Enabling Task: ", incommingPacket.task_id, "from app: ", incommingPacket.task_app_id);
+                    //printsv("Slot: ", aux);
+                    // for(aux = 0; aux < NUM_MAX_TASKS; aux++){
+                    //     if(TaskList[aux].status == TASK_SLOT_READY){
+                    //         API_setFreqScale(1000);
+                    //         printsvsv("Starting Task ", TaskList[aux].TaskID, " from app ", TaskList[aux].AppID);
+                    //         API_TaskStart(aux);
+                    //     }
+                    // }
                     break;
 
                 case MESSAGE_REQUEST:
@@ -536,6 +545,19 @@ void API_NI_Handler(){
                     TaskList[aux].waitingMsg = FALSE;
                     break;
 
+                case TEMPERATURE_PACKET:
+                    prints("Recebendo pacote de temperatura");
+                    HW_set_32bit_reg(NI_RX, (unsigned int)&SystemTemperature);
+                    incommingPacket.service = FINISH_TEMPERATURE_PACKET;
+                    break;
+                
+                case FINISH_TEMPERATURE_PACKET:
+                    temperatureUpdated = 1;
+                    for(aux = 0; aux < DIM_X*DIM_Y; aux++){ 
+                        printsvsv("pe", aux, "temp: ", SystemTemperature[aux]);
+                    }
+                    break;
+
                 case SOLVED:
                     break;
                     
@@ -549,17 +571,8 @@ void API_NI_Handler(){
     
     } while( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING || HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER);
     
-    for(aux = 0; aux < NUM_MAX_TASKS; aux++){
-        if(TaskList[aux].status == TASK_SLOT_READY){
-            printsvsv("Starting Task ", TaskList[aux].TaskID, " from app ", TaskList[aux].AppID);
-            API_setFreqScale(1000);
-            API_TaskStart(aux);
-        }
-    }
-    
     if (HW_get_32bit_reg(NI_TIMER) == NI_STATUS_INTER){
-        printExecutedInstructions();
-        resetExecutedInstructions();
+        powerEstimation();
         HW_set_32bit_reg(NI_TIMER, DONE);
     }
     
