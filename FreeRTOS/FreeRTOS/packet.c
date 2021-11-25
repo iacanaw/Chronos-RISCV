@@ -6,6 +6,8 @@ extern volatile MessagePacket MessagePipe[PIPE_SIZE];
 extern volatile ServicePacket ServicePipe[PIPE_SIZE];
 extern unsigned int messageID;
 
+extern unsigned int thermalPacket_pending; // from thermal.h
+
 ////////////////////////////////////////////////////////////
 // Initialize the PIPE, setting the status of each slot to FREE
 void API_PipeInitialization(){
@@ -67,6 +69,9 @@ void API_ClearPipeSlot(unsigned int typeSlot){
     unsigned slot = typeSlot & 0x0000FFFF;
     
     if (type == SERVICE){
+        if(ServicePipe[slot].header.service == ENERGY_PACKET){
+            thermalPacket_pending = FALSE;
+        }
         ServicePipe[slot].status = PIPE_FREE;
         ServicePipe[slot].holder = PIPE_FREE;
     } else { // type == MESSAGE

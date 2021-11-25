@@ -282,9 +282,8 @@ WORD SubWord(WORD word)
 // Performs the action of generating the keys that will be used in every round of
 // encryption. "key" is the user-supplied input key, "w" is the output key schedule,
 // "keysize" is the length in bits of "key", must be 128, 192, or 256.
-void aes_key_setup(const BYTE key[], WORD w[], int keysize)
-{
-	int Nb=4,Nr,Nk,idx;
+void aes_key_setup(const BYTE key[], WORD w[], int keysize){
+	static int Nb=4,Nr,Nk,idx;
 	static volatile WORD temp,Rcon[]={0x01000000,0x02000000,0x04000000,0x08000000,0x10000000,0x20000000,
 	                  0x40000000,0x80000000,0x1b000000,0x36000000,0x6c000000,0xd8000000,
 	                  0xab000000,0x4d000000,0x9a000000};
@@ -322,9 +321,9 @@ void aes_key_setup(const BYTE key[], WORD w[], int keysize)
 void AddRoundKey(BYTE state[][4], const WORD w[])
 {
 #ifdef debug_aes_on	
-	int i, j;
+	static int i, j;
 #endif
-	BYTE subkey[4];
+	static BYTE subkey[4];
 
 	// aes_memcpy(subkey,&w[idx],4); // Not accurate for big endian machines
 	// Subkey 1
@@ -397,10 +396,9 @@ void AddRoundKey(BYTE state[][4], const WORD w[])
 
 // Performs the SubBytes step. All bytes in the state are substituted with a
 // pre-calculated value from a lookup table.
-void SubBytes(BYTE state[][4])
-{
+void SubBytes(BYTE state[][4]){
 #ifdef debug_aes_on	
-	int i, j;
+	static int i, j;
 #endif
 	state[0][0] = aes_sbox[state[0][0] >> 4][state[0][0] & 0x0F];
 	state[0][1] = aes_sbox[state[0][1] >> 4][state[0][1] & 0x0F];
@@ -432,10 +430,9 @@ void SubBytes(BYTE state[][4])
 	
 }
 
-void InvSubBytes(BYTE state[][4])
-{
+void InvSubBytes(BYTE state[][4]){
 #ifdef debug_aes_on	
-	int i, j;
+	static int i, j;
 #endif
 	state[0][0] = aes_invsbox[state[0][0] >> 4][state[0][0] & 0x0F];
 	state[0][1] = aes_invsbox[state[0][1] >> 4][state[0][1] & 0x0F];
@@ -472,11 +469,10 @@ void InvSubBytes(BYTE state[][4])
 /////////////////
 
 // Performs the ShiftRows step. All rows are shifted cylindrically to the left.
-void ShiftRows(BYTE state[][4])
-{
-	int t;
+void ShiftRows(BYTE state[][4]){
+	static int t;
 #ifdef debug_aes_on	
-	int i, j;
+	static int i, j;
 #endif
 
 	// Shift left by 1
@@ -514,11 +510,10 @@ void ShiftRows(BYTE state[][4])
 }
 
 // All rows are shifted cylindrically to the right.
-void InvShiftRows(BYTE state[][4])
-{
-	int t;
+void InvShiftRows(BYTE state[][4]){
+	static int t;
 #ifdef debug_aes_on	
-	int i, j;
+	static int i, j;
 #endif
 	// Shift right by 1
 	t = state[1][3];
@@ -561,11 +556,10 @@ void InvShiftRows(BYTE state[][4])
 // multiplication in a Galios Field 2^8. All multiplication is pre-computed in a table.
 // Addition is equivilent to XOR. (Must always make a copy of the column as the original
 // values will be destoyed.)
-void MixColumns(BYTE state[][4])
-{
+void MixColumns(BYTE state[][4]){
 	static BYTE col[4];
 #ifdef debug_aes_on	
-	int i, j;
+	static int i, j;
 #endif
 	// Column 1
 	col[0] = state[0][0];
@@ -665,11 +659,10 @@ void MixColumns(BYTE state[][4])
 	
 }
 
-void InvMixColumns(BYTE state[][4])
-{
+void InvMixColumns(BYTE state[][4]){
 	static BYTE col[4];
 #ifdef debug_aes_on	
-	int i, j;
+	static int i, j;
 #endif
 	// Column 1
 	col[0] = state[0][0];

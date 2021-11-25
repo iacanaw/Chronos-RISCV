@@ -5,3 +5,8 @@
 
  This processor is a Slave: 
 task AES SLAVE 1
+Slave configuration
+0321   
+ >> My ID: 1
+Operation:0   
+Blocks:32   

@@ -1,10 +1,10 @@
 RX interruption catched
 TASK_ALLOCATION_SEND
 Got slot: 0 
-Task total size (txt+bss): 28664 
-Task addr: 2147520876 
+Task total size (txt+bss): 29388 
+Task addr: 2147520940 
 Task slot: 0 
-Task slot TaskAddr: 2147520876 
+Task slot TaskAddr: 2147520940 
 RX interruption catched
 TASK_ALLOCATION_FINISHED
 SendingQueue_front: 0 
@@ -22,174 +22,5443 @@ SendingQueue_front: 1
 API_Try2Send success!
 Esperando Mensagem!
 taskslot 0  esperando mensagem 0 
-total:236776 
-TotalEnergy: 81686410 
+total:238493 
+TotalEnergy: 77781450 
 SendingQueue_front: 2 
 API_Try2Send failed - NI_TX occupied!
-total:61408 
-TotalEnergy: 34387145 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+taskslot 0  esperando mensagem 0 
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+tasksloRX interruption catched
+t 0  esperando mensagem 0 
+total:2059693 
+TotalEnergy: 133060539 
 SendingQueue_front: 3 
-API_Try2Send failed - NI_TX occupied!
-taskslot 0  esperando mensagem 0 
-total:99990 
-TotalEnergy: 28258347 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+Slave configuration
+0 32 4    
+ >> My ID: 4 
+Operation:0    
+Blocks:32    
 SendingQueue_front: 4 
-API_Try2Send failed - NI_TX occupied!
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+total:99990 
+TotalEnergy: 44290926 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+received msg: 68 68 68 68 68 68 68 68 68 68 68 68 68 68 68 68    
+encript
+ROUND 0 finished.
+ROUND Final finished.
+taskSlot: 0 
+Adding a msg to task 0  in the PIPE slot 0 
+from app: 0 
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando MeTX interruption catched
+API_Try2Send failed - empty SendQueue!
+nsagem!
 taskslot 0  esperando mensagem 0 
 total:99990 
-TotalEnergy: 59839147 
-total:909 
-TotalEnergy: 15841692 
-total:909 
-TotalEnergy: 39527027 
-total:909 
-TotalEnergy: 35579264 
-total:909 
-TotalEnergy: 35579389 
-total:909 
-TotalEnergy: 27684421 
-total:909 
-TotalEnergy: 39527027 
-total:909 
-TotalEnergy: 35579140 
-total:909 
-TotalEnergy: 35579513 
-total:909 
-TotalEnergy: 27684296 
-total:987 
-TotalEnergy: 39528940 
-total:909 
-TotalEnergy: 59264723 
-total:909 
-TotalEnergy: 23736784 
-total:909 
-TotalEnergy: 39527027 
-total:912 
-TotalEnergy: 39527101 
-total:909 
-TotalEnergy: 35579015 
-total:909 
-TotalEnergy: 47422493 
-total:909 
-TotalEnergy: 39527027 
-total:922 
-TotalEnergy: 67160318 
+TotalEnergy: 25019301 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 taskslot 0  esperando mensagem 0 
-total:2424 
-TotalEnergy: 11989892 
-total:913 
-TotalEnergy: 39527125 
-total:909 
-TotalEnergy: 47421744 
-total:909 
-TotalEnergy: 47422493 
-total:909 
-TotalEnergy: 39527027 
-total:908 
-TotalEnergy: 35579489 
-total:909 
-TotalEnergy: 47421744 
-total:909 
-TotalEnergy: 47422493 
-total:909 
-TotalEnergy: 39527027 
-total:908 
-TotalEnergy: 35579489 
-total:909 
-TotalEnergy: 59264474 
-total:909 
-TotalEnergy: 47422493 
-total:909 
-TotalEnergy: 39527027 
-total:909 
-TotalEnergy: 35579513 
-total:909 
-TotalEnergy: 47421869 
-total:909 
-TotalEnergy: 3999089 
-total:909 
-TotalEnergy: 39527027 
-total:909 
-TotalEnergy: 47422243 
-total:909 
-TotalEnergy: 35579140 
-total:909 
-TotalEnergy: 3998963 
-total:909 
-TotalEnergy: 39527027 
-total:909 
-TotalEnergy: 23736535 
-total:909 
-TotalEnergy: 47422118 
-total:909 
-TotalEnergy: 15841692 
-total:909 
-TotalEnergy: 39527027 
-total:909 
-TotalEnergy: 35579140 
-total:909 
-TotalEnergy: 47422243 
-total:909 
-TotalEnergy: 27684421 
-total:987 
-TotalEnergy: 39528940 
-total:909 
-TotalEnergy: 47421869 
-total:909 
-TotalEnergy: 23736784 
-total:909 
-TotalEnergy: 39527027 
-total:912 
-TotalEnergy: 39527101 
-total:909 
-TotalEnergy: 35579015 
-total:909 
-TotalEnergy: 47422493 
-total:909 
-TotalEnergy: 39527027 
-Ôz921 
-Tota({67160293 
-707 
-Tota({39489577 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
-707 
-Tota({37326893 
+total:99917 
+TotalEnergy: 67751513 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 24327803 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430961 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99965 
+TotalEnergy: 28275307 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99975 
+TotalEnergy: 36170828 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910200 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 12485229 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 59856368 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273691 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 28275331 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327998 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 32225116 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330024 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24329899 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 67751364 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170659 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273442 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 51961039 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170852 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067471 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330148 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 24328357 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013513 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430712 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118185 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170603 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 32224741 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330148 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485504 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013263 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430837 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 51961039 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327873 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 24328357 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170659 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273566 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40117811 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170852 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067471 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487544 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330148 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485380 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 24327803 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273691 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99965 
+TotalEnergy: 16432701 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99975 
+TotalEnergy: 12484995 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330024 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 12485479 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170659 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430712 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118060 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 48013707 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 32225116 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 32224990 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330024 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330024 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 55908633 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 59856119 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430837 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118060 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327998 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330024 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24329899 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 67751388 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170659 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273442 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 51961039 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170852 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 32224990 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 24328357 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013513 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430712 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118185 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170603 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24329899 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485504 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013263 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430837 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 51960914 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327998 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067346 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487544 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 67751513 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170784 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430961 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99965 
+TotalEnergy: 28275431 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99975 
+TotalEnergy: 12484995 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067471 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487544 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 12485355 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170534 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 40116420 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118309 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327998 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330024 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 12485479 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170659 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273566 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 28275331 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 48013458 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910824 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 32224990 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330024 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 67751513 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 59856119 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273691 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 28275206 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327998 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067471 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24329899 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485504 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170534 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430588 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 51961039 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170852 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 32224990 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 24328108 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013513 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430712 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118060 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170603 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910824 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24329899 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330148 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 67751513 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 12484950 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273566 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99965 
+TotalEnergy: 16432701 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99975 
+TotalEnergy: 24327973 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067471 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330273 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 67751239 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013513 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273691 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118185 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327873 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067471 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753678 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 32224990 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 12485355 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170534 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273566 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 51961039 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327998 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24329899 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910824 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330148 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 24328357 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170659 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273566 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 28275331 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 48013458 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067471 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910200 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 67751513 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 59856119 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273691 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118185 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327873 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24329899 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485504 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170534 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430837 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 51960665 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170852 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 67751513 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170534 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 40116670 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99965 
+TotalEnergy: 16432701 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99975 
+TotalEnergy: 67751004 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 36173003 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 67751489 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170534 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273691 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 28275206 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170852 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 36173003 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 12485229 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013513 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 71696846 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 51960914 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327873 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485380 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 24327679 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273566 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 51961039 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327998 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24329899 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485504 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170659 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273566 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 28275331 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 48013458 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910200 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 67751513 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 59856119 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273691 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118060 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327873 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910200 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330024 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485504 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 24327929 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430837 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99965 
+TotalEnergy: 16432701 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99975 
+TotalEnergy: 24327724 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487420 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 32224617 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 67751489 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013263 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 51959400 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 28275455 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327873 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 36173003 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 67751489 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170534 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430837 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 51960789 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170852 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067970 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 32225116 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 36172754 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 24328108 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013513 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273691 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118060 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 12485019 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24329899 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485380 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170659 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273442 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118185 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327998 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485504 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013513 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430712 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 28275206 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 48013458 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910824 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 67751513 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170659 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430712 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99965 
+TotalEnergy: 28275556 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99975 
+TotalEnergy: 12485120 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910200 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487420 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 12485355 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170659 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273566 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 28275455 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170603 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487420 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910824 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 55908509 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013263 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 40116545 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118185 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327873 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910824 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24329899 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485504 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170534 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430837 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 51960789 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170852 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753429 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753553 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24329899 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330148 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 24328108 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013513 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273691 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118060 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327998 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485380 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 36170659 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273442 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118060 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170852 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 32224741 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 12485254 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 24327929 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273815 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99965 
+TotalEnergy: 16432701 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99975 
+TotalEnergy: 24327848 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067595 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910325 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753678 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487045 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330148 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 67751489 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013389 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 28273566 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118185 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327998 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067845 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 32224866 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 24330148 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99916 
+TotalEnergy: 12485355 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 48013513 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 16430837 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 28275206 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 36170603 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487420 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910449 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753179 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910824 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 44067720 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910699 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487171 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753304 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99917 
+TotalEnergy: 24328233 
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99902 
+TotalEnergy: 24327803 
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99889 
+TotalEnergy: 40116296 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99966 
+TotalEnergy: 40118185 
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99976 
+TotalEnergy: 24327873 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 55910575 
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 67753054 
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskslot 0  esperando mensagem 0 
+total:99990 
+TotalEnergy: 12487295 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!

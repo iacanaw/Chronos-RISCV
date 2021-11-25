@@ -5,3 +5,12 @@
 
  This processor is a Slave: 
 task AES SLAVE 2
+Slave configuration
+0322   
+ >> My ID: 2
+Operation:0   
+Blocks:32   
+received msg: 66666666666666666666666666666666   
+encript
+ROUND 0 finished.
+ROUND Final finished.

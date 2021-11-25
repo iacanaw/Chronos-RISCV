@@ -37,6 +37,7 @@ const int loadStoreDyn[3] = {DYN_LOAD_0, DYN_LOAD_1, DYN_LOAD_2};
 #define OTHERS_COUNT    0x8FFFFFECu
 
 extern unsigned int ProcessorAddr;
+unsigned int thermalPacket_pending = FALSE;
 
 void printExecutedInstructions();
 
