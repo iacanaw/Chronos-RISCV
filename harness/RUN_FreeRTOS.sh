@@ -19,7 +19,7 @@ echo "CREATING THE REPOSITORY"
 python3 repositoryMaker.py myscenario
 for d in */ ; do
   cd $d
-  make clean
+ # make clean
   cd ..
 done
 cd ../harness

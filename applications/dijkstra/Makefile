@@ -1,2 +1,2 @@
-BIN_NAME := prodcons
+BIN_NAME := dijkstra
 include ../Makefile

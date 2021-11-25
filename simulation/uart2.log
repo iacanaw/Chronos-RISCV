@@ -4,28 +4,4 @@
  This terminal belongs to the address: 200
 
  This processor is a Slave: 
-Starting Dijkstra_0.CONS1 Start 
-Chegou a mensagem numero: 0 - tamanho: 25 .
-Chegou a mensagem numero: 1 - tamanho: 25 .
-Chegou a mensagem numero: 2 - tamanho: 25 .
-Chegou a mensagem numero: 3 - tamanho: 25 .
-Chegou a mensagem numero: 4 - tamanho: 25 .
-Chegou a mensagem numero: 5 - tamanho: 25 .
-Chegou a mensagem numero: 6 - tamanho: 25 .
-Chegou a mensagem numero: 7 - tamanho: 25 .
-Chegou a mensagem numero: 8 - tamanho: 25 .
-Chegou a mensagem numero: 9 - tamanho: 25 .
-CONS1 End 
-CONS1 Start 
-Chegou a mensagem numero: 0 - tamanho: 25 .
-Chegou a mensagem numero: 1 - tamanho: 25 .
-Chegou a mensagem numero: 2 - tamanho: 25 .
-Chegou a mensagem numero: 3 - tamanho: 25 .
-Chegou a mensagem numero: 4 - tamanho: 25 .
-Chegou a mensagem numero: 5 - tamanho: 25 .
-Chegou a mensagem numero: 6 - tamanho: 25 .
-Chegou a mensagem numero: 7 - tamanho: 25 .
-Chegou a mensagem numero: 8 - tamanho: 25 .
-Chegou a mensagem numero: 9 - tamanho: 25 .
-CONS1 End 
-Dijkstra_0 finished.
+task AES SLAVE 2

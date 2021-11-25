@@ -92,11 +92,16 @@ for i in range(len(appsName)):
                         elif len(value[0]) == 4:
                             fullWord = value[0];
                             line = taskFile.readline()
-                            print(len(value))
-                            value = re.split(r'\t+', line)
-                            value = re.split(r' ', value[1])
-                            fullWord = fullWord + value[0]
-                            #print("roda fullWord: ", fullWord)
+                            #when there is nothing after the half word
+                            if len(line) == 1:
+                                fullWord = "0000"+value[0]
+                                #print(fullWord)
+                            #when its another half word next...
+                            else: 
+                                value = re.split(r'\t+', line)
+                                value = re.split(r' ', value[1])
+                                fullWord = fullWord + value[0]
+                                #print("roda fullWord: ", fullWord)
                             code.append(fullWord)
 
                         # in case of a regular command
