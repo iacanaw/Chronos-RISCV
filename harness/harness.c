@@ -120,8 +120,8 @@ optModuleAttr modelAttrs = {
     return processorID;
 }*/
 
-//unsigned int saiu_int = 0;
-//unsigned int entrou_int = 0;
+// unsigned int saiu_int = 0;
+// unsigned int entrou_int = 0;
 
 static OP_MONITOR_FN(FetchCallback0) { 
     char aux_8bits[4];

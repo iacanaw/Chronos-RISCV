@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <peripheral constructor="constructor"
+    destructor="destructor"
+    formalValues="F"
+    httpvis="F"
+    imagefile="pse.pse"
+    library="peripheral"
+    name="networkInterface"
+    nbyte="F"
+    recursive="F"
+    releasestatus="0"
+    saveRestore="F"
+    vendor="gaph"
+    version="1.0"
+    visibility="0">
+    <docsection name="doc"
+        text="Description">
+        <doctext name="txt"
+            text="A OVP printer"/>
+    </docsection>
+    <busslaveport addresswidth="32"
+        mustbeconnected="T"
+        name="PRINTREGS"
+        size="0x8">
+        <addressblock name="ab8"
+            size="0x8"
+            width="32">
+            <memorymappedregister access="rw"
+                isvolatile="T"
+                name="printValue_char"
+                nbyte="F"
+                readfunction="readValue_char"
+                width="32"
+                writefunction="writeValue_char"/>
+            <memorymappedregister access="rw"
+                isvolatile="T"
+                name="printValue_int"
+                nbyte="F"
+                offset="0x4"
+                readfunction="readValue_int"
+                width="32"
+                writefunction="writeValue_int"/>
+        </addressblock>
+    </busslaveport>
+    <fileversion major="1"
+        minor="0"
+        name="_version_0"/>
+ </peripheral>

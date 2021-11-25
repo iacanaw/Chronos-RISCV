@@ -19,7 +19,7 @@ echo "CREATING THE REPOSITORY"
 python3 repositoryMaker.py myscenario
 for d in */ ; do
   cd $d
- # make clean
+  make clean
   cd ..
 done
 cd ../harness
@@ -97,7 +97,7 @@ cd ..
 echo "====================="
 echo "COMPILING THE HARNESS"
 cd harness
-#sh harnessGenerator.sh 3 3
+sh harnessGenerator.sh 3 3
 cd ..
 rm -rf harness/obj
 rm harness/harness.Linux64.exe

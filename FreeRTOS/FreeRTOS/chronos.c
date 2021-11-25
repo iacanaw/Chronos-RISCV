@@ -235,7 +235,9 @@ void API_PushSendQueue(unsigned int type, unsigned int slot){
 // Pushes one slot to the sending queue
 unsigned int API_PopSendQueue(){
     unsigned int element;
+    vTaskEnterCritical();
     if (SendingQueue_front == SendingQueue_tail){
+        vTaskExitCritical();
         return EMPTY;
     } else {
         element = SendingQueue[SendingQueue_tail];
@@ -244,6 +246,7 @@ unsigned int API_PopSendQueue(){
         } else {
             SendingQueue_tail++;
         }
+        vTaskExitCritical();
         return element;
     }
 }
@@ -255,6 +258,7 @@ void API_Try2Send(){
     // Try to send the packet to NI if it's available
     // Checks if the NI is available to transmitt something
     if (HW_get_32bit_reg(NI_TX) == NI_STATUS_OFF){
+        vTaskEnterCritical();
         toSend = API_PopSendQueue();
         if (toSend != EMPTY){
             SendingSlot = toSend;
@@ -265,6 +269,7 @@ void API_Try2Send(){
                 SendRaw((unsigned int)&MessagePipe[toSend & 0x0000FFFF].header);
             }
             prints("API_Try2Send success!\n");
+        vTaskExitCritical();
         } else {
             HW_set_32bit_reg(NI_TX, RESET);
             prints("API_Try2Send failed - empty SendQueue!\n");
@@ -436,6 +441,7 @@ void API_NI_Handler(){
     unsigned int service;
     unsigned int count = 0;
     do{
+        vTaskEnterCritical();
         if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
             prints("TX interruption catched\n"); // - ", NI_IRCount);
             API_ClearPipeSlot(SendingSlot); // clear the pipe slot that was transmitted
@@ -568,13 +574,15 @@ void API_NI_Handler(){
             HW_set_32bit_reg(NI_RX, DONE);
             count++;
         }
-    
+        vTaskExitCritical();
     } while( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING || HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER);
     
+    vTaskEnterCritical();
     if (HW_get_32bit_reg(NI_TIMER) == NI_STATUS_INTER){
         powerEstimation();
         HW_set_32bit_reg(NI_TIMER, DONE);
     }
+    vTaskExitCritical();
     
     return;
 }

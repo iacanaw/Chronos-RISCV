@@ -76,7 +76,7 @@ unsigned int source_pe = 0;
 unsigned int x_data_counter = 0;
 unsigned int y_data_counter = 0;
 
-unsigned int samples_received = 0;
+unsigned int samples_received[DIM_Y][DIM_X];
 
 void load_matrices(double Binv[THERMAL_NODES][SYSTEM_SIZE], double Cexp[THERMAL_NODES][THERMAL_NODES]){
     FILE *binvpointer;
@@ -266,6 +266,17 @@ PPM_PACKETNET_CB(controlUpdate) {
     }
 }
 
+unsigned int checkPowerReceived(){
+    int i, j;
+    for(i=0; i < DIM_X; i++){
+        for(j=0; j < DIM_Y; j++){
+            if(samples_received[j][i] == 0)
+                return 0;
+        }
+    }
+    return 1;
+}
+
 PPM_PACKETNET_CB(dataUpdate) {
     unsigned int newFlit = *(unsigned int *)data;
     //bhmMessage("I", "TEA", "Chegou um flit: %x", htonl(newFlit));
@@ -284,14 +295,21 @@ PPM_PACKETNET_CB(dataUpdate) {
     else if(flit_in_counter == 5){  // quinto flit - energia do PE
         power[y_data_counter][x_data_counter] =  htonl(newFlit);
         bhmMessage("I", "Input", "power[%d][%d]: %d\n",x_data_counter, y_data_counter, power[y_data_counter][x_data_counter]);
-        samples_received++;
+        samples_received[y_data_counter][x_data_counter] = 1;
+        //samples_received++;
     }
     else if(flit_in_counter >= 13){
         flit_in_counter = 0;
     }
     
-    if(samples_received >= DIM_X*DIM_Y){ // Acabou de receber as energias
-        samples_received = 0;
+    if(checkPowerReceived()){ // Acabou de receber as energias
+    //if(samples_received >= DIM_X*DIM_Y){ // Acabou de receber as energias
+        //samples_received = 0;
+        for(y_data_counter=0; y_data_counter < DIM_Y; y_data_counter++){
+            for(x_data_counter=0; x_data_counter < DIM_X; x_data_counter++){
+                samples_received[y_data_counter][x_data_counter] = 0;
+            }
+        }
         //bhmMessage("I", "INFO", "TEA RECEBEU TODAS AS ENERGIAS!");
         ////////////////////////////////////////////////////////////////////////
         /*CALCULAR STEADY*/
