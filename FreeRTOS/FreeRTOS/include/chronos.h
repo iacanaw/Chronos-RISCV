@@ -34,6 +34,7 @@
 // SENDING QUEUE
 #define SERVICE             0x10100000
 #define MESSAGE             0x20200000
+#define THERMAL             0x30300000
 #define EMPTY               0x30300000
 ////////////////////////////////////////////////////////////
 // NI STATUS
@@ -98,6 +99,7 @@ unsigned int taskAllocation(unsigned int taskID, unsigned int taskSize, unsigned
 // Informs the GlobalMaster that this task has finish its execution
 void API_SendFinishTask();
 
+void API_PrioritySend(unsigned int type, unsigned int slot);
 
 void API_AckTaskAllocation(unsigned int task_id, unsigned int app_id);
 

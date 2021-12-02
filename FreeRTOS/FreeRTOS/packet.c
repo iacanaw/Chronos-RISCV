@@ -68,12 +68,12 @@ void API_ClearPipeSlot(unsigned int typeSlot){
     unsigned type = typeSlot & 0xFFFF0000;
     unsigned slot = typeSlot & 0x0000FFFF;
     
+
     if (type == SERVICE){
-        if(ServicePipe[slot].header.service == ENERGY_PACKET){
-            thermalPacket_pending = FALSE;
-        }
         ServicePipe[slot].status = PIPE_FREE;
         ServicePipe[slot].holder = PIPE_FREE;
+    } else if (type == THERMAL){
+        thermalPacket_pending = FALSE;
     } else { // type == MESSAGE
         //printsv("cleaning message pipe slot: ", slot);
         MessagePipe[slot].status = PIPE_FREE;

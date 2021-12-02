@@ -1,0 +1,115 @@
+MatEx 1.0 - Information Manual
+--------------------------------
+
+CONTENTS
+--------
+	1) License
+	2) Introduction
+	3) Installation
+	4) Computing transient and peak temperatures
+	5) Contact (E-mailing list)
+	6) References
+
+
+
+LICENSE
+-------
+
+LICENSE TERMS
+
+Copyright (c)2014 Santiago Pagani, Jian-Jia Chen, Muhammad Shafique, and Jörg Henkel. All rights reserved.
+
+Permission is hereby granted, without written agreement and without license or royalty fees, to use, copy, modify, and distribute this software and its documentation for any purpose, provided that the above copyright notice and the following four paragraphs appear in all copies of this software, whether in binary form or not.
+
+IN NO EVENT SHALL THE AUTHORS, THE KARLSRUHE INSTITUTE OF TECHNOLOGY, OR THE TU DORTMUND BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING OUT OF THE USE OF THIS SOFTWARE AND ITS DOCUMENTATION, EVEN IF THEY HAVE BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+THE AUTHORS, THE KARLSRUHE INSTITUTE OF TECHNOLOGY, OR THE TU DORTMUND SPECIFICALLY DISCLAIM ANY WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE. THE SOFTWARE PROVIDED HERE IS ON AN "AS IS" BASIS, AND THE AUTHORS HAVE NO OBLIGATION TO PROVIDE MAINTENANCE, SUPPORT, UPDATES, ENHANCEMENTS, OR MODIFICATIONS.
+
+NEITHER THE NAME OF ANY GERMAN ENTITY NOR THE NAMES OF THE CONTRIBUTORS MAY BE USED TO ENDORSE OR PROMOTE PRODUCTS DERIVED FROM THIS SOFTWARE WITHOUT SPECIFIC PRIOR WRITTEN PERMISSION.
+
+If you use this software or a modified version of it, please cite the following paper: 
+* Santiago Pagani, Jian-Jia Chen, Muhammad Shafique, and Jörg Henkel, "MatEx: Efficient Transient and Peak Temperature Computation for Compact Thermal Models", in Proceedings of the 18th IEEE/ACM Design, Automation & Test in Europe (DATE), Grenoble, France, March 2015.
+
+Also, since the thermal model inside MatEx is obtained through HotSpot, please also cite the following paper:
+* W. Huang, S. Ghosh, S. Velusamy, K. Sankaranarayanan, K. Skadron, and M. Stan, "HotSpot: a compact thermal modeling methodology for early-stage VLSI design", in IEEE Transactions on Very Large Scale Integration (VLSI) Systems, vol. 14, no. 5, pp. 501–513, May 2006.
+
+
+
+INTRODUCTION
+------------
+
+This application, called MatEx (from matrix exponentials) [1], is namely intended as a fast and accurate method to compute transient temperatures and peaks in transient temperatures after changes in power.
+
+Our method works with any compact thermal model composed by a system of first-order differential equations, but is implemented by using RC thermal networks, just like HotSpot [2]. MatEx is based on matrix exponentials and linear algebra, allowing us to derive an analytical expression for computing the transient temperatures. The peaks in transient temperatures can be then easily computed by analyzing and differentiating such an equation, which is something impossible to do when solving the system of differential equations with regular numerical methods.
+Moreover, given that our method is based on an exact solution which is a function of time, it can also efficiently compute all transient temperatures for any given time resolution without accuracy losses.
+
+
+
+INSTALLATION
+------------
+
+1. Download the MatEx tool from http://ces.itec.kit.edu/~pagani
+
+2. Unzip the file
+
+3. Download the Eigen template library from http://eigen.tuxfamily.org
+   This library is used to compute the eigenvalues and eigenvectors of a matrix. The version tested at the moment of this release is Eigen 3.2.2
+
+4. Go to the MatEx installation directory
+	a) cd MatEx-1.0/
+	
+5. Build the application
+	a) g++ -I <pathToEigenLibrary> matex.cpp configurationParameters.cpp floorplan.cpp rcModel.cpp -o MatEx
+
+
+
+USING MATEX
+-------------
+
+To use MatEx, the application needs a configuration file (similar to the one used by HotSpot), a power trace file, and a floorplan or an eigeninput file.
+When the floorplan is given, the RC thermal network is computed through HotSpot. When the eigeninput file is given, the eigenvectors, eigenvalues, and all required matrix are taken from the eigeninput file.
+
+Some examples of how MatEx is used follow:
+1- Compute the peak temperatures for a given floorplan:
+	./MatEx -c matex.config -f floorplan.flp -p powerTrace.ptrace
+
+2- Compute the peak temperatures for a given floorplan and save the results into a file:
+	./MatEx -c matex.config -f floorplan.flp -p powerTrace.ptrace -o maxTemp.data
+
+3- Compute all transient temperatures and the peak temperatures for a given floorplan:
+	./MatEx -c matex.config -f floorplan.flp -p powerTrace.ptrace -transient_file_block allTemp.data
+
+4- Compute the peak temperatures for a given floorplan and generate an eigeninput file for next use:
+	./MatEx -c matex.config -f floorplan.flp -p powerTrace.ptrace -eigen_out eigendata.bin
+
+5- Compute the peak temperatures for a given eigeninput file (faster than with a floorplan file):
+	./MatEx -c matex.config -i eigendata.bin -p powerTrace.ptrace
+
+6- Compute all transient temperatures and the peak temperatures for a given eigeninput file (faster than with a floorplan file):
+	./MatEx -c matex.config -i eigendata.bin -p powerTrace.ptrace -transient_file_block allTemp.data
+
+
+Note that unlike the power trace files with HotSpot, in MatEx the power traces also include a "time" value. It is assumed that the power changes at the given time instant and it remains constant until the next time instant. In this way, although all transient temperatures can be computed for small sampling times, for example, 3.3us, the power trace file only needs one line per change in power.
+Furtthermore, aside from the possibility of reading the initial temperatures from an initial temperature file, MatEx also provides the possibility to consider initial temperatures based on the steady-state temperatures for a given power state. Simply include a line in the power trace file with negative time, and MatEx will compute the steady-state temperatures for the indicated power values and use it as the initial tempeatures.
+
+
+
+CONTACT (E-MAILING LIST)
+------------------------
+
+MatEx can be downloaded from http://ces.itec.kit.edu/download.
+For questions you can write an e-mail to santiago.pagani@kit.edu.
+
+
+
+REFERENCES
+----------
+[1] Santiago Pagani, Jian-Jia Chen, Muhammad Shafique, and Jörg Henkel, "MatEx: Efficient Transient and Peak Temperature Computation for Compact Thermal Models", in Proceedings of the 18th IEEE/ACM Design, Automation & Test in Europe (DATE), Grenoble, France, March 2015.
+[2] W. Huang, S. Ghosh, S. Velusamy, K. Sankaranarayanan, K. Skadron, and M. Stan, "HotSpot: a compact thermal modeling methodology for early-stage VLSI design", in IEEE Transactions on Very Large Scale Integration (VLSI) Systems, vol. 14, no. 5, pp. 501–513, May 2006.
+
+
+
+
+
+
+

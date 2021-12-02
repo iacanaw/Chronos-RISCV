@@ -100,6 +100,7 @@ typedef struct{
 unsigned int messageID;
 volatile MessagePacket MessagePipe[PIPE_SIZE];
 volatile ServicePacket ServicePipe[PIPE_SIZE];
+volatile MessagePacket ThermalPacket;
 
 // Initialize the PIPE, setting the status of each slot to FREE
 void API_PipeInitialization();

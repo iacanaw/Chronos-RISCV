@@ -219,17 +219,44 @@ unsigned int makeAddress(unsigned int x, unsigned int y) {
 // Pushes one slot to the sending queue
 void API_PushSendQueue(unsigned int type, unsigned int slot){
     vTaskEnterCritical();
-    SendingQueue[SendingQueue_front] = type | slot;
-    printsv("SendingQueue_front: ", SendingQueue_front);
-    if(SendingQueue_front == (PIPE_SIZE*2)-1){
-        SendingQueue_front = 0;
+    if(type == THERMAL){
+        API_PrioritySend(type, slot);
     } else {
-        SendingQueue_front++;
+        SendingQueue[SendingQueue_front] = type | slot;
+        printsv("SendingQueue_front: ", SendingQueue_front);
+        if(SendingQueue_front == (PIPE_SIZE*2)-1){
+            SendingQueue_front = 0;
+        } else {
+            SendingQueue_front++;
+        }
+        API_Try2Send();
     }
-    API_Try2Send();
     vTaskExitCritical();
     return;
 }
+
+
+void API_PrioritySend(unsigned int type, unsigned int slot){
+    if(type == THERMAL){
+        for(;;){
+            if(HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER) {
+                API_ClearPipeSlot(SendingSlot);
+                HW_set_32bit_reg(NI_TX, DONE);  // releases the interruption
+                SendingSlot = THERMAL;
+                SendRaw((unsigned int)&ThermalPacket.header);
+                break;
+            } else if(HW_get_32bit_reg(NI_TX) == NI_STATUS_OFF){
+                SendingSlot = THERMAL;
+                SendRaw((unsigned int)&ThermalPacket.header);
+                break;
+            }
+        }
+    } else {
+        prints("ERROR API_PrioritySend()\n");
+    }
+    return;
+}
+
 
 ////////////////////////////////////////////////////////////
 // Pushes one slot to the sending queue

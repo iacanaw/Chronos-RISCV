@@ -1,5 +1,8 @@
 #!/bin/bash
 
+XX=3
+YY=3
+
 SECONDS=0;
 echo "==============================="
 echo "CLEANING THE SIMULATION FOLDER"
@@ -43,7 +46,7 @@ echo "COMPILING THE ITERATOR"
 cd ../iterator
 rm -rf obj
 rm -f pse.pse
-./iteratorGenerator.sh 3 3
+./iteratorGenerator.sh "$XX" "$YY"
 make NOVLNV=1
 echo "==================="
 echo "COMPILING THE TIMER"
@@ -72,6 +75,10 @@ make NOVLNV=1
 echo "================="
 echo "COMPILING THE TEA"
 cd ../tea
+cd matex
+python3 flp_gen.py "$XX" "$YY"
+./MatEx -c input/chronos.cfg -f input/floorplan.flp -p input/power.pwr
+cd ..
 rm -rf obj
 rm -f pse.pse
 make NOVLNV=1
@@ -90,14 +97,14 @@ make NOVLNV=1
 echo "===================="
 echo "COMPILING THE MODULE"
 cd ../../module
-sh moduleGenerator.sh 3 3
+sh moduleGenerator.sh "$XX" "$YY"
 make clean
 make NOVLNV=1
 cd ..
 echo "====================="
 echo "COMPILING THE HARNESS"
 cd harness
-sh harnessGenerator.sh 3 3
+sh harnessGenerator.sh "$XX" "$YY"
 cd ..
 rm -rf harness/obj
 rm harness/harness.Linux64.exe
@@ -163,6 +170,5 @@ harness/harness.${IMPERAS_ARCH}.exe             \
   --override uart8/finishOnDisconnect=T         \
   --override uart8/outfile=simulation/uart8.log $* --verbose --parallelmax --parallelperipherals --output simulation/imperas.log
 #--imperasintercepts                                     \
-# --parallelperipherals
 
 echo "Simulation total time elapsed: "$SECONDS" seconds..."
