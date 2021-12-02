@@ -10,12 +10,14 @@
  * -------------------------------------------------------------------------------*/
 #define DYN_READ_MEM_0 6351
 #define DYN_READ_MEM_1 7796
-#define DYN_READ_MEM_2 9396
+//#define DYN_READ_MEM_2 9396
+#define DYN_READ_MEM_2 832 // pJ = 260fJ/bit * 32 bit = 8,32pJ  
 const int readEnergyMemory[3] = {DYN_READ_MEM_0, DYN_READ_MEM_1, DYN_READ_MEM_2};
 
 #define DYN_WRITE_MEM_0 8843
 #define DYN_WRITE_MEM_1 11043
-#define DYN_WRITE_MEM_2 13497
+//#define DYN_WRITE_MEM_2 13497
+#define DYN_WRITE_MEM_2 576 // pJ = 180fJ/bit * 32 bit = 5,76pJ  
 const int writeEnergyMemory[3] = {DYN_WRITE_MEM_0, DYN_WRITE_MEM_1, DYN_WRITE_MEM_2};
 
 /*--------------------------------------------------------------------------------

@@ -114,15 +114,15 @@ void API_FinishRunningTask(){
     int i;
     unsigned int slot = API_GetCurrentTaskSlot();
     printsvsv("Finishing task:", TaskList[slot].TaskID, "app: ", TaskList[slot].AppID);
+    printsv("From slot: ", slot);
     while(API_checkPipe(slot) == 1){
         vTaskDelay(1);
     }
-    vPortFree(TaskList[slot].taskAddr);
-    
+    vTaskEnterCritical();
     printsvsv("Task ", TaskList[slot].TaskID, "deleted with sucsess! From application ", TaskList[slot].AppID);
     TaskList[slot].status = TASK_SLOT_EMPTY;
     
-    for(i = 0; i < NUM_MAX_APP_TASKS; i++){
+    for(i = 0; i < NUM_MAX_TASKS; i++){
         printsvsv("TaskList[", i, "]status: ", TaskList[i].status );
         if(TaskList[i].status != TASK_SLOT_EMPTY){
             printsvsv("Returning because of: ", i, "TaskList[i].status ", TaskList[i].status);
@@ -134,6 +134,8 @@ void API_FinishRunningTask(){
         API_setFreqIdle();
     }
     API_SendFinishTask(TaskList[slot].TaskID, TaskList[slot].AppID);
+    vPortFree(TaskList[slot].taskAddr);
+    vTaskExitCritical();
     vTaskDelete(TaskList[slot].TaskHandler);
     return;
 }

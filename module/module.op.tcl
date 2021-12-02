@@ -16,7 +16,7 @@ ihwaddbus -instancename cpu8Bus -addresswidth 32
 
 ihwaddprocessor -instancename cpu0 -id 0  \
 	-type riscv -vendor riscv.ovpworld.org -library processor -version 1.0 \
-	-mips 100 -simulateexceptions
+	-mips 1000 -simulateexceptions
 
 ihwsetparameter -handle cpu0 -name variant        -value RVB32I -type enum
 ihwsetparameter -handle cpu0 -name add_Extensions -value MSU -type string
@@ -27,7 +27,7 @@ ihwconnect -instancename cpu0  -busmasterport DATA        -bus cpu0Bus
 
 ihwaddprocessor -instancename cpu1 -id 1  \
 	-type riscv -vendor riscv.ovpworld.org -library processor -version 1.0 \
-	-mips 100 -simulateexceptions
+	-mips 1000 -simulateexceptions
 
 ihwsetparameter -handle cpu1 -name variant        -value RVB32I -type enum
 ihwsetparameter -handle cpu1 -name add_Extensions -value MSU -type string
@@ -38,7 +38,7 @@ ihwconnect -instancename cpu1  -busmasterport DATA        -bus cpu1Bus
 
 ihwaddprocessor -instancename cpu2 -id 2  \
 	-type riscv -vendor riscv.ovpworld.org -library processor -version 1.0 \
-	-mips 100 -simulateexceptions
+	-mips 1000 -simulateexceptions
 
 ihwsetparameter -handle cpu2 -name variant        -value RVB32I -type enum
 ihwsetparameter -handle cpu2 -name add_Extensions -value MSU -type string
@@ -49,7 +49,7 @@ ihwconnect -instancename cpu2  -busmasterport DATA        -bus cpu2Bus
 
 ihwaddprocessor -instancename cpu3 -id 3  \
 	-type riscv -vendor riscv.ovpworld.org -library processor -version 1.0 \
-	-mips 100 -simulateexceptions
+	-mips 1000 -simulateexceptions
 
 ihwsetparameter -handle cpu3 -name variant        -value RVB32I -type enum
 ihwsetparameter -handle cpu3 -name add_Extensions -value MSU -type string
@@ -60,7 +60,7 @@ ihwconnect -instancename cpu3  -busmasterport DATA        -bus cpu3Bus
 
 ihwaddprocessor -instancename cpu4 -id 4  \
 	-type riscv -vendor riscv.ovpworld.org -library processor -version 1.0 \
-	-mips 100 -simulateexceptions
+	-mips 1000 -simulateexceptions
 
 ihwsetparameter -handle cpu4 -name variant        -value RVB32I -type enum
 ihwsetparameter -handle cpu4 -name add_Extensions -value MSU -type string
@@ -71,7 +71,7 @@ ihwconnect -instancename cpu4  -busmasterport DATA        -bus cpu4Bus
 
 ihwaddprocessor -instancename cpu5 -id 5  \
 	-type riscv -vendor riscv.ovpworld.org -library processor -version 1.0 \
-	-mips 100 -simulateexceptions
+	-mips 1000 -simulateexceptions
 
 ihwsetparameter -handle cpu5 -name variant        -value RVB32I -type enum
 ihwsetparameter -handle cpu5 -name add_Extensions -value MSU -type string
@@ -82,7 +82,7 @@ ihwconnect -instancename cpu5  -busmasterport DATA        -bus cpu5Bus
 
 ihwaddprocessor -instancename cpu6 -id 6  \
 	-type riscv -vendor riscv.ovpworld.org -library processor -version 1.0 \
-	-mips 100 -simulateexceptions
+	-mips 1000 -simulateexceptions
 
 ihwsetparameter -handle cpu6 -name variant        -value RVB32I -type enum
 ihwsetparameter -handle cpu6 -name add_Extensions -value MSU -type string
@@ -93,7 +93,7 @@ ihwconnect -instancename cpu6  -busmasterport DATA        -bus cpu6Bus
 
 ihwaddprocessor -instancename cpu7 -id 7  \
 	-type riscv -vendor riscv.ovpworld.org -library processor -version 1.0 \
-	-mips 100 -simulateexceptions
+	-mips 1000 -simulateexceptions
 
 ihwsetparameter -handle cpu7 -name variant        -value RVB32I -type enum
 ihwsetparameter -handle cpu7 -name add_Extensions -value MSU -type string
@@ -104,7 +104,7 @@ ihwconnect -instancename cpu7  -busmasterport DATA        -bus cpu7Bus
 
 ihwaddprocessor -instancename cpu8 -id 8  \
 	-type riscv -vendor riscv.ovpworld.org -library processor -version 1.0 \
-	-mips 100 -simulateexceptions
+	-mips 1000 -simulateexceptions
 
 ihwsetparameter -handle cpu8 -name variant        -value RVB32I -type enum
 ihwsetparameter -handle cpu8 -name add_Extensions -value MSU -type string

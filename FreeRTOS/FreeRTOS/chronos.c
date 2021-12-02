@@ -394,7 +394,7 @@ void API_SendFinishTask(unsigned int task_id, unsigned int app_id){
 void API_SendMessageReq(unsigned int addr, unsigned int taskID){
     unsigned int taskSlot;
     unsigned int mySlot;
-
+    volatile unsigned int idle = 0;
     // Update task info
     taskSlot = API_GetCurrentTaskSlot();
     TaskList[taskSlot].waitingMsg = TRUE;
@@ -424,9 +424,14 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
     prints("Esperando Mensagem!\n");
     // Bloquear a tarefa!
     while(TaskList[taskSlot].waitingMsg == TRUE){ 
-        printsvsv("taskslot ", taskSlot, " esperando mensagem ", 0);
-        vTaskDelay(1); 
+        // if(TaskList[taskSlot].waitingMsg == TRUE && idle == 0){
+        //     API_setFreqIdle();
+        //     API_applyFreqScale();
+        //     idle = 1;
+        // }
+        vTaskDelay(1);
     }
+    //API_setFreqScale(1000);
     prints("Mensagem Recebida!\n");
     return;
 }

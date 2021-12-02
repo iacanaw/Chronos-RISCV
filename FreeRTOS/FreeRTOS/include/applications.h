@@ -20,7 +20,7 @@ typedef struct {
     unsigned int TaskID;
     unsigned int AppID;
     TaskHandle_t TaskHandler;
-    unsigned int waitingMsg;
+    volatile unsigned int waitingMsg;
     unsigned int MsgToReceive;
     unsigned int taskSize;
     unsigned int taskAddr;

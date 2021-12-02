@@ -17,7 +17,7 @@ void resetExecutedInstructions(){
 
 void powerEstimation(){
     //unsigned int actualTime, deltaTime;
-    unsigned int Voltage = 3;
+    unsigned int Voltage = 2;
     unsigned int loads, stores, others, total;
     unsigned int dynamicEnergy_PE, dynamicEnergy_MEM, dynamicEnergy_Router;
     unsigned int totalEnergy;
@@ -36,15 +36,20 @@ void powerEstimation(){
 
         // number of instructions executed in the last window
         total = loads + stores + others; 
-        printsv("total:", total);
+        printsv("total instructions~~~> ", total);
 
         // calculates the PE dynamic energy
-        dynamicEnergy_PE = ((arithDyn[Voltage] * others) >> 6) + ((loadStoreDyn[Voltage] * (loads + stores)) >> 6);
+        dynamicEnergy_PE = ((arithDyn[Voltage] * others)) + ((loadStoreDyn[Voltage] * (loads + stores)));
+        //printsv("dynamicEnergy_PE: ", dynamicEnergy_PE);
+        dynamicEnergy_PE = dynamicEnergy_PE >> 6;
+        printsv("dynamicEnergy_PE >> 6: ", dynamicEnergy_PE);
+
         // calculates the PE leakage energy
-        leakEnergy_PE = (PE_LEAKAGE * 1000000) >> 6; // mW => pW * s => pJ
+        //leakEnergy_PE = (PE_LEAKAGE * 1000000) >> 6; // mW => pW * s => pJlsls
 
         // calculates the MEM dynamic energy
-        dynamicEnergy_MEM = ((readEnergyMemory[Voltage] * loads) >> 6) + ((writeEnergyMemory[Voltage] * stores) >> 6);
+        dynamicEnergy_MEM = 0;//((readEnergyMemory[Voltage] * loads) >> 6) + ((writeEnergyMemory[Voltage] * stores) >> 6);
+        printsv("dynamicEnergy_MEM >> 6: ", dynamicEnergy_MEM);
 
         // calculates the ROUTER dynamic energy
         dynamicEnergy_Router = 0; // TODO

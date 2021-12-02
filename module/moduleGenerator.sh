@@ -29,7 +29,7 @@ for i in $(seq 0 $N);
 do
 	echo "ihwaddprocessor -instancename cpu"$i" -id "$i"  \\" >> module.op.tcl
 	echo "	-type riscv -vendor riscv.ovpworld.org -library processor -version 1.0 \\" >> module.op.tcl
-	echo "	-mips 100 -simulateexceptions" >> module.op.tcl
+	echo "	-mips 1000 -simulateexceptions" >> module.op.tcl
 	echo "" >> module.op.tcl
 	echo "ihwsetparameter -handle cpu"$i" -name variant        -value RVB32I -type enum" >> module.op.tcl
 	echo "ihwsetparameter -handle cpu"$i" -name add_Extensions -value MSU -type string" >> module.op.tcl

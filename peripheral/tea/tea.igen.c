@@ -78,6 +78,8 @@ unsigned int y_data_counter = 0;
 
 unsigned int samples_received[DIM_Y][DIM_X];
 
+FILE *fp;
+
 void load_matrices(double Binv[THERMAL_NODES][SYSTEM_SIZE], double Cexp[THERMAL_NODES][THERMAL_NODES]){
     FILE *binvpointer;
     binvpointer = fopen("peripheral/tea/binv.txt","r");
@@ -318,8 +320,11 @@ PPM_PACKETNET_CB(dataUpdate) {
         int index = 0;
         int yi, xi;
         for (yi = 0; yi < DIM_X; yi++)
-            for(xi = 0; xi < DIM_Y; xi++)
-                power_trace[index++] = (((double)(power[yi][xi]/100) * 64) / (1000000000 * 0.001)) ;
+            for(xi = 0; xi < DIM_Y; xi++){
+                power_trace[index] = ((((double)power[yi][xi] * 64) / 100) / (1000000000 * 0.001));
+                bhmMessage("I", "input", "power: %.6lf", power_trace[index]);
+                index++;
+            }
                 //power_trace[index++] = (double)(power[yi][xi]*SCALING_FACTOR)/(1280000*WINDOW_TIME);
 
         //power_trace[0] = power_trace[0]*0.1;
@@ -342,11 +347,16 @@ PPM_PACKETNET_CB(dataUpdate) {
         thePacket[0] = MASTER_ADDR; // Header (destine address)
         thePacket[1] = htonl(DIM_X*DIM_Y + 11); 
         thePacket[2] = htonl(0x55); // #define TEMPERATURE_PACKET  0x55 (api.h)
+        fp = fopen("simulation/SystemTemperature.tsv", "a");
+        fprintf(fp, "%.4f", (bhmGetCurrentTime()/1000000));
         for(i = 0; i < DIM_Y*DIM_X; i++){
             tempi = TempTraceEnd[i]*100;
             thePacket[i+13] = htonl(tempi);
-            bhmMessage("I", "Input", "temperature %d: %d", i, tempi);
+            bhmMessage("I", "Input", "temperature %d: %.2f", i, (((float)tempi/100)-273.15));
+            fprintf(fp, "\t%.2f", (((float)tempi/100)-273.15));
         }
+        fprintf(fp, "\n");
+        fclose(fp);
         sendPacketToMaster = 1;
     }
 }
@@ -380,6 +390,14 @@ int main(int argc, char *argv[]) {
         ppmDocNodeP doc2_node = ppmDocAddSection(Root1_node, "Description");
         ppmDocAddText(doc2_node, "Termal Estimator Accelerator");
     }
+
+    fp = fopen("simulation/SystemTemperature.tsv", "w");
+    fprintf(fp, "time");
+    for(i=0;i<DIM_X*DIM_Y;i++){
+        fprintf(fp, "\t%d",i);
+    }
+    fprintf(fp, "\n");
+    fclose(fp);
 
     diagnosticLevel = 0;
     bhmInstallDiagCB(setDiagLevel);

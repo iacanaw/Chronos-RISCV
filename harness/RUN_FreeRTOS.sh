@@ -104,7 +104,7 @@ cd ..
 echo "====================="
 echo "COMPILING THE HARNESS"
 cd harness
-sh harnessGenerator.sh "$XX" "$YY"
+#sh harnessGenerator.sh "$XX" "$YY"
 cd ..
 rm -rf harness/obj
 rm harness/harness.Linux64.exe
@@ -172,3 +172,6 @@ harness/harness.${IMPERAS_ARCH}.exe             \
 #--imperasintercepts                                     \
 
 echo "Simulation total time elapsed: "$SECONDS" seconds..."
+
+python3 scripts/graphTemperature.py
+python3 scripts/graphInstructions.py
