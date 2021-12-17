@@ -108,6 +108,7 @@ void interruptionOff(){
         if ( control_TX != NI_STATUS_INTER ){
             if ( control_TIMER != NI_STATUS_INTER ){
                 ppmWriteNet(handles.INT_NI, 0);
+                bhmMessage("I", "NI_INTERRUPTION", "Turning interruption OFF! \n");
             }
         }
     }
@@ -264,7 +265,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
 
     // Receiving process
     if(control_RX == NI_STATUS_ON){
-        bhmMessage("I", "NI", "Escrevendo dado %x na posicao %x\n", flit, receivingAddress);
+        bhmMessage("I", "NI", "Escrevendo dado %x na posicao %x - count: %x\n", flit, receivingAddress, receivingCount);
         if(receivingField == HEADER){
             receivingField = SIZE;
             writeMem(flit, receivingAddress);
@@ -290,7 +291,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
             control_RX = NI_STATUS_WAITING;
             setSTALL();
             interruptionOn();
-            //bhmMessage("I", "NI_RX", "Levantando interrupt RX - WAITING\n");
+            bhmMessage("I", "NI_RX", "Levantando interrupt RX - WAITING\n");
         }
     }
 
@@ -299,7 +300,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
         setSTALL();
         control_RX = NI_STATUS_INTER;
         interruptionOn();
-        //bhmMessage("I", "NI_RX", "Levantando interrupt RX - DELIVER\n");
+        bhmMessage("I", "NI_RX", "Levantando interrupt RX - DELIVER\n");
     }
 }
 
@@ -326,6 +327,7 @@ PPM_REG_WRITE_CB(statusRXWrite) {
         }
     } else if(control_RX == NI_STATUS_INTER){
         if(command == DONE){
+            bhmMessage("I", "NI_INTERRUPTION", "Recebi um DONE!\n");
             control_RX = NI_STATUS_OFF;
             interruptionOff();
             setGO();

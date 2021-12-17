@@ -5,8 +5,10 @@ TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 New application registered - ID: 0 
+NI_RX DONE!
 RX interruption catched
 New application registered - ID: 1 
+NI_RX DONE!
 GlobalMasterActive1 
 I got a free service slo-!! -> 0 
 SendingQueue_front: 1 
@@ -34,20 +36,25 @@ TX interruption catched
 API_Try2Send success!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
+NI_RX DONE!
 TX interruption catched
 API_Try2Send success!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
+NI_RX DONE!
 TX interruption catched
 API_Try2Send success!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
+NI_RX DONE!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
+NI_RX DONE!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
 Application allocated: 1 
@@ -60,6 +67,7 @@ API_Try2Send failed - NI_TX occupied!
 SendingQueue_front: 2 
 API_Try2Send failed - NI_TX occupied!
 RX interruption catched
+NI_RX DONE!
 TX interruption catched
 API_Try2Send success!
 SendingQueue_front: 3 
@@ -69,6 +77,7 @@ API_Try2Send success!
 SendingQueue_front: 4 
 API_Try2Send failed - NI_TX occupied!
 	Start command sent to every task.
+NI_RX DONE!
 GlobalMasterActive2 
 TX interruption catched
 API_Try2Send success!
@@ -93,6 +102,7 @@ TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
+NI_RX DONE!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
 Application allocated: 0 
@@ -101,6 +111,7 @@ API_Try2Send success!
 SendingQueue_front: 0 
 API_Try2Send failed - NI_TX occupied!
 	Start command sent to every task.
+NI_RX DONE!
 TX interruption catched
 API_Try2Send success!
 TX interruption catched
@@ -119,22 +130,10 @@ GlobalMasterActive16
 GlobalMasterActive17 
 GlobalMasterActive18 
 GlobalMasterActive19 
-dynamicEnergy_Router >> 3953125 
+dynamicEnergy_Router >> 3995529 
 total instructions~~~> 1999037 
-TotalEnergy: 15721390 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 32401 
-pe1 temp: 32447 
-pe2 temp: 32494 
-pe3 temp: 32479 
-pe4 temp: 32504 
-pe5 temp: 32474 
-pe6 temp: 32462 
-pe7 temp: 32460 
-pe8 temp: 32471 
+TotalEnergy: 15772012 
+EnergyPckt sent
 GlobalMasterActive20 
 GlobalMasterActive21 
 GlobalMasterActive22 
@@ -144,25 +143,9 @@ GlobalMasterActive25
 GlobalMasterActive26 
 GlobalMasterActive27 
 GlobalMasterActive28 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 151904 
-TotalEnergy: 9988982 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive29 
 GlobalMasterActive30 
 GlobalMasterActive31 
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 32824 
-pe1 temp: 32886 
-pe2 temp: 33229 
-pe3 temp: 33408 
-pe4 temp: 33321 
-pe5 temp: 32895 
-pe6 temp: 33538 
-pe7 temp: 33407 
-pe8 temp: 32829 
 GlobalMasterActive32 
 GlobalMasterActive33 
 GlobalMasterActive34 
@@ -170,23 +153,7 @@ GlobalMasterActive35
 GlobalMasterActive36 
 GlobalMasterActive37 
 GlobalMasterActive38 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149985 
-TotalEnergy: 9923564 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive39 
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33207 
-pe1 temp: 33277 
-pe2 temp: 33645 
-pe3 temp: 33866 
-pe4 temp: 33780 
-pe5 temp: 33374 
-pe6 temp: 34066 
-pe7 temp: 33958 
-pe8 temp: 33636 
 GlobalMasterActive40 
 GlobalMasterActive41 
 GlobalMasterActive42 
@@ -195,23 +162,7 @@ GlobalMasterActive44
 GlobalMasterActive45 
 GlobalMasterActive46 
 GlobalMasterActive47 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149985 
-TotalEnergy: 9914268 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive48 
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33480 
-pe1 temp: 33555 
-pe2 temp: 33937 
-pe3 temp: 34188 
-pe4 temp: 34100 
-pe5 temp: 33731 
-pe6 temp: 34400 
-pe7 temp: 34334 
-pe8 temp: 34173 
 GlobalMasterActive49 
 GlobalMasterActive50 
 GlobalMasterActive51 
@@ -221,22 +172,6 @@ GlobalMasterActive54
 GlobalMasterActive55 
 GlobalMasterActive56 
 GlobalMasterActive57 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149985 
-TotalEnergy: 9923568 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33645 
-pe1 temp: 33732 
-pe2 temp: 34128 
-pe3 temp: 34329 
-pe4 temp: 34292 
-pe5 temp: 33941 
-pe6 temp: 34584 
-pe7 temp: 34550 
-pe8 temp: 34430 
 GlobalMasterActive58 
 GlobalMasterActive59 
 GlobalMasterActive60 
@@ -246,23 +181,7 @@ GlobalMasterActive63
 GlobalMasterActive64 
 GlobalMasterActive65 
 GlobalMasterActive66 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149985 
-TotalEnergy: 9914260 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive67 
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33762 
-pe1 temp: 33855 
-pe2 temp: 34252 
-pe3 temp: 34467 
-pe4 temp: 34430 
-pe5 temp: 34077 
-pe6 temp: 34711 
-pe7 temp: 34681 
-pe8 temp: 34565 
 GlobalMasterActive68 
 GlobalMasterActive69 
 GlobalMasterActive70 
@@ -271,30 +190,8 @@ GlobalMasterActive72
 GlobalMasterActive73 
 GlobalMasterActive74 
 GlobalMasterActive75 
-RX interruption catched
-FINISHED: Task 0 from application 0 
 GlobalMasterActive76 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149985 
-TotalEnergy: 9928061 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-FINISHED: Task 1 from application 0 
-Application 0 was executed in 71 
-		This application is DONE!
 GlobalMasterActive77 
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33839 
-pe1 temp: 33936 
-pe2 temp: 34364 
-pe3 temp: 34542 
-pe4 temp: 34488 
-pe5 temp: 34158 
-pe6 temp: 34795 
-pe7 temp: 34754 
-pe8 temp: 34644 
 GlobalMasterActive78 
 GlobalMasterActive79 
 GlobalMasterActive80 
@@ -303,23 +200,7 @@ GlobalMasterActive82
 GlobalMasterActive83 
 GlobalMasterActive84 
 GlobalMasterActive85 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149956 
-TotalEnergy: 9921299 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive86 
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33865 
-pe1 temp: 33941 
-pe2 temp: 34329 
-pe3 temp: 34529 
-pe4 temp: 34417 
-pe5 temp: 34137 
-pe6 temp: 34665 
-pe7 temp: 34264 
-pe8 temp: 34564 
 GlobalMasterActive87 
 GlobalMasterActive88 
 GlobalMasterActive89 
@@ -329,22 +210,6 @@ GlobalMasterActive92
 GlobalMasterActive93 
 GlobalMasterActive94 
 GlobalMasterActive95 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149884 
-TotalEnergy: 9919709 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33848 
-pe1 temp: 33920 
-pe2 temp: 34333 
-pe3 temp: 34488 
-pe4 temp: 34363 
-pe5 temp: 34084 
-pe6 temp: 34593 
-pe7 temp: 34162 
-pe8 temp: 34421 
 GlobalMasterActive96 
 GlobalMasterActive97 
 GlobalMasterActive98 
@@ -354,25 +219,9 @@ GlobalMasterActive101
 GlobalMasterActive102 
 GlobalMasterActive103 
 GlobalMasterActive104 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149884 
-TotalEnergy: 9911454 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive105 
 GlobalMasterActive106 
 GlobalMasterActive107 
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33665 
-pe1 temp: 33839 
-pe2 temp: 34291 
-pe3 temp: 33921 
-pe4 temp: 34207 
-pe5 temp: 34022 
-pe6 temp: 34382 
-pe7 temp: 34061 
-pe8 temp: 34369 
 GlobalMasterActive108 
 GlobalMasterActive109 
 GlobalMasterActive110 
@@ -380,48 +229,50 @@ GlobalMasterActive111
 GlobalMasterActive112 
 GlobalMasterActive113 
 GlobalMasterActive114 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149884 
-TotalEnergy: 9921840 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33654 
-pe1 temp: 33797 
-pe2 temp: 34246 
-pe3 temp: 34142 
-pe4 temp: 34194 
-pe5 temp: 33980 
-pe6 temp: 34369 
-pe7 temp: 34012 
-pe8 temp: 34328 
+FINISHED: Task 0 from application 0 
+NI_RX DONE!
 GlobalMasterActive115 
+RX interruption catched
+FINISHED: Task 1 from application 0 
+Application 0 was executed in 110 
+		This application still need to run: 9 
+NI_RX DONE!
 GlobalMasterActive116 
 GlobalMasterActive117 
 GlobalMasterActive118 
 GlobalMasterActive119 
 GlobalMasterActive120 
+I got a free service slo-!! -> 0 
+SendingQueue_front: 1 
+API_Try2Send success!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 2 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+Application allocated: 0 
+SendingQueue_front: 3 
+API_Try2Send success!
+SendingQueue_front: 4 
+API_Try2Send failed - NI_TX occupied!
+	Start command sent to every task.
+NI_RX DONE!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive121 
 GlobalMasterActive122 
 GlobalMasterActive123 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149907 
-TotalEnergy: 9913529 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive124 
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33711 
-pe1 temp: 33805 
-pe2 temp: 34238 
-pe3 temp: 34323 
-pe4 temp: 34232 
-pe5 temp: 33977 
-pe6 temp: 34429 
-pe7 temp: 34025 
-pe8 temp: 34321 
 GlobalMasterActive125 
 GlobalMasterActive126 
 GlobalMasterActive127 
@@ -431,22 +282,6 @@ GlobalMasterActive130
 GlobalMasterActive131 
 GlobalMasterActive132 
 GlobalMasterActive133 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149923 
-TotalEnergy: 9923883 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33749 
-pe1 temp: 33832 
-pe2 temp: 34250 
-pe3 temp: 34374 
-pe4 temp: 34265 
-pe5 temp: 33990 
-pe6 temp: 34468 
-pe7 temp: 34048 
-pe8 temp: 34331 
 GlobalMasterActive134 
 GlobalMasterActive135 
 GlobalMasterActive136 
@@ -456,23 +291,7 @@ GlobalMasterActive139
 GlobalMasterActive140 
 GlobalMasterActive141 
 GlobalMasterActive142 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149985 
-TotalEnergy: 9916446 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive143 
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33770 
-pe1 temp: 33851 
-pe2 temp: 34292 
-pe3 temp: 34394 
-pe4 temp: 34270 
-pe5 temp: 34006 
-pe6 temp: 34493 
-pe7 temp: 34063 
-pe8 temp: 34344 
 GlobalMasterActive144 
 GlobalMasterActive145 
 GlobalMasterActive146 
@@ -482,22 +301,6 @@ GlobalMasterActive149
 GlobalMasterActive150 
 GlobalMasterActive151 
 GlobalMasterActive152 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149985 
-TotalEnergy: 9922789 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33778 
-pe1 temp: 33850 
-pe2 temp: 34242 
-pe3 temp: 34404 
-pe4 temp: 34284 
-pe5 temp: 34011 
-pe6 temp: 34497 
-pe7 temp: 34079 
-pe8 temp: 34384 
 GlobalMasterActive153 
 GlobalMasterActive154 
 GlobalMasterActive155 
@@ -507,23 +310,7 @@ GlobalMasterActive158
 GlobalMasterActive159 
 GlobalMasterActive160 
 GlobalMasterActive161 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149985 
-TotalEnergy: 9919593 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive162 
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33781 
-pe1 temp: 33853 
-pe2 temp: 34266 
-pe3 temp: 34407 
-pe4 temp: 34285 
-pe5 temp: 34008 
-pe6 temp: 34498 
-pe7 temp: 34073 
-pe8 temp: 34339 
 GlobalMasterActive163 
 GlobalMasterActive164 
 GlobalMasterActive165 
@@ -533,23 +320,7 @@ GlobalMasterActive168
 GlobalMasterActive169 
 GlobalMasterActive170 
 GlobalMasterActive171 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149985 
-TotalEnergy: 9925978 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive172 
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33795 
-pe1 temp: 33865 
-pe2 temp: 34272 
-pe3 temp: 34443 
-pe4 temp: 34295 
-pe5 temp: 34011 
-pe6 temp: 34513 
-pe7 temp: 34077 
-pe8 temp: 34345 
 GlobalMasterActive173 
 GlobalMasterActive174 
 GlobalMasterActive175 
@@ -558,23 +329,7 @@ GlobalMasterActive177
 GlobalMasterActive178 
 GlobalMasterActive179 
 GlobalMasterActive180 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149985 
-TotalEnergy: 9916435 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive181 
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33783 
-pe1 temp: 33859 
-pe2 temp: 34274 
-pe3 temp: 34388 
-pe4 temp: 34288 
-pe5 temp: 34014 
-pe6 temp: 34500 
-pe7 temp: 34078 
-pe8 temp: 34357 
 GlobalMasterActive182 
 GlobalMasterActive183 
 GlobalMasterActive184 
@@ -584,22 +339,6 @@ GlobalMasterActive187
 GlobalMasterActive188 
 GlobalMasterActive189 
 GlobalMasterActive190 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149985 
-TotalEnergy: 9925970 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Recebendo pacote de temperaturaRX interruption catched
-pe0 temp: 33783 
-pe1 temp: 33857 
-pe2 temp: 34273 
-pe3 temp: 34407 
-pe4 temp: 34286 
-pe5 temp: 34014 
-pe6 temp: 34502 
-pe7 temp: 34077 
-pe8 temp: 34357 
 GlobalMasterActive191 
 GlobalMasterActive192 
 GlobalMasterActive193 
@@ -609,11 +348,6 @@ GlobalMasterActive196
 GlobalMasterActive197 
 GlobalMasterActive198 
 GlobalMasterActive199 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149985 
-TotalEnergy: 9915643 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive200 
 GlobalMasterActive201 
 GlobalMasterActive202 
@@ -624,11 +358,6 @@ GlobalMasterActive206
 GlobalMasterActive207 
 GlobalMasterActive208 
 GlobalMasterActive209 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149956 
-TotalEnergy: 9909341 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive210 
 GlobalMasterActive211 
 GlobalMasterActive212 
@@ -638,24 +367,48 @@ GlobalMasterActive215
 GlobalMasterActive216 
 GlobalMasterActive217 
 GlobalMasterActive218 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149942 
-TotalEnergy: 9899124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive219 
 GlobalMasterActive220 
 GlobalMasterActive221 
 GlobalMasterActive222 
 GlobalMasterActive223 
+RX interruption catched
+FINISHED: Task 1 from application 0 
+NI_RX DONE!
+RX interruption catched
+FINISHED: Task 0 from application 0 
 GlobalMasterActive224 
+Application 0 was executed in 103 
+		This application still need to run: 8 
+NI_RX DONE!
 GlobalMasterActive225 
 GlobalMasterActive226 
 GlobalMasterActive227 
 GlobalMasterActive228 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149884 
-TotalEnergy: 9906726 
+I got a free service slo-!! -> 0 
+SendingQueue_front: 5 
+API_Try2Send success!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 6 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+NI_RX DONE!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+Application allocated: 0 
+SendingQueue_front: 7 
+API_Try2Send success!
+SendingQueue_front: 0 
+API_Try2Send failed - NI_TX occupied!
+	Start command sent to every task.
+NI_RX DONE!
+TX interruption catched
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 GlobalMasterActive229 
@@ -667,11 +420,6 @@ GlobalMasterActive234
 GlobalMasterActive235 
 GlobalMasterActive236 
 GlobalMasterActive237 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149884 
-TotalEnergy: 9897199 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive238 
 GlobalMasterActive239 
 GlobalMasterActive240 
@@ -682,11 +430,6 @@ GlobalMasterActive244
 GlobalMasterActive245 
 GlobalMasterActive246 
 GlobalMasterActive247 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149884 
-TotalEnergy: 9906805 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive248 
 GlobalMasterActive249 
 GlobalMasterActive250 
@@ -696,11 +439,6 @@ GlobalMasterActive253
 GlobalMasterActive254 
 GlobalMasterActive255 
 GlobalMasterActive256 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149907 
-TotalEnergy: 9898452 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive257 
 GlobalMasterActive258 
 GlobalMasterActive259 
@@ -711,9 +449,871 @@ GlobalMasterActive263
 GlobalMasterActive264 
 GlobalMasterActive265 
 GlobalMasterActive266 
-dynamicEnergy_Router >> 3953125 
-total instructions~~~> 149922 
-TotalEnergy: 9908754 
+GlobalMasterActive267 
+GlobalMasterActive268 
+GlobalMasterActive269 
+GlobalMasterActive270 
+GlobalMasterActive271 
+GlobalMasterActive272 
+GlobalMasterActive273 
+GlobalMasterActive274 
+GlobalMasterActive275 
+GlobalMasterActive276 
+GlobalMasterActive277 
+GlobalMasterActive278 
+GlobalMasterActive279 
+GlobalMasterActive280 
+GlobalMasterActive281 
+GlobalMasterActive282 
+GlobalMasterActive283 
+GlobalMasterActive284 
+GlobalMasterActive285 
+GlobalMasterActive286 
+GlobalMasterActive287 
+GlobalMasterActive288 
+GlobalMasterActive289 
+GlobalMasterActive290 
+GlobalMasterActive291 
+GlobalMasterActive292 
+GlobalMasterActive293 
+GlobalMasterActive294 
+GlobalMasterActive295 
+GlobalMasterActive296 
+GlobalMasterActive297 
+GlobalMasterActive298 
+GlobalMasterActive299 
+GlobalMasterActive300 
+GlobalMasterActive301 
+GlobalMasterActive302 
+GlobalMasterActive303 
+GlobalMasterActive304 
+GlobalMasterActive305 
+GlobalMasterActive306 
+GlobalMasterActive307 
+GlobalMasterActive308 
+GlobalMasterActive309 
+GlobalMasterActive310 
+GlobalMasterActive311 
+GlobalMasterActive312 
+GlobalMasterActive313 
+GlobalMasterActive314 
+GlobalMasterActive315 
+GlobalMasterActive316 
+GlobalMasterActive317 
+GlobalMasterActive318 
+GlobalMasterActive319 
+GlobalMasterActive320 
+GlobalMasterActive321 
+GlobalMasterActive322 
+GlobalMasterActive323 
+GlobalMasterActive324 
+GlobalMasterActive325 
+GlobalMasterActive326 
+GlobalMasterActive327 
+GlobalMasterActive328 
+GlobalMasterActive329 
+GlobalMasterActive330 
+GlobalMasterActive331 
+GlobalMasterActive332 
+GlobalMasterActive333 
+GlobalMasterActive334 
+GlobalMasterActive335 
+GlobalMasterActive336 
+GlobalMasterActive337 
+GlobalMasterActive338 
+GlobalMasterActive339 
+GlobalMasterActive340 
+GlobalMasterActive341 
+RX interruption catched
+FINISHED: Task 1 from application 0 
+NI_RX DONE!
+GlobalMasterActive342 
+RX interruption catched
+FINISHED: Task 0 from application 0 
+Application 0 was executed in 114 
+		This application still need to run: 7 
+NI_RX DONE!
+GlobalMasterActive343 
+GlobalMasterActive344 
+GlobalMasterActive345 
+GlobalMasterActive346 
+GlobalMasterActive347 
+I got a free service slo-!! -> 0 
+SendingQueue_front: 1 
+API_Try2Send success!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 2 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-GlobalMasterActive267 
+GlobalMasterActive348 
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+Application allocated: 0 
+SendingQueue_front: 3 
+API_Try2Send success!
+SendingQueue_front: 4 
+API_Try2Send failed - NI_TX occupied!
+	Start command sent to every task.
+NI_RX DONE!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+GlobalMasterActive349 
+GlobalMasterActive350 
+GlobalMasterActive351 
+GlobalMasterActive352 
+GlobalMasterActive353 
+GlobalMasterActive354 
+GlobalMasterActive355 
+GlobalMasterActive356 
+GlobalMasterActive357 
+GlobalMasterActive358 
+GlobalMasterActive359 
+GlobalMasterActive360 
+GlobalMasterActive361 
+GlobalMasterActive362 
+GlobalMasterActive363 
+GlobalMasterActive364 
+GlobalMasterActive365 
+GlobalMasterActive366 
+GlobalMasterActive367 
+GlobalMasterActive368 
+GlobalMasterActive369 
+GlobalMasterActive370 
+GlobalMasterActive371 
+GlobalMasterActive372 
+GlobalMasterActive373 
+GlobalMasterActive374 
+GlobalMasterActive375 
+GlobalMasterActive376 
+GlobalMasterActive377 
+GlobalMasterActive378 
+GlobalMasterActive379 
+GlobalMasterActive380 
+GlobalMasterActive381 
+GlobalMasterActive382 
+GlobalMasterActive383 
+GlobalMasterActive384 
+GlobalMasterActive385 
+GlobalMasterActive386 
+GlobalMasterActive387 
+GlobalMasterActive388 
+GlobalMasterActive389 
+GlobalMasterActive390 
+GlobalMasterActive391 
+GlobalMasterActive392 
+GlobalMasterActive393 
+GlobalMasterActive394 
+GlobalMasterActive395 
+GlobalMasterActive396 
+GlobalMasterActive397 
+GlobalMasterActive398 
+GlobalMasterActive399 
+GlobalMasterActive400 
+GlobalMasterActive401 
+GlobalMasterActive402 
+GlobalMasterActive403 
+GlobalMasterActive404 
+GlobalMasterActive405 
+GlobalMasterActive406 
+GlobalMasterActive407 
+GlobalMasterActive408 
+GlobalMasterActive409 
+GlobalMasterActive410 
+GlobalMasterActive411 
+GlobalMasterActive412 
+GlobalMasterActive413 
+GlobalMasterActive414 
+GlobalMasterActive415 
+GlobalMasterActive416 
+GlobalMasterActive417 
+GlobalMasterActive418 
+GlobalMasterActive419 
+GlobalMasterActive420 
+GlobalMasterActive421 
+GlobalMasterActive422 
+GlobalMasterActive423 
+GlobalMasterActive424 
+GlobalMasterActive425 
+GlobalMasterActive426 
+GlobalMasterActive427 
+GlobalMasterActive428 
+GlobalMasterActive429 
+GlobalMasterActive430 
+GlobalMasterActive431 
+GlobalMasterActive432 
+GlobalMasterActive433 
+GlobalMasterActive434 
+GlobalMasterActive435 
+GlobalMasterActive436 
+GlobalMasterActive437 
+GlobalMasterActive438 
+GlobalMasterActive439 
+GlobalMasterActive440 
+GlobalMasterActive441 
+GlobalMasterActive442 
+GlobalMasterActive443 
+GlobalMasterActive444 
+GlobalMasterActive445 
+GlobalMasterActive446 
+GlobalMasterActive447 
+GlobalMasterActive448 
+GlobalMasterActive449 
+GlobalMasterActive450 
+GlobalMasterActive451 
+GlobalMasterActive452 
+GlobalMasterActive453 
+GlobalMasterActive454 
+GlobalMasterActive455 
+GlobalMasterActive456 
+GlobalMasterActive457 
+GlobalMasterActive458 
+GlobalMasterActive459 
+GlobalMasterActive460 
+GlobalMasterActive461 
+GlobalMasterActive462 
+GlobalMasterActive463 
+GlobalMasterActive464 
+GlobalMasterActive465 
+GlobalMasterActive466 
+GlobalMasterActive467 
+GlobalMasterActive468 
+GlobalMasterActive469 
+GlobalMasterActive470 
+GlobalMasterActive471 
+GlobalMasterActive472 
+GlobalMasterActive473 
+GlobalMasterActive474 
+GlobalMasterActive475 
+GlobalMasterActive476 
+GlobalMasterActive477 
+GlobalMasterActive478 
+GlobalMasterActive479 
+GlobalMasterActive480 
+GlobalMasterActive481 
+GlobalMasterActive482 
+GlobalMasterActive483 
+GlobalMasterActive484 
+GlobalMasterActive485 
+GlobalMasterActive486 
+GlobalMasterActive487 
+GlobalMasterActive488 
+GlobalMasterActive489 
+GlobalMasterActive490 
+GlobalMasterActive491 
+GlobalMasterActive492 
+GlobalMasterActive493 
+GlobalMasterActive494 
+GlobalMasterActive495 
+GlobalMasterActive496 
+GlobalMasterActive497 
+GlobalMasterActive498 
+GlobalMasterActive499 
+GlobalMasterActive500 
+GlobalMasterActive501 
+GlobalMasterActive502 
+GlobalMasterActive503 
+GlobalMasterActive504 
+GlobalMasterActive505 
+GlobalMasterActive506 
+GlobalMasterActive507 
+GlobalMasterActive508 
+GlobalMasterActive509 
+GlobalMasterActive510 
+GlobalMasterActive511 
+GlobalMasterActive512 
+GlobalMasterActive513 
+GlobalMasterActive514 
+GlobalMasterActive515 
+GlobalMasterActive516 
+GlobalMasterActive517 
+GlobalMasterActive518 
+GlobalMasterActive519 
+GlobalMasterActive520 
+GlobalMasterActive521 
+GlobalMasterActive522 
+GlobalMasterActive523 
+GlobalMasterActive524 
+GlobalMasterActive525 
+GlobalMasterActive526 
+GlobalMasterActive527 
+GlobalMasterActive528 
+GlobalMasterActive529 
+GlobalMasterActive530 
+GlobalMasterActive531 
+GlobalMasterActive532 
+GlobalMasterActive533 
+GlobalMasterActive534 
+GlobalMasterActive535 
+GlobalMasterActive536 
+GlobalMasterActive537 
+GlobalMasterActive538 
+GlobalMasterActive539 
+GlobalMasterActive540 
+GlobalMasterActive541 
+GlobalMasterActive542 
+GlobalMasterActive543 
+GlobalMasterActive544 
+GlobalMasterActive545 
+GlobalMasterActive546 
+GlobalMasterActive547 
+GlobalMasterActive548 
+GlobalMasterActive549 
+GlobalMasterActive550 
+GlobalMasterActive551 
+GlobalMasterActive552 
+GlobalMasterActive553 
+GlobalMasterActive554 
+GlobalMasterActive555 
+GlobalMasterActive556 
+GlobalMasterActive557 
+GlobalMasterActive558 
+GlobalMasterActive559 
+GlobalMasterActive560 
+GlobalMasterActive561 
+GlobalMasterActive562 
+GlobalMasterActive563 
+GlobalMasterActive564 
+GlobalMasterActive565 
+GlobalMasterActive566 
+GlobalMasterActive567 
+GlobalMasterActive568 
+GlobalMasterActive569 
+GlobalMasterActive570 
+GlobalMasterActive571 
+GlobalMasterActive572 
+GlobalMasterActive573 
+GlobalMasterActive574 
+GlobalMasterActive575 
+GlobalMasterActive576 
+GlobalMasterActive577 
+GlobalMasterActive578 
+GlobalMasterActive579 
+GlobalMasterActive580 
+GlobalMasterActive581 
+GlobalMasterActive582 
+GlobalMasterActive583 
+GlobalMasterActive584 
+GlobalMasterActive585 
+GlobalMasterActive586 
+GlobalMasterActive587 
+GlobalMasterActive588 
+GlobalMasterActive589 
+GlobalMasterActive590 
+GlobalMasterActive591 
+GlobalMasterActive592 
+GlobalMasterActive593 
+GlobalMasterActive594 
+GlobalMasterActive595 
+GlobalMasterActive596 
+GlobalMasterActive597 
+GlobalMasterActive598 
+GlobalMasterActive599 
+GlobalMasterActive600 
+GlobalMasterActive601 
+GlobalMasterActive602 
+GlobalMasterActive603 
+GlobalMasterActive604 
+GlobalMasterActive605 
+GlobalMasterActive606 
+GlobalMasterActive607 
+GlobalMasterActive608 
+RX interruption catched
+FINISHED: Task 0 from application 0 
+NI_RX DONE!
+GlobalMasterActive609 
+GlobalMasterActive610 
+RX interruption catched
+FINISHED: Task 1 from application 0 
+Application 0 was executed in 263 
+		This application still need to run: 6 
+NI_RX DONE!
+GlobalMasterActive611 
+GlobalMasterActive612 
+GlobalMasterActive613 
+GlobalMasterActive614 
+GlobalMasterActive615 
+I got a free service slo-!! -> 0 
+SendingQueue_front: 5 
+API_Try2Send success!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 6 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+GlobalMasterActive616 
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+Application allocated: 0 
+SendingQueue_front: 7 
+API_Try2Send success!
+SendingQueue_front: 0 
+API_Try2Send failed - NI_TX occupied!
+	Start command sent to every task.
+NI_RX DONE!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+GlobalMasterActive617 
+GlobalMasterActive618 
+GlobalMasterActive619 
+GlobalMasterActive620 
+GlobalMasterActive621 
+GlobalMasterActive622 
+GlobalMasterActive623 
+GlobalMasterActive624 
+GlobalMasterActive625 
+GlobalMasterActive626 
+GlobalMasterActive627 
+GlobalMasterActive628 
+GlobalMasterActive629 
+GlobalMasterActive630 
+GlobalMasterActive631 
+GlobalMasterActive632 
+GlobalMasterActive633 
+GlobalMasterActive634 
+GlobalMasterActive635 
+GlobalMasterActive636 
+GlobalMasterActive637 
+GlobalMasterActive638 
+GlobalMasterActive639 
+GlobalMasterActive640 
+GlobalMasterActive641 
+GlobalMasterActive642 
+GlobalMasterActive643 
+GlobalMasterActive644 
+GlobalMasterActive645 
+GlobalMasterActive646 
+GlobalMasterActive647 
+GlobalMasterActive648 
+GlobalMasterActive649 
+GlobalMasterActive650 
+GlobalMasterActive651 
+GlobalMasterActive652 
+GlobalMasterActive653 
+GlobalMasterActive654 
+GlobalMasterActive655 
+GlobalMasterActive656 
+GlobalMasterActive657 
+GlobalMasterActive658 
+GlobalMasterActive659 
+GlobalMasterActive660 
+GlobalMasterActive661 
+GlobalMasterActive662 
+GlobalMasterActive663 
+GlobalMasterActive664 
+GlobalMasterActive665 
+GlobalMasterActive666 
+GlobalMasterActive667 
+GlobalMasterActive668 
+GlobalMasterActive669 
+GlobalMasterActive670 
+GlobalMasterActive671 
+GlobalMasterActive672 
+GlobalMasterActive673 
+GlobalMasterActive674 
+GlobalMasterActive675 
+GlobalMasterActive676 
+GlobalMasterActive677 
+GlobalMasterActive678 
+GlobalMasterActive679 
+GlobalMasterActive680 
+GlobalMasterActive681 
+GlobalMasterActive682 
+GlobalMasterActive683 
+GlobalMasterActive684 
+GlobalMasterActive685 
+GlobalMasterActive686 
+GlobalMasterActive687 
+GlobalMasterActive688 
+GlobalMasterActive689 
+GlobalMasterActive690 
+GlobalMasterActive691 
+GlobalMasterActive692 
+GlobalMasterActive693 
+GlobalMasterActive694 
+GlobalMasterActive695 
+GlobalMasterActive696 
+GlobalMasterActive697 
+GlobalMasterActive698 
+GlobalMasterActive699 
+GlobalMasterActive700 
+GlobalMasterActive701 
+GlobalMasterActive702 
+GlobalMasterActive703 
+GlobalMasterActive704 
+GlobalMasterActive705 
+GlobalMasterActive706 
+GlobalMasterActive707 
+GlobalMasterActive708 
+GlobalMasterActive709 
+GlobalMasterActive710 
+GlobalMasterActive711 
+GlobalMasterActive712 
+GlobalMasterActive713 
+GlobalMasterActive714 
+GlobalMasterActive715 
+GlobalMasterActive716 
+GlobalMasterActive717 
+GlobalMasterActive718 
+GlobalMasterActive719 
+GlobalMasterActive720 
+GlobalMasterActive721 
+GlobalMasterActive722 
+GlobalMasterActive723 
+GlobalMasterActive724 
+GlobalMasterActive725 
+GlobalMasterActive726 
+GlobalMasterActive727 
+GlobalMasterActive728 
+GlobalMasterActive729 
+GlobalMasterActive730 
+GlobalMasterActive731 
+GlobalMasterActive732 
+GlobalMasterActive733 
+GlobalMasterActive734 
+GlobalMasterActive735 
+GlobalMasterActive736 
+GlobalMasterActive737 
+GlobalMasterActive738 
+RX interruption catched
+FINISHED: Task 0 from application 0 
+NI_RX DONE!
+GlobalMasterActive739 
+RX interruption catched
+FINISHED: Task 1 from application 0 
+Application 0 was executed in 124 
+		This application still need to run: 5 
+NI_RX DONE!
+GlobalMasterActive740 
+GlobalMasterActive741 
+GlobalMasterActive742 
+GlobalMasterActive743 
+GlobalMasterActive744 
+I got a free service slo-!! -> 0 
+SendingQueue_front: 1 
+API_Try2Send success!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 2 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+Application allocated: 0 
+SendingQueue_front: 3 
+API_Try2Send success!
+SendingQueue_front: 4 
+API_Try2Send failed - NI_TX occupied!
+	Start command sent to every task.
+NI_RX DONE!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+GlobalMasterActive745 
+GlobalMasterActive746 
+GlobalMasterActive747 
+GlobalMasterActive748 
+GlobalMasterActive749 
+GlobalMasterActive750 
+GlobalMasterActive751 
+GlobalMasterActive752 
+GlobalMasterActive753 
+GlobalMasterActive754 
+GlobalMasterActive755 
+GlobalMasterActive756 
+RX interruption catched
+FINISHED: Task 0 from application 1 
+NI_RX DONE!
+GlobalMasterActive757 
+GlobalMasterActive758 
+GlobalMasterActive759 
+RX interruption catched
+FINISHED: Task 1 from application 1 
+NI_RX DONE!
+GlobalMasterActive760 
+GlobalMasterActive761 
+GlobalMasterActive762 
+GlobalMasterActive763 
+RX interruption catched
+FINISHED: Task 2 from application 1 
+NI_RX DONE!
+GlobalMasterActive764 
+RX interruption catched
+FINISHED: Task 3 from application 1 
+NI_RX DONE!
+GlobalMasterActive765 
+RX interruption catched
+FINISHED: Task 4 from application 1 
+NI_RX DONE!
+GlobalMasterActive766 
+RX interruption catched
+FINISHED: Task 5 from application 1 
+GlobalMasterActive767 
+Application 1 was executed in 766 
+		This application is DONE!
+NI_RX DONE!
+GlobalMasterActive768 
+GlobalMasterActive769 
+GlobalMasterActive770 
+GlobalMasterActive771 
+GlobalMasterActive772 
+GlobalMasterActive773 
+GlobalMasterActive774 
+GlobalMasterActive775 
+GlobalMasterActive776 
+GlobalMasterActive777 
+GlobalMasterActive778 
+GlobalMasterActive779 
+GlobalMasterActive780 
+GlobalMasterActive781 
+GlobalMasterActive782 
+GlobalMasterActive783 
+GlobalMasterActive784 
+GlobalMasterActive785 
+GlobalMasterActive786 
+GlobalMasterActive787 
+GlobalMasterActive788 
+GlobalMasterActive789 
+GlobalMasterActive790 
+GlobalMasterActive791 
+GlobalMasterActive792 
+GlobalMasterActive793 
+GlobalMasterActive794 
+GlobalMasterActive795 
+GlobalMasterActive796 
+GlobalMasterActive797 
+GlobalMasterActive798 
+GlobalMasterActive799 
+GlobalMasterActive800 
+GlobalMasterActive801 
+GlobalMasterActive802 
+GlobalMasterActive803 
+GlobalMasterActive804 
+GlobalMasterActive805 
+GlobalMasterActive806 
+GlobalMasterActive807 
+GlobalMasterActive808 
+GlobalMasterActive809 
+GlobalMasterActive810 
+GlobalMasterActive811 
+GlobalMasterActive812 
+GlobalMasterActive813 
+GlobalMasterActive814 
+GlobalMasterActive815 
+GlobalMasterActive816 
+GlobalMasterActive817 
+GlobalMasterActive818 
+GlobalMasterActive819 
+GlobalMasterActive820 
+GlobalMasterActive821 
+GlobalMasterActive822 
+GlobalMasterActive823 
+GlobalMasterActive824 
+GlobalMasterActive825 
+GlobalMasterActive826 
+GlobalMasterActive827 
+GlobalMasterActive828 
+GlobalMasterActive829 
+GlobalMasterActive830 
+GlobalMasterActive831 
+GlobalMasterActive832 
+GlobalMasterActive833 
+GlobalMasterActive834 
+GlobalMasterActive835 
+GlobalMasterActive836 
+GlobalMasterActive837 
+GlobalMasterActive838 
+GlobalMasterActive839 
+GlobalMasterActive840 
+RX interruption catched
+FINISHED: Task 0 from application 0 
+NI_RX DONE!
+GlobalMasterActive841 
+RX interruption catched
+FINISHED: Task 1 from application 0 
+Application 0 was executed in 97 
+		This application still need to run: 4 
+NI_RX DONE!
+GlobalMasterActive842 
+GlobalMasterActive843 
+GlobalMasterActive844 
+GlobalMasterActive845 
+GlobalMasterActive846 
+I got a free service slo-!! -> 0 
+SendingQueue_front: 5 
+API_Try2Send success!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 6 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+NI_RX DONE!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+Application allocated: 0 
+SendingQueue_front: 7 
+API_Try2Send success!
+SendingQueue_front: 0 
+API_Try2Send failed - NI_TX occupied!
+	Start command sent to every task.
+NI_RX DONE!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+GlobalMasterActive847 
+GlobalMasterActive848 
+GlobalMasterActive849 
+GlobalMasterActive850 
+GlobalMasterActive851 
+GlobalMasterActive852 
+GlobalMasterActive853 
+GlobalMasterActive854 
+GlobalMasterActive855 
+GlobalMasterActive856 
+GlobalMasterActive857 
+GlobalMasterActive858 
+GlobalMasterActive859 
+GlobalMasterActive860 
+GlobalMasterActive861 
+GlobalMasterActive862 
+GlobalMasterActive863 
+GlobalMasterActive864 
+GlobalMasterActive865 
+GlobalMasterActive866 
+GlobalMasterActive867 
+GlobalMasterActive868 
+GlobalMasterActive869 
+GlobalMasterActive870 
+GlobalMasterActive871 
+GlobalMasterActive872 
+GlobalMasterActive873 
+GlobalMasterActive874 
+GlobalMasterActive875 
+GlobalMasterActive876 
+GlobalMasterActive877 
+GlobalMasterActive878 
+GlobalMasterActive879 
+GlobalMasterActive880 
+GlobalMasterActive881 
+GlobalMasterActive882 
+GlobalMasterActive883 
+GlobalMasterActive884 
+GlobalMasterActive885 
+GlobalMasterActive886 
+GlobalMasterActive887 
+GlobalMasterActive888 
+GlobalMasterActive889 
+GlobalMasterActive890 
+GlobalMasterActive891 
+GlobalMasterActive892 
+GlobalMasterActive893 
+GlobalMasterActive894 
+GlobalMasterActive895 
+GlobalMasterActive896 
+GlobalMasterActive897 
+GlobalMasterActive898 
+GlobalMasterActive899 
+GlobalMasterActive900 
+GlobalMasterActive901 
+GlobalMasterActive902 
+GlobalMasterActive903 
+GlobalMasterActive904 
+GlobalMasterActive905 
+GlobalMasterActive906 
+GlobalMasterActive907 
+GlobalMasterActive908 
+GlobalMasterActive909 
+GlobalMasterActive910 
+GlobalMasterActive911 
+GlobalMasterActive912 
+GlobalMasterActive913 
+GlobalMasterActive914 
+GlobalMasterActive915 
+GlobalMasterActive916 
+GlobalMasterActive917 
+GlobalMasterActive918 
+GlobalMasterActive919 
+GlobalMasterActive920 
+GlobalMasterActive921 
+GlobalMasterActive922 
+GlobalMasterActive923 
+GlobalMasterActive924 
+GlobalMasterActive925 
+GlobalMasterActive926 
+GlobalMasterActive927 
+GlobalMasterActive928 
+GlobalMasterActive929 
+GlobalMasterActive930 
+GlobalMasterActive931 
+GlobalMasterActive932 
+GlobalMasterActive933 
+GlobalMasterActive934 
+GlobalMasterActive935 
+GlobalMasterActive936 
+GlobalMasterActive937 
+GlobalMasterActive938 
+GlobalMasterActive939 
+GlobalMasterActive940 
+GlobalMasterActive941 
+GlobalMasterActive942 
+GlobalMasterActive943 
+GlobalMasterActive944 
+GlobalMasterActive945 
+GlobalMasterActive946 
+GlobalMasterActive947 
+GlobalMasterActive948 
+GlobalMasterActive949 
+GlobalMasterActive950 
+GlobalMasterActive951 
+GlobalMasterActive952 
+GlobalMasterActive953 
+GlobalMasterActive954 
+GlobalMasterActive955 
+GlobalMasterActive956 
+GlobalMasterActive957 
+GlobalMasterActive958 
+GlobalMasterActive959 
+GlobalMasterActive960 
+GlobalMasterActive961 
+GlobalMasterActive962 
+GlobalMasterActive963 
+GlobalMasterActive964 
+GlobalMasterActive965 
+GlobalMasterActive966 
+GlobalMasterActive967 
+GlobalMasterActive968 
+GlobalMasterActive969 
+GlobalMasterActive970 
+GlobalMasterActive971 
+GlobalMasterActive972 
+GlobalMasterActive973 
+GlobalMasterActive974 
+GlobalMasterActive975 
+GlobalMasterActive976 
+GlobalMasterActive977 
+GlobalMasterActive978 

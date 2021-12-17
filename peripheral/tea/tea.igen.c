@@ -270,13 +270,27 @@ PPM_PACKETNET_CB(controlUpdate) {
 
 unsigned int checkPowerReceived(){
     int i, j;
+    int rtrn = 1;
+    int warning = 0;
     for(i=0; i < DIM_X; i++){
         for(j=0; j < DIM_Y; j++){
-            if(samples_received[j][i] == 0)
-                return 0;
+            if(samples_received[j][i] > 3){
+                warning = 1;
+            }
         }
     }
-    return 1;
+    for(i=0; i < DIM_X; i++){
+        for(j=0; j < DIM_Y; j++){
+            if(samples_received[j][i] == 0){
+                rtrn = 0;
+                if(warning){
+                    bhmMessage("I", "TEA", "PE [%x,%x] nao enviou seu power!",i, j);   
+                    //while(1){}
+                }
+            }
+        }
+    }
+    return rtrn;
 }
 
 PPM_PACKETNET_CB(dataUpdate) {
@@ -297,7 +311,7 @@ PPM_PACKETNET_CB(dataUpdate) {
     else if(flit_in_counter == 5){  // quinto flit - energia do PE
         power[y_data_counter][x_data_counter] =  htonl(newFlit);
         bhmMessage("I", "Input", "power[%d][%d]: %d\n",x_data_counter, y_data_counter, power[y_data_counter][x_data_counter]);
-        samples_received[y_data_counter][x_data_counter] = 1;
+        samples_received[y_data_counter][x_data_counter]++;
         //samples_received++;
     }
     else if(flit_in_counter >= 13){

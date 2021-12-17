@@ -1,7 +1,7 @@
 apps:
  - name: prodcons
    period: 5
-   executions: 1
+   executions: 10
    tasks:
     prod: 0
     cons: 1

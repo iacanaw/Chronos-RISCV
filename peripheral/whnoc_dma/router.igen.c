@@ -113,6 +113,11 @@ int main(int argc, char *argv[]) {
     bhmInstallDiagCB(setDiagLevel);
     constructor();
 
+    // while(1){
+    //     bhmWaitDelay(QUANTUM_DELAY);
+    //     printRouterInfo();
+    // }
+
     bhmWaitEvent(bhmGetSystemEvent(BHM_SE_END_OF_SIMULATION));
     destructor();
     return 0;

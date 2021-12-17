@@ -199,8 +199,8 @@ void usi2vec(){
 
 // Function to write something in the memory
 void writeMemm(unsigned int value, unsigned int addr){
-    return;
-    /*usValue = value;
+    //return;
+    usValue = value;
     usi2vec();
     ppmAddressSpaceHandle h = ppmOpenAddressSpace("RWRITE");
     if(!h) {
@@ -208,7 +208,7 @@ void writeMemm(unsigned int value, unsigned int addr){
         while(1){} // error handling
     }
     ppmWriteAddressSpace(h, addr, sizeof(chValue), chValue);
-    ppmCloseAddressSpace(h);*/
+    ppmCloseAddressSpace(h);
 }
 
 // Calculates the output port for a given local address and a destination address
@@ -261,6 +261,9 @@ void bufferStatusUpdate(unsigned int port){
     else{
         status = GO;
     }
+    
+    // if(myAddress == 0x0100)
+    //     bhmMessage("INFO", "router1", "Atualizando status do buffer %x para %x", port, status);
 
     // Transmitt the new buffer status to the neighbor
     if (port == LOCAL){
@@ -292,6 +295,10 @@ void bufferPush(unsigned int port){
     }
 
     if(port == LOCAL) localBufferAmount++;
+
+    // if(myAddress == 0x0100){
+    //     bhmMessage("I", "router1", "Port 4 is connected to: %d - status: %d", routingTable[LOCAL], control[routingTable[LOCAL]]);
+    // }
 
     // Inform the ticker that this router has something to send
     //if(myIterationStatus == ITERATION_OFF) turn_TickOn(); 
@@ -437,6 +444,9 @@ unsigned int selectPort(){
 
 // Allocates the output port to the given selPort if it is available
 void allocate(unsigned int port){
+    if(port != ND){
+        bhmMessage("I", "router", "%x Tentando alocar a porta %d", myAddress, port);
+    }
     unsigned int header, to, checkport, allowed;
     // In the first place, verify if the port is not connected to any thing and has something to transmitt 
     if(port != ND && routingTable[port] == ND && !isEmpty(port)){
@@ -444,17 +454,26 @@ void allocate(unsigned int port){
         header = buffers[port][first[port]].data;
         //bhmMessage("INFO", "ALLOCATE", "Pedindo roteamento para o header %x", htonl(header));
         to = XYrouting(myAddress, header);
+        if(port != ND){
+            bhmMessage("I", "router", "%x com a saída %d", myAddress, to);
+        }
         // Verify if any other port is using the selected one
         allowed = 1;
         for(checkport = 0; checkport <= LOCAL; checkport++){
             if (routingTable[checkport] == to){
                 allowed = 0;
+                if(port != ND){
+                    bhmMessage("I", "router", "%x não contectado! saída %d está ocupada pela porta %d", myAddress, to, checkport);
+                }
                 // If the port can't get routed, then turn it's priority down
                 if(priority[port]>5) priority[port] = priority[port] - 5;
             }
         }
         //If the requested output port is free
         if(allowed == 1){
+            if(port != ND){
+               bhmMessage("I", "router", "%x conectado com sucesso! %d -> %d", myAddress, port, to);
+            }
             // Connect the buffer to the output
             // bhmMessage("INFO", "ROUTER", ">>>>> %x - Porta %d saindo pela porta %d\n", myAddress, port, to);
             routingTable[port] = to;
@@ -627,6 +646,8 @@ void transmitt(){
 
                     // Transmit it to the EAST router
                     else if(routingTable[port] == EAST){
+                        // if(myAddress == 0x0002)
+                        //     bhmMessage("I", "router6", "tentando enviar um flit para east...");
                         /*  If the receiver router has space AND there is flits to send AND still connected to the output port*/
                         if(control[routingTable[port]] == GO && !isEmpty(port) && routingTable[port] == EAST){
                             // Gets a flit from the buffer 
@@ -704,8 +725,10 @@ void transmitt(){
 
 // Stores the control signal for a given port
 void controlUpdate(unsigned int port, unsigned int ctrlData){
-    if (myID >= 0 && myID < 0xFFFFFFFF)
-        control[port] = ctrlData;
+    //if (myID >= 0 && myID < 0xFFFFFFFF)
+    // if(myAddress == 0x0100)
+    //     bhmMessage("I", "router1", "Atualizando status da porta %x para %x", port, ctrlData);
+    control[port] = ctrlData;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -896,3 +919,12 @@ PPM_RESTORE_STATE_FN(peripheralRestoreState) {
     bhmMessage("E", "PPM_RSNI", "Model does not implement save/restore");
 }
 
+void printRouterInfo(){
+    bhmMessage("I", "ROUTER", "> Router %x status:", myAddress);
+    bhmMessage("I", "ROUTER", "\t-0 EAST  Connected to: %x \t\tCredit: %x",routingTable[EAST],  control[routingTable[EAST]]);
+    bhmMessage("I", "ROUTER", "\t-1 WEST  Connected to: %x \t\tCredit: %x",routingTable[WEST],  control[routingTable[WEST]]);
+    bhmMessage("I", "ROUTER", "\t-2 NORTH Connected to: %x \t\tCredit: %x",routingTable[NORTH], control[routingTable[NORTH]]);
+    bhmMessage("I", "ROUTER", "\t-3 SOUTH Connected to: %x \t\tCredit: %x",routingTable[SOUTH], control[routingTable[SOUTH]]);
+    bhmMessage("I", "ROUTER", "\t-4 LOCAL Connected to: %x \t\tCredit: %x",routingTable[LOCAL], control[routingTable[LOCAL]]);
+    bhmMessage("I", "ROUTER", "======================================================================");
+}

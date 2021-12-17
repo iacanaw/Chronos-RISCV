@@ -236,23 +236,41 @@ void API_PushSendQueue(unsigned int type, unsigned int slot){
 
 
 void API_PrioritySend(unsigned int type, unsigned int slot){
-    if(type == THERMAL){
-        for(;;){
-            if(HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER) {
-                API_ClearPipeSlot(SendingSlot);
-                HW_set_32bit_reg(NI_TX, DONE);  // releases the interruption
-                SendingSlot = THERMAL;
-                SendRaw((unsigned int)&ThermalPacket.header);
-                break;
-            } else if(HW_get_32bit_reg(NI_TX) == NI_STATUS_OFF){
-                SendingSlot = THERMAL;
-                SendRaw((unsigned int)&ThermalPacket.header);
-                break;
-            }
-        }
-    } else {
-        prints("ERROR API_PrioritySend()\n");
-    }
+    unsigned int auxQ[PIPE_SIZE*2];
+    unsigned int aux, i = 0;
+    do{
+        aux = API_PopSendQueue();
+        auxQ[i] = aux;
+        i++;
+    }while(aux != EMPTY);
+    API_PushSendQueue(type+1, slot);
+    i = 0;
+    do{
+        aux = auxQ[i];
+        if(aux != EMPTY)
+            API_PushSendQueue((aux & 0xFFFF0000), (aux & 0x0000FFFF));
+    }while(aux != EMPTY);
+    // if(type == THERMAL){
+    //     vTaskEnterCritical();
+    //     for(;;){
+    //         if(HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER) {
+    //             API_ClearPipeSlot(SendingSlot);
+    //             HW_set_32bit_reg(NI_TX, DONE);  // releases the interruption
+    //             SendingSlot = THERMAL;
+    //             SendRaw((unsigned int)&ThermalPacket.header);
+    //             break;
+    //         } else if(HW_get_32bit_reg(NI_TX) == NI_STATUS_OFF){
+    //             SendingSlot = THERMAL;
+    //             SendRaw((unsigned int)&ThermalPacket.header);
+    //             break;
+    //         } else {
+    //             API_NI_Handler();
+    //         }
+    //     }
+    //     vTaskExitCritical();
+    // } else {
+    //     prints("ERROR API_PrioritySend()\n");
+    // }
     return;
 }
 
@@ -293,6 +311,12 @@ void API_Try2Send(){
             }
             else if((toSend & 0xFFFF0000) ==  MESSAGE){
                 SendRaw((unsigned int)&MessagePipe[toSend & 0x0000FFFF].header);
+            }
+            else if((toSend & 0xFFFF0000) ==  THERMAL){
+                SendingSlot = THERMAL;
+                SendRaw((unsigned int)&ThermalPacket.header);
+            } else{
+                printsv("desconhecido!! ", toSend);
             }
             prints("API_Try2Send success!\n");
         vTaskExitCritical();
@@ -362,8 +386,8 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
     
     if (TaskList[taskSlot].PendingReq[taskID] == TRUE){
         prints(">>>>>Achei aqui no pending!\n");
-        API_PushSendQueue(MESSAGE, mySlot);
         TaskList[taskSlot].PendingReq[taskID] = FALSE;
+        API_PushSendQueue(MESSAGE, mySlot);
     }
     return;
 }
@@ -418,24 +442,24 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
     ServicePipe[mySlot].header.task_app_id      = TaskList[taskSlot].AppID;
     ServicePipe[mySlot].header.producer_task_id = taskID;
 
-    API_PushSendQueue(SERVICE, mySlot);
-
     prints("Esperando Mensagem!\n");
+
+    API_PushSendQueue(SERVICE, mySlot);
+    
+    API_setFreqScale(100);
     // Bloquear a tarefa!
-    /*while(TaskList[taskSlot].waitingMsg == TRUE){ 
+    while(TaskList[taskSlot].waitingMsg == TRUE){ 
         // if(TaskList[taskSlot].waitingMsg == TRUE && idle == 0){
         //     API_setFreqIdle();
         //     API_applyFreqScale();
         //     idle = 1;
         // }
-        printsv("esperando", mySlot);
+        //printsv("esperando", mySlot);
         vTaskDelay(1);
-        mySlot++;
+        //mySlot++;
 
-    }*/
-    
-    API_setFreqScale(100);
-    vTaskSuspend(TaskList[taskSlot].TaskHandler);
+    }
+    //vTaskSuspend(TaskList[taskSlot].TaskHandler);
     API_setFreqScale(1000);
 
     prints("Mensagem Recebida!\n");
@@ -479,6 +503,7 @@ void API_NI_Handler(){
     unsigned int service;
     vTaskEnterCritical();
     do{
+
         if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
             prints("TX interruption catched\n");
             API_ClearPipeSlot(SendingSlot); // clear the pipe slot that was transmitted
@@ -609,6 +634,7 @@ void API_NI_Handler(){
                     break;
             }
             HW_set_32bit_reg(NI_RX, DONE);
+            prints("NI_RX DONE!\n");
         }
         
     } while( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING || HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER);

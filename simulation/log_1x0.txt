@@ -2,17 +2,20 @@ RX interruption catched
 TASK_ALLOCATION_SEND
 Got slot: 0 
 Task total size (txt+bss): 3736 
-Task addr: 2147522956 
+Task addr: 2147522844 
 Task slot: 0 
-Task slot TaskAddr: 2147522956 
+Task slot TaskAddr: 2147522844 
+NI_RX DONE!
 RX interruption catched
 TASK_ALLOCATION_FINISHED
 SendingQueue_front: 0 
 API_Try2Send success!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Chegou um TASK_START!
+NI_RX DONE!
 RX interruption catched
 Chegou um TASK_RUN!
 Starting Task 5  from app 1 
@@ -31,9 +34,10 @@ taskSlot: 0
 Adding a msg to task 4  in the PIPE slot 3 
 from app: 1 
 Test sys_Sendedd to all tasks
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -41,21 +45,25 @@ Chegou um message request! App: 1 Task: 1
 Mensagem encontrada no pipe!
 SendingQueue_front: 2 
 API_Try2Send success!
+NI_RX DONE!
 RX interruption catched
 Chegou um message request! App: 1 Task: 2 
 Mensagem encontrada no pipe!
 SendingQueue_front: 3 
 API_Try2Send failed - NI_TX occupied!
+NI_RX DONE!
 RX interruption catched
 Chegou um message request! App: 1 Task: 3 
 Mensagem encontrada no pipe!
 SendingQueue_front: 4 
 API_Try2Send failed - NI_TX occupied!
+NI_RX DONE!
 RX interruption catched
 Chegou um message request! App: 1 Task: 4 
 Mensagem encontrada no pipe!
 SendingQueue_front: 5 
 API_Try2Send failed - NI_TX occupied!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send success!
 TX interruption catched
@@ -66,2522 +74,5780 @@ TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 0  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 1  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 2  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
+dynamicEnergy_Router >> 5226197 
+total instructions~~~> 1998994 
+TotalEnergy: 17359506 
+EnergyPckt sent
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 3  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 4  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 5  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 6  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 7  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 8  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 9  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 2000047 
-TotalEnergy: 18001055 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 10  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 11  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 101909 
-TotalEnergy: 9307004 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 12  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 13  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 104535 
-TotalEnergy: 9457267 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 14  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 15  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 16  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 17  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 103092 
-TotalEnergy: 9489509 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 18  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 19  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 20  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 94132 
-TotalEnergy: 9111538 
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
-SendingQueue_front: 2 
-API_Try2Send failed - NI_TX occupied!
 Esperando Mensagem!
-TX interruption catched
+SendingQueue_front: 2 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 21  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 22  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 23  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 100697 
-TotalEnergy: 9387627 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 24  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 25  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 26  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 101909 
-TotalEnergy: 9436456 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 27  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 28  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 29  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 101904 
-TotalEnergy: 9436268 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 30  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+NI_Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
+RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 31  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 32  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 94940 
-TotalEnergy: 9144035 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 33  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+NI_RX DONEMensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
+!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 34  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 98273 
-TotalEnergy: 9187106 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 35  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 36  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 37  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 105747 
-TotalEnergy: 9513279 
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
-SendingQueue_front: 6 
-API_Try2Send failed - NI_TX occupied!
 Esperando Mensagem!
-TX interruption catched
+SendingQueue_front: 6 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 38  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+NI_RX DONEMensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
+!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 39  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 40  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 95950 
-TotalEnergy: 9184666 
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
-SendingQueue_front: 2 
-API_Try2Send failed - NI_TX occupied!
 Esperando Mensagem!
-TX interruption catched
+SendingQueue_front: 2 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
-Tem uma mensagem chegando...
+TASK_ALLOCATION_SEND
+Got slot: 1 
+Task total size (txt+bss): 1528 
+Task addr: 2147563532 
+Task slot: 1 
+Task slot TaskAddr: 2147563532 
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+TASK_ALLOCATION_FINISHED
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
-Tem uma mensagem chegando...
+Chegou um TASK_START!
+NI_RX DONE!
 RX interruption catched
+Chegou um TASK_RUN!
+Starting Task 1  from app 0 
+taskSlot run: 1 
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
+CONS1 Start 
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 41  of 100  ... ;
-SendingQueue_front: 5 
-API_Try2Send success!
 Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 42  of 100  ... ;
-SendingQueue_front: 1 
-API_Try2Send success!
 Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 0  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
 Mensagem Recebida!
 43  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send failed - NI_TX occupied!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send success!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 1  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+Chegou a mensagem numero: 2  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 101707 
-TotalEnergy: 9428329 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 7 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
 Mensagem Recebida!
 44  of 100  ... ;
-SendingQueue_front: 1 
-API_Try2Send success!
 Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 3 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-45  of 100  ... ;
-SendingQueue_front: 5 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+NI_RX DONE!
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
+3  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 4  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 5  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem RecebidMensagem Recebida!
+45  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+a!
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+6  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 7  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 8  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 46  of 100  ... ;
-SendingQueue_front: 1 
-API_Try2Send success!
 Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 3 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 100899 
-TotalEnergy: 9394688 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Mensagem Recebida!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Chegou a mensagem numero: 9  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 10  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 11  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!Mensagem Recebida!
 47  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+12  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Chegou a mensagem numero: 13  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Chegou a mensagem numero: 14 Mensagem Recebida!
 48  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+NI_RX DONE!
+ - tamanho: Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
+25  .
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Chegou a mensagem numero: 15  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
-49  of 100  ... ;
+Chegou a mensagem numero: 16  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Chegou a mensagem numero: 17  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 102111 
-TotalEnergy: 9444979 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
-50  of 100  ... ;
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+MensaMensagem Recebida!
+49  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+NI_RX DONE!
+gem Recebida!
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
+18  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Chegou a mensagem numero: 19  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 20  - tamanho: RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+25 RX interruption catched
+NI_RX DONE!
+ .
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem RecebidaMensagem Recebida!
+50  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+!
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+21  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 22  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 23  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 24  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 25  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 26  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 Mensagem Recebida!
 51  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RMensagem Recebida!
+Chegou a mensagem numero: 27  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 7 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
 Mensagem Recebida!
 52  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send failed - NI_TX occupied!
+X DONE!
+TX interruption catched
+API_Try2Send success!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 28  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
 Mensagem Recebida!
+Chegou a mensagem numero: 29  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 95647 
-TotalEnergy: 9172851 
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 30  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 53  of 100  ... ;
-SendingQueue_front: 5 
-API_Try2Send failed - NI_TX occupied!
 Esperando Mensagem!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+NI_RX DONE!
+Mensagem RecMensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
+ebida!
+Chegou a mensagem numero: 31  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 32  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NIMensagem Recebida!
+Chegou a mensagem numero: 33  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 34  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 35  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 Mensagem Recebida!
 54  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RMensagem Recebida!
+Chegou a mensagem numero: 36  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
 Mensagem Recebida!
 55  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send failed - NI_TX occupied!
+X DONE!
+TX interruption catched
+API_Try2Send success!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 37  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
 Mensagem Recebida!
+Chegou a mensagem numero: RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+NI_RX DONE!
+38  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
 Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 39  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 56  of 100  ... ;
-SendingQueue_front: 1 
-API_Try2Send success!
 Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 105747 
-TotalEnergy: 9599180 
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 2 
-API_Try2Send failed - NI_TX occupied!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+Chegou a mensagem numero: 40  - tamanho: 25  .
 Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 41  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
 57  of 100  ... ;
-SendingQueue_front: 5 
-API_Try2Send success!
 Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 7 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-58  of 100  ... ;
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
+42  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Chegou a mensagem numero: 43  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
-59  of 100  ... ;
+Chegou a mensagem numero: 44  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 95344 
-TotalEnergy: 9159720 
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 6 
-API_Try2Send failed - NI_TX occupied!
-Esperando Mensagem!
-TX interruption catched
 API_Try2Send success!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem RecebidaMensagem Recebida!
+58  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
+!
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+45  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 46  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 47  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem RecebidaMensagem Recebida!
+59  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+!
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+48  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 49  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 50  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DOMensagem Recebida!
+Chegou a mensagem numero: 51  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+NE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 52  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 53  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 Mensagem Recebida!
 60  of 100  ... ;
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 54  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
 Mensagem Recebida!
 61  of 100  ... ;
-SendingQueue_front: 5 
-API_Try2Send success!
 Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
 SendingQueue_front: 6 
+API_Try2Send failed - NI_TX occupied!
+NI_RX DONE!
+TX interruption catched
 API_Try2Send success!
-Esperando Mensagem!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
-Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DOMensagem Recebida!
+Chegou a mensagem numero: 55  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 0 
+API_Try2Send failed - NI_TX occupied!
+NE!
+TX interruption catched
 API_Try2Send success!
-Esperando Mensagem!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
-Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
-62  of 100  ... ;
+Chegou a mensagem numero: 56  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 96051 
-TotalEnergy: 9189343 
-RX interruption catched
 Mensagem Recebida!
-SendingQueue_front: 2 
-API_Try2Send failed - NI_TX occupied!
 Esperando Mensagem!
-TX interruption catched
+SendingQueue_front: 2 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Chegou a mensagem numero: 57  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 4 
 API_Try2Send success!
-Esperando Mensagem!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
+NI_RX DONE!
 Mensagem Recebida!
-63  of 100  ... ;
+Chegou a mensagem numero: 58  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Chegou a mensagem numero: 59  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 6 
 API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+62  of 100  ... ;
 Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
 RX interruption catched
 Mensagem Recebida!
+Chegou a mensagem numero: 60  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 61  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+63  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem RecebMensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+ida!
+Chegou a mensagem numero: RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+62  - tamanho: Mensagem Recebida!
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+25  .
 Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 100091 
-TotalEnergy: 9208807 
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 99990 
-TotalEnergy: 9077815 
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 63  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 99990 
-TotalEnergy: 9076871 
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+64  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 99990 
-TotalEnergy: 9077811 
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 99990 
-TotalEnergy: 9076894 
+Mensagem Recebida!
+Chegou a mensagem numero: 64  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 99990 
-TotalEnergy: 9077815 
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 99990 
-TotalEnergy: 9076879 
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-dynamicEnergy_Router >> 5156250 
-total instructions~~~> 99990 
-TotalEnergy: 9077793 
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 65  - tamanho: Mensagem Recebida!
+65  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+25  .
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 66  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 67  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 68  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!Mensagem Recebida!
+66  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+69  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 70  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 71  - tamanho: 25 RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+ .
+RX interruption catched
+NI_RX DONE!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!Mensagem Recebida!
+67  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+72  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 73  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 74  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem ReceMensagem Recebida!
+68  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+bida!
+Chegou a mensagem numero: TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+75  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 76  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 77  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+69  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Chegou a mensagem numero: 78  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 79  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 80  - tamanho: RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+25  .
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 81  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+70  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+Chegou a mensagem numero: 82  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 83  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+MMensagem Recebida!
+71  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+ensagem Recebida!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Chegou a mensagem numero: 84  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 85  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 86  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Mensagem Recebida!
+72  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+87  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 88  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 89  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+MensaMensagem Recebida!
+73  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+gem Recebida!
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+90  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Chegou a mensagem numero: 91  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+Mensagem Recebida!
+Chegou a mensagem numero: 92  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send failed - NI_TX occupied!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send success!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+74  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+93  - tamanho: 25 RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+ .
+RX interruption catched
+NI_RX DONE!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 94 Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+ - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+75  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+Chegou a mensagem numero: 95  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 96  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+97  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+76  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+MensagemMensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+ Recebida!
+Chegou a mensagem numero: 98  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 99  - tamanho: 25  .
+CONS1 End 
+Finishing task:1 app: 0 
+From slot: 1 
+i: 0 
+status: 4294967295 
+holder: 4294967295 
+---
+i: 1 
+status: 4294967295 
+holder: 4294967295 
+---
+i: 2 
+status: 4294967295 
+holder: 4294967295 
+---
+i: 3 
+status: 4294967295 
+holder: 4294967295 
+---
+Task 1 deleted with sucsess! From application 0 
+TaskList[0 ]status: 1 
+Returning because of: 0 TaskList[i].status 1 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+77  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+78  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+Mensagem Recebida!
+79  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONMensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+E!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+80  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+81  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+82  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+83  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+84  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+85  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+86  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+87  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+88  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+89  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+90  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONMensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+E!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+91  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+92  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+93  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+94  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+95  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+96  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+97  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+98  of 100  ... ;
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+NI_RX DONE!
+RX interruption catched
+NI_RX DONE!
+Mensagem Recebida!
+99  of 100  ... ;
+Recognizer FINISHED
+Finishing task:5 app: 1 
+From slot: 0 
+i: 0 
+status: 4294967295 
+holder: 4294967295 
+---
+i: 1 
+status: 4294967295 
+holder: 4294967295 
+---
+i: 2 
+status: 4294967295 
+holder: 4294967295 
+---
+i: 3 
+status: 4294967295 
+holder: 4294967295 
+---
+Task 5 deleted with sucsess! From application 1 
+TaskList[0 ]status: 0 
+TaskList[1 ]status: 0 
+TaskList[2 ]status: 0 
+TaskList[3 ]status: 0 
+TaskList[4 ]status: 0 
+TaskList[5 ]status: 0 
+SendingQueue_front: 3 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!

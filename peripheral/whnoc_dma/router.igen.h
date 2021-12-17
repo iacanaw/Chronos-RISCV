@@ -64,6 +64,8 @@ typedef struct localPort_regs_dataS {
 } localPort_regs_dataT, *localPort_regs_dataTP;
 
 #ifdef _PSE_
+
+void printRouterInfo();
 /////////////////////////////// Port Declarations //////////////////////////////
 
 extern localPort_regs_dataT localPort_regs_data;
