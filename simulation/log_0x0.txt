@@ -5,10 +5,10 @@ TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 New application registered - ID: 0 
-NI_RX DONE!
+1NI_RX DONE!
 RX interruption catched
 New application registered - ID: 1 
-NI_RX DONE!
+1NI_RX DONE!
 GlobalMasterActive1 
 I got a free service slo-!! -> 0 
 SendingQueue_front: 1 
@@ -36,25 +36,25 @@ TX interruption catched
 API_Try2Send success!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
-NI_RX DONE!
+5NI_RX DONE!
 TX interruption catched
 API_Try2Send success!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
-NI_RX DONE!
+5NI_RX DONE!
 TX interruption catched
 API_Try2Send success!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
-NI_RX DONE!
+5NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
-NI_RX DONE!
+5NI_RX DONE!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
-NI_RX DONE!
+5NI_RX DONE!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
 Application allocated: 1 
@@ -67,7 +67,7 @@ API_Try2Send failed - NI_TX occupied!
 SendingQueue_front: 2 
 API_Try2Send failed - NI_TX occupied!
 RX interruption catched
-NI_RX DONE!
+13NI_RX DONE!
 TX interruption catched
 API_Try2Send success!
 SendingQueue_front: 3 
@@ -77,32 +77,29 @@ API_Try2Send success!
 SendingQueue_front: 4 
 API_Try2Send failed - NI_TX occupied!
 	Start command sent to every task.
-NI_RX DONE!
+5NI_RX DONE!
 GlobalMasterActive2 
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-GlobalMasterActive3 
-GlobalMasterActive4 
-GlobalMasterActive5 
 I got a free service slo-!! -> 0 
 SendingQueue_front: 5 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 6 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
 API_Try2Send success!
 TX interruption catched
-API_Try2Send failed - empty SendQueue!
-I got a free service slo-!! -> 0 
-SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
-NI_RX DONE!
+5NI_RX DONE!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
 Application allocated: 0 
@@ -111,11 +108,14 @@ API_Try2Send success!
 SendingQueue_front: 0 
 API_Try2Send failed - NI_TX occupied!
 	Start command sent to every task.
-NI_RX DONE!
+5NI_RX DONE!
 TX interruption catched
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
+GlobalMasterActive3 
+GlobalMasterActive4 
+GlobalMasterActive5 
 GlobalMasterActive6 
 GlobalMasterActive7 
 GlobalMasterActive8 
@@ -132,7 +132,7 @@ GlobalMasterActive18
 GlobalMasterActive19 
 dynamicEnergy_Router >> 3995529 
 total instructions~~~> 1999037 
-TotalEnergy: 15772012 
+TotalEnergy: 15772238 
 EnergyPckt sent
 GlobalMasterActive20 
 GlobalMasterActive21 
@@ -229,33 +229,32 @@ GlobalMasterActive111
 GlobalMasterActive112 
 GlobalMasterActive113 
 GlobalMasterActive114 
-RX interruption catched
-FINISHED: Task 0 from application 0 
-NI_RX DONE!
 GlobalMasterActive115 
 RX interruption catched
-FINISHED: Task 1 from application 0 
-Application 0 was executed in 110 
-		This application still need to run: 9 
-NI_RX DONE!
+FINISHED: Task 0 from application 0 
+3NI_RX DONE!
 GlobalMasterActive116 
 GlobalMasterActive117 
+RX interruption catched
+FINISHED: Task 1 from application 0 
+Application 0 was executed in 115 
+		This application still need to run: 1 
+3NI_RX DONE!
 GlobalMasterActive118 
 GlobalMasterActive119 
-GlobalMasterActive120 
 I got a free service slo-!! -> 0 
 SendingQueue_front: 1 
 API_Try2Send success!
-I got a free service slo-!! -> 1 
-SendingQueue_front: 2 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched
-API_Try2Send success!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
+I got a free service slo-!! -> 0 
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
 Application allocated: 0 
@@ -264,11 +263,12 @@ API_Try2Send success!
 SendingQueue_front: 4 
 API_Try2Send failed - NI_TX occupied!
 	Start command sent to every task.
-NI_RX DONE!
+5NI_RX DONE!
 TX interruption catched
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
+GlobalMasterActive120 
 GlobalMasterActive121 
 GlobalMasterActive122 
 GlobalMasterActive123 
@@ -372,45 +372,11 @@ GlobalMasterActive220
 GlobalMasterActive221 
 GlobalMasterActive222 
 GlobalMasterActive223 
-RX interruption catched
-FINISHED: Task 1 from application 0 
-NI_RX DONE!
-RX interruption catched
-FINISHED: Task 0 from application 0 
 GlobalMasterActive224 
-Application 0 was executed in 103 
-		This application still need to run: 8 
-NI_RX DONE!
 GlobalMasterActive225 
 GlobalMasterActive226 
 GlobalMasterActive227 
 GlobalMasterActive228 
-I got a free service slo-!! -> 0 
-SendingQueue_front: 5 
-API_Try2Send success!
-I got a free service slo-!! -> 1 
-SendingQueue_front: 6 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-NI_RX DONE!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-Application allocated: 0 
-SendingQueue_front: 7 
-API_Try2Send success!
-SendingQueue_front: 0 
-API_Try2Send failed - NI_TX occupied!
-	Start command sent to every task.
-NI_RX DONE!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive229 
 GlobalMasterActive230 
 GlobalMasterActive231 
@@ -524,47 +490,13 @@ GlobalMasterActive338
 GlobalMasterActive339 
 GlobalMasterActive340 
 GlobalMasterActive341 
-RX interruption catched
-FINISHED: Task 1 from application 0 
-NI_RX DONE!
 GlobalMasterActive342 
-RX interruption catched
-FINISHED: Task 0 from application 0 
-Application 0 was executed in 114 
-		This application still need to run: 7 
-NI_RX DONE!
 GlobalMasterActive343 
 GlobalMasterActive344 
 GlobalMasterActive345 
 GlobalMasterActive346 
 GlobalMasterActive347 
-I got a free service slo-!! -> 0 
-SendingQueue_front: 1 
-API_Try2Send success!
-I got a free service slo-!! -> 1 
-SendingQueue_front: 2 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched
-API_Try2Send success!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-NI_RX DONE!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive348 
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-Application allocated: 0 
-SendingQueue_front: 3 
-API_Try2Send success!
-SendingQueue_front: 4 
-API_Try2Send failed - NI_TX occupied!
-	Start command sent to every task.
-NI_RX DONE!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive349 
 GlobalMasterActive350 
 GlobalMasterActive351 
@@ -825,48 +757,14 @@ GlobalMasterActive605
 GlobalMasterActive606 
 GlobalMasterActive607 
 GlobalMasterActive608 
-RX interruption catched
-FINISHED: Task 0 from application 0 
-NI_RX DONE!
 GlobalMasterActive609 
 GlobalMasterActive610 
-RX interruption catched
-FINISHED: Task 1 from application 0 
-Application 0 was executed in 263 
-		This application still need to run: 6 
-NI_RX DONE!
 GlobalMasterActive611 
 GlobalMasterActive612 
 GlobalMasterActive613 
 GlobalMasterActive614 
 GlobalMasterActive615 
-I got a free service slo-!! -> 0 
-SendingQueue_front: 5 
-API_Try2Send success!
-I got a free service slo-!! -> 1 
-SendingQueue_front: 6 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched
-API_Try2Send success!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-NI_RX DONE!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive616 
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-Application allocated: 0 
-SendingQueue_front: 7 
-API_Try2Send success!
-SendingQueue_front: 0 
-API_Try2Send failed - NI_TX occupied!
-	Start command sent to every task.
-NI_RX DONE!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive617 
 GlobalMasterActive618 
 GlobalMasterActive619 
@@ -989,46 +887,12 @@ GlobalMasterActive735
 GlobalMasterActive736 
 GlobalMasterActive737 
 GlobalMasterActive738 
-RX interruption catched
-FINISHED: Task 0 from application 0 
-NI_RX DONE!
 GlobalMasterActive739 
-RX interruption catched
-FINISHED: Task 1 from application 0 
-Application 0 was executed in 124 
-		This application still need to run: 5 
-NI_RX DONE!
 GlobalMasterActive740 
 GlobalMasterActive741 
 GlobalMasterActive742 
 GlobalMasterActive743 
 GlobalMasterActive744 
-I got a free service slo-!! -> 0 
-SendingQueue_front: 1 
-API_Try2Send success!
-I got a free service slo-!! -> 1 
-SendingQueue_front: 2 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched
-API_Try2Send success!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-NI_RX DONE!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-Application allocated: 0 
-SendingQueue_front: 3 
-API_Try2Send success!
-SendingQueue_front: 4 
-API_Try2Send failed - NI_TX occupied!
-	Start command sent to every task.
-NI_RX DONE!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive745 
 GlobalMasterActive746 
 GlobalMasterActive747 
@@ -1041,37 +905,17 @@ GlobalMasterActive753
 GlobalMasterActive754 
 GlobalMasterActive755 
 GlobalMasterActive756 
-RX interruption catched
-FINISHED: Task 0 from application 1 
-NI_RX DONE!
 GlobalMasterActive757 
 GlobalMasterActive758 
 GlobalMasterActive759 
-RX interruption catched
-FINISHED: Task 1 from application 1 
-NI_RX DONE!
 GlobalMasterActive760 
 GlobalMasterActive761 
 GlobalMasterActive762 
 GlobalMasterActive763 
-RX interruption catched
-FINISHED: Task 2 from application 1 
-NI_RX DONE!
 GlobalMasterActive764 
-RX interruption catched
-FINISHED: Task 3 from application 1 
-NI_RX DONE!
 GlobalMasterActive765 
-RX interruption catched
-FINISHED: Task 4 from application 1 
-NI_RX DONE!
 GlobalMasterActive766 
-RX interruption catched
-FINISHED: Task 5 from application 1 
 GlobalMasterActive767 
-Application 1 was executed in 766 
-		This application is DONE!
-NI_RX DONE!
 GlobalMasterActive768 
 GlobalMasterActive769 
 GlobalMasterActive770 
@@ -1145,46 +989,12 @@ GlobalMasterActive837
 GlobalMasterActive838 
 GlobalMasterActive839 
 GlobalMasterActive840 
-RX interruption catched
-FINISHED: Task 0 from application 0 
-NI_RX DONE!
 GlobalMasterActive841 
-RX interruption catched
-FINISHED: Task 1 from application 0 
-Application 0 was executed in 97 
-		This application still need to run: 4 
-NI_RX DONE!
 GlobalMasterActive842 
 GlobalMasterActive843 
 GlobalMasterActive844 
 GlobalMasterActive845 
 GlobalMasterActive846 
-I got a free service slo-!! -> 0 
-SendingQueue_front: 5 
-API_Try2Send success!
-I got a free service slo-!! -> 1 
-SendingQueue_front: 6 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-NI_RX DONE!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-Application allocated: 0 
-SendingQueue_front: 7 
-API_Try2Send success!
-SendingQueue_front: 0 
-API_Try2Send failed - NI_TX occupied!
-	Start command sent to every task.
-NI_RX DONE!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 GlobalMasterActive847 
 GlobalMasterActive848 
 GlobalMasterActive849 
@@ -1250,70 +1060,3 @@ GlobalMasterActive908
 GlobalMasterActive909 
 GlobalMasterActive910 
 GlobalMasterActive911 
-GlobalMasterActive912 
-GlobalMasterActive913 
-GlobalMasterActive914 
-GlobalMasterActive915 
-GlobalMasterActive916 
-GlobalMasterActive917 
-GlobalMasterActive918 
-GlobalMasterActive919 
-GlobalMasterActive920 
-GlobalMasterActive921 
-GlobalMasterActive922 
-GlobalMasterActive923 
-GlobalMasterActive924 
-GlobalMasterActive925 
-GlobalMasterActive926 
-GlobalMasterActive927 
-GlobalMasterActive928 
-GlobalMasterActive929 
-GlobalMasterActive930 
-GlobalMasterActive931 
-GlobalMasterActive932 
-GlobalMasterActive933 
-GlobalMasterActive934 
-GlobalMasterActive935 
-GlobalMasterActive936 
-GlobalMasterActive937 
-GlobalMasterActive938 
-GlobalMasterActive939 
-GlobalMasterActive940 
-GlobalMasterActive941 
-GlobalMasterActive942 
-GlobalMasterActive943 
-GlobalMasterActive944 
-GlobalMasterActive945 
-GlobalMasterActive946 
-GlobalMasterActive947 
-GlobalMasterActive948 
-GlobalMasterActive949 
-GlobalMasterActive950 
-GlobalMasterActive951 
-GlobalMasterActive952 
-GlobalMasterActive953 
-GlobalMasterActive954 
-GlobalMasterActive955 
-GlobalMasterActive956 
-GlobalMasterActive957 
-GlobalMasterActive958 
-GlobalMasterActive959 
-GlobalMasterActive960 
-GlobalMasterActive961 
-GlobalMasterActive962 
-GlobalMasterActive963 
-GlobalMasterActive964 
-GlobalMasterActive965 
-GlobalMasterActive966 
-GlobalMasterActive967 
-GlobalMasterActive968 
-GlobalMasterActive969 
-GlobalMasterActive970 
-GlobalMasterActive971 
-GlobalMasterActive972 
-GlobalMasterActive973 
-GlobalMasterActive974 
-GlobalMasterActive975 
-GlobalMasterActive976 
-GlobalMasterActive977 
-GlobalMasterActive978 

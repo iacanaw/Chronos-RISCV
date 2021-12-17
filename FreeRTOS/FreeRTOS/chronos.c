@@ -503,7 +503,7 @@ void API_NI_Handler(){
     unsigned int service;
     vTaskEnterCritical();
     do{
-
+    
         if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
             prints("TX interruption catched\n");
             API_ClearPipeSlot(SendingSlot); // clear the pipe slot that was transmitted
@@ -522,6 +522,8 @@ void API_NI_Handler(){
                                     incommingPacket.aplication_period, 
                                     incommingPacket.application_executions, 
                                     incommingPacket.application_n_tasks);
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("1NI_RX DONE!\n");
                     break;
                 
                 case TASK_ALLOCATION_SEND: // When the GM asks one Slave to allocate one task
@@ -536,23 +538,31 @@ void API_NI_Handler(){
                     // Informs the NI were to write the application
                     HW_set_32bit_reg(NI_RX, TaskList[aux].taskAddr);
                     incommingPacket.service = TASK_ALLOCATION_FINISHED;
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("2NI_RX DONE!\n");
                     break;
                 
                 case TASK_FINISH:
                     printsvsv("FINISHED: Task ", incommingPacket.task_id, "from application ", incommingPacket.task_app_id);
                     API_ClearTaskSlotFromTile(incommingPacket.task_dest_addr, incommingPacket.task_app_id, incommingPacket.task_id);
                     API_DealocateTask(incommingPacket.task_id, incommingPacket.task_app_id);
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("3NI_RX DONE!\n");
                     break;
 
                 case TASK_ALLOCATION_FINISHED:
                     prints("TASK_ALLOCATION_FINISHED\n");
                     API_AckTaskAllocation(incommingPacket.task_id, incommingPacket.task_app_id);
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("4NI_RX DONE!\n");
                     break;
 
                 case TASK_ALLOCATION_SUCCESS:
                     prints("TASK_ALLOCATION_SUCCESS\n");
                     //printi(incommingPacket.task_id);
                     API_TaskAllocated(incommingPacket.task_id, incommingPacket.task_app_id);
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("5NI_RX DONE!\n");
                     break;
 
                 case TASK_START:
@@ -561,6 +571,8 @@ void API_NI_Handler(){
                     // Informs the NI were to write the application
                     HW_set_32bit_reg(NI_RX, (unsigned int)&TaskList[aux].appNumTasks);
                     incommingPacket.service = TASK_RUN;
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("6NI_RX DONE!\n");
                     break;
                 
                 case TASK_RUN:
@@ -570,6 +582,8 @@ void API_NI_Handler(){
                     API_setFreqScale(1000);
                     printsvsv("Starting Task ", TaskList[aux].TaskID, " from app ", TaskList[aux].AppID);
                     printsv("taskSlot run: ", aux);
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("7NI_RX DONE!\n");
                     API_TaskStart(aux);
                     //printsvsv("Enabling Task: ", incommingPacket.task_id, "from app: ", incommingPacket.task_app_id);
                     //printsv("Slot: ", aux);
@@ -580,6 +594,7 @@ void API_NI_Handler(){
                     //         API_TaskStart(aux);
                     //     }
                     // }
+                    
                     break;
 
                 case MESSAGE_REQUEST:
@@ -595,6 +610,8 @@ void API_NI_Handler(){
                         API_PushSendQueue(MESSAGE, aux);
                         // API_Try2Send();
                     }
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("8NI_RX DONE!\n");
                     break;
                 
                 case MESSAGE_DELIVERY:
@@ -604,6 +621,8 @@ void API_NI_Handler(){
                     HW_set_32bit_reg(NI_RX, TaskList[aux].MsgToReceive);
                     incommingPacket.service = MESSAGE_DELIVERY_FINISH;
                     //prints("done...\n----------\n");
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("9NI_RX DONE!\n");
                     break;
                 
                 case MESSAGE_DELIVERY_FINISH:
@@ -611,12 +630,16 @@ void API_NI_Handler(){
                     aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
                     TaskList[aux].waitingMsg = FALSE;
                     vTaskResume(TaskList[aux].TaskHandler);
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("10NI_RX DONE!\n");
                     break;
 
                 case TEMPERATURE_PACKET:
                     prints("Recebendo pacote de temperatura");
                     HW_set_32bit_reg(NI_RX, (unsigned int)&SystemTemperature);
                     incommingPacket.service = FINISH_TEMPERATURE_PACKET;
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("11NI_RX DONE!\n");
                     break;
                 
                 case FINISH_TEMPERATURE_PACKET:
@@ -624,26 +647,31 @@ void API_NI_Handler(){
                     for(aux = 0; aux < DIM_X*DIM_Y; aux++){ 
                         printsvsv("pe", aux, "temp: ", SystemTemperature[aux]);
                     }
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("12NI_RX DONE!\n");
                     break;
 
                 case SOLVED:
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("13NI_RX DONE!\n");
                     break;
                     
                 default:
                     printsv("ERROR External_2_IRQHandler Unknown-Service ", incommingPacket.service);
+                    HW_set_32bit_reg(NI_RX, DONE);
+                    prints("14NI_RX DONE!\n");
                     break;
             }
-            HW_set_32bit_reg(NI_RX, DONE);
-            prints("NI_RX DONE!\n");
         }
         
     } while( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING || HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER);
-
 
     if (HW_get_32bit_reg(NI_TIMER) == NI_STATUS_INTER){
         powerEstimation();
         HW_set_32bit_reg(NI_TIMER, DONE);
     }
+
+
     vTaskExitCritical();
     
     return;

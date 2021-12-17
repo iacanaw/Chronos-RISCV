@@ -2299,7 +2299,7 @@ END GROUP
                 0x0000000000010000                STACK_SIZE = 0x10000
                 0x0000000000010000                HEAP_SIZE = 0x10000
 
-.text           0x0000000080000000     0x8700
+.text           0x0000000080000000     0x8980
  *(SORT_NONE(.text.entry))
  .text.entry    0x0000000080000000      0x174 ./riscv_hal/entry.o
                 0x0000000080000000                _start
@@ -2751,28 +2751,28 @@ END GROUP
                 0x00000000800070f4       0x74 ./FreeRTOS/chronos.o
                 0x00000000800070f4                API_AddPendingReq
  .text.API_NI_Handler
-                0x0000000080007168      0x864 ./FreeRTOS/chronos.o
+                0x0000000080007168      0xa08 ./FreeRTOS/chronos.o
                 0x0000000080007168                API_NI_Handler
  .text.PLIC_init
-                0x00000000800079cc       0xd0 ./main.o
- .text.main     0x0000000080007a9c      0x124 ./main.o
-                0x0000000080007a9c                main
+                0x0000000080007b70       0xd0 ./main.o
+ .text.main     0x0000000080007c40      0x124 ./main.o
+                0x0000000080007c40                main
  .text.vApplicationMallocFailedHook
-                0x0000000080007bc0       0x14 ./main.o
-                0x0000000080007bc0                vApplicationMallocFailedHook
+                0x0000000080007d64       0x14 ./main.o
+                0x0000000080007d64                vApplicationMallocFailedHook
  .text.vApplicationIdleHook
-                0x0000000080007bd4       0x1c ./main.o
-                0x0000000080007bd4                vApplicationIdleHook
+                0x0000000080007d78       0x1c ./main.o
+                0x0000000080007d78                vApplicationIdleHook
  .text.GlobalManagerTask
-                0x0000000080007bf0       0xb0 ./main.o
- .text.write    0x0000000080007ca0       0x1c /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-syswrite.o)
-                0x0000000080007ca0                write
+                0x0000000080007d94       0xb0 ./main.o
+ .text.write    0x0000000080007e44       0x1c /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-syswrite.o)
+                0x0000000080007e44                write
  .text._write_r
-                0x0000000080007cbc       0x54 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-writer.o)
-                0x0000000080007cbc                _write_r
+                0x0000000080007e60       0x54 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-writer.o)
+                0x0000000080007e60                _write_r
  *(.plt)
-                0x0000000080007d10                . = ALIGN (0x10)
- *fill*         0x0000000080007d10        0x0 
+                0x0000000080007ec0                . = ALIGN (0x10)
+ *fill*         0x0000000080007eb4        0xc 
  *crtbegin.o(.ctors)
  *(EXCLUDE_FILE(*crtend.o) .ctors)
  *(SORT_BY_NAME(.ctors.*))
@@ -2782,50 +2782,50 @@ END GROUP
  *(SORT_BY_NAME(.dtors.*))
  *crtend.o(.dtors)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x0000000080007d10        0x6 ./riscv_hal/init.o
- *fill*         0x0000000080007d16        0x2 
- .rodata        0x0000000080007d18       0x91 ./riscv_hal/riscv_hal.o
- *fill*         0x0000000080007da9        0x3 
+ .rodata        0x0000000080007ec0        0x6 ./riscv_hal/init.o
+ *fill*         0x0000000080007ec6        0x2 
+ .rodata        0x0000000080007ec8       0x91 ./riscv_hal/riscv_hal.o
+ *fill*         0x0000000080007f59        0x3 
  .rodata.handle_syscall
-                0x0000000080007dac       0xe4 ./riscv_hal/riscv_hal.o
- .rodata        0x0000000080007e90       0x26 ./riscv_hal/syscall.o
- *fill*         0x0000000080007eb6        0x2 
- .rodata        0x0000000080007eb8        0x5 ./FreeRTOS/tasks.o
- *fill*         0x0000000080007ebd        0x3 
- .rodata        0x0000000080007ec0      0x13c ./FreeRTOS/globalMaster.o
- .rodata        0x0000000080007ffc      0x14f ./FreeRTOS/applications.o
- *fill*         0x000000008000814b        0x1 
- .rodata        0x000000008000814c       0x21 ./FreeRTOS/packet.o
- *fill*         0x000000008000816d        0x3 
+                0x0000000080007f5c       0xe4 ./riscv_hal/riscv_hal.o
+ .rodata        0x0000000080008040       0x26 ./riscv_hal/syscall.o
+ *fill*         0x0000000080008066        0x2 
+ .rodata        0x0000000080008068        0x5 ./FreeRTOS/tasks.o
+ *fill*         0x000000008000806d        0x3 
+ .rodata        0x0000000080008070      0x13c ./FreeRTOS/globalMaster.o
+ .rodata        0x00000000800081ac      0x14f ./FreeRTOS/applications.o
+ *fill*         0x00000000800082fb        0x1 
+ .rodata        0x00000000800082fc       0x21 ./FreeRTOS/packet.o
+ *fill*         0x000000008000831d        0x3 
  .rodata.powerAvgBufferIdle
-                0x0000000080008170        0xc ./FreeRTOS/thermal.o
-                0x0000000080008170                powerAvgBufferIdle
+                0x0000000080008320        0xc ./FreeRTOS/thermal.o
+                0x0000000080008320                powerAvgBufferIdle
  .rodata.powerSwitchControlIdle
-                0x000000008000817c        0xc ./FreeRTOS/thermal.o
-                0x000000008000817c                powerSwitchControlIdle
+                0x000000008000832c        0xc ./FreeRTOS/thermal.o
+                0x000000008000832c                powerSwitchControlIdle
  .rodata.powerAvgBufferActive
-                0x0000000080008188        0xc ./FreeRTOS/thermal.o
-                0x0000000080008188                powerAvgBufferActive
+                0x0000000080008338        0xc ./FreeRTOS/thermal.o
+                0x0000000080008338                powerAvgBufferActive
  .rodata.powerSwitchControlActive
-                0x0000000080008194        0xc ./FreeRTOS/thermal.o
-                0x0000000080008194                powerSwitchControlActive
+                0x0000000080008344        0xc ./FreeRTOS/thermal.o
+                0x0000000080008344                powerSwitchControlActive
  .rodata.readEnergyMemory
-                0x00000000800081a0        0xc ./FreeRTOS/thermal.o
-                0x00000000800081a0                readEnergyMemory
+                0x0000000080008350        0xc ./FreeRTOS/thermal.o
+                0x0000000080008350                readEnergyMemory
  .rodata.writeEnergyMemory
-                0x00000000800081ac        0xc ./FreeRTOS/thermal.o
-                0x00000000800081ac                writeEnergyMemory
+                0x000000008000835c        0xc ./FreeRTOS/thermal.o
+                0x000000008000835c                writeEnergyMemory
  .rodata.arithDyn
-                0x00000000800081b8        0xc ./FreeRTOS/thermal.o
-                0x00000000800081b8                arithDyn
+                0x0000000080008368        0xc ./FreeRTOS/thermal.o
+                0x0000000080008368                arithDyn
  .rodata.loadStoreDyn
-                0x00000000800081c4        0xc ./FreeRTOS/thermal.o
-                0x00000000800081c4                loadStoreDyn
- .rodata        0x00000000800081d0       0x95 ./FreeRTOS/thermal.o
- *fill*         0x0000000080008265        0x3 
- .rodata        0x0000000080008268      0x385 ./FreeRTOS/chronos.o
- *fill*         0x00000000800085ed        0x3 
- .rodata        0x00000000800085f0      0x106 ./main.o
+                0x0000000080008374        0xc ./FreeRTOS/thermal.o
+                0x0000000080008374                loadStoreDyn
+ .rodata        0x0000000080008380       0x95 ./FreeRTOS/thermal.o
+ *fill*         0x0000000080008415        0x3 
+ .rodata        0x0000000080008418      0x457 ./FreeRTOS/chronos.o
+ *fill*         0x000000008000886f        0x1 
+ .rodata        0x0000000080008870      0x106 ./main.o
  *(.gcc_except_table)
  *(.eh_frame_hdr)
  *(.eh_frame)
@@ -2842,123 +2842,123 @@ END GROUP
  *(.fini_array)
  *(SORT_BY_NAME(.fini_array.*))
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0000000080008700                . = ALIGN (0x10)
- *fill*         0x00000000800086f6        0xa 
+                0x0000000080008980                . = ALIGN (0x10)
+ *fill*         0x0000000080008976        0xa 
 
-.rela.dyn       0x0000000080008700        0x0
+.rela.dyn       0x0000000080008980        0x0
  .rela.text.entry
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text._init
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.data.ext_irq_handler_table
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.handle_syscall
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text._isatty
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.stub
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_RepositoryWakeUp
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_AddApplication
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_GetApplicationFreeSlot
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_ApplicationsReset
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_TilesReset
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.GeneratePatternMatrix
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_AllocateTasks
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_DealocateTask
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.getNextPriorityAddr
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_GetTaskSlotFromTile
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_ClearTaskSlotFromTile
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_GetSystemTasksSlots
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_RepositoryAllocation
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_TaskAllocated
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_ApplicationStart
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_TaskListInit
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_GetCurrentTaskSlot
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_GetFreeTaskSlot
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_TaskAllocation
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_GetTaskSlot
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_TaskStart
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_FinishRunningTask
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_PipeInitialization
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_GetMessageSlot
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_GetServiceSlot
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_ClearPipeSlot
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_checkPipe
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_setFreqIdle
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_setFreqScale
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_applyFreqScale
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_freqStepUp
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.estimateNoCActivity
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.powerEstimation
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.Chronos_init
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_PushSendQueue
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_PopSendQueue
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_Try2Send
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_AckTaskAllocation
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_SendMessage
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_SendFinishTask
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_SendMessageReq
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_CheckMessagePipe
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_AddPendingReq
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.API_NI_Handler
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.main
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text.GlobalManagerTask
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.text._write_r
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
  .rela.data.impure_data
-                0x0000000080008700        0x0 ./riscv_hal/entry.o
+                0x0000000080008980        0x0 ./riscv_hal/entry.o
 
-.sdata          0x0000000080008700       0x20
-                0x0000000080008700                __sdata_load = LOADADDR (.sdata)
-                0x0000000080008700                __sdata_start = .
-                0x0000000080008f00                PROVIDE (__global_pointer$ = (. + 0x800))
+.sdata          0x0000000080008980       0x20
+                0x0000000080008980                __sdata_load = LOADADDR (.sdata)
+                0x0000000080008980                __sdata_start = .
+                0x0000000080009180                PROVIDE (__global_pointer$ = (. + 0x800))
  *(.srodata.cst16)
  *(.srodata.cst8)
  *(.srodata.cst4)
@@ -2966,187 +2966,187 @@ END GROUP
  *(.srodata*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
  .sdata.xFreeBytesRemaining
-                0x0000000080008700        0x4 ./FreeRTOS/portable/MemMang/heap_2.o
+                0x0000000080008980        0x4 ./FreeRTOS/portable/MemMang/heap_2.o
  .sdata.uxCriticalNesting
-                0x0000000080008704        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
- .sdata.mtime   0x0000000080008708        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x0000000080008984        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
+ .sdata.mtime   0x0000000080008988        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
  .sdata.mtimecmp
-                0x000000008000870c        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x000000008000898c        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
  .sdata._impure_ptr
-                0x0000000080008710        0x4 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
-                0x0000000080008710                _impure_ptr
-                0x0000000080008720                . = ALIGN (0x10)
- *fill*         0x0000000080008714        0xc 
-                0x0000000080008720                __sdata_end = .
+                0x0000000080008990        0x4 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
+                0x0000000080008990                _impure_ptr
+                0x00000000800089a0                . = ALIGN (0x10)
+ *fill*         0x0000000080008994        0xc 
+                0x00000000800089a0                __sdata_end = .
 
-.data           0x0000000080008720       0xe0
-                0x0000000080008720                __data_load = LOADADDR (.data)
-                0x0000000080008720                __data_start = .
+.data           0x00000000800089a0       0xe0
+                0x00000000800089a0                __data_load = LOADADDR (.data)
+                0x00000000800089a0                __data_start = .
  *(.got.plt)
  *(.got)
  *(.shdata)
  *(.data .data.* .gnu.linkonce.d.*)
  .data.ext_irq_handler_table
-                0x0000000080008720       0x80 ./riscv_hal/riscv_hal.o
-                0x0000000080008720                ext_irq_handler_table
+                0x00000000800089a0       0x80 ./riscv_hal/riscv_hal.o
+                0x00000000800089a0                ext_irq_handler_table
  .data.impure_data
-                0x00000000800087a0       0x60 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
-                0x0000000080008800                . = ALIGN (0x10)
-                0x0000000080008800                __data_end = .
+                0x0000000080008a20       0x60 /soft64/imperas/ferramentas/Imperas.20210408/lib/Linux64/CrossCompiler/riscv-none-embed/bin/../lib/gcc/riscv-none-embed/8.1.0/../../../../riscv-none-embed/lib/rv32im/ilp32/libg_nano.a(lib_a-impure.o)
+                0x0000000080008a80                . = ALIGN (0x10)
+                0x0000000080008a80                __data_end = .
 
-.sbss           0x0000000080008800       0xa0
-                0x0000000080008800                __sbss_start = .
+.sbss           0x0000000080008a80       0xa0
+                0x0000000080008a80                __sbss_start = .
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
  .sbss.g_systick_increment
-                0x0000000080008800        0x8 ./riscv_hal/riscv_hal.o
+                0x0000000080008a80        0x8 ./riscv_hal/riscv_hal.o
  .sbss.g_stdio_uart
-                0x0000000080008808        0x8 ./riscv_hal/syscall.o
+                0x0000000080008a88        0x8 ./riscv_hal/syscall.o
  .sbss.g_stdio_uart_init_done
-                0x0000000080008810        0x4 ./riscv_hal/syscall.o
- .sbss.xStart   0x0000000080008814        0x8 ./FreeRTOS/portable/MemMang/heap_2.o
- .sbss.xEnd     0x000000008000881c        0x8 ./FreeRTOS/portable/MemMang/heap_2.o
+                0x0000000080008a90        0x4 ./riscv_hal/syscall.o
+ .sbss.xStart   0x0000000080008a94        0x8 ./FreeRTOS/portable/MemMang/heap_2.o
+ .sbss.xEnd     0x0000000080008a9c        0x8 ./FreeRTOS/portable/MemMang/heap_2.o
  .sbss.xHeapHasBeenInitialised.2777
-                0x0000000080008824        0x4 ./FreeRTOS/portable/MemMang/heap_2.o
+                0x0000000080008aa4        0x4 ./FreeRTOS/portable/MemMang/heap_2.o
  .sbss.g_startscheduler
-                0x0000000080008828        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
-                0x0000000080008828                g_startscheduler
+                0x0000000080008aa8        0x4 ./FreeRTOS/portable/GCC/RISCV/port.o
+                0x0000000080008aa8                g_startscheduler
  .sbss.pxCurrentTCB
-                0x000000008000882c        0x4 ./FreeRTOS/tasks.o
-                0x000000008000882c                pxCurrentTCB
+                0x0000000080008aac        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008aac                pxCurrentTCB
  .sbss.pxDelayedTaskList
-                0x0000000080008830        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008ab0        0x4 ./FreeRTOS/tasks.o
  .sbss.pxOverflowDelayedTaskList
-                0x0000000080008834        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008ab4        0x4 ./FreeRTOS/tasks.o
  .sbss.uxTasksDeleted
-                0x0000000080008838        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008ab8        0x4 ./FreeRTOS/tasks.o
  .sbss.uxCurrentNumberOfTasks
-                0x000000008000883c        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008abc        0x4 ./FreeRTOS/tasks.o
  .sbss.xTickCount
-                0x0000000080008840        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008ac0        0x4 ./FreeRTOS/tasks.o
  .sbss.uxTopReadyPriority
-                0x0000000080008844        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008ac4        0x4 ./FreeRTOS/tasks.o
  .sbss.xSchedulerRunning
-                0x0000000080008848        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008ac8        0x4 ./FreeRTOS/tasks.o
  .sbss.uxPendedTicks
-                0x000000008000884c        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008acc        0x4 ./FreeRTOS/tasks.o
  .sbss.xYieldPending
-                0x0000000080008850        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008ad0        0x4 ./FreeRTOS/tasks.o
  .sbss.xNumOfOverflows
-                0x0000000080008854        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008ad4        0x4 ./FreeRTOS/tasks.o
  .sbss.uxTaskNumber
-                0x0000000080008858        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008ad8        0x4 ./FreeRTOS/tasks.o
  .sbss.xNextTaskUnblockTime
-                0x000000008000885c        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008adc        0x4 ./FreeRTOS/tasks.o
  .sbss.uxSchedulerSuspended
-                0x0000000080008860        0x4 ./FreeRTOS/tasks.o
+                0x0000000080008ae0        0x4 ./FreeRTOS/tasks.o
  .sbss.thermalPacket_pending
-                0x0000000080008864        0x4 ./FreeRTOS/thermal.o
-                0x0000000080008864                thermalPacket_pending
+                0x0000000080008ae4        0x4 ./FreeRTOS/thermal.o
+                0x0000000080008ae4                thermalPacket_pending
  .sbss.eastFlits_last
-                0x0000000080008868        0x4 ./FreeRTOS/thermal.o
-                0x0000000080008868                eastFlits_last
+                0x0000000080008ae8        0x4 ./FreeRTOS/thermal.o
+                0x0000000080008ae8                eastFlits_last
  .sbss.eastPackets_last
-                0x000000008000886c        0x4 ./FreeRTOS/thermal.o
-                0x000000008000886c                eastPackets_last
+                0x0000000080008aec        0x4 ./FreeRTOS/thermal.o
+                0x0000000080008aec                eastPackets_last
  .sbss.westFlits_last
-                0x0000000080008870        0x4 ./FreeRTOS/thermal.o
-                0x0000000080008870                westFlits_last
+                0x0000000080008af0        0x4 ./FreeRTOS/thermal.o
+                0x0000000080008af0                westFlits_last
  .sbss.westPackets_last
-                0x0000000080008874        0x4 ./FreeRTOS/thermal.o
-                0x0000000080008874                westPackets_last
+                0x0000000080008af4        0x4 ./FreeRTOS/thermal.o
+                0x0000000080008af4                westPackets_last
  .sbss.northFlits_last
-                0x0000000080008878        0x4 ./FreeRTOS/thermal.o
-                0x0000000080008878                northFlits_last
+                0x0000000080008af8        0x4 ./FreeRTOS/thermal.o
+                0x0000000080008af8                northFlits_last
  .sbss.northPackets_last
-                0x000000008000887c        0x4 ./FreeRTOS/thermal.o
-                0x000000008000887c                northPackets_last
+                0x0000000080008afc        0x4 ./FreeRTOS/thermal.o
+                0x0000000080008afc                northPackets_last
  .sbss.southFlits_last
-                0x0000000080008880        0x4 ./FreeRTOS/thermal.o
-                0x0000000080008880                southFlits_last
+                0x0000000080008b00        0x4 ./FreeRTOS/thermal.o
+                0x0000000080008b00                southFlits_last
  .sbss.southPackets_last
-                0x0000000080008884        0x4 ./FreeRTOS/thermal.o
-                0x0000000080008884                southPackets_last
+                0x0000000080008b04        0x4 ./FreeRTOS/thermal.o
+                0x0000000080008b04                southPackets_last
  .sbss.localFlits_last
-                0x0000000080008888        0x4 ./FreeRTOS/thermal.o
-                0x0000000080008888                localFlits_last
+                0x0000000080008b08        0x4 ./FreeRTOS/thermal.o
+                0x0000000080008b08                localFlits_last
  .sbss.localPackets_last
-                0x000000008000888c        0x4 ./FreeRTOS/thermal.o
-                0x000000008000888c                localPackets_last
+                0x0000000080008b0c        0x4 ./FreeRTOS/thermal.o
+                0x0000000080008b0c                localPackets_last
  .sbss.API_SystemFinish
-                0x0000000080008890        0x4 ./main.o
-                0x0000000080008890                API_SystemFinish
+                0x0000000080008b10        0x4 ./main.o
+                0x0000000080008b10                API_SystemFinish
  *(.scommon)
-                0x00000000800088a0                . = ALIGN (0x10)
- *fill*         0x0000000080008894        0xc 
-                0x00000000800088a0                __sbss_end = .
+                0x0000000080008b20                . = ALIGN (0x10)
+ *fill*         0x0000000080008b14        0xc 
+                0x0000000080008b20                __sbss_end = .
 
-.bss            0x00000000800088a0    0x1a8f0
-                0x00000000800088a0                __bss_start = .
+.bss            0x0000000080008b20    0x1a8f0
+                0x0000000080008b20                __bss_start = .
  *(.shbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss.ucHeap    0x00000000800088a0    0x19000 ./FreeRTOS/portable/MemMang/heap_2.o
+ .bss.ucHeap    0x0000000080008b20    0x19000 ./FreeRTOS/portable/MemMang/heap_2.o
  .bss.pxReadyTasksLists
-                0x00000000800218a0       0x64 ./FreeRTOS/tasks.o
+                0x0000000080021b20       0x64 ./FreeRTOS/tasks.o
  .bss.xDelayedTaskList1
-                0x0000000080021904       0x14 ./FreeRTOS/tasks.o
+                0x0000000080021b84       0x14 ./FreeRTOS/tasks.o
  .bss.xDelayedTaskList2
-                0x0000000080021918       0x14 ./FreeRTOS/tasks.o
+                0x0000000080021b98       0x14 ./FreeRTOS/tasks.o
  .bss.xPendingReadyList
-                0x000000008002192c       0x14 ./FreeRTOS/tasks.o
+                0x0000000080021bac       0x14 ./FreeRTOS/tasks.o
  .bss.xTasksWaitingTermination
-                0x0000000080021940       0x14 ./FreeRTOS/tasks.o
+                0x0000000080021bc0       0x14 ./FreeRTOS/tasks.o
  .bss.xSuspendedTaskList
-                0x0000000080021954       0x14 ./FreeRTOS/tasks.o
+                0x0000000080021bd4       0x14 ./FreeRTOS/tasks.o
  *(COMMON)
- COMMON         0x0000000080021968      0xcbc ./riscv_hal/riscv_hal.o
-                0x0000000080021968                SendingSlot
-                0x000000008002196c                ServicePipe
-                0x0000000080021a5c                messageID
-                0x0000000080021a60                incommingPacket
-                0x0000000080021a94                SendingQueue
-                0x0000000080021ab4                SendingQueue_tail
-                0x0000000080021ab8                ThermalPacket
-                0x0000000080021cfc                str
-                0x0000000080021d10                SendingQueue_front
-                0x0000000080021d14                MessagePipe
- COMMON         0x0000000080022624        0x4 ./riscv_hal/syscall.o
-                0x0000000080022624                errno
- COMMON         0x0000000080022628      0x83c ./FreeRTOS/globalMaster.o
-                0x0000000080022628                priorityMatrix
-                0x000000008002264c                applications
-                0x0000000080022dcc                temperatureUpdated
-                0x0000000080022dd0                SystemTemperature
-                0x0000000080022df4                priorityPointer
-                0x0000000080022df8                Tiles
- COMMON         0x0000000080022e64      0x318 ./FreeRTOS/applications.o
-                0x0000000080022e64                TaskList
- COMMON         0x000000008002317c        0x4 ./FreeRTOS/dvfs.o
-                0x000000008002317c                selectedFrequencyScale
- COMMON         0x0000000080023180        0x4 ./FreeRTOS/thermal.o
-                0x0000000080023180                memFlits
- COMMON         0x0000000080023184        0xc ./main.o
-                0x0000000080023184                g_uart
-                0x000000008002318c                ProcessorAddr
-                0x0000000080023190                . = ALIGN (0x10)
-                0x0000000080023190                __bss_end = .
-                0x0000000080023190                _end = .
+ COMMON         0x0000000080021be8      0xcbc ./riscv_hal/riscv_hal.o
+                0x0000000080021be8                SendingSlot
+                0x0000000080021bec                ServicePipe
+                0x0000000080021cdc                messageID
+                0x0000000080021ce0                incommingPacket
+                0x0000000080021d14                SendingQueue
+                0x0000000080021d34                SendingQueue_tail
+                0x0000000080021d38                ThermalPacket
+                0x0000000080021f7c                str
+                0x0000000080021f90                SendingQueue_front
+                0x0000000080021f94                MessagePipe
+ COMMON         0x00000000800228a4        0x4 ./riscv_hal/syscall.o
+                0x00000000800228a4                errno
+ COMMON         0x00000000800228a8      0x83c ./FreeRTOS/globalMaster.o
+                0x00000000800228a8                priorityMatrix
+                0x00000000800228cc                applications
+                0x000000008002304c                temperatureUpdated
+                0x0000000080023050                SystemTemperature
+                0x0000000080023074                priorityPointer
+                0x0000000080023078                Tiles
+ COMMON         0x00000000800230e4      0x318 ./FreeRTOS/applications.o
+                0x00000000800230e4                TaskList
+ COMMON         0x00000000800233fc        0x4 ./FreeRTOS/dvfs.o
+                0x00000000800233fc                selectedFrequencyScale
+ COMMON         0x0000000080023400        0x4 ./FreeRTOS/thermal.o
+                0x0000000080023400                memFlits
+ COMMON         0x0000000080023404        0xc ./main.o
+                0x0000000080023404                g_uart
+                0x000000008002340c                ProcessorAddr
+                0x0000000080023410                . = ALIGN (0x10)
+                0x0000000080023410                __bss_end = .
+                0x0000000080023410                _end = .
 
-.heap           0x0000000080023190    0x10000
-                0x0000000080023190                __heap_start = .
-                0x0000000080033190                . = (. + HEAP_SIZE)
- *fill*         0x0000000080023190    0x10000 
-                0x0000000080033190                __heap_end = .
-                0x0000000080033190                . = ALIGN (0x10)
-                0x0000000080033190                _heap_end = __heap_end
+.heap           0x0000000080023410    0x10000
+                0x0000000080023410                __heap_start = .
+                0x0000000080033410                . = (. + HEAP_SIZE)
+ *fill*         0x0000000080023410    0x10000 
+                0x0000000080033410                __heap_end = .
+                0x0000000080033410                . = ALIGN (0x10)
+                0x0000000080033410                _heap_end = __heap_end
 
-.stack          0x0000000080033190    0x10000
-                0x0000000080033190                __stack_bottom = .
-                0x0000000080043190                . = (. + STACK_SIZE)
- *fill*         0x0000000080033190    0x10000 
-                0x0000000080043190                __stack_top = .
+.stack          0x0000000080033410    0x10000
+                0x0000000080033410                __stack_bottom = .
+                0x0000000080043410                . = (. + STACK_SIZE)
+ *fill*         0x0000000080033410    0x10000 
+                0x0000000080043410                __stack_top = .
 OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
 
-.debug_line     0x0000000000000000     0xc202
+.debug_line     0x0000000000000000     0xc29a
  .debug_line    0x0000000000000000      0x25b ./riscv_hal/entry.o
  .debug_line    0x000000000000025b      0x49e ./riscv_hal/init.o
  .debug_line    0x00000000000006f9      0xcda ./riscv_hal/riscv_hal.o
@@ -3164,8 +3164,8 @@ OUTPUT(miv-rv32im-freertos-port-test.elf elf32-littleriscv)
  .debug_line    0x0000000000008ef1      0x772 ./FreeRTOS/packet.o
  .debug_line    0x0000000000009663      0x3d9 ./FreeRTOS/dvfs.o
  .debug_line    0x0000000000009a3c      0x955 ./FreeRTOS/thermal.o
- .debug_line    0x000000000000a391     0x14ce ./FreeRTOS/chronos.o
- .debug_line    0x000000000000b85f      0x9a3 ./main.o
+ .debug_line    0x000000000000a391     0x1566 ./FreeRTOS/chronos.o
+ .debug_line    0x000000000000b8f7      0x9a3 ./main.o
 
 .debug_info     0x0000000000000000    0x10bdd
  .debug_info    0x0000000000000000       0x26 ./riscv_hal/entry.o
