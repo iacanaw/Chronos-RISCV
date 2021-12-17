@@ -46,7 +46,7 @@ for i in $(seq 0 $N);
 do
 	echo "" >> module.op.tcl
 	echo "ihwaddmemory -instancename nvram"$i" -type ram" >> module.op.tcl
-	echo "ihwconnect   -instancename nvram"$i" -busslaveport sp1 -bus cpu"$i"Bus -loaddress 0x60000000 -hiaddress 0x6003FFFF" >> module.op.tcl
+	echo "ihwconnect   -instancename nvram"$i" -busslaveport sp1 -bus cpu"$i"Bus -loaddress 0x60000000 -hiaddress 0x6FFFFFFF" >> module.op.tcl
 	echo "" >> module.op.tcl
 	echo "ihwaddmemory -instancename ddr"$i"   -type ram" >> module.op.tcl
 	echo "ihwconnect   -instancename ddr"$i"   -busslaveport sp1 -bus cpu"$i"Bus -loaddress 0x80000000 -hiaddress 0x8FFFFFFF" >> module.op.tcl

@@ -14,6 +14,9 @@
 #define TASK_ALLOCATING     3
 #define TASK_ALLOCATED      4
 
+// Finish 
+volatile unsigned int API_SystemFinish;
+
 // Stores the ADDRESS of each tile ordered by the current priotity policy
 unsigned int priorityMatrix[DIM_X*DIM_Y];
 unsigned int priorityPointer;

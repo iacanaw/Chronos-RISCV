@@ -9,7 +9,7 @@ FreeRTOS/thermal.o: ../FreeRTOS/thermal.c ../FreeRTOS/include/thermal.h \
  ../FreeRTOS/include/mpu_wrappers.h ../FreeRTOS/include/task.h \
  ../FreeRTOS/include/list.h ../FreeRTOS/include/hwaddr.h \
  ../FreeRTOS/include/message.h ../FreeRTOS/include/packet.h \
- ../FreeRTOS/include/services.h
+ ../FreeRTOS/include/services.h ../FreeRTOS/include/chronos.h
 
 ../FreeRTOS/include/thermal.h:
 
@@ -50,3 +50,5 @@ FreeRTOS/thermal.o: ../FreeRTOS/thermal.c ../FreeRTOS/include/thermal.h \
 ../FreeRTOS/include/packet.h:
 
 ../FreeRTOS/include/services.h:
+
+../FreeRTOS/include/chronos.h:

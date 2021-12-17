@@ -11,7 +11,7 @@
 
 // Quantum defines
 #define INSTRUCTIONS_PER_SECOND 1000000000.0                                            // 1GHz (assuming 1 instruction per cycle)
-#define INSTRUCTIONS_PER_TIME_SLICE 100000.0                                             //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
+#define INSTRUCTIONS_PER_TIME_SLICE 10000.0                                             //(INSTRUCTIONS_PER_SECOND*QUANTUM_TIME_SLICE)
 #define QUANTUM_TIME_SLICE (double)(INSTRUCTIONS_PER_TIME_SLICE / INSTRUCTIONS_PER_SECOND)
 
 // Address to save the instruction counters

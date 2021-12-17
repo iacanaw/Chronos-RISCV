@@ -172,7 +172,7 @@ void niIteration(){
         if(transmittingCount != EMPTY){
             // Reads a flit from the memory
             usFlit = readMem(transmittingAddress);
-            //bhmMessage("I", "TX", "Sending flit %x: %x", transmittingCount, usFlit);
+            bhmMessage("I", "TX", "Sending flit %x: %x", transmittingCount, usFlit);
 
             // Runs the logic to get the packet size and the end-of-packet 
             if(transmittingCount == HEADER){
@@ -264,7 +264,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
 
     // Receiving process
     if(control_RX == NI_STATUS_ON){
-        //bhmMessage("I", "NI", "Escrevendo dado %x na posicao %x\n", flit, receivingAddress);
+        bhmMessage("I", "NI", "Escrevendo dado %x na posicao %x\n", flit, receivingAddress);
         if(receivingField == HEADER){
             receivingField = SIZE;
             writeMem(flit, receivingAddress);

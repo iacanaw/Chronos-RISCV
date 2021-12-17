@@ -608,10 +608,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "nvram0",
         OP_PRIV_RWX,
-        (0x6003ffffULL) - (0x60000000ULL),
+        (0x6fffffffULL) - (0x60000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu0Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6003ffffULL)
+                OP_BUS_CONNECT(cpu0Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
             )
         ),
         0
@@ -653,10 +653,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "nvram1",
         OP_PRIV_RWX,
-        (0x6003ffffULL) - (0x60000000ULL),
+        (0x6fffffffULL) - (0x60000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu1Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6003ffffULL)
+                OP_BUS_CONNECT(cpu1Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
             )
         ),
         0
@@ -698,10 +698,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "nvram2",
         OP_PRIV_RWX,
-        (0x6003ffffULL) - (0x60000000ULL),
+        (0x6fffffffULL) - (0x60000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu2Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6003ffffULL)
+                OP_BUS_CONNECT(cpu2Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
             )
         ),
         0
@@ -743,10 +743,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "nvram3",
         OP_PRIV_RWX,
-        (0x6003ffffULL) - (0x60000000ULL),
+        (0x6fffffffULL) - (0x60000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu3Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6003ffffULL)
+                OP_BUS_CONNECT(cpu3Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
             )
         ),
         0
@@ -788,10 +788,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "nvram4",
         OP_PRIV_RWX,
-        (0x6003ffffULL) - (0x60000000ULL),
+        (0x6fffffffULL) - (0x60000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu4Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6003ffffULL)
+                OP_BUS_CONNECT(cpu4Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
             )
         ),
         0
@@ -833,10 +833,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "nvram5",
         OP_PRIV_RWX,
-        (0x6003ffffULL) - (0x60000000ULL),
+        (0x6fffffffULL) - (0x60000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu5Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6003ffffULL)
+                OP_BUS_CONNECT(cpu5Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
             )
         ),
         0
@@ -878,10 +878,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "nvram6",
         OP_PRIV_RWX,
-        (0x6003ffffULL) - (0x60000000ULL),
+        (0x6fffffffULL) - (0x60000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu6Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6003ffffULL)
+                OP_BUS_CONNECT(cpu6Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
             )
         ),
         0
@@ -923,10 +923,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "nvram7",
         OP_PRIV_RWX,
-        (0x6003ffffULL) - (0x60000000ULL),
+        (0x6fffffffULL) - (0x60000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu7Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6003ffffULL)
+                OP_BUS_CONNECT(cpu7Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
             )
         ),
         0
@@ -968,10 +968,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "nvram8",
         OP_PRIV_RWX,
-        (0x6003ffffULL) - (0x60000000ULL),
+        (0x6fffffffULL) - (0x60000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu8Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6003ffffULL)
+                OP_BUS_CONNECT(cpu8Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
             )
         ),
         0

@@ -25,7 +25,6 @@ extern volatile unsigned int SendingQueue_tail;
 extern volatile unsigned int SystemTemperature[DIM_Y*DIM_X];
 extern unsigned int temperatureUpdated;
 
-//volatile unsigned int NI_IRCount;
 
 ////////////////////////////////////////////////////////////
 // Initialize Chronos stuff
@@ -423,15 +422,22 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
 
     prints("Esperando Mensagem!\n");
     // Bloquear a tarefa!
-    while(TaskList[taskSlot].waitingMsg == TRUE){ 
+    /*while(TaskList[taskSlot].waitingMsg == TRUE){ 
         // if(TaskList[taskSlot].waitingMsg == TRUE && idle == 0){
         //     API_setFreqIdle();
         //     API_applyFreqScale();
         //     idle = 1;
         // }
+        printsv("esperando", mySlot);
         vTaskDelay(1);
-    }
-    //API_setFreqScale(1000);
+        mySlot++;
+
+    }*/
+    
+    API_setFreqScale(100);
+    vTaskSuspend(TaskList[taskSlot].TaskHandler);
+    API_setFreqScale(1000);
+
     prints("Mensagem Recebida!\n");
     return;
 }
@@ -471,19 +477,17 @@ void API_AddPendingReq(unsigned int requester_task_id, unsigned int task_app_id,
 void API_NI_Handler(){
     unsigned int aux;
     unsigned int service;
-    unsigned int count = 0;
+    vTaskEnterCritical();
     do{
-        vTaskEnterCritical();
         if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
-            prints("TX interruption catched\n"); // - ", NI_IRCount);
+            prints("TX interruption catched\n");
             API_ClearPipeSlot(SendingSlot); // clear the pipe slot that was transmitted
             HW_set_32bit_reg(NI_TX, DONE);  // releases the interruption
             API_Try2Send();                 // tries to send another packet (if available)
-            count++;
         }
 
         if( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING) {
-            prints("RX interruption catched\n"); // - ", NI_IRCount);
+            prints("RX interruption catched\n");
             service = incommingPacket.service;
             incommingPacket.service = SOLVED;
             switch (service){
@@ -581,6 +585,7 @@ void API_NI_Handler(){
                     //prints("Terminou de entregar a mensagem!!\n");
                     aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
                     TaskList[aux].waitingMsg = FALSE;
+                    vTaskResume(TaskList[aux].TaskHandler);
                     break;
 
                 case TEMPERATURE_PACKET:
@@ -604,12 +609,11 @@ void API_NI_Handler(){
                     break;
             }
             HW_set_32bit_reg(NI_RX, DONE);
-            count++;
         }
-        vTaskExitCritical();
+        
     } while( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING || HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER);
-    
-    vTaskEnterCritical();
+
+
     if (HW_get_32bit_reg(NI_TIMER) == NI_STATUS_INTER){
         powerEstimation();
         HW_set_32bit_reg(NI_TIMER, DONE);

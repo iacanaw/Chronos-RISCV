@@ -2,9 +2,9 @@ RX interruption catched
 TASK_ALLOCATION_SEND
 Got slot: 0 
 Task total size (txt+bss): 3124 
-Task addr: 2147521004 
+Task addr: 2147522956 
 Task slot: 0 
-Task slot TaskAddr: 2147521004 
+Task slot TaskAddr: 2147522956 
 RX interruption catched
 TASK_ALLOCATION_FINISHED
 SendingQueue_front: 0 
@@ -45,16 +45,16 @@ Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 4 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
 taskSlot: 0 
 Adding a msg to task 5  in the PIPE slot 0 
 from app: 1 
@@ -76,13 +76,20 @@ Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
 Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
 taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
+Adding a msg to task 5  in the PIPE slot 0 
 from app: 1 
-SendingQueue_front: 7 
+SendingQueue_front: 0 
 API_Try2Send success!
 Esperando Mensagem!
 TX interruption catched
@@ -91,17 +98,29 @@ RX interruption catched
 Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
-SendingQueue_front: 0 
+SendingQueue_front: 2 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
 taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
+Adding a msg to task 5  in the PIPE slot 1 
 from app: 1 
-SendingQueue_front: 1 
+SendingQueue_front: 3 
 API_Try2Send success!
 Esperando Mensagem!
 TX interruption catched
@@ -113,40 +132,11 @@ Mensagem Recebida!
 taskSlot: 0 
 Adding a msg to task 5  in the PIPE slot 3 
 from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 1999714 
-dynamicEnergy_PE >> 6: 4589948 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 4589948 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
 SendingQueue_front: 4 
 API_Try2Send success!
 Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
 RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
@@ -154,8 +144,12 @@ SendingQueue_front: 5
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
 taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
+Adding a msg to task 5  in the PIPE slot 0 
 from app: 1 
 SendingQueue_front: 6 
 API_Try2Send success!
@@ -167,103 +161,16 @@ Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
 RX interruption catched
+RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 999900 
-dynamicEnergy_PE >> 6: 35823086 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35823086 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 998587 
-dynamicEnergy_PE >> 6: 35798597 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35798597 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
 Adding a msg to task 5  in the PIPE slot 2 
 from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
 SendingQueue_front: 0 
 API_Try2Send success!
 Esperando Mensagem!
@@ -274,6 +181,7 @@ Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
 RX interruption catched
+RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 1 
@@ -281,23 +189,18 @@ API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
+Adding a msg to task 5  in the PIPE slot 1 
 from app: 1 
 SendingQueue_front: 2 
 API_Try2Send success!
 Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 1001347 
-dynamicEnergy_PE >> 6: 35862513 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35862513 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
+RX interruption catched
 RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
@@ -306,7 +209,7 @@ API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
+Adding a msg to task 5  in the PIPE slot 3 
 from app: 1 
 SendingQueue_front: 4 
 API_Try2Send success!
@@ -318,102 +221,15 @@ Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
 RX interruption catched
+RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 998385 
-dynamicEnergy_PE >> 6: 35782416 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35782416 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
 Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 1000001 
-dynamicEnergy_PE >> 6: 35801768 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35801768 
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
 from app: 1 
 SendingQueue_front: 6 
 API_Try2Send success!
@@ -425,189 +241,16 @@ Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
 RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 1000001 
-dynamicEnergy_PE >> 6: 35851663 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35851663 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-total instructions~~~> 1003536 
-dynamicEnergy_PE >> 6: 35930175 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35930175 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
 RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 996466 
-dynamicEnergy_PE >> 6: 35716252 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35716252 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
 Adding a msg to task 5  in the PIPE slot 2 
 from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 999900 
-dynamicEnergy_PE >> 6: 35798209 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35798209 
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
 SendingQueue_front: 0 
 API_Try2Send success!
 Esperando Mensagem!
@@ -618,6 +261,7 @@ Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
 RX interruption catched
+RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 1 
@@ -625,7 +269,7 @@ API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
+Adding a msg to task 5  in the PIPE slot 1 
 from app: 1 
 SendingQueue_front: 2 
 API_Try2Send success!
@@ -637,188 +281,18 @@ Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
 RX interruption catched
+RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 3 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 1000073 
-dynamicEnergy_PE >> 6: 35853796 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35853796 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 1001487 
-dynamicEnergy_PE >> 6: 35857761 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35857761 
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 2000350 
+TotalEnergy: 21059648 
 taskSlot: 0 
 Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 998486 
-dynamicEnergy_PE >> 6: 35794641 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35794641 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 1001415 
-dynamicEnergy_PE >> 6: 35855305 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35855305 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
 from app: 1 
 SendingQueue_front: 4 
 API_Try2Send failed - NI_TX occupied!
@@ -832,101 +306,16 @@ Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
 RX interruption catched
+RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
 Adding a msg to task 5  in the PIPE slot 0 
 from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 998301 
-dynamicEnergy_PE >> 6: 35788602 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35788602 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-total instructions~~~> 1003569 
-dynamicEnergy_PE >> 6: 35931446 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35931446 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 SendingQueue_front: 6 
 API_Try2Send success!
 Esperando Mensagem!
@@ -937,101 +326,21 @@ Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
 RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 998688 
+TotalEnergy: 45062274 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 996398 
-dynamicEnergy_PE >> 6: 35717402 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35717402 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
 Adding a msg to task 5  in the PIPE slot 2 
 from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-total instructions~~~> 1003536 
-dynamicEnergy_PE >> 6: 35930152 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35930152 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 SendingQueue_front: 0 
 API_Try2Send success!
 Esperando Mensagem!
@@ -1042,101 +351,16 @@ Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
 RX interruption catched
+RX interruption catched
 Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
 Adding a msg to task 5  in the PIPE slot 1 
 from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 996466 
-dynamicEnergy_PE >> 6: 35722468 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35722468 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-total instructions~~~> 1003449 
-dynamicEnergy_PE >> 6: 35927020 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35927020 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
 SendingQueue_front: 2 
 API_Try2Send success!
 Esperando Mensagem!
@@ -1147,4819 +371,1128 @@ Tem uma mensagem chegando...
 RX interruption catched
 Mensagem Recebida!
 RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 996264 
-dynamicEnergy_PE >> 6: 35715232 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35715232 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-total instructions~~~> 1003451 
-dynamicEnergy_PE >> 6: 35927093 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35927093 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 996466 
-dynamicEnergy_PE >> 6: 35722451 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35722451 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-total instructions~~~> 1003637 
-dynamicEnergy_PE >> 6: 35933734 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35933734 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 996466 
-dynamicEnergy_PE >> 6: 35722298 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35722298 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-total instructions~~~> 1003350 
-dynamicEnergy_PE >> 6: 35923523 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35923523 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 996567 
-dynamicEnergy_PE >> 6: 35719005 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35719005 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-total instructions~~~> 1003334 
-dynamicEnergy_PE >> 6: 35922927 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35922927 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 996365 
-dynamicEnergy_PE >> 6: 35711723 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35711723 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-total instructions~~~> 1003669 
-dynamicEnergy_PE >> 6: 35934960 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35934960 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 996365 
-dynamicEnergy_PE >> 6: 35718881 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35718881 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-total instructions~~~> 1003435 
-dynamicEnergy_PE >> 6: 35926259 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35926259 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 996466 
-dynamicEnergy_PE >> 6: 35720665 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35720665 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-total instructions~~~> 1003435 
-dynamicEnergy_PE >> 6: 35926429 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35926429 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 996567 
-dynamicEnergy_PE >> 6: 35718653 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35718653 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 999900 
-dynamicEnergy_PE >> 6: 35798158 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35798158 
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-SendingQueue_front: 6 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-total instructions~~~> 1000102 
-dynamicEnergy_PE >> 6: 35855097 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35855097 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 0 
-from app: 1 
-SendingQueue_front: 0 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 3 
-from app: 1 
-SendingQueue_front: 2 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-total instructions~~~> 1003435 
-dynamicEnergy_PE >> 6: 35926474 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35926474 
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 1 
-from app: 1 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-SendingQueue_front: 4 
-API_Try2Send success!
-Esperando Mensagem!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-RX interruption catched
-Mensagem Recebida!
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 5  in the PIPE slot 2 
-from app: 1 
-Task P4 FINISHEDD INFinishing task:4 app: 1 
-From slot: 0 
-i: 0 
-status: 1 
-holder: 0 
----
-i: 0 
-status: 1 
-holder: 0 
----
-i: 0 
-status: 1 
-holder: 0 
----
-i: 0 
-status: 1 
-holder: 0 
----
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 6 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 1 
-holder: 0 
----
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 1 
-holder: 0 
----
-total instructions~~~> 996567 
-dynamicEnergy_PE >> 6: 35506764 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35506764 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 1 
-holder: 0 
----
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 1 
-holder: 0 
----
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 1 
-holder: 0 
----
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 1 
-holder: 0 
----
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 1 
-holder: 0 
----
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 1 
-holder: 0 
----
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 0 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 4294967295 
-holder: 4294967295 
----
-i: 2 
-status: 1 
-holder: 0 
----
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 4294967295 
-holder: 4294967295 
----
-i: 2 
-status: 1 
-holder: 0 
----
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 4294967295 
-holder: 4294967295 
----
-i: 2 
-status: 1 
-holder: 0 
----
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 4294967295 
-holder: 4294967295 
----
-i: 2 
-status: 1 
-holder: 0 
----
-RX interruption catched
-Chegou um message request! App: 1 Task: 5 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 1001415 
-dynamicEnergy_PE >> 6: 35562455 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35562455 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 4294967295 
-holder: 4294967295 
----
-i: 2 
-status: 4294967295 
-holder: 4294967295 
----
-i: 3 
-status: 4294967295 
-holder: 4294967295 
----
-Task 4 deleted with sucsess! From application 1 
-TaskList[0 ]status: 0 
-TaskList[1 ]status: 0 
-TaskList[2 ]status: 0 
-TaskList[3 ]status: 0 
-TaskList[4 ]status: 0 
-TaskList[5 ]status: 0 
-SendingQueue_front: 2 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 998486 
-dynamicEnergy_PE >> 6: 35428051 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35428051 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100293 
-dynamicEnergy_PE >> 6: 3563521 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3563521 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548843 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548843 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99921 
-dynamicEnergy_PE >> 6: 3550121 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550121 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99921 
-dynamicEnergy_PE >> 6: 3550433 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550433 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99921 
-dynamicEnergy_PE >> 6: 3550115 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550115 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99921 
-dynamicEnergy_PE >> 6: 3550115 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550115 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100123 
-dynamicEnergy_PE >> 6: 3557607 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3557607 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99704 
-dynamicEnergy_PE >> 6: 3542038 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3542038 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100123 
-dynamicEnergy_PE >> 6: 3557601 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3557601 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549479 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549479 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99921 
-dynamicEnergy_PE >> 6: 3550127 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550127 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552436 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552436 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552453 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552453 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552442 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552442 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552447 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552447 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99788 
-dynamicEnergy_PE >> 6: 3545268 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3545268 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3550149 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550149 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100124 
-dynamicEnergy_PE >> 6: 3557635 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3557635 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99788 
-dynamicEnergy_PE >> 6: 3545279 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3545279 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552765 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552765 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552765 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552765 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100192 
-dynamicEnergy_PE >> 6: 3559928 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3559928 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99788 
-dynamicEnergy_PE >> 6: 3545285 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3545285 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100091 
-dynamicEnergy_PE >> 6: 3556346 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3556346 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548855 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548855 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552442 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552442 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552442 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552442 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100091 
-dynamicEnergy_PE >> 6: 3556029 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3556029 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100091 
-dynamicEnergy_PE >> 6: 3556018 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3556018 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99719 
-dynamicEnergy_PE >> 6: 3542640 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3542640 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552442 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552442 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3549831 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549831 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99921 
-dynamicEnergy_PE >> 6: 3549798 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549798 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99921 
-dynamicEnergy_PE >> 6: 3549798 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549798 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3549831 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549831 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3549831 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549831 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3549831 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549831 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549156 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549156 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549179 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549179 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549162 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549162 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549167 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549167 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549167 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549167 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99906 
-dynamicEnergy_PE >> 6: 3549195 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549195 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548531 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548531 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548537 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548537 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548537 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548537 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548543 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548543 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548537 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548537 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548537 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548537 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548531 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548531 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548531 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548531 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548554 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548554 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548537 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548537 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548543 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548543 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99960 
-dynamicEnergy_PE >> 6: 3550948 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550948 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99961 
-dynamicEnergy_PE >> 6: 3550970 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550970 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99961 
-dynamicEnergy_PE >> 6: 3550982 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550982 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99961 
-dynamicEnergy_PE >> 6: 3550982 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550982 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99960 
-dynamicEnergy_PE >> 6: 3550942 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550942 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99961 
-dynamicEnergy_PE >> 6: 3550982 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550982 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99972 
-dynamicEnergy_PE >> 6: 3551415 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551415 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99973 
-dynamicEnergy_PE >> 6: 3551449 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551449 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99973 
-dynamicEnergy_PE >> 6: 3551455 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551455 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99973 
-dynamicEnergy_PE >> 6: 3551449 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551449 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99972 
-dynamicEnergy_PE >> 6: 3551426 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551426 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99972 
-dynamicEnergy_PE >> 6: 3551404 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551404 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552135 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552135 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552759 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552759 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100192 
-dynamicEnergy_PE >> 6: 3559922 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3559922 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99788 
-dynamicEnergy_PE >> 6: 3545285 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3545285 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552442 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552442 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552442 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552442 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552447 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552447 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552447 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552447 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552442 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552442 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552759 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552759 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552765 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552765 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100163 
-dynamicEnergy_PE >> 6: 3558780 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3558780 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99788 
-dynamicEnergy_PE >> 6: 3545285 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3545285 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100091 
-dynamicEnergy_PE >> 6: 3556346 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3556346 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552430 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552430 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548548 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548548 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552442 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552442 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552113 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552113 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552113 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552113 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552113 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552113 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552113 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552113 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552135 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552135 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3549826 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549826 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99921 
-dynamicEnergy_PE >> 6: 3549798 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549798 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99921 
-dynamicEnergy_PE >> 6: 3549798 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549798 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3549826 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549826 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3549831 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549831 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3549831 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549831 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549162 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549162 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549173 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549173 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549167 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549167 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549167 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549167 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549162 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549162 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99906 
-dynamicEnergy_PE >> 6: 3549195 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549195 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548543 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548543 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548531 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548531 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548537 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548537 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548543 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548543 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548531 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548531 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548537 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548537 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548531 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548531 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548860 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548860 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100091 
-dynamicEnergy_PE >> 6: 3556346 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3556346 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99788 
-dynamicEnergy_PE >> 6: 3545273 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3545273 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548855 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548855 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548860 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548860 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548860 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548860 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548855 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548855 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548849 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548849 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3549178 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549178 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548855 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548855 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3549172 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549172 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548860 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548860 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548849 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548849 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548860 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548860 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548855 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548855 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548537 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548537 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548860 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548860 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548537 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548537 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548531 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548531 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548531 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548531 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548554 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548554 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548537 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548537 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548543 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548543 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99960 
-dynamicEnergy_PE >> 6: 3550948 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550948 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99961 
-dynamicEnergy_PE >> 6: 3550970 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550970 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99961 
-dynamicEnergy_PE >> 6: 3550982 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550982 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99961 
-dynamicEnergy_PE >> 6: 3550982 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550982 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99960 
-dynamicEnergy_PE >> 6: 3550942 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550942 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99961 
-dynamicEnergy_PE >> 6: 3550982 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550982 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99972 
-dynamicEnergy_PE >> 6: 3551415 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551415 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99973 
-dynamicEnergy_PE >> 6: 3551449 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551449 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99973 
-dynamicEnergy_PE >> 6: 3551455 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551455 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99973 
-dynamicEnergy_PE >> 6: 3551449 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551449 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99972 
-dynamicEnergy_PE >> 6: 3551426 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551426 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99972 
-dynamicEnergy_PE >> 6: 3551404 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551404 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552135 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552135 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552135 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552135 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552113 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552113 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-TASK_ALLOCATION_SEND
-Got slot: 0 
-Task total size (txt+bss): 1472 
-Task addr: 2147521004 
-Task slot: 0 
-Task slot TaskAddr: 2147521004 
-RX interruption catched
-TASK_ALLOCATION_FINISHED
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um TASK_START!
-RX interruption catched
-Chegou um TASK_RUN!
-Starting Task 0  from app 0 
-taskSlot run: 0 
-PROD1 Start 
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-total instructions~~~> 171195 
-dynamicEnergy_PE >> 6: 6307628 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 6307628 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 4 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-total instructions~~~> 241794 
-dynamicEnergy_PE >> 6: 8644198 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 8644198 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 6 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 0 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 2 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 4 
-API_Try2Send success!
-total instructions~~~> 1000001 
-dynamicEnergy_PE >> 6: 35733955 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35733955 
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 6 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 0 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 2 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-total instructions~~~> 1001314 
-dynamicEnergy_PE >> 6: 35782777 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35782777 
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 4 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 6 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 0 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 2 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-total instructions~~~> 998486 
-dynamicEnergy_PE >> 6: 35675554 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35675554 
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 4 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 6 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 0 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 2 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 4 
-API_Try2Send success!
-total instructions~~~> 1000102 
-dynamicEnergy_PE >> 6: 35746368 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35746368 
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 6 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 0 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 2 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
+dynamicEnergy_Router >> 5156250 
 total instructions~~~> 999799 
-dynamicEnergy_PE >> 6: 35706595 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35706595 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 4 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched
-API_Try2Send success!
+TotalEnergy: 45144731 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 6 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 0 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 2 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 3 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 1040021 
+TotalEnergy: 47194785 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 959904 
+TotalEnergy: 43800327 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 999799 
+TotalEnergy: 45372716 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 999972 
+TotalEnergy: 45378606 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
 total instructions~~~> 1000001 
-dynamicEnergy_PE >> 6: 35741748 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35741748 
+TotalEnergy: 45382497 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
 SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 1002425 
+TotalEnergy: 45523467 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 130896 
+TotalEnergy: 10782266 
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
 API_Try2Send failed - NI_TX occupied!
 TX interruption catched
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
 SendingQueue_front: 6 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
 SendingQueue_front: 0 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
 SendingQueue_front: 2 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 704980 
+TotalEnergy: 33730262 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 3 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
 SendingQueue_front: 4 
 API_Try2Send success!
-total instructions~~~> 1000203 
-dynamicEnergy_PE >> 6: 35751055 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35751055 
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
 SendingQueue_front: 6 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
 SendingQueue_front: 0 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 979926 
+TotalEnergy: 44585550 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
 SendingQueue_front: 2 
 API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 1001397 
-dynamicEnergy_PE >> 6: 35733286 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35733286 
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 3 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
 SendingQueue_front: 4 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
 SendingQueue_front: 6 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 997779 
+TotalEnergy: 45302852 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
 SendingQueue_front: 0 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
 SendingQueue_front: 2 
 API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 3 
-API_Try2Send success!
-total instructions~~~> 1002093 
-dynamicEnergy_PE >> 6: 35819712 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35819712 
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 4 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
+Tem uma mensagem chegando...
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 5 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
+Mensagem Recebida!
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 6 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 7 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 0 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
-SendingQueue_front: 2 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
-total instructions~~~> 996466 
-dynamicEnergy_PE >> 6: 35547445 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35547445 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 3 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
 SendingQueue_front: 4 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 1000001 
+TotalEnergy: 45381790 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
 SendingQueue_front: 6 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
 SendingQueue_front: 0 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
 SendingQueue_front: 2 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 1000025 
+TotalEnergy: 45381231 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 3 
 API_Try2Send success!
-total instructions~~~> 1003334 
-dynamicEnergy_PE >> 6: 35862487 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35862487 
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
 SendingQueue_front: 4 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
 SendingQueue_front: 6 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
 SendingQueue_front: 0 
 API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 0 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 1001213 
+TotalEnergy: 45441152 
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 1 
-from app: 0 
-total instructions~~~> 996466 
-dynamicEnergy_PE >> 6: 35524230 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35524230 
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
 SendingQueue_front: 2 
 API_Try2Send failed - NI_TX occupied!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 2 
-from app: 0 
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 3 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 taskSlot: 0 
-Adding a msg to task 1  in the PIPE slot 3 
-from app: 0 
-PROD1 End 
-Finishing task:0 app: 0 
-From slot: 0 
-i: 0 
-status: 1 
-holder: 0 
----
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
 SendingQueue_front: 4 
 API_Try2Send success!
-i: 0 
-status: 1 
-holder: 0 
----
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 5 
 API_Try2Send success!
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 1 
-holder: 0 
----
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Chegou um message request! App: 0 Task: 1 
-Mensagem encontrada no pipe!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
 SendingQueue_front: 6 
 API_Try2Send success!
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 4294967295 
-holder: 4294967295 
----
-i: 2 
-status: 1 
-holder: 0 
----
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
-Chegou um message request! App: 0 Task: 1 
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
 Mensagem encontrada no pipe!
 SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-i: 0 
-status: 4294967295 
-holder: 4294967295 
----
-i: 1 
-status: 4294967295 
-holder: 4294967295 
----
-i: 2 
-status: 4294967295 
-holder: 4294967295 
----
-i: 3 
-status: 4294967295 
-holder: 4294967295 
----
-Task 0 deleted with sucsess! From application 0 
-TaskList[0 ]status: 0 
-TaskList[1 ]status: 0 
-TaskList[2 ]status: 0 
-TaskList[3 ]status: 0 
-TaskList[4 ]status: 0 
-TaskList[5 ]status: 0 
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
 SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 1050727 
+TotalEnergy: 47610509 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 1000173 
-dynamicEnergy_PE >> 6: 35573518 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 35573518 
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 950006 
+TotalEnergy: 43409596 
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando Mensagem!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100192 
-dynamicEnergy_PE >> 6: 3559599 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3559599 
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 997779 
+TotalEnergy: 45295754 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552447 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552447 
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando Mensagem!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
+RX interruption catched
+Tem uma mensagem chegando...
+RX interruption catched
+Mensagem Recebida!
+RX interruption catched
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 1000001 
+TotalEnergy: 44917808 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 1000001 
+TotalEnergy: 44678613 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 1000001 
+TotalEnergy: 44678598 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 999900 
+TotalEnergy: 44674698 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 1000126 
+TotalEnergy: 44683972 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 999958 
+TotalEnergy: 44676639 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552135 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552135 
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 999900 
+TotalEnergy: 44674723 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552113 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552113 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552113 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552113 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552135 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552135 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552135 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552135 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552113 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552113 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552113 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552113 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3549831 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549831 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99921 
-dynamicEnergy_PE >> 6: 3549798 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549798 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99921 
-dynamicEnergy_PE >> 6: 3549792 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549792 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3549831 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549831 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3549831 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549831 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99922 
-dynamicEnergy_PE >> 6: 3549826 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549826 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549173 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549173 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549162 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549162 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549167 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549167 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549173 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549173 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549156 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549156 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99906 
-dynamicEnergy_PE >> 6: 3549524 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549524 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99906 
-dynamicEnergy_PE >> 6: 3549519 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549519 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99906 
-dynamicEnergy_PE >> 6: 3549842 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549842 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549491 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549491 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549485 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549485 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549485 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549485 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549808 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549808 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549803 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549803 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100107 
-dynamicEnergy_PE >> 6: 3556965 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3556965 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99788 
-dynamicEnergy_PE >> 6: 3545285 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3545285 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549485 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549485 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549485 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549485 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549479 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549479 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549491 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549491 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549491 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549491 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549167 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549167 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549167 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549167 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549167 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549167 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99905 
-dynamicEnergy_PE >> 6: 3549162 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549162 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99906 
-dynamicEnergy_PE >> 6: 3549201 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3549201 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548531 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548531 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548531 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548531 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548548 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548548 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548531 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548531 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548537 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548537 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548543 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548543 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548526 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548526 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548543 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548543 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548543 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548543 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548543 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548543 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99889 
-dynamicEnergy_PE >> 6: 3548543 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3548543 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99960 
-dynamicEnergy_PE >> 6: 3550942 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550942 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99961 
-dynamicEnergy_PE >> 6: 3550976 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550976 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99961 
-dynamicEnergy_PE >> 6: 3550982 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550982 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99961 
-dynamicEnergy_PE >> 6: 3550976 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550976 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99960 
-dynamicEnergy_PE >> 6: 3550954 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550954 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99961 
-dynamicEnergy_PE >> 6: 3550970 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3550970 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99972 
-dynamicEnergy_PE >> 6: 3551415 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551415 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99973 
-dynamicEnergy_PE >> 6: 3551455 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551455 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99973 
-dynamicEnergy_PE >> 6: 3551449 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551449 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99973 
-dynamicEnergy_PE >> 6: 3551460 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551460 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99972 
-dynamicEnergy_PE >> 6: 3551415 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551415 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99972 
-dynamicEnergy_PE >> 6: 3551409 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3551409 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552135 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552135 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552113 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552113 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552135 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552135 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552113 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552113 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552113 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552113 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552130 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552130 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552124 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552124 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552118 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552118 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552759 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552759 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100192 
-dynamicEnergy_PE >> 6: 3559928 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3559928 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99788 
-dynamicEnergy_PE >> 6: 3545285 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3545285 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552442 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552442 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552447 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552447 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552442 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552442 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552442 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552442 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552442 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552442 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552759 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552759 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99990 
-dynamicEnergy_PE >> 6: 3552771 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3552771 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 100192 
-dynamicEnergy_PE >> 6: 3559928 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3559928 
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-total instructions~~~> 99788 
-dynamicEnergy_PE >> 6: 3545273 
-dynamicEnergy_MEM >> 6: 0 
-TotalEnergy: 3545273 
+dynamicEnergy_Router >> 5156250 
+total instructions~~~> 1000001 
+TotalEnergy: 44678598 
 TX interruption catched
 API_Try2Send failed - empty SendQueue!

@@ -4,8 +4,8 @@ import numpy as np
 import re
 import sys 
 
-XX = 3#int(sys.argv[1])
-YY = 3#int(sys.argv[2])
+XX = int(sys.argv[1])
+YY = int(sys.argv[2])
 
 samples = []
 

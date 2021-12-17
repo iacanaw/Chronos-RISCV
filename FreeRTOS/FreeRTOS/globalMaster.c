@@ -177,7 +177,8 @@ void API_AllocateTasks(unsigned int tick){
 }
 
 void API_DealocateTask(unsigned int task_id, unsigned int app_id){
-    unsigned int i, flag, tick;
+    unsigned int i, tick;
+    volatile int flag;
     applications[app_id].tasks[task_id].status = TASK_FINISHED;
     // verify if every task has finished
     flag = 1;
@@ -209,7 +210,8 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
                     return;
                 }
             }
-            _exit(0xfe10);
+            API_SystemFinish = TRUE;
+            //_exit(0xfe10);
         }        
     }
     return;

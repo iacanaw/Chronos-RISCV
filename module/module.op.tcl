@@ -116,7 +116,7 @@ ihwconnect -instancename cpu8  -busmasterport DATA        -bus cpu8Bus
 ############################## memory #############################
 
 ihwaddmemory -instancename nvram0 -type ram
-ihwconnect   -instancename nvram0 -busslaveport sp1 -bus cpu0Bus -loaddress 0x60000000 -hiaddress 0x6003FFFF
+ihwconnect   -instancename nvram0 -busslaveport sp1 -bus cpu0Bus -loaddress 0x60000000 -hiaddress 0x6FFFFFFF
 
 ihwaddmemory -instancename ddr0   -type ram
 ihwconnect   -instancename ddr0   -busslaveport sp1 -bus cpu0Bus -loaddress 0x80000000 -hiaddress 0x8FFFFFFF
@@ -126,7 +126,7 @@ ihwconnect   -instancename stk0   -busslaveport sp1 -bus cpu0Bus -loaddress 0xff
 
 
 ihwaddmemory -instancename nvram1 -type ram
-ihwconnect   -instancename nvram1 -busslaveport sp1 -bus cpu1Bus -loaddress 0x60000000 -hiaddress 0x6003FFFF
+ihwconnect   -instancename nvram1 -busslaveport sp1 -bus cpu1Bus -loaddress 0x60000000 -hiaddress 0x6FFFFFFF
 
 ihwaddmemory -instancename ddr1   -type ram
 ihwconnect   -instancename ddr1   -busslaveport sp1 -bus cpu1Bus -loaddress 0x80000000 -hiaddress 0x8FFFFFFF
@@ -136,7 +136,7 @@ ihwconnect   -instancename stk1   -busslaveport sp1 -bus cpu1Bus -loaddress 0xff
 
 
 ihwaddmemory -instancename nvram2 -type ram
-ihwconnect   -instancename nvram2 -busslaveport sp1 -bus cpu2Bus -loaddress 0x60000000 -hiaddress 0x6003FFFF
+ihwconnect   -instancename nvram2 -busslaveport sp1 -bus cpu2Bus -loaddress 0x60000000 -hiaddress 0x6FFFFFFF
 
 ihwaddmemory -instancename ddr2   -type ram
 ihwconnect   -instancename ddr2   -busslaveport sp1 -bus cpu2Bus -loaddress 0x80000000 -hiaddress 0x8FFFFFFF
@@ -146,7 +146,7 @@ ihwconnect   -instancename stk2   -busslaveport sp1 -bus cpu2Bus -loaddress 0xff
 
 
 ihwaddmemory -instancename nvram3 -type ram
-ihwconnect   -instancename nvram3 -busslaveport sp1 -bus cpu3Bus -loaddress 0x60000000 -hiaddress 0x6003FFFF
+ihwconnect   -instancename nvram3 -busslaveport sp1 -bus cpu3Bus -loaddress 0x60000000 -hiaddress 0x6FFFFFFF
 
 ihwaddmemory -instancename ddr3   -type ram
 ihwconnect   -instancename ddr3   -busslaveport sp1 -bus cpu3Bus -loaddress 0x80000000 -hiaddress 0x8FFFFFFF
@@ -156,7 +156,7 @@ ihwconnect   -instancename stk3   -busslaveport sp1 -bus cpu3Bus -loaddress 0xff
 
 
 ihwaddmemory -instancename nvram4 -type ram
-ihwconnect   -instancename nvram4 -busslaveport sp1 -bus cpu4Bus -loaddress 0x60000000 -hiaddress 0x6003FFFF
+ihwconnect   -instancename nvram4 -busslaveport sp1 -bus cpu4Bus -loaddress 0x60000000 -hiaddress 0x6FFFFFFF
 
 ihwaddmemory -instancename ddr4   -type ram
 ihwconnect   -instancename ddr4   -busslaveport sp1 -bus cpu4Bus -loaddress 0x80000000 -hiaddress 0x8FFFFFFF
@@ -166,7 +166,7 @@ ihwconnect   -instancename stk4   -busslaveport sp1 -bus cpu4Bus -loaddress 0xff
 
 
 ihwaddmemory -instancename nvram5 -type ram
-ihwconnect   -instancename nvram5 -busslaveport sp1 -bus cpu5Bus -loaddress 0x60000000 -hiaddress 0x6003FFFF
+ihwconnect   -instancename nvram5 -busslaveport sp1 -bus cpu5Bus -loaddress 0x60000000 -hiaddress 0x6FFFFFFF
 
 ihwaddmemory -instancename ddr5   -type ram
 ihwconnect   -instancename ddr5   -busslaveport sp1 -bus cpu5Bus -loaddress 0x80000000 -hiaddress 0x8FFFFFFF
@@ -176,7 +176,7 @@ ihwconnect   -instancename stk5   -busslaveport sp1 -bus cpu5Bus -loaddress 0xff
 
 
 ihwaddmemory -instancename nvram6 -type ram
-ihwconnect   -instancename nvram6 -busslaveport sp1 -bus cpu6Bus -loaddress 0x60000000 -hiaddress 0x6003FFFF
+ihwconnect   -instancename nvram6 -busslaveport sp1 -bus cpu6Bus -loaddress 0x60000000 -hiaddress 0x6FFFFFFF
 
 ihwaddmemory -instancename ddr6   -type ram
 ihwconnect   -instancename ddr6   -busslaveport sp1 -bus cpu6Bus -loaddress 0x80000000 -hiaddress 0x8FFFFFFF
@@ -186,7 +186,7 @@ ihwconnect   -instancename stk6   -busslaveport sp1 -bus cpu6Bus -loaddress 0xff
 
 
 ihwaddmemory -instancename nvram7 -type ram
-ihwconnect   -instancename nvram7 -busslaveport sp1 -bus cpu7Bus -loaddress 0x60000000 -hiaddress 0x6003FFFF
+ihwconnect   -instancename nvram7 -busslaveport sp1 -bus cpu7Bus -loaddress 0x60000000 -hiaddress 0x6FFFFFFF
 
 ihwaddmemory -instancename ddr7   -type ram
 ihwconnect   -instancename ddr7   -busslaveport sp1 -bus cpu7Bus -loaddress 0x80000000 -hiaddress 0x8FFFFFFF
@@ -196,7 +196,7 @@ ihwconnect   -instancename stk7   -busslaveport sp1 -bus cpu7Bus -loaddress 0xff
 
 
 ihwaddmemory -instancename nvram8 -type ram
-ihwconnect   -instancename nvram8 -busslaveport sp1 -bus cpu8Bus -loaddress 0x60000000 -hiaddress 0x6003FFFF
+ihwconnect   -instancename nvram8 -busslaveport sp1 -bus cpu8Bus -loaddress 0x60000000 -hiaddress 0x6FFFFFFF
 
 ihwaddmemory -instancename ddr8   -type ram
 ihwconnect   -instancename ddr8   -busslaveport sp1 -bus cpu8Bus -loaddress 0x80000000 -hiaddress 0x8FFFFFFF

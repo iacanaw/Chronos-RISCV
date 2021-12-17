@@ -319,16 +319,14 @@ PPM_PACKETNET_CB(dataUpdate) {
         bhmMessage("I", "Input", "Calculando STEADY!\n");
         int index = 0;
         int yi, xi;
-        for (yi = 0; yi < DIM_X; yi++)
-            for(xi = 0; xi < DIM_Y; xi++){
-                power_trace[index] = ((((double)power[yi][xi] * 64) / 100) / (1000000000 * 0.001));
+        for (yi = 0; yi < DIM_Y; yi++)
+            for(xi = 0; xi < DIM_X; xi++){
+                power_trace[index] = ((((double)power[yi][xi] * 64) / 100) / (1000000000)) * 10; //0.001));
+                //power_trace[index] = ((((double)power[yi][xi]* 64 / 1000 / 100) * 128 / 100) * 20)/(1280000*0.001);
                 bhmMessage("I", "input", "power: %.6lf", power_trace[index]);
                 index++;
             }
                 //power_trace[index++] = (double)(power[yi][xi]*SCALING_FACTOR)/(1280000*WINDOW_TIME);
-
-        //power_trace[0] = power_trace[0]*0.1;
-
         computeSteadyStateTemp(t_steady, power_trace);
 
         ////////////////////////////////////////////////////////////////////////
