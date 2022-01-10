@@ -35,6 +35,7 @@
 #define SERVICE             0x10100000
 #define MESSAGE             0x20200000
 #define THERMAL             0x40400000
+#define SYS_MESSAGE         0x50500000
 #define EMPTY               0x30300000
 ////////////////////////////////////////////////////////////
 // NI STATUS
@@ -46,6 +47,9 @@
 
 // Auxiliar Packet used by the NI to store incomming packets
 volatile ServiceHeader incommingPacket;
+
+// Holds the AliveHandler
+volatile TaskHandle_t AliveHandler;
 
 // Sending Queue
 volatile unsigned int SendingQueue[PIPE_SIZE*2];

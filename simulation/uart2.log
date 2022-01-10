@@ -5,3 +5,7 @@
 
  This processor is a Slave: 
 Task P2 INIT
+PROD1 Start 
+Task P2 FINISHEDD INPROD1 End 
+PROD1 Start 
+PROD1 End 

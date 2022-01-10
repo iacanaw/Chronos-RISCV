@@ -213,6 +213,10 @@ static void GlobalManagerTask( void *pvParameters ){
 
 		// Checks if there is some task to allocate...
 		API_AllocateTasks(tick);
+		
+		// Checks if there is some task to start...
+		API_StartTasks();
+
 		if(API_SystemFinish){
 			vTaskDelay(200); // to cool down the system
 			_exit(0xfe10);

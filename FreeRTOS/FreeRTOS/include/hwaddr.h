@@ -17,6 +17,7 @@
 #define RX                      0x00003333U
 #define TX_RX                   0x00007777U
 #define DONE                    0x80005555U
+#define HOLD                    0xFFFFFFF6U
 #define INTERRUPTION_ACK        0x00001234U
 #define RESET                   0x00008888U
 //#define NI_TX_IRQn              External_1_IRQn

@@ -6,3 +6,5 @@
  This processor is a Slave: 
 Bank INIT
 PROD1 Start 
+PROD1 End 
+Bank sys_Sended all patternsTask P4 INIT

@@ -331,10 +331,18 @@ PPM_REG_WRITE_CB(statusRXWrite) {
             control_RX = NI_STATUS_OFF;
             interruptionOff();
             setGO();
+        }else if(command == HOLD){
+            bhmMessage("I", "NI_INTERRUPTION", "Recebi um HOLD1!\n");
+            interruptionOff();
         }
     } else if(control_RX == NI_STATUS_WAITING){
-        receivingAddress = htonl(data);
-        control_RX = NI_STATUS_ON;
+        if(command == HOLD){
+            bhmMessage("I", "NI_INTERRUPTION", "Recebi um HOLD2!\n");
+            interruptionOff();
+        } else{
+            receivingAddress = htonl(data);
+            control_RX = NI_STATUS_ON;
+        }
     }
     
     *(Uns32*)user = data;

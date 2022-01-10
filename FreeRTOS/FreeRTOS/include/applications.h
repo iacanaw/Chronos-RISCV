@@ -25,6 +25,7 @@ typedef struct {
     unsigned int taskSize;
     unsigned int taskAddr;
     unsigned int mainAddr;
+    volatile MessagePacket MessagePipe[PIPE_SIZE];
     unsigned int PendingReq[NUM_MAX_APP_TASKS];
     unsigned int appNumTasks;
     unsigned int TasksMap[NUM_MAX_APP_TASKS];

@@ -85,7 +85,7 @@ typedef struct {
 
 typedef struct{
 	volatile unsigned int	status;						// Stores this packet status
-	volatile unsigned int 	holder;
+	//volatile unsigned int 	holder;
 	volatile unsigned int 	msgID;
 	volatile ServiceHeader 	header;
 	volatile Message 		msg;
@@ -98,8 +98,9 @@ typedef struct{
 } ServicePacket;
 
 unsigned int messageID;
-volatile MessagePacket MessagePipe[PIPE_SIZE];
+//volatile MessagePacket MessagePipe[PIPE_SIZE];
 volatile ServicePacket ServicePipe[PIPE_SIZE];
+volatile MessagePacket ServiceMessage;
 volatile MessagePacket ThermalPacket;
 
 // Initialize the PIPE, setting the status of each slot to FREE

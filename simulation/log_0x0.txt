@@ -44,9 +44,6 @@ TASK_ALLOCATION_SUCCESS
 5NI_RX DONE!
 TX interruption catched
 API_Try2Send success!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-5NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -57,63 +54,169 @@ TASK_ALLOCATION_SUCCESS
 5NI_RX DONE!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
-Application allocated: 1 
-SendingQueue_front: 7 
-API_Try2Send success!
-SendingQueue_front: 0 
-API_Try2Send failed - NI_TX occupied!
-SendingQueue_front: 1 
-API_Try2Send failed - NI_TX occupied!
-SendingQueue_front: 2 
-API_Try2Send failed - NI_TX occupied!
+5NI_RX DONE!
 RX interruption catched
-13NI_RX DONE!
-TX interruption catched
-API_Try2Send success!
-SendingQueue_front: 3 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched
-API_Try2Send success!
-SendingQueue_front: 4 
-API_Try2Send failed - NI_TX occupied!
-	Start command sent to every task.
+TASK_ALLOCATION_SUCCESS
 5NI_RX DONE!
 GlobalMasterActive2 
 I got a free service slo-!! -> 0 
-SendingQueue_front: 5 
-API_Try2Send failed - NI_TX occupied!
-TX interruption catched
+SendingQueue_front: 7 
 API_Try2Send success!
 I got a free service slo-!! -> 1 
-SendingQueue_front: 6 
+SendingQueue_front: 0 
 API_Try2Send failed - NI_TX occupied!
+Application is allocated: 1 
+Starting TX interruption catched
+API_Try2Send success!
+Application: 1 
+Sending TASK_START to task 0 
+SendingQueue_front: 1 
+API_Try2Send failed - NI_TX occupied!
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
 TX interruption catched
 API_Try2Send success!
-TX interruption catched
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+EspTX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
+erando...
+Sending TASK_START to task 1 
+SendingQueue_front: 2 
 API_Try2Send success!
-TX interruption catched
-API_Try2Send success!
-TX interruption catched
-API_Try2Send success!
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 TASK_ALLOCATION_SUCCESS
 5NI_RX DONE!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-Application allocated: 0 
-SendingQueue_front: 7 
+Esperando...
+Sending TASK_START to task 2 
+SendingQueue_front: 3 
 API_Try2Send success!
-SendingQueue_front: 0 
-API_Try2Send failed - NI_TX occupied!
-	Start command sent to every task.
-5NI_RX DONE!
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
 TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 3 
+SendingQueue_front: 4 
 API_Try2Send success!
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 4 
+SendingQueue_front: 5 
+API_Try2Send success!
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 5 
+SendingQueue_front: 6 
+API_Try2Send success!
+Start command sent to every task...
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 GlobalMasterActive3 
+Application is allocated: 0 
+Starting Application: 0 
+Sending TASK_START to task 0 
+SendingQueue_front: 7 
+API_Try2Send success!
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+Esperando...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 1 
+SendingQueue_front: 0 
+API_Try2Send success!
+Start command sent to every task...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive4 
 GlobalMasterActive5 
 GlobalMasterActive6 
@@ -132,8 +235,25 @@ GlobalMasterActive18
 GlobalMasterActive19 
 dynamicEnergy_Router >> 3995529 
 total instructions~~~> 1999037 
-TotalEnergy: 15772238 
+TotalEnergy: 15893464 
+SendingQueue_front: 1 
+API_Try2Send success!
 EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 32384 
+pe1 temp: 32409 
+pe2 temp: 32418 
+pe3 temp: 32438 
+pe4 temp: 32453 
+pe5 temp: 32419 
+pe6 temp: 32435 
+pe7 temp: 32440 
+pe8 temp: 32427 
+12NI_RX DONE!
 GlobalMasterActive20 
 GlobalMasterActive21 
 GlobalMasterActive22 
@@ -143,7 +263,28 @@ GlobalMasterActive25
 GlobalMasterActive26 
 GlobalMasterActive27 
 GlobalMasterActive28 
+dynamicEnergy_Router >> 3955142 
+total instructions~~~> 153318 
+TotalEnergy: 10052564 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive29 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 32779 
+pe1 temp: 32731 
+pe2 temp: 32602 
+pe3 temp: 33408 
+pe4 temp: 33322 
+pe5 temp: 32877 
+pe6 temp: 33579 
+pe7 temp: 33551 
+pe8 temp: 33425 
+12NI_RX DONE!
 GlobalMasterActive30 
 GlobalMasterActive31 
 GlobalMasterActive32 
@@ -153,6 +294,27 @@ GlobalMasterActive35
 GlobalMasterActive36 
 GlobalMasterActive37 
 GlobalMasterActive38 
+dynamicEnergy_Router >> 3955248 
+total instructions~~~> 149985 
+TotalEnergy: 9933091 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33182 
+pe1 temp: 33249 
+pe2 temp: 33655 
+pe3 temp: 33888 
+pe4 temp: 33860 
+pe5 temp: 33765 
+pe6 temp: 34103 
+pe7 temp: 33972 
+pe8 temp: 33423 
+12NI_RX DONE!
 GlobalMasterActive39 
 GlobalMasterActive40 
 GlobalMasterActive41 
@@ -162,6 +324,27 @@ GlobalMasterActive44
 GlobalMasterActive45 
 GlobalMasterActive46 
 GlobalMasterActive47 
+dynamicEnergy_Router >> 3955248 
+total instructions~~~> 149985 
+TotalEnergy: 9923743 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33421 
+pe1 temp: 33443 
+pe2 temp: 33912 
+pe3 temp: 34054 
+pe4 temp: 33666 
+pe5 temp: 33642 
+pe6 temp: 34353 
+pe7 temp: 34227 
+pe8 temp: 34128 
+12NI_RX DONE!
 GlobalMasterActive48 
 GlobalMasterActive49 
 GlobalMasterActive50 
@@ -172,6 +355,27 @@ GlobalMasterActive54
 GlobalMasterActive55 
 GlobalMasterActive56 
 GlobalMasterActive57 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149985 
+TotalEnergy: 9932876 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33547 
+pe1 temp: 33500 
+pe2 temp: 33399 
+pe3 temp: 34266 
+pe4 temp: 34154 
+pe5 temp: 33715 
+pe6 temp: 34535 
+pe7 temp: 34478 
+pe8 temp: 34336 
+12NI_RX DONE!
 GlobalMasterActive58 
 GlobalMasterActive59 
 GlobalMasterActive60 
@@ -181,6 +385,27 @@ GlobalMasterActive63
 GlobalMasterActive64 
 GlobalMasterActive65 
 GlobalMasterActive66 
+dynamicEnergy_Router >> 3955353 
+total instructions~~~> 149985 
+TotalEnergy: 9923908 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33658 
+pe1 temp: 33688 
+pe2 temp: 33993 
+pe3 temp: 34375 
+pe4 temp: 34254 
+pe5 temp: 33761 
+pe6 temp: 34621 
+pe7 temp: 34446 
+pe8 temp: 33795 
+12NI_RX DONE!
 GlobalMasterActive67 
 GlobalMasterActive68 
 GlobalMasterActive69 
@@ -191,6 +416,27 @@ GlobalMasterActive73
 GlobalMasterActive74 
 GlobalMasterActive75 
 GlobalMasterActive76 
+dynamicEnergy_Router >> 3955142 
+total instructions~~~> 149985 
+TotalEnergy: 9932956 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33579 
+pe1 temp: 33749 
+pe2 temp: 34159 
+pe3 temp: 33895 
+pe4 temp: 34235 
+pe5 temp: 33935 
+pe6 temp: 34520 
+pe7 temp: 34542 
+pe8 temp: 34384 
+12NI_RX DONE!
 GlobalMasterActive77 
 GlobalMasterActive78 
 GlobalMasterActive79 
@@ -200,6 +446,27 @@ GlobalMasterActive82
 GlobalMasterActive83 
 GlobalMasterActive84 
 GlobalMasterActive85 
+dynamicEnergy_Router >> 3955248 
+total instructions~~~> 149985 
+TotalEnergy: 9923762 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33644 
+pe1 temp: 33697 
+pe2 temp: 34185 
+pe3 temp: 34259 
+pe4 temp: 33923 
+pe5 temp: 33930 
+pe6 temp: 34598 
+pe7 temp: 34527 
+pe8 temp: 34487 
+12NI_RX DONE!
 GlobalMasterActive86 
 GlobalMasterActive87 
 GlobalMasterActive88 
@@ -210,6 +477,27 @@ GlobalMasterActive92
 GlobalMasterActive93 
 GlobalMasterActive94 
 GlobalMasterActive95 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149985 
+TotalEnergy: 9932810 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33696 
+pe1 temp: 33659 
+pe2 temp: 33565 
+pe3 temp: 34419 
+pe4 temp: 34317 
+pe5 temp: 33889 
+pe6 temp: 34693 
+pe7 temp: 34648 
+pe8 temp: 34519 
+12NI_RX DONE!
 GlobalMasterActive96 
 GlobalMasterActive97 
 GlobalMasterActive98 
@@ -219,7 +507,28 @@ GlobalMasterActive101
 GlobalMasterActive102 
 GlobalMasterActive103 
 GlobalMasterActive104 
+dynamicEnergy_Router >> 3955353 
+total instructions~~~> 149956 
+TotalEnergy: 9923422 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive105 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33754 
+pe1 temp: 33787 
+pe2 temp: 34094 
+pe3 temp: 34473 
+pe4 temp: 34355 
+pe5 temp: 33864 
+pe6 temp: 34720 
+pe7 temp: 34549 
+pe8 temp: 33900 
+12NI_RX DONE!
 GlobalMasterActive106 
 GlobalMasterActive107 
 GlobalMasterActive108 
@@ -229,49 +538,91 @@ GlobalMasterActive111
 GlobalMasterActive112 
 GlobalMasterActive113 
 GlobalMasterActive114 
+dynamicEnergy_Router >> 3955142 
+total instructions~~~> 149884 
+TotalEnergy: 9930939 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33639 
+pe1 temp: 33810 
+pe2 temp: 34220 
+pe3 temp: 33956 
+pe4 temp: 34295 
+pe5 temp: 33996 
+pe6 temp: 34580 
+pe7 temp: 34599 
+pe8 temp: 34444 
+12NI_RX DONE!
 GlobalMasterActive115 
+GlobalMasterActive116 
 RX interruption catched
 FINISHED: Task 0 from application 0 
+checking 0 task is: 2 
+from app: 0 
+checking 1 task is: 5 
+from app: 0 
 3NI_RX DONE!
-GlobalMasterActive116 
 GlobalMasterActive117 
 RX interruption catched
 FINISHED: Task 1 from application 0 
+checking 0 task is: 2 
+from app: 0 
+checking 1 task is: 2 
+from app: 0 
 Application 0 was executed in 115 
-		This application still need to run: 1 
+		This application still need to run: 49 
 3NI_RX DONE!
 GlobalMasterActive118 
 GlobalMasterActive119 
 I got a free service slo-!! -> 0 
-SendingQueue_front: 1 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-I got a free service slo-!! -> 0 
-SendingQueue_front: 2 
-API_Try2Send success!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-5NI_RX DONE!
-RX interruption catched
-TASK_ALLOCATION_SUCCESS
-Application allocated: 0 
-SendingQueue_front: 3 
-API_Try2Send success!
 SendingQueue_front: 4 
+API_Try2Send success!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 5 
 API_Try2Send failed - NI_TX occupied!
-	Start command sent to every task.
-5NI_RX DONE!
 TX interruption catched
 API_Try2Send success!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 GlobalMasterActive120 
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
 GlobalMasterActive121 
+Application is allocated: 0 
+Starting Application: 0 
+Sending TASK_START to task 0 
+SendingQueue_front: 6 
+API_Try2Send success!
+Esperando...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 1 
+SendingQueue_front: 7 
+API_Try2Send success!
+Start command sent to every task...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive122 
 GlobalMasterActive123 
+dynamicEnergy_Router >> 3961785 
+total instructions~~~> 149884 
+TotalEnergy: 10012101 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive124 
 GlobalMasterActive125 
 GlobalMasterActive126 
@@ -280,8 +631,42 @@ GlobalMasterActive128
 GlobalMasterActive129 
 GlobalMasterActive130 
 GlobalMasterActive131 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33687 
+pe1 temp: 33746 
+pe2 temp: 34226 
+pe3 temp: 34307 
+pe4 temp: 34001 
+pe5 temp: 33975 
+pe6 temp: 34645 
+pe7 temp: 34560 
+pe8 temp: 34524 
+12NI_RX DONE!
 GlobalMasterActive132 
 GlobalMasterActive133 
+dynamicEnergy_Router >> 3954825 
+total instructions~~~> 149908 
+TotalEnergy: 9931891 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33694 
+pe1 temp: 33710 
+pe2 temp: 34193 
+pe3 temp: 34292 
+pe4 temp: 33876 
+pe5 temp: 33906 
+pe6 temp: 34503 
+pe7 temp: 34025 
+pe8 temp: 34360 
+12NI_RX DONE!
 GlobalMasterActive134 
 GlobalMasterActive135 
 GlobalMasterActive136 
@@ -291,6 +676,27 @@ GlobalMasterActive139
 GlobalMasterActive140 
 GlobalMasterActive141 
 GlobalMasterActive142 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149923 
+TotalEnergy: 9923389 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33674 
+pe1 temp: 33618 
+pe2 temp: 33531 
+pe3 temp: 34332 
+pe4 temp: 34163 
+pe5 temp: 33786 
+pe6 temp: 34458 
+pe7 temp: 34011 
+pe8 temp: 34273 
+12NI_RX DONE!
 GlobalMasterActive143 
 GlobalMasterActive144 
 GlobalMasterActive145 
@@ -301,6 +707,27 @@ GlobalMasterActive149
 GlobalMasterActive150 
 GlobalMasterActive151 
 GlobalMasterActive152 
+dynamicEnergy_Router >> 3955353 
+total instructions~~~> 149985 
+TotalEnergy: 9935327 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33680 
+pe1 temp: 33694 
+pe2 temp: 34013 
+pe3 temp: 34321 
+pe4 temp: 34127 
+pe5 temp: 33703 
+pe6 temp: 34415 
+pe7 temp: 33840 
+pe8 temp: 33589 
+12NI_RX DONE!
 GlobalMasterActive153 
 GlobalMasterActive154 
 GlobalMasterActive155 
@@ -310,7 +737,28 @@ GlobalMasterActive158
 GlobalMasterActive159 
 GlobalMasterActive160 
 GlobalMasterActive161 
+dynamicEnergy_Router >> 3955142 
+total instructions~~~> 149985 
+TotalEnergy: 9925563 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive162 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33530 
+pe1 temp: 33684 
+pe2 temp: 34108 
+pe3 temp: 33766 
+pe4 temp: 34032 
+pe5 temp: 33801 
+pe6 temp: 34237 
+pe7 temp: 33857 
+pe8 temp: 34097 
+12NI_RX DONE!
 GlobalMasterActive163 
 GlobalMasterActive164 
 GlobalMasterActive165 
@@ -320,6 +768,27 @@ GlobalMasterActive168
 GlobalMasterActive169 
 GlobalMasterActive170 
 GlobalMasterActive171 
+dynamicEnergy_Router >> 3955248 
+total instructions~~~> 149985 
+TotalEnergy: 9935201 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33549 
+pe1 temp: 33586 
+pe2 temp: 34088 
+pe3 temp: 34082 
+pe4 temp: 33671 
+pe5 temp: 33749 
+pe6 temp: 34267 
+pe7 temp: 33793 
+pe8 temp: 34154 
+12NI_RX DONE!
 GlobalMasterActive172 
 GlobalMasterActive173 
 GlobalMasterActive174 
@@ -329,6 +798,27 @@ GlobalMasterActive177
 GlobalMasterActive178 
 GlobalMasterActive179 
 GlobalMasterActive180 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149985 
+TotalEnergy: 9925498 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33573 
+pe1 temp: 33519 
+pe2 temp: 33440 
+pe3 temp: 34215 
+pe4 temp: 34040 
+pe5 temp: 33679 
+pe6 temp: 34335 
+pe7 temp: 33888 
+pe8 temp: 34156 
+12NI_RX DONE!
 GlobalMasterActive181 
 GlobalMasterActive182 
 GlobalMasterActive183 
@@ -339,6 +829,27 @@ GlobalMasterActive187
 GlobalMasterActive188 
 GlobalMasterActive189 
 GlobalMasterActive190 
+dynamicEnergy_Router >> 3955353 
+total instructions~~~> 149985 
+TotalEnergy: 9935298 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33615 
+pe1 temp: 33631 
+pe2 temp: 33952 
+pe3 temp: 34252 
+pe4 temp: 34060 
+pe5 temp: 33638 
+pe6 temp: 34344 
+pe7 temp: 33770 
+pe8 temp: 33520 
+12NI_RX DONE!
 GlobalMasterActive191 
 GlobalMasterActive192 
 GlobalMasterActive193 
@@ -348,7 +859,28 @@ GlobalMasterActive196
 GlobalMasterActive197 
 GlobalMasterActive198 
 GlobalMasterActive199 
+dynamicEnergy_Router >> 3955142 
+total instructions~~~> 149985 
+TotalEnergy: 9925567 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive200 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33490 
+pe1 temp: 33644 
+pe2 temp: 34068 
+pe3 temp: 33725 
+pe4 temp: 33992 
+pe5 temp: 33761 
+pe6 temp: 34196 
+pe7 temp: 33816 
+pe8 temp: 34056 
+12NI_RX DONE!
 GlobalMasterActive201 
 GlobalMasterActive202 
 GlobalMasterActive203 
@@ -358,6 +890,27 @@ GlobalMasterActive206
 GlobalMasterActive207 
 GlobalMasterActive208 
 GlobalMasterActive209 
+dynamicEnergy_Router >> 3955248 
+total instructions~~~> 149985 
+TotalEnergy: 9935164 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33524 
+pe1 temp: 33561 
+pe2 temp: 34064 
+pe3 temp: 34057 
+pe4 temp: 33646 
+pe5 temp: 33724 
+pe6 temp: 34242 
+pe7 temp: 33768 
+pe8 temp: 34129 
+12NI_RX DONE!
 GlobalMasterActive210 
 GlobalMasterActive211 
 GlobalMasterActive212 
@@ -367,6 +920,27 @@ GlobalMasterActive215
 GlobalMasterActive216 
 GlobalMasterActive217 
 GlobalMasterActive218 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149955 
+TotalEnergy: 9923885 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33498 
+pe1 temp: 33380 
+pe2 temp: 33366 
+pe3 temp: 34072 
+pe4 temp: 33577 
+pe5 temp: 33539 
+pe6 temp: 34264 
+pe7 temp: 33748 
+pe8 temp: 34077 
+12NI_RX DONE!
 GlobalMasterActive219 
 GlobalMasterActive220 
 GlobalMasterActive221 
@@ -377,6 +951,27 @@ GlobalMasterActive225
 GlobalMasterActive226 
 GlobalMasterActive227 
 GlobalMasterActive228 
+dynamicEnergy_Router >> 3955353 
+total instructions~~~> 149884 
+TotalEnergy: 9931150 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33372 
+pe1 temp: 33499 
+pe2 temp: 33895 
+pe3 temp: 33627 
+pe4 temp: 33889 
+pe5 temp: 33685 
+pe6 temp: 34133 
+pe7 temp: 33787 
+pe8 temp: 34097 
+12NI_RX DONE!
 GlobalMasterActive229 
 GlobalMasterActive230 
 GlobalMasterActive231 
@@ -386,7 +981,28 @@ GlobalMasterActive234
 GlobalMasterActive235 
 GlobalMasterActive236 
 GlobalMasterActive237 
+dynamicEnergy_Router >> 3955142 
+total instructions~~~> 149884 
+TotalEnergy: 9921456 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive238 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33520 
+pe1 temp: 33621 
+pe2 temp: 34055 
+pe3 temp: 34134 
+pe4 temp: 34055 
+pe5 temp: 33802 
+pe6 temp: 34264 
+pe7 temp: 33861 
+pe8 temp: 34162 
+12NI_RX DONE!
 GlobalMasterActive239 
 GlobalMasterActive240 
 GlobalMasterActive241 
@@ -396,6 +1012,27 @@ GlobalMasterActive244
 GlobalMasterActive245 
 GlobalMasterActive246 
 GlobalMasterActive247 
+dynamicEnergy_Router >> 3955248 
+total instructions~~~> 149884 
+TotalEnergy: 9931057 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33580 
+pe1 temp: 33595 
+pe2 temp: 34084 
+pe3 temp: 34144 
+pe4 temp: 33697 
+pe5 temp: 33758 
+pe6 temp: 34313 
+pe7 temp: 33821 
+pe8 temp: 34172 
+12NI_RX DONE!
 GlobalMasterActive248 
 GlobalMasterActive249 
 GlobalMasterActive250 
@@ -405,6 +1042,27 @@ GlobalMasterActive253
 GlobalMasterActive254 
 GlobalMasterActive255 
 GlobalMasterActive256 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149923 
+TotalEnergy: 9923404 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33531 
+pe1 temp: 33407 
+pe2 temp: 33389 
+pe3 temp: 34110 
+pe4 temp: 33607 
+pe5 temp: 33566 
+pe6 temp: 34292 
+pe7 temp: 33779 
+pe8 temp: 34110 
+12NI_RX DONE!
 GlobalMasterActive257 
 GlobalMasterActive258 
 GlobalMasterActive259 
@@ -414,6 +1072,27 @@ GlobalMasterActive262
 GlobalMasterActive263 
 GlobalMasterActive264 
 GlobalMasterActive265 
+dynamicEnergy_Router >> 3955248 
+total instructions~~~> 149985 
+TotalEnergy: 9925650 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33558 
+pe1 temp: 33574 
+pe2 temp: 33921 
+pe3 temp: 34200 
+pe4 temp: 34033 
+pe5 temp: 33731 
+pe6 temp: 34327 
+pe7 temp: 33867 
+pe8 temp: 34134 
+12NI_RX DONE!
 GlobalMasterActive266 
 GlobalMasterActive267 
 GlobalMasterActive268 
@@ -424,6 +1103,27 @@ GlobalMasterActive272
 GlobalMasterActive273 
 GlobalMasterActive274 
 GlobalMasterActive275 
+dynamicEnergy_Router >> 3955248 
+total instructions~~~> 149985 
+TotalEnergy: 9935208 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33636 
+pe1 temp: 33686 
+pe2 temp: 34066 
+pe3 temp: 34261 
+pe4 temp: 34087 
+pe5 temp: 33692 
+pe6 temp: 34343 
+pe7 temp: 33778 
+pe8 temp: 33539 
+12NI_RX DONE!
 GlobalMasterActive276 
 GlobalMasterActive277 
 GlobalMasterActive278 
@@ -433,7 +1133,28 @@ GlobalMasterActive281
 GlobalMasterActive282 
 GlobalMasterActive283 
 GlobalMasterActive284 
+dynamicEnergy_Router >> 3955142 
+total instructions~~~> 149985 
+TotalEnergy: 9925563 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive285 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33508 
+pe1 temp: 33671 
+pe2 temp: 34104 
+pe3 temp: 33739 
+pe4 temp: 34011 
+pe5 temp: 33787 
+pe6 temp: 34205 
+pe7 temp: 33829 
+pe8 temp: 34075 
+12NI_RX DONE!
 GlobalMasterActive286 
 GlobalMasterActive287 
 GlobalMasterActive288 
@@ -443,6 +1164,27 @@ GlobalMasterActive291
 GlobalMasterActive292 
 GlobalMasterActive293 
 GlobalMasterActive294 
+dynamicEnergy_Router >> 3955248 
+total instructions~~~> 149985 
+TotalEnergy: 9935220 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33536 
+pe1 temp: 33575 
+pe2 temp: 34078 
+pe3 temp: 34068 
+pe4 temp: 33659 
+pe5 temp: 33737 
+pe6 temp: 34253 
+pe7 temp: 33779 
+pe8 temp: 34141 
+12NI_RX DONE!
 GlobalMasterActive295 
 GlobalMasterActive296 
 GlobalMasterActive297 
@@ -452,6 +1194,27 @@ GlobalMasterActive300
 GlobalMasterActive301 
 GlobalMasterActive302 
 GlobalMasterActive303 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149985 
+TotalEnergy: 9925476 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33565 
+pe1 temp: 33511 
+pe2 temp: 33433 
+pe3 temp: 34206 
+pe4 temp: 34032 
+pe5 temp: 33671 
+pe6 temp: 34324 
+pe7 temp: 33879 
+pe8 temp: 34149 
+12NI_RX DONE!
 GlobalMasterActive304 
 GlobalMasterActive305 
 GlobalMasterActive306 
@@ -461,6 +1224,27 @@ GlobalMasterActive309
 GlobalMasterActive310 
 GlobalMasterActive311 
 GlobalMasterActive312 
+dynamicEnergy_Router >> 3955353 
+total instructions~~~> 149985 
+TotalEnergy: 9925811 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33610 
+pe1 temp: 33626 
+pe2 temp: 33948 
+pe3 temp: 34247 
+pe4 temp: 34055 
+pe5 temp: 33633 
+pe6 temp: 34338 
+pe7 temp: 33765 
+pe8 temp: 33515 
+12NI_RX DONE!
 GlobalMasterActive313 
 GlobalMasterActive314 
 GlobalMasterActive315 
@@ -471,6 +1255,27 @@ GlobalMasterActive319
 GlobalMasterActive320 
 GlobalMasterActive321 
 GlobalMasterActive322 
+dynamicEnergy_Router >> 3955142 
+total instructions~~~> 149985 
+TotalEnergy: 9935076 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33487 
+pe1 temp: 33641 
+pe2 temp: 34066 
+pe3 temp: 33722 
+pe4 temp: 33988 
+pe5 temp: 33758 
+pe6 temp: 34193 
+pe7 temp: 33813 
+pe8 temp: 34054 
+12NI_RX DONE!
 GlobalMasterActive323 
 GlobalMasterActive324 
 GlobalMasterActive325 
@@ -480,26 +1285,133 @@ GlobalMasterActive328
 GlobalMasterActive329 
 GlobalMasterActive330 
 GlobalMasterActive331 
+dynamicEnergy_Router >> 3955248 
+total instructions~~~> 149985 
+TotalEnergy: 9925654 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive332 
-GlobalMasterActive333 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33522 
+pe1 temp: 33559 
+pe2 temp: 34062 
+pe3 temp: 34056 
+pe4 temp: 33645 
+pe5 temp: 33722 
+pe6 temp: 34243 
+pe7 temp: 33767 
+pe8 temp: 34127 
+12NI_RX DONE!
+RX interruption catched
+FINISHED: Task 1 from application 0 
+checking 0 task is: 5 
+from app: 0 
+3NI_RX DONE!
+RX interruption catched
+FINISHED: Task 0 from application 0 
+checking 0 task is: 2 
+from app: 0 
+checking 1 task is: 2 
+from app: 0 
+Application 0 was executed in 213 
+		This application still need to run: 48 
+3NI_RX DONE!
 GlobalMasterActive334 
+I got a free service slo-!! -> 0 
+SendingQueue_front: 7 
+API_Try2Send success!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 0 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
 GlobalMasterActive335 
+Application is allocated: 0 
+Starting Application: 0 
+Sending TASK_START to task 0 
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 1 
+SendingQueue_front: 2 
+API_Try2Send success!
+Start command sent to every task...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive336 
 GlobalMasterActive337 
 GlobalMasterActive338 
 GlobalMasterActive339 
 GlobalMasterActive340 
-GlobalMasterActive341 
+GdynamicEnergy_Router >> 3961573 
+total instructions~~~> 149884 
+TotalEnergy: 10006161 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+lobalMasterActive341 
 GlobalMasterActive342 
 GlobalMasterActive343 
 GlobalMasterActive344 
 GlobalMasterActive345 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33560 
+pe1 temp: 33513 
+pe2 temp: 33466 
+pe3 temp: 34199 
+pe4 temp: 34026 
+pe5 temp: 33675 
+pe6 temp: 34315 
+pe7 temp: 33873 
+pe8 temp: 34154 
+12NI_RX DONE!
 GlobalMasterActive346 
 GlobalMasterActive347 
 GlobalMasterActive348 
 GlobalMasterActive349 
 GlobalMasterActive350 
+dynamicEnergy_Router >> 3954930 
+total instructions~~~> 149884 
+TotalEnergy: 9927591 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive351 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33593 
+pe1 temp: 33559 
+pe2 temp: 33642 
+pe3 temp: 34250 
+pe4 temp: 34080 
+pe5 temp: 33715 
+pe6 temp: 34370 
+pe7 temp: 33920 
+pe8 temp: 34171 
+12NI_RX DONE!
 GlobalMasterActive352 
 GlobalMasterActive353 
 GlobalMasterActive354 
@@ -508,7 +1420,28 @@ GlobalMasterActive356
 GlobalMasterActive357 
 GlobalMasterActive358 
 GlobalMasterActive359 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149884 
+TotalEnergy: 9921402 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive360 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33604 
+pe1 temp: 33518 
+pe2 temp: 33384 
+pe3 temp: 34274 
+pe4 temp: 34087 
+pe5 temp: 33676 
+pe6 temp: 34398 
+pe7 temp: 33941 
+pe8 temp: 34182 
+12NI_RX DONE!
 GlobalMasterActive361 
 GlobalMasterActive362 
 GlobalMasterActive363 
@@ -518,6 +1451,27 @@ GlobalMasterActive366
 GlobalMasterActive367 
 GlobalMasterActive368 
 GlobalMasterActive369 
+dynamicEnergy_Router >> 3955248 
+total instructions~~~> 149907 
+TotalEnergy: 9932310 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33628 
+pe1 temp: 33635 
+pe2 temp: 33946 
+pe3 temp: 34267 
+pe4 temp: 34071 
+pe5 temp: 33643 
+pe6 temp: 34368 
+pe7 temp: 33790 
+pe8 temp: 33534 
+12NI_RX DONE!
 GlobalMasterActive370 
 GlobalMasterActive371 
 GlobalMasterActive372 
@@ -527,7 +1481,28 @@ GlobalMasterActive375
 GlobalMasterActive376 
 GlobalMasterActive377 
 GlobalMasterActive378 
+dynamicEnergy_Router >> 3955353 
+total instructions~~~> 149985 
+TotalEnergy: 9925759 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive379 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33430 
+pe1 temp: 33508 
+pe2 temp: 33985 
+pe3 temp: 33588 
+pe4 temp: 33481 
+pe5 temp: 33480 
+pe6 temp: 34102 
+pe7 temp: 33535 
+pe8 temp: 33347 
+12NI_RX DONE!
 GlobalMasterActive380 
 GlobalMasterActive381 
 GlobalMasterActive382 
@@ -537,6 +1512,27 @@ GlobalMasterActive385
 GlobalMasterActive386 
 GlobalMasterActive387 
 GlobalMasterActive388 
+dynamicEnergy_Router >> 3955248 
+total instructions~~~> 149985 
+TotalEnergy: 9935204 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33489 
+pe1 temp: 33568 
+pe2 temp: 34000 
+pe3 temp: 34064 
+pe4 temp: 33935 
+pe5 temp: 33666 
+pe6 temp: 34173 
+pe7 temp: 33709 
+pe8 temp: 33944 
+12NI_RX DONE!
 GlobalMasterActive389 
 GlobalMasterActive390 
 GlobalMasterActive391 
@@ -546,7 +1542,28 @@ GlobalMasterActive394
 GlobalMasterActive395 
 GlobalMasterActive396 
 GlobalMasterActive397 
+dynamicEnergy_Router >> 3954930 
+total instructions~~~> 149985 
+TotalEnergy: 9925355 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive398 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33550 
+pe1 temp: 33486 
+pe2 temp: 33368 
+pe3 temp: 34181 
+pe4 temp: 33972 
+pe5 temp: 33479 
+pe6 temp: 34259 
+pe7 temp: 33686 
+pe8 temp: 33427 
+12NI_RX DONE!
 GlobalMasterActive399 
 GlobalMasterActive400 
 GlobalMasterActive401 
@@ -556,6 +1573,27 @@ GlobalMasterActive404
 GlobalMasterActive405 
 GlobalMasterActive406 
 GlobalMasterActive407 
+dynamicEnergy_Router >> 3955459 
+total instructions~~~> 149985 
+TotalEnergy: 9935445 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33572 
+pe1 temp: 33569 
+pe2 temp: 33864 
+pe3 temp: 34187 
+pe4 temp: 33964 
+pe5 temp: 33508 
+pe6 temp: 34266 
+pe7 temp: 33642 
+pe8 temp: 33331 
+12NI_RX DONE!
 GlobalMasterActive408 
 GlobalMasterActive409 
 GlobalMasterActive410 
@@ -565,6 +1603,27 @@ GlobalMasterActive413
 GlobalMasterActive414 
 GlobalMasterActive415 
 GlobalMasterActive416 
+dynamicEnergy_Router >> 3954825 
+total instructions~~~> 149985 
+TotalEnergy: 9925246 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33558 
+pe1 temp: 33461 
+pe2 temp: 33306 
+pe3 temp: 34166 
+pe4 temp: 33920 
+pe5 temp: 33387 
+pe6 temp: 34241 
+pe7 temp: 33619 
+pe8 temp: 33293 
+12NI_RX DONE!
 GlobalMasterActive417 
 GlobalMasterActive418 
 GlobalMasterActive419 
@@ -575,6 +1634,27 @@ GlobalMasterActive423
 GlobalMasterActive424 
 GlobalMasterActive425 
 GlobalMasterActive426 
+dynamicEnergy_Router >> 3955142 
+total instructions~~~> 149985 
+TotalEnergy: 9935091 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33333 
+pe1 temp: 33361 
+pe2 temp: 33763 
+pe3 temp: 33495 
+pe4 temp: 33356 
+pe5 temp: 33314 
+pe6 temp: 34009 
+pe7 temp: 33421 
+pe8 temp: 33208 
+12NI_RX DONE!
 GlobalMasterActive427 
 GlobalMasterActive428 
 GlobalMasterActive429 
@@ -584,7 +1664,28 @@ GlobalMasterActive432
 GlobalMasterActive433 
 GlobalMasterActive434 
 GlobalMasterActive435 
+dynamicEnergy_Router >> 3954719 
+total instructions~~~> 149985 
+TotalEnergy: 9925144 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive436 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33146 
+pe1 temp: 33115 
+pe2 temp: 33101 
+pe3 temp: 33298 
+pe4 temp: 33171 
+pe5 temp: 33092 
+pe6 temp: 33833 
+pe7 temp: 33271 
+pe8 temp: 33083 
+12NI_RX DONE!
 GlobalMasterActive437 
 GlobalMasterActive438 
 GlobalMasterActive439 
@@ -593,7 +1694,28 @@ GlobalMasterActive441
 GlobalMasterActive442 
 GlobalMasterActive443 
 GlobalMasterActive444 
-GlobalMasterActive445 
+dynamicEnergy_Router >> 3954930 
+total instructions~~~> 149985 
+TotalEnergy: 9927133 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+GlTX interruption catched
+API_Try2Send failed - empty SendQueue!
+obalMasterActive445 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33048 
+pe1 temp: 33104 
+pe2 temp: 33518 
+pe3 temp: 33189 
+pe4 temp: 33086 
+pe5 temp: 33088 
+pe6 temp: 33726 
+pe7 temp: 33172 
+pe8 temp: 33000 
+12NI_RX DONE!
 GlobalMasterActive446 
 GlobalMasterActive447 
 GlobalMasterActive448 
@@ -603,31 +1725,264 @@ GlobalMasterActive451
 GlobalMasterActive452 
 GlobalMasterActive453 
 GlobalMasterActive454 
+dynamicEnergy_Router >> 3954719 
+total instructions~~~> 149941 
+TotalEnergy: 9930612 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33235 
+pe1 temp: 33297 
+pe2 temp: 33699 
+pe3 temp: 33780 
+pe4 temp: 33618 
+pe5 temp: 33257 
+pe6 temp: 33886 
+pe7 temp: 33308 
+pe8 temp: 33052 
+12NI_RX DONE!
 GlobalMasterActive455 
 GlobalMasterActive456 
 GlobalMasterActive457 
 GlobalMasterActive458 
+RX interruption catched
+FINISHED: Task 0 from application 1 
+checking 0 task is: 2 
+from app: 1 
+checking 1 task is: 5 
+from app: 1 
+3NI_RX DONE!
 GlobalMasterActive459 
 GlobalMasterActive460 
 GlobalMasterActive461 
 GlobalMasterActive462 
 GlobalMasterActive463 
+dynamicEnergy_Router >> 3955322 
+total instructions~~~> 149884 
+TotalEnergy: 9932076 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33249 
+pe1 temp: 33413 
+pe2 temp: 33854 
+pe3 temp: 33460 
+pe4 temp: 33726 
+pe5 temp: 33520 
+pe6 temp: 33905 
+pe7 temp: 33545 
+pe8 temp: 33798 
+12NI_RX DONE!
 GlobalMasterActive464 
 GlobalMasterActive465 
 GlobalMasterActive466 
 GlobalMasterActive467 
 GlobalMasterActive468 
 GlobalMasterActive469 
+RX interruption catched
+FINISHED: Task 1 from application 1 
+checking 0 task is: 2 
+from app: 1 
+checking 1 task is: 2 
+from app: 1 
+checking 2 task is: 5 
+from app: 1 
+3NI_RX DONE!
 GlobalMasterActive470 
 GlobalMasterActive471 
+RX interruption catched
+FINISHED: Task 2 from application 1 
+checking 0 task is: 2 
+from app: 1 
+checking 1 task is: 2 
+from app: 1 
+checking 2 task is: 2 
+from app: 1 
+checking 3 task is: 5 
+from app: 1 
+3NI_RX DONE!
 GlobalMasterActive472 
+RX interruption catched
+FINISHED: Task 3 from application 1 
+checking 0 task is: 2 
+from app: 1 
+checking 1 task is: 2 
+from app: 1 
+checking 2 task is: 2 
+from app: 1 
+checking 3 task is: 2 
+from app: 1 
+checking 4 task is: 5 
+from app: 1 
+3NI_RX DONE!
+dynamicEnergy_Router >> 3956529 
+total instructions~~~> 153015 
+TotalEnergy: 10088563 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+FINISHED: Task 4 from application 1 
+checking 0 task is: 2 
+from app: 1 
+checking 1 task is: 2 
+from app: 1 
+checking 2 task is: 2 
+from app: 1 
+checking 3 task is: 2 
+from app: 1 
+checking 4 task is: 2 
+from app: 1 
+checking 5 task is: 5 
+from app: 1 
+3NI_RX DONE!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33378 
+pe1 temp: 33497 
+pe2 temp: 33926 
+pe3 temp: 33811 
+pe4 temp: 33808 
+pe5 temp: 33508 
+pe6 temp: 33403 
+pe7 temp: 33392 
+pe8 temp: 33310 
+12NI_RX DONE!
+RX interruption catched
+FINISHED: Task 5 from application 1 
+checking 0 task is: 2 
+from app: 1 
+checking 1 task is: 2 
+from app: 1 
+checking 2 task is: 2 
+from app: 1 
+checking 3 task is: 2 
+from app: 1 
+checking 4 task is: 2 
+from app: 1 
+checking 5 task is: 2 
+from app: 1 
+Application 1 was executed in 473 
+		This application still need to run: 9 
+3NI_RX DONE!
 GlobalMasterActive473 
-GlobalMasterActive474 
+I got a free service slo-!! -> 0 
+SendingQueue_front: 2 
+API_Try2Send success!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 3 
+API_Try2Send failed - NI_TX occupied!
+I got a free service slo-!! -> 2 
+SendingQueue_front: 4 
+API_Try2Send failed - NI_TX occupied!
+I got a free service slo-!! -> 3 
+SendingQueue_front: 5 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
+I got a free service slo-!! -> 0 
+SendingQueue_front: 6 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 7 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send success!
 GlobalMasterActive475 
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
 GlobalMasterActive476 
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
 GlobalMasterActive477 
+Application is allocated: 1 
+Starting Application: 1 
+Sending TASK_START to task 0 
+SendingQueue_front: 0 
+API_Try2Send success!
+Esperando...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 1 
+SendingQueue_front: 1 
+API_Try2Send success!
+Esperando...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 2 
+SendingQueue_front: 2 
+API_Try2Send success!
+Esperando...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 3 
+SendingQueue_front: 3 
+API_Try2Send success!
+Esperando...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 4 
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 5 
+SendingQueue_front: 5 
+API_Try2Send success!
+Start command sent to every task...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive478 
 GlobalMasterActive479 
+dynamicEnergy_Router >> 3988750 
+total instructions~~~> 146792 
+TotalEnergy: 10013613 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive480 
 GlobalMasterActive481 
 GlobalMasterActive482 
@@ -638,8 +1993,29 @@ GlobalMasterActive486
 GlobalMasterActive487 
 GlobalMasterActive488 
 GlobalMasterActive489 
+dynamicEnergy_Router >> 3953865 
+total instructions~~~> 149923 
+TotalEnergy: 9914150 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive490 
 GlobalMasterActive491 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33379 
+pe1 temp: 33426 
+pe2 temp: 33905 
+pe3 temp: 33731 
+pe4 temp: 33423 
+pe5 temp: 33422 
+pe6 temp: 33217 
+pe7 temp: 33158 
+pe8 temp: 33159 
+12NI_RX DONE!
 GlobalMasterActive492 
 GlobalMasterActive493 
 GlobalMasterActive494 
@@ -647,6 +2023,27 @@ GlobalMasterActive495
 GlobalMasterActive496 
 GlobalMasterActive497 
 GlobalMasterActive498 
+dynamicEnergy_Router >> 3955142 
+total instructions~~~> 149985 
+TotalEnergy: 9925588 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33481 
+pe1 temp: 33872 
+pe2 temp: 33989 
+pe3 temp: 33711 
+pe4 temp: 33390 
+pe5 temp: 33346 
+pe6 temp: 33204 
+pe7 temp: 33124 
+pe8 temp: 33078 
+12NI_RX DONE!
 GlobalMasterActive499 
 GlobalMasterActive500 
 GlobalMasterActive501 
@@ -656,16 +2053,93 @@ GlobalMasterActive504
 GlobalMasterActive505 
 GlobalMasterActive506 
 GlobalMasterActive507 
+RX interruption catched
+FINISHED: Task 0 from application 0 
+checking 0 task is: 2 
+from app: 0 
+checking 1 task is: 5 
+from app: 0 
+3NI_RX DONE!
 GlobalMasterActive508 
+dynamicEnergy_Router >> 3955216 
+total instructions~~~> 149985 
+TotalEnergy: 9945628 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+FINISHED: Task 1 from application 0 
+checking 0 task is: 2 
+from app: 0 
+checking 1 task is: 2 
+from app: 0 
 GlobalMasterActive509 
+Application 0 was executed in 174 
+		This application still need to run: 47 
+3NI_RX DONE!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33457 
+pe1 temp: 33515 
+pe2 temp: 34052 
+pe3 temp: 33938 
+pe4 temp: 33607 
+pe5 temp: 33911 
+pe6 temp: 34041 
+pe7 temp: 33861 
+pe8 temp: 33422 
+12NI_RX DONE!
 GlobalMasterActive510 
+I got a free service slo-!! -> 0 
+SendingQueue_front: 2 
+API_Try2Send success!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 3 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive511 
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
 GlobalMasterActive512 
+Application is allocated: 0 
+Starting Application: 0 
+Sending TASK_START to task 0 
+SendingQueue_front: 4 
+API_Try2Send success!
+Esperando...
+Esperando...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 1 
+SendingQueue_front: 5 
+API_Try2Send success!
+Start command sent to every task...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive513 
 GlobalMasterActive514 
 GlobalMasterActive515 
 GlobalMasterActive516 
 GlobalMasterActive517 
+dynamicEnergy_Router >> 3961499 
+total instructions~~~> 149985 
+TotalEnergy: 10007599 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive518 
 GlobalMasterActive519 
 GlobalMasterActive520 
@@ -673,9 +2147,43 @@ GlobalMasterActive521
 GlobalMasterActive522 
 GlobalMasterActive523 
 GlobalMasterActive524 
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33620 
+pe1 temp: 33886 
+pe2 temp: 33516 
+pe3 temp: 34068 
+pe4 temp: 33599 
+pe5 temp: 33399 
+pe6 temp: 34163 
+pe7 temp: 33542 
+pe8 temp: 33343 
+12NI_RX DONE!
 GlobalMasterActive525 
 GlobalMasterActive526 
 GlobalMasterActive527 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149985 
+TotalEnergy: 9934966 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33662 
+pe1 temp: 33976 
+pe2 temp: 33696 
+pe3 temp: 34006 
+pe4 temp: 33749 
+pe5 temp: 33869 
+pe6 temp: 33663 
+pe7 temp: 33900 
+pe8 temp: 33457 
+12NI_RX DONE!
 GlobalMasterActive528 
 GlobalMasterActive529 
 GlobalMasterActive530 
@@ -685,6 +2193,27 @@ GlobalMasterActive533
 GlobalMasterActive534 
 GlobalMasterActive535 
 GlobalMasterActive536 
+dynamicEnergy_Router >> 3954825 
+total instructions~~~> 149985 
+TotalEnergy: 9925265 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33590 
+pe1 temp: 33636 
+pe2 temp: 34153 
+pe3 temp: 34116 
+pe4 temp: 33798 
+pe5 temp: 34096 
+pe6 temp: 34271 
+pe7 temp: 34120 
+pe8 temp: 33658 
+12NI_RX DONE!
 GlobalMasterActive537 
 GlobalMasterActive538 
 GlobalMasterActive539 
@@ -695,6 +2224,27 @@ GlobalMasterActive543
 GlobalMasterActive544 
 GlobalMasterActive545 
 GlobalMasterActive546 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149985 
+TotalEnergy: 9934941 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33766 
+pe1 temp: 34185 
+pe2 temp: 34392 
+pe3 temp: 34217 
+pe4 temp: 33882 
+pe5 temp: 34202 
+pe6 temp: 34307 
+pe7 temp: 33733 
+pe8 temp: 33634 
+12NI_RX DONE!
 GlobalMasterActive547 
 GlobalMasterActive548 
 GlobalMasterActive549 
@@ -704,6 +2254,27 @@ GlobalMasterActive552
 GlobalMasterActive553 
 GlobalMasterActive554 
 GlobalMasterActive555 
+dynamicEnergy_Router >> 3954930 
+total instructions~~~> 149956 
+TotalEnergy: 9923850 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33876 
+pe1 temp: 34289 
+pe2 temp: 34360 
+pe3 temp: 34303 
+pe4 temp: 33940 
+pe5 temp: 33768 
+pe6 temp: 34461 
+pe7 temp: 34206 
+pe8 temp: 33633 
+12NI_RX DONE!
 GlobalMasterActive556 
 GlobalMasterActive557 
 GlobalMasterActive558 
@@ -714,6 +2285,27 @@ GlobalMasterActive562
 GlobalMasterActive563 
 GlobalMasterActive564 
 GlobalMasterActive565 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149884 
+TotalEnergy: 9930833 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33902 
+pe1 temp: 34356 
+pe2 temp: 34505 
+pe3 temp: 34227 
+pe4 temp: 34041 
+pe5 temp: 34275 
+pe6 temp: 33890 
+pe7 temp: 34181 
+pe8 temp: 33778 
+12NI_RX DONE!
 GlobalMasterActive566 
 GlobalMasterActive567 
 GlobalMasterActive568 
@@ -723,6 +2315,27 @@ GlobalMasterActive571
 GlobalMasterActive572 
 GlobalMasterActive573 
 GlobalMasterActive574 
+dynamicEnergy_Router >> 3954825 
+total instructions~~~> 149884 
+TotalEnergy: 9921135 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33781 
+pe1 temp: 33868 
+pe2 temp: 34435 
+pe3 temp: 34300 
+pe4 temp: 34005 
+pe5 temp: 34337 
+pe6 temp: 34446 
+pe7 temp: 34307 
+pe8 temp: 33867 
+12NI_RX DONE!
 GlobalMasterActive575 
 GlobalMasterActive576 
 GlobalMasterActive577 
@@ -733,6 +2346,27 @@ GlobalMasterActive581
 GlobalMasterActive582 
 GlobalMasterActive583 
 GlobalMasterActive584 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149884 
+TotalEnergy: 9930859 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33890 
+pe1 temp: 34318 
+pe2 temp: 34535 
+pe3 temp: 34336 
+pe4 temp: 34010 
+pe5 temp: 34337 
+pe6 temp: 34422 
+pe7 temp: 33855 
+pe8 temp: 33762 
+12NI_RX DONE!
 GlobalMasterActive585 
 GlobalMasterActive586 
 GlobalMasterActive587 
@@ -742,6 +2376,27 @@ GlobalMasterActive590
 GlobalMasterActive591 
 GlobalMasterActive592 
 GlobalMasterActive593 
+dynamicEnergy_Router >> 3954930 
+total instructions~~~> 149907 
+TotalEnergy: 9922501 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33953 
+pe1 temp: 34368 
+pe2 temp: 34441 
+pe3 temp: 34379 
+pe4 temp: 34017 
+pe5 temp: 33848 
+pe6 temp: 34535 
+pe7 temp: 34282 
+pe8 temp: 33711 
+12NI_RX DONE!
 GlobalMasterActive594 
 GlobalMasterActive595 
 GlobalMasterActive596 
@@ -751,6 +2406,27 @@ GlobalMasterActive599
 GlobalMasterActive600 
 GlobalMasterActive601 
 GlobalMasterActive602 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149923 
+TotalEnergy: 9923370 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33955 
+pe1 temp: 34421 
+pe2 temp: 34592 
+pe3 temp: 34290 
+pe4 temp: 34144 
+pe5 temp: 34479 
+pe6 temp: 33975 
+pe7 temp: 34385 
+pe8 temp: 34462 
+12NI_RX DONE!
 GlobalMasterActive603 
 GlobalMasterActive604 
 GlobalMasterActive605 
@@ -761,6 +2437,27 @@ GlobalMasterActive609
 GlobalMasterActive610 
 GlobalMasterActive611 
 GlobalMasterActive612 
+dynamicEnergy_Router >> 3954825 
+total instructions~~~> 149985 
+TotalEnergy: 9934762 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33836 
+pe1 temp: 33938 
+pe2 temp: 34523 
+pe3 temp: 34370 
+pe4 temp: 34102 
+pe5 temp: 34467 
+pe6 temp: 34532 
+pe7 temp: 34438 
+pe8 temp: 34051 
+12NI_RX DONE!
 GlobalMasterActive613 
 GlobalMasterActive614 
 GlobalMasterActive615 
@@ -770,6 +2467,27 @@ GlobalMasterActive618
 GlobalMasterActive619 
 GlobalMasterActive620 
 GlobalMasterActive621 
+dynamicEnergy_Router >> 3955036 
+total instructions~~~> 149985 
+TotalEnergy: 9925476 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 33942 
+pe1 temp: 34388 
+pe2 temp: 34633 
+pe3 temp: 34405 
+pe4 temp: 34126 
+pe5 temp: 34562 
+pe6 temp: 34520 
+pe7 temp: 34079 
+pe8 temp: 34472 
+12NI_RX DONE!
 GlobalMasterActive622 
 GlobalMasterActive623 
 GlobalMasterActive624 
@@ -780,15 +2498,90 @@ GlobalMasterActive628
 GlobalMasterActive629 
 GlobalMasterActive630 
 GlobalMasterActive631 
+dynamicEnergy_Router >> 3954930 
+total instructions~~~> 149985 
+TotalEnergy: 9934860 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Recebendo pacote de temperatura11NI_RX DONE!
+RX interruption catched
+pe0 temp: 34011 
+pe1 temp: 34443 
+pe2 temp: 34535 
+pe3 temp: 34454 
+pe4 temp: 34121 
+pe5 temp: 33987 
+pe6 temp: 34631 
+pe7 temp: 34421 
+pe8 temp: 33905 
+12NI_RX DONE!
 GlobalMasterActive632 
 GlobalMasterActive633 
 GlobalMasterActive634 
 GlobalMasterActive635 
 GlobalMasterActive636 
-GlobalMasterActive637 
+RX interruption catched
+FINISHED: Task 0 from application 0 
+checking 0 task is: 2 
+from app: 0 
+checking 1 task is: 5 
+from app: 0 
+3NI_RX DONE!
+RX interruption catched
+FINISHED: Task 1 from application 0 
+checking 0 task is: 2 
+from app: 0 
+checking 1 task is: 2 
+from app: 0 
+Application 0 was executed in 126 
+		GlobalMasterActive637 
+This application still need to run: 46 
+3NI_RX DONE!
 GlobalMasterActive638 
+I got a free service slo-!! -> 0 
+SendingQueue_front: 3 
+API_Try2Send success!
+I got a free service slo-!! -> 1 
+SendingQueue_front: 4 
+API_Try2Send failed - NI_TX occupied!
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
+RX interruption catched
+TASK_ALLOCATION_SUCCESS
+5NI_RX DONE!
 GlobalMasterActive639 
+Application is allocated: 0 
+Starting Application: 0 
+Sending TASK_START to task 0 
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Esperando...
+Sending TASK_START to task 1 
+SendingQueue_front: 6 
+API_Try2Send success!
+Start command sent to every task...
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive640 
+dynamicEnergy_Router >> 3961750 
+total instructions~~~> 149985 
+TotalEnergy: 10015109 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive641 
 GlobalMasterActive642 
 GlobalMasterActive643 
@@ -799,6 +2592,14 @@ GlobalMasterActive647
 GlobalMasterActive648 
 GlobalMasterActive649 
 GlobalMasterActive650 
+dynamicEnergy_Router >> 3953759 
+total instructions~~~> 149985 
+TotalEnergy: 9916135 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive651 
 GlobalMasterActive652 
 GlobalMasterActive653 
@@ -808,6 +2609,14 @@ GlobalMasterActive656
 GlobalMasterActive657 
 GlobalMasterActive658 
 GlobalMasterActive659 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9906167 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive660 
 GlobalMasterActive661 
 GlobalMasterActive662 
@@ -818,6 +2627,14 @@ GlobalMasterActive666
 GlobalMasterActive667 
 GlobalMasterActive668 
 GlobalMasterActive669 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9915606 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive670 
 GlobalMasterActive671 
 GlobalMasterActive672 
@@ -827,6 +2644,14 @@ GlobalMasterActive675
 GlobalMasterActive676 
 GlobalMasterActive677 
 GlobalMasterActive678 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149956 
+TotalEnergy: 9904607 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive679 
 GlobalMasterActive680 
 GlobalMasterActive681 
@@ -837,6 +2662,14 @@ GlobalMasterActive685
 GlobalMasterActive686 
 GlobalMasterActive687 
 GlobalMasterActive688 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149943 
+TotalEnergy: 9913476 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive689 
 GlobalMasterActive690 
 GlobalMasterActive691 
@@ -846,6 +2679,14 @@ GlobalMasterActive694
 GlobalMasterActive695 
 GlobalMasterActive696 
 GlobalMasterActive697 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149884 
+TotalEnergy: 9901996 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive698 
 GlobalMasterActive699 
 GlobalMasterActive700 
@@ -856,6 +2697,14 @@ GlobalMasterActive704
 GlobalMasterActive705 
 GlobalMasterActive706 
 GlobalMasterActive707 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149884 
+TotalEnergy: 9911518 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive708 
 GlobalMasterActive709 
 GlobalMasterActive710 
@@ -865,6 +2714,14 @@ GlobalMasterActive713
 GlobalMasterActive714 
 GlobalMasterActive715 
 GlobalMasterActive716 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149884 
+TotalEnergy: 9902019 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive717 
 GlobalMasterActive718 
 GlobalMasterActive719 
@@ -875,6 +2732,14 @@ GlobalMasterActive723
 GlobalMasterActive724 
 GlobalMasterActive725 
 GlobalMasterActive726 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149908 
+TotalEnergy: 9912800 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive727 
 GlobalMasterActive728 
 GlobalMasterActive729 
@@ -884,6 +2749,14 @@ GlobalMasterActive732
 GlobalMasterActive733 
 GlobalMasterActive734 
 GlobalMasterActive735 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149922 
+TotalEnergy: 9904006 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive736 
 GlobalMasterActive737 
 GlobalMasterActive738 
@@ -894,6 +2767,14 @@ GlobalMasterActive742
 GlobalMasterActive743 
 GlobalMasterActive744 
 GlobalMasterActive745 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9915635 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive746 
 GlobalMasterActive747 
 GlobalMasterActive748 
@@ -903,6 +2784,14 @@ GlobalMasterActive751
 GlobalMasterActive752 
 GlobalMasterActive753 
 GlobalMasterActive754 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9906145 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive755 
 GlobalMasterActive756 
 GlobalMasterActive757 
@@ -913,6 +2802,14 @@ GlobalMasterActive761
 GlobalMasterActive762 
 GlobalMasterActive763 
 GlobalMasterActive764 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9915635 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive765 
 GlobalMasterActive766 
 GlobalMasterActive767 
@@ -922,6 +2819,14 @@ GlobalMasterActive770
 GlobalMasterActive771 
 GlobalMasterActive772 
 GlobalMasterActive773 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9906149 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive774 
 GlobalMasterActive775 
 GlobalMasterActive776 
@@ -932,6 +2837,14 @@ GlobalMasterActive780
 GlobalMasterActive781 
 GlobalMasterActive782 
 GlobalMasterActive783 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9915639 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive784 
 GlobalMasterActive785 
 GlobalMasterActive786 
@@ -941,6 +2854,14 @@ GlobalMasterActive789
 GlobalMasterActive790 
 GlobalMasterActive791 
 GlobalMasterActive792 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9906134 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive793 
 GlobalMasterActive794 
 GlobalMasterActive795 
@@ -951,6 +2872,14 @@ GlobalMasterActive799
 GlobalMasterActive800 
 GlobalMasterActive801 
 GlobalMasterActive802 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9915631 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive803 
 GlobalMasterActive804 
 GlobalMasterActive805 
@@ -960,6 +2889,14 @@ GlobalMasterActive808
 GlobalMasterActive809 
 GlobalMasterActive810 
 GlobalMasterActive811 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9906134 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive812 
 GlobalMasterActive813 
 GlobalMasterActive814 
@@ -970,6 +2907,14 @@ GlobalMasterActive818
 GlobalMasterActive819 
 GlobalMasterActive820 
 GlobalMasterActive821 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9915658 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive822 
 GlobalMasterActive823 
 GlobalMasterActive824 
@@ -979,6 +2924,14 @@ GlobalMasterActive827
 GlobalMasterActive828 
 GlobalMasterActive829 
 GlobalMasterActive830 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9906101 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive831 
 GlobalMasterActive832 
 GlobalMasterActive833 
@@ -989,6 +2942,14 @@ GlobalMasterActive837
 GlobalMasterActive838 
 GlobalMasterActive839 
 GlobalMasterActive840 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149955 
+TotalEnergy: 9914060 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive841 
 GlobalMasterActive842 
 GlobalMasterActive843 
@@ -998,6 +2959,14 @@ GlobalMasterActive846
 GlobalMasterActive847 
 GlobalMasterActive848 
 GlobalMasterActive849 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149943 
+TotalEnergy: 9903990 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive850 
 GlobalMasterActive851 
 GlobalMasterActive852 
@@ -1008,6 +2977,14 @@ GlobalMasterActive856
 GlobalMasterActive857 
 GlobalMasterActive858 
 GlobalMasterActive859 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149884 
+TotalEnergy: 9911472 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive860 
 GlobalMasterActive861 
 GlobalMasterActive862 
@@ -1017,6 +2994,14 @@ GlobalMasterActive865
 GlobalMasterActive866 
 GlobalMasterActive867 
 GlobalMasterActive868 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149884 
+TotalEnergy: 9902027 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive869 
 GlobalMasterActive870 
 GlobalMasterActive871 
@@ -1027,6 +3012,14 @@ GlobalMasterActive875
 GlobalMasterActive876 
 GlobalMasterActive877 
 GlobalMasterActive878 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149884 
+TotalEnergy: 9911491 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive879 
 GlobalMasterActive880 
 GlobalMasterActive881 
@@ -1036,6 +3029,14 @@ GlobalMasterActive884
 GlobalMasterActive885 
 GlobalMasterActive886 
 GlobalMasterActive887 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149907 
+TotalEnergy: 9903280 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive888 
 GlobalMasterActive889 
 GlobalMasterActive890 
@@ -1046,6 +3047,14 @@ GlobalMasterActive894
 GlobalMasterActive895 
 GlobalMasterActive896 
 GlobalMasterActive897 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149922 
+TotalEnergy: 9913482 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive898 
 GlobalMasterActive899 
 GlobalMasterActive900 
@@ -1055,8 +3064,88 @@ GlobalMasterActive903
 GlobalMasterActive904 
 GlobalMasterActive905 
 GlobalMasterActive906 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9906141 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 GlobalMasterActive907 
 GlobalMasterActive908 
 GlobalMasterActive909 
 GlobalMasterActive910 
 GlobalMasterActive911 
+GlobalMasterActive912 
+GlobalMasterActive913 
+GlobalMasterActive914 
+GlobalMasterActive915 
+GlobalMasterActive916 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9915654 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+GlobalMasterActive917 
+GlobalMasterActive918 
+GlobalMasterActive919 
+GlobalMasterActive920 
+GlobalMasterActive921 
+GlobalMasterActive922 
+GlobalMasterActive923 
+GlobalMasterActive924 
+GlobalMasterActive925 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9906126 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+GlobalMasterActive926 
+GlobalMasterActive927 
+GlobalMasterActive928 
+GlobalMasterActive929 
+GlobalMasterActive930 
+GlobalMasterActive931 
+GlobalMasterActive932 
+GlobalMasterActive933 
+GlobalMasterActive934 
+GlobalMasterActive935 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9915643 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+GlobalMasterActive936 
+GlobalMasterActive937 
+GlobalMasterActive938 
+GlobalMasterActive939 
+GlobalMasterActive940 
+GlobalMasterActive941 
+GlobalMasterActive942 
+GlobalMasterActive943 
+GlobalMasterActive944 
+dynamicEnergy_Router >> 3953230 
+total instructions~~~> 149985 
+TotalEnergy: 9906163 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+GlobalMasterActive945 
+GlobalMasterActive946 
+GlobalMasterActive947 
+GlobalMasterActive948 
+GlobalMasterActive949 
+GlobalMasterActive950 
+GlobalMasterActive951 

@@ -2,9 +2,9 @@ RX interruption catched
 TASK_ALLOCATION_SEND
 Got slot: 0 
 Task total size (txt+bss): 1528 
-Task addr: 2147523484 
+Task addr: 2147524556 
 Task slot: 0 
-Task slot TaskAddr: 2147523484 
+Task slot TaskAddr: 2147524556 
 2NI_RX DONE!
 RX interruption catched
 TASK_ALLOCATION_FINISHED
@@ -213,13 +213,17 @@ Tem uma mensagem chegando...
 RX interruption catched
 10NI_RX DONE!
 dynamicEnergy_Router >> 5207243 
-total instructions~~~> 1999008 
-TotalEnergy: 17448211 
+total instructions~~~> 1999037 
+TotalEnergy: 17468319 
+SendingQueue_front: 1 
+API_Try2Send success!
 EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 Mensagem Recebida!
 Chegou a mensagem numero: 15  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 1 
+SendingQueue_front: 2 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -231,7 +235,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 16  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 2 
+SendingQueue_front: 3 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -243,7 +247,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 17  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 3 
+SendingQueue_front: 4 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -255,7 +259,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 18  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 4 
+SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -267,7 +271,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 19  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 5 
+SendingQueue_front: 6 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -279,7 +283,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 20  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 6 
+SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -291,7 +295,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 21  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 7 
+SendingQueue_front: 0 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -303,7 +307,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 22  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 0 
+SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -313,9 +317,17 @@ Tem uma mensagem chegando...
 RX interruption catched
 10NI_RX DONE!
 Mensagem Recebida!
-Chegou a mensagem numero: 23  - tamanho: 25  .
+Chegou a mensagem numero: 23  - tamanho: dynamicEnergy_Router >> 5168501 
+total instructions~~~> 103828 
+TotalEnergy: 9562918 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+25  .
 Esperando Mensagem!
-SendingQueue_front: 1 
+SendingQueue_front: 3 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -327,7 +339,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 24  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 2 
+SendingQueue_front: 4 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -339,7 +351,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 25  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 3 
+SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -347,24 +359,24 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 26  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 4 
+SendingQueue_front: 6 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 27  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 5 
+SendingQueue_front: 7 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -375,7 +387,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 28  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 6 
+SendingQueue_front: 0 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -387,7 +399,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 29  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 7 
+SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -399,7 +411,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 30  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 0 
+SendingQueue_front: 2 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -411,7 +423,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 31  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 1 
+SendingQueue_front: 3 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -423,7 +435,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 32  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 2 
+SendingQueue_front: 4 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -435,7 +447,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 33  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 3 
+SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -444,10 +456,18 @@ Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
 10NI_RX DONE!
+dynamicEnergy_Router >> 5174484 
+total instructions~~~> 955499 
+TotalEnergy: 42884395 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 Mensagem Recebida!
 Chegou a mensagem numero: 34  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 4 
+SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -455,96 +475,104 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 35  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 5 
+SendingQueue_front: 0 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 36  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 6 
+SendingQueue_front: 1 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 37  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 7 
+SendingQueue_front: 2 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 38  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 0 
+SendingQueue_front: 3 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 39  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 1 
+SendingQueue_front: 4 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 40  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 2 
+SendingQueue_front: 5 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 41  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 3 
+SendingQueue_front: 6 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
+dynamicEnergy_Router >> 5168659 
+total instructions~~~> 103727 
+TotalEnergy: 9543570 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 42  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 4 
+SendingQueue_front: 0 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -555,7 +583,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 43  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 5 
+SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -567,7 +595,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 44  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 6 
+SendingQueue_front: 2 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -579,6 +607,54 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 45  - tamanho: 25  .
 Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 46  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 47  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 48  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 49  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
@@ -587,60 +663,20 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
-Chegou a mensagem numero: 46  - tamanho: 25  .
-Esperando Mensagem!
+10NI_RX DONE!
+dynamicEnergy_Router >> 5170336 
+total instructions~~~> 100495 
+TotalEnergy: 9423407 
 SendingQueue_front: 0 
 API_Try2Send success!
-10NI_RX DONE!
+EnergyPckt sent
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-9NI_RX DONE!
-RX interruption catched
-Mensagem Recebida!
-Chegou a mensagem numero: 47  - tamanho: 25  .
-Esperando Mensagem!
-SendingQueue_front: 1 
-API_Try2Send success!
-10NI_RX DONE!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-9NI_RX DONE!
-RX interruption catched
-Mensagem Recebida!
-Chegou a mensagem numero: 48  - tamanho: 25  .
-Esperando Mensagem!
-SendingQueue_front: 2 
-API_Try2Send success!
-10NI_RX DONE!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-9NI_RX DONE!
-RX interruption catched
-Mensagem Recebida!
-Chegou a mensagem numero: 49  - tamanho: 25  .
-Esperando Mensagem!
-SendingQueue_front: 3 
-API_Try2Send success!
-10NI_RX DONE!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-9NI_RX DONE!
-RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 50  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 4 
+SendingQueue_front: 1 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -651,7 +687,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 51  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 5 
+SendingQueue_front: 2 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -663,7 +699,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 52  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 6 
+SendingQueue_front: 3 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -671,12 +707,12 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 53  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 7 
+SendingQueue_front: 4 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -687,7 +723,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 54  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 0 
+SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -695,12 +731,12 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 55  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 1 
+SendingQueue_front: 6 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -711,7 +747,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 56  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 2 
+SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -723,7 +759,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 57  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 3 
+SendingQueue_front: 0 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -731,12 +767,20 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
+dynamicEnergy_Router >> 5170495 
+total instructions~~~> 99384 
+TotalEnergy: 9377347 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 Mensagem Recebida!
 Chegou a mensagem numero: 58  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 4 
+SendingQueue_front: 2 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -747,6 +791,30 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 59  - tamanho: 25  .
 Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 60  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 61  - tamanho: 25  .
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
@@ -755,60 +823,36 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
-Mensagem Recebida!
-Chegou a mensagem numero: 60  - tamanho: 25  .
-Esperando Mensagem!
-SendingQueue_front: 6 
-API_Try2Send success!
 10NI_RX DONE!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-9NI_RX DONE!
-RX interruption catched
-Mensagem Recebida!
-Chegou a mensagem numero: 61  - tamanho: 25  .
-Esperando Mensagem!
-SendingQueue_front: 7 
-API_Try2Send success!
-10NI_RX DONE!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-9NI_RX DONE!
-RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 62  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 0 
+SendingQueue_front: 6 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 63  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 1 
+SendingQueue_front: 7 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 64  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 2 
+SendingQueue_front: 0 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -819,7 +863,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 65  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 3 
+SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -827,12 +871,20 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
+dynamicEnergy_Router >> 5169429 
+total instructions~~~> 99960 
+TotalEnergy: 9399652 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 Mensagem Recebida!
 Chegou a mensagem numero: 66  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 4 
+SendingQueue_front: 3 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -843,7 +895,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 67  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 5 
+SendingQueue_front: 4 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -851,12 +903,12 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 68  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 6 
+SendingQueue_front: 5 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -867,7 +919,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 69  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 7 
+SendingQueue_front: 6 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -879,7 +931,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 70  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 0 
+SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -887,12 +939,12 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 71  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 1 
+SendingQueue_front: 0 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -903,7 +955,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 72  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 2 
+SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -915,7 +967,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 73  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 3 
+SendingQueue_front: 2 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -924,6 +976,14 @@ Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
 10NI_RX DONE!
+dynamicEnergy_Router >> 5170495 
+total instructions~~~> 99759 
+TotalEnergy: 9392634 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 Mensagem Recebida!
 Chegou a mensagem numero: 74  - tamanho: 25  .
 Esperando Mensagem!
@@ -935,12 +995,12 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 75  - tamanho: 25  .
 Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -959,48 +1019,48 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 77  - tamanho: 25  .
 Esperando Mensagem!
 SendingQueue_front: 7 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 78  - tamanho: 25  .
 Esperando Mensagem!
 SendingQueue_front: 0 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 79  - tamanho: 25  .
 Esperando Mensagem!
 SendingQueue_front: 1 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 80  - tamanho: 25  .
 Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -1018,12 +1078,20 @@ API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
+dynamicEnergy_Router >> 5168501 
+total instructions~~~> 101909 
+TotalEnergy: 9470449 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 RX interruption catched
 10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 82  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 4 
+SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -1035,7 +1103,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 83  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 5 
+SendingQueue_front: 6 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -1047,7 +1115,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 84  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 6 
+SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -1059,7 +1127,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 85  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 7 
+SendingQueue_front: 0 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -1071,7 +1139,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 86  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 0 
+SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -1079,24 +1147,12 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 87  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 1 
-API_Try2Send success!
-10NI_RX DONE!
-TX interruption catched
-API_Try2Send failed - empty SendQueue!
-RX interruption catched
-Tem uma mensagem chegando...
-9NI_RX DONE!
-RX interruption catched
-Mensagem Recebida!
-Chegou a mensagem numero: 88  - tamanho: 25  .
-Esperando Mensagem!
 SendingQueue_front: 2 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -1105,7 +1161,7 @@ Tem uma mensagem chegando...
 RX interruption catched
 10NI_RX DONE!
 Mensagem Recebida!
-Chegou a mensagem numero: 89  - tamanho: 25  .
+Chegou a mensagem numero: 88  - tamanho: 25  .
 Esperando Mensagem!
 SendingQueue_front: 3 
 API_Try2Send success!
@@ -1117,9 +1173,29 @@ Tem uma mensagem chegando...
 RX interruption catched
 10NI_RX DONE!
 Mensagem Recebida!
-Chegou a mensagem numero: 90  - tamanho: 25  .
+Chegou a mensagem numero: 89  - tamanho: 25  .
 Esperando Mensagem!
 SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+dynamicEnergy_Router >> 5169725 
+total instructions~~~> 99182 
+TotalEnergy: 9367805 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+Chegou a mensagem numero: 90  - tamanho: 25  .
+Esperando Mensagem!
+SendingQueue_front: 6 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -1131,7 +1207,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 91  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 5 
+SendingQueue_front: 7 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -1139,12 +1215,12 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 92  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 6 
+SendingQueue_front: 0 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -1155,7 +1231,7 @@ RX interruption catched
 Mensagem Recebida!
 Chegou a mensagem numero: 93  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 7 
+SendingQueue_front: 1 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
@@ -1163,60 +1239,68 @@ RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 94  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 0 
+SendingQueue_front: 2 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 95  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 1 
+SendingQueue_front: 3 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 96  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 2 
+SendingQueue_front: 4 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 97  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 3 
+SendingQueue_front: 5 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
 Tem uma mensagem chegando...
 9NI_RX DONE!
+dynamicEnergy_Router >> 5169429 
+total instructions~~~> 98835 
+TotalEnergy: 9352420 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
 RX interruption catched
+10NI_RX DONE!
 Mensagem Recebida!
 Chegou a mensagem numero: 98  - tamanho: 25  .
 Esperando Mensagem!
-SendingQueue_front: 4 
+SendingQueue_front: 7 
 API_Try2Send success!
-10NI_RX DONE!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
 RX interruption catched
@@ -1229,21 +1313,18 @@ Chegou a mensagem numero: 99  - tamanho: 25  .
 CONS1 End 
 Finishing task:1 app: 0 
 From slot: 0 
+Checking the PIPE of taskSlot: 0 
 i: 0 
 status: 4294967295 
-holder: 0 
 ---
 i: 1 
 status: 4294967295 
-holder: 0 
 ---
 i: 2 
 status: 4294967295 
-holder: 0 
 ---
 i: 3 
 status: 4294967295 
-holder: 0 
 ---
 Task 1 deleted with sucsess! From application 0 
 TaskList[0 ]status: 0 
@@ -1252,7 +1333,1319 @@ TaskList[2 ]status: 0
 TaskList[3 ]status: 0 
 TaskList[4 ]status: 0 
 TaskList[5 ]status: 0 
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5161028 
+total instructions~~~> 99788 
+TotalEnergy: 9177525 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5157452 
+total instructions~~~> 99990 
+TotalEnergy: 9083350 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5157863 
+total instructions~~~> 99990 
+TotalEnergy: 9083795 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5159856 
+total instructions~~~> 99990 
+TotalEnergy: 9085754 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158791 
+total instructions~~~> 99990 
+TotalEnergy: 9084737 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158981 
+total instructions~~~> 99990 
+TotalEnergy: 9084894 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158738 
+total instructions~~~> 100091 
+TotalEnergy: 9089513 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5159856 
+total instructions~~~> 99812 
+TotalEnergy: 9079023 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158791 
+total instructions~~~> 99990 
+TotalEnergy: 9084741 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158981 
+total instructions~~~> 99990 
+TotalEnergy: 9084898 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158738 
+total instructions~~~> 99990 
+TotalEnergy: 9084670 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5159856 
+total instructions~~~> 100091 
+TotalEnergy: 9090598 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158791 
+total instructions~~~> 99827 
+TotalEnergy: 9078702 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158791 
+total instructions~~~> 99990 
+TotalEnergy: 9084712 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158791 
+total instructions~~~> 100192 
+TotalEnergy: 9093476 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5159993 
+total instructions~~~> 99788 
+TotalEnergy: 9078067 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158791 
+total instructions~~~> 99990 
+TotalEnergy: 9084719 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158791 
+total instructions~~~> 99990 
+TotalEnergy: 9084712 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158791 
+total instructions~~~> 99990 
+TotalEnergy: 9084715 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158928 
+total instructions~~~> 99990 
+TotalEnergy: 9084868 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5159856 
+total instructions~~~> 99990 
+TotalEnergy: 9085765 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158791 
+total instructions~~~> 99990 
+TotalEnergy: 9084731 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158791 
+total instructions~~~> 99990 
+TotalEnergy: 9084700 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5161066 
+total instructions~~~> 99990 
+TotalEnergy: 9087919 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158867 
+total instructions~~~> 99990 
+TotalEnergy: 9084765 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5159156 
+total instructions~~~> 99990 
+TotalEnergy: 9085125 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5161743 
+total instructions~~~> 99990 
+TotalEnergy: 9087623 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5162809 
+total instructions~~~> 99990 
+TotalEnergy: 9088778 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5163768 
+total instructions~~~> 100091 
+TotalEnergy: 9094479 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5159019 
+total instructions~~~> 99889 
+TotalEnergy: 9081033 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5162337 
+total instructions~~~> 99990 
+TotalEnergy: 9088254 
+SendingQueue_front: 7 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5159019 
+total instructions~~~> 100192 
+TotalEnergy: 9093737 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5160404 
+total instructions~~~> 99788 
+TotalEnergy: 9078463 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5159613 
+total instructions~~~> 99990 
+TotalEnergy: 9085526 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5159339 
+total instructions~~~> 99990 
+TotalEnergy: 9085271 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5158745 
+total instructions~~~> 99990 
+TotalEnergy: 9084677 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5161378 
+total instructions~~~> 100192 
+TotalEnergy: 9096131 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5159019 
+total instructions~~~> 99788 
+TotalEnergy: 9077018 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+TASK_ALLOCATION_SEND
+Got slot: 0 
+Task total size (txt+bss): 3124 
+Task addr: 2147526156 
+Task slot: 0 
+Task slot TaskAddr: 2147526156 
+2NI_RX DONE!
+RX interruption catched
+TASK_ALLOCATION_FINISHED
+SendingQueue_front: 7 
+API_Try2Send success!
+4NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um TASK_START!
+6NI_RX DONE!
+RX interruption catched
+Chegou um TASK_RUN!
+Starting Task 3  from app 1 
+taskSlot run: 0 
+7NI_RX DONE!
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+dynamicEnergy_Router >> 5187398 
+total instructions~~~> 177962 
+TotalEnergy: 12853367 
+SendingQueue_front: 1 
+API_Try2Send failed - NI_TX occupied!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+Task P3 INIT
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+dynamicEnergy_Router >> 5169358 
+total instructions~~~> 121979 
+TotalEnergy: 10209033 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 2 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 4 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+Esperando Mensagem!
 SendingQueue_front: 5 
 API_Try2Send success!
 TX interruption catched
 API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+dynamicEnergy_Router >> 5190620 
+total instructions~~~> 964853 
+TotalEnergy: 44865271 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5164913 
+total instructions~~~> 103525 
+TotalEnergy: 9593693 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 4 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 6 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+dynamicEnergy_Router >> 5171796 
+total instructions~~~> 954777 
+TotalEnergy: 43904958 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+dynamicEnergy_Router >> 5169800 
+total instructions~~~> 1000001 
+TotalEnergy: 45534320 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 6 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 0 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 2 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+dynamicEnergy_Router >> 5174403 
+total instructions~~~> 1000001 
+TotalEnergy: 45544179 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5165483 
+total instructions~~~> 103525 
+TotalEnergy: 9590478 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 2 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 4 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+dynamicEnergy_Router >> 5173828 
+total instructions~~~> 963944 
+TotalEnergy: 44331523 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+dynamicEnergy_Router >> 5169656 
+total instructions~~~> 999900 
+TotalEnergy: 45530089 
+SendingQueue_front: 3 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 4 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 6 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 0 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+dynamicEnergy_Router >> 5174403 
+total instructions~~~> 1000102 
+TotalEnergy: 45536953 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5165483 
+total instructions~~~> 103525 
+TotalEnergy: 9593979 
+SendingQueue_front: 6 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 0 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 2 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+dynamicEnergy_Router >> 5174771 
+total instructions~~~> 963843 
+TotalEnergy: 44260440 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 5 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 6 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 7 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 0 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+dynamicEnergy_Router >> 5169656 
+total instructions~~~> 1000203 
+TotalEnergy: 45542311 
+SendingQueue_front: 1 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 2 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 3 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 4 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 6 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+dynamicEnergy_Router >> 5175674 
+total instructions~~~> 999900 
+TotalEnergy: 45529900 
+SendingQueue_front: 0 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 1 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 2 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5165628 
+total instructions~~~> 103525 
+TotalEnergy: 9594174 
+SendingQueue_front: 4 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 2 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 5 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 6 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 3 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 7 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 0 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 0 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 1 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Tem uma mensagem chegando...
+9NI_RX DONE!
+RX interruption catched
+10NI_RX DONE!
+Mensagem Recebida!
+dynamicEnergy_Router >> 5171469 
+total instructions~~~> 963944 
+TotalEnergy: 44372643 
+SendingQueue_front: 2 
+API_Try2Send success!
+EnergyPckt sent
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+RX interruption catched
+Chegou um message request! App: 1 Task: 5 
+Mensagem encontrada no pipe!
+SendingQueue_front: 3 
+API_Try2Send success!
+8NI_RX DONE!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+taskSlot: 0 
+Adding a msg to task 5  in the PIPE slot 1 
+from app: 1 
+Esperando Mensagem!
+SendingQueue_front: 4 
+API_Try2Send success!
+TX interruption catched
+API_Try2Send failed - empty SendQueue!
+dynamicEnergy_Router >> 5157099 
+total instructions~~~> 1000001 
+TotalEnergy: 44450807 
+SendingQueue_front: 5 
+API_Try2Send success!
+EnergyPckt sent

@@ -13,6 +13,7 @@
 #define TASK_FINISHED       2
 #define TASK_ALLOCATING     3
 #define TASK_ALLOCATED      4
+#define TASK_STARTED        5
 
 // Finish 
 volatile unsigned int API_SystemFinish;
@@ -93,4 +94,6 @@ unsigned int API_ClearTaskSlotFromTile(unsigned int addr, unsigned int app, unsi
 void API_ApplicationStart(unsigned int app_id);
 
 void API_TaskAllocated(unsigned int task_id, unsigned int app_id);
+
+void API_StartTasks();
 #endif

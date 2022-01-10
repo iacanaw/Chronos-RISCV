@@ -8,7 +8,8 @@ FreeRTOS/packet.o: ../FreeRTOS/packet.c ../FreeRTOS/include/packet.h \
  ../FreeRTOS/portable/GCC/RISCV/portmacro.h \
  ../FreeRTOS/include/mpu_wrappers.h ../FreeRTOS/include/task.h \
  ../FreeRTOS/include/list.h ../FreeRTOS/include/hwaddr.h \
- ../FreeRTOS/include/packet.h ../FreeRTOS/include/services.h
+ ../FreeRTOS/include/packet.h ../FreeRTOS/include/services.h \
+ ../FreeRTOS/include/applications.h ../FreeRTOS/include/chronos.h
 
 ../FreeRTOS/include/packet.h:
 
@@ -49,3 +50,7 @@ FreeRTOS/packet.o: ../FreeRTOS/packet.c ../FreeRTOS/include/packet.h \
 ../FreeRTOS/include/packet.h:
 
 ../FreeRTOS/include/services.h:
+
+../FreeRTOS/include/applications.h:
+
+../FreeRTOS/include/chronos.h:

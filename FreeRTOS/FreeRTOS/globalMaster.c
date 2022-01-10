@@ -183,7 +183,8 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
     // verify if every task has finished
     flag = 1;
     for (i = 0; i < applications[app_id].numTasks; i++){
-        //printsvsv("checking ", i, "task is: ", applications[app_id].tasks[i].status);
+        printsvsv("checking ", i, "task is: ", applications[app_id].tasks[i].status);
+        printsv("from app: ", app_id);
         if(applications[app_id].tasks[i].status != TASK_FINISHED){
             flag = 0;
             break;
@@ -320,43 +321,64 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
 void API_TaskAllocated(unsigned int task_id, unsigned int app_id){
     unsigned int i;
     applications[app_id].tasks[task_id].status = TASK_ALLOCATED;
-
-    for(i = 0; i < applications[app_id].numTasks; i++){
-        if(applications[app_id].tasks[i].status != TASK_ALLOCATED){
-            //printi(i);
-            return;
-        }
-    }
-    printsv("Application allocated: ", app_id);
-    API_ApplicationStart(app_id);
-    prints("\tStart command sent to every task.\n");
     return;
 }
 
 void API_ApplicationStart(unsigned int app_id){
     unsigned int i, j;
-    unsigned int mySlot;
+    printsv("Starting Application: ", app_id);
     for(i = 0; i < applications[app_id].numTasks; i++){
-        do{
-            mySlot = API_GetMessageSlot();
-            if(mySlot == PIPE_FULL){
-                // Runs the NI Handler to send/receive packets, opening space in the PIPE
-                API_NI_Handler();
-            }
-        }while(mySlot == PIPE_FULL);
-
-        MessagePipe[mySlot].holder = PIPE_SYS_HOLDER;
-
-        MessagePipe[mySlot].header.header           = applications[app_id].tasks[i].addr;
-        MessagePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE + applications[app_id].numTasks + 1;
-        MessagePipe[mySlot].header.service          = TASK_START;
-        MessagePipe[mySlot].header.task_id          = i;
-        MessagePipe[mySlot].header.task_app_id      = app_id;
-        MessagePipe[mySlot].msg.length              = applications[app_id].numTasks;
-        for(j = 0; j < applications[app_id].numTasks; j++){
-            MessagePipe[mySlot].msg.msg[j]          = applications[app_id].tasks[j].addr;
+        while(ServiceMessage.status == PIPE_OCCUPIED){
+            // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            API_NI_Handler();
+            prints("Esperando...\n");
         }
-        API_PushSendQueue(MESSAGE, mySlot);
+        // do{
+        //     mySlot = API_GetMessageSlot();
+        //     if(mySlot == PIPE_FULL){
+        //         // Runs the NI Handler to send/receive packets, opening space in the PIPE
+        //         API_NI_Handler();
+        //     }
+        // }while(mySlot == PIPE_FULL);
+        printsv("Sending TASK_START to task ", i);
+        ServiceMessage.status = PIPE_OCCUPIED;
+
+        ServiceMessage.header.header           = applications[app_id].tasks[i].addr;
+        ServiceMessage.header.payload_size     = PKT_SERVICE_SIZE + applications[app_id].numTasks + 1;
+        ServiceMessage.header.service          = TASK_START;
+        ServiceMessage.header.task_id          = i;
+        ServiceMessage.header.task_app_id      = app_id;
+        ServiceMessage.msg.length              = applications[app_id].numTasks;
+        for(j = 0; j < applications[app_id].numTasks; j++){
+            ServiceMessage.msg.msg[j]          = applications[app_id].tasks[j].addr;
+        }
+        API_PushSendQueue(SYS_MESSAGE, 0);
     }
     return;
 }
+
+
+void API_StartTasks(){
+    unsigned int j, i, start;
+    for(j = 0; j < NUM_MAX_APPS; j++){
+        if(applications[j].occupied == TRUE){
+            start = TRUE;
+            for(i = 0; i < applications[j].numTasks; i++){
+                if(applications[j].tasks[i].status != TASK_ALLOCATED){
+                    start = FALSE;
+                    break;
+                }
+            }
+            if(start == TRUE){
+                printsv("Application is allocated: ", j);
+                API_ApplicationStart(j);
+                prints("Start command sent to every task...\n");
+                for(i = 0; i < applications[j].numTasks; i++){
+                    applications[j].tasks[i].status = TASK_STARTED;
+                }
+            }
+        }
+    }
+    return;
+}    
+

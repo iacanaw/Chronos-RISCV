@@ -137,7 +137,7 @@ void powerEstimation(){
         ThermalPacket.header.service          = ENERGY_PACKET;
         ThermalPacket.header.source_addr      = ProcessorAddr;
         ThermalPacket.header.spent_energy     = totalEnergy;
-        //API_PushSendQueue(THERMAL, 0);
+        API_PushSendQueue(THERMAL, 0);
         prints("EnergyPckt sent\n");
 
         // change the PE frequency to the selected one

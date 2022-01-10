@@ -249,6 +249,7 @@ void API_PrioritySend(unsigned int type, unsigned int slot){
         aux = auxQ[i];
         if(aux != EMPTY)
             API_PushSendQueue((aux & 0xFFFF0000), (aux & 0x0000FFFF));
+        i++;
     }while(aux != EMPTY);
     // if(type == THERMAL){
     //     vTaskEnterCritical();
@@ -298,7 +299,7 @@ unsigned int API_PopSendQueue(){
 ////////////////////////////////////////////////////////////
 // Try to send some packet! 
 void API_Try2Send(){
-    unsigned int toSend;
+    unsigned int toSend, taskID, slot;
     // Try to send the packet to NI if it's available
     // Checks if the NI is available to transmitt something
     if (HW_get_32bit_reg(NI_TX) == NI_STATUS_OFF){
@@ -306,17 +307,35 @@ void API_Try2Send(){
         toSend = API_PopSendQueue();
         if (toSend != EMPTY){
             SendingSlot = toSend;
-            if((toSend & 0xFFFF0000) ==  SERVICE){
+            if((toSend & 0xFFFF0000) == SERVICE){
                 SendRaw((unsigned int)&ServicePipe[toSend & 0x0000FFFF].header);
             }
-            else if((toSend & 0xFFFF0000) ==  MESSAGE){
-                SendRaw((unsigned int)&MessagePipe[toSend & 0x0000FFFF].header);
+            else if((toSend & 0xFFFF0000) == MESSAGE){
+                taskID = (toSend & 0x0000FF00) >> 8;
+                slot = toSend & 0x000000FF;
+                // for(i = 0; i < PIPE_SIZE; i++){
+                //     if (TaskList[toSend].MessagePipe[i].status == PIPE_OCCUPIED){
+                //         if(older > TaskList[toSend].MessagePipe[i].msgID){
+                //             older = i;
+                //         }
+                //     }
+                // }
+                // if(older == 0xFFFFFFFF){
+                //     print("ERROR! msg a ser enviad nao encontrada no PIPE!\n");
+                // }
+                //SendRaw((unsigned int)&TaskList[toSend].MessagePipe[older].header);
+                SendRaw((unsigned int)&TaskList[taskID].MessagePipe[slot].header);
             }
-            else if((toSend & 0xFFFF0000) ==  THERMAL){
+            else if((toSend & 0xFFFF0000) == THERMAL){
                 SendingSlot = THERMAL;
                 SendRaw((unsigned int)&ThermalPacket.header);
-            } else{
-                printsv("desconhecido!! ", toSend);
+            }
+            else if((toSend & 0xFFFF0000) == SYS_MESSAGE){
+                SendingSlot = SYS_MESSAGE;
+                SendRaw((unsigned int)&ServiceMessage.header);
+            } 
+            else{
+                printsv("ERROR! desconhecido!! ", toSend);
             }
             prints("API_Try2Send success!\n");
         vTaskExitCritical();
@@ -353,8 +372,7 @@ void API_AckTaskAllocation(unsigned int task_id, unsigned int app_id){
 }
 
 void API_SendMessage(unsigned int addr, unsigned int taskID){
-    unsigned int mySlot;
-    unsigned int taskSlot;
+    unsigned int mySlot, slot, taskSlot;
     unsigned int i;
     Message *theMessage;
     do{
@@ -367,21 +385,22 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
     
     theMessage = addr;
 
-    taskSlot = API_GetCurrentTaskSlot();
+    taskSlot = (mySlot & 0x0000FF00) >> 8;//API_GetCurrentTaskSlot();
+    slot = mySlot & 0x000000FF;
     printsv("taskSlot: ", taskSlot);
     printsvsv("Adding a msg to task ", taskID, " in the PIPE slot ", mySlot);
     printsv("from app: ", TaskList[taskSlot].AppID);
-    MessagePipe[mySlot].holder = taskSlot;
+    //MessagePipe[mySlot].holder = taskSlot;
 
-    MessagePipe[mySlot].header.header           = TaskList[taskSlot].TasksMap[taskID];
-    MessagePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE + theMessage->length + 1;
-    MessagePipe[mySlot].header.service          = MESSAGE_DELIVERY;
-    MessagePipe[mySlot].header.application_id   = TaskList[taskSlot].AppID;
-    MessagePipe[mySlot].header.producer_task    = TaskList[taskSlot].TaskID;
-    MessagePipe[mySlot].header.destination_task = taskID;
-    MessagePipe[mySlot].msg.length              = theMessage->length;
+    TaskList[taskSlot].MessagePipe[slot].header.header           = TaskList[taskSlot].TasksMap[taskID];
+    TaskList[taskSlot].MessagePipe[slot].header.payload_size     = PKT_SERVICE_SIZE + theMessage->length + 1;
+    TaskList[taskSlot].MessagePipe[slot].header.service          = MESSAGE_DELIVERY;
+    TaskList[taskSlot].MessagePipe[slot].header.application_id   = TaskList[taskSlot].AppID;
+    TaskList[taskSlot].MessagePipe[slot].header.producer_task    = TaskList[taskSlot].TaskID;
+    TaskList[taskSlot].MessagePipe[slot].header.destination_task = taskID;
+    TaskList[taskSlot].MessagePipe[slot].msg.length              = theMessage->length;
     for (i = 0; i < theMessage->length; i++){
-        MessagePipe[mySlot].msg.msg[i]          = theMessage->msg[i];
+        TaskList[taskSlot].MessagePipe[slot].msg.msg[i]          = theMessage->msg[i];
     }
     
     if (TaskList[taskSlot].PendingReq[taskID] == TRUE){
@@ -467,25 +486,26 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
 }
 
 unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int task_app_id){
-    unsigned int i;
+    unsigned int i,j;
     unsigned int sel = ERRO;
     unsigned int smallID = 268435455;
     //vTaskEnterCritical();
-    for (i = 0; i < PIPE_SIZE; i++){
-        //printsv("testing ", i);
-        if(MessagePipe[i].status == PIPE_OCCUPIED){
-            if(MessagePipe[i].header.application_id == task_app_id){
-                if(MessagePipe[i].header.destination_task == requester_task_id){
-                    if(MessagePipe[i].msgID < smallID){
-                        smallID = MessagePipe[i].msgID;
-                        sel = i;
+    for(i = 0; i < NUM_MAX_TASKS; i++){
+        if(TaskList[i].status != TASK_SLOT_EMPTY && TaskList[i].AppID == task_app_id){
+            for(j = 0; j < PIPE_SIZE; j++){
+                if(TaskList[i].MessagePipe[j].status == PIPE_OCCUPIED){
+                    if(TaskList[i].MessagePipe[j].header.destination_task == requester_task_id){
+                        if(TaskList[i].MessagePipe[j].msgID < smallID){
+                            smallID = TaskList[i].MessagePipe[j].msgID;
+                            sel = (i << 8) | j;
+                        }
                     }
                 }
             }
         }
     }
     if(sel != ERRO){
-        MessagePipe[sel].status == PIPE_TRANSMITTING;
+        TaskList[sel >> 8].MessagePipe[sel & 0x000000FF].status == PIPE_TRANSMITTING;
     }
     //vTaskExitCritical();
     return sel;
@@ -501,16 +521,18 @@ void API_AddPendingReq(unsigned int requester_task_id, unsigned int task_app_id,
 void API_NI_Handler(){
     unsigned int aux;
     unsigned int service;
-    vTaskEnterCritical();
-    do{
-    
+    //do{
+
+        vTaskEnterCritical();
         if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
             prints("TX interruption catched\n");
             API_ClearPipeSlot(SendingSlot); // clear the pipe slot that was transmitted
             HW_set_32bit_reg(NI_TX, DONE);  // releases the interruption
             API_Try2Send();                 // tries to send another packet (if available)
         }
+        vTaskExitCritical();
 
+        vTaskEnterCritical();
         if( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING) {
             prints("RX interruption catched\n");
             service = incommingPacket.service;
@@ -528,11 +550,12 @@ void API_NI_Handler(){
                 
                 case TASK_ALLOCATION_SEND: // When the GM asks one Slave to allocate one task
                     prints("TASK_ALLOCATION_SEND\n");
+                    HW_set_32bit_reg(NI_RX, HOLD);
                     aux = API_TaskAllocation(incommingPacket.task_id,
-                                            incommingPacket.task_txt_size,
-                                            incommingPacket.task_bss_size,
-                                            incommingPacket.task_start_point,
-                                            incommingPacket.task_app_id);
+                                             incommingPacket.task_txt_size,
+                                             incommingPacket.task_bss_size,
+                                             incommingPacket.task_start_point,
+                                             incommingPacket.task_app_id);
                     printsv("Task slot: ", aux);
                     printsv("Task slot TaskAddr: ", TaskList[aux].taskAddr);
                     // Informs the NI were to write the application
@@ -559,7 +582,6 @@ void API_NI_Handler(){
 
                 case TASK_ALLOCATION_SUCCESS:
                     prints("TASK_ALLOCATION_SUCCESS\n");
-                    //printi(incommingPacket.task_id);
                     API_TaskAllocated(incommingPacket.task_id, incommingPacket.task_app_id);
                     HW_set_32bit_reg(NI_RX, DONE);
                     prints("5NI_RX DONE!\n");
@@ -629,9 +651,10 @@ void API_NI_Handler(){
                     //prints("Terminou de entregar a mensagem!!\n");
                     aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
                     TaskList[aux].waitingMsg = FALSE;
-                    vTaskResume(TaskList[aux].TaskHandler);
                     HW_set_32bit_reg(NI_RX, DONE);
                     prints("10NI_RX DONE!\n");
+                    //vTaskResume(TaskList[aux].TaskHandler);
+                    xTaskResumeFromISR(TaskList[aux].TaskHandler);
                     break;
 
                 case TEMPERATURE_PACKET:
@@ -652,8 +675,8 @@ void API_NI_Handler(){
                     break;
 
                 case SOLVED:
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("13NI_RX DONE!\n");
+                    //HW_set_32bit_reg(NI_RX, HOLD);
+                    prints("13NI_RX HOLD!\n");
                     break;
                     
                 default:
@@ -663,16 +686,17 @@ void API_NI_Handler(){
                     break;
             }
         }
-        
-    } while( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING || HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER);
+        vTaskExitCritical();
 
-    if (HW_get_32bit_reg(NI_TIMER) == NI_STATUS_INTER){
-        powerEstimation();
-        HW_set_32bit_reg(NI_TIMER, DONE);
-    }
+        vTaskEnterCritical();
+        if (HW_get_32bit_reg(NI_TIMER) == NI_STATUS_INTER){
+            powerEstimation();
+            HW_set_32bit_reg(NI_TIMER, DONE);
+        }
+        vTaskExitCritical();
 
-
-    vTaskExitCritical();
+    //} while( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING || HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER);
+    
     
     return;
 }
