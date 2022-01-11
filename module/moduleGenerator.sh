@@ -52,7 +52,7 @@ do
 	echo "ihwconnect   -instancename ddr"$i"   -busslaveport sp1 -bus cpu"$i"Bus -loaddress 0x80000000 -hiaddress 0x8FFFFFFF" >> module.op.tcl
 	echo "" >> module.op.tcl
 	echo "ihwaddmemory -instancename stk"$i"   -type ram" >> module.op.tcl
-	echo "ihwconnect   -instancename stk"$i"   -busslaveport sp1 -bus cpu"$i"Bus -loaddress 0xfff00000 -hiaddress 0xFFFFFFFF" >> module.op.tcl
+	echo "ihwconnect   -instancename stk"$i"   -busslaveport sp1 -bus cpu"$i"Bus -loaddress 0xf0000000 -hiaddress 0xFFFFFFFF" >> module.op.tcl
 	echo "" >> module.op.tcl
 done
 

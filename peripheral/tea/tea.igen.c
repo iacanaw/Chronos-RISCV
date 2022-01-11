@@ -330,14 +330,14 @@ PPM_PACKETNET_CB(dataUpdate) {
         ////////////////////////////////////////////////////////////////////////
         /*CALCULAR STEADY*/
         /*Avança os ponteiros da matriz B*/
-        bhmMessage("I", "Input", "Calculando STEADY!\n");
+        //bhmMessage("I", "Input", "Calculando STEADY!\n");
         int index = 0;
         int yi, xi;
         for (yi = 0; yi < DIM_Y; yi++)
             for(xi = 0; xi < DIM_X; xi++){
                 power_trace[index] = ((((double)power[yi][xi] * 64) / 100) / (1000000000)) * 10; //0.001));
                 //power_trace[index] = ((((double)power[yi][xi]* 64 / 1000 / 100) * 128 / 100) * 20)/(1280000*0.001);
-                bhmMessage("I", "input", "power: %.6lf", power_trace[index]);
+                //bhmMessage("I", "input", "power: %.6lf", power_trace[index]);
                 index++;
             }
                 //power_trace[index++] = (double)(power[yi][xi]*SCALING_FACTOR)/(1280000*WINDOW_TIME);
@@ -345,7 +345,7 @@ PPM_PACKETNET_CB(dataUpdate) {
 
         ////////////////////////////////////////////////////////////////////////
         /*CALCULAR TRANSIENT*/
-        bhmMessage("I", "Input", "Calculando TRANSIENT!\n");
+        //bhmMessage("I", "Input", "Calculando TRANSIENT!\n");
 
         temp_matex(TempTraceEnd, power_trace);
 
@@ -364,7 +364,7 @@ PPM_PACKETNET_CB(dataUpdate) {
         for(i = 0; i < DIM_Y*DIM_X; i++){
             tempi = TempTraceEnd[i]*100;
             thePacket[i+13] = htonl(tempi);
-            bhmMessage("I", "Input", "temperature %d: %.2f", i, (((float)tempi/100)-273.15));
+            //bhmMessage("I", "Input", "temperature %d: %.2f", i, (((float)tempi/100)-273.15));
             fprintf(fp, "\t%.2f", (((float)tempi/100)-273.15));
         }
         fprintf(fp, "\n");

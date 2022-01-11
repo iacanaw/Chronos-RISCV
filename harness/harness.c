@@ -7,7 +7,7 @@
 #define MODULE_NAME "top"
 #define MODULE_DIR "module"
 #define MODULE_INSTANCE "u2"
-#define N_PES 16
+#define N_PES 25
 
 // Quantum defines
 #define INSTRUCTIONS_PER_SECOND 1000000000.0                                            // 1GHz (assuming 1 instruction per cycle)
@@ -83,6 +83,42 @@ unsigned int load15 = 0;
 unsigned int store15 = 0;
 unsigned int others15 = 0;
 unsigned int fetch15 = 0;
+unsigned int load16 = 0;
+unsigned int store16 = 0;
+unsigned int others16 = 0;
+unsigned int fetch16 = 0;
+unsigned int load17 = 0;
+unsigned int store17 = 0;
+unsigned int others17 = 0;
+unsigned int fetch17 = 0;
+unsigned int load18 = 0;
+unsigned int store18 = 0;
+unsigned int others18 = 0;
+unsigned int fetch18 = 0;
+unsigned int load19 = 0;
+unsigned int store19 = 0;
+unsigned int others19 = 0;
+unsigned int fetch19 = 0;
+unsigned int load20 = 0;
+unsigned int store20 = 0;
+unsigned int others20 = 0;
+unsigned int fetch20 = 0;
+unsigned int load21 = 0;
+unsigned int store21 = 0;
+unsigned int others21 = 0;
+unsigned int fetch21 = 0;
+unsigned int load22 = 0;
+unsigned int store22 = 0;
+unsigned int others22 = 0;
+unsigned int fetch22 = 0;
+unsigned int load23 = 0;
+unsigned int store23 = 0;
+unsigned int others23 = 0;
+unsigned int fetch23 = 0;
+unsigned int load24 = 0;
+unsigned int store24 = 0;
+unsigned int others24 = 0;
+unsigned int fetch24 = 0;
 
 struct optionsS {
 	Bool configurecpuinstance;
@@ -983,6 +1019,474 @@ static OP_MONITOR_FN(FetchCallback15) {
 
     return;
 }
+static OP_MONITOR_FN(FetchCallback16) { 
+    char aux_8bits[4];
+    opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch16++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 16, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
+    
+    // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
+    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+        load16++;
+    }
+    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+        store16++;
+    }
+    else{
+        others16++;
+    }
+
+    if(fetch16 > 100){
+        fetch16 = 0;
+
+        opProcessorRead(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load16 = load16 + vec2usi(aux_8bits);
+        aux_8bits[3] = (load16 >> 24) & 0x000000FF;
+        aux_8bits[2] = (load16 >> 16) & 0x000000FF;
+        aux_8bits[1] = (load16 >> 8) & 0x000000FF;
+        aux_8bits[0] =  load16 & 0x000000FF;
+        opProcessorWrite(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load16 = 0;
+
+        opProcessorRead(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store16 = store16 + vec2usi(aux_8bits);
+        aux_8bits[3] = (store16 >> 24) & 0x000000FF;
+        aux_8bits[2] = (store16 >> 16) & 0x000000FF;
+        aux_8bits[1] = (store16 >> 8) & 0x000000FF;
+        aux_8bits[0] =  store16 & 0x000000FF;
+        opProcessorWrite(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store16 = 0;
+
+        opProcessorRead(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others16 = others16 + vec2usi(aux_8bits);
+        aux_8bits[3] = (others16 >> 24) & 0x000000FF;
+        aux_8bits[2] = (others16 >> 16) & 0x000000FF;
+        aux_8bits[1] = (others16 >> 8) & 0x000000FF;
+        aux_8bits[0] =  others16 & 0x000000FF;
+        opProcessorWrite(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others16 = 0;
+    }
+
+    return;
+}
+static OP_MONITOR_FN(FetchCallback17) { 
+    char aux_8bits[4];
+    opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch17++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 17, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
+    
+    // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
+    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+        load17++;
+    }
+    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+        store17++;
+    }
+    else{
+        others17++;
+    }
+
+    if(fetch17 > 100){
+        fetch17 = 0;
+
+        opProcessorRead(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load17 = load17 + vec2usi(aux_8bits);
+        aux_8bits[3] = (load17 >> 24) & 0x000000FF;
+        aux_8bits[2] = (load17 >> 16) & 0x000000FF;
+        aux_8bits[1] = (load17 >> 8) & 0x000000FF;
+        aux_8bits[0] =  load17 & 0x000000FF;
+        opProcessorWrite(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load17 = 0;
+
+        opProcessorRead(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store17 = store17 + vec2usi(aux_8bits);
+        aux_8bits[3] = (store17 >> 24) & 0x000000FF;
+        aux_8bits[2] = (store17 >> 16) & 0x000000FF;
+        aux_8bits[1] = (store17 >> 8) & 0x000000FF;
+        aux_8bits[0] =  store17 & 0x000000FF;
+        opProcessorWrite(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store17 = 0;
+
+        opProcessorRead(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others17 = others17 + vec2usi(aux_8bits);
+        aux_8bits[3] = (others17 >> 24) & 0x000000FF;
+        aux_8bits[2] = (others17 >> 16) & 0x000000FF;
+        aux_8bits[1] = (others17 >> 8) & 0x000000FF;
+        aux_8bits[0] =  others17 & 0x000000FF;
+        opProcessorWrite(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others17 = 0;
+    }
+
+    return;
+}
+static OP_MONITOR_FN(FetchCallback18) { 
+    char aux_8bits[4];
+    opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch18++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 18, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
+    
+    // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
+    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+        load18++;
+    }
+    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+        store18++;
+    }
+    else{
+        others18++;
+    }
+
+    if(fetch18 > 100){
+        fetch18 = 0;
+
+        opProcessorRead(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load18 = load18 + vec2usi(aux_8bits);
+        aux_8bits[3] = (load18 >> 24) & 0x000000FF;
+        aux_8bits[2] = (load18 >> 16) & 0x000000FF;
+        aux_8bits[1] = (load18 >> 8) & 0x000000FF;
+        aux_8bits[0] =  load18 & 0x000000FF;
+        opProcessorWrite(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load18 = 0;
+
+        opProcessorRead(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store18 = store18 + vec2usi(aux_8bits);
+        aux_8bits[3] = (store18 >> 24) & 0x000000FF;
+        aux_8bits[2] = (store18 >> 16) & 0x000000FF;
+        aux_8bits[1] = (store18 >> 8) & 0x000000FF;
+        aux_8bits[0] =  store18 & 0x000000FF;
+        opProcessorWrite(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store18 = 0;
+
+        opProcessorRead(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others18 = others18 + vec2usi(aux_8bits);
+        aux_8bits[3] = (others18 >> 24) & 0x000000FF;
+        aux_8bits[2] = (others18 >> 16) & 0x000000FF;
+        aux_8bits[1] = (others18 >> 8) & 0x000000FF;
+        aux_8bits[0] =  others18 & 0x000000FF;
+        opProcessorWrite(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others18 = 0;
+    }
+
+    return;
+}
+static OP_MONITOR_FN(FetchCallback19) { 
+    char aux_8bits[4];
+    opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch19++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 19, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
+    
+    // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
+    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+        load19++;
+    }
+    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+        store19++;
+    }
+    else{
+        others19++;
+    }
+
+    if(fetch19 > 100){
+        fetch19 = 0;
+
+        opProcessorRead(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load19 = load19 + vec2usi(aux_8bits);
+        aux_8bits[3] = (load19 >> 24) & 0x000000FF;
+        aux_8bits[2] = (load19 >> 16) & 0x000000FF;
+        aux_8bits[1] = (load19 >> 8) & 0x000000FF;
+        aux_8bits[0] =  load19 & 0x000000FF;
+        opProcessorWrite(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load19 = 0;
+
+        opProcessorRead(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store19 = store19 + vec2usi(aux_8bits);
+        aux_8bits[3] = (store19 >> 24) & 0x000000FF;
+        aux_8bits[2] = (store19 >> 16) & 0x000000FF;
+        aux_8bits[1] = (store19 >> 8) & 0x000000FF;
+        aux_8bits[0] =  store19 & 0x000000FF;
+        opProcessorWrite(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store19 = 0;
+
+        opProcessorRead(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others19 = others19 + vec2usi(aux_8bits);
+        aux_8bits[3] = (others19 >> 24) & 0x000000FF;
+        aux_8bits[2] = (others19 >> 16) & 0x000000FF;
+        aux_8bits[1] = (others19 >> 8) & 0x000000FF;
+        aux_8bits[0] =  others19 & 0x000000FF;
+        opProcessorWrite(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others19 = 0;
+    }
+
+    return;
+}
+static OP_MONITOR_FN(FetchCallback20) { 
+    char aux_8bits[4];
+    opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch20++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 20, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
+    
+    // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
+    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+        load20++;
+    }
+    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+        store20++;
+    }
+    else{
+        others20++;
+    }
+
+    if(fetch20 > 100){
+        fetch20 = 0;
+
+        opProcessorRead(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load20 = load20 + vec2usi(aux_8bits);
+        aux_8bits[3] = (load20 >> 24) & 0x000000FF;
+        aux_8bits[2] = (load20 >> 16) & 0x000000FF;
+        aux_8bits[1] = (load20 >> 8) & 0x000000FF;
+        aux_8bits[0] =  load20 & 0x000000FF;
+        opProcessorWrite(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load20 = 0;
+
+        opProcessorRead(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store20 = store20 + vec2usi(aux_8bits);
+        aux_8bits[3] = (store20 >> 24) & 0x000000FF;
+        aux_8bits[2] = (store20 >> 16) & 0x000000FF;
+        aux_8bits[1] = (store20 >> 8) & 0x000000FF;
+        aux_8bits[0] =  store20 & 0x000000FF;
+        opProcessorWrite(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store20 = 0;
+
+        opProcessorRead(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others20 = others20 + vec2usi(aux_8bits);
+        aux_8bits[3] = (others20 >> 24) & 0x000000FF;
+        aux_8bits[2] = (others20 >> 16) & 0x000000FF;
+        aux_8bits[1] = (others20 >> 8) & 0x000000FF;
+        aux_8bits[0] =  others20 & 0x000000FF;
+        opProcessorWrite(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others20 = 0;
+    }
+
+    return;
+}
+static OP_MONITOR_FN(FetchCallback21) { 
+    char aux_8bits[4];
+    opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch21++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 21, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
+    
+    // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
+    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+        load21++;
+    }
+    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+        store21++;
+    }
+    else{
+        others21++;
+    }
+
+    if(fetch21 > 100){
+        fetch21 = 0;
+
+        opProcessorRead(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load21 = load21 + vec2usi(aux_8bits);
+        aux_8bits[3] = (load21 >> 24) & 0x000000FF;
+        aux_8bits[2] = (load21 >> 16) & 0x000000FF;
+        aux_8bits[1] = (load21 >> 8) & 0x000000FF;
+        aux_8bits[0] =  load21 & 0x000000FF;
+        opProcessorWrite(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load21 = 0;
+
+        opProcessorRead(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store21 = store21 + vec2usi(aux_8bits);
+        aux_8bits[3] = (store21 >> 24) & 0x000000FF;
+        aux_8bits[2] = (store21 >> 16) & 0x000000FF;
+        aux_8bits[1] = (store21 >> 8) & 0x000000FF;
+        aux_8bits[0] =  store21 & 0x000000FF;
+        opProcessorWrite(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store21 = 0;
+
+        opProcessorRead(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others21 = others21 + vec2usi(aux_8bits);
+        aux_8bits[3] = (others21 >> 24) & 0x000000FF;
+        aux_8bits[2] = (others21 >> 16) & 0x000000FF;
+        aux_8bits[1] = (others21 >> 8) & 0x000000FF;
+        aux_8bits[0] =  others21 & 0x000000FF;
+        opProcessorWrite(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others21 = 0;
+    }
+
+    return;
+}
+static OP_MONITOR_FN(FetchCallback22) { 
+    char aux_8bits[4];
+    opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch22++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 22, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
+    
+    // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
+    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+        load22++;
+    }
+    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+        store22++;
+    }
+    else{
+        others22++;
+    }
+
+    if(fetch22 > 100){
+        fetch22 = 0;
+
+        opProcessorRead(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load22 = load22 + vec2usi(aux_8bits);
+        aux_8bits[3] = (load22 >> 24) & 0x000000FF;
+        aux_8bits[2] = (load22 >> 16) & 0x000000FF;
+        aux_8bits[1] = (load22 >> 8) & 0x000000FF;
+        aux_8bits[0] =  load22 & 0x000000FF;
+        opProcessorWrite(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load22 = 0;
+
+        opProcessorRead(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store22 = store22 + vec2usi(aux_8bits);
+        aux_8bits[3] = (store22 >> 24) & 0x000000FF;
+        aux_8bits[2] = (store22 >> 16) & 0x000000FF;
+        aux_8bits[1] = (store22 >> 8) & 0x000000FF;
+        aux_8bits[0] =  store22 & 0x000000FF;
+        opProcessorWrite(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store22 = 0;
+
+        opProcessorRead(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others22 = others22 + vec2usi(aux_8bits);
+        aux_8bits[3] = (others22 >> 24) & 0x000000FF;
+        aux_8bits[2] = (others22 >> 16) & 0x000000FF;
+        aux_8bits[1] = (others22 >> 8) & 0x000000FF;
+        aux_8bits[0] =  others22 & 0x000000FF;
+        opProcessorWrite(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others22 = 0;
+    }
+
+    return;
+}
+static OP_MONITOR_FN(FetchCallback23) { 
+    char aux_8bits[4];
+    opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch23++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 23, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
+    
+    // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
+    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+        load23++;
+    }
+    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+        store23++;
+    }
+    else{
+        others23++;
+    }
+
+    if(fetch23 > 100){
+        fetch23 = 0;
+
+        opProcessorRead(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load23 = load23 + vec2usi(aux_8bits);
+        aux_8bits[3] = (load23 >> 24) & 0x000000FF;
+        aux_8bits[2] = (load23 >> 16) & 0x000000FF;
+        aux_8bits[1] = (load23 >> 8) & 0x000000FF;
+        aux_8bits[0] =  load23 & 0x000000FF;
+        opProcessorWrite(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load23 = 0;
+
+        opProcessorRead(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store23 = store23 + vec2usi(aux_8bits);
+        aux_8bits[3] = (store23 >> 24) & 0x000000FF;
+        aux_8bits[2] = (store23 >> 16) & 0x000000FF;
+        aux_8bits[1] = (store23 >> 8) & 0x000000FF;
+        aux_8bits[0] =  store23 & 0x000000FF;
+        opProcessorWrite(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store23 = 0;
+
+        opProcessorRead(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others23 = others23 + vec2usi(aux_8bits);
+        aux_8bits[3] = (others23 >> 24) & 0x000000FF;
+        aux_8bits[2] = (others23 >> 16) & 0x000000FF;
+        aux_8bits[1] = (others23 >> 8) & 0x000000FF;
+        aux_8bits[0] =  others23 & 0x000000FF;
+        opProcessorWrite(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others23 = 0;
+    }
+
+    return;
+}
+static OP_MONITOR_FN(FetchCallback24) { 
+    char aux_8bits[4];
+    opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int instruction32 = vec2usi(aux_8bits);
+    fetch24++;
+
+    //opMessage("I", "FETCH", "PE%d- %s @ %x", 24, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
+    
+    // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
+    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+        load24++;
+    }
+    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+        store24++;
+    }
+    else{
+        others24++;
+    }
+
+    if(fetch24 > 100){
+        fetch24 = 0;
+
+        opProcessorRead(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load24 = load24 + vec2usi(aux_8bits);
+        aux_8bits[3] = (load24 >> 24) & 0x000000FF;
+        aux_8bits[2] = (load24 >> 16) & 0x000000FF;
+        aux_8bits[1] = (load24 >> 8) & 0x000000FF;
+        aux_8bits[0] =  load24 & 0x000000FF;
+        opProcessorWrite(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        load24 = 0;
+
+        opProcessorRead(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store24 = store24 + vec2usi(aux_8bits);
+        aux_8bits[3] = (store24 >> 24) & 0x000000FF;
+        aux_8bits[2] = (store24 >> 16) & 0x000000FF;
+        aux_8bits[1] = (store24 >> 8) & 0x000000FF;
+        aux_8bits[0] =  store24 & 0x000000FF;
+        opProcessorWrite(processor, STORE_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        store24 = 0;
+
+        opProcessorRead(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others24 = others24 + vec2usi(aux_8bits);
+        aux_8bits[3] = (others24 >> 24) & 0x000000FF;
+        aux_8bits[2] = (others24 >> 16) & 0x000000FF;
+        aux_8bits[1] = (others24 >> 8) & 0x000000FF;
+        aux_8bits[0] =  others24 & 0x000000FF;
+        opProcessorWrite(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        others24 = 0;
+    }
+
+    return;
+}
 
 static OP_MONITOR_FN(FinishCallback){
     opMessage("I", "HARNESS", " >>> SIMULAÇÃO FINALIZADA COM SUCESSO!");
@@ -1262,6 +1766,159 @@ static OP_MONITOR_FN(FreqCallback15){
     return;
 }
 
+static OP_MONITOR_FN(FreqCallback16){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 16 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback17){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 17 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback18){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 18 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback19){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 19 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback20){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 20 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback21){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 21 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback22){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 22 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback23){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 23 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
+static OP_MONITOR_FN(FreqCallback24){
+
+    // reads the frequency scale, provided by the system
+    char readFreq_8bit[4];
+    opProcessorRead(processor, 0x8FFFFFF8, &readFreq_8bit, 4, 1, True, OP_HOSTENDIAN_TARGET);
+    unsigned int readFreq_32bit = vec2usi(readFreq_8bit);
+
+    // translates from fixed point to float
+    float freqScale = 100 - (float)((float)readFreq_32bit / 10);
+    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency
+        freqScale = 90;
+    }
+    opMessage("I", "HARNESS", " >>> PE 24 changing to %.1f%% of its nominal frequency -- (%.0fMHz)", 100-freqScale, 10*(100-freqScale));
+    opProcessorDerate(processor, freqScale);
+    return;
+}
+
 int main(int argc, const char *argv[]) {
     int             runningPE       = 0;
     optProcessorP   stopProcessor   = 0;
@@ -1406,6 +2063,69 @@ int main(int argc, const char *argv[]) {
                 opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 15 ADICIONADO!");
                 opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback15, "fetch15");
                 opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 15 ADICIONADO!");
+                break;
+
+            case 16:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback16, "frequency16");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 16 ADICIONADO!");
+                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback16, "fetch16");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 16 ADICIONADO!");
+                break;
+
+            case 17:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback17, "frequency17");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 17 ADICIONADO!");
+                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback17, "fetch17");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 17 ADICIONADO!");
+                break;
+
+            case 18:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback18, "frequency18");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 18 ADICIONADO!");
+                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback18, "fetch18");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 18 ADICIONADO!");
+                break;
+
+            case 19:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback19, "frequency19");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 19 ADICIONADO!");
+                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback19, "fetch19");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 19 ADICIONADO!");
+                break;
+
+            case 20:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback20, "frequency20");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 20 ADICIONADO!");
+                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback20, "fetch20");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 20 ADICIONADO!");
+                break;
+
+            case 21:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback21, "frequency21");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 21 ADICIONADO!");
+                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback21, "fetch21");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 21 ADICIONADO!");
+                break;
+
+            case 22:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback22, "frequency22");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 22 ADICIONADO!");
+                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback22, "fetch22");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 22 ADICIONADO!");
+                break;
+
+            case 23:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback23, "frequency23");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 23 ADICIONADO!");
+                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback23, "fetch23");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 23 ADICIONADO!");
+                break;
+
+            case 24:
+                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback24, "frequency24");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FREQUENCIA 24 ADICIONADO!");
+                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback24, "fetch24");
+                opMessage("I", "HARNESS INFO", "	 > MONITOR DE FETCH 24 ADICIONADO!");
                 break;
 
             default: 

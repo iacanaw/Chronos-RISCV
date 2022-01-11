@@ -113,6 +113,51 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
     optBusP cpu15Bus_b = opBusNew(mi, "cpu15Bus", 32, 0, 0);
 
 
+    // Bus cpu16Bus
+
+    optBusP cpu16Bus_b = opBusNew(mi, "cpu16Bus", 32, 0, 0);
+
+
+    // Bus cpu17Bus
+
+    optBusP cpu17Bus_b = opBusNew(mi, "cpu17Bus", 32, 0, 0);
+
+
+    // Bus cpu18Bus
+
+    optBusP cpu18Bus_b = opBusNew(mi, "cpu18Bus", 32, 0, 0);
+
+
+    // Bus cpu19Bus
+
+    optBusP cpu19Bus_b = opBusNew(mi, "cpu19Bus", 32, 0, 0);
+
+
+    // Bus cpu20Bus
+
+    optBusP cpu20Bus_b = opBusNew(mi, "cpu20Bus", 32, 0, 0);
+
+
+    // Bus cpu21Bus
+
+    optBusP cpu21Bus_b = opBusNew(mi, "cpu21Bus", 32, 0, 0);
+
+
+    // Bus cpu22Bus
+
+    optBusP cpu22Bus_b = opBusNew(mi, "cpu22Bus", 32, 0, 0);
+
+
+    // Bus cpu23Bus
+
+    optBusP cpu23Bus_b = opBusNew(mi, "cpu23Bus", 32, 0, 0);
+
+
+    // Bus cpu24Bus
+
+    optBusP cpu24Bus_b = opBusNew(mi, "cpu24Bus", 32, 0, 0);
+
+
 ////////////////////////////////////////////////////////////////////////////////
 //                                    NETS
 ////////////////////////////////////////////////////////////////////////////////
@@ -133,6 +178,15 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
     optNetP eip13_n = opNetNew(mi, "eip13", 0, 0);
     optNetP eip14_n = opNetNew(mi, "eip14", 0, 0);
     optNetP eip15_n = opNetNew(mi, "eip15", 0, 0);
+    optNetP eip16_n = opNetNew(mi, "eip16", 0, 0);
+    optNetP eip17_n = opNetNew(mi, "eip17", 0, 0);
+    optNetP eip18_n = opNetNew(mi, "eip18", 0, 0);
+    optNetP eip19_n = opNetNew(mi, "eip19", 0, 0);
+    optNetP eip20_n = opNetNew(mi, "eip20", 0, 0);
+    optNetP eip21_n = opNetNew(mi, "eip21", 0, 0);
+    optNetP eip22_n = opNetNew(mi, "eip22", 0, 0);
+    optNetP eip23_n = opNetNew(mi, "eip23", 0, 0);
+    optNetP eip24_n = opNetNew(mi, "eip24", 0, 0);
     optNetP MTimerInterrupt0_n = opNetNew(mi, "MTimerInterrupt0", 0, 0);
     optNetP MSWInterrupt0_n = opNetNew(mi, "MSWInterrupt0", 0, 0);
     optNetP intNI_RX0_n = opNetNew(mi, "intNI_RX0", 0, 0);
@@ -213,6 +267,51 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
     optNetP intNI_RX15_n = opNetNew(mi, "intNI_RX15", 0, 0);
     optNetP intNI_TX15_n = opNetNew(mi, "intNI_TX15", 0, 0);
     optNetP intNI_TMR15_n = opNetNew(mi, "intNI_TMR15", 0, 0);
+    optNetP MTimerInterrupt16_n = opNetNew(mi, "MTimerInterrupt16", 0, 0);
+    optNetP MSWInterrupt16_n = opNetNew(mi, "MSWInterrupt16", 0, 0);
+    optNetP intNI_RX16_n = opNetNew(mi, "intNI_RX16", 0, 0);
+    optNetP intNI_TX16_n = opNetNew(mi, "intNI_TX16", 0, 0);
+    optNetP intNI_TMR16_n = opNetNew(mi, "intNI_TMR16", 0, 0);
+    optNetP MTimerInterrupt17_n = opNetNew(mi, "MTimerInterrupt17", 0, 0);
+    optNetP MSWInterrupt17_n = opNetNew(mi, "MSWInterrupt17", 0, 0);
+    optNetP intNI_RX17_n = opNetNew(mi, "intNI_RX17", 0, 0);
+    optNetP intNI_TX17_n = opNetNew(mi, "intNI_TX17", 0, 0);
+    optNetP intNI_TMR17_n = opNetNew(mi, "intNI_TMR17", 0, 0);
+    optNetP MTimerInterrupt18_n = opNetNew(mi, "MTimerInterrupt18", 0, 0);
+    optNetP MSWInterrupt18_n = opNetNew(mi, "MSWInterrupt18", 0, 0);
+    optNetP intNI_RX18_n = opNetNew(mi, "intNI_RX18", 0, 0);
+    optNetP intNI_TX18_n = opNetNew(mi, "intNI_TX18", 0, 0);
+    optNetP intNI_TMR18_n = opNetNew(mi, "intNI_TMR18", 0, 0);
+    optNetP MTimerInterrupt19_n = opNetNew(mi, "MTimerInterrupt19", 0, 0);
+    optNetP MSWInterrupt19_n = opNetNew(mi, "MSWInterrupt19", 0, 0);
+    optNetP intNI_RX19_n = opNetNew(mi, "intNI_RX19", 0, 0);
+    optNetP intNI_TX19_n = opNetNew(mi, "intNI_TX19", 0, 0);
+    optNetP intNI_TMR19_n = opNetNew(mi, "intNI_TMR19", 0, 0);
+    optNetP MTimerInterrupt20_n = opNetNew(mi, "MTimerInterrupt20", 0, 0);
+    optNetP MSWInterrupt20_n = opNetNew(mi, "MSWInterrupt20", 0, 0);
+    optNetP intNI_RX20_n = opNetNew(mi, "intNI_RX20", 0, 0);
+    optNetP intNI_TX20_n = opNetNew(mi, "intNI_TX20", 0, 0);
+    optNetP intNI_TMR20_n = opNetNew(mi, "intNI_TMR20", 0, 0);
+    optNetP MTimerInterrupt21_n = opNetNew(mi, "MTimerInterrupt21", 0, 0);
+    optNetP MSWInterrupt21_n = opNetNew(mi, "MSWInterrupt21", 0, 0);
+    optNetP intNI_RX21_n = opNetNew(mi, "intNI_RX21", 0, 0);
+    optNetP intNI_TX21_n = opNetNew(mi, "intNI_TX21", 0, 0);
+    optNetP intNI_TMR21_n = opNetNew(mi, "intNI_TMR21", 0, 0);
+    optNetP MTimerInterrupt22_n = opNetNew(mi, "MTimerInterrupt22", 0, 0);
+    optNetP MSWInterrupt22_n = opNetNew(mi, "MSWInterrupt22", 0, 0);
+    optNetP intNI_RX22_n = opNetNew(mi, "intNI_RX22", 0, 0);
+    optNetP intNI_TX22_n = opNetNew(mi, "intNI_TX22", 0, 0);
+    optNetP intNI_TMR22_n = opNetNew(mi, "intNI_TMR22", 0, 0);
+    optNetP MTimerInterrupt23_n = opNetNew(mi, "MTimerInterrupt23", 0, 0);
+    optNetP MSWInterrupt23_n = opNetNew(mi, "MSWInterrupt23", 0, 0);
+    optNetP intNI_RX23_n = opNetNew(mi, "intNI_RX23", 0, 0);
+    optNetP intNI_TX23_n = opNetNew(mi, "intNI_TX23", 0, 0);
+    optNetP intNI_TMR23_n = opNetNew(mi, "intNI_TMR23", 0, 0);
+    optNetP MTimerInterrupt24_n = opNetNew(mi, "MTimerInterrupt24", 0, 0);
+    optNetP MSWInterrupt24_n = opNetNew(mi, "MSWInterrupt24", 0, 0);
+    optNetP intNI_RX24_n = opNetNew(mi, "intNI_RX24", 0, 0);
+    optNetP intNI_TX24_n = opNetNew(mi, "intNI_TX24", 0, 0);
+    optNetP intNI_TMR24_n = opNetNew(mi, "intNI_TMR24", 0, 0);
 
     optPacketnetP data_0_0_TEA_pkn = opPacketnetNew(mi, "data_0_0_TEA", 0, 0);
 
@@ -270,6 +369,26 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     optPacketnetP ctrl_0_3_L_pkn = opPacketnetNew(mi, "ctrl_0_3_L", 0, 0);
 
+    optPacketnetP data_0_4_L_pkn = opPacketnetNew(mi, "data_0_4_L", 0, 0);
+
+    optPacketnetP ctrl_0_4_L_pkn = opPacketnetNew(mi, "ctrl_0_4_L", 0, 0);
+
+    opPacketnetNew(mi, "data_0_4_E", 0, 0);
+
+    optPacketnetP data_0_4_W_pkn = opPacketnetNew(mi, "data_0_4_W", 0, 0);
+
+    optPacketnetP data_0_4_N_pkn = opPacketnetNew(mi, "data_0_4_N", 0, 0);
+
+    opPacketnetNew(mi, "data_0_4_S", 0, 0);
+
+    opPacketnetNew(mi, "ctrl_0_4_E", 0, 0);
+
+    optPacketnetP ctrl_0_4_W_pkn = opPacketnetNew(mi, "ctrl_0_4_W", 0, 0);
+
+    optPacketnetP ctrl_0_4_N_pkn = opPacketnetNew(mi, "ctrl_0_4_N", 0, 0);
+
+    opPacketnetNew(mi, "ctrl_0_4_S", 0, 0);
+
     optPacketnetP data_1_0_L_pkn = opPacketnetNew(mi, "data_1_0_L", 0, 0);
 
     optPacketnetP ctrl_1_0_L_pkn = opPacketnetNew(mi, "ctrl_1_0_L", 0, 0);
@@ -302,7 +421,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     optPacketnetP ctrl_1_3_L_pkn = opPacketnetNew(mi, "ctrl_1_3_L", 0, 0);
 
-    opPacketnetNew(mi, "data_1_3_E", 0, 0);
+    optPacketnetP data_1_3_E_pkn = opPacketnetNew(mi, "data_1_3_E", 0, 0);
 
     optPacketnetP data_1_3_W_pkn = opPacketnetNew(mi, "data_1_3_W", 0, 0);
 
@@ -310,13 +429,17 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     optPacketnetP data_1_3_S_pkn = opPacketnetNew(mi, "data_1_3_S", 0, 0);
 
-    opPacketnetNew(mi, "ctrl_1_3_E", 0, 0);
+    optPacketnetP ctrl_1_3_E_pkn = opPacketnetNew(mi, "ctrl_1_3_E", 0, 0);
 
     optPacketnetP ctrl_1_3_W_pkn = opPacketnetNew(mi, "ctrl_1_3_W", 0, 0);
 
     optPacketnetP ctrl_1_3_N_pkn = opPacketnetNew(mi, "ctrl_1_3_N", 0, 0);
 
     optPacketnetP ctrl_1_3_S_pkn = opPacketnetNew(mi, "ctrl_1_3_S", 0, 0);
+
+    optPacketnetP data_1_4_L_pkn = opPacketnetNew(mi, "data_1_4_L", 0, 0);
+
+    optPacketnetP ctrl_1_4_L_pkn = opPacketnetNew(mi, "ctrl_1_4_L", 0, 0);
 
     optPacketnetP data_2_0_L_pkn = opPacketnetNew(mi, "data_2_0_L", 0, 0);
 
@@ -366,6 +489,26 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     optPacketnetP ctrl_2_3_L_pkn = opPacketnetNew(mi, "ctrl_2_3_L", 0, 0);
 
+    optPacketnetP data_2_4_L_pkn = opPacketnetNew(mi, "data_2_4_L", 0, 0);
+
+    optPacketnetP ctrl_2_4_L_pkn = opPacketnetNew(mi, "ctrl_2_4_L", 0, 0);
+
+    opPacketnetNew(mi, "data_2_4_E", 0, 0);
+
+    optPacketnetP data_2_4_W_pkn = opPacketnetNew(mi, "data_2_4_W", 0, 0);
+
+    optPacketnetP data_2_4_N_pkn = opPacketnetNew(mi, "data_2_4_N", 0, 0);
+
+    optPacketnetP data_2_4_S_pkn = opPacketnetNew(mi, "data_2_4_S", 0, 0);
+
+    opPacketnetNew(mi, "ctrl_2_4_E", 0, 0);
+
+    optPacketnetP ctrl_2_4_W_pkn = opPacketnetNew(mi, "ctrl_2_4_W", 0, 0);
+
+    optPacketnetP ctrl_2_4_N_pkn = opPacketnetNew(mi, "ctrl_2_4_N", 0, 0);
+
+    optPacketnetP ctrl_2_4_S_pkn = opPacketnetNew(mi, "ctrl_2_4_S", 0, 0);
+
     optPacketnetP data_3_0_L_pkn = opPacketnetNew(mi, "data_3_0_L", 0, 0);
 
     optPacketnetP ctrl_3_0_L_pkn = opPacketnetNew(mi, "ctrl_3_0_L", 0, 0);
@@ -378,7 +521,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     optPacketnetP data_3_1_W_pkn = opPacketnetNew(mi, "data_3_1_W", 0, 0);
 
-    opPacketnetNew(mi, "data_3_1_N", 0, 0);
+    optPacketnetP data_3_1_N_pkn = opPacketnetNew(mi, "data_3_1_N", 0, 0);
 
     optPacketnetP data_3_1_S_pkn = opPacketnetNew(mi, "data_3_1_S", 0, 0);
 
@@ -386,7 +529,7 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     optPacketnetP ctrl_3_1_W_pkn = opPacketnetNew(mi, "ctrl_3_1_W", 0, 0);
 
-    opPacketnetNew(mi, "ctrl_3_1_N", 0, 0);
+    optPacketnetP ctrl_3_1_N_pkn = opPacketnetNew(mi, "ctrl_3_1_N", 0, 0);
 
     optPacketnetP ctrl_3_1_S_pkn = opPacketnetNew(mi, "ctrl_3_1_S", 0, 0);
 
@@ -398,21 +541,93 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
 
     optPacketnetP ctrl_3_3_L_pkn = opPacketnetNew(mi, "ctrl_3_3_L", 0, 0);
 
-    opPacketnetNew(mi, "data_3_3_E", 0, 0);
+    optPacketnetP data_3_3_E_pkn = opPacketnetNew(mi, "data_3_3_E", 0, 0);
 
     optPacketnetP data_3_3_W_pkn = opPacketnetNew(mi, "data_3_3_W", 0, 0);
 
-    opPacketnetNew(mi, "data_3_3_N", 0, 0);
+    optPacketnetP data_3_3_N_pkn = opPacketnetNew(mi, "data_3_3_N", 0, 0);
 
     optPacketnetP data_3_3_S_pkn = opPacketnetNew(mi, "data_3_3_S", 0, 0);
 
-    opPacketnetNew(mi, "ctrl_3_3_E", 0, 0);
+    optPacketnetP ctrl_3_3_E_pkn = opPacketnetNew(mi, "ctrl_3_3_E", 0, 0);
 
     optPacketnetP ctrl_3_3_W_pkn = opPacketnetNew(mi, "ctrl_3_3_W", 0, 0);
 
-    opPacketnetNew(mi, "ctrl_3_3_N", 0, 0);
+    optPacketnetP ctrl_3_3_N_pkn = opPacketnetNew(mi, "ctrl_3_3_N", 0, 0);
 
     optPacketnetP ctrl_3_3_S_pkn = opPacketnetNew(mi, "ctrl_3_3_S", 0, 0);
+
+    optPacketnetP data_3_4_L_pkn = opPacketnetNew(mi, "data_3_4_L", 0, 0);
+
+    optPacketnetP ctrl_3_4_L_pkn = opPacketnetNew(mi, "ctrl_3_4_L", 0, 0);
+
+    optPacketnetP data_4_0_L_pkn = opPacketnetNew(mi, "data_4_0_L", 0, 0);
+
+    optPacketnetP ctrl_4_0_L_pkn = opPacketnetNew(mi, "ctrl_4_0_L", 0, 0);
+
+    optPacketnetP data_4_0_E_pkn = opPacketnetNew(mi, "data_4_0_E", 0, 0);
+
+    opPacketnetNew(mi, "data_4_0_W", 0, 0);
+
+    opPacketnetNew(mi, "data_4_0_N", 0, 0);
+
+    optPacketnetP data_4_0_S_pkn = opPacketnetNew(mi, "data_4_0_S", 0, 0);
+
+    optPacketnetP ctrl_4_0_E_pkn = opPacketnetNew(mi, "ctrl_4_0_E", 0, 0);
+
+    opPacketnetNew(mi, "ctrl_4_0_W", 0, 0);
+
+    opPacketnetNew(mi, "ctrl_4_0_N", 0, 0);
+
+    optPacketnetP ctrl_4_0_S_pkn = opPacketnetNew(mi, "ctrl_4_0_S", 0, 0);
+
+    optPacketnetP data_4_1_L_pkn = opPacketnetNew(mi, "data_4_1_L", 0, 0);
+
+    optPacketnetP ctrl_4_1_L_pkn = opPacketnetNew(mi, "ctrl_4_1_L", 0, 0);
+
+    optPacketnetP data_4_2_L_pkn = opPacketnetNew(mi, "data_4_2_L", 0, 0);
+
+    optPacketnetP ctrl_4_2_L_pkn = opPacketnetNew(mi, "ctrl_4_2_L", 0, 0);
+
+    optPacketnetP data_4_2_E_pkn = opPacketnetNew(mi, "data_4_2_E", 0, 0);
+
+    optPacketnetP data_4_2_W_pkn = opPacketnetNew(mi, "data_4_2_W", 0, 0);
+
+    opPacketnetNew(mi, "data_4_2_N", 0, 0);
+
+    optPacketnetP data_4_2_S_pkn = opPacketnetNew(mi, "data_4_2_S", 0, 0);
+
+    optPacketnetP ctrl_4_2_E_pkn = opPacketnetNew(mi, "ctrl_4_2_E", 0, 0);
+
+    optPacketnetP ctrl_4_2_W_pkn = opPacketnetNew(mi, "ctrl_4_2_W", 0, 0);
+
+    opPacketnetNew(mi, "ctrl_4_2_N", 0, 0);
+
+    optPacketnetP ctrl_4_2_S_pkn = opPacketnetNew(mi, "ctrl_4_2_S", 0, 0);
+
+    optPacketnetP data_4_3_L_pkn = opPacketnetNew(mi, "data_4_3_L", 0, 0);
+
+    optPacketnetP ctrl_4_3_L_pkn = opPacketnetNew(mi, "ctrl_4_3_L", 0, 0);
+
+    optPacketnetP data_4_4_L_pkn = opPacketnetNew(mi, "data_4_4_L", 0, 0);
+
+    optPacketnetP ctrl_4_4_L_pkn = opPacketnetNew(mi, "ctrl_4_4_L", 0, 0);
+
+    opPacketnetNew(mi, "data_4_4_E", 0, 0);
+
+    optPacketnetP data_4_4_W_pkn = opPacketnetNew(mi, "data_4_4_W", 0, 0);
+
+    opPacketnetNew(mi, "data_4_4_N", 0, 0);
+
+    optPacketnetP data_4_4_S_pkn = opPacketnetNew(mi, "data_4_4_S", 0, 0);
+
+    opPacketnetNew(mi, "ctrl_4_4_E", 0, 0);
+
+    optPacketnetP ctrl_4_4_W_pkn = opPacketnetNew(mi, "ctrl_4_4_W", 0, 0);
+
+    opPacketnetNew(mi, "ctrl_4_4_N", 0, 0);
+
+    optPacketnetP ctrl_4_4_S_pkn = opPacketnetNew(mi, "ctrl_4_4_S", 0, 0);
 
     optPacketnetP iteration_0_pkn = opPacketnetNew(mi, "iteration_0", 0, 0);
 
@@ -445,6 +660,24 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
     optPacketnetP iteration_14_pkn = opPacketnetNew(mi, "iteration_14", 0, 0);
 
     optPacketnetP iteration_15_pkn = opPacketnetNew(mi, "iteration_15", 0, 0);
+
+    optPacketnetP iteration_16_pkn = opPacketnetNew(mi, "iteration_16", 0, 0);
+
+    optPacketnetP iteration_17_pkn = opPacketnetNew(mi, "iteration_17", 0, 0);
+
+    optPacketnetP iteration_18_pkn = opPacketnetNew(mi, "iteration_18", 0, 0);
+
+    optPacketnetP iteration_19_pkn = opPacketnetNew(mi, "iteration_19", 0, 0);
+
+    optPacketnetP iteration_20_pkn = opPacketnetNew(mi, "iteration_20", 0, 0);
+
+    optPacketnetP iteration_21_pkn = opPacketnetNew(mi, "iteration_21", 0, 0);
+
+    optPacketnetP iteration_22_pkn = opPacketnetNew(mi, "iteration_22", 0, 0);
+
+    optPacketnetP iteration_23_pkn = opPacketnetNew(mi, "iteration_23", 0, 0);
+
+    optPacketnetP iteration_24_pkn = opPacketnetNew(mi, "iteration_24", 0, 0);
 
     // Processor cpu0
 
@@ -1053,6 +1286,348 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
     );
 
 
+    // Processor cpu16
+
+    const char *cpu16_path = opVLNVString(
+        0, // use the default VLNV path
+        "riscv.ovpworld.org",
+        "processor",
+        "riscv",
+        "1.0",
+        OP_PROCESSOR,
+        1   // report errors
+    );
+
+    opProcessorNew(
+        mi,
+        cpu16_path,
+        "cpu16",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu16Bus_b, "INSTRUCTION"),
+                OP_BUS_CONNECT(cpu16Bus_b, "DATA")
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip16_n, "MExternalInterrupt"),
+                OP_NET_CONNECT(MTimerInterrupt16_n, "MTimerInterrupt"),
+                OP_NET_CONNECT(MSWInterrupt16_n, "MSWInterrupt")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_BOOL_SET("simulateexceptions", 1)
+            ,OP_PARAM_UNS32_SET("cpuid", 16)
+            ,OP_PARAM_DOUBLE_SET("mips", 1000)
+            ,OP_PARAM_ENUM_SET("variant", "RVB32I")
+            ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
+            ,OP_PARAM_BOOL_SET("external_int_id", True)
+        )
+    );
+
+
+    // Processor cpu17
+
+    const char *cpu17_path = opVLNVString(
+        0, // use the default VLNV path
+        "riscv.ovpworld.org",
+        "processor",
+        "riscv",
+        "1.0",
+        OP_PROCESSOR,
+        1   // report errors
+    );
+
+    opProcessorNew(
+        mi,
+        cpu17_path,
+        "cpu17",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu17Bus_b, "INSTRUCTION"),
+                OP_BUS_CONNECT(cpu17Bus_b, "DATA")
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip17_n, "MExternalInterrupt"),
+                OP_NET_CONNECT(MTimerInterrupt17_n, "MTimerInterrupt"),
+                OP_NET_CONNECT(MSWInterrupt17_n, "MSWInterrupt")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_BOOL_SET("simulateexceptions", 1)
+            ,OP_PARAM_UNS32_SET("cpuid", 17)
+            ,OP_PARAM_DOUBLE_SET("mips", 1000)
+            ,OP_PARAM_ENUM_SET("variant", "RVB32I")
+            ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
+            ,OP_PARAM_BOOL_SET("external_int_id", True)
+        )
+    );
+
+
+    // Processor cpu18
+
+    const char *cpu18_path = opVLNVString(
+        0, // use the default VLNV path
+        "riscv.ovpworld.org",
+        "processor",
+        "riscv",
+        "1.0",
+        OP_PROCESSOR,
+        1   // report errors
+    );
+
+    opProcessorNew(
+        mi,
+        cpu18_path,
+        "cpu18",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu18Bus_b, "INSTRUCTION"),
+                OP_BUS_CONNECT(cpu18Bus_b, "DATA")
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip18_n, "MExternalInterrupt"),
+                OP_NET_CONNECT(MTimerInterrupt18_n, "MTimerInterrupt"),
+                OP_NET_CONNECT(MSWInterrupt18_n, "MSWInterrupt")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_BOOL_SET("simulateexceptions", 1)
+            ,OP_PARAM_UNS32_SET("cpuid", 18)
+            ,OP_PARAM_DOUBLE_SET("mips", 1000)
+            ,OP_PARAM_ENUM_SET("variant", "RVB32I")
+            ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
+            ,OP_PARAM_BOOL_SET("external_int_id", True)
+        )
+    );
+
+
+    // Processor cpu19
+
+    const char *cpu19_path = opVLNVString(
+        0, // use the default VLNV path
+        "riscv.ovpworld.org",
+        "processor",
+        "riscv",
+        "1.0",
+        OP_PROCESSOR,
+        1   // report errors
+    );
+
+    opProcessorNew(
+        mi,
+        cpu19_path,
+        "cpu19",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu19Bus_b, "INSTRUCTION"),
+                OP_BUS_CONNECT(cpu19Bus_b, "DATA")
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip19_n, "MExternalInterrupt"),
+                OP_NET_CONNECT(MTimerInterrupt19_n, "MTimerInterrupt"),
+                OP_NET_CONNECT(MSWInterrupt19_n, "MSWInterrupt")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_BOOL_SET("simulateexceptions", 1)
+            ,OP_PARAM_UNS32_SET("cpuid", 19)
+            ,OP_PARAM_DOUBLE_SET("mips", 1000)
+            ,OP_PARAM_ENUM_SET("variant", "RVB32I")
+            ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
+            ,OP_PARAM_BOOL_SET("external_int_id", True)
+        )
+    );
+
+
+    // Processor cpu20
+
+    const char *cpu20_path = opVLNVString(
+        0, // use the default VLNV path
+        "riscv.ovpworld.org",
+        "processor",
+        "riscv",
+        "1.0",
+        OP_PROCESSOR,
+        1   // report errors
+    );
+
+    opProcessorNew(
+        mi,
+        cpu20_path,
+        "cpu20",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu20Bus_b, "INSTRUCTION"),
+                OP_BUS_CONNECT(cpu20Bus_b, "DATA")
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip20_n, "MExternalInterrupt"),
+                OP_NET_CONNECT(MTimerInterrupt20_n, "MTimerInterrupt"),
+                OP_NET_CONNECT(MSWInterrupt20_n, "MSWInterrupt")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_BOOL_SET("simulateexceptions", 1)
+            ,OP_PARAM_UNS32_SET("cpuid", 20)
+            ,OP_PARAM_DOUBLE_SET("mips", 1000)
+            ,OP_PARAM_ENUM_SET("variant", "RVB32I")
+            ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
+            ,OP_PARAM_BOOL_SET("external_int_id", True)
+        )
+    );
+
+
+    // Processor cpu21
+
+    const char *cpu21_path = opVLNVString(
+        0, // use the default VLNV path
+        "riscv.ovpworld.org",
+        "processor",
+        "riscv",
+        "1.0",
+        OP_PROCESSOR,
+        1   // report errors
+    );
+
+    opProcessorNew(
+        mi,
+        cpu21_path,
+        "cpu21",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu21Bus_b, "INSTRUCTION"),
+                OP_BUS_CONNECT(cpu21Bus_b, "DATA")
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip21_n, "MExternalInterrupt"),
+                OP_NET_CONNECT(MTimerInterrupt21_n, "MTimerInterrupt"),
+                OP_NET_CONNECT(MSWInterrupt21_n, "MSWInterrupt")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_BOOL_SET("simulateexceptions", 1)
+            ,OP_PARAM_UNS32_SET("cpuid", 21)
+            ,OP_PARAM_DOUBLE_SET("mips", 1000)
+            ,OP_PARAM_ENUM_SET("variant", "RVB32I")
+            ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
+            ,OP_PARAM_BOOL_SET("external_int_id", True)
+        )
+    );
+
+
+    // Processor cpu22
+
+    const char *cpu22_path = opVLNVString(
+        0, // use the default VLNV path
+        "riscv.ovpworld.org",
+        "processor",
+        "riscv",
+        "1.0",
+        OP_PROCESSOR,
+        1   // report errors
+    );
+
+    opProcessorNew(
+        mi,
+        cpu22_path,
+        "cpu22",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu22Bus_b, "INSTRUCTION"),
+                OP_BUS_CONNECT(cpu22Bus_b, "DATA")
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip22_n, "MExternalInterrupt"),
+                OP_NET_CONNECT(MTimerInterrupt22_n, "MTimerInterrupt"),
+                OP_NET_CONNECT(MSWInterrupt22_n, "MSWInterrupt")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_BOOL_SET("simulateexceptions", 1)
+            ,OP_PARAM_UNS32_SET("cpuid", 22)
+            ,OP_PARAM_DOUBLE_SET("mips", 1000)
+            ,OP_PARAM_ENUM_SET("variant", "RVB32I")
+            ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
+            ,OP_PARAM_BOOL_SET("external_int_id", True)
+        )
+    );
+
+
+    // Processor cpu23
+
+    const char *cpu23_path = opVLNVString(
+        0, // use the default VLNV path
+        "riscv.ovpworld.org",
+        "processor",
+        "riscv",
+        "1.0",
+        OP_PROCESSOR,
+        1   // report errors
+    );
+
+    opProcessorNew(
+        mi,
+        cpu23_path,
+        "cpu23",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu23Bus_b, "INSTRUCTION"),
+                OP_BUS_CONNECT(cpu23Bus_b, "DATA")
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip23_n, "MExternalInterrupt"),
+                OP_NET_CONNECT(MTimerInterrupt23_n, "MTimerInterrupt"),
+                OP_NET_CONNECT(MSWInterrupt23_n, "MSWInterrupt")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_BOOL_SET("simulateexceptions", 1)
+            ,OP_PARAM_UNS32_SET("cpuid", 23)
+            ,OP_PARAM_DOUBLE_SET("mips", 1000)
+            ,OP_PARAM_ENUM_SET("variant", "RVB32I")
+            ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
+            ,OP_PARAM_BOOL_SET("external_int_id", True)
+        )
+    );
+
+
+    // Processor cpu24
+
+    const char *cpu24_path = opVLNVString(
+        0, // use the default VLNV path
+        "riscv.ovpworld.org",
+        "processor",
+        "riscv",
+        "1.0",
+        OP_PROCESSOR,
+        1   // report errors
+    );
+
+    opProcessorNew(
+        mi,
+        cpu24_path,
+        "cpu24",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu24Bus_b, "INSTRUCTION"),
+                OP_BUS_CONNECT(cpu24Bus_b, "DATA")
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip24_n, "MExternalInterrupt"),
+                OP_NET_CONNECT(MTimerInterrupt24_n, "MTimerInterrupt"),
+                OP_NET_CONNECT(MSWInterrupt24_n, "MSWInterrupt")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_BOOL_SET("simulateexceptions", 1)
+            ,OP_PARAM_UNS32_SET("cpuid", 24)
+            ,OP_PARAM_DOUBLE_SET("mips", 1000)
+            ,OP_PARAM_ENUM_SET("variant", "RVB32I")
+            ,OP_PARAM_STRING_SET("add_Extensions", "MSU")
+            ,OP_PARAM_BOOL_SET("external_int_id", True)
+        )
+    );
+
+
     // Memory nvram0
 
     opMemoryNew(
@@ -1089,10 +1664,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk0",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu0Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu0Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1134,10 +1709,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk1",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu1Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu1Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1179,10 +1754,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk2",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu2Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu2Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1224,10 +1799,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk3",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu3Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu3Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1269,10 +1844,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk4",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu4Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu4Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1314,10 +1889,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk5",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu5Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu5Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1359,10 +1934,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk6",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu6Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu6Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1404,10 +1979,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk7",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu7Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu7Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1449,10 +2024,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk8",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu8Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu8Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1494,10 +2069,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk9",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu9Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu9Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1539,10 +2114,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk10",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu10Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu10Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1584,10 +2159,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk11",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu11Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu11Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1629,10 +2204,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk12",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu12Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu12Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1674,10 +2249,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk13",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu13Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu13Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1719,10 +2294,10 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk14",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu14Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu14Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -1764,10 +2339,415 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         mi,
         "stk15",
         OP_PRIV_RWX,
-        (0xffffffffULL) - (0xfff00000ULL),
+        (0xffffffffULL) - (0xf0000000ULL),
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
-                OP_BUS_CONNECT(cpu15Bus_b, "sp1", .slave=1, .addrLo=0xfff00000ULL, .addrHi=0xffffffffULL)
+                OP_BUS_CONNECT(cpu15Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory nvram16
+
+    opMemoryNew(
+        mi,
+        "nvram16",
+        OP_PRIV_RWX,
+        (0x6fffffffULL) - (0x60000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu16Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory ddr16
+
+    opMemoryNew(
+        mi,
+        "ddr16",
+        OP_PRIV_RWX,
+        (0x8fffffffULL) - (0x80000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu16Bus_b, "sp1", .slave=1, .addrLo=0x80000000ULL, .addrHi=0x8fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory stk16
+
+    opMemoryNew(
+        mi,
+        "stk16",
+        OP_PRIV_RWX,
+        (0xffffffffULL) - (0xf0000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu16Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory nvram17
+
+    opMemoryNew(
+        mi,
+        "nvram17",
+        OP_PRIV_RWX,
+        (0x6fffffffULL) - (0x60000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu17Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory ddr17
+
+    opMemoryNew(
+        mi,
+        "ddr17",
+        OP_PRIV_RWX,
+        (0x8fffffffULL) - (0x80000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu17Bus_b, "sp1", .slave=1, .addrLo=0x80000000ULL, .addrHi=0x8fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory stk17
+
+    opMemoryNew(
+        mi,
+        "stk17",
+        OP_PRIV_RWX,
+        (0xffffffffULL) - (0xf0000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu17Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory nvram18
+
+    opMemoryNew(
+        mi,
+        "nvram18",
+        OP_PRIV_RWX,
+        (0x6fffffffULL) - (0x60000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu18Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory ddr18
+
+    opMemoryNew(
+        mi,
+        "ddr18",
+        OP_PRIV_RWX,
+        (0x8fffffffULL) - (0x80000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu18Bus_b, "sp1", .slave=1, .addrLo=0x80000000ULL, .addrHi=0x8fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory stk18
+
+    opMemoryNew(
+        mi,
+        "stk18",
+        OP_PRIV_RWX,
+        (0xffffffffULL) - (0xf0000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu18Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory nvram19
+
+    opMemoryNew(
+        mi,
+        "nvram19",
+        OP_PRIV_RWX,
+        (0x6fffffffULL) - (0x60000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu19Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory ddr19
+
+    opMemoryNew(
+        mi,
+        "ddr19",
+        OP_PRIV_RWX,
+        (0x8fffffffULL) - (0x80000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu19Bus_b, "sp1", .slave=1, .addrLo=0x80000000ULL, .addrHi=0x8fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory stk19
+
+    opMemoryNew(
+        mi,
+        "stk19",
+        OP_PRIV_RWX,
+        (0xffffffffULL) - (0xf0000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu19Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory nvram20
+
+    opMemoryNew(
+        mi,
+        "nvram20",
+        OP_PRIV_RWX,
+        (0x6fffffffULL) - (0x60000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu20Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory ddr20
+
+    opMemoryNew(
+        mi,
+        "ddr20",
+        OP_PRIV_RWX,
+        (0x8fffffffULL) - (0x80000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu20Bus_b, "sp1", .slave=1, .addrLo=0x80000000ULL, .addrHi=0x8fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory stk20
+
+    opMemoryNew(
+        mi,
+        "stk20",
+        OP_PRIV_RWX,
+        (0xffffffffULL) - (0xf0000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu20Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory nvram21
+
+    opMemoryNew(
+        mi,
+        "nvram21",
+        OP_PRIV_RWX,
+        (0x6fffffffULL) - (0x60000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu21Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory ddr21
+
+    opMemoryNew(
+        mi,
+        "ddr21",
+        OP_PRIV_RWX,
+        (0x8fffffffULL) - (0x80000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu21Bus_b, "sp1", .slave=1, .addrLo=0x80000000ULL, .addrHi=0x8fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory stk21
+
+    opMemoryNew(
+        mi,
+        "stk21",
+        OP_PRIV_RWX,
+        (0xffffffffULL) - (0xf0000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu21Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory nvram22
+
+    opMemoryNew(
+        mi,
+        "nvram22",
+        OP_PRIV_RWX,
+        (0x6fffffffULL) - (0x60000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu22Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory ddr22
+
+    opMemoryNew(
+        mi,
+        "ddr22",
+        OP_PRIV_RWX,
+        (0x8fffffffULL) - (0x80000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu22Bus_b, "sp1", .slave=1, .addrLo=0x80000000ULL, .addrHi=0x8fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory stk22
+
+    opMemoryNew(
+        mi,
+        "stk22",
+        OP_PRIV_RWX,
+        (0xffffffffULL) - (0xf0000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu22Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory nvram23
+
+    opMemoryNew(
+        mi,
+        "nvram23",
+        OP_PRIV_RWX,
+        (0x6fffffffULL) - (0x60000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu23Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory ddr23
+
+    opMemoryNew(
+        mi,
+        "ddr23",
+        OP_PRIV_RWX,
+        (0x8fffffffULL) - (0x80000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu23Bus_b, "sp1", .slave=1, .addrLo=0x80000000ULL, .addrHi=0x8fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory stk23
+
+    opMemoryNew(
+        mi,
+        "stk23",
+        OP_PRIV_RWX,
+        (0xffffffffULL) - (0xf0000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu23Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory nvram24
+
+    opMemoryNew(
+        mi,
+        "nvram24",
+        OP_PRIV_RWX,
+        (0x6fffffffULL) - (0x60000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu24Bus_b, "sp1", .slave=1, .addrLo=0x60000000ULL, .addrHi=0x6fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory ddr24
+
+    opMemoryNew(
+        mi,
+        "ddr24",
+        OP_PRIV_RWX,
+        (0x8fffffffULL) - (0x80000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu24Bus_b, "sp1", .slave=1, .addrLo=0x80000000ULL, .addrHi=0x8fffffffULL)
+            )
+        ),
+        0
+    );
+
+    // Memory stk24
+
+    opMemoryNew(
+        mi,
+        "stk24",
+        OP_PRIV_RWX,
+        (0xffffffffULL) - (0xf0000000ULL),
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu24Bus_b, "sp1", .slave=1, .addrLo=0xf0000000ULL, .addrHi=0xffffffffULL)
             )
         ),
         0
@@ -2308,6 +3288,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_PACKETNET_CONNECT(ctrl_0_2_E_pkn, "portControlWest"),
                 OP_PACKETNET_CONNECT(data_0_3_L_pkn, "portDataLocal"),
                 OP_PACKETNET_CONNECT(ctrl_0_3_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_0_4_W_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_0_4_W_pkn, "portControlEast"),
                 OP_PACKETNET_CONNECT(data_1_3_S_pkn, "portDataNorth"),
                 OP_PACKETNET_CONNECT(ctrl_1_3_S_pkn, "portControlNorth"),
                 OP_PACKETNET_CONNECT(iteration_3_pkn, "iterationsPort")
@@ -2440,14 +3422,12 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu4Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_0_0_N_pkn, "portDataSouth"),
-                OP_PACKETNET_CONNECT(ctrl_0_0_N_pkn, "portControlSouth"),
-                OP_PACKETNET_CONNECT(data_1_0_L_pkn, "portDataLocal"),
-                OP_PACKETNET_CONNECT(ctrl_1_0_L_pkn, "portControlLocal"),
-                OP_PACKETNET_CONNECT(data_1_1_W_pkn, "portDataEast"),
-                OP_PACKETNET_CONNECT(ctrl_1_1_W_pkn, "portControlEast"),
-                OP_PACKETNET_CONNECT(data_2_0_S_pkn, "portDataNorth"),
-                OP_PACKETNET_CONNECT(ctrl_2_0_S_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(data_0_4_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_0_4_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_0_4_W_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_0_4_W_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_0_4_N_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_0_4_N_pkn, "portControlNorth"),
                 OP_PACKETNET_CONNECT(iteration_4_pkn, "iterationsPort")
             )
         ),
@@ -2473,8 +3453,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_NET_CONNECT(intNI_TMR4_n, "INT_NI_TMR")
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_1_0_L_pkn, "dataPort"),
-                OP_PACKETNET_CONNECT(ctrl_1_0_L_pkn, "controlPort")
+                OP_PACKETNET_CONNECT(data_0_4_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_0_4_L_pkn, "controlPort")
             )
         ),
         0
@@ -2578,16 +3558,14 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu5Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_1_1_L_pkn, "portDataLocal"),
-                OP_PACKETNET_CONNECT(ctrl_1_1_L_pkn, "portControlLocal"),
-                OP_PACKETNET_CONNECT(data_1_1_E_pkn, "portDataEast"),
-                OP_PACKETNET_CONNECT(ctrl_1_1_E_pkn, "portControlEast"),
-                OP_PACKETNET_CONNECT(data_1_1_W_pkn, "portDataWest"),
-                OP_PACKETNET_CONNECT(ctrl_1_1_W_pkn, "portControlWest"),
-                OP_PACKETNET_CONNECT(data_1_1_N_pkn, "portDataNorth"),
-                OP_PACKETNET_CONNECT(ctrl_1_1_N_pkn, "portControlNorth"),
-                OP_PACKETNET_CONNECT(data_1_1_S_pkn, "portDataSouth"),
-                OP_PACKETNET_CONNECT(ctrl_1_1_S_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_0_0_N_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_0_0_N_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_1_0_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_1_0_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_1_1_W_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_1_1_W_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_2_0_S_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_2_0_S_pkn, "portControlNorth"),
                 OP_PACKETNET_CONNECT(iteration_5_pkn, "iterationsPort")
             )
         ),
@@ -2613,8 +3591,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_NET_CONNECT(intNI_TMR5_n, "INT_NI_TMR")
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_1_1_L_pkn, "dataPort"),
-                OP_PACKETNET_CONNECT(ctrl_1_1_L_pkn, "controlPort")
+                OP_PACKETNET_CONNECT(data_1_0_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_1_0_L_pkn, "controlPort")
             )
         ),
         0
@@ -2718,16 +3696,16 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu6Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_0_2_N_pkn, "portDataSouth"),
-                OP_PACKETNET_CONNECT(ctrl_0_2_N_pkn, "portControlSouth"),
-                OP_PACKETNET_CONNECT(data_1_1_E_pkn, "portDataWest"),
-                OP_PACKETNET_CONNECT(ctrl_1_1_E_pkn, "portControlWest"),
-                OP_PACKETNET_CONNECT(data_1_2_L_pkn, "portDataLocal"),
-                OP_PACKETNET_CONNECT(ctrl_1_2_L_pkn, "portControlLocal"),
-                OP_PACKETNET_CONNECT(data_1_3_W_pkn, "portDataEast"),
-                OP_PACKETNET_CONNECT(ctrl_1_3_W_pkn, "portControlEast"),
-                OP_PACKETNET_CONNECT(data_2_2_S_pkn, "portDataNorth"),
-                OP_PACKETNET_CONNECT(ctrl_2_2_S_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(data_1_1_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_1_1_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_1_1_E_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_1_1_E_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_1_1_W_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_1_1_W_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_1_1_N_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_1_1_N_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(data_1_1_S_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_1_1_S_pkn, "portControlSouth"),
                 OP_PACKETNET_CONNECT(iteration_6_pkn, "iterationsPort")
             )
         ),
@@ -2753,8 +3731,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_NET_CONNECT(intNI_TMR6_n, "INT_NI_TMR")
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_1_2_L_pkn, "dataPort"),
-                OP_PACKETNET_CONNECT(ctrl_1_2_L_pkn, "controlPort")
+                OP_PACKETNET_CONNECT(data_1_1_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_1_1_L_pkn, "controlPort")
             )
         ),
         0
@@ -2858,14 +3836,16 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu7Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_1_3_L_pkn, "portDataLocal"),
-                OP_PACKETNET_CONNECT(ctrl_1_3_L_pkn, "portControlLocal"),
-                OP_PACKETNET_CONNECT(data_1_3_W_pkn, "portDataWest"),
-                OP_PACKETNET_CONNECT(ctrl_1_3_W_pkn, "portControlWest"),
-                OP_PACKETNET_CONNECT(data_1_3_N_pkn, "portDataNorth"),
-                OP_PACKETNET_CONNECT(ctrl_1_3_N_pkn, "portControlNorth"),
-                OP_PACKETNET_CONNECT(data_1_3_S_pkn, "portDataSouth"),
-                OP_PACKETNET_CONNECT(ctrl_1_3_S_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_0_2_N_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_0_2_N_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_1_1_E_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_1_1_E_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_1_2_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_1_2_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_1_3_W_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_1_3_W_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_2_2_S_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_2_2_S_pkn, "portControlNorth"),
                 OP_PACKETNET_CONNECT(iteration_7_pkn, "iterationsPort")
             )
         ),
@@ -2891,8 +3871,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_NET_CONNECT(intNI_TMR7_n, "INT_NI_TMR")
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_1_3_L_pkn, "dataPort"),
-                OP_PACKETNET_CONNECT(ctrl_1_3_L_pkn, "controlPort")
+                OP_PACKETNET_CONNECT(data_1_2_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_1_2_L_pkn, "controlPort")
             )
         ),
         0
@@ -2996,14 +3976,16 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu8Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_2_0_L_pkn, "portDataLocal"),
-                OP_PACKETNET_CONNECT(ctrl_2_0_L_pkn, "portControlLocal"),
-                OP_PACKETNET_CONNECT(data_2_0_E_pkn, "portDataEast"),
-                OP_PACKETNET_CONNECT(ctrl_2_0_E_pkn, "portControlEast"),
-                OP_PACKETNET_CONNECT(data_2_0_N_pkn, "portDataNorth"),
-                OP_PACKETNET_CONNECT(ctrl_2_0_N_pkn, "portControlNorth"),
-                OP_PACKETNET_CONNECT(data_2_0_S_pkn, "portDataSouth"),
-                OP_PACKETNET_CONNECT(ctrl_2_0_S_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_1_3_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_1_3_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_1_3_E_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_1_3_E_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_1_3_W_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_1_3_W_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_1_3_N_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_1_3_N_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(data_1_3_S_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_1_3_S_pkn, "portControlSouth"),
                 OP_PACKETNET_CONNECT(iteration_8_pkn, "iterationsPort")
             )
         ),
@@ -3029,8 +4011,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_NET_CONNECT(intNI_TMR8_n, "INT_NI_TMR")
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_2_0_L_pkn, "dataPort"),
-                OP_PACKETNET_CONNECT(ctrl_2_0_L_pkn, "controlPort")
+                OP_PACKETNET_CONNECT(data_1_3_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_1_3_L_pkn, "controlPort")
             )
         ),
         0
@@ -3134,16 +4116,14 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu9Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_1_1_N_pkn, "portDataSouth"),
-                OP_PACKETNET_CONNECT(ctrl_1_1_N_pkn, "portControlSouth"),
-                OP_PACKETNET_CONNECT(data_2_0_E_pkn, "portDataWest"),
-                OP_PACKETNET_CONNECT(ctrl_2_0_E_pkn, "portControlWest"),
-                OP_PACKETNET_CONNECT(data_2_1_L_pkn, "portDataLocal"),
-                OP_PACKETNET_CONNECT(ctrl_2_1_L_pkn, "portControlLocal"),
-                OP_PACKETNET_CONNECT(data_2_2_W_pkn, "portDataEast"),
-                OP_PACKETNET_CONNECT(ctrl_2_2_W_pkn, "portControlEast"),
-                OP_PACKETNET_CONNECT(data_3_1_S_pkn, "portDataNorth"),
-                OP_PACKETNET_CONNECT(ctrl_3_1_S_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(data_0_4_N_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_0_4_N_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_1_3_E_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_1_3_E_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_1_4_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_1_4_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_2_4_S_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_2_4_S_pkn, "portControlNorth"),
                 OP_PACKETNET_CONNECT(iteration_9_pkn, "iterationsPort")
             )
         ),
@@ -3169,8 +4149,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_NET_CONNECT(intNI_TMR9_n, "INT_NI_TMR")
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_2_1_L_pkn, "dataPort"),
-                OP_PACKETNET_CONNECT(ctrl_2_1_L_pkn, "controlPort")
+                OP_PACKETNET_CONNECT(data_1_4_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_1_4_L_pkn, "controlPort")
             )
         ),
         0
@@ -3274,16 +4254,14 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu10Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_2_2_L_pkn, "portDataLocal"),
-                OP_PACKETNET_CONNECT(ctrl_2_2_L_pkn, "portControlLocal"),
-                OP_PACKETNET_CONNECT(data_2_2_E_pkn, "portDataEast"),
-                OP_PACKETNET_CONNECT(ctrl_2_2_E_pkn, "portControlEast"),
-                OP_PACKETNET_CONNECT(data_2_2_W_pkn, "portDataWest"),
-                OP_PACKETNET_CONNECT(ctrl_2_2_W_pkn, "portControlWest"),
-                OP_PACKETNET_CONNECT(data_2_2_N_pkn, "portDataNorth"),
-                OP_PACKETNET_CONNECT(ctrl_2_2_N_pkn, "portControlNorth"),
-                OP_PACKETNET_CONNECT(data_2_2_S_pkn, "portDataSouth"),
-                OP_PACKETNET_CONNECT(ctrl_2_2_S_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_2_0_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_2_0_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_2_0_E_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_2_0_E_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_2_0_N_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_2_0_N_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(data_2_0_S_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_2_0_S_pkn, "portControlSouth"),
                 OP_PACKETNET_CONNECT(iteration_10_pkn, "iterationsPort")
             )
         ),
@@ -3309,8 +4287,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_NET_CONNECT(intNI_TMR10_n, "INT_NI_TMR")
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_2_2_L_pkn, "dataPort"),
-                OP_PACKETNET_CONNECT(ctrl_2_2_L_pkn, "controlPort")
+                OP_PACKETNET_CONNECT(data_2_0_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_2_0_L_pkn, "controlPort")
             )
         ),
         0
@@ -3414,14 +4392,16 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu11Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_1_3_N_pkn, "portDataSouth"),
-                OP_PACKETNET_CONNECT(ctrl_1_3_N_pkn, "portControlSouth"),
-                OP_PACKETNET_CONNECT(data_2_2_E_pkn, "portDataWest"),
-                OP_PACKETNET_CONNECT(ctrl_2_2_E_pkn, "portControlWest"),
-                OP_PACKETNET_CONNECT(data_2_3_L_pkn, "portDataLocal"),
-                OP_PACKETNET_CONNECT(ctrl_2_3_L_pkn, "portControlLocal"),
-                OP_PACKETNET_CONNECT(data_3_3_S_pkn, "portDataNorth"),
-                OP_PACKETNET_CONNECT(ctrl_3_3_S_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(data_1_1_N_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_1_1_N_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_2_0_E_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_2_0_E_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_2_1_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_2_1_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_2_2_W_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_2_2_W_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_3_1_S_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_3_1_S_pkn, "portControlNorth"),
                 OP_PACKETNET_CONNECT(iteration_11_pkn, "iterationsPort")
             )
         ),
@@ -3447,8 +4427,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_NET_CONNECT(intNI_TMR11_n, "INT_NI_TMR")
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_2_3_L_pkn, "dataPort"),
-                OP_PACKETNET_CONNECT(ctrl_2_3_L_pkn, "controlPort")
+                OP_PACKETNET_CONNECT(data_2_1_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_2_1_L_pkn, "controlPort")
             )
         ),
         0
@@ -3552,12 +4532,16 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu12Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_2_0_N_pkn, "portDataSouth"),
-                OP_PACKETNET_CONNECT(ctrl_2_0_N_pkn, "portControlSouth"),
-                OP_PACKETNET_CONNECT(data_3_0_L_pkn, "portDataLocal"),
-                OP_PACKETNET_CONNECT(ctrl_3_0_L_pkn, "portControlLocal"),
-                OP_PACKETNET_CONNECT(data_3_1_W_pkn, "portDataEast"),
-                OP_PACKETNET_CONNECT(ctrl_3_1_W_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_2_2_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_2_2_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_2_2_E_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_2_2_E_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_2_2_W_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_2_2_W_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_2_2_N_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_2_2_N_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(data_2_2_S_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_2_2_S_pkn, "portControlSouth"),
                 OP_PACKETNET_CONNECT(iteration_12_pkn, "iterationsPort")
             )
         ),
@@ -3583,8 +4567,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_NET_CONNECT(intNI_TMR12_n, "INT_NI_TMR")
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_3_0_L_pkn, "dataPort"),
-                OP_PACKETNET_CONNECT(ctrl_3_0_L_pkn, "controlPort")
+                OP_PACKETNET_CONNECT(data_2_2_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_2_2_L_pkn, "controlPort")
             )
         ),
         0
@@ -3688,14 +4672,16 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu13Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_3_1_L_pkn, "portDataLocal"),
-                OP_PACKETNET_CONNECT(ctrl_3_1_L_pkn, "portControlLocal"),
-                OP_PACKETNET_CONNECT(data_3_1_E_pkn, "portDataEast"),
-                OP_PACKETNET_CONNECT(ctrl_3_1_E_pkn, "portControlEast"),
-                OP_PACKETNET_CONNECT(data_3_1_W_pkn, "portDataWest"),
-                OP_PACKETNET_CONNECT(ctrl_3_1_W_pkn, "portControlWest"),
-                OP_PACKETNET_CONNECT(data_3_1_S_pkn, "portDataSouth"),
-                OP_PACKETNET_CONNECT(ctrl_3_1_S_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_1_3_N_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_1_3_N_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_2_2_E_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_2_2_E_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_2_3_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_2_3_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_2_4_W_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_2_4_W_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_3_3_S_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_3_3_S_pkn, "portControlNorth"),
                 OP_PACKETNET_CONNECT(iteration_13_pkn, "iterationsPort")
             )
         ),
@@ -3721,8 +4707,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_NET_CONNECT(intNI_TMR13_n, "INT_NI_TMR")
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_3_1_L_pkn, "dataPort"),
-                OP_PACKETNET_CONNECT(ctrl_3_1_L_pkn, "controlPort")
+                OP_PACKETNET_CONNECT(data_2_3_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_2_3_L_pkn, "controlPort")
             )
         ),
         0
@@ -3826,14 +4812,14 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu14Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_2_2_N_pkn, "portDataSouth"),
-                OP_PACKETNET_CONNECT(ctrl_2_2_N_pkn, "portControlSouth"),
-                OP_PACKETNET_CONNECT(data_3_1_E_pkn, "portDataWest"),
-                OP_PACKETNET_CONNECT(ctrl_3_1_E_pkn, "portControlWest"),
-                OP_PACKETNET_CONNECT(data_3_2_L_pkn, "portDataLocal"),
-                OP_PACKETNET_CONNECT(ctrl_3_2_L_pkn, "portControlLocal"),
-                OP_PACKETNET_CONNECT(data_3_3_W_pkn, "portDataEast"),
-                OP_PACKETNET_CONNECT(ctrl_3_3_W_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_2_4_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_2_4_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_2_4_W_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_2_4_W_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_2_4_N_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_2_4_N_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(data_2_4_S_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_2_4_S_pkn, "portControlSouth"),
                 OP_PACKETNET_CONNECT(iteration_14_pkn, "iterationsPort")
             )
         ),
@@ -3859,8 +4845,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_NET_CONNECT(intNI_TMR14_n, "INT_NI_TMR")
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_3_2_L_pkn, "dataPort"),
-                OP_PACKETNET_CONNECT(ctrl_3_2_L_pkn, "controlPort")
+                OP_PACKETNET_CONNECT(data_2_4_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_2_4_L_pkn, "controlPort")
             )
         ),
         0
@@ -3964,12 +4950,14 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_BUS_CONNECT(cpu15Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_3_3_L_pkn, "portDataLocal"),
-                OP_PACKETNET_CONNECT(ctrl_3_3_L_pkn, "portControlLocal"),
-                OP_PACKETNET_CONNECT(data_3_3_W_pkn, "portDataWest"),
-                OP_PACKETNET_CONNECT(ctrl_3_3_W_pkn, "portControlWest"),
-                OP_PACKETNET_CONNECT(data_3_3_S_pkn, "portDataSouth"),
-                OP_PACKETNET_CONNECT(ctrl_3_3_S_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_2_0_N_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_2_0_N_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_3_0_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_3_0_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_3_1_W_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_3_1_W_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_4_0_S_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_4_0_S_pkn, "portControlNorth"),
                 OP_PACKETNET_CONNECT(iteration_15_pkn, "iterationsPort")
             )
         ),
@@ -3995,8 +4983,8 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_NET_CONNECT(intNI_TMR15_n, "INT_NI_TMR")
             ),
             OP_PACKETNET_CONNECTIONS(
-                OP_PACKETNET_CONNECT(data_3_3_L_pkn, "dataPort"),
-                OP_PACKETNET_CONNECT(ctrl_3_3_L_pkn, "controlPort")
+                OP_PACKETNET_CONNECT(data_3_0_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_3_0_L_pkn, "controlPort")
             )
         ),
         0
@@ -4012,6 +5000,1250 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
         OP_CONNECTIONS(
             OP_BUS_CONNECTIONS(
                 OP_BUS_CONNECT(cpu15Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE uart16
+
+    const char *uart16_path = opVLNVString(
+        0, // use the default VLNV path
+        "microsemi.ovpworld.org",
+        "peripheral",
+        "CoreUARTapb",
+        "1.0",
+        OP_PERIPHERAL,
+        1   // report errors
+    );
+
+    opPeripheralNew(
+        mi,
+        uart16_path,
+        "uart16",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu16Bus_b, "port0", .slave=1, .addrLo=0x70001000ULL, .addrHi=0x70001017ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE plic16
+
+    const char *plic16_path = "peripheral/plic/pse.pse";
+    opPeripheralNew(
+        mi,
+        plic16_path,
+        "plic16",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu16Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip16_n, "irqT0"),
+                OP_NET_CONNECT(intNI_RX16_n, "irqS2"),
+                OP_NET_CONNECT(intNI_TX16_n, "irqS3"),
+                OP_NET_CONNECT(intNI_TMR16_n, "irqS4")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_UNS32_SET("num_sources", 256)
+            ,OP_PARAM_UNS32_SET("num_targets", 1)
+        )
+    );
+
+    // PSE prci16
+
+    const char *prci16_path = "peripheral/CLINT/pse.pse";
+    opPeripheralNew(
+        mi,
+        prci16_path,
+        "prci16",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu16Bus_b, "port0", .slave=1, .addrLo=0x44000000ULL, .addrHi=0x4400bfffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(MTimerInterrupt16_n, "MTimerInterrupt0"),
+                OP_NET_CONNECT(MSWInterrupt16_n, "MSWInterrupt0")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
+        )
+    );
+
+    // PSE router16
+
+    const char *router16_path = "peripheral/whnoc_dma/pse.pse";
+    opPeripheralNew(
+        mi,
+        router16_path,
+        "router16",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu16Bus_b, "RREAD"),
+                OP_BUS_CONNECT(cpu16Bus_b, "RWRITE"),
+                OP_BUS_CONNECT(cpu16Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_3_1_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_3_1_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_3_1_E_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_3_1_E_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_3_1_W_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_3_1_W_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_3_1_N_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_3_1_N_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(data_3_1_S_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_3_1_S_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(iteration_16_pkn, "iterationsPort")
+            )
+        ),
+        0
+    );
+
+    // PSE ni16
+
+    const char *ni16_path = "peripheral/networkInterface/pse.pse";
+    opPeripheralNew(
+        mi,
+        ni16_path,
+        "ni16",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu16Bus_b, "MREAD"),
+                OP_BUS_CONNECT(cpu16Bus_b, "MWRITE"),
+                OP_BUS_CONNECT(cpu16Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x50000013ULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intNI_RX16_n, "INT_NI_RX"),
+                OP_NET_CONNECT(intNI_TX16_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_TMR16_n, "INT_NI_TMR")
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_3_1_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_3_1_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer16
+
+    const char *printer16_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer16_path,
+        "printer16",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu16Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE uart17
+
+    const char *uart17_path = opVLNVString(
+        0, // use the default VLNV path
+        "microsemi.ovpworld.org",
+        "peripheral",
+        "CoreUARTapb",
+        "1.0",
+        OP_PERIPHERAL,
+        1   // report errors
+    );
+
+    opPeripheralNew(
+        mi,
+        uart17_path,
+        "uart17",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu17Bus_b, "port0", .slave=1, .addrLo=0x70001000ULL, .addrHi=0x70001017ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE plic17
+
+    const char *plic17_path = "peripheral/plic/pse.pse";
+    opPeripheralNew(
+        mi,
+        plic17_path,
+        "plic17",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu17Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip17_n, "irqT0"),
+                OP_NET_CONNECT(intNI_RX17_n, "irqS2"),
+                OP_NET_CONNECT(intNI_TX17_n, "irqS3"),
+                OP_NET_CONNECT(intNI_TMR17_n, "irqS4")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_UNS32_SET("num_sources", 256)
+            ,OP_PARAM_UNS32_SET("num_targets", 1)
+        )
+    );
+
+    // PSE prci17
+
+    const char *prci17_path = "peripheral/CLINT/pse.pse";
+    opPeripheralNew(
+        mi,
+        prci17_path,
+        "prci17",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu17Bus_b, "port0", .slave=1, .addrLo=0x44000000ULL, .addrHi=0x4400bfffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(MTimerInterrupt17_n, "MTimerInterrupt0"),
+                OP_NET_CONNECT(MSWInterrupt17_n, "MSWInterrupt0")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
+        )
+    );
+
+    // PSE router17
+
+    const char *router17_path = "peripheral/whnoc_dma/pse.pse";
+    opPeripheralNew(
+        mi,
+        router17_path,
+        "router17",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu17Bus_b, "RREAD"),
+                OP_BUS_CONNECT(cpu17Bus_b, "RWRITE"),
+                OP_BUS_CONNECT(cpu17Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_2_2_N_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_2_2_N_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_3_1_E_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_3_1_E_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_3_2_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_3_2_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_3_3_W_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_3_3_W_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_4_2_S_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_4_2_S_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(iteration_17_pkn, "iterationsPort")
+            )
+        ),
+        0
+    );
+
+    // PSE ni17
+
+    const char *ni17_path = "peripheral/networkInterface/pse.pse";
+    opPeripheralNew(
+        mi,
+        ni17_path,
+        "ni17",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu17Bus_b, "MREAD"),
+                OP_BUS_CONNECT(cpu17Bus_b, "MWRITE"),
+                OP_BUS_CONNECT(cpu17Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x50000013ULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intNI_RX17_n, "INT_NI_RX"),
+                OP_NET_CONNECT(intNI_TX17_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_TMR17_n, "INT_NI_TMR")
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_3_2_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_3_2_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer17
+
+    const char *printer17_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer17_path,
+        "printer17",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu17Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE uart18
+
+    const char *uart18_path = opVLNVString(
+        0, // use the default VLNV path
+        "microsemi.ovpworld.org",
+        "peripheral",
+        "CoreUARTapb",
+        "1.0",
+        OP_PERIPHERAL,
+        1   // report errors
+    );
+
+    opPeripheralNew(
+        mi,
+        uart18_path,
+        "uart18",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu18Bus_b, "port0", .slave=1, .addrLo=0x70001000ULL, .addrHi=0x70001017ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE plic18
+
+    const char *plic18_path = "peripheral/plic/pse.pse";
+    opPeripheralNew(
+        mi,
+        plic18_path,
+        "plic18",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu18Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip18_n, "irqT0"),
+                OP_NET_CONNECT(intNI_RX18_n, "irqS2"),
+                OP_NET_CONNECT(intNI_TX18_n, "irqS3"),
+                OP_NET_CONNECT(intNI_TMR18_n, "irqS4")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_UNS32_SET("num_sources", 256)
+            ,OP_PARAM_UNS32_SET("num_targets", 1)
+        )
+    );
+
+    // PSE prci18
+
+    const char *prci18_path = "peripheral/CLINT/pse.pse";
+    opPeripheralNew(
+        mi,
+        prci18_path,
+        "prci18",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu18Bus_b, "port0", .slave=1, .addrLo=0x44000000ULL, .addrHi=0x4400bfffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(MTimerInterrupt18_n, "MTimerInterrupt0"),
+                OP_NET_CONNECT(MSWInterrupt18_n, "MSWInterrupt0")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
+        )
+    );
+
+    // PSE router18
+
+    const char *router18_path = "peripheral/whnoc_dma/pse.pse";
+    opPeripheralNew(
+        mi,
+        router18_path,
+        "router18",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu18Bus_b, "RREAD"),
+                OP_BUS_CONNECT(cpu18Bus_b, "RWRITE"),
+                OP_BUS_CONNECT(cpu18Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_3_3_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_3_3_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_3_3_E_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_3_3_E_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_3_3_W_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_3_3_W_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_3_3_N_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_3_3_N_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(data_3_3_S_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_3_3_S_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(iteration_18_pkn, "iterationsPort")
+            )
+        ),
+        0
+    );
+
+    // PSE ni18
+
+    const char *ni18_path = "peripheral/networkInterface/pse.pse";
+    opPeripheralNew(
+        mi,
+        ni18_path,
+        "ni18",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu18Bus_b, "MREAD"),
+                OP_BUS_CONNECT(cpu18Bus_b, "MWRITE"),
+                OP_BUS_CONNECT(cpu18Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x50000013ULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intNI_RX18_n, "INT_NI_RX"),
+                OP_NET_CONNECT(intNI_TX18_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_TMR18_n, "INT_NI_TMR")
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_3_3_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_3_3_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer18
+
+    const char *printer18_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer18_path,
+        "printer18",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu18Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE uart19
+
+    const char *uart19_path = opVLNVString(
+        0, // use the default VLNV path
+        "microsemi.ovpworld.org",
+        "peripheral",
+        "CoreUARTapb",
+        "1.0",
+        OP_PERIPHERAL,
+        1   // report errors
+    );
+
+    opPeripheralNew(
+        mi,
+        uart19_path,
+        "uart19",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu19Bus_b, "port0", .slave=1, .addrLo=0x70001000ULL, .addrHi=0x70001017ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE plic19
+
+    const char *plic19_path = "peripheral/plic/pse.pse";
+    opPeripheralNew(
+        mi,
+        plic19_path,
+        "plic19",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu19Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip19_n, "irqT0"),
+                OP_NET_CONNECT(intNI_RX19_n, "irqS2"),
+                OP_NET_CONNECT(intNI_TX19_n, "irqS3"),
+                OP_NET_CONNECT(intNI_TMR19_n, "irqS4")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_UNS32_SET("num_sources", 256)
+            ,OP_PARAM_UNS32_SET("num_targets", 1)
+        )
+    );
+
+    // PSE prci19
+
+    const char *prci19_path = "peripheral/CLINT/pse.pse";
+    opPeripheralNew(
+        mi,
+        prci19_path,
+        "prci19",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu19Bus_b, "port0", .slave=1, .addrLo=0x44000000ULL, .addrHi=0x4400bfffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(MTimerInterrupt19_n, "MTimerInterrupt0"),
+                OP_NET_CONNECT(MSWInterrupt19_n, "MSWInterrupt0")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
+        )
+    );
+
+    // PSE router19
+
+    const char *router19_path = "peripheral/whnoc_dma/pse.pse";
+    opPeripheralNew(
+        mi,
+        router19_path,
+        "router19",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu19Bus_b, "RREAD"),
+                OP_BUS_CONNECT(cpu19Bus_b, "RWRITE"),
+                OP_BUS_CONNECT(cpu19Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_2_4_N_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_2_4_N_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_3_3_E_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_3_3_E_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_3_4_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_3_4_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_4_4_S_pkn, "portDataNorth"),
+                OP_PACKETNET_CONNECT(ctrl_4_4_S_pkn, "portControlNorth"),
+                OP_PACKETNET_CONNECT(iteration_19_pkn, "iterationsPort")
+            )
+        ),
+        0
+    );
+
+    // PSE ni19
+
+    const char *ni19_path = "peripheral/networkInterface/pse.pse";
+    opPeripheralNew(
+        mi,
+        ni19_path,
+        "ni19",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu19Bus_b, "MREAD"),
+                OP_BUS_CONNECT(cpu19Bus_b, "MWRITE"),
+                OP_BUS_CONNECT(cpu19Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x50000013ULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intNI_RX19_n, "INT_NI_RX"),
+                OP_NET_CONNECT(intNI_TX19_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_TMR19_n, "INT_NI_TMR")
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_3_4_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_3_4_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer19
+
+    const char *printer19_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer19_path,
+        "printer19",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu19Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE uart20
+
+    const char *uart20_path = opVLNVString(
+        0, // use the default VLNV path
+        "microsemi.ovpworld.org",
+        "peripheral",
+        "CoreUARTapb",
+        "1.0",
+        OP_PERIPHERAL,
+        1   // report errors
+    );
+
+    opPeripheralNew(
+        mi,
+        uart20_path,
+        "uart20",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu20Bus_b, "port0", .slave=1, .addrLo=0x70001000ULL, .addrHi=0x70001017ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE plic20
+
+    const char *plic20_path = "peripheral/plic/pse.pse";
+    opPeripheralNew(
+        mi,
+        plic20_path,
+        "plic20",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu20Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip20_n, "irqT0"),
+                OP_NET_CONNECT(intNI_RX20_n, "irqS2"),
+                OP_NET_CONNECT(intNI_TX20_n, "irqS3"),
+                OP_NET_CONNECT(intNI_TMR20_n, "irqS4")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_UNS32_SET("num_sources", 256)
+            ,OP_PARAM_UNS32_SET("num_targets", 1)
+        )
+    );
+
+    // PSE prci20
+
+    const char *prci20_path = "peripheral/CLINT/pse.pse";
+    opPeripheralNew(
+        mi,
+        prci20_path,
+        "prci20",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu20Bus_b, "port0", .slave=1, .addrLo=0x44000000ULL, .addrHi=0x4400bfffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(MTimerInterrupt20_n, "MTimerInterrupt0"),
+                OP_NET_CONNECT(MSWInterrupt20_n, "MSWInterrupt0")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
+        )
+    );
+
+    // PSE router20
+
+    const char *router20_path = "peripheral/whnoc_dma/pse.pse";
+    opPeripheralNew(
+        mi,
+        router20_path,
+        "router20",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu20Bus_b, "RREAD"),
+                OP_BUS_CONNECT(cpu20Bus_b, "RWRITE"),
+                OP_BUS_CONNECT(cpu20Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_4_0_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_4_0_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_4_0_E_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_4_0_E_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_4_0_S_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_4_0_S_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(iteration_20_pkn, "iterationsPort")
+            )
+        ),
+        0
+    );
+
+    // PSE ni20
+
+    const char *ni20_path = "peripheral/networkInterface/pse.pse";
+    opPeripheralNew(
+        mi,
+        ni20_path,
+        "ni20",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu20Bus_b, "MREAD"),
+                OP_BUS_CONNECT(cpu20Bus_b, "MWRITE"),
+                OP_BUS_CONNECT(cpu20Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x50000013ULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intNI_RX20_n, "INT_NI_RX"),
+                OP_NET_CONNECT(intNI_TX20_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_TMR20_n, "INT_NI_TMR")
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_4_0_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_4_0_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer20
+
+    const char *printer20_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer20_path,
+        "printer20",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu20Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE uart21
+
+    const char *uart21_path = opVLNVString(
+        0, // use the default VLNV path
+        "microsemi.ovpworld.org",
+        "peripheral",
+        "CoreUARTapb",
+        "1.0",
+        OP_PERIPHERAL,
+        1   // report errors
+    );
+
+    opPeripheralNew(
+        mi,
+        uart21_path,
+        "uart21",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu21Bus_b, "port0", .slave=1, .addrLo=0x70001000ULL, .addrHi=0x70001017ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE plic21
+
+    const char *plic21_path = "peripheral/plic/pse.pse";
+    opPeripheralNew(
+        mi,
+        plic21_path,
+        "plic21",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu21Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip21_n, "irqT0"),
+                OP_NET_CONNECT(intNI_RX21_n, "irqS2"),
+                OP_NET_CONNECT(intNI_TX21_n, "irqS3"),
+                OP_NET_CONNECT(intNI_TMR21_n, "irqS4")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_UNS32_SET("num_sources", 256)
+            ,OP_PARAM_UNS32_SET("num_targets", 1)
+        )
+    );
+
+    // PSE prci21
+
+    const char *prci21_path = "peripheral/CLINT/pse.pse";
+    opPeripheralNew(
+        mi,
+        prci21_path,
+        "prci21",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu21Bus_b, "port0", .slave=1, .addrLo=0x44000000ULL, .addrHi=0x4400bfffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(MTimerInterrupt21_n, "MTimerInterrupt0"),
+                OP_NET_CONNECT(MSWInterrupt21_n, "MSWInterrupt0")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
+        )
+    );
+
+    // PSE router21
+
+    const char *router21_path = "peripheral/whnoc_dma/pse.pse";
+    opPeripheralNew(
+        mi,
+        router21_path,
+        "router21",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu21Bus_b, "RREAD"),
+                OP_BUS_CONNECT(cpu21Bus_b, "RWRITE"),
+                OP_BUS_CONNECT(cpu21Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_3_1_N_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_3_1_N_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_4_0_E_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_4_0_E_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_4_1_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_4_1_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_4_2_W_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_4_2_W_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(iteration_21_pkn, "iterationsPort")
+            )
+        ),
+        0
+    );
+
+    // PSE ni21
+
+    const char *ni21_path = "peripheral/networkInterface/pse.pse";
+    opPeripheralNew(
+        mi,
+        ni21_path,
+        "ni21",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu21Bus_b, "MREAD"),
+                OP_BUS_CONNECT(cpu21Bus_b, "MWRITE"),
+                OP_BUS_CONNECT(cpu21Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x50000013ULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intNI_RX21_n, "INT_NI_RX"),
+                OP_NET_CONNECT(intNI_TX21_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_TMR21_n, "INT_NI_TMR")
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_4_1_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_4_1_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer21
+
+    const char *printer21_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer21_path,
+        "printer21",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu21Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE uart22
+
+    const char *uart22_path = opVLNVString(
+        0, // use the default VLNV path
+        "microsemi.ovpworld.org",
+        "peripheral",
+        "CoreUARTapb",
+        "1.0",
+        OP_PERIPHERAL,
+        1   // report errors
+    );
+
+    opPeripheralNew(
+        mi,
+        uart22_path,
+        "uart22",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu22Bus_b, "port0", .slave=1, .addrLo=0x70001000ULL, .addrHi=0x70001017ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE plic22
+
+    const char *plic22_path = "peripheral/plic/pse.pse";
+    opPeripheralNew(
+        mi,
+        plic22_path,
+        "plic22",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu22Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip22_n, "irqT0"),
+                OP_NET_CONNECT(intNI_RX22_n, "irqS2"),
+                OP_NET_CONNECT(intNI_TX22_n, "irqS3"),
+                OP_NET_CONNECT(intNI_TMR22_n, "irqS4")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_UNS32_SET("num_sources", 256)
+            ,OP_PARAM_UNS32_SET("num_targets", 1)
+        )
+    );
+
+    // PSE prci22
+
+    const char *prci22_path = "peripheral/CLINT/pse.pse";
+    opPeripheralNew(
+        mi,
+        prci22_path,
+        "prci22",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu22Bus_b, "port0", .slave=1, .addrLo=0x44000000ULL, .addrHi=0x4400bfffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(MTimerInterrupt22_n, "MTimerInterrupt0"),
+                OP_NET_CONNECT(MSWInterrupt22_n, "MSWInterrupt0")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
+        )
+    );
+
+    // PSE router22
+
+    const char *router22_path = "peripheral/whnoc_dma/pse.pse";
+    opPeripheralNew(
+        mi,
+        router22_path,
+        "router22",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu22Bus_b, "RREAD"),
+                OP_BUS_CONNECT(cpu22Bus_b, "RWRITE"),
+                OP_BUS_CONNECT(cpu22Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_4_2_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_4_2_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_4_2_E_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_4_2_E_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(data_4_2_W_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_4_2_W_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_4_2_S_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_4_2_S_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(iteration_22_pkn, "iterationsPort")
+            )
+        ),
+        0
+    );
+
+    // PSE ni22
+
+    const char *ni22_path = "peripheral/networkInterface/pse.pse";
+    opPeripheralNew(
+        mi,
+        ni22_path,
+        "ni22",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu22Bus_b, "MREAD"),
+                OP_BUS_CONNECT(cpu22Bus_b, "MWRITE"),
+                OP_BUS_CONNECT(cpu22Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x50000013ULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intNI_RX22_n, "INT_NI_RX"),
+                OP_NET_CONNECT(intNI_TX22_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_TMR22_n, "INT_NI_TMR")
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_4_2_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_4_2_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer22
+
+    const char *printer22_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer22_path,
+        "printer22",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu22Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE uart23
+
+    const char *uart23_path = opVLNVString(
+        0, // use the default VLNV path
+        "microsemi.ovpworld.org",
+        "peripheral",
+        "CoreUARTapb",
+        "1.0",
+        OP_PERIPHERAL,
+        1   // report errors
+    );
+
+    opPeripheralNew(
+        mi,
+        uart23_path,
+        "uart23",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu23Bus_b, "port0", .slave=1, .addrLo=0x70001000ULL, .addrHi=0x70001017ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE plic23
+
+    const char *plic23_path = "peripheral/plic/pse.pse";
+    opPeripheralNew(
+        mi,
+        plic23_path,
+        "plic23",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu23Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip23_n, "irqT0"),
+                OP_NET_CONNECT(intNI_RX23_n, "irqS2"),
+                OP_NET_CONNECT(intNI_TX23_n, "irqS3"),
+                OP_NET_CONNECT(intNI_TMR23_n, "irqS4")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_UNS32_SET("num_sources", 256)
+            ,OP_PARAM_UNS32_SET("num_targets", 1)
+        )
+    );
+
+    // PSE prci23
+
+    const char *prci23_path = "peripheral/CLINT/pse.pse";
+    opPeripheralNew(
+        mi,
+        prci23_path,
+        "prci23",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu23Bus_b, "port0", .slave=1, .addrLo=0x44000000ULL, .addrHi=0x4400bfffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(MTimerInterrupt23_n, "MTimerInterrupt0"),
+                OP_NET_CONNECT(MSWInterrupt23_n, "MSWInterrupt0")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
+        )
+    );
+
+    // PSE router23
+
+    const char *router23_path = "peripheral/whnoc_dma/pse.pse";
+    opPeripheralNew(
+        mi,
+        router23_path,
+        "router23",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu23Bus_b, "RREAD"),
+                OP_BUS_CONNECT(cpu23Bus_b, "RWRITE"),
+                OP_BUS_CONNECT(cpu23Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_3_3_N_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_3_3_N_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(data_4_2_E_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_4_2_E_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_4_3_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_4_3_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_4_4_W_pkn, "portDataEast"),
+                OP_PACKETNET_CONNECT(ctrl_4_4_W_pkn, "portControlEast"),
+                OP_PACKETNET_CONNECT(iteration_23_pkn, "iterationsPort")
+            )
+        ),
+        0
+    );
+
+    // PSE ni23
+
+    const char *ni23_path = "peripheral/networkInterface/pse.pse";
+    opPeripheralNew(
+        mi,
+        ni23_path,
+        "ni23",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu23Bus_b, "MREAD"),
+                OP_BUS_CONNECT(cpu23Bus_b, "MWRITE"),
+                OP_BUS_CONNECT(cpu23Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x50000013ULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intNI_RX23_n, "INT_NI_RX"),
+                OP_NET_CONNECT(intNI_TX23_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_TMR23_n, "INT_NI_TMR")
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_4_3_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_4_3_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer23
+
+    const char *printer23_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer23_path,
+        "printer23",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu23Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE uart24
+
+    const char *uart24_path = opVLNVString(
+        0, // use the default VLNV path
+        "microsemi.ovpworld.org",
+        "peripheral",
+        "CoreUARTapb",
+        "1.0",
+        OP_PERIPHERAL,
+        1   // report errors
+    );
+
+    opPeripheralNew(
+        mi,
+        uart24_path,
+        "uart24",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu24Bus_b, "port0", .slave=1, .addrLo=0x70001000ULL, .addrHi=0x70001017ULL)
+            )
+        ),
+        0
+    );
+
+    // PSE plic24
+
+    const char *plic24_path = "peripheral/plic/pse.pse";
+    opPeripheralNew(
+        mi,
+        plic24_path,
+        "plic24",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu24Bus_b, "port0", .slave=1, .addrLo=0x40000000ULL, .addrHi=0x43ffffffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(eip24_n, "irqT0"),
+                OP_NET_CONNECT(intNI_RX24_n, "irqS2"),
+                OP_NET_CONNECT(intNI_TX24_n, "irqS3"),
+                OP_NET_CONNECT(intNI_TMR24_n, "irqS4")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_UNS32_SET("num_sources", 256)
+            ,OP_PARAM_UNS32_SET("num_targets", 1)
+        )
+    );
+
+    // PSE prci24
+
+    const char *prci24_path = "peripheral/CLINT/pse.pse";
+    opPeripheralNew(
+        mi,
+        prci24_path,
+        "prci24",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu24Bus_b, "port0", .slave=1, .addrLo=0x44000000ULL, .addrHi=0x4400bfffULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(MTimerInterrupt24_n, "MTimerInterrupt0"),
+                OP_NET_CONNECT(MSWInterrupt24_n, "MSWInterrupt0")
+            )
+        ),
+        OP_PARAMS(
+             OP_PARAM_DOUBLE_SET("clockMHz", 1000.0)
+        )
+    );
+
+    // PSE router24
+
+    const char *router24_path = "peripheral/whnoc_dma/pse.pse";
+    opPeripheralNew(
+        mi,
+        router24_path,
+        "router24",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu24Bus_b, "RREAD"),
+                OP_BUS_CONNECT(cpu24Bus_b, "RWRITE"),
+                OP_BUS_CONNECT(cpu24Bus_b, "localPort", .slave=1, .addrLo=0x50000000ULL, .addrHi=0x50000003ULL)
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_4_4_L_pkn, "portDataLocal"),
+                OP_PACKETNET_CONNECT(ctrl_4_4_L_pkn, "portControlLocal"),
+                OP_PACKETNET_CONNECT(data_4_4_W_pkn, "portDataWest"),
+                OP_PACKETNET_CONNECT(ctrl_4_4_W_pkn, "portControlWest"),
+                OP_PACKETNET_CONNECT(data_4_4_S_pkn, "portDataSouth"),
+                OP_PACKETNET_CONNECT(ctrl_4_4_S_pkn, "portControlSouth"),
+                OP_PACKETNET_CONNECT(iteration_24_pkn, "iterationsPort")
+            )
+        ),
+        0
+    );
+
+    // PSE ni24
+
+    const char *ni24_path = "peripheral/networkInterface/pse.pse";
+    opPeripheralNew(
+        mi,
+        ni24_path,
+        "ni24",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu24Bus_b, "MREAD"),
+                OP_BUS_CONNECT(cpu24Bus_b, "MWRITE"),
+                OP_BUS_CONNECT(cpu24Bus_b, "DMAC", .slave=1, .addrLo=0x50000004ULL, .addrHi=0x50000013ULL)
+            ),
+            OP_NET_CONNECTIONS(
+                OP_NET_CONNECT(intNI_RX24_n, "INT_NI_RX"),
+                OP_NET_CONNECT(intNI_TX24_n, "INT_NI_TX"),
+                OP_NET_CONNECT(intNI_TMR24_n, "INT_NI_TMR")
+            ),
+            OP_PACKETNET_CONNECTIONS(
+                OP_PACKETNET_CONNECT(data_4_4_L_pkn, "dataPort"),
+                OP_PACKETNET_CONNECT(ctrl_4_4_L_pkn, "controlPort")
+            )
+        ),
+        0
+    );
+
+    // PSE printer24
+
+    const char *printer24_path = "peripheral/printer/pse.pse";
+    opPeripheralNew(
+        mi,
+        printer24_path,
+        "printer24",
+        OP_CONNECTIONS(
+            OP_BUS_CONNECTIONS(
+                OP_BUS_CONNECT(cpu24Bus_b, "PRINTREGS", .slave=1, .addrLo=0x50000020ULL, .addrHi=0x50000027ULL)
             )
         ),
         0
@@ -4041,7 +6273,16 @@ static OP_CONSTRUCT_FN(instantiateComponents) {
                 OP_PACKETNET_CONNECT(iteration_12_pkn, "iterationPort12"),
                 OP_PACKETNET_CONNECT(iteration_13_pkn, "iterationPort13"),
                 OP_PACKETNET_CONNECT(iteration_14_pkn, "iterationPort14"),
-                OP_PACKETNET_CONNECT(iteration_15_pkn, "iterationPort15")
+                OP_PACKETNET_CONNECT(iteration_15_pkn, "iterationPort15"),
+                OP_PACKETNET_CONNECT(iteration_16_pkn, "iterationPort16"),
+                OP_PACKETNET_CONNECT(iteration_17_pkn, "iterationPort17"),
+                OP_PACKETNET_CONNECT(iteration_18_pkn, "iterationPort18"),
+                OP_PACKETNET_CONNECT(iteration_19_pkn, "iterationPort19"),
+                OP_PACKETNET_CONNECT(iteration_20_pkn, "iterationPort20"),
+                OP_PACKETNET_CONNECT(iteration_21_pkn, "iterationPort21"),
+                OP_PACKETNET_CONNECT(iteration_22_pkn, "iterationPort22"),
+                OP_PACKETNET_CONNECT(iteration_23_pkn, "iterationPort23"),
+                OP_PACKETNET_CONNECT(iteration_24_pkn, "iterationPort24")
             )
         ),
         0

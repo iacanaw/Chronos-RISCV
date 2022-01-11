@@ -445,7 +445,7 @@ unsigned int selectPort(){
 // Allocates the output port to the given selPort if it is available
 void allocate(unsigned int port){
     if(port != ND){
-        bhmMessage("I", "router", "%x Tentando alocar a porta %d", myAddress, port);
+        // bhmMessage("I", "router", "%x Tentando alocar a porta %d", myAddress, port);
     }
     unsigned int header, to, checkport, allowed;
     // In the first place, verify if the port is not connected to any thing and has something to transmitt 
@@ -455,7 +455,7 @@ void allocate(unsigned int port){
         //bhmMessage("INFO", "ALLOCATE", "Pedindo roteamento para o header %x", htonl(header));
         to = XYrouting(myAddress, header);
         if(port != ND){
-            bhmMessage("I", "router", "%x com a saída %d", myAddress, to);
+            // bhmMessage("I", "router", "%x com a saída %d", myAddress, to);
         }
         // Verify if any other port is using the selected one
         allowed = 1;
@@ -463,7 +463,7 @@ void allocate(unsigned int port){
             if (routingTable[checkport] == to){
                 allowed = 0;
                 if(port != ND){
-                    bhmMessage("I", "router", "%x não contectado! saída %d está ocupada pela porta %d", myAddress, to, checkport);
+                    // bhmMessage("I", "router", "%x não contectado! saída %d está ocupada pela porta %d", myAddress, to, checkport);
                 }
                 // If the port can't get routed, then turn it's priority down
                 if(priority[port]>5) priority[port] = priority[port] - 5;
@@ -472,7 +472,7 @@ void allocate(unsigned int port){
         //If the requested output port is free
         if(allowed == 1){
             if(port != ND){
-               bhmMessage("I", "router", "%x conectado com sucesso! %d -> %d", myAddress, port, to);
+               // bhmMessage("I", "router", "%x conectado com sucesso! %d -> %d", myAddress, port, to);
             }
             // Connect the buffer to the output
             // bhmMessage("INFO", "ROUTER", ">>>>> %x - Porta %d saindo pela porta %d\n", myAddress, port, to);
@@ -920,11 +920,11 @@ PPM_RESTORE_STATE_FN(peripheralRestoreState) {
 }
 
 void printRouterInfo(){
-    bhmMessage("I", "ROUTER", "> Router %x status:", myAddress);
-    bhmMessage("I", "ROUTER", "\t-0 EAST  Connected to: %x \t\tCredit: %x",routingTable[EAST],  control[routingTable[EAST]]);
-    bhmMessage("I", "ROUTER", "\t-1 WEST  Connected to: %x \t\tCredit: %x",routingTable[WEST],  control[routingTable[WEST]]);
-    bhmMessage("I", "ROUTER", "\t-2 NORTH Connected to: %x \t\tCredit: %x",routingTable[NORTH], control[routingTable[NORTH]]);
-    bhmMessage("I", "ROUTER", "\t-3 SOUTH Connected to: %x \t\tCredit: %x",routingTable[SOUTH], control[routingTable[SOUTH]]);
-    bhmMessage("I", "ROUTER", "\t-4 LOCAL Connected to: %x \t\tCredit: %x",routingTable[LOCAL], control[routingTable[LOCAL]]);
-    bhmMessage("I", "ROUTER", "======================================================================");
+    // bhmMessage("I", "ROUTER", "> Router %x status:", myAddress);
+    // bhmMessage("I", "ROUTER", "\t-0 EAST  Connected to: %x \t\tCredit: %x",routingTable[EAST],  control[routingTable[EAST]]);
+    // bhmMessage("I", "ROUTER", "\t-1 WEST  Connected to: %x \t\tCredit: %x",routingTable[WEST],  control[routingTable[WEST]]);
+    // bhmMessage("I", "ROUTER", "\t-2 NORTH Connected to: %x \t\tCredit: %x",routingTable[NORTH], control[routingTable[NORTH]]);
+    // bhmMessage("I", "ROUTER", "\t-3 SOUTH Connected to: %x \t\tCredit: %x",routingTable[SOUTH], control[routingTable[SOUTH]]);
+    // bhmMessage("I", "ROUTER", "\t-4 LOCAL Connected to: %x \t\tCredit: %x",routingTable[LOCAL], control[routingTable[LOCAL]]);
+    // bhmMessage("I", "ROUTER", "======================================================================");
 }

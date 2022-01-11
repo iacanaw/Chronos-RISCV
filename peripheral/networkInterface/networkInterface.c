@@ -105,44 +105,44 @@ void usi2vec(){
 
 void interruptionOff_RX(){
     ppmWriteNet(handles.INT_NI_RX, 0);
-    bhmMessage("I", "NI_INTERRUPTION", "Turning RX interruption OFF! \n");
+    // bhmMessage("I", "NI_INTERRUPTION", "Turning RX interruption OFF! \n");
 }
 
 void interruptionOff_TX(){
     ppmWriteNet(handles.INT_NI_TX, 0);
-    bhmMessage("I", "NI_INTERRUPTION", "Turning TX interruption OFF! \n");
+    // bhmMessage("I", "NI_INTERRUPTION", "Turning TX interruption OFF! \n");
 }
 
 void interruptionOff_TMR(){
     ppmWriteNet(handles.INT_NI_TMR, 0);
-    bhmMessage("I", "NI_INTERRUPTION", "Turning TMR interruption OFF! \n");
+    // bhmMessage("I", "NI_INTERRUPTION", "Turning TMR interruption OFF! \n");
 }
 
 void interruptionOn_RX(){
     ppmWriteNet(handles.INT_NI_RX, 1);
-    bhmMessage("I", "NI_INTERRUPTION", "Turning RX interruption ON! \n");
+    // bhmMessage("I", "NI_INTERRUPTION", "Turning RX interruption ON! \n");
 }
 
 void interruptionOn_TX(){
     ppmWriteNet(handles.INT_NI_TX, 1);
-    bhmMessage("I", "NI_INTERRUPTION", "Turning TX interruption ON! \n");
+    // bhmMessage("I", "NI_INTERRUPTION", "Turning TX interruption ON! \n");
 }
 
 void interruptionOn_TMR(){
     ppmWriteNet(handles.INT_NI_TMR, 1);
-    bhmMessage("I", "NI_INTERRUPTION", "Turning TMR interruption ON! \n");
+    // bhmMessage("I", "NI_INTERRUPTION", "Turning TMR interruption ON! \n");
 }
 
 // Sets the local status to GO, allowing flits to be transmitted to the NI
 void setGO(){
-    ////bhmMessage("I", "CONTROL", "GO!\n");
+    ////// bhmMessage("I", "CONTROL", "GO!\n");
     myStatus = GO;
     ppmPacketnetWrite(handles.controlPort, &myStatus, sizeof(myStatus));
 }
 
 // Sets the local status to STALL, blocking the flits inside the local router
 void setSTALL(){
-    ////bhmMessage("I", "CONTROL", "STALL!\n");
+    ////// bhmMessage("I", "CONTROL", "STALL!\n");
     myStatus = STALL;
     ppmPacketnetWrite(handles.controlPort, &myStatus, sizeof(myStatus));
 }
@@ -188,7 +188,7 @@ void niIteration(){
         if(transmittingCount != EMPTY){
             // Reads a flit from the memory
             usFlit = readMem(transmittingAddress);
-            bhmMessage("I", "TX", "Sending flit %x: %x", transmittingCount, usFlit);
+            // bhmMessage("I", "TX", "Sending flit %x: %x", transmittingCount, usFlit);
 
             // Runs the logic to get the packet size and the end-of-packet 
             if(transmittingCount == HEADER){
@@ -278,7 +278,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
 
     // Receiving process
     if(control_RX == NI_STATUS_ON){
-        bhmMessage("I", "NI", "Escrevendo dado %x na posicao %x - count: %x\n", flit, receivingAddress, receivingCount);
+        // bhmMessage("I", "NI", "Escrevendo dado %x na posicao %x - count: %x\n", flit, receivingAddress, receivingCount);
         if(receivingField == HEADER){
             receivingField = SIZE;
             writeMem(flit, receivingAddress);
@@ -304,7 +304,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
             control_RX = NI_STATUS_WAITING;
             setSTALL();
             interruptionOn_RX();
-            bhmMessage("I", "NI_RX", "Levantando interrupt RX - WAITING\n");
+            // bhmMessage("I", "NI_RX", "Levantando interrupt RX - WAITING\n");
         }
     }
 
@@ -313,7 +313,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
         setSTALL();
         control_RX = NI_STATUS_INTER;
         interruptionOn_RX();
-        bhmMessage("I", "NI_RX", "Levantando interrupt RX - DELIVER\n");
+        // bhmMessage("I", "NI_RX", "Levantando interrupt RX - DELIVER\n");
     }
 }
 
