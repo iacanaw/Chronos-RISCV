@@ -13,6 +13,7 @@
 #define TASK_SLOT_RUNNING           1
 #define TASK_SLOT_WAITING_START     2
 #define TASK_SLOT_READY             3
+#define TASK_SLOT_SUSPENDED         4
 
 typedef struct {
     unsigned int status;

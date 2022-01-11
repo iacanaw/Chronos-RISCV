@@ -99,7 +99,7 @@ void API_TaskStart(unsigned int slot){
     
     xReturned = xTaskCreate(TaskList[slot].mainAddr,
                             "LaTask",
-                            9192,//8192,//4096,//16384,
+                            4096,//8192,//4096,//16384,
                             NULL,
                             tskIDLE_PRIORITY+1,
                             &TaskList[slot].TaskHandler);

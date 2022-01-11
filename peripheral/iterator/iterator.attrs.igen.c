@@ -31,6 +31,13 @@ Uns8 iterationPort5_pnsd[8];
 Uns8 iterationPort6_pnsd[8];
 Uns8 iterationPort7_pnsd[8];
 Uns8 iterationPort8_pnsd[8];
+Uns8 iterationPort9_pnsd[8];
+Uns8 iterationPort10_pnsd[8];
+Uns8 iterationPort11_pnsd[8];
+Uns8 iterationPort12_pnsd[8];
+Uns8 iterationPort13_pnsd[8];
+Uns8 iterationPort14_pnsd[8];
+Uns8 iterationPort15_pnsd[8];
 
 static ppmPacketnetPort packetnetPorts[] = {
     {
@@ -121,6 +128,76 @@ static ppmPacketnetPort packetnetPorts[] = {
         .sharedDataBytes = 8,
         .handlePtr       = &handles.iterationPort8,
         .packetnetCB     = iteration8,
+        .userData        = (void*)0
+    },
+    {
+        .name            = "iterationPort9",
+        .mustBeConnected = 0,
+        .description     = 0,
+        .sharedData      = iterationPort9_pnsd,
+        .sharedDataBytes = 8,
+        .handlePtr       = &handles.iterationPort9,
+        .packetnetCB     = iteration9,
+        .userData        = (void*)0
+    },
+    {
+        .name            = "iterationPort10",
+        .mustBeConnected = 0,
+        .description     = 0,
+        .sharedData      = iterationPort10_pnsd,
+        .sharedDataBytes = 8,
+        .handlePtr       = &handles.iterationPort10,
+        .packetnetCB     = iteration10,
+        .userData        = (void*)0
+    },
+    {
+        .name            = "iterationPort11",
+        .mustBeConnected = 0,
+        .description     = 0,
+        .sharedData      = iterationPort11_pnsd,
+        .sharedDataBytes = 8,
+        .handlePtr       = &handles.iterationPort11,
+        .packetnetCB     = iteration11,
+        .userData        = (void*)0
+    },
+    {
+        .name            = "iterationPort12",
+        .mustBeConnected = 0,
+        .description     = 0,
+        .sharedData      = iterationPort12_pnsd,
+        .sharedDataBytes = 8,
+        .handlePtr       = &handles.iterationPort12,
+        .packetnetCB     = iteration12,
+        .userData        = (void*)0
+    },
+    {
+        .name            = "iterationPort13",
+        .mustBeConnected = 0,
+        .description     = 0,
+        .sharedData      = iterationPort13_pnsd,
+        .sharedDataBytes = 8,
+        .handlePtr       = &handles.iterationPort13,
+        .packetnetCB     = iteration13,
+        .userData        = (void*)0
+    },
+    {
+        .name            = "iterationPort14",
+        .mustBeConnected = 0,
+        .description     = 0,
+        .sharedData      = iterationPort14_pnsd,
+        .sharedDataBytes = 8,
+        .handlePtr       = &handles.iterationPort14,
+        .packetnetCB     = iteration14,
+        .userData        = (void*)0
+    },
+    {
+        .name            = "iterationPort15",
+        .mustBeConnected = 0,
+        .description     = 0,
+        .sharedData      = iterationPort15_pnsd,
+        .sharedDataBytes = 8,
+        .handlePtr       = &handles.iterationPort15,
+        .packetnetCB     = iteration15,
         .userData        = (void*)0
     },
     { 0 }

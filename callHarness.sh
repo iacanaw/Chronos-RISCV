@@ -56,4 +56,39 @@ harness/harness.Linux64.exe             \
   --program  cpu8=${FREERTOS_ELF}               \
   --override uart8/console=T                    \
   --override uart8/finishOnDisconnect=T         \
-  --override uart8/outfile=simulation/uart8.log  --verbose --parallelmax --parallelperipherals --output simulation/imperas.log
+  --override uart8/outfile=simulation/uart8.log \
+  \
+  --program  cpu9=${FREERTOS_ELF}               \
+  --override uart9/console=T                    \
+  --override uart9/finishOnDisconnect=T         \
+  --override uart9/outfile=simulation/uart9.log \
+  \
+  --program  cpu10=${FREERTOS_ELF}               \
+  --override uart10/console=T                    \
+  --override uart10/finishOnDisconnect=T         \
+  --override uart10/outfile=simulation/uart10.log \
+  \
+  --program  cpu11=${FREERTOS_ELF}               \
+  --override uart11/console=T                    \
+  --override uart11/finishOnDisconnect=T         \
+  --override uart11/outfile=simulation/uart11.log \
+  \
+  --program  cpu12=${FREERTOS_ELF}               \
+  --override uart12/console=T                    \
+  --override uart12/finishOnDisconnect=T         \
+  --override uart12/outfile=simulation/uart12.log \
+  \
+  --program  cpu13=${FREERTOS_ELF}               \
+  --override uart13/console=T                    \
+  --override uart13/finishOnDisconnect=T         \
+  --override uart13/outfile=simulation/uart13.log \
+  \
+  --program  cpu14=${FREERTOS_ELF}               \
+  --override uart14/console=T                    \
+  --override uart14/finishOnDisconnect=T         \
+  --override uart14/outfile=simulation/uart14.log \
+  \
+  --program  cpu15=${FREERTOS_ELF}               \
+  --override uart15/console=T                    \
+  --override uart15/finishOnDisconnect=T         \
+  --override uart15/outfile=simulation/uart15.log $* --verbose --parallelmax --parallelperipherals --output simulation/imperas.log

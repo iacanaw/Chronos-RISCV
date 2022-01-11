@@ -60,11 +60,25 @@ static PPM_BUS_PORT_FN(nextBusPort) {
 
 static ppmNetPort netPorts[] = {
     {
-        .name            = "INT_NI",
+        .name            = "INT_NI_RX",
         .type            = PPM_OUTPUT_PORT,
         .mustBeConnected = 0,
-        .description     = "NI Interrupt Request",
-        .handlePtr       = &handles.INT_NI,
+        .description     = "NI RX Interrupt Request",
+        .handlePtr       = &handles.INT_NI_RX,
+    },
+    {
+        .name            = "INT_NI_TX",
+        .type            = PPM_OUTPUT_PORT,
+        .mustBeConnected = 0,
+        .description     = "NI TX Interrupt Request",
+        .handlePtr       = &handles.INT_NI_TX,
+    },
+    {
+        .name            = "INT_NI_TMR",
+        .type            = PPM_OUTPUT_PORT,
+        .mustBeConnected = 0,
+        .description     = "NI TMR Interrupt Request",
+        .handlePtr       = &handles.INT_NI_TMR,
     },
     { 0 }
 };

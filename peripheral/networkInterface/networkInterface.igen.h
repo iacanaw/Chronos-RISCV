@@ -64,7 +64,9 @@ typedef struct handlesS {
     ppmAddressSpaceHandle MREAD;
     ppmAddressSpaceHandle MWRITE;
     void                 *DMAC;
-    ppmNetHandle          INT_NI;
+    ppmNetHandle          INT_NI_RX;
+    ppmNetHandle          INT_NI_TX;
+    ppmNetHandle          INT_NI_TMR;
     ppmPacketnetHandle    dataPort;
     ppmPacketnetHandle    controlPort;
 } handlesT, *handlesTP;

@@ -123,9 +123,15 @@ do
 	echo "ihwaddnet -instancename MSWInterrupt"$i >> module.op.tcl
 	echo "ihwconnect -net MSWInterrupt"$i" -instancename prci"$i" -netport MSWInterrupt0" >> module.op.tcl
 	echo "ihwconnect -net MSWInterrupt"$i" -instancename cpu"$i"  -netport MSWInterrupt" >> module.op.tcl
-	echo "ihwaddnet -instancename intNI"$i >> module.op.tcl
-	echo "ihwconnect -instancename plic"$i" -netport irqS2 -net intNI"$i >> module.op.tcl
-	echo "ihwconnect -instancename ni"$i" -netport INT_NI  -net intNI"$i >> module.op.tcl
+	echo "ihwaddnet -instancename intNI_RX"$i >> module.op.tcl
+	echo "ihwconnect -instancename plic"$i" -netport irqS2 -net intNI_RX"$i >> module.op.tcl
+	echo "ihwconnect -instancename ni"$i" -netport INT_NI_RX  -net intNI_RX"$i >> module.op.tcl
+	echo "ihwaddnet -instancename intNI_TX"$i >> module.op.tcl
+	echo "ihwconnect -instancename plic"$i" -netport irqS3 -net intNI_TX"$i >> module.op.tcl
+	echo "ihwconnect -instancename ni"$i" -netport INT_NI_TX  -net intNI_TX"$i >> module.op.tcl
+	echo "ihwaddnet -instancename intNI_TMR"$i >> module.op.tcl
+	echo "ihwconnect -instancename plic"$i" -netport irqS4 -net intNI_TMR"$i >> module.op.tcl
+	echo "ihwconnect -instancename ni"$i" -netport INT_NI_TMR  -net intNI_TMR"$i >> module.op.tcl
 	echo "" >> module.op.tcl
 done
 

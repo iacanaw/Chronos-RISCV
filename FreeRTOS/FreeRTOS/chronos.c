@@ -124,6 +124,10 @@ void SendRaw(unsigned int addr) {
 void NI_enable_irq(int which){
     PLIC_EnableIRQ(NI_RX_IRQn);
     PLIC_SetPriority(NI_RX_IRQn, 1);
+    PLIC_EnableIRQ(NI_TX_IRQn);
+    PLIC_SetPriority(NI_TX_IRQn, 2);
+    PLIC_EnableIRQ(Timer_IRQn);
+    PLIC_SetPriority(Timer_IRQn, 3);
     return;
 }
 
@@ -131,16 +135,101 @@ void NI_enable_irq(int which){
 // Disables interruptions incomming from NI
 void NI_disable_irq(int which){
     PLIC_DisableIRQ(NI_RX_IRQn);
+    PLIC_DisableIRQ(NI_TX_IRQn);
+    PLIC_DisableIRQ(Timer_IRQn);
     return;
 }
 
 ////////////////////////////////////////////////////////////
-// Interruption handler for the NI
+// Interruption handler for the NI RX
 uint8_t External_2_IRQHandler(void){    
-    API_NI_Handler();
+    BaseType_t xHigherPriorityTaskWoken;
+    prints("ENTREI NA INTERRUPCAO RX\n");
+    /* Clear the interrupt. */
+    HW_set_32bit_reg(NI_RX, HOLD);
+
+    /* xHigherPriorityTaskWoken must be initialised to pdFALSE.
+    If calling vTaskNotifyGiveFromISR() unblocks the handling
+    task, and the priority of the handling task is higher than
+    the priority of the currently running task, then
+    xHigherPriorityTaskWoken will be automatically set to pdTRUE. */
+    xHigherPriorityTaskWoken = pdFALSE;
+
+    /* Unblock the handling task so the task can perform
+    any processing necessitated by the interrupt.  xHandlingTask
+    is the task's handle, which was obtained when the task was
+    created.  vTaskNotifyGiveFromISR() also increments
+    the receiving task's notification value. */
+    vTaskNotifyGiveFromISR( NI_RX_Handler, &xHigherPriorityTaskWoken );
+
+    /* Force a context switch if xHigherPriorityTaskWoken is now
+    set to pdTRUE. The macro used to do this is dependent on
+    the port and may be called portEND_SWITCHING_ISR. */
+    portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
 
     return 0;
 }
+
+////////////////////////////////////////////////////////////
+// Interruption handler for the NI TX
+uint8_t External_3_IRQHandler(void){    
+    BaseType_t xHigherPriorityTaskWoken;
+    prints("ENTREI NA INTERRUPCAO TX\n");
+    /* Clear the interrupt. */
+    HW_set_32bit_reg(NI_TX, HOLD);
+
+    /* xHigherPriorityTaskWoken must be initialised to pdFALSE.
+    If calling vTaskNotifyGiveFromISR() unblocks the handling
+    task, and the priority of the handling task is higher than
+    the priority of the currently running task, then
+    xHigherPriorityTaskWoken will be automatically set to pdTRUE. */
+    xHigherPriorityTaskWoken = pdFALSE;
+
+    /* Unblock the handling task so the task can perform
+    any processing necessitated by the interrupt.  xHandlingTask
+    is the task's handle, which was obtained when the task was
+    created.  vTaskNotifyGiveFromISR() also increments
+    the receiving task's notification value. */
+    vTaskNotifyGiveFromISR( NI_TX_Handler, &xHigherPriorityTaskWoken );
+
+    /* Force a context switch if xHigherPriorityTaskWoken is now
+    set to pdTRUE. The macro used to do this is dependent on
+    the port and may be called portEND_SWITCHING_ISR. */
+    portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
+
+    return 0;
+}
+
+////////////////////////////////////////////////////////////
+// Interruption handler for the NI TMR
+uint8_t External_4_IRQHandler(void){    
+    BaseType_t xHigherPriorityTaskWoken;
+    prints("ENTREI NA INTERRUPCAO TMR\n");
+    /* Clear the interrupt. */
+    HW_set_32bit_reg(NI_TIMER, HOLD);
+
+    /* xHigherPriorityTaskWoken must be initialised to pdFALSE.
+    If calling vTaskNotifyGiveFromISR() unblocks the handling
+    task, and the priority of the handling task is higher than
+    the priority of the currently running task, then
+    xHigherPriorityTaskWoken will be automatically set to pdTRUE. */
+    xHigherPriorityTaskWoken = pdFALSE;
+
+    /* Unblock the handling task so the task can perform
+    any processing necessitated by the interrupt.  xHandlingTask
+    is the task's handle, which was obtained when the task was
+    created.  vTaskNotifyGiveFromISR() also increments
+    the receiving task's notification value. */
+    vTaskNotifyGiveFromISR( NI_TMR_Handler, &xHigherPriorityTaskWoken );
+
+    /* Force a context switch if xHigherPriorityTaskWoken is now
+    set to pdTRUE. The macro used to do this is dependent on
+    the port and may be called portEND_SWITCHING_ISR. */
+    portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
+
+    return 0;
+}
+
 
 ////////////////////////////////////////////////////////////
 // https://www.techiedelight.com/implement-itoa-function-in-c/
@@ -251,27 +340,6 @@ void API_PrioritySend(unsigned int type, unsigned int slot){
             API_PushSendQueue((aux & 0xFFFF0000), (aux & 0x0000FFFF));
         i++;
     }while(aux != EMPTY);
-    // if(type == THERMAL){
-    //     vTaskEnterCritical();
-    //     for(;;){
-    //         if(HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER) {
-    //             API_ClearPipeSlot(SendingSlot);
-    //             HW_set_32bit_reg(NI_TX, DONE);  // releases the interruption
-    //             SendingSlot = THERMAL;
-    //             SendRaw((unsigned int)&ThermalPacket.header);
-    //             break;
-    //         } else if(HW_get_32bit_reg(NI_TX) == NI_STATUS_OFF){
-    //             SendingSlot = THERMAL;
-    //             SendRaw((unsigned int)&ThermalPacket.header);
-    //             break;
-    //         } else {
-    //             API_NI_Handler();
-    //         }
-    //     }
-    //     vTaskExitCritical();
-    // } else {
-    //     prints("ERROR API_PrioritySend()\n");
-    // }
     return;
 }
 
@@ -299,7 +367,7 @@ unsigned int API_PopSendQueue(){
 ////////////////////////////////////////////////////////////
 // Try to send some packet! 
 void API_Try2Send(){
-    unsigned int toSend, taskID, slot;
+    unsigned int toSend, taskID, slot, i;
     // Try to send the packet to NI if it's available
     // Checks if the NI is available to transmitt something
     if (HW_get_32bit_reg(NI_TX) == NI_STATUS_OFF){
@@ -313,18 +381,14 @@ void API_Try2Send(){
             else if((toSend & 0xFFFF0000) == MESSAGE){
                 taskID = (toSend & 0x0000FF00) >> 8;
                 slot = toSend & 0x000000FF;
-                // for(i = 0; i < PIPE_SIZE; i++){
-                //     if (TaskList[toSend].MessagePipe[i].status == PIPE_OCCUPIED){
-                //         if(older > TaskList[toSend].MessagePipe[i].msgID){
-                //             older = i;
-                //         }
-                //     }
-                // }
-                // if(older == 0xFFFFFFFF){
-                //     print("ERROR! msg a ser enviad nao encontrada no PIPE!\n");
-                // }
-                //SendRaw((unsigned int)&TaskList[toSend].MessagePipe[older].header);
                 SendRaw((unsigned int)&TaskList[taskID].MessagePipe[slot].header);
+
+                //for(i=0; i < NUM_MAX_TASKS; i++){
+                    if(TaskList[taskID].status == TASK_SLOT_SUSPENDED){
+                        printsv("Restaurando taskSlot ", i);
+                        vTaskResume( TaskList[taskID].TaskHandler );
+                    }
+                //}
             }
             else if((toSend & 0xFFFF0000) == THERMAL){
                 SendingSlot = THERMAL;
@@ -338,9 +402,9 @@ void API_Try2Send(){
                 printsv("ERROR! desconhecido!! ", toSend);
             }
             prints("API_Try2Send success!\n");
+
         vTaskExitCritical();
         } else {
-            HW_set_32bit_reg(NI_TX, RESET);
             prints("API_Try2Send failed - empty SendQueue!\n");
         }
     } else {
@@ -355,6 +419,7 @@ void API_AckTaskAllocation(unsigned int task_id, unsigned int app_id){
         mySlot = API_GetServiceSlot();
         if(mySlot == PIPE_FULL){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui1...\n");
             API_NI_Handler();
         }
     }while(mySlot == PIPE_FULL);
@@ -376,10 +441,16 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
     unsigned int i;
     Message *theMessage;
     do{
+        vTaskEnterCritical();
         mySlot = API_GetMessageSlot();
         if(mySlot == PIPE_FULL){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
-            API_NI_Handler();
+            prints("Estou preso aqui2...\n");
+            //API_NI_Handler();
+            taskSlot = API_GetCurrentTaskSlot();
+            TaskList[taskSlot].status = TASK_SLOT_SUSPENDED;
+            vTaskExitCritical();
+            vTaskSuspend( TaskList[taskSlot].TaskHandler );
         }
     }while(mySlot == PIPE_FULL);
     
@@ -408,6 +479,7 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
         TaskList[taskSlot].PendingReq[taskID] = FALSE;
         API_PushSendQueue(MESSAGE, mySlot);
     }
+    vTaskExitCritical();
     return;
 }
 
@@ -417,6 +489,7 @@ void API_SendFinishTask(unsigned int task_id, unsigned int app_id){
         mySlot = API_GetServiceSlot();
         if(mySlot == PIPE_FULL){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui3...\n");
             API_NI_Handler();
         }
     }while(mySlot == PIPE_FULL);
@@ -448,6 +521,7 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
         mySlot = API_GetServiceSlot();
         if(mySlot == PIPE_FULL){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui4...\n");
             API_NI_Handler();
         }
     }while(mySlot == PIPE_FULL);
@@ -519,184 +593,5 @@ void API_AddPendingReq(unsigned int requester_task_id, unsigned int task_app_id,
 
 
 void API_NI_Handler(){
-    unsigned int aux;
-    unsigned int service;
-    //do{
-
-        vTaskEnterCritical();
-        if (HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER){
-            prints("TX interruption catched\n");
-            API_ClearPipeSlot(SendingSlot); // clear the pipe slot that was transmitted
-            HW_set_32bit_reg(NI_TX, DONE);  // releases the interruption
-            API_Try2Send();                 // tries to send another packet (if available)
-        }
-        vTaskExitCritical();
-
-        vTaskEnterCritical();
-        if( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING) {
-            prints("RX interruption catched\n");
-            service = incommingPacket.service;
-            incommingPacket.service = SOLVED;
-            switch (service){
-                case REPOSITORY_APP_INFO: // When the repository informs the GM that exist a new Application available:
-                    //prints("REPOSITORY_APP_INFO\n");
-                    API_AddApplication(incommingPacket.application_id,
-                                    incommingPacket.aplication_period, 
-                                    incommingPacket.application_executions, 
-                                    incommingPacket.application_n_tasks);
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("1NI_RX DONE!\n");
-                    break;
-                
-                case TASK_ALLOCATION_SEND: // When the GM asks one Slave to allocate one task
-                    prints("TASK_ALLOCATION_SEND\n");
-                    HW_set_32bit_reg(NI_RX, HOLD);
-                    aux = API_TaskAllocation(incommingPacket.task_id,
-                                             incommingPacket.task_txt_size,
-                                             incommingPacket.task_bss_size,
-                                             incommingPacket.task_start_point,
-                                             incommingPacket.task_app_id);
-                    printsv("Task slot: ", aux);
-                    printsv("Task slot TaskAddr: ", TaskList[aux].taskAddr);
-                    // Informs the NI were to write the application
-                    HW_set_32bit_reg(NI_RX, TaskList[aux].taskAddr);
-                    incommingPacket.service = TASK_ALLOCATION_FINISHED;
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("2NI_RX DONE!\n");
-                    break;
-                
-                case TASK_FINISH:
-                    printsvsv("FINISHED: Task ", incommingPacket.task_id, "from application ", incommingPacket.task_app_id);
-                    API_ClearTaskSlotFromTile(incommingPacket.task_dest_addr, incommingPacket.task_app_id, incommingPacket.task_id);
-                    API_DealocateTask(incommingPacket.task_id, incommingPacket.task_app_id);
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("3NI_RX DONE!\n");
-                    break;
-
-                case TASK_ALLOCATION_FINISHED:
-                    prints("TASK_ALLOCATION_FINISHED\n");
-                    API_AckTaskAllocation(incommingPacket.task_id, incommingPacket.task_app_id);
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("4NI_RX DONE!\n");
-                    break;
-
-                case TASK_ALLOCATION_SUCCESS:
-                    prints("TASK_ALLOCATION_SUCCESS\n");
-                    API_TaskAllocated(incommingPacket.task_id, incommingPacket.task_app_id);
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("5NI_RX DONE!\n");
-                    break;
-
-                case TASK_START:
-                    prints("Chegou um TASK_START!\n");
-                    aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
-                    // Informs the NI were to write the application
-                    HW_set_32bit_reg(NI_RX, (unsigned int)&TaskList[aux].appNumTasks);
-                    incommingPacket.service = TASK_RUN;
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("6NI_RX DONE!\n");
-                    break;
-                
-                case TASK_RUN:
-                    prints("Chegou um TASK_RUN!\n");
-                    aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
-                    TaskList[aux].status = TASK_SLOT_READY;
-                    API_setFreqScale(1000);
-                    printsvsv("Starting Task ", TaskList[aux].TaskID, " from app ", TaskList[aux].AppID);
-                    printsv("taskSlot run: ", aux);
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("7NI_RX DONE!\n");
-                    API_TaskStart(aux);
-                    //printsvsv("Enabling Task: ", incommingPacket.task_id, "from app: ", incommingPacket.task_app_id);
-                    //printsv("Slot: ", aux);
-                    // for(aux = 0; aux < NUM_MAX_TASKS; aux++){
-                    //     if(TaskList[aux].status == TASK_SLOT_READY){
-                    //         API_setFreqScale(1000);
-                    //         printsvsv("Starting Task ", TaskList[aux].TaskID, " from app ", TaskList[aux].AppID);
-                    //         API_TaskStart(aux);
-                    //     }
-                    // }
-                    
-                    break;
-
-                case MESSAGE_REQUEST:
-                    // check the pipe
-                    printsvsv("Chegou um message request! App: ", incommingPacket.task_app_id, "Task: ", incommingPacket.task_id);
-                    aux = API_CheckMessagePipe(incommingPacket.task_id, incommingPacket.task_app_id);
-                    if (aux == ERRO){
-                        // register an messagerequest
-                        prints("Mensagem não encontrada, adicionando ao PendingReq!\n");
-                        API_AddPendingReq(incommingPacket.task_id, incommingPacket.task_app_id, incommingPacket.producer_task_id);
-                    } else {
-                        prints("Mensagem encontrada no pipe!\n");
-                        API_PushSendQueue(MESSAGE, aux);
-                        // API_Try2Send();
-                    }
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("8NI_RX DONE!\n");
-                    break;
-                
-                case MESSAGE_DELIVERY:
-                    prints("Tem uma mensagem chegando...\n");
-                    aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
-                    //printsv("MESSAGE_DELIVERY addr: ", TaskList[aux].MsgToReceive);
-                    HW_set_32bit_reg(NI_RX, TaskList[aux].MsgToReceive);
-                    incommingPacket.service = MESSAGE_DELIVERY_FINISH;
-                    //prints("done...\n----------\n");
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("9NI_RX DONE!\n");
-                    break;
-                
-                case MESSAGE_DELIVERY_FINISH:
-                    //prints("Terminou de entregar a mensagem!!\n");
-                    aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
-                    TaskList[aux].waitingMsg = FALSE;
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("10NI_RX DONE!\n");
-                    //vTaskResume(TaskList[aux].TaskHandler);
-                    xTaskResumeFromISR(TaskList[aux].TaskHandler);
-                    break;
-
-                case TEMPERATURE_PACKET:
-                    prints("Recebendo pacote de temperatura");
-                    HW_set_32bit_reg(NI_RX, (unsigned int)&SystemTemperature);
-                    incommingPacket.service = FINISH_TEMPERATURE_PACKET;
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("11NI_RX DONE!\n");
-                    break;
-                
-                case FINISH_TEMPERATURE_PACKET:
-                    temperatureUpdated = 1;
-                    for(aux = 0; aux < DIM_X*DIM_Y; aux++){ 
-                        printsvsv("pe", aux, "temp: ", SystemTemperature[aux]);
-                    }
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("12NI_RX DONE!\n");
-                    break;
-
-                case SOLVED:
-                    //HW_set_32bit_reg(NI_RX, HOLD);
-                    prints("13NI_RX HOLD!\n");
-                    break;
-                    
-                default:
-                    printsv("ERROR External_2_IRQHandler Unknown-Service ", incommingPacket.service);
-                    HW_set_32bit_reg(NI_RX, DONE);
-                    prints("14NI_RX DONE!\n");
-                    break;
-            }
-        }
-        vTaskExitCritical();
-
-        vTaskEnterCritical();
-        if (HW_get_32bit_reg(NI_TIMER) == NI_STATUS_INTER){
-            powerEstimation();
-            HW_set_32bit_reg(NI_TIMER, DONE);
-        }
-        vTaskExitCritical();
-
-    //} while( HW_get_32bit_reg(NI_RX) == NI_STATUS_INTER || HW_get_32bit_reg(NI_RX) == NI_STATUS_WAITING || HW_get_32bit_reg(NI_TX) == NI_STATUS_INTER);
-    
-    
     return;
 }

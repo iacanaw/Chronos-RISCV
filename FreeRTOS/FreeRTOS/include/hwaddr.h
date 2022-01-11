@@ -20,9 +20,9 @@
 #define HOLD                    0xFFFFFFF6U
 #define INTERRUPTION_ACK        0x00001234U
 #define RESET                   0x00008888U
-//#define NI_TX_IRQn              External_1_IRQn
+#define NI_TX_IRQn              External_3_IRQn
 #define NI_RX_IRQn              External_2_IRQn
-//#define Timer_IRQn              External_3_IRQn
+#define Timer_IRQn              External_4_IRQn
 
 /*************** Printer mapped register **************/
 #define PRINTER_CHAR            0x50000020U

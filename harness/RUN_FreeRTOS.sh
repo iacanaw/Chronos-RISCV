@@ -1,7 +1,7 @@
 #!/bin/bash
 
-XX=3
-YY=3
+XX=$1
+YY=$2
 N=$(($XX*$YY))
 
 SECONDS=0;
@@ -137,7 +137,7 @@ echo "  \\" >> callHarness.sh
 echo "  --program  cpu"$(($N-1))"=\${FREERTOS_ELF}               \\" >> callHarness.sh
 echo "  --override uart"$(($N-1))"/console=T                    \\" >> callHarness.sh
 echo "  --override uart"$(($N-1))"/finishOnDisconnect=T         \\" >> callHarness.sh
-echo "  --override uart"$(($N-1))"/outfile=simulation/uart"$(($N-1))".log $* --verbose --parallelmax --parallelperipherals --output simulation/imperas.log" >> callHarness.sh
+echo "  --override uart"$(($N-1))"/outfile=simulation/uart"$(($N-1))".log \$* --verbose --parallelmax --parallelperipherals --output simulation/imperas.log" >> callHarness.sh
 #--imperasintercepts                                     \
 
 chmod +x callHarness.sh

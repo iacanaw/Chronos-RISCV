@@ -103,19 +103,34 @@ void usi2vec(){
     chFlit[0] = usFlit & 0x000000FF;
 }
 
-void interruptionOff(){
-    if ( control_RX != NI_STATUS_INTER ){
-        if ( control_TX != NI_STATUS_INTER ){
-            if ( control_TIMER != NI_STATUS_INTER ){
-                ppmWriteNet(handles.INT_NI, 0);
-                bhmMessage("I", "NI_INTERRUPTION", "Turning interruption OFF! \n");
-            }
-        }
-    }
+void interruptionOff_RX(){
+    ppmWriteNet(handles.INT_NI_RX, 0);
+    bhmMessage("I", "NI_INTERRUPTION", "Turning RX interruption OFF! \n");
 }
 
-void interruptionOn(){
-    ppmWriteNet(handles.INT_NI, 1);
+void interruptionOff_TX(){
+    ppmWriteNet(handles.INT_NI_TX, 0);
+    bhmMessage("I", "NI_INTERRUPTION", "Turning TX interruption OFF! \n");
+}
+
+void interruptionOff_TMR(){
+    ppmWriteNet(handles.INT_NI_TMR, 0);
+    bhmMessage("I", "NI_INTERRUPTION", "Turning TMR interruption OFF! \n");
+}
+
+void interruptionOn_RX(){
+    ppmWriteNet(handles.INT_NI_RX, 1);
+    bhmMessage("I", "NI_INTERRUPTION", "Turning RX interruption ON! \n");
+}
+
+void interruptionOn_TX(){
+    ppmWriteNet(handles.INT_NI_TX, 1);
+    bhmMessage("I", "NI_INTERRUPTION", "Turning TX interruption ON! \n");
+}
+
+void interruptionOn_TMR(){
+    ppmWriteNet(handles.INT_NI_TMR, 1);
+    bhmMessage("I", "NI_INTERRUPTION", "Turning TMR interruption ON! \n");
 }
 
 // Sets the local status to GO, allowing flits to be transmitted to the NI
@@ -178,6 +193,10 @@ void niIteration(){
             // Runs the logic to get the packet size and the end-of-packet 
             if(transmittingCount == HEADER){
                 transmittingCount = SIZE;
+                // if(usFlit != 0x40000 && usFlit != 0x20000 && usFlit != 0x0000 && usFlit != 0x0002 && usFlit != 0x0001 && usFlit != 0x0100 && usFlit != 0x0102 && usFlit != 0x0101 && usFlit != 0x0200 && usFlit != 0x0202 && usFlit != 0x0201){
+                //     bhmMessage("I", "NI_ERROR", "Endereco estranho detectado: %x", usFlit);
+                //     while(1){}
+                // }
             }
             else if(transmittingCount == SIZE){
                 transmittingCount = htonl(usFlit);
@@ -195,10 +214,7 @@ void niIteration(){
         // If the packet transmittion is done, change the NI status to IDLE
         if(transmittingCount == EMPTY){
             control_TX = NI_STATUS_INTER; 
-            //bhmMessage("I", "NI_RX", "Levantando interrupt TX - FINISHED TRANSMITTING\n");
-            //ppmWriteNet(handles.INT_NI_TX, 1); // Turns the interruption on
-            //ppmWriteNet(handles.INT_NI_RX, 1); // Turns the interruption on
-            interruptionOn();
+            interruptionOn_TX();
         }
     }
 }
@@ -210,9 +226,6 @@ void resetReceivingAddress(){
     return;
 }
 
-
-
-//////////////////////////////// Callback stubs ////////////////////////////////
 
 PPM_REG_READ_CB(addressRead) {
     if(bytes != 4) {
@@ -290,7 +303,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
         if(receivingField == 12 && receivingCount != EMPTY){ // end of the header reception!
             control_RX = NI_STATUS_WAITING;
             setSTALL();
-            interruptionOn();
+            interruptionOn_RX();
             bhmMessage("I", "NI_RX", "Levantando interrupt RX - WAITING\n");
         }
     }
@@ -299,7 +312,7 @@ PPM_PACKETNET_CB(dataPortUpd) {
     if(receivingCount == EMPTY && control_RX == NI_STATUS_ON){
         setSTALL();
         control_RX = NI_STATUS_INTER;
-        interruptionOn();
+        interruptionOn_RX();
         bhmMessage("I", "NI_RX", "Levantando interrupt RX - DELIVER\n");
     }
 }
@@ -309,7 +322,7 @@ PPM_REG_READ_CB(statusRXRead) {
         bhmMessage("E", "PPM_RNB", "Only 4 byte access permitted");
         return 0;
     }
-    //DMAC_ab8_data.statusRX.value = htonl(control_RX);
+    DMAC_ab8_data.statusRX.value = htonl(control_RX);
     return control_RX;
 }
 
@@ -320,31 +333,47 @@ PPM_REG_WRITE_CB(statusRXWrite) {
     }
     unsigned int command = htonl(data);
 
-    if(control_RX == NI_STATUS_ON){
-        if(command == DONE){
-            interruptionOff();
-            setGO();
-        }
-    } else if(control_RX == NI_STATUS_INTER){
-        if(command == DONE){
-            bhmMessage("I", "NI_INTERRUPTION", "Recebi um DONE!\n");
-            control_RX = NI_STATUS_OFF;
-            interruptionOff();
-            setGO();
-        }else if(command == HOLD){
-            bhmMessage("I", "NI_INTERRUPTION", "Recebi um HOLD1!\n");
-            interruptionOff();
-        }
-    } else if(control_RX == NI_STATUS_WAITING){
-        if(command == HOLD){
-            bhmMessage("I", "NI_INTERRUPTION", "Recebi um HOLD2!\n");
-            interruptionOff();
-        } else{
-            receivingAddress = htonl(data);
-            control_RX = NI_STATUS_ON;
+    if ( command == HOLD ){
+        interruptionOff_RX();
+    } else{
+        switch (control_RX){
+
+            case NI_STATUS_INTER:
+                if(command == DONE){
+                    control_RX = NI_STATUS_OFF;
+                    setGO();
+                } else {
+                    bhmMessage("I", "statusRXWrite", "NI_STATUS_ON - estado nao esperado!\n");
+                    while(1){}
+                }
+                break;
+
+            case NI_STATUS_WAITING:
+                receivingAddress = htonl(data);
+                control_RX = NI_STATUS_ON;
+                break;
+
+            case NI_STATUS_OFF:
+                bhmMessage("I", "statusRXWrite", "NI_STATUS_OFF - estado nao esperado!\n");
+                while(1){}
+                break;
+
+            case NI_STATUS_ON:
+                if ( command == DONE ){
+                    setGO();
+                } else{
+                    bhmMessage("I", "statusRXWrite", "NI_STATUS_ON - estado nao esperado!\n");
+                    while(1){}
+                }
+                break;
+            
+            default:
+                bhmMessage("I", "statusRXWrite", "default - estado nao esperado!\n");
+                while(1){}
+                break;
         }
     }
-    
+        
     *(Uns32*)user = data;
 }
 
@@ -354,13 +383,11 @@ PPM_REG_READ_CB(statusTXRead) {
         return 0;
     }
     DMAC_ab8_data.statusTX.value = htonl(control_TX);
-    //bhmMessage("I", "NI_TX", "Reading TX - status: %x", control_TX);
-    if(control_TX == NI_STATUS_OFF || control_TX == NI_STATUS_STARTING){
-        //bhmMessage("I", "NI_TX", "Recebi um TX_STARTING");
-        control_TX = NI_STATUS_STARTING;
-        return (unsigned int)NI_STATUS_OFF;
-    }
-    else
+    // if(control_TX == NI_STATUS_OFF || control_TX == NI_STATUS_STARTING){
+    //     control_TX = NI_STATUS_STARTING;
+    //     return (unsigned int)NI_STATUS_OFF;
+    // }
+    // else
         return control_TX;
 }
 
@@ -370,37 +397,36 @@ PPM_REG_WRITE_CB(statusTXWrite) {
         return;
     }
     unsigned int command = htonl(data);
-    // if(command == INTERRUPTION_ACK){
-    //     bhmMessage("I", "statusWrite", "Turning interruption off!");
-    //     ppmWriteNet(handles.INT_NI_RX, 0);  // Turn the interruption signal down
-    //     return;
-    // }
 
-    if(command == TX){
-        //bhmMessage("I", "NI_TX", "Recebi um TX");
-        if(control_TX == NI_STATUS_STARTING || control_TX == NI_STATUS_OFF){
-            control_TX = NI_STATUS_ON;
-            transmittingAddress = auxAddress;
-            transmittingCount = HEADER;
-            niIteration();  // Send a flit to the ROUTER, this way it will inform the iterator that this PE is waiting for "iterations"
-        }
-        else{
-            bhmMessage("I", "statusWrite", "ERROR_TX: UNEXPECTED STATE REACHED"); while(1){}
-        }
-    }
-    else if(command == DONE){
-        //bhmMessage("I", "NI_TX", "Recebi um TX_DONE");
-        if(control_TX == NI_STATUS_INTER){    
-            control_TX = NI_STATUS_OFF;
-            interruptionOff();
-        }
-        else{
-            bhmMessage("I", "statusWrite", "ERROR_DONE_TX: UNEXPECTED STATE REACHED"); while(1){}
-        }
-    }
-    else if (command == RESET){
-        if(control_TX == NI_STATUS_STARTING){
-            control_TX = NI_STATUS_OFF;
+    if(command == HOLD){
+        interruptionOff_TX();
+    } else{
+        switch (control_TX){
+            case NI_STATUS_INTER:
+                if( command == DONE ){
+                    control_TX = NI_STATUS_OFF;
+                } else {
+                    bhmMessage("I", "statusTXWrite", "NI_STATUS_INTER - estado nao esperado! 0x%x\n", command);
+                    while(1){}
+                }
+                break;
+            
+            case NI_STATUS_OFF:
+                if ( command == TX ){
+                    control_TX = NI_STATUS_ON;
+                    transmittingAddress = auxAddress;
+                    transmittingCount = HEADER;
+                    niIteration();
+                } else {
+                    bhmMessage("I", "statusTXWrite", "NI_STATUS_OFF - estado nao esperado! 0x%x\n", command);
+                    while(1){}
+                }
+                break;
+            
+            default:
+                bhmMessage("I", "statusTXWrite", "default - estado nao esperado!\n");
+                while(1){}
+                break;
         }
     }
     *(Uns32*)user = data;
@@ -419,13 +445,14 @@ PPM_REG_WRITE_CB(timerWrite) {
     unsigned int command = htonl(data);
     if(bytes != 4) {
         return;
-    } else { 
-        if(command == DONE){
+    } else {
+        if ( command == HOLD ){
+            interruptionOff_TMR();
+        } 
+        else if ( command == DONE ){
             control_TIMER = NI_STATUS_OFF;
-            //bhmMessage("I", "TIMER", "Timer turning interruption down! at %lf",bhmGetCurrentTime());
-            interruptionOff();
-        }
-        else{
+        } 
+        else {
             timer_us = (double)command;
             bhmMessage("I", "TIMER", "Timer set to interrupt the processor once every %.2lf us!",timer_us);
         }
@@ -588,7 +615,7 @@ int main(int argc, char *argv[]) {
             bhmWaitDelay(timer_us); // Every time_us 
             //bhmMessage("I", "TIMER", "Timer turning interruption up! at %lf",bhmGetCurrentTime());
             control_TIMER = NI_STATUS_INTER;
-            interruptionOn();
+            interruptionOn_TMR();
         }
     }
 

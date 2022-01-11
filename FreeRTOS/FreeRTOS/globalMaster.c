@@ -13,6 +13,7 @@ void API_RepositoryWakeUp(){
         mySlot = API_GetServiceSlot();
         if(mySlot == PIPE_FULL){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui5...\n");
             API_NI_Handler();
         }
     }while(mySlot == PIPE_FULL);
@@ -300,6 +301,7 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
         mySlot = API_GetServiceSlot();
         if(mySlot == PIPE_FULL){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui6...\n");
             API_NI_Handler();
         }
     }while(mySlot == PIPE_FULL);
@@ -330,8 +332,8 @@ void API_ApplicationStart(unsigned int app_id){
     for(i = 0; i < applications[app_id].numTasks; i++){
         while(ServiceMessage.status == PIPE_OCCUPIED){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui7...\n");
             API_NI_Handler();
-            prints("Esperando...\n");
         }
         // do{
         //     mySlot = API_GetMessageSlot();

@@ -18,8 +18,8 @@
 #define ERRO                -1
 ////////////////////////////////////////////////////////////
 // SYSTEM INFO
-#define DIM_X 3
-#define DIM_Y 3
+#define DIM_X 4
+#define DIM_Y 4
 #define GLOBAL_MASTER_ADDR  0x0000
 #define NUM_MAX_APPS        12      // The maximum number of Applications
 #define NUM_MAX_APP_TASKS   10      // The maximum number of Tasks that a given Application can have
@@ -48,8 +48,8 @@
 // Auxiliar Packet used by the NI to store incomming packets
 volatile ServiceHeader incommingPacket;
 
-// Holds the AliveHandler
-volatile TaskHandle_t AliveHandler;
+// Holds the "NI Handler Task" task handle
+TaskHandle_t NI_RX_Handler, NI_TX_Handler, NI_TMR_Handler;
 
 // Sending Queue
 volatile unsigned int SendingQueue[PIPE_SIZE*2];
