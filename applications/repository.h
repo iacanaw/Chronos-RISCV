@@ -217,7 +217,7 @@ static unsigned int tasksInfo[NUM_APPS][MAX_TASKS][INFO_SIZE] = {
 		  0xFFFFFFFF } // nothing 
 ,
 		{ 0x00000006,  // task id divider
-		  0x00000298,  // task size 
+		  0x0000029E,  // task size 
 		  0x00000081,  // bss size 
 		  0x000000AD,  // start point 
 		  0x00000002,  // task appID 
@@ -7662,7 +7662,7 @@ static unsigned int tasksCode[NUM_APPS][MAX_TASKS][BIG_CODE] = {
 		  0x00f00793,  // line 213
 		  0xf8e7d4e3,  // line 214
 		  0x00000797,  // line 215
-		  0x70478793,  // line 216
+		  0x71c78793,  // line 216
 		  0x01000713,  // line 217
 		  0x00e7a023,  // line 218
 		  0xfe042223,  // line 219
@@ -7686,7 +7686,7 @@ static unsigned int tasksCode[NUM_APPS][MAX_TASKS][BIG_CODE] = {
 		  0xbf07a783,  // line 237
 		  0x00078693,  // line 238
 		  0x00000717,  // line 239
-		  0x6a470713,  // line 240
+		  0x6bc70713,  // line 240
 		  0xfe842783,  // line 241
 		  0x00279793,  // line 242
 		  0x00f707b3,  // line 243
@@ -7701,31 +7701,31 @@ static unsigned int tasksCode[NUM_APPS][MAX_TASKS][BIG_CODE] = {
 		  0x00078513,  // line 252
 		  0xd05ff0ef,  // line 253
 		  0x00000797,  // line 254
-		  0x64478793,  // line 255
+		  0x66878793,  // line 255
 		  0x00078513,  // line 256
 		  0xd41ff0ef,  // line 257
 		  0x00000797,  // line 258
-		  0x65878793,  // line 259
+		  0x67078793,  // line 259
 		  0x00000593,  // line 260
 		  0x00078513,  // line 261
 		  0xc91ff0ef,  // line 262
 		  0x00000797,  // line 263
-		  0x64478793,  // line 264
+		  0x65c78793,  // line 264
 		  0x00100593,  // line 265
 		  0x00078513,  // line 266
 		  0xc7dff0ef,  // line 267
 		  0x00000797,  // line 268
-		  0x63078793,  // line 269
+		  0x64878793,  // line 269
 		  0x00200593,  // line 270
 		  0x00078513,  // line 271
 		  0xc69ff0ef,  // line 272
 		  0x00000797,  // line 273
-		  0x61c78793,  // line 274
+		  0x63478793,  // line 274
 		  0x00300593,  // line 275
 		  0x00078513,  // line 276
 		  0xc55ff0ef,  // line 277
 		  0x00000797,  // line 278
-		  0x60878793,  // line 279
+		  0x62078793,  // line 279
 		  0x00400593,  // line 280
 		  0x00078513,  // line 281
 		  0xc41ff0ef,  // line 282
@@ -7768,7 +7768,7 @@ static unsigned int tasksCode[NUM_APPS][MAX_TASKS][BIG_CODE] = {
 		  0xbf07a783,  // line 319
 		  0x00078693,  // line 320
 		  0x00000717,  // line 321
-		  0x55c70713,  // line 322
+		  0x57470713,  // line 322
 		  0xfe842783,  // line 323
 		  0x00279793,  // line 324
 		  0x00f707b3,  // line 325
@@ -7780,27 +7780,27 @@ static unsigned int tasksCode[NUM_APPS][MAX_TASKS][BIG_CODE] = {
 		  0x00f00793,  // line 331
 		  0xfae7d8e3,  // line 332
 		  0x00000797,  // line 333
-		  0x52c78793,  // line 334
+		  0x54478793,  // line 334
 		  0x00000593,  // line 335
 		  0x00078513,  // line 336
 		  0xb65ff0ef,  // line 337
 		  0x00000797,  // line 338
-		  0x51878793,  // line 339
+		  0x53078793,  // line 339
 		  0x00100593,  // line 340
 		  0x00078513,  // line 341
 		  0xb51ff0ef,  // line 342
 		  0x00000797,  // line 343
-		  0x50478793,  // line 344
+		  0x51c78793,  // line 344
 		  0x00200593,  // line 345
 		  0x00078513,  // line 346
 		  0xb3dff0ef,  // line 347
 		  0x00000797,  // line 348
-		  0x4f078793,  // line 349
+		  0x50878793,  // line 349
 		  0x00300593,  // line 350
 		  0x00078513,  // line 351
 		  0xb29ff0ef,  // line 352
 		  0x00000797,  // line 353
-		  0x4dc78793,  // line 354
+		  0x4f478793,  // line 354
 		  0x00400593,  // line 355
 		  0x00078513,  // line 356
 		  0xb15ff0ef,  // line 357
@@ -8109,7 +8109,13 @@ static unsigned int tasksCode[NUM_APPS][MAX_TASKS][BIG_CODE] = {
 		  0x44206172,  // line 660
 		  0x64697669,  // line 661
 		  0x0a2e7265,  // line 662
-		  0x00000000 } // line 663
+		  0x00000000,  // line 663
+		  0x6a696420,  // line 664
+		  0x7274736b,  // line 665
+		  0x6f772061,  // line 666
+		  0x6e696b72,  // line 667
+		  0x2e2e2e67,  // line 668
+		  0x000a202e } // line 669
 	},
 	{ 		 // aes
 		{ 0xfd010113,  // line 0 - task aes_master

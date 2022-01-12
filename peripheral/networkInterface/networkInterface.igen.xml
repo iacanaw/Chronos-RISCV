@@ -30,9 +30,9 @@
     <busslaveport addresswidth="32"
         mustbeconnected="T"
         name="DMAC"
-        size="0xc">
+        size="0x10">
         <addressblock name="ab8"
-            size="0xc"
+            size="0x10"
             width="32">
             <memorymappedregister access="rw"
                 isvolatile="T"
@@ -57,6 +57,14 @@
                 readfunction="statusRXRead"
                 width="32"
                 writefunction="statusRXWrite"/>
+            <memorymappedregister access="rw"
+                isvolatile="T"
+                name="timer"
+                nbyte="F"
+                offset="0xc"
+                readfunction="timerRead"
+                width="32"
+                writefunction="timerWrite"/>
         </addressblock>
     </busslaveport>
     <packetnetport maxbytes="4"
@@ -69,16 +77,14 @@
         name="controlPort"
         updatefunction="controlPortUpd"
         updatefunctionargument="0"/>
-    <packetnetport maxbytes="8"
-        mustbeconnected="F"
-        name="txInterruption"
-        updatefunction="txInterruptionPort"
-        updatefunctionargument="0"/>
-    <packetnetport maxbytes="8"
-        mustbeconnected="F"
-        name="rxInterruption"
-        updatefunction="rxInterruptionPort"
-        updatefunctionargument="0"/>
+    <netport name="INT_NI_RX"
+        type="output">
+        <docsection name="doc"
+            text="Description">
+            <doctext name="txt"
+                text="NI RX Interrupt Request"/>
+        </docsection>
+    </netport>
     <netport name="INT_NI_TX"
         type="output">
         <docsection name="doc"
@@ -87,12 +93,12 @@
                 text="NI TX Interrupt Request"/>
         </docsection>
     </netport>
-    <netport name="INT_NI_RX"
+    <netport name="INT_NI_TMR"
         type="output">
         <docsection name="doc"
             text="Description">
             <doctext name="txt"
-                text="NI RX Interrupt Request"/>
+                text="NI TMR Interrupt Request"/>
         </docsection>
     </netport>
     <fileversion major="1"

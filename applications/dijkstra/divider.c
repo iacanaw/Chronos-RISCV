@@ -5,6 +5,7 @@ static char calculations[] =   "Starting Calculation distribution.\n";
 static char kill[] =   "Starting Kill distribution.\n";
 static char barraene[] =   "  \n";
 static char finish_print[] =   "Finishing Dijkstra Divider.\n";
+static char dijk_working[] = " dijkstra working.... \n";
 
 volatile static Message msg;
 
@@ -49,7 +50,7 @@ int main(){
 				msg.msg[j] = AdjMatrix[i][j];
 			}
 			sys_Printi(k);
-			sys_Prints((unsigned int)&barraene);
+			sys_Prints((unsigned int)&dijk_working);
 			sys_Send(&msg, dijkstra_0);
 			sys_Send(&msg, dijkstra_1);
 			sys_Send(&msg, dijkstra_2);

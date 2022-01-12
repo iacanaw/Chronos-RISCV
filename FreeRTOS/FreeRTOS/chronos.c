@@ -382,13 +382,6 @@ void API_Try2Send(){
                 taskID = (toSend & 0x0000FF00) >> 8;
                 slot = toSend & 0x000000FF;
                 SendRaw((unsigned int)&TaskList[taskID].MessagePipe[slot].header);
-
-                //for(i=0; i < NUM_MAX_TASKS; i++){
-                    if(TaskList[taskID].status == TASK_SLOT_SUSPENDED){
-                        printsv("Restaurando taskSlot ", i);
-                        vTaskResume( TaskList[taskID].TaskHandler );
-                    }
-                //}
             }
             else if((toSend & 0xFFFF0000) == THERMAL){
                 SendingSlot = THERMAL;
@@ -403,10 +396,17 @@ void API_Try2Send(){
             }
             prints("API_Try2Send success!\n");
 
-        vTaskExitCritical();
+        
+            for(i=0; i < NUM_MAX_TASKS; i++){
+                if(TaskList[i].status == TASK_SLOT_SUSPENDED){
+                    printsv("Restaurando taskSlot ", i);
+                    vTaskResume( TaskList[i].TaskHandler );
+                }
+            }
         } else {
             prints("API_Try2Send failed - empty SendQueue!\n");
         }
+        vTaskExitCritical();
     } else {
         prints("API_Try2Send failed - NI_TX occupied!\n");
     }
