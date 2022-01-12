@@ -150,8 +150,9 @@ needs servicing. */
 void vNI_RX_HandlerTask( void *pvParameters ){
 	BaseType_t xEvent;
 	unsigned int aux, service;
-	const TickType_t xBlockTime = 1000000;
+	const TickType_t xBlockTime = 10000;
 	uint32_t ulNotifiedValue;
+    //BaseType_t xHigherPriorityTaskWoken;
 
     for( ;; ){
 		/* Blocks the task until the NI interrupts it */
@@ -275,6 +276,34 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     //prints("Terminou de entregar a mensagem!!\n");
                     aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
                     TaskList[aux].waitingMsg = FALSE;
+                    // if ( TaskList[aux].status == TASK_SLOT_SUSPENDED ){
+                    //     printsv("Resumindo taskSlot ", aux);
+                    //     TaskList[aux].status = TASK_SLOT_RUNNING;
+                    //     vTaskResume( TaskList[aux].TaskHandler );
+                    // }
+
+                    // if(TaskList[aux].status == TASK_SLOT_BLOQUED){
+                    //     TaskList[aux].status = TASK_SLOT_RUNNING;
+                    //     /* xHigherPriorityTaskWoken must be initialised to pdFALSE.
+                    //     If calling vTaskNotifyGiveFromISR() unblocks the handling
+                    //     task, and the priority of the handling task is higher than
+                    //     the priority of the currently running task, then
+                    //     xHigherPriorityTaskWoken will be automatically set to pdTRUE. */
+                    //     xHigherPriorityTaskWoken = pdFALSE;
+
+                    //     /* Unblock the handling task so the task can perform
+                    //     any processing necessitated by the interrupt.  xHandlingTask
+                    //     is the task's handle, which was obtained when the task was
+                    //     created.  vTaskNotifyGiveFromISR() also increments
+                    //     the receiving task's notification value. */
+                    //     vTaskNotifyGiveFromISR( TaskList[aux].TaskHandler, &xHigherPriorityTaskWoken );
+
+                    //     /* Force a context switch if xHigherPriorityTaskWoken is now
+                    //     set to pdTRUE. The macro used to do this is dependent on
+                    //     the port and may be called portEND_SWITCHING_ISR. */
+                    //     //portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
+                    // }
+
                     //HW_set_32bit_reg(NI_RX, DONE);
                     prints("10NI_RX DONE!\n");
                     //vTaskResume(TaskList[aux].TaskHandler);
@@ -312,7 +341,6 @@ void vNI_RX_HandlerTask( void *pvParameters ){
         }
 		HW_set_32bit_reg(NI_RX, DONE);
         vTaskExitCritical();
-
     }
 }
 
@@ -344,7 +372,7 @@ void vNI_TX_HandlerTask( void *pvParameters ){
 		API_ClearPipeSlot(SendingSlot); // clear the pipe slot that was transmitted
 		HW_set_32bit_reg(NI_TX, DONE);  // releases the interruption
 		API_Try2Send();                 // tries to send another packet (if available)
-	
+        
 		// exits the criticla mode
 		vTaskExitCritical();
 

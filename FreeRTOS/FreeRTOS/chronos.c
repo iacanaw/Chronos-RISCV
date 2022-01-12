@@ -395,14 +395,6 @@ void API_Try2Send(){
                 printsv("ERROR! desconhecido!! ", toSend);
             }
             prints("API_Try2Send success!\n");
-
-        
-            for(i=0; i < NUM_MAX_TASKS; i++){
-                if(TaskList[i].status == TASK_SLOT_SUSPENDED){
-                    printsv("Restaurando taskSlot ", i);
-                    vTaskResume( TaskList[i].TaskHandler );
-                }
-            }
         } else {
             prints("API_Try2Send failed - empty SendQueue!\n");
         }
@@ -451,6 +443,7 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
             TaskList[taskSlot].status = TASK_SLOT_SUSPENDED;
             vTaskExitCritical();
             vTaskSuspend( TaskList[taskSlot].TaskHandler );
+            vTaskEnterCritical();
         }
     }while(mySlot == PIPE_FULL);
     
@@ -514,6 +507,10 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
     taskSlot = API_GetCurrentTaskSlot();
     TaskList[taskSlot].waitingMsg = TRUE;
     TaskList[taskSlot].MsgToReceive = addr;
+
+    //const TickType_t xBlockTime = 1000;
+	//uint32_t ulNotifiedValue;
+
     //printsv("API_SendMessageReq addr: ", addr);
 
     // Sends the message request
@@ -542,17 +539,16 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
     API_setFreqScale(100);
     // Bloquear a tarefa!
     while(TaskList[taskSlot].waitingMsg == TRUE){ 
-        // if(TaskList[taskSlot].waitingMsg == TRUE && idle == 0){
-        //     API_setFreqIdle();
-        //     API_applyFreqScale();
-        //     idle = 1;
-        // }
-        //printsv("esperando", mySlot);
         vTaskDelay(1);
-        //mySlot++;
-
     }
-    //vTaskSuspend(TaskList[taskSlot].TaskHandler);
+
+    // while( TaskList[taskSlot].waitingMsg == TRUE ){
+    //     TaskList[taskSlot].status = TASK_SLOT_BLOQUED;
+    //     // Blocks the task until the NI interrupts it
+    //     ulNotifiedValue = ulTaskNotifyTake( pdFALSE, xBlockTime );
+    // }
+
+
     API_setFreqScale(1000);
 
     prints("Mensagem Recebida!\n");

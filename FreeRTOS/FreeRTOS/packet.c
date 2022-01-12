@@ -73,6 +73,7 @@ void API_ClearPipeSlot(unsigned int typeSlot){
     unsigned int type =   typeSlot & 0xFFFF0000;
     unsigned int taskID = (typeSlot & 0x0000FF00) >> 8;
     unsigned int slot =   typeSlot & 0x000000FF;
+    unsigned int i, j;
     
     if (type == SERVICE){
         ServicePipe[slot].status = PIPE_FREE;
@@ -85,6 +86,20 @@ void API_ClearPipeSlot(unsigned int typeSlot){
         //printsv("cleaning message pipe slot: ", slot);
         TaskList[taskID].MessagePipe[slot].status = PIPE_FREE;
         //TaskList[taskID].MessagePipe[slot].holder = PIPE_FREE;
+    }
+
+    // checks if some task must be released
+    for(i=0; i < NUM_MAX_TASKS; i++){
+        if( TaskList[i].status == TASK_SLOT_SUSPENDED ){
+            for(j=0; j < PIPE_SIZE; j++){
+                if( TaskList[i].MessagePipe[j].status == PIPE_FREE ){         
+                    TaskList[i].status = TASK_SLOT_RUNNING;
+                    vTaskResume( TaskList[i].TaskHandler );
+                    printsv("Resumindo taskSlot ", i);
+                    break;
+                }    
+            }
+        }
     }
     return;
 }

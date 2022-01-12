@@ -30,13 +30,14 @@ for i in range(len(raw_data)):
 fig, ax = plt.subplots()
 
 for i in range(n_pes):
-    ax.plot(time, samples[i], '--', linewidth=0.6)
+    ax.plot(time, samples[i], '--', linewidth=0.2)
     
-ax.plot(time, peak_temp, 'k-', linewidth=2.5)
-#ax.plot(time, avg_temp, 'r-', linewidth=2.5)
+ax.plot(time, peak_temp, 'k-', linewidth=1.0)
+ax.plot(time, avg_temp, 'r-', linewidth=1.0)
 
 ax.set_title('Temperature')
 
 fig = plt.gcf()
 fig.set_size_inches(18.5, 10.5)
 fig.savefig('simulation/PeakTemperature.png', format='png', dpi=600, bbox_inches='tight')
+fig.savefig('simulation/PeakTemperature.eps', format='eps', bbox_inches='tight')

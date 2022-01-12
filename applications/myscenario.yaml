@@ -1,13 +1,13 @@
 apps:
  - name: prodcons
    period: 2
-   executions: 50
+   executions: 25
    tasks:
     prod: 0
     cons: 1
  - name: dtw
    period: 0
-   executions: 10
+   executions: 5
    tasks:
     bank: 0
     p1: 1
@@ -17,7 +17,7 @@ apps:
     recognizer: 5
  - name: dijkstra
    period: 242
-   executions: 2
+   executions: 1
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
@@ -28,7 +28,7 @@ apps:
     divider: 6
  - name: aes
    period: 29
-   executions: 15
+   executions: 7
    tasks:
     aes_master: 0
     aes_slave1: 1

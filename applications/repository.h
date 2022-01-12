@@ -15,7 +15,7 @@
 static unsigned int appInfo[NUM_APPS][INFO_SIZE] = {
 	{ 0x00000000,  // app id prodcons
 	  0x00000002,  // app period 
-	  0x00000032,  // app executions 
+	  0x00000019,  // app executions 
 	  0x00000002,  // number of tasks 
 	  0xFFFFFFFF,  // nothing 
 	  0xFFFFFFFF,  // nothing 
@@ -26,7 +26,7 @@ static unsigned int appInfo[NUM_APPS][INFO_SIZE] = {
 ,
 	{ 0x00000001,  // app id dtw
 	  0x00000000,  // app period 
-	  0x0000000A,  // app executions 
+	  0x00000005,  // app executions 
 	  0x00000006,  // number of tasks 
 	  0xFFFFFFFF,  // nothing 
 	  0xFFFFFFFF,  // nothing 
@@ -37,7 +37,7 @@ static unsigned int appInfo[NUM_APPS][INFO_SIZE] = {
 ,
 	{ 0x00000002,  // app id dijkstra
 	  0x000000F2,  // app period 
-	  0x00000002,  // app executions 
+	  0x00000001,  // app executions 
 	  0x00000007,  // number of tasks 
 	  0xFFFFFFFF,  // nothing 
 	  0xFFFFFFFF,  // nothing 
@@ -48,7 +48,7 @@ static unsigned int appInfo[NUM_APPS][INFO_SIZE] = {
 ,
 	{ 0x00000003,  // app id aes
 	  0x0000001D,  // app period 
-	  0x0000000F,  // app executions 
+	  0x00000007,  // app executions 
 	  0x00000005,  // number of tasks 
 	  0xFFFFFFFF,  // nothing 
 	  0xFFFFFFFF,  // nothing 
