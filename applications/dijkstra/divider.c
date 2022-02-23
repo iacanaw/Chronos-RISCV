@@ -62,8 +62,8 @@ int main(){
 
 	AdjMatrix[0][0] = KILL;
 	for (i=0; i<NUM_NODES; i++) {
-		sys_Prints((unsigned int)&kill);
 		sys_Printi(i);
+		sys_Prints((unsigned int)&kill);
 		for (j=0; j<NUM_NODES; j++) {
 			msg.msg[j] = AdjMatrix[i][j];
 		}

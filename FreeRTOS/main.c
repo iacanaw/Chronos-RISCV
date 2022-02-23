@@ -17,6 +17,12 @@ extern volatile unsigned int API_SystemFinish = FALSE;
 /* A block time of zero simply means "don't block". */
 #define mainDONT_BLOCK						( 0UL )
 
+/* Defines the thermal management technique 
+    1) Pattern
+    2) PIDTM
+    3) Nossa Técnica */
+#define THERMAL_MANAGEMENT 0
+
 /******************************************************************************
  * CoreUARTapb instance data.
  *****************************************************************************/
@@ -52,7 +58,7 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName );
  */
 unsigned int ProcessorAddr;
 
-extern volatile unsigned int NI_IRCount;
+extern volatile unsigned int measuredWindows;
 
 /*-----------------------------------------------------------*/
 
@@ -320,6 +326,7 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                 
                 case FINISH_TEMPERATURE_PACKET:
                     temperatureUpdated = 1;
+                    measuredWindows++;
                     for(aux = 0; aux < DIM_X*DIM_Y; aux++){ 
                         printsvsv("pe", aux, "temp: ", SystemTemperature[aux]);
                     }
@@ -413,6 +420,7 @@ void vNI_TMR_HandlerTask( void *pvParameters ){
 }
 
 /*-----------------------------------------------------------*/
+#if THERMAL_MANAGEMENT == 1 // PATTERN
 
 static void GlobalManagerTask( void *pvParameters ){
 	( void ) pvParameters;
@@ -432,7 +440,9 @@ static void GlobalManagerTask( void *pvParameters ){
 	API_RepositoryWakeUp();
 
 	for(;;){
-		tick = xTaskGetTickCount();
+		API_setFreqScale(1000);
+        API_applyFreqScale();
+        tick = xTaskGetTickCount();
 		myItoa(tick, str, 10);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
 		printsv("GlobalMasterActive", tick);
@@ -444,14 +454,86 @@ static void GlobalManagerTask( void *pvParameters ){
 		// Checks if there is some task to start...
 		API_StartTasks();
 
+        // Enters in idle
+        API_setFreqIdle();
+        API_applyFreqScale();
+        
 		if(API_SystemFinish){
-			vTaskDelay(200); // to cool down the system
+			vTaskDelay(100); // to cool down the system
 			_exit(0xfe10);
 		}
 		else{
 			vTaskDelay(1);
 		}
-		//asm ("wfi");
 	}
 }
 
+#elif THERMAL_MANAGEMENT == 2 // PIDTM
+
+static void GlobalManagerTask( void *pvParameters ){
+    ( void ) pvParameters;
+    int tick;
+	char str[20];
+
+    // Initialize the priority vector with the pattern policy
+    GeneratePatternMatrix();
+
+    // Initialize the System Tiles Info
+    API_TilesReset();
+
+    // Initialize the applications vector
+    API_ApplicationsReset();
+
+    // Informs the Repository that the GLOBALMASTER is ready to receive the application info
+    API_RepositoryWakeUp();
+
+    for(;;){
+        API_setFreqScale(1000);
+        API_applyFreqScale();
+        tick = xTaskGetTickCount();
+		myItoa(tick, str, 10);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
+		printsv("GlobalMasterActive", tick);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
+
+        // Update the system temperature
+        //API_UpdateTemperature();
+
+        // Update PID
+        API_UpdatePIDTM();
+
+        // Update priority table
+        API_UpdatePriorityTable(pidStatus.control_signal);
+
+        // Checks if there is some task to allocate...
+		API_AllocateTasks(tick);
+		
+		// Checks if there is some task to start...
+		API_StartTasks();
+        
+        // Enters in idle
+        API_setFreqIdle();
+        API_applyFreqScale();
+        
+		if( API_SystemFinish ){
+			vTaskDelay(100); // to cool down the system
+			_exit(0xfe10);
+		}
+		else {
+			vTaskDelay(1);
+		}
+
+    }
+}
+
+
+#elif THERMAL_MANAGEMENT == 3 // CHRONOS
+
+static void GlobalManagerTask( void *pvParameters ){
+    ( void ) pvParameters;
+    while(1){
+        
+    }
+}
+
+#endif

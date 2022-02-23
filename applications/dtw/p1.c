@@ -1,7 +1,7 @@
 #include "dtw.h"
 
 static char start_print[]="Task P1 INIT\n";
-static char finish_print[]="Task P1 FINISHEDD IN\n";
+static char finish_print[]="Task P1 FINISHED \n";
 
 volatile static Message msg;
 

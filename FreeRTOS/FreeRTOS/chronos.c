@@ -32,6 +32,9 @@ void Chronos_init(){
     // Resets the amount of each executed instruction
     resetExecutedInstructions();
 
+    // Reset the window counter
+    measuredWindows = 0;
+
     //Informs the Router this tile ID, that is provided by Harness
     HW_set_32bit_reg(ROUTER_BASE, HW_get_32bit_reg(MY_ID)); 
     
@@ -370,8 +373,8 @@ void API_Try2Send(){
     unsigned int toSend, taskID, slot, i;
     // Try to send the packet to NI if it's available
     // Checks if the NI is available to transmitt something
+    vTaskEnterCritical();
     if (HW_get_32bit_reg(NI_TX) == NI_STATUS_OFF){
-        vTaskEnterCritical();
         toSend = API_PopSendQueue();
         if (toSend != EMPTY){
             SendingSlot = toSend;
@@ -382,6 +385,7 @@ void API_Try2Send(){
                 taskID = (toSend & 0x0000FF00) >> 8;
                 slot = toSend & 0x000000FF;
                 SendRaw((unsigned int)&TaskList[taskID].MessagePipe[slot].header);
+                printsv("Sending message id: ", TaskList[taskID].MessagePipe[slot].msgID);
             }
             else if((toSend & 0xFFFF0000) == THERMAL){
                 SendingSlot = THERMAL;
@@ -398,10 +402,10 @@ void API_Try2Send(){
         } else {
             prints("API_Try2Send failed - empty SendQueue!\n");
         }
-        vTaskExitCritical();
     } else {
         prints("API_Try2Send failed - NI_TX occupied!\n");
     }
+    vTaskExitCritical();
     return;
 }
 
@@ -441,9 +445,10 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
             //API_NI_Handler();
             taskSlot = API_GetCurrentTaskSlot();
             TaskList[taskSlot].status = TASK_SLOT_SUSPENDED;
-            vTaskExitCritical();
+            //vTaskExitCritical();
             vTaskSuspend( TaskList[taskSlot].TaskHandler );
-            vTaskEnterCritical();
+            prints("Volteiiii!\n");
+            //vTaskEnterCritical();
         }
     }while(mySlot == PIPE_FULL);
     
@@ -500,7 +505,7 @@ void API_SendFinishTask(unsigned int task_id, unsigned int app_id){
 }
 
 void API_SendMessageReq(unsigned int addr, unsigned int taskID){
-    unsigned int taskSlot;
+    unsigned int taskSlot, i;
     unsigned int mySlot;
     volatile unsigned int idle = 0;
     // Update task info
@@ -536,7 +541,18 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
 
     API_PushSendQueue(SERVICE, mySlot);
     
-    API_setFreqScale(100);
+    //
+    for (i = 0; i < NUM_MAX_TASKS; i++){
+        if ( TaskList[i].status == TASK_SLOT_RUNNING && TaskList[i].waitingMsg == FALSE ){
+            i = 999;
+            printsv("Not changing the frequency because task # is running: ", i);
+            break;
+        }
+    }
+    if (i < 999) {
+        API_setFreqScale(100);
+    }
+
     // Bloquear a tarefa!
     while(TaskList[taskSlot].waitingMsg == TRUE){ 
         vTaskDelay(1);
@@ -559,7 +575,7 @@ unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int t
     unsigned int i,j;
     unsigned int sel = ERRO;
     unsigned int smallID = 268435455;
-    //vTaskEnterCritical();
+    vTaskEnterCritical();
     for(i = 0; i < NUM_MAX_TASKS; i++){
         if(TaskList[i].status != TASK_SLOT_EMPTY && TaskList[i].AppID == task_app_id){
             for(j = 0; j < PIPE_SIZE; j++){
@@ -577,13 +593,18 @@ unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int t
     if(sel != ERRO){
         TaskList[sel >> 8].MessagePipe[sel & 0x000000FF].status == PIPE_TRANSMITTING;
     }
-    //vTaskExitCritical();
+    vTaskExitCritical();
     return sel;
 }
 
 void API_AddPendingReq(unsigned int requester_task_id, unsigned int task_app_id, unsigned int producer_task_id){
     unsigned int slot = API_GetTaskSlot(producer_task_id, task_app_id);
-    TaskList[slot].PendingReq[requester_task_id] = TRUE;
+    if (slot != ERRO) {
+        TaskList[slot].PendingReq[requester_task_id] = TRUE;
+    } else {
+        printsvsv("Task ", requester_task_id, "solicitando pacote da task ", producer_task_id);
+        printsv("no PE errado - applicacao: ", task_app_id);
+    }
     return;
 }
 

@@ -15,6 +15,12 @@
 #define TASK_ALLOCATED      4
 #define TASK_STARTED        5
 
+// PIDTM defines
+#define KP 10
+#define KI 10
+#define KD 10
+#define INT_WINDOW 10
+
 // Finish 
 volatile unsigned int API_SystemFinish;
 
@@ -59,6 +65,19 @@ typedef struct{
     unsigned int lastFinish;
 } Application;
  
+// PIDTM stuff
+volatile unsigned int measuredWindows;
+typedef struct{
+    // PID control variables
+    unsigned int derivative[DIM_Y * DIM_X];
+    unsigned int integral[DIM_Y * DIM_X];
+    unsigned int integral_prev[INT_WINDOW][DIM_Y * DIM_X];
+    unsigned int Temperature_prev[DIM_Y * DIM_X];
+    unsigned int control_signal[DIM_Y * DIM_X];
+} PIDinfo;
+volatile PIDinfo pidStatus;
+
+
 // Application Info
 volatile Application applications[NUM_MAX_APPS];
 
@@ -96,4 +115,10 @@ void API_ApplicationStart(unsigned int app_id);
 void API_TaskAllocated(unsigned int task_id, unsigned int app_id);
 
 void API_StartTasks();
+
+void API_UpdatePriorityTable(unsigned int score_source[DIM_X*DIM_Y]);
+
+void API_UpdatePIDTM(); 
+
+void API_UpdateTemperature();
 #endif

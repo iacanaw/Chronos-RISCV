@@ -18,12 +18,12 @@
 #define ERRO                -1
 ////////////////////////////////////////////////////////////
 // SYSTEM INFO
-#define DIM_X 5
-#define DIM_Y 5
+#define DIM_X 4
+#define DIM_Y 4
 #define GLOBAL_MASTER_ADDR  0x0000
 #define NUM_MAX_APPS        12      // The maximum number of Applications
 #define NUM_MAX_APP_TASKS   10      // The maximum number of Tasks that a given Application can have
-#define NUM_MAX_TASKS       6      // The maxinum number of Tasks that can be allocated in a given PE at the same time
+#define NUM_MAX_TASKS       2       // The maxinum number of Tasks that can be allocated in a given PE at the same time
 ////////////////////////////////////////////////////////////
 // PERIPHERAL PORTS
 #define PERIPH_EAST         0x00010000

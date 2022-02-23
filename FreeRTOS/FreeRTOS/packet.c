@@ -13,7 +13,7 @@ extern unsigned int thermalPacket_pending; // from thermal.h
 // Initialize the PIPE, setting the status of each slot to FREE
 void API_PipeInitialization(){
     int i, j;
-    messageID = 0;
+    messageID = 1;
     ServiceMessage.status = PIPE_FREE;
     for( i = 0; i < PIPE_SIZE; i++ ){
         for(j = 0; j < NUM_MAX_TASKS; j++){
@@ -30,8 +30,8 @@ void API_PipeInitialization(){
 unsigned int API_GetMessageSlot(){
     int i;
     unsigned int sel = PIPE_FULL;
-    unsigned int currTask = API_GetCurrentTaskSlot();
     vTaskEnterCritical();
+    unsigned int currTask = API_GetCurrentTaskSlot();
     for( i = 0; i < PIPE_SIZE; i++ ){
         if (TaskList[currTask].MessagePipe[i].status == PIPE_FREE){
             TaskList[currTask].MessagePipe[i].status = PIPE_OCCUPIED;
@@ -112,7 +112,7 @@ unsigned int API_checkPipe(unsigned int taskSlot){
         printsv("status: ", TaskList[taskSlot].MessagePipe[i].status);
         //printsv("holder: ", TaskList[taskSlot].MessagePipe[i].holder);
         prints("---\n");
-        if(TaskList[taskSlot].MessagePipe[i].status == PIPE_OCCUPIED){
+        if(TaskList[taskSlot].MessagePipe[i].status == PIPE_OCCUPIED || TaskList[taskSlot].MessagePipe[i].status == PIPE_TRANSMITTING){
             //if(MessagePipe[i].holder == taskSlot){
                 return 1;
             //}

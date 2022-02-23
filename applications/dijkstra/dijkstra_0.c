@@ -3,6 +3,7 @@
 
 static char end_print[] =   "Dijkstra_0 finished.\n";
 static char start_print[] =   "Starting Dijkstra_0.\n";
+static char new_value[] =   "> dijkstra0 new value. \n";
 
 volatile static Message msg;
 
@@ -25,6 +26,8 @@ int main()
 		msg.length = NUM_NODES;
 		for (i=0; i<NUM_NODES; i++) {
 			sys_Receive(&msg, divider);
+			// sys_Printi(msg.msg[0]);
+			// sys_Prints((unsigned int)&new_value);
 			for (j=0; j<NUM_NODES; j++)
 				AdjMatrix[i][j] = msg.msg[j];
 		}

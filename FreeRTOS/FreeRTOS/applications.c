@@ -76,9 +76,14 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
 
 unsigned int API_GetTaskSlot(unsigned int task_id, unsigned int app_id){
     unsigned int i;
+    printsvsv("looking for task_id ", task_id, " from app_id ", app_id);
     for( i = 0; i < NUM_MAX_APP_TASKS; i++){
-        if(task_id == TaskList[i].TaskID && app_id == TaskList[i].AppID && TaskList[i].status != TASK_SLOT_EMPTY)
-            return i;
+        if( task_id == TaskList[i].TaskID && app_id == TaskList[i].AppID ){
+            printsv("current status: ", TaskList[i].status);
+            if( TaskList[i].status != TASK_SLOT_EMPTY ){
+                return i;
+            }
+        }
     }
     prints("returning erro2\n");
     return ERRO;

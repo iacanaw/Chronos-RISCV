@@ -17,7 +17,7 @@
 #define TASK_SLOT_BLOQUED           5
 
 typedef struct {
-    unsigned int status;
+    volatile unsigned int status;
     MemoryRegion_t memRegion; 
     unsigned int TaskID;
     unsigned int AppID;

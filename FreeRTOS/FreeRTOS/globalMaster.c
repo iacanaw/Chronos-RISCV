@@ -93,13 +93,72 @@ void API_TilesReset(){
             Tiles[m][n].temperature = 273;
             Tiles[m][n].frequency = 1000;
             Tiles[m][n].taskSlots = NUM_MAX_TASKS;
-            /*for(i = 0; i < NUM_MAX_TASKS; i++){
-                Tiles[m][n].AppTask[i] = NONE;
-            }*/
         }
     }    
     return;
 }
+
+////////////////////////////////////////////////////////////
+// Update tiles temperature
+void API_UpdateTemperature(){
+    int m, n, i = 0;
+    for (m = 0; m < DIM_X; m++){
+        for (n = 0; n < DIM_Y; n++){
+            Tiles[m][n].temperature = SystemTemperature[i];
+            i++;
+        }
+    }
+}
+
+void API_UpdatePIDTM(){
+    int i;
+    for (i = 0; i < DIM_X * DIM_Y; i++) {
+        if ( measuredWindows >= INT_WINDOW ){
+            pidStatus.integral[i] = pidStatus.integral[i] - pidStatus.integral_prev[measuredWindows % INT_WINDOW][i];
+        }
+
+        pidStatus.integral_prev[measuredWindows % INT_WINDOW][i] = SystemTemperature[i];
+
+        pidStatus.derivative[i] = SystemTemperature[i] - pidStatus.Temperature_prev[i];
+        pidStatus.integral[i] = pidStatus.integral[i] + SystemTemperature[i];
+        pidStatus.control_signal[i] = KP * SystemTemperature[i] + KI * pidStatus.integral[i] / INT_WINDOW + KD * pidStatus.derivative[i];
+        pidStatus.Temperature_prev[i] = SystemTemperature[i];
+    }
+    return;
+}
+
+void API_UpdatePriorityTable(unsigned int score_source[DIM_X*DIM_Y]){
+    int i;
+    int x, y;
+    int index;
+    int coolest = -1;
+    int addr;
+    unsigned int score[DIM_X*DIM_Y];
+
+    memcpy(score, score_source, (DIM_X*DIM_Y*4));
+
+    for (i = (DIM_X * DIM_Y) - 1; i >= 0; i--) {
+        // reset the coolest
+        coolest = 0;
+
+        for ( y = 0; y < DIM_Y; y++ ) {
+            for ( x = 0; x < DIM_X; x++ ) {
+                index = x + y * DIM_X;
+
+                if (score[index] < score[coolest] && score[index] != -1)
+                    coolest = index;
+            }
+        }
+
+        addr = (coolest % DIM_X << 8) | coolest / DIM_X;
+
+        priorityMatrix[i] = addr;
+    
+        score[coolest] = -1;
+    }
+
+}
+
 
 // Generates the Pattern Matrix for Pattern mapping
 void GeneratePatternMatrix(){
@@ -148,7 +207,7 @@ void API_AllocateTasks(unsigned int tick){
 
             // If the nextRun of this application is right now, then release each task!
             if(applications[i].nextRun <= tick && applications[i].nextRun != applications[i].lastStart){
-
+                printsv("Starting to release the application ", i);
                 // If the system has space to accept every task
                 if(applications[i].numTasks <= API_GetSystemTasksSlots()){
                     
@@ -185,7 +244,7 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
     flag = 1;
     for (i = 0; i < applications[app_id].numTasks; i++){
         printsvsv("checking ", i, "task is: ", applications[app_id].tasks[i].status);
-        printsv("from app: ", app_id);
+        printsvsv("from app: ", app_id, "running at addr: ", applications[app_id].tasks[i].addr);
         if(applications[app_id].tasks[i].status != TASK_FINISHED){
             flag = 0;
             break;
@@ -292,6 +351,7 @@ unsigned int API_GetSystemTasksSlots(){
             }
         }
     }
+    printsv("The system has # task slots availables: ", sum);
     return sum;
 }
 
@@ -305,7 +365,7 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
             API_NI_Handler();
         }
     }while(mySlot == PIPE_FULL);
-    printsv("I got a free service slo-!! -> ", mySlot);
+    printsv("I got a free service slot!! -> ", mySlot);
 
     ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
 

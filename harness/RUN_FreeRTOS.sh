@@ -1,8 +1,81 @@
 #!/bin/bash
 
-XX=$1
-YY=$2
+while getopts ":h:n:x:y:t:" option; do
+  case $option in
+    h) # display Help
+        Help
+        exit;;
+    n) # Enter a name
+        SimName=$OPTARG
+        echo "Simulation name defined by the user";;
+    x) # defines the dimension size (axis x)
+        XX=$OPTARG
+        echo "The X axis is defined by the user: "$XX;;
+    y) # defines the dimension size (axis y)
+        YY=$OPTARG
+        echo "The Y axis is defined by the user: "$YY;;
+    t) #defines the type of simulation (pattern, pidtm, nossa tecnica)
+        SimType=$OPTARG
+        echo "Using the thermal management technique: "$SimType;;
+    \?) # Invalid option
+        echo "Error: Invalid option"
+        exit;;
+   esac
+done
+shift $((OPTIND-1))
+
+# if [ -z ${SimType} ];
+# then
+#     SimType="PIDTM"
+# fi
+
+if [ -z ${XX} ];
+then
+    XX=5
+    echo "Default X axis dimention: "$(($XX))
+fi
+
+if [ -z ${YY} ];
+then
+    YY=5
+    echo "Default Y axis dimention: "$(($YY))
+fi
+
+if [ -z ${SimName} ];
+then
+    SimName=$(date +"%d%m%Y%H%M%S")"_"$SimType"_"$(($XX))"x"$(($YY))
+    echo "Default simulation name: "$SimName
+fi
+
 N=$(($XX*$YY))
+echo "Number of PEs in this simulation: "$(($N))
+
+cd ../simulation
+mkdir $SimName
+cd $SimName
+mkdir simulation
+cp -r ../../applications .
+cp -r ../../FreeRTOS .
+cp -r ../../harness .
+cp -r ../../module .
+cp -r ../../peripheral .
+cp -r ../../scripts .
+
+if [[ $SimType == "pattern" ]]
+then
+    sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 1/' FreeRTOS/main.c
+elif [[ $SimType == "pidtm" ]]
+then
+    sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 2/' FreeRTOS/main.c
+elif [[ $SimType == "chronos" ]]
+then
+    sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 3/' FreeRTOS/main.c
+else
+    echo "Error: the -t option must be defined as \"pattern\", \"pidtm\" or \"chronos\"."
+    exit
+fi
+
+cd harness
 
 SECONDS=0;
 echo "====================="
@@ -129,12 +202,14 @@ for i in $(seq 0 $(($N-2)));
 do
 echo "  \\" >> callHarness.sh
 echo "  --program  cpu"$i"=\${FREERTOS_ELF}               \\" >> callHarness.sh
+echo "  --override dictsize=64                          \\" >> callHarness.sh
 echo "  --override uart"$i"/console=T                    \\" >> callHarness.sh
 echo "  --override uart"$i"/finishOnDisconnect=T         \\" >> callHarness.sh
 echo "  --override uart"$i"/outfile=simulation/uart"$i".log \\" >> callHarness.sh
 done
 echo "  \\" >> callHarness.sh
 echo "  --program  cpu"$(($N-1))"=\${FREERTOS_ELF}               \\" >> callHarness.sh
+echo "  --override dictsize=64                                 \\" >> callHarness.sh
 echo "  --override uart"$(($N-1))"/console=T                    \\" >> callHarness.sh
 echo "  --override uart"$(($N-1))"/finishOnDisconnect=T         \\" >> callHarness.sh
 echo "  --override uart"$(($N-1))"/outfile=simulation/uart"$(($N-1))".log \$* --verbose --parallelmax --parallelperipherals --output simulation/imperas.log" >> callHarness.sh
@@ -147,3 +222,8 @@ echo "Simulation total time elapsed: "$SECONDS" seconds..."
 
 python3 scripts/graphTemperature.py 
 python3 scripts/graphInstructions.py "$XX" "$YY"
+
+shopt -s extglob
+rm -rfv !('simulation');
+cp simulation/* .
+rm -rf simulation
