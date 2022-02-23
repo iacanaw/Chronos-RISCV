@@ -159,6 +159,43 @@ void API_UpdatePriorityTable(unsigned int score_source[DIM_X*DIM_Y]){
 
 }
 
+void generateSpiralMatrix() {
+    int i, cont = 0, k = 0, l = 0, m = DIM_X, n = DIM_Y;
+
+    while (k < m && l < n) {
+        // Print the first row from the remaining rows
+        for (i = l; i < n; ++i) {
+            priorityMatrix[cont] = (k << 8) | i;
+            cont++;
+        }
+        k++;
+
+        // Print the last column from the remaining columns 
+        for (i = k; i < m; ++i) {
+            priorityMatrix[cont] = (i << 8) | (n - 1);
+            cont++;
+        }
+        n--;
+
+        // Print the last row from the remaining rows 
+        if (k < m) {
+            for (i = n - 1; i >= l; --i) {
+                priorityMatrix[cont] = ((m - 1) << 8) | i;
+                cont++;
+            }
+            m--;
+        }
+
+        // Print the first column from the remaining columns 
+        if (l < n) {
+            for (i = m - 1; i >= k; --i) {
+                priorityMatrix[cont] = (i << 8) | l;
+                cont++;
+            }
+            l++;
+        }
+    }
+}
 
 // Generates the Pattern Matrix for Pattern mapping
 void GeneratePatternMatrix(){

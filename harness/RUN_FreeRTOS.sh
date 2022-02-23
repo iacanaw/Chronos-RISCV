@@ -61,7 +61,10 @@ cp -r ../../module .
 cp -r ../../peripheral .
 cp -r ../../scripts .
 
-if [[ $SimType == "pattern" ]]
+if [[ $SimType == "spiral" ]]
+then
+    sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 0/' FreeRTOS/main.c
+elif [[ $SimType == "pattern" ]]
 then
     sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 1/' FreeRTOS/main.c
 elif [[ $SimType == "pidtm" ]]
