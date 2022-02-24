@@ -6,8 +6,8 @@ static char end_print[] =   "PROD1 End \n";
 volatile static Message mensagem;
 
 int main(){
-    int i;
-    
+    int i = 0;
+
     sys_Prints((unsigned int)&start_print);
 
     for (i=0;i<MSG_SIZE;i++) {
@@ -17,7 +17,7 @@ int main(){
     mensagem.length = 25;
 
     for (i=0; i<PRODCONS_ITERATIONS; i++) {
-        mensagem.msg[9] = 0xB0A + i;
+        mensagem.msg[9] = 0xB0A + i+5;
         sys_Send(&mensagem, cons);
     }
 

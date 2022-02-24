@@ -551,7 +551,7 @@ static void GlobalManagerTask( void *pvParameters ){
         // Update PID
         API_UpdatePIDTM();
 
-        // Update priority table
+        // Update priority table based on the PID value of each PE
         API_UpdatePriorityTable(pidStatus.control_signal);
 
         // Checks if there is some task to allocate...
