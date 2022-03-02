@@ -1,0 +1,9 @@
+info:
+ - name: aes
+   deadline: 0.20
+   migration:
+    aes_master: true
+    aes_slave1: true
+    aes_slave2: true
+    aes_slave3: true
+    aes_slave4: true

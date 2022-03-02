@@ -16,6 +16,7 @@ appsTaskSize = []
 appsTaskBss = []
 appsTaskStart = []
 appsTaskCode = []
+appsTaskDeadline = []
 bigCode = 0
 
 with open(SCENARIO) as file:
@@ -36,6 +37,11 @@ for i in range(len(appsName)):
     taskBss = []
     taskCode = []
     taskStart = []
+    appDeadline = 0
+    with open(appsName[i]+'/info.yaml') as info_file:
+        taskInfo = yaml.load(info_file, Loader=yaml.SafeLoader)
+        appDeadline = int(float(taskInfo['info'][0]['deadline'])*100)
+    print(appDeadline)
     for j in range(len(appsTasks[i])):
         taskSize.append(0)
         taskBss.append(0)
@@ -111,7 +117,7 @@ for i in range(len(appsName)):
                             code.append(value[0])
                         
                 if "<main>:" in line:
-                    taskStart[j] = copy.deepcopy(taskSize[j]);
+                    taskStart[j] = copy.deepcopy(taskSize[j])
 
                 if ".bss" in line: #identify when the bss has begun
                     bss = True
@@ -127,6 +133,8 @@ for i in range(len(appsName)):
     appsTaskStart.append(copy.deepcopy(taskStart))
     appsTaskSize.append(copy.deepcopy(taskSize))
     appsTaskCode.append(copy.deepcopy(taskCode))
+    appsTaskDeadline.append(copy.deepcopy(appDeadline))
+    
 
 # Creates the "repository.h"
 with open('repository.h', 'w') as file:
@@ -150,7 +158,7 @@ with open('repository.h', 'w') as file:
         file.write('\t  ' + str('0x%08X'%appsPeriod[i]) + ',  // app period \n')
         file.write('\t  ' + str('0x%08X'%appsExecutions[i]) + ',  // app executions \n')
         file.write('\t  ' + str('0x%08X'%len(appsTasks[i])) + ',  // number of tasks \n')
-        file.write('\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
+        file.write('\t  ' + str('0x%08X'%appsTaskDeadline[i]) + ',  // deadline \n')
         file.write('\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
         file.write('\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
         file.write('\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')

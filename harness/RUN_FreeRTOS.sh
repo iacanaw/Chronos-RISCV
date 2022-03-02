@@ -45,6 +45,8 @@ if [ -z ${SimName} ];
 then
     SimName=$(date +"%d%m%Y%H%M%S")"_"$SimType"_"$(($XX))"x"$(($YY))
     echo "Default simulation name: "$SimName
+else
+    SimName=$SimName"_"$SimType"_"$(($XX))"x"$(($YY))
 fi
 
 N=$(($XX*$YY))
