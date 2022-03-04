@@ -18,6 +18,16 @@
 #define TEMPERATURE_PACKET              0x00000055U
 #define FINISH_TEMPERATURE_PACKET       0x00000056U
 
+#define TASK_SUSPEND                    0x00000070U
+#define TASK_UPDATE_RESUME              0x00000075U
+
+// Migration process
+#define TASK_MIGRATION_REQUEST          0x00000060U
+#define TASK_MIGRATION_READY            0x00000061U
+#define TASK_MIGRATE                    0x00000062U
+#define TASK_INFORM_STATUS              0x00000063U
+#define TASK_RESTART                    0x00000064U
+
 #define SOLVED                          0x0000FFFFU
 
 #endif

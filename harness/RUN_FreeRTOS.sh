@@ -94,11 +94,11 @@ done
 echo "======================="
 echo "CREATING THE REPOSITORY"
 python3 repositoryMaker.py myscenario
-for d in */ ; do
-  cd $d
-  make clean
-  cd ..
-done
+# for d in */ ; do
+#   cd $d
+#   make clean
+#   cd ..
+# done
 cd ../harness
 echo "=================="
 echo "COMPILING FREERTOS"

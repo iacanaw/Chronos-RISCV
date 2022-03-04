@@ -447,12 +447,26 @@ void API_ApplicationStart(unsigned int app_id){
         ServiceMessage.header.service          = TASK_START;
         ServiceMessage.header.task_id          = i;
         ServiceMessage.header.task_app_id      = app_id;
+        ServiceMessage.header.task_arg         = 0;
         ServiceMessage.msg.length              = applications[app_id].numTasks;
         for(j = 0; j < applications[app_id].numTasks; j++){
             ServiceMessage.msg.msg[j]          = applications[app_id].tasks[j].addr;
         }
         API_PushSendQueue(SYS_MESSAGE, 0);
     }
+    return;
+}
+
+void API_StartMigration(unsigned int app_id, unsigned int task_id){
+    unsigned int i, j;
+    printsvsv("Starting Migration Process for app: ", app_id, "Task: ", task_id);
+    ServiceMessage.status                   = PIPE_OCCUPIED;
+    ServiceMessage.header.header            = applications[app_id].tasks[task_id].addr;
+    ServiceMessage.header.payload_size      = PKT_SERVICE_SIZE;
+    ServiceMessage.header.service           = TASK_MIGRATION_REQUEST;
+    ServiceMessage.header.task_id           = task_id;
+    ServiceMessage.header.task_app_id       = app_id;
+    API_PushSendQueue(SYS_MESSAGE, 0);
     return;
 }
 

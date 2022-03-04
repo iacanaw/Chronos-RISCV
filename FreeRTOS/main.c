@@ -246,9 +246,10 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     API_setFreqScale(1000);
                     printsvsv("Starting Task ", TaskList[aux].TaskID, " from app ", TaskList[aux].AppID);
                     printsv("taskSlot run: ", aux);
+                    printsv("taskArg: ", incommingPacket.task_arg);
                     //HW_set_32bit_reg(NI_RX, DONE);
                     prints("7NI_RX DONE!\n");
-                    API_TaskStart(aux);
+                    API_TaskStart(aux, incommingPacket.task_arg);
                     break;
 
                 case MESSAGE_REQUEST:
@@ -316,7 +317,7 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     //vTaskResume(TaskList[aux].TaskHandler);
                     xTaskResumeFromISR(TaskList[aux].TaskHandler);
                     break;
-
+                
                 case TEMPERATURE_PACKET:
                     prints("Recebendo pacote de temperatura");
                     HW_set_32bit_reg(NI_RX, (unsigned int)&SystemTemperature);
@@ -339,11 +340,17 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     //HW_set_32bit_reg(NI_RX, HOLD);
                     prints("13NI_RX HOLD!\n");
                     break;
-                    
+
+                case TASK_MIGRATION_REQUEST:
+                    prints("14NI_RX DONE!\n");
+                    prints("Starting Migration Process...");
+                    printsvsv("App: ", incommingPacket.task_app_id, "Task: ", incommingPacket.task_id);
+                    break;
+
                 default:
                     printsv("ERROR External_2_IRQHandler Unknown-Service ", incommingPacket.service);
                     //HW_set_32bit_reg(NI_RX, DONE);
-                    prints("14NI_RX DONE!\n");
+                    prints("66NI_RX DONE!\n");
                     break;
             }
         }
@@ -522,6 +529,7 @@ static void GlobalManagerTask( void *pvParameters ){
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
     int tick;
+    int migrate = 1;
 	char str[20];
 
     // Initialize the priority vector with the pattern policy
@@ -547,6 +555,11 @@ static void GlobalManagerTask( void *pvParameters ){
 
         // Update the system temperature
         //API_UpdateTemperature();
+
+        if(tick > 70 && migrate == 1){
+            API_StartMigration(0, 0);
+            migrate = 0;
+        }
 
         // Update PID
         API_UpdatePIDTM();

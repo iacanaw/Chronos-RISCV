@@ -36,6 +36,9 @@ int main(){
 	aes_key_setup(&key[0][0], key_schedule, 256);    
     
     while(flag){
+
+		checkMigration();
+
 		sys_Receive(&theMessage, aes_master);
 		aes_memcpy(input_text, theMessage.msg, 16);
 			

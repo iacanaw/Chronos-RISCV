@@ -3,6 +3,8 @@
 
 #include "../applications.h"
 
+volatile unsigned int MIGRATE = 0x60616263;
+
 #define aes_master 0
 #define aes_slave1 1
 #define aes_slave2 2
@@ -70,7 +72,6 @@ void ccm_prepare_first_ctr_blk(BYTE counter[], const BYTE nonce[], int nonce_len
 void ccm_prepare_first_format_blk(BYTE buf[], int assoc_len, int payload_len, int payload_len_store_size, int mac_len, const BYTE nonce[], int nonce_len);
 void ccm_format_assoc_data(BYTE buf[], int *end_of_buf, const BYTE assoc[], int assoc_len);
 void ccm_format_payload_data(BYTE buf[], int *end_of_buf, const BYTE payload[], int payload_len);
-
 
 /**************************** VARIABLES *****************************/
 // This is the specified AES SBox. To look up a substitution value, put the first
@@ -258,6 +259,16 @@ void xor_buf(const BYTE in[], BYTE out[], int len)
 
 	for (idx = 0; idx < len; idx++)
 		out[idx] ^= in[idx];
+}
+
+// Default function to check if a migration is required!
+int checkMigration(){
+	if (MIGRATE == 1){
+		sys_Prints("Starting Migration Process!\n");
+		return 1;
+	} else {
+		return 0;
+	}
 }
 
 /*******************

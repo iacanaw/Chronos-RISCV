@@ -65,7 +65,8 @@ typedef struct {
 		unsigned int task_app_id;			// ** Informs to witch application that task is from
 	};
 	union{
-		unsigned int flit8;			
+		unsigned int flit8;
+		unsigned int task_arg;				// ** Informs an argument to the task that is starting
 	};
 	union{
 		unsigned int flit9;

@@ -27,6 +27,7 @@ typedef struct {
     unsigned int taskSize;
     unsigned int taskAddr;
     unsigned int mainAddr;
+    unsigned int migrationPointer;
     volatile MessagePacket MessagePipe[PIPE_SIZE];
     unsigned int PendingReq[NUM_MAX_APP_TASKS];
     unsigned int appNumTasks;
@@ -47,7 +48,7 @@ unsigned int API_GetCurrentTaskSlot();
 // Creates a new task filling the TaskList
 unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int task_app_id);
 // Starts the execution of a task that is alocated in a given spot
-void API_TaskStart(unsigned int slot);
+void API_TaskStart(unsigned int slot, unsigned int arg);
 
 void API_FinishRunningTask();
 #endif

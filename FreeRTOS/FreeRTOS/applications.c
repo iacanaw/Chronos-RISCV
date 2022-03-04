@@ -61,6 +61,7 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
     TaskList[tslot].taskAddr = (unsigned int)pvPortMalloc(TaskList[tslot].taskSize+64);
     printsv("Task addr: ", TaskList[tslot].taskAddr);
     TaskList[tslot].mainAddr =  TaskList[tslot].taskAddr + (4 * start_point);
+    TaskList[tslot].migrationPointer = TaskList[tslot].taskAddr + ( 4 * txt_size);
 
     // filling the MemoryRegion_t struct
     //TaskList[tslot].memRegion.ulLengthInBytes = 0;// TaskList[tslot].taskSize;
@@ -89,7 +90,7 @@ unsigned int API_GetTaskSlot(unsigned int task_id, unsigned int app_id){
     return ERRO;
 }
 
-void API_TaskStart(unsigned int slot){
+void API_TaskStart(unsigned int slot, unsigned int arg){
     BaseType_t xReturned;
     TaskList[slot].status = TASK_SLOT_RUNNING;
 
@@ -105,7 +106,7 @@ void API_TaskStart(unsigned int slot){
     xReturned = xTaskCreate(TaskList[slot].mainAddr,
                             "LaTask",
                             4096,//8192,//4096,//16384,
-                            NULL,
+                            arg,
                             tskIDLE_PRIORITY+1,
                             &TaskList[slot].TaskHandler);
     if( xReturned != pdPASS ){
