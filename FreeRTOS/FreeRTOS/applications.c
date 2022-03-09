@@ -45,7 +45,17 @@ unsigned int API_GetFreeTaskSlot(){
     return ERRO;
 }
 
-unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int task_app_id){
+void API_InformMigration(unsigned int task_app_id, unsigned int task_id){
+    unsigned int tslot = API_GetTaskSlot(task_id, task_app_id);
+    volatile unsigned int *migrationVar = TaskList[tslot].migrationPointer;
+    printsv("Antes: ", *migrationVar);
+    *migrationVar = 1;
+    printsv("Depois: ", *migrationVar);
+    return;
+}
+
+
+unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int task_app_id, unsigned int migration_addr){
     unsigned int tslot = API_GetFreeTaskSlot();
     int i;
     if(tslot == ERRO){
@@ -61,7 +71,7 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
     TaskList[tslot].taskAddr = (unsigned int)pvPortMalloc(TaskList[tslot].taskSize+64);
     printsv("Task addr: ", TaskList[tslot].taskAddr);
     TaskList[tslot].mainAddr =  TaskList[tslot].taskAddr + (4 * start_point);
-    TaskList[tslot].migrationPointer = TaskList[tslot].taskAddr + ( 4 * txt_size);
+    TaskList[tslot].migrationPointer = TaskList[tslot].taskAddr + ( 4 * migration_addr);
 
     // filling the MemoryRegion_t struct
     //TaskList[tslot].memRegion.ulLengthInBytes = 0;// TaskList[tslot].taskSize;
@@ -113,6 +123,34 @@ void API_TaskStart(unsigned int slot, unsigned int arg){
         prints("ERROR - API_TaskStart!!!\n");
     }
     return;
+}
+
+void API_MigrationReady(){
+    unsigned int slot = API_GetCurrentTaskSlot();
+    unsigned int mySlot;
+    do{
+        mySlot = API_GetServiceSlot();
+        if(mySlot == PIPE_FULL){
+            // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui11...\n");
+            API_NI_Handler();
+        }
+    }while(mySlot == PIPE_FULL);
+
+    ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
+
+    ServicePipe[mySlot].header.header           = makeAddress(0, 0);
+    ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
+    ServicePipe[mySlot].header.service          = TASK_MIGRATION_READY;
+    ServicePipe[mySlot].header.task_id          = TaskList[slot].TaskID;
+    ServicePipe[mySlot].header.task_app_id      = TaskList[slot].AppID;
+
+    API_PushSendQueue(SERVICE, mySlot);
+
+    TaskList[slot].status = TASK_SLOT_BLOQUED;
+
+    prints("Suspendo task para migração...\n");
+    vTaskSuspend( NULL ); // the task suspend itself
 }
 
 

@@ -67,6 +67,7 @@ typedef struct {
 	union{
 		unsigned int flit8;
 		unsigned int task_arg;				// ** Informs an argument to the task that is starting
+		unsigned int task_migration_addr	// ** Informs were in the task is located the variable that controls the migration process
 	};
 	union{
 		unsigned int flit9;

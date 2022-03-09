@@ -17,6 +17,9 @@ int main(){
     mensagem.length = 25;
 
     for (i=0; i<PRODCONS_ITERATIONS; i++) {
+
+        checkMigration();
+
         mensagem.msg[9] = 0xB0A + i+5;
         sys_Send(&mensagem, cons);
     }

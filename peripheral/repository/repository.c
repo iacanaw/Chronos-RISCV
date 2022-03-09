@@ -62,7 +62,7 @@ void iterate(){
                         outPacket[5] = tasksInfo[inPacket[7]][inPacket[3]][2]; //bss size
                         outPacket[6] = tasksInfo[inPacket[7]][inPacket[3]][3]; //start point
                         outPacket[7] = tasksInfo[inPacket[7]][inPacket[3]][4]; //taskappid
-                        outPacket[8] = -1;
+                        outPacket[8] = tasksInfo[inPacket[7]][inPacket[3]][5]; //migration variable
                         outPacket[9] = -1;
                         outPacket[10] = -1;
                         outPacket[11] = -1;

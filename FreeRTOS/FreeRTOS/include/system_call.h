@@ -26,6 +26,7 @@
 #define SYS_RECV_MSG        ( 30 )
 #define SYS_PRINTI          ( 40 )
 #define SYS_PRINTS          ( 50 )
+#define SYS_MIGRATE			( 60 )
 #define SYS_TESTING         ( 66 )
 
 static void __internal_syscall(long n, long _a0, long _a1, long _a2, long _a3, long _a4, long _a5) {
@@ -67,6 +68,11 @@ static int sys_Prints(unsigned int addr){
 /* Finishes a task */
 static int sys_Finish(){
 	__internal_syscall(SYS_END_TASK, 0, 0, 0, 0, 0, 0);	
+	return 1;
+}
+
+static int sys_Migrate(){
+	__internal_syscall(SYS_MIGRATE, 0, 0, 0, 0, 0, 0);
 	return 1;
 }
 

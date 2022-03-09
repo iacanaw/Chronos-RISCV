@@ -3,7 +3,7 @@
 
 #include "../applications.h"
 
-volatile unsigned int MIGRATE = 0x60616263;
+volatile static int MIGRATE = -1;
 
 #define aes_master 0
 #define aes_slave1 1

@@ -268,6 +268,10 @@ void handle_syscall(){
             API_FinishRunningTask();
             break;
 
+        case SYS_MIGRATE:
+            API_MigrationReady();
+            break;
+
 		default:
 			prints("Systemcall não identificada!\n");
 			printsv("arg0 ", arg0);

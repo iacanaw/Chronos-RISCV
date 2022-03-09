@@ -63,16 +63,21 @@ for i in range(len(appsName)):
                 if line == '':
                     break
                 else:
+                    # detects the main address
                     if "<main>:" in line:
                             cut_line = re.split(r' ', line)
                             currentAddr = cut_line[0]
                             currentAddr = int(currentAddr, 16)
                             taskStart[j] = int((currentAddr - 2147483648)/4)
+
+                    # detects the migrate address
                     if "<MIGRATE>:" in line:
                             cut_line = re.split(r' ', line)
                             currentAddr = cut_line[0]
                             currentAddr = int(currentAddr, 16)
                             taskMigrateVar[j] = int((currentAddr - 2147483648)/4)
+
+                    # if any line that has an instruction
                     if ("800" in line) and ("\t" in line):
                         cut_line = re.split(r'\t', line)
                         #print(cut_line)
@@ -192,13 +197,13 @@ for i in range(len(appsName)):
                         #print(code[n])
                     if (code[n+1][0] - code[n][0] > 4):
                         wordgap = (code[n+1][0] - code[n][0]) / 4
-                        # print("wordgap: " + str(math.floor(wordgap)))
-                        # print(code[n])
-                        # print(code[n+1])
-                        # print("news: ")
+                        print("wordgap: " + str(math.floor(wordgap)))
+                        print(code[n])
+                        print(code[n+1])
+                        print("news: ")
                         for k in reversed(range(int(math.floor(wordgap)-1))):
                             code.insert(n+1 , [code[n][0]+(4*int(k+1)),"00000000"])
-                        #    print(code[n+1])      
+                            print(code[n+1])      
             for n in range(len(toPop)):
                 code.pop(toPop[n]-n)
 

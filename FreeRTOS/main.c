@@ -197,9 +197,11 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                                              incommingPacket.task_txt_size,
                                              incommingPacket.task_bss_size,
                                              incommingPacket.task_start_point,
-                                             incommingPacket.task_app_id);
+                                             incommingPacket.task_app_id,
+                                             incommingPacket.task_migration_addr);
                     printsv("Task slot: ", aux);
                     printsv("Task slot TaskAddr: ", TaskList[aux].taskAddr);
+                    printsv("Migration start at: ", incommingPacket.task_migration_addr);
                     // Informs the NI were to write the application
                     HW_set_32bit_reg(NI_RX, TaskList[aux].taskAddr);
                     incommingPacket.service = TASK_ALLOCATION_FINISHED;
@@ -343,9 +345,16 @@ void vNI_RX_HandlerTask( void *pvParameters ){
 
                 case TASK_MIGRATION_REQUEST:
                     prints("14NI_RX DONE!\n");
-                    prints("Starting Migration Process...");
+                    prints("Starting Migration Process...\n");
                     printsvsv("App: ", incommingPacket.task_app_id, "Task: ", incommingPacket.task_id);
+                    API_InformMigration(incommingPacket.task_app_id, incommingPacket.task_id);
                     break;
+                
+                case TASK_MIGRATION_READY:
+                    prints("15NI_RX DONE!\n");
+                    prints("The processor is ready to start the migration!\n");
+                    API_Migration_StallTasks(incommingPacket.task_app_id, incommingPacket.task_id);
+                    printsvsv("App: ", incommingPacket.task_app_id, "Task: ", incommingPacket.task_id);
 
                 default:
                     printsv("ERROR External_2_IRQHandler Unknown-Service ", incommingPacket.service);

@@ -495,3 +495,31 @@ void API_StartTasks(){
     return;
 }    
 
+void API_Migration_StallTasks(unsigned int app_id, unsigned int task_id){
+    int i;
+    printsv("Stalling application for migration: ", app_id);
+    for( i = 0; i < applications[app_id].numTasks; i++ ){
+        if( task_id != i ){
+
+            API_StallTask(unsigned int app_id, unsigned int task_id);
+        }
+    }
+    return;
+}
+
+void API_StallTask(unsigned int app_id, unsigned int task_id){
+    while(ServiceMessage.status == PIPE_OCCUPIED){
+        // Runs the NI Handler to send/receive packets, opening space in the PIPE
+        prints("Estou preso aqui7...\n");
+        API_NI_Handler();
+    }
+    printsvsv("Stalling task: ", task_id, "from app: ", app_id);
+    applications[app_id].tasks[task_id].status = TASK_STALL_REQUEST;
+    ServiceMessage.status                   = PIPE_OCCUPIED;
+    ServiceMessage.header.header            = applications[app_id].tasks[task_id].addr;
+    ServiceMessage.header.payload_size      = PKT_SERVICE_SIZE;
+    ServiceMessage.header.service           = TASK_STALL_REQUEST;
+    ServiceMessage.header.task_id           = task_id;
+    ServiceMessage.header.task_app_id       = app_id;
+    API_PushSendQueue(SYS_MESSAGE, 0);
+}

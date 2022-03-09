@@ -24,6 +24,8 @@ int main(){
 
     for (i=0; i<PRODCONS_ITERATIONS; i++) {
         
+        checkMigration();
+
         sys_Receive(&mensagem, prod);
         sys_Prints((unsigned int)&txt_print1);
         sum += mensagem.msg[9]-0xb0a;
