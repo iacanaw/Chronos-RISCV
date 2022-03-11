@@ -410,7 +410,7 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
     ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
     ServicePipe[mySlot].header.service          = TASK_ALLOCATION_SEND;
     ServicePipe[mySlot].header.task_id          = task;
-    ServicePipe[mySlot].header.task_app_id      = app;
+    ServicePipe[mySlot].header.app_id      = app;
     ServicePipe[mySlot].header.task_dest_addr   = dest_addr;
 
     API_PushSendQueue(SERVICE, mySlot);
@@ -446,7 +446,7 @@ void API_ApplicationStart(unsigned int app_id){
         ServiceMessage.header.payload_size     = PKT_SERVICE_SIZE + applications[app_id].numTasks + 1;
         ServiceMessage.header.service          = TASK_START;
         ServiceMessage.header.task_id          = i;
-        ServiceMessage.header.task_app_id      = app_id;
+        ServiceMessage.header.app_id           = app_id;
         ServiceMessage.header.task_arg         = 0;
         ServiceMessage.msg.length              = applications[app_id].numTasks;
         for(j = 0; j < applications[app_id].numTasks; j++){
@@ -457,15 +457,17 @@ void API_ApplicationStart(unsigned int app_id){
     return;
 }
 
-void API_StartMigration(unsigned int app_id, unsigned int task_id){
+void API_StartMigration(unsigned int app_id, unsigned int task_id, unsigned int new_addr){
     unsigned int i, j;
     printsvsv("Starting Migration Process for app: ", app_id, "Task: ", task_id);
-    ServiceMessage.status                   = PIPE_OCCUPIED;
-    ServiceMessage.header.header            = applications[app_id].tasks[task_id].addr;
-    ServiceMessage.header.payload_size      = PKT_SERVICE_SIZE;
-    ServiceMessage.header.service           = TASK_MIGRATION_REQUEST;
-    ServiceMessage.header.task_id           = task_id;
-    ServiceMessage.header.task_app_id       = app_id;
+    applications[app_id].tasks[task_id].status  = TASK_MIGRATION_REQUEST;
+    applications[app_id].newAddr                = new_addr;
+    ServiceMessage.status                       = PIPE_OCCUPIED;
+    ServiceMessage.header.header                = applications[app_id].tasks[task_id].addr;
+    ServiceMessage.header.payload_size          = PKT_SERVICE_SIZE;
+    ServiceMessage.header.service               = TASK_MIGRATION_REQUEST;
+    ServiceMessage.header.task_id               = task_id;
+    ServiceMessage.header.app_id                = app_id;
     API_PushSendQueue(SYS_MESSAGE, 0);
     return;
 }
@@ -498,16 +500,16 @@ void API_StartTasks(){
 void API_Migration_StallTasks(unsigned int app_id, unsigned int task_id){
     int i;
     printsv("Stalling application for migration: ", app_id);
+    applications[app_id].tasks[task_id].status = TASK_MIGRATION_READY;
     for( i = 0; i < applications[app_id].numTasks; i++ ){
-        if( task_id != i ){
-
-            API_StallTask(unsigned int app_id, unsigned int task_id);
+        if( i != task_id){
+            API_Send_StallTask( app_id, i);
         }
     }
     return;
 }
 
-void API_StallTask(unsigned int app_id, unsigned int task_id){
+void API_Send_StallTask(unsigned int app_id, unsigned int task_id){
     while(ServiceMessage.status == PIPE_OCCUPIED){
         // Runs the NI Handler to send/receive packets, opening space in the PIPE
         prints("Estou preso aqui7...\n");
@@ -520,6 +522,25 @@ void API_StallTask(unsigned int app_id, unsigned int task_id){
     ServiceMessage.header.payload_size      = PKT_SERVICE_SIZE;
     ServiceMessage.header.service           = TASK_STALL_REQUEST;
     ServiceMessage.header.task_id           = task_id;
-    ServiceMessage.header.task_app_id       = app_id;
+    ServiceMessage.header.app_id            = app_id;
     API_PushSendQueue(SYS_MESSAGE, 0);
+}
+
+void API_StallTask_Ack(unsigned int app_id, unsigned int task_id){
+    int i;
+    int m_task_id;
+    applications[app_id].tasks[task_id].status = TASK_STALL_ACK;
+    for( i = 0; i < applications[app_id].numTasks; i++ ){
+        if ( (applications[app_id].tasks[i].status != TASK_STALL_ACK) && (applications[app_id].tasks[i].status != TASK_MIGRATION_READY) ){
+            printsvsv("Task ", i, "still not stalled. App: ", app_id);
+            return;
+        }
+        if( applications[app_id].tasks[i].status == TASK_MIGRATION_READY ){
+            m_task_id = i;
+        }
+    }
+    API_Migration_FinishTask(app_id, m_task_id, applications[app_id].newAddr);
+
+    prints("Every task is stalled!\n");
+    return;
 }

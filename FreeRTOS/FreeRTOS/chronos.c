@@ -426,7 +426,7 @@ void API_AckTaskAllocation(unsigned int task_id, unsigned int app_id){
     ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
     ServicePipe[mySlot].header.service          = TASK_ALLOCATION_SUCCESS;
     ServicePipe[mySlot].header.task_id          = task_id;
-    ServicePipe[mySlot].header.task_app_id      = app_id;
+    ServicePipe[mySlot].header.app_id      = app_id;
 
     API_PushSendQueue(SERVICE, mySlot);
     return;    
@@ -498,7 +498,7 @@ void API_SendFinishTask(unsigned int task_id, unsigned int app_id){
     ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
     ServicePipe[mySlot].header.service          = TASK_FINISH;
     ServicePipe[mySlot].header.task_id          = task_id;
-    ServicePipe[mySlot].header.task_app_id      = app_id;
+    ServicePipe[mySlot].header.app_id      = app_id;
     ServicePipe[mySlot].header.task_dest_addr   = ProcessorAddr;
     API_PushSendQueue(SERVICE, mySlot);
     return;    
@@ -534,7 +534,7 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
     ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
     ServicePipe[mySlot].header.service          = MESSAGE_REQUEST;
     ServicePipe[mySlot].header.task_id          = TaskList[taskSlot].TaskID;
-    ServicePipe[mySlot].header.task_app_id      = TaskList[taskSlot].AppID;
+    ServicePipe[mySlot].header.app_id      = TaskList[taskSlot].AppID;
     ServicePipe[mySlot].header.producer_task_id = taskID;
 
     prints("Esperando Mensagem!\n");
@@ -571,13 +571,13 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
     return;
 }
 
-unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int task_app_id){
+unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int app_id){
     unsigned int i,j;
     unsigned int sel = ERRO;
     unsigned int smallID = 268435455;
     vTaskEnterCritical();
     for(i = 0; i < NUM_MAX_TASKS; i++){
-        if(TaskList[i].status != TASK_SLOT_EMPTY && TaskList[i].AppID == task_app_id){
+        if(TaskList[i].status != TASK_SLOT_EMPTY && TaskList[i].AppID == app_id){
             for(j = 0; j < PIPE_SIZE; j++){
                 if(TaskList[i].MessagePipe[j].status == PIPE_OCCUPIED){
                     if(TaskList[i].MessagePipe[j].header.destination_task == requester_task_id){
@@ -597,13 +597,13 @@ unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int t
     return sel;
 }
 
-void API_AddPendingReq(unsigned int requester_task_id, unsigned int task_app_id, unsigned int producer_task_id){
-    unsigned int slot = API_GetTaskSlot(producer_task_id, task_app_id);
+void API_AddPendingReq(unsigned int requester_task_id, unsigned int app_id, unsigned int producer_task_id){
+    unsigned int slot = API_GetTaskSlot(producer_task_id, app_id);
     if (slot != ERRO) {
         TaskList[slot].PendingReq[requester_task_id] = TRUE;
     } else {
         printsvsv("Task ", requester_task_id, "solicitando pacote da task ", producer_task_id);
-        printsv("no PE errado - applicacao: ", task_app_id);
+        printsv("no PE errado - applicacao: ", app_id);
     }
     return;
 }

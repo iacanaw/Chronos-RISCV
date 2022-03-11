@@ -111,9 +111,9 @@ void API_SendMessage(unsigned int addr, unsigned int taskID);
 
 void API_SendMessageReq(unsigned int addr, unsigned int taskID);
 
-unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int task_app_id);
+unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int app_id);
 
-void API_AddPendingReq(unsigned int requester_task_id, unsigned int task_app_id, unsigned int producer_task_id);
+void API_AddPendingReq(unsigned int requester_task_id, unsigned int app_id, unsigned int producer_task_id);
 
 void API_NI_Handler();
 

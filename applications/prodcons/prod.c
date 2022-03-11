@@ -3,20 +3,25 @@
 static char start_print[] = "PROD1 Start \n";
 static char end_print[] =   "PROD1 End \n";
 
-volatile static Message mensagem;
+
 
 int main(){
-    int i = 0;
+volatile static int i;                  // relevant to the task context
+    volatile static Message mensagem;   // relevant to the task context
+    int j;                              // not relevant to the task context
+
+    if ( !isMigration() ){   // if isn't a migrated task 
+        i = 0;                      // stores the iteration value 
+        for (j=0;j<MSG_SIZE;j++) {  // creates the first message
+            mensagem.msg[i] = i;      
+        }
+        mensagem.length = 25;       // defines the message size
+    }
 
     sys_Prints((unsigned int)&start_print);
 
-    for (i=0;i<MSG_SIZE;i++) {
-        mensagem.msg[i]=i;
-    }
-
-    mensagem.length = 25;
-
-    for (i=0; i<PRODCONS_ITERATIONS; i++) {
+    /* main loop */
+    for (/* i = 0 */; i<PRODCONS_ITERATIONS; i++) {
 
         checkMigration();
 

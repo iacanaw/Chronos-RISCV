@@ -45,17 +45,17 @@ unsigned int API_GetFreeTaskSlot(){
     return ERRO;
 }
 
-void API_InformMigration(unsigned int task_app_id, unsigned int task_id){
-    unsigned int tslot = API_GetTaskSlot(task_id, task_app_id);
+void API_InformMigration(unsigned int app_id, unsigned int task_id){
+    unsigned int tslot = API_GetTaskSlot(task_id, app_id);
     volatile unsigned int *migrationVar = TaskList[tslot].migrationPointer;
     printsv("Antes: ", *migrationVar);
-    *migrationVar = 1;
+    *migrationVar = 0xFFFFFFFF;
     printsv("Depois: ", *migrationVar);
     return;
 }
 
 
-unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int task_app_id, unsigned int migration_addr){
+unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int app_id, unsigned int migration_addr){
     unsigned int tslot = API_GetFreeTaskSlot();
     int i;
     if(tslot == ERRO){
@@ -65,7 +65,7 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
     TaskList[tslot].status = TASK_SLOT_WAITING_START;
     TaskList[tslot].waitingMsg = FALSE;
     TaskList[tslot].TaskID = task_id;
-    TaskList[tslot].AppID = task_app_id;
+    TaskList[tslot].AppID = app_id;
     TaskList[tslot].taskSize = 4 * (txt_size + bss_size); // it multiply by four because each word has 32 bits and the memory is addressed by byte - so each word is composed by 4 addresses
     printsv("Task total size (txt+bss): ", TaskList[tslot].taskSize);
     TaskList[tslot].taskAddr = (unsigned int)pvPortMalloc(TaskList[tslot].taskSize+64);
@@ -126,10 +126,9 @@ void API_TaskStart(unsigned int slot, unsigned int arg){
 }
 
 void API_MigrationReady(){
+    unsigned int mySlot = API_GetServiceSlot();
     unsigned int slot = API_GetCurrentTaskSlot();
-    unsigned int mySlot;
     do{
-        mySlot = API_GetServiceSlot();
         if(mySlot == PIPE_FULL){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
             prints("Estou preso aqui11...\n");
@@ -143,7 +142,7 @@ void API_MigrationReady(){
     ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
     ServicePipe[mySlot].header.service          = TASK_MIGRATION_READY;
     ServicePipe[mySlot].header.task_id          = TaskList[slot].TaskID;
-    ServicePipe[mySlot].header.task_app_id      = TaskList[slot].AppID;
+    ServicePipe[mySlot].header.app_id      = TaskList[slot].AppID;
 
     API_PushSendQueue(SERVICE, mySlot);
 
@@ -183,4 +182,40 @@ void API_FinishRunningTask(){
     vTaskDelete(TaskList[slot].TaskHandler);
     return;
 }
+
+void API_StallTask(unsigned int app_id, unsigned int task_id){
+    int slot = API_GetTaskSlot(task_id, app_id);
+    if ( slot != ERRO ){
+        API_Ack_StallTask(app_id, task_id);
+        TaskList[slot].status = TASK_SLOT_BLOQUED;
+        vTaskSuspend( TaskList[slot].TaskHandler );
+    } else { 
+        prints("ERROR - Task not found!\n");
+    }
+    return;
+}
+
+API_Ack_StallTask(unsigned int app_id, unsigned int task_id){
+    unsigned int mySlot = API_GetServiceSlot();
+    do{
+        if(mySlot == PIPE_FULL){
+            // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui12...\n");
+            API_NI_Handler();
+        }
+    }while(mySlot == PIPE_FULL);
+
+    ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
+
+    ServicePipe[mySlot].header.header           = makeAddress(0, 0);
+    ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
+    ServicePipe[mySlot].header.service          = TASK_STALL_ACK;
+    ServicePipe[mySlot].header.task_id          = task_id;
+    ServicePipe[mySlot].header.app_id           = app_id;
+
+    API_PushSendQueue(SERVICE, mySlot);
+    return;
+}
+
+
 

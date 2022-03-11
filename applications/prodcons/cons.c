@@ -9,22 +9,24 @@ static char txt_printPASum[]  = "The summed values should be: ";
 static char txt_n[]       = " .\n";
 static char txt_printDeupau[] = ">>>>DEU MERD@!\n";
 
-volatile static Message mensagem;
-static int sum = 0;
-static int first = 0;
-static int last = 0;
-
 int main(){
-    int i, j;
-
-    sys_Prints((unsigned int)&start_print);
     
-    // starts the sum as zero
-    sum = 0;
+    volatile static int i, sum, first, last;
+    volatile static Message mensagem;
+    
+    if ( !isMigration() ){
+        i = 0;     // stores the iteration value 
+        sum = 0;   // starts the sum with zero
+        first = 0; // defines the first value received
+        last = 0;  // stores the last value received
+    }
+    
+    sys_Prints((unsigned int)&start_print);
 
-    for (i=0; i<PRODCONS_ITERATIONS; i++) {
+    /* main loop */
+    for (/* i = 0 */; i < PRODCONS_ITERATIONS; i++) {
         
-        checkMigration();
+        checkMigration(i);
 
         sys_Receive(&mensagem, prod);
         sys_Prints((unsigned int)&txt_print1);
@@ -38,21 +40,7 @@ int main(){
             first = mensagem.msg[9]-0xb0a;
         else if( i == PRODCONS_ITERATIONS-1)
             last = mensagem.msg[9]-0xb0a;
-        // if(mensagem.msg[9] == 0xB0A + i){
-        //     sys_Prints((unsigned int)&txt_print1);
-        //     sys_Printi(i+1);
-        //     sys_Prints((unsigned int)&txt_print2);
-        //     sys_Printi(mensagem.length);
-        //     sys_Prints((unsigned int)&txt_n);
-        // }
-        // else{
-        //     sys_Prints((unsigned int)&txt_printDeupau);
-        //     for(j = 0; j < mensagem.length; j++){
-        //         sys_Printi(mensagem.msg[j]);
-        //         sys_Prints((unsigned int)&txt_n);
-        //     }
-        //     //sys_Printi(mensagem.msg[9]-0xB0A);
-        // }
+
     }
 
     // Prints the summed value
@@ -67,4 +55,5 @@ int main(){
 
     sys_Prints((unsigned int)&end_print);
     sys_Finish();
+
 }

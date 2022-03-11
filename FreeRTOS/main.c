@@ -197,7 +197,7 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                                              incommingPacket.task_txt_size,
                                              incommingPacket.task_bss_size,
                                              incommingPacket.task_start_point,
-                                             incommingPacket.task_app_id,
+                                             incommingPacket.app_id,
                                              incommingPacket.task_migration_addr);
                     printsv("Task slot: ", aux);
                     printsv("Task slot TaskAddr: ", TaskList[aux].taskAddr);
@@ -210,30 +210,30 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     break;
                 
                 case TASK_FINISH:
-                    printsvsv("FINISHED: Task ", incommingPacket.task_id, "from application ", incommingPacket.task_app_id);
-                    API_ClearTaskSlotFromTile(incommingPacket.task_dest_addr, incommingPacket.task_app_id, incommingPacket.task_id);
-                    API_DealocateTask(incommingPacket.task_id, incommingPacket.task_app_id);
+                    printsvsv("FINISHED: Task ", incommingPacket.task_id, "from application ", incommingPacket.app_id);
+                    API_ClearTaskSlotFromTile(incommingPacket.task_dest_addr, incommingPacket.app_id, incommingPacket.task_id);
+                    API_DealocateTask(incommingPacket.task_id, incommingPacket.app_id);
                     //HW_set_32bit_reg(NI_RX, DONE);
                     prints("3NI_RX DONE!\n");
                     break;
 
                 case TASK_ALLOCATION_FINISHED:
                     prints("TASK_ALLOCATION_FINISHED\n");
-                    API_AckTaskAllocation(incommingPacket.task_id, incommingPacket.task_app_id);
+                    API_AckTaskAllocation(incommingPacket.task_id, incommingPacket.app_id);
                     //HW_set_32bit_reg(NI_RX, DONE);
                     prints("4NI_RX DONE!\n");
                     break;
 
                 case TASK_ALLOCATION_SUCCESS:
                     prints("TASK_ALLOCATION_SUCCESS\n");
-                    API_TaskAllocated(incommingPacket.task_id, incommingPacket.task_app_id);
+                    API_TaskAllocated(incommingPacket.task_id, incommingPacket.app_id);
                     //HW_set_32bit_reg(NI_RX, DONE);
                     prints("5NI_RX DONE!\n");
                     break;
 
                 case TASK_START:
                     prints("Chegou um TASK_START!\n");
-                    aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
+                    aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.app_id);
                     // Informs the NI were to write the application
                     HW_set_32bit_reg(NI_RX, (unsigned int)&TaskList[aux].appNumTasks);
                     incommingPacket.service = TASK_RUN;
@@ -243,7 +243,7 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                 
                 case TASK_RUN:
                     prints("Chegou um TASK_RUN!\n");
-                    aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.task_app_id);
+                    aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.app_id);
                     TaskList[aux].status = TASK_SLOT_READY;
                     API_setFreqScale(1000);
                     printsvsv("Starting Task ", TaskList[aux].TaskID, " from app ", TaskList[aux].AppID);
@@ -256,12 +256,12 @@ void vNI_RX_HandlerTask( void *pvParameters ){
 
                 case MESSAGE_REQUEST:
                     // check the pipe
-                    printsvsv("Chegou um message request! App: ", incommingPacket.task_app_id, "Task: ", incommingPacket.task_id);
-                    aux = API_CheckMessagePipe(incommingPacket.task_id, incommingPacket.task_app_id);
+                    printsvsv("Chegou um message request! App: ", incommingPacket.app_id, "Task: ", incommingPacket.task_id);
+                    aux = API_CheckMessagePipe(incommingPacket.task_id, incommingPacket.app_id);
                     if (aux == ERRO){
                         // register an messagerequest
                         prints("Mensagem não encontrada, adicionando ao PendingReq!\n");
-                        API_AddPendingReq(incommingPacket.task_id, incommingPacket.task_app_id, incommingPacket.producer_task_id);
+                        API_AddPendingReq(incommingPacket.task_id, incommingPacket.app_id, incommingPacket.producer_task_id);
                     } else {
                         prints("Mensagem encontrada no pipe!\n");
                         API_PushSendQueue(MESSAGE, aux);
@@ -346,15 +346,28 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                 case TASK_MIGRATION_REQUEST:
                     prints("14NI_RX DONE!\n");
                     prints("Starting Migration Process...\n");
-                    printsvsv("App: ", incommingPacket.task_app_id, "Task: ", incommingPacket.task_id);
-                    API_InformMigration(incommingPacket.task_app_id, incommingPacket.task_id);
+                    printsvsv("App: ", incommingPacket.app_id, "Task: ", incommingPacket.task_id);
+                    API_InformMigration(incommingPacket.app_id, incommingPacket.task_id);
                     break;
                 
                 case TASK_MIGRATION_READY:
                     prints("15NI_RX DONE!\n");
                     prints("The processor is ready to start the migration!\n");
-                    API_Migration_StallTasks(incommingPacket.task_app_id, incommingPacket.task_id);
-                    printsvsv("App: ", incommingPacket.task_app_id, "Task: ", incommingPacket.task_id);
+                    API_Migration_StallTasks(incommingPacket.app_id, incommingPacket.task_id);
+                    printsvsv("App: ", incommingPacket.app_id, "Task: ", incommingPacket.task_id);
+                    break;
+
+                case TASK_STALL_REQUEST:
+                    prints("16NI_RX_DONE!\n");
+                    printsvsv("Stalling Task: ", incommingPacket.task_id, "from app: ", incommingPacket.app_id);
+                    API_StallTask(incommingPacket.app_id, incommingPacket.task_id);
+                    break;
+
+                case TASK_STALL_ACK:
+                    prints("17NI_RX_DONE!\n");
+                    printsvsv("Task stalled: ", incommingPacket.task_id, "from app: ", incommingPacket.app_id);
+                    API_StallTask_Ack(incommingPacket.app_id, incommingPacket.task_id);
+                    break;
 
                 default:
                     printsv("ERROR External_2_IRQHandler Unknown-Service ", incommingPacket.service);
@@ -566,7 +579,7 @@ static void GlobalManagerTask( void *pvParameters ){
         //API_UpdateTemperature();
 
         if(tick > 70 && migrate == 1){
-            API_StartMigration(0, 0);
+            API_StartMigration(0, 0, 0x00000101);
             migrate = 0;
         }
 

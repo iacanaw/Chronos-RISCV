@@ -62,7 +62,7 @@ typedef struct {
 	};
 	union{
 		unsigned int flit7;
-		unsigned int task_app_id;			// ** Informs to witch application that task is from
+		unsigned int app_id;			// ** Informs to witch application that task is from
 	};
 	union{
 		unsigned int flit8;

@@ -63,6 +63,7 @@ typedef struct{
     unsigned int lastStart;
     unsigned int finishedTasks;
     unsigned int lastFinish;
+    unsigned int newAddr;
 } Application;
  
 // PIDTM stuff
