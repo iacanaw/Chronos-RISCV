@@ -309,8 +309,11 @@ unsigned int makeAddress(unsigned int x, unsigned int y) {
 ////////////////////////////////////////////////////////////
 // Pushes one slot to the sending queue
 void API_PushSendQueue(unsigned int type, unsigned int slot){
+    unsigned int mySlot;
     vTaskEnterCritical();
-    if(type == THERMAL){
+    if( type == THERMAL ){
+        API_PrioritySend(type, slot);
+    } else if ( type == MIGRATION ){
         API_PrioritySend(type, slot);
     } else {
         SendingQueue[SendingQueue_front] = type | slot;
@@ -394,7 +397,11 @@ void API_Try2Send(){
             else if((toSend & 0xFFFF0000) == SYS_MESSAGE){
                 SendingSlot = SYS_MESSAGE;
                 SendRaw((unsigned int)&ServiceMessage.header);
-            } 
+            }
+            else if((toSend & 0xFFFF0000) == MIGRATION){
+                SendingSlot = MIGRATION;
+                SendRaw((unsigned int)TaskList[toSend & 0x0000FFFF].fullAddr);
+            }
             else{
                 printsv("ERROR! desconhecido!! ", toSend);
             }

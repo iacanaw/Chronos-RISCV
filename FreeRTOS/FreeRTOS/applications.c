@@ -58,6 +58,7 @@ void API_InformMigration(unsigned int app_id, unsigned int task_id){
 unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int app_id, unsigned int migration_addr){
     unsigned int tslot = API_GetFreeTaskSlot();
     int i;
+    volatile unsigned int *header;
     if(tslot == ERRO){
         prints("DEU RUIM NO API_GetFreeTaskSlot()\n");
     }
@@ -68,8 +69,25 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
     TaskList[tslot].AppID = app_id;
     TaskList[tslot].taskSize = 4 * (txt_size + bss_size); // it multiply by four because each word has 32 bits and the memory is addressed by byte - so each word is composed by 4 addresses
     printsv("Task total size (txt+bss): ", TaskList[tslot].taskSize);
-    TaskList[tslot].taskAddr = (unsigned int)pvPortMalloc(TaskList[tslot].taskSize+64);
-    printsv("Task addr: ", TaskList[tslot].taskAddr);
+    TaskList[tslot].fullAddr = (unsigned int)pvPortMalloc(TaskList[tslot].taskSize+(PKT_HEADER_SIZE*4));
+    //
+    *header = TaskList[tslot].taskAddr;
+    header[0]  = 0;
+    header[1]  = txt_size + bss_size;
+    header[2]  = TASK_MIGRATION_TASK;
+    header[3]  = task_id;        //task id
+    header[4]  = txt_size;       //task size
+    header[5]  = bss_size;       //bss size
+    header[6]  = start_point;    //start point
+    header[7]  = app_id;         //taskappid
+    header[8]  = migration_addr; //migration variable
+    header[9]  = -1;
+    header[10] = -1;
+    header[11] = -1;
+    header[12] = -1;
+    //
+    TaskList[tslot].taskAddr = TaskList[tslot].fullAddr + (PKT_HEADER_SIZE*4);
+    printsv("Task addr: ", TaskList[tslot].taskAddr );
     TaskList[tslot].mainAddr =  TaskList[tslot].taskAddr + (4 * start_point);
     TaskList[tslot].migrationPointer = TaskList[tslot].taskAddr + ( 4 * migration_addr);
 
@@ -217,5 +235,11 @@ API_Ack_StallTask(unsigned int app_id, unsigned int task_id){
     return;
 }
 
-
+void API_ForwardTask(unsigned int app_id, unsigned int task_id, unsigned int dest_addr){
+    unsigned int mySlot, tslot = API_GetTaskSlot(task_id, app_id);
+    volatile unsigned int *pointer = TaskList[tslot].fullAddr;
+    pointer[0] = dest_addr;
+    TaskList[tslot].status = TASK_MIGRATION_FORWARD;
+    API_PushSendQueue(MIGRATION, tslot);
+}
 

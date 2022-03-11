@@ -78,10 +78,12 @@ void API_ClearPipeSlot(unsigned int typeSlot){
     if (type == SERVICE){
         ServicePipe[slot].status = PIPE_FREE;
         ServicePipe[slot].holder = PIPE_FREE;
-    } else if (type == THERMAL){
+    } else if ( type == THERMAL ){
         thermalPacket_pending = FALSE;
-    } else if (type == SYS_MESSAGE){
+    } else if ( type == SYS_MESSAGE ){
         ServiceMessage.status = PIPE_FREE;
+    } else if ( type == MIGRATION ){
+        TaskList[slot].status = TASK_MIGRATION_SENT;
     } else { // type == MESSAGE
         //printsv("cleaning message pipe slot: ", slot);
         TaskList[taskID].MessagePipe[slot].status = PIPE_FREE;

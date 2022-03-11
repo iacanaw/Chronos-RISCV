@@ -34,9 +34,10 @@
 // SENDING QUEUE
 #define SERVICE             0x10100000
 #define MESSAGE             0x20200000
+#define EMPTY               0x30300000
 #define THERMAL             0x40400000
 #define SYS_MESSAGE         0x50500000
-#define EMPTY               0x30300000
+#define MIGRATION           0x60600000
 ////////////////////////////////////////////////////////////
 // NI STATUS
 #define NI_STATUS_ON        0x0011

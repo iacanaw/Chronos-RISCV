@@ -25,9 +25,13 @@
 // Migration process
 #define TASK_MIGRATION_REQUEST          0x00000060U
 #define TASK_MIGRATION_READY            0x00000061U
+#define TASK_MIGRATION_FORWARD          0x00000067U
+#define TASK_MIGRATION_SENT             0x00000065U
+#define TASK_MIGRATION_TASK             0x00000068U
 #define TASK_MIGRATE                    0x00000062U
 #define TASK_INFORM_STATUS              0x00000063U
 #define TASK_RESTART                    0x00000064U
+
 
 #define SOLVED                          0x0000FFFFU
 

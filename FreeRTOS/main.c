@@ -369,6 +369,20 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     API_StallTask_Ack(incommingPacket.app_id, incommingPacket.task_id);
                     break;
 
+                case TASK_MIGRATION_FORWARD:
+                    prints("18NI_RX_DONE!\n");
+                    printsvsv("Task ", incommingPacket.task_id, "sendint himself to PE: ", incommingPacket.destination_task );
+                    API_ForwardTask(incommingPacket.app_id, incommingPacket.task_id, incommingPacket.task_dest_addr);
+                    break;
+
+                case TASK_MIGRATION_TASK:
+                    prints("19NI_RX_DONE!\n");
+                    printsvsv("Task ", incommingPacket.task_id, "migrated to this PE", 0 );
+                    break;
+
+
+
+
                 default:
                     printsv("ERROR External_2_IRQHandler Unknown-Service ", incommingPacket.service);
                     //HW_set_32bit_reg(NI_RX, DONE);

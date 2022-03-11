@@ -539,8 +539,27 @@ void API_StallTask_Ack(unsigned int app_id, unsigned int task_id){
             m_task_id = i;
         }
     }
-    API_Migration_FinishTask(app_id, m_task_id, applications[app_id].newAddr);
+    API_Migration_ForwardTask(app_id, m_task_id, applications[app_id].newAddr);
 
-    prints("Every task is stalled!\n");
+    prints("Every task is stalled! Forwarding the migrating task... \n");
     return;
 }
+
+void API_Migration_ForwardTask( unsigned int app_id, unsigned int task_id, unsigned int newAddr){
+    while(ServiceMessage.status == PIPE_OCCUPIED){
+        // Runs the NI Handler to send/receive packets, opening space in the PIPE
+        prints("Estou preso aqui17...\n");
+        API_NI_Handler();
+    }
+    printsvsv("Forwarding the original task: ", task_id, "from app: ", app_id);
+    applications[app_id].tasks[task_id].status = TASK_MIGRATION_FORWARD;
+    ServiceMessage.status                   = PIPE_OCCUPIED;
+    ServiceMessage.header.header            = applications[app_id].tasks[task_id].addr;
+    ServiceMessage.header.payload_size      = PKT_SERVICE_SIZE;
+    ServiceMessage.header.service           = TASK_MIGRATION_FORWARD;
+    ServiceMessage.header.task_id           = task_id;
+    ServiceMessage.header.app_id            = app_id;
+    ServiceMessage.header.task_dest_addr    = applications[app_id].newAddr;
+    API_PushSendQueue(SYS_MESSAGE, 0);
+}
+

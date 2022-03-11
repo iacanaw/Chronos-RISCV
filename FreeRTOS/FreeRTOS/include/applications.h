@@ -25,6 +25,7 @@ typedef struct {
     volatile unsigned int waitingMsg;
     unsigned int MsgToReceive;
     unsigned int taskSize;
+    unsigned int fullAddr;
     unsigned int taskAddr;
     unsigned int mainAddr;
     unsigned int migrationPointer;
