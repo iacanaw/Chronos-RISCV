@@ -371,17 +371,55 @@ void vNI_RX_HandlerTask( void *pvParameters ){
 
                 case TASK_MIGRATION_FORWARD:
                     prints("18NI_RX_DONE!\n");
-                    printsvsv("Task ", incommingPacket.task_id, "sendint himself to PE: ", incommingPacket.destination_task );
+                    printsvsv("Task ", incommingPacket.task_id, "sendint himself to PE: ", incommingPacket.task_dest_addr );
                     API_ForwardTask(incommingPacket.app_id, incommingPacket.task_id, incommingPacket.task_dest_addr);
+                    API_SendPIPE(incommingPacket.app_id, incommingPacket.task_id, incommingPacket.task_dest_addr);
+                    //API_SendPending();
+                    API_Migration_UpdateAddr_Restart();
                     break;
 
                 case TASK_MIGRATION_TASK:
                     prints("19NI_RX_DONE!\n");
-                    printsvsv("Task ", incommingPacket.task_id, "migrated to this PE", 0 );
+                    printsvsv("Task ", incommingPacket.task_id, "migrated to this PE from app: ", incommingPacket.app_id );
+                    aux = API_TaskAllocation(incommingPacket.task_id,
+                                             incommingPacket.task_txt_size,
+                                             incommingPacket.task_bss_size,
+                                             incommingPacket.task_start_point,
+                                             incommingPacket.app_id,
+                                             incommingPacket.task_migration_addr);
+                    printsv("Task slot: ", aux);
+                    printsv("Task slot TaskAddr: ", TaskList[aux].taskAddr);
+                    printsv("Migration start at: ", incommingPacket.task_migration_addr);
+                    API_SetMigrationVar(aux, 0xFFFFFFFF);
+                    incommingPacket.service = TASK_MIGRATION_RECEIVE;
+                    HW_set_32bit_reg(NI_RX, TaskList[aux].taskAddr);
                     break;
 
+                case TASK_MIGRATION_RECEIVE:
+                    prints("20NI_RX_DONE!\n");
+                    prints("Task recebida com sucesso, aguardando o PIPE e os PendingRequests\n");
+                    break;
 
+                case MESSAGE_MIGRATION:
+                    prints("21NI_RX_DONE!\n");
+                    prints("Tem uma mensagem migrando...\n");
+                    aux = API_GetTaskSlot(incommingPacket.producer_task, incommingPacket.application_id);
+                    aux2 = API_GetMessageSlot_fromSlot(aux);
+                    incommingPacket.service = MESSAGE_MIGRATION_FINISH;
+                    HW_set_32bit_reg(NI_RX, TaskList[aux].MessagePipe[aux2].);
+                    break;
+                
+                case MESSAGE_MIGRATION_FINISH:
+                    prints("22NI_RX_DONE!\n");
+                    break;
 
+                case TASK_MIGRATION_PENDING:
+                    prints("23NI_RX_DONE!\n");
+                    break;
+
+                case TASK_MIGRATION_FINISH:
+                    prints("24NI_RX_DONE!\n");
+                    break;
 
                 default:
                     printsv("ERROR External_2_IRQHandler Unknown-Service ", incommingPacket.service);

@@ -54,6 +54,14 @@ void API_InformMigration(unsigned int app_id, unsigned int task_id){
     return;
 }
 
+void API_SetMigrationVar(unsigned int slot, unsigned int value){
+    volatile unsigned int *migrationVar = TaskList[slot].migrationPointer;
+    printsv("Setting migration variable to: ", value);
+    printsvsv("Task id: ", TaskList[slot].TaskID, "App id: ", TaskList[slot].AppID);
+    *migrationVar = value;
+    return;
+}
+
 
 unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int app_id, unsigned int migration_addr){
     unsigned int tslot = API_GetFreeTaskSlot();
@@ -70,10 +78,11 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
     TaskList[tslot].taskSize = 4 * (txt_size + bss_size); // it multiply by four because each word has 32 bits and the memory is addressed by byte - so each word is composed by 4 addresses
     printsv("Task total size (txt+bss): ", TaskList[tslot].taskSize);
     TaskList[tslot].fullAddr = (unsigned int)pvPortMalloc(TaskList[tslot].taskSize+(PKT_HEADER_SIZE*4));
+    printsv("Task fullAddr: ", TaskList[tslot].fullAddr );
     //
-    *header = TaskList[tslot].taskAddr;
+    header = TaskList[tslot].fullAddr;
     header[0]  = 0;
-    header[1]  = txt_size + bss_size;
+    header[1]  = txt_size + bss_size + PKT_SERVICE_SIZE;
     header[2]  = TASK_MIGRATION_TASK;
     header[3]  = task_id;        //task id
     header[4]  = txt_size;       //task size
@@ -241,5 +250,25 @@ void API_ForwardTask(unsigned int app_id, unsigned int task_id, unsigned int des
     pointer[0] = dest_addr;
     TaskList[tslot].status = TASK_MIGRATION_FORWARD;
     API_PushSendQueue(MIGRATION, tslot);
+    return;
 }
+
+void API_SendPIPE(unsigned int app_id, unsigned int task_id, unsigned int task_dest_addr){
+    int slot, taskslot = API_GetTaskSlot(task_id, app_id);
+    for( i = 0; i < PIPE_SIZE; i++ ){
+        if (TaskList[taskslot].MessagePipe[slot].status == PIPE_OCCUPIED){
+            TaskList[taskslot].MessagePipe[slot].status = PIPE_TRANSMITTING;
+            TaskList[taskslot].MessagePipe[slot].header.saved_addr       = TaskList[slot].MessagePipe[i].header.header;
+            TaskList[taskslot].MessagePipe[slot].header.header           = task_dest_addr;//TaskList[taskSlot].TasksMap[taskID];
+            //TaskList[taskslot].MessagePipe[slot].header.payload_size     = PKT_SERVICE_SIZE + theMessage->length + 1;
+            TaskList[taskslot].MessagePipe[slot].header.service          = MESSAGE_MIGRATION;
+            // TaskList[taskslot].MessagePipe[slot].header.application_id   = TaskList[taskSlot].AppID;
+            // TaskList[taskslot].MessagePipe[slot].header.producer_task    = TaskList[taskSlot].TaskID;
+            // TaskList[taskslot].MessagePipe[slot].header.destination_task = taskID;
+            API_PushSendQueue(MESSAGE, (taskslot << 8 | slot));
+        }
+    }
+    return;
+}
+
 

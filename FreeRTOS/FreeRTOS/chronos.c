@@ -316,7 +316,7 @@ void API_PushSendQueue(unsigned int type, unsigned int slot){
     } else if ( type == MIGRATION ){
         API_PrioritySend(type, slot);
     } else {
-        SendingQueue[SendingQueue_front] = type | slot;
+        SendingQueue[SendingQueue_front] = (0xFFFF0000 & type) | slot;
         printsv("SendingQueue_front: ", SendingQueue_front);
         if(SendingQueue_front == (PIPE_SIZE*2)-1){
             SendingQueue_front = 0;

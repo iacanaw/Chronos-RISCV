@@ -80,6 +80,7 @@ typedef struct {
 	};
 	union{
 		unsigned int flit12;
+		unsigned int saved_addr;			// ** Informs to the PE the old address of this message
 		unsigned int task_dest_addr;		// ** Informs the destination address for a given task
 	};
 	//Add new variables here ...

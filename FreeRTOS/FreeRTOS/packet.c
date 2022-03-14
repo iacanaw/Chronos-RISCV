@@ -52,6 +52,32 @@ unsigned int API_GetMessageSlot(){
 }
 
 ////////////////////////////////////////////////////////////
+// Returns a free Message slot 
+unsigned int API_GetMessageSlot_fromSlot(unsigned int currTask){
+    int i;
+    unsigned int sel = PIPE_FULL;
+    vTaskEnterCritical();
+    for( i = 0; i < PIPE_SIZE; i++ ){
+        if (TaskList[currTask].MessagePipe[i].status == PIPE_FREE){
+            TaskList[currTask].MessagePipe[i].status = PIPE_OCCUPIED;
+            TaskList[currTask].MessagePipe[i].msgID = messageID;
+            messageID++;
+            sel = (currTask << 8) | i;
+            break;
+        }
+    }
+    if(messageID > 0X0FFFFFF0){
+        messageID = 256;
+        for( i = 0; i < PIPE_SIZE; i++ ){
+            TaskList[currTask].MessagePipe[i].msgID = (TaskList[currTask].MessagePipe[i].msgID & 0x000000FF);
+        }
+    }
+    vTaskExitCritical();
+    return sel;
+}
+
+
+////////////////////////////////////////////////////////////
 // Returns a free Service slot
 unsigned int API_GetServiceSlot(){
     int i;
