@@ -30,9 +30,9 @@ typedef struct {
     unsigned int mainAddr;
     unsigned int migrationPointer;
     volatile MessagePacket MessagePipe[PIPE_SIZE];
-    unsigned int PendingReq[NUM_MAX_APP_TASKS];
     unsigned int appNumTasks;
     unsigned int TasksMap[NUM_MAX_APP_TASKS];
+    unsigned int PendingReq[NUM_MAX_APP_TASKS];
 } Task;
 
 // Vector of Tasks running in a given PE

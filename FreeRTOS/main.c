@@ -156,7 +156,7 @@ void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName )
 needs servicing. */
 void vNI_RX_HandlerTask( void *pvParameters ){
 	BaseType_t xEvent;
-	unsigned int aux, service;
+	unsigned int aux, aux2, service, i;
 	const TickType_t xBlockTime = 10000;
 	uint32_t ulNotifiedValue;
     //BaseType_t xHigherPriorityTaskWoken;
@@ -374,8 +374,8 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     printsvsv("Task ", incommingPacket.task_id, "sendint himself to PE: ", incommingPacket.task_dest_addr );
                     API_ForwardTask(incommingPacket.app_id, incommingPacket.task_id, incommingPacket.task_dest_addr);
                     API_SendPIPE(incommingPacket.app_id, incommingPacket.task_id, incommingPacket.task_dest_addr);
-                    //API_SendPending();
-                    API_Migration_UpdateAddr_Restart();
+                    API_SendPending_and_Address(incommingPacket.app_id, incommingPacket.task_id, incommingPacket.task_dest_addr);
+                    API_MigrationFinished(incommingPacket.app_id, incommingPacket.task_id);
                     break;
 
                 case TASK_MIGRATION_TASK:
@@ -406,20 +406,61 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     aux = API_GetTaskSlot(incommingPacket.producer_task, incommingPacket.application_id);
                     aux2 = API_GetMessageSlot_fromSlot(aux);
                     incommingPacket.service = MESSAGE_MIGRATION_FINISH;
-                    HW_set_32bit_reg(NI_RX, TaskList[aux].MessagePipe[aux2].);
+                    //
+                    TaskList[aux].MessagePipe[aux2].header.header           = incommingPacket.saved_addr;
+                    TaskList[aux].MessagePipe[aux2].header.payload_size     = incommingPacket.payload_size;
+                    TaskList[aux].MessagePipe[aux2].header.service          = MESSAGE_DELIVERY;
+                    TaskList[aux].MessagePipe[aux2].header.application_id   = incommingPacket.application_id;
+                    TaskList[aux].MessagePipe[aux2].header.producer_task    = incommingPacket.producer_task;
+                    TaskList[aux].MessagePipe[aux2].header.destination_task = incommingPacket.destination_task;
+                    
+                    HW_set_32bit_reg(NI_RX, &TaskList[aux].MessagePipe[aux2].msg);
                     break;
                 
                 case MESSAGE_MIGRATION_FINISH:
                     prints("22NI_RX_DONE!\n");
+                    prints("Migration conclusion!\n");
                     break;
 
                 case TASK_MIGRATION_PENDING:
                     prints("23NI_RX_DONE!\n");
+                    prints("Tem pending request chegando...\n");
+                    aux = API_GetTaskSlot(incommingPacket.producer_task, incommingPacket.application_id);
+                    incommingPacket.service = TASK_MIGRATION_PENDING_FINISH;
+                    HW_set_32bit_reg(NI_RX, (unsigned int)&TaskList[aux].appNumTasks);
                     break;
 
-                case TASK_MIGRATION_FINISH:
+                case TASK_MIGRATION_PENDING_FINISH:
                     prints("24NI_RX_DONE!\n");
+                    prints("Pending requests and addresses received with success\n");
                     break;
+
+                case TASK_MIGRATION_FINISHED:
+                    prints("25NI_RX_DONE!\n");
+                    printsvsv("Task: ", incommingPacket.task_id, "has migrated with success! App: ", incommingPacket.app_id);
+                    aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.app_id);
+                    applications[incommingPacket.app_id].tasks[incommingPacket.task_id].addr = applications[incommingPacket.app_id].newAddr;
+                    API_ReleaseApplication(incommingPacket.app_id, incommingPacket.task_id);
+                    break;
+                
+                case TASK_RESUME:
+                    prints("26NI_RX DONE!\n");
+                    prints("Chegou um TASK_RESUME!\n");
+                    aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.app_id);
+                    // Informs the NI were to write the application
+                    HW_set_32bit_reg(NI_RX, (unsigned int)&TaskList[aux].appNumTasks);
+                    incommingPacket.service = TASK_RESUME_FINISH;
+                    //HW_set_32bit_reg(NI_RX, DONE);
+                    break;
+                
+                case TASK_RESUME_FINISH:
+                    prints("27NI_RX DONE!\n");
+                    API_UpdatePipe(incommingPacket.task_id, incommingPacket.app_id);
+                    TaskList[aux].status = TASK_SLOT_READY;
+                    API_setFreqScale(1000);
+                    API_ResumeTask(incommingPacket.task_id, incommingPacket.app_id);
+                    break;
+
 
                 default:
                     printsv("ERROR External_2_IRQHandler Unknown-Service ", incommingPacket.service);

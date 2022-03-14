@@ -22,7 +22,8 @@
 
 #define TASK_STALL_REQUEST              0x00000070U
 #define TASK_STALL_ACK                  0x00000073U
-#define TASK_RESUME                     0x00000079U
+#define TASK_RESUME                     0x00000078U
+#define TASK_RESUME_FINISH              0x00000079U
 
 // Migration process
 #define TASK_MIGRATION_REQUEST          0x00000600U
@@ -33,7 +34,8 @@
 #define TASK_MIGRATION_RECEIVE          0x00000690U
 #define TASK_MIGRATION_PIPE             0x00000691U
 #define TASK_MIGRATION_PENDING          0x00000692U
-#define TASK_MIGRATION_FINISH           0x00000693U
+#define TASK_MIGRATION_PENDING_FINISH   0x00000693U
+#define TASK_MIGRATION_FINISHED         0x00000694U
 
 
 #define TASK_MIGRATE                    0x00000062U

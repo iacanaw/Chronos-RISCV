@@ -410,7 +410,7 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
     ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
     ServicePipe[mySlot].header.service          = TASK_ALLOCATION_SEND;
     ServicePipe[mySlot].header.task_id          = task;
-    ServicePipe[mySlot].header.app_id      = app;
+    ServicePipe[mySlot].header.app_id           = app;
     ServicePipe[mySlot].header.task_dest_addr   = dest_addr;
 
     API_PushSendQueue(SERVICE, mySlot);
@@ -563,3 +563,28 @@ void API_Migration_ForwardTask( unsigned int app_id, unsigned int task_id, unsig
     API_PushSendQueue(SYS_MESSAGE, 0);
 }
 
+void API_ReleaseApplication(unsigned int app_id, unsigned int task_id){
+    int i, j;
+    for(i = 0; i< applications[app_id].numTasks; i++){
+        while(ServiceMessage.status == PIPE_OCCUPIED){
+            // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui78...\n");
+            API_NI_Handler();
+        }
+
+        printsv("Sending TASK_RESUME to task ", i);
+        ServiceMessage.status = PIPE_OCCUPIED;
+
+        ServiceMessage.header.header           = applications[app_id].tasks[i].addr;
+        ServiceMessage.header.payload_size     = PKT_SERVICE_SIZE + applications[app_id].numTasks + 1;
+        ServiceMessage.header.service          = TASK_RESUME;
+        ServiceMessage.header.task_id          = i;
+        ServiceMessage.header.app_id           = app_id;
+        ServiceMessage.header.task_arg         = 0;
+        ServiceMessage.msg.length              = applications[app_id].numTasks;
+        for(j = 0; j < applications[app_id].numTasks; j++){
+            ServiceMessage.msg.msg[j]          = applications[app_id].tasks[j].addr;
+        }
+        API_PushSendQueue(SYS_MESSAGE, 0);
+    }
+}

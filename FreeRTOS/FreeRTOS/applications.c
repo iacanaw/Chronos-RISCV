@@ -248,27 +248,94 @@ void API_ForwardTask(unsigned int app_id, unsigned int task_id, unsigned int des
     unsigned int mySlot, tslot = API_GetTaskSlot(task_id, app_id);
     volatile unsigned int *pointer = TaskList[tslot].fullAddr;
     pointer[0] = dest_addr;
+    TaskList[tslot].TasksMap[task_id] = dest_addr;
     TaskList[tslot].status = TASK_MIGRATION_FORWARD;
     API_PushSendQueue(MIGRATION, tslot);
     return;
 }
 
 void API_SendPIPE(unsigned int app_id, unsigned int task_id, unsigned int task_dest_addr){
-    int slot, taskslot = API_GetTaskSlot(task_id, app_id);
-    for( i = 0; i < PIPE_SIZE; i++ ){
-        if (TaskList[taskslot].MessagePipe[slot].status == PIPE_OCCUPIED){
-            TaskList[taskslot].MessagePipe[slot].status = PIPE_TRANSMITTING;
-            TaskList[taskslot].MessagePipe[slot].header.saved_addr       = TaskList[slot].MessagePipe[i].header.header;
-            TaskList[taskslot].MessagePipe[slot].header.header           = task_dest_addr;//TaskList[taskSlot].TasksMap[taskID];
-            //TaskList[taskslot].MessagePipe[slot].header.payload_size     = PKT_SERVICE_SIZE + theMessage->length + 1;
+    unsigned int i, done, newer ,slot, taskslot = API_GetTaskSlot(task_id, app_id);
+    do{
+        newer = 0xFFFFFFFF;
+        done = 1;
+        // search for the newest packet available in the pipe
+        for( i = 0; i < PIPE_SIZE; i++ ){
+            if (TaskList[taskslot].MessagePipe[slot].status == PIPE_OCCUPIED && TaskList[taskslot].MessagePipe[slot].msgID < newer){
+                slot = i;
+                done = 0;
+            }
+        }
+        // if we found a packet, send it to the new address
+        if(!done){
+            prints("MIGRATION: Sending one message to the new address!\n");
+            TaskList[taskslot].MessagePipe[slot].status                  = PIPE_TRANSMITTING;
+            TaskList[taskslot].MessagePipe[slot].header.saved_addr       = TaskList[slot].MessagePipe[i].header.header; // save the original address of this message
+            TaskList[taskslot].MessagePipe[slot].header.header           = task_dest_addr; // use the new PE address to forward the message
             TaskList[taskslot].MessagePipe[slot].header.service          = MESSAGE_MIGRATION;
-            // TaskList[taskslot].MessagePipe[slot].header.application_id   = TaskList[taskSlot].AppID;
-            // TaskList[taskslot].MessagePipe[slot].header.producer_task    = TaskList[taskSlot].TaskID;
-            // TaskList[taskslot].MessagePipe[slot].header.destination_task = taskID;
             API_PushSendQueue(MESSAGE, (taskslot << 8 | slot));
         }
+    }while(!done);
+    return;
+}
+
+void API_SendPending_and_Address(unsigned int app_id, unsigned int task_id, unsigned int task_dest_addr){
+    unsigned int i, taskslot = API_GetTaskSlot(task_id, app_id);
+    while(ServiceMessage.status == PIPE_OCCUPIED){
+        // Runs the NI Handler to send/receive packets, opening space in the PIPE
+        prints("Estou preso aqui27...\n");
+        API_NI_Handler();
+    }
+    ServiceMessage.status                   = PIPE_OCCUPIED;
+    printsvsv("Forwarding the pending requests from task: ", task_id, "from app: ", app_id);
+    ServiceMessage.header.header            = task_dest_addr;
+    ServiceMessage.header.payload_size      = PKT_SERVICE_SIZE+(2*NUM_MAX_APP_TASKS)+1;
+    ServiceMessage.header.service           = TASK_MIGRATION_PENDING;
+    ServiceMessage.header.task_id           = task_id;
+    ServiceMessage.header.app_id            = app_id;
+    ServiceMessage.msg.length               = TaskList[taskslot].appNumTasks;
+    for (i = 0; i < NUM_MAX_APP_TASKS; i++){
+        ServiceMessage.msg.msg[i] = TaskList[taskslot].TasksMap[i];
+        ServiceMessage.msg.msg[i+NUM_MAX_APP_TASKS] = TaskList[taskslot].PendingReq[i];
+    }
+    API_PushSendQueue(SYS_MESSAGE, 0);
+    return;
+}
+
+void API_MigrationFinished(unsigned int app_id, unsigned int task_id){
+    unsigned int mySlot;
+    do{
+        mySlot = API_GetServiceSlot();
+        if(mySlot == PIPE_FULL){
+            // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui33...\n");
+            API_NI_Handler();
+        }
+    }while(mySlot == PIPE_FULL);
+    
+    ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
+
+    ServicePipe[mySlot].header.header           = makeAddress(0, 0);
+    ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
+    ServicePipe[mySlot].header.service          = TASK_MIGRATION_FINISHED;
+    ServicePipe[mySlot].header.task_id          = task_id;
+    ServicePipe[mySlot].header.app_id           = app_id;
+    API_PushSendQueue(SERVICE, mySlot);
+    return;
+}
+
+void API_UpdatePipe(unsigned int task_id, unsigned int app_id){
+    unsigned int msg_destination_taskID, i, tslot = API_GetTaskSlot(task_id, app_id);
+    for(i = 0; i < PIPE_SIZE; i++){
+        msg_destination_taskID = TaskList[tslot].MessagePipe[i].header.destination_task;
+        TaskList[tslot].MessagePipe[i].header.header = TaskList[tslot].TasksMap[msg_destination_taskID];
     }
     return;
 }
 
-
+void API_ResumeTask(unsigned int task_id, unsigned int app_id){
+    unsigned int tslot = API_GetTaskSlot(task_id, app_id);
+    TaskList[tslot].status = TASK_SLOT_RUNNING;
+    vTaskResume(TaskList[tslot].TaskHandler);
+    return;
+}
