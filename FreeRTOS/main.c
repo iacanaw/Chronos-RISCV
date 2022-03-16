@@ -430,13 +430,17 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                 case TASK_MIGRATION_PENDING:
                     prints("23NI_RX_DONE!\n");
                     prints("Tem pending request chegando...\n");
-                    aux = API_GetTaskSlot(incommingPacket.producer_task, incommingPacket.application_id);
+                    aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.app_id);
                     incommingPacket.service = TASK_MIGRATION_PENDING_FINISH;
                     HW_set_32bit_reg(NI_RX, (unsigned int)&TaskList[aux].appNumTasks);
                     break;
 
                 case TASK_MIGRATION_PENDING_FINISH:
                     prints("24NI_RX_DONE!\n");
+                    aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.app_id);
+                    for( i = 0; i < TaskList[aux].appNumTasks; i++){
+                        printsvsv("received pending [", i, "] = ", TaskList[aux].PendingReq[i]);
+                    }
                     prints("Pending requests and addresses received with success\n");
                     break;
 

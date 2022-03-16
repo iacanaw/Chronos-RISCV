@@ -304,6 +304,7 @@ void API_SendPending_and_Address(unsigned int app_id, unsigned int task_id, unsi
     ServiceMessage.msg.length               = TaskList[taskslot].appNumTasks;
     for (i = 0; i < NUM_MAX_APP_TASKS; i++){
         ServiceMessage.msg.msg[i] = TaskList[taskslot].TasksMap[i];
+        printsvsv("pending [", i, "] = ", TaskList[taskslot].PendingReq[i]);
         ServiceMessage.msg.msg[i+NUM_MAX_APP_TASKS] = TaskList[taskslot].PendingReq[i];
     }
     API_PushSendQueue(SYS_MESSAGE, 0);
