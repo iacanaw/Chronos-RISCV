@@ -479,10 +479,18 @@ void API_StartTasks(){
         if(applications[j].occupied == TRUE){
             start = TRUE;
             for(i = 0; i < applications[j].numTasks; i++){
-                if(applications[j].tasks[i].status != TASK_ALLOCATED){
+                if(applications[j].tasks[i].status == TASK_RESUME){
+                    API_ResumeApplication(j);
                     start = FALSE;
-                    break;
+                    //break;
+                } else if( applications[j].tasks[i].status == TASK_SEND_STALL){
+                    start = FALSE;
+                    API_Send_StallTask( j, i );
                 }
+                else if( applications[j].tasks[i].status != TASK_ALLOCATED){
+                    start = FALSE;
+                    //break;
+                } 
             }
             if(start == TRUE){
                 printsv("Application is allocated: ", j);
@@ -503,27 +511,33 @@ void API_Migration_StallTasks(unsigned int app_id, unsigned int task_id){
     applications[app_id].tasks[task_id].status = TASK_MIGRATION_READY;
     for( i = 0; i < applications[app_id].numTasks; i++ ){
         if( i != task_id){
-            API_Send_StallTask( app_id, i);
+            applications[app_id].tasks[i].status = TASK_SEND_STALL;
+            //API_Send_StallTask( app_id, i );
         }
     }
     return;
 }
 
 void API_Send_StallTask(unsigned int app_id, unsigned int task_id){
-    while(ServiceMessage.status == PIPE_OCCUPIED){
-        // Runs the NI Handler to send/receive packets, opening space in the PIPE
-        prints("Estou preso aqui7...\n");
-        API_NI_Handler();
-    }
+    unsigned int mySlot;
+    do{
+        mySlot = API_GetServiceSlot();
+        if(mySlot == PIPE_FULL){
+            // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui69...\n");
+        }
+    }while(mySlot == PIPE_FULL);
     printsvsv("Stalling task: ", task_id, "from app: ", app_id);
     applications[app_id].tasks[task_id].status = TASK_STALL_REQUEST;
-    ServiceMessage.status                   = PIPE_OCCUPIED;
-    ServiceMessage.header.header            = applications[app_id].tasks[task_id].addr;
-    ServiceMessage.header.payload_size      = PKT_SERVICE_SIZE;
-    ServiceMessage.header.service           = TASK_STALL_REQUEST;
-    ServiceMessage.header.task_id           = task_id;
-    ServiceMessage.header.app_id            = app_id;
-    API_PushSendQueue(SYS_MESSAGE, 0);
+
+    ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
+
+    ServicePipe[mySlot].header.header           = applications[app_id].tasks[task_id].addr;
+    ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
+    ServicePipe[mySlot].header.service          = TASK_STALL_REQUEST;
+    ServicePipe[mySlot].header.task_id          = task_id;
+    ServicePipe[mySlot].header.app_id           = app_id;
+    API_PushSendQueue(SERVICE, mySlot);
 }
 
 void API_StallTask_Ack(unsigned int app_id, unsigned int task_id){
@@ -566,25 +580,35 @@ void API_Migration_ForwardTask( unsigned int app_id, unsigned int task_id, unsig
 void API_ReleaseApplication(unsigned int app_id, unsigned int task_id){
     int i, j;
     for(i = 0; i< applications[app_id].numTasks; i++){
-        while(ServiceMessage.status == PIPE_OCCUPIED){
-            // Runs the NI Handler to send/receive packets, opening space in the PIPE
-            prints("Estou preso aqui78...\n");
-            API_NI_Handler();
-        }
+        applications[app_id].tasks[i].status = TASK_RESUME;
+    }
+    return;
+}
 
-        printsv("Sending TASK_RESUME to task ", i);
-        ServiceMessage.status = PIPE_OCCUPIED;
+void API_ResumeApplication(unsigned int app_id){
+    int i, j;
+    for(i = 0; i < applications[app_id].numTasks; i++){
+        if(applications[app_id].tasks[i].status == TASK_RESUME){
+            while(ServiceMessage.status == PIPE_OCCUPIED){
+                // Runs the NI Handler to send/receive packets, opening space in the PIPE
+                prints("Estou preso aqui78...\n");
+            }
 
-        ServiceMessage.header.header           = applications[app_id].tasks[i].addr;
-        ServiceMessage.header.payload_size     = PKT_SERVICE_SIZE + applications[app_id].numTasks + 1;
-        ServiceMessage.header.service          = TASK_RESUME;
-        ServiceMessage.header.task_id          = i;
-        ServiceMessage.header.app_id           = app_id;
-        ServiceMessage.header.task_arg         = 0;
-        ServiceMessage.msg.length              = applications[app_id].numTasks;
-        for(j = 0; j < applications[app_id].numTasks; j++){
-            ServiceMessage.msg.msg[j]          = applications[app_id].tasks[j].addr;
+            printsv("Sending TASK_RESUME to task ", i);
+            ServiceMessage.status = PIPE_OCCUPIED;
+
+            ServiceMessage.header.header           = applications[app_id].tasks[i].addr;
+            ServiceMessage.header.payload_size     = PKT_SERVICE_SIZE + applications[app_id].numTasks + 1;
+            ServiceMessage.header.service          = TASK_RESUME;
+            ServiceMessage.header.task_id          = i;
+            ServiceMessage.header.app_id           = app_id;
+            ServiceMessage.header.task_arg         = 0;
+            ServiceMessage.msg.length              = applications[app_id].numTasks;
+            for(j = 0; j < applications[app_id].numTasks; j++){
+                ServiceMessage.msg.msg[j]          = applications[app_id].tasks[j].addr;
+            }
+            API_PushSendQueue(SYS_MESSAGE, 0);
+            applications[app_id].tasks[i].status = TASK_STARTED;
         }
-        API_PushSendQueue(SYS_MESSAGE, 0);
     }
 }

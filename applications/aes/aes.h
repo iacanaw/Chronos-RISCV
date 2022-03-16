@@ -3,8 +3,6 @@
 
 #include "../applications.h"
 
-volatile static int MIGRATE = -1;
-
 #define aes_master 0
 #define aes_slave1 1
 #define aes_slave2 2
@@ -259,16 +257,6 @@ void xor_buf(const BYTE in[], BYTE out[], int len)
 
 	for (idx = 0; idx < len; idx++)
 		out[idx] ^= in[idx];
-}
-
-// Default function to check if a migration is required!
-int checkMigration(){
-	if (MIGRATE == 1){
-		sys_Prints("Starting Migration Process!\n");
-		return 1;
-	} else {
-		return 0;
-	}
 }
 
 /*******************

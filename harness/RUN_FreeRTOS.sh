@@ -53,6 +53,7 @@ N=$(($XX*$YY))
 echo "Number of PEs in this simulation: "$(($N))
 
 cd ../simulation
+if [ -d "$SimName" ]; then rm -Rf $SimName; fi
 mkdir $SimName
 cd $SimName
 mkdir simulation

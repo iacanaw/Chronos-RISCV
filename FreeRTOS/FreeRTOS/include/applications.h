@@ -15,6 +15,7 @@
 #define TASK_SLOT_READY             3
 #define TASK_SLOT_SUSPENDED         4
 #define TASK_SLOT_BLOQUED           5
+#define TASK_SLOT_MIGRATED          6
 
 typedef struct {
     volatile unsigned int status;

@@ -204,9 +204,12 @@ void API_FinishRunningTask(){
         API_setFreqIdle();
     }
     API_SendFinishTask(TaskList[slot].TaskID, TaskList[slot].AppID);
-    vPortFree(TaskList[slot].taskAddr);
+    vPortFree(TaskList[slot].fullAddr);
+    prints("free done \n");
     vTaskExitCritical();
+    prints("deleting... \n");
     vTaskDelete(TaskList[slot].TaskHandler);
+    prints("deleted! \n");
     return;
 }
 
@@ -257,15 +260,20 @@ void API_ForwardTask(unsigned int app_id, unsigned int task_id, unsigned int des
 void API_SendPIPE(unsigned int app_id, unsigned int task_id, unsigned int task_dest_addr){
     unsigned int i, done, newer ,slot, taskslot = API_GetTaskSlot(task_id, app_id);
     do{
-        newer = 0xFFFFFFFF;
+        newer = 0xEFFFFFFF;
         done = 1;
         // search for the newest packet available in the pipe
         for( i = 0; i < PIPE_SIZE; i++ ){
-            if (TaskList[taskslot].MessagePipe[slot].status == PIPE_OCCUPIED && TaskList[taskslot].MessagePipe[slot].msgID < newer){
-                slot = i;
-                done = 0;
+            if (TaskList[taskslot].MessagePipe[i].status == PIPE_OCCUPIED){
+                printsv("PIPE slot occupied: ", i);
+                if(TaskList[taskslot].MessagePipe[i].msgID <= newer){
+                    newer = TaskList[taskslot].MessagePipe[i].msgID;
+                    slot = i;
+                    done = 0;
+                }
             }
         }
+        printsv("Older slot: ", slot);
         // if we found a packet, send it to the new address
         if(!done){
             prints("MIGRATION: Sending one message to the new address!\n");
@@ -303,7 +311,7 @@ void API_SendPending_and_Address(unsigned int app_id, unsigned int task_id, unsi
 }
 
 void API_MigrationFinished(unsigned int app_id, unsigned int task_id){
-    unsigned int mySlot;
+    unsigned int mySlot, i;
     do{
         mySlot = API_GetServiceSlot();
         if(mySlot == PIPE_FULL){
@@ -321,6 +329,29 @@ void API_MigrationFinished(unsigned int app_id, unsigned int task_id){
     ServicePipe[mySlot].header.task_id          = task_id;
     ServicePipe[mySlot].header.app_id           = app_id;
     API_PushSendQueue(SERVICE, mySlot);
+    
+    mySlot = API_GetTaskSlot(task_id, app_id);
+    TaskList[mySlot].status = TASK_SLOT_EMPTY;
+    
+    for(i = 0; i < NUM_MAX_TASKS; i++){
+        printsvsv("TaskList[", i, "]status: ", TaskList[i].status );
+        if(TaskList[i].status != TASK_SLOT_EMPTY){
+            printsvsv("Returning because of: ", i, "TaskList[i].status ", TaskList[i].status);
+            i = 0xffffffff;
+            break;
+        }
+    }
+    if(i != 0xffffffff){
+        API_setFreqIdle();
+    }
+
+    vPortFree(TaskList[mySlot].fullAddr);
+    prints("free done \n");
+    vTaskExitCritical();
+    prints("deleting... \n");
+    vTaskDelete(TaskList[mySlot].TaskHandler);
+    prints("deleted! \n");
+
     return;
 }
 
@@ -335,7 +366,35 @@ void API_UpdatePipe(unsigned int task_id, unsigned int app_id){
 
 void API_ResumeTask(unsigned int task_id, unsigned int app_id){
     unsigned int tslot = API_GetTaskSlot(task_id, app_id);
-    TaskList[tslot].status = TASK_SLOT_RUNNING;
-    vTaskResume(TaskList[tslot].TaskHandler);
+    printsv("tslot: ", tslot);
+    printsv("status: ", TaskList[tslot].status);
+    if(TaskList[tslot].status == TASK_SLOT_MIGRATED){
+        prints("Starting task after migration...\n");
+        BaseType_t xReturned;
+        TaskList[tslot].status = TASK_SLOT_RUNNING;
+
+        /*xReturned = xTaskGenericCreate( TaskList[slot].mainAddr,    // pxTaskCode
+                                        "LaTask",                   // pcName
+                                        16384, //4096,                       // usStackDepth
+                                        NULL,                       // pvParameters
+                                        tskIDLE_PRIORITY+1,         //uxPriority
+                                        &TaskList[slot].TaskHandler,// pxCreatedTask
+                                        NULL,                       // puxStackBuffer
+                                        &TaskList[slot].memRegion );//xRegions*/
+        
+        xReturned = xTaskCreate(TaskList[tslot].mainAddr,
+                                "LaTask",
+                                4096,//8192,//4096,//16384,
+                                NULL,
+                                tskIDLE_PRIORITY+1,
+                                &TaskList[tslot].TaskHandler);
+        if( xReturned != pdPASS ){
+            prints("ERROR - API_TaskStart!!!\n");
+        }
+    }
+    else{
+        prints("Resuming task after migration...\n");
+        vTaskResume(TaskList[tslot].TaskHandler);
+    }
     return;
 }

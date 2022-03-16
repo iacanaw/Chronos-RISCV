@@ -1,39 +1,31 @@
 #include "dtw.h"
 
-/*int pattern[MATX_SIZE][MATX_SIZE] = {
-	{0,1,2,3,4,5,6,7,8,9,0},
-	{0,1,2,3,4,5,6,7,8,9,0},
-	{0,1,2,3,4,5,6,7,8,9,0},
-	{0,1,2,3,4,5,6,7,8,9,0},
-	{0,1,2,3,4,5,6,7,8,9,0},
-	{0,1,2,3,4,5,6,7,8,9,0},
-	{0,1,2,3,4,5,6,7,8,9,0},
-	{0,1,2,3,4,5,6,7,8,9,0},
-	{0,1,2,3,4,5,6,7,8,9,0},
-	{0,1,2,3,4,5,6,7,8,9,0},
-	{0,1,2,3,4,5,6,7,8,9,0}
-};*/
 static char start_print[]="Bank INIT\n";
 static char finish_print[]="Bank sys_Sended all patterns\n";
-
+static int pattern[MATX_SIZE][MATX_SIZE];
 volatile static Message theMsg;
 
-static int pattern[MATX_SIZE][MATX_SIZE];
-
 int main(){
-	int i, j;
+	volatile static int i, j;
 
-    sys_Prints((unsigned int)&start_print);
-
-	//theMsg.length = MATX_SIZE * MATX_SIZE; //MATX_SIZE*MATX_SIZE nao pode ser maior que 128, senao usar o sys_SendData
+	if ( !isMigration() ){
+		i = 0;	// stores the number of tasks that a given pattern was sent
+		j = 0;	// stores the number of patterns sent
+	}
 	
-	for (j = 0; j<PATTERN_PER_TASK; j++){
-		for (i = 0; i<TOTAL_TASKS; i++){
+	sys_Prints((unsigned int)&start_print);
+	
+	for (/* j = 0 */; j < PATTERN_PER_TASK; j++){
+		for (/* i = 0 */; i < TOTAL_TASKS; i++){
+
+			checkMigration(); // CHECKS FOR A MIGRATION REQUEST
+			
 			randPattern(pattern); //gera uma matriz de valores aleatorios, poderiam ser coeficientes MFCC
 			theMsg.length = MATX_SIZE * MATX_SIZE;
 			dtw_memcpy(theMsg.msg, pattern, sizeof(pattern));
 			sys_Send(&theMsg, P[i]);
 		}
+		i = 0; // to reset the inner loop
 	}
 
 	sys_Prints((unsigned int)&finish_print);

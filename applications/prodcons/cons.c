@@ -11,7 +11,7 @@ static char txt_printDeupau[] = ">>>>DEU MERD@!\n";
 
 int main(){
     
-    volatile static int i, sum, first, last;
+    static int i, sum, first, last;
     volatile static Message mensagem;
     
     if ( !isMigration() ){
@@ -26,7 +26,7 @@ int main(){
     /* main loop */
     for (/* i = 0 */; i < PRODCONS_ITERATIONS; i++) {
         
-        checkMigration(i);
+        checkMigration();
 
         sys_Receive(&mensagem, prod);
         sys_Prints((unsigned int)&txt_print1);

@@ -371,11 +371,15 @@ void vNI_RX_HandlerTask( void *pvParameters ){
 
                 case TASK_MIGRATION_FORWARD:
                     prints("18NI_RX_DONE!\n");
-                    printsvsv("Task ", incommingPacket.task_id, "sendint himself to PE: ", incommingPacket.task_dest_addr );
+                    printsvsv("Task ", incommingPacket.task_id, "sending himself to PE: ", incommingPacket.task_dest_addr );
                     API_ForwardTask(incommingPacket.app_id, incommingPacket.task_id, incommingPacket.task_dest_addr);
+                    prints("API_ForwardTask done\n");
                     API_SendPIPE(incommingPacket.app_id, incommingPacket.task_id, incommingPacket.task_dest_addr);
+                    prints("API_SendPIPE done\n");
                     API_SendPending_and_Address(incommingPacket.app_id, incommingPacket.task_id, incommingPacket.task_dest_addr);
+                    prints("API_SendPending done\n");
                     API_MigrationFinished(incommingPacket.app_id, incommingPacket.task_id);
+                    prints("API_MigrationFinished done\n");
                     break;
 
                 case TASK_MIGRATION_TASK:
@@ -390,6 +394,7 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     printsv("Task slot: ", aux);
                     printsv("Task slot TaskAddr: ", TaskList[aux].taskAddr);
                     printsv("Migration start at: ", incommingPacket.task_migration_addr);
+                    TaskList[aux].status = TASK_SLOT_MIGRATED;
                     API_SetMigrationVar(aux, 0xFFFFFFFF);
                     incommingPacket.service = TASK_MIGRATION_RECEIVE;
                     HW_set_32bit_reg(NI_RX, TaskList[aux].taskAddr);
@@ -419,7 +424,7 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                 
                 case MESSAGE_MIGRATION_FINISH:
                     prints("22NI_RX_DONE!\n");
-                    prints("Migration conclusion!\n");
+                    prints("Message migration concluded!\n");
                     break;
 
                 case TASK_MIGRATION_PENDING:
@@ -456,7 +461,6 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                 case TASK_RESUME_FINISH:
                     prints("27NI_RX DONE!\n");
                     API_UpdatePipe(incommingPacket.task_id, incommingPacket.app_id);
-                    TaskList[aux].status = TASK_SLOT_READY;
                     API_setFreqScale(1000);
                     API_ResumeTask(incommingPacket.task_id, incommingPacket.app_id);
                     break;
@@ -671,8 +675,8 @@ static void GlobalManagerTask( void *pvParameters ){
         // Update the system temperature
         //API_UpdateTemperature();
 
-        if(tick > 70 && migrate == 1){
-            API_StartMigration(0, 0, 0x00000101);
+        if(tick > 30 && migrate == 1){
+            API_StartMigration(0, 1, 0x00000100);
             migrate = 0;
         }
 

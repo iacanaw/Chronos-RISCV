@@ -21,6 +21,7 @@
 #define FINISH_TEMPERATURE_PACKET       0x00000056U
 
 #define TASK_STALL_REQUEST              0x00000070U
+#define TASK_SEND_STALL                 0x00000071U
 #define TASK_STALL_ACK                  0x00000073U
 #define TASK_RESUME                     0x00000078U
 #define TASK_RESUME_FINISH              0x00000079U

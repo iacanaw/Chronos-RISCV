@@ -2,11 +2,11 @@
 
 static char start_print[] = "PROD1 Start \n";
 static char end_print[] =   "PROD1 End \n";
-
-
+static char iteration_print[] =   "Iteration: ";
+static char barra_ene[] = "... \n";
 
 int main(){
-volatile static int i;                  // relevant to the task context
+    volatile static int i;              // relevant to the task context
     volatile static Message mensagem;   // relevant to the task context
     int j;                              // not relevant to the task context
 
@@ -25,7 +25,11 @@ volatile static int i;                  // relevant to the task context
 
         checkMigration();
 
-        mensagem.msg[9] = 0xB0A + i+5;
+        sys_Prints((unsigned int)&iteration_print);
+        sys_Printi(i);
+        sys_Prints((unsigned int)&barra_ene);
+
+        mensagem.msg[9] = 0xB0A + i;
         sys_Send(&mensagem, cons);
     }
 

@@ -1,7 +1,11 @@
 apps:
- - name: prodcons
+ - name: dtw
    period: 0
-   executions: 1
+   executions: 5
    tasks:
-    prod: 0
-    cons: 1
+    bank: 0
+    p1: 1
+    p2: 2
+    p3: 3
+    p4: 4
+    recognizer: 5
