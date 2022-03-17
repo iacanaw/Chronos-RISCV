@@ -7,27 +7,32 @@ static char new_value[] =   "> dijkstra4 new value .\n";
 
 volatile static Message msg;
 
-int main()
-{
-	int i, j, v;
-	int source = 0;
-	int q[NUM_NODES];
-	int dist[NUM_NODES];
-	int prev[NUM_NODES];
-	int shortest, u;
-	int alt;
-	int calc = 0;
+int main(){
+	static int i, j, v;
+	static int source;
+	static int q[NUM_NODES];
+	static int dist[NUM_NODES];
+	static int prev[NUM_NODES];
+	static int shortest, u;
+	static int alt;
+	static int calc;
+	static int AdjMatrix[NUM_NODES][NUM_NODES];
 
-	int AdjMatrix[NUM_NODES][NUM_NODES];
+	if ( !isMigration() ){
+		source = 0;
+		calc = 0;
+	}
 
 	sys_Prints((unsigned int)&start_print);
 
 	while(1){
+
+		checkMigration();
+
 		msg.length = NUM_NODES;
 		for (i=0; i<NUM_NODES; i++) {
 			sys_Receive(&msg, divider);
-			// sys_Printi(msg.msg[0]);
-			// sys_Prints((unsigned int)&new_value);
+
 			for (j=0; j<NUM_NODES; j++)
 				AdjMatrix[i][j] = msg.msg[j];
 		}
@@ -40,7 +45,6 @@ int main()
 			q[i] = i;
 		}
 		dist[source] = 0;
-		//u = 0;
 
 		for (i=0;i<NUM_NODES;i++) {
 			shortest = INFINITY;

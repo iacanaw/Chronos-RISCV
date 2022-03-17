@@ -10,8 +10,6 @@ static char dijk_working[] = " dijkstra working.... \n";
 volatile static Message msg;
 
 int main(){
-	sys_Prints((unsigned int)&start_print);
-
 	static const int fpTrix[NUM_NODES*NUM_NODES] = { 1,    6,    3,    9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999,
 										6,    1,    2,    5,    9999, 9999, 1,    9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999,
 										3,    2,    1,    3,    4,    9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999,
@@ -28,27 +26,35 @@ int main(){
 										9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 2,    1,    1,    6,    9999,
 										9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 6,    1,    3,
 										9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 9999, 8,    9999, 2,    9999, 3,    1 };
+	static int AdjMatrix[NUM_NODES][NUM_NODES];
+	static int i, j, k, iter;
 
-	int AdjMatrix[NUM_NODES][NUM_NODES];
-	int i, j, k, iter;
-
-	k = 0;
-	for (i=0;i<NUM_NODES;i++) {
-		for (j=0;j<NUM_NODES;j++) {
-			AdjMatrix[i][j]= fpTrix[k];
-			k++;
+	if ( !isMigration() ){
+		for (i=0;i<NUM_NODES;i++) {
+			for (j=0;j<NUM_NODES;j++) {
+				AdjMatrix[i][j]= fpTrix[k];
+				k++;
+			}
 		}
+		iter = 0; 		// counts the calculations
+		i = 0;			// counts the number of lines
+		k = 0;			// counts the number of message sent
 	}
+
+	sys_Prints((unsigned int)&start_print);
 
 	/* sys_Send AdjMatrix[NUM_NODES][NUM_NODES] */
 	msg.length = NUM_NODES;
-	k=0;
+
 	sys_Prints((unsigned int)&calculations);
-	for(iter=0; iter<CALCULATIONS; iter++){
-		for (i=0; i<NUM_NODES; i++) {
-			for (j=0; j<NUM_NODES; j++) {
+	for(/* iter=0 */; iter < CALCULATIONS; iter++){
+		for (/* i=0 */; i < NUM_NODES; i++) {
+			for (j = 0; j < NUM_NODES; j++) {
 				msg.msg[j] = AdjMatrix[i][j];
 			}
+
+			checkMigration(); // CHECKS FOR A MIGRATION REQUEST
+
 			sys_Printi(k);
 			sys_Prints((unsigned int)&dijk_working);
 			sys_Send(&msg, dijkstra_0);
@@ -58,10 +64,11 @@ int main(){
 			sys_Send(&msg, dijkstra_4);
 			k = k+5;
 		}
+		i = 0;
 	}
 
 	AdjMatrix[0][0] = KILL;
-	for (i=0; i<NUM_NODES; i++) {
+	for (i = 0; i < NUM_NODES; i++) {
 		sys_Printi(i);
 		sys_Prints((unsigned int)&kill);
 		for (j=0; j<NUM_NODES; j++) {

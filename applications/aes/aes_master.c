@@ -43,6 +43,10 @@ int main(){
 	static int aux1_blocks_PE;
 	static int aux2_blocks_PE;	
 
+	if ( !isMigration() ){
+		asm("nop");
+	}
+	
 	// fill each block with values 'A', 'B', ...
 	for(x = 0; x < MSG_LENGHT; x++){
 		plain_msg[x] = ((x/16)%26)+0x41;

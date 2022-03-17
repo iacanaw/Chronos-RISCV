@@ -469,6 +469,10 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     API_ResumeTask(incommingPacket.task_id, incommingPacket.app_id);
                     break;
 
+                case LOST_MESSAGE_REQ:
+                    prints("28NI_RX_DONE!\n");
+                    API_Forward_MsgReq(incommingPacket.task_id, incommingPacket.app_id, incommingPacket.producer_task_id);
+                    break;
 
                 default:
                     printsv("ERROR External_2_IRQHandler Unknown-Service ", incommingPacket.service);
@@ -680,7 +684,7 @@ static void GlobalManagerTask( void *pvParameters ){
         //API_UpdateTemperature();
 
         if(tick > 30 && migrate == 1){
-            API_StartMigration(0, 1, 0x00000100);
+            API_StartMigration(0, 3, 0x00000100);
             migrate = 0;
         }
 

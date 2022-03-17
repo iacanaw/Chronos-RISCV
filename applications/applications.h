@@ -22,14 +22,14 @@ void memcpy(void *dest, void *src, unsigned int n){
 int checkMigration(){
 
     static char txt[] = "Starting Migration Process!\n";
-	static char txt2[] = "No Migration Process!\n";
+	/*static char txt2[] = "No Migration Process!\n";*/
 
 	if ( MIGRATE == IS_MIGRATION ){
 		sys_Prints((unsigned int)&txt);
 		sys_Migrate(); // the task stops here
-	} else {
+	} /*else {
 		sys_Prints((unsigned int)&txt2);
-	}
+	}*/
 	return 0; // this return will never happen if the task will migrate
 }
 

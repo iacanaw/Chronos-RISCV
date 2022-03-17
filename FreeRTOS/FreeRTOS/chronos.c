@@ -541,7 +541,7 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
     ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
     ServicePipe[mySlot].header.service          = MESSAGE_REQUEST;
     ServicePipe[mySlot].header.task_id          = TaskList[taskSlot].TaskID;
-    ServicePipe[mySlot].header.app_id      = TaskList[taskSlot].AppID;
+    ServicePipe[mySlot].header.app_id           = TaskList[taskSlot].AppID;
     ServicePipe[mySlot].header.producer_task_id = taskID;
 
     prints("Esperando Mensagem!\n");
@@ -599,6 +599,7 @@ unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int a
     }
     if(sel != ERRO){
         TaskList[sel >> 8].MessagePipe[sel & 0x000000FF].status == PIPE_TRANSMITTING;
+        TaskList[sel >> 8].MessagePipe[sel & 0x000000FF].header.header = TaskList[sel>>8].TasksMap[requester_task_id];
     }
     vTaskExitCritical();
     return sel;
@@ -606,15 +607,33 @@ unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int a
 
 void API_AddPendingReq(unsigned int requester_task_id, unsigned int app_id, unsigned int producer_task_id){
     unsigned int slot = API_GetTaskSlot(producer_task_id, app_id);
+    unsigned int mySlot;
     if (slot != ERRO) {
         TaskList[slot].PendingReq[requester_task_id] = TRUE;
     } else {
         printsvsv("Task ", requester_task_id, "solicitando pacote da task ", producer_task_id);
         printsv("no PE errado - applicacao: ", app_id);
+        do{
+            mySlot = API_GetServiceSlot();
+            if(mySlot == PIPE_FULL){
+                // Runs the NI Handler to send/receive packets, opening space in the PIPE
+                prints("Estou preso aqui111...\n");
+            }
+        }while(mySlot == PIPE_FULL);
+        
+        ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
+
+        ServicePipe[mySlot].header.header           = makeAddress(0, 0);
+        ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
+        ServicePipe[mySlot].header.service          = LOST_MESSAGE_REQ;
+        ServicePipe[mySlot].header.task_id          = requester_task_id;
+        ServicePipe[mySlot].header.app_id           = app_id;
+        ServicePipe[mySlot].header.producer_task_id = producer_task_id;
+
+        API_PushSendQueue(SERVICE, mySlot);
     }
     return;
 }
-
 
 void API_NI_Handler(){
     return;

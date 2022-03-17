@@ -27,15 +27,22 @@ volatile static Message theMessage;
 
 int main(){
 	static unsigned int key_schedule[60];
-	static int qtd_messages, op_mode, x, flag=1, id = -1, i;
+	static int qtd_messages, op_mode, x, flag = 1, id, i;
 	static unsigned int enc_buf[128];
 	static unsigned int input_text[16]; 
 	static unsigned int key[1][32] = { {0x60,0x3d,0xeb,0x10,0x15,0xca,0x71,0xbe,0x2b,0x73,0xae,0xf0,0x85,0x7d,0x77,0x81,0x1f,0x35,0x2c,0x07,0x3b,0x61,0x08,0xd7,0x2d,0x98,0x10,0xa3,0x09,0x14,0xdf,0xf4} };
 
     sys_Prints(&start_print); 
-	aes_key_setup(&key[0][0], key_schedule, 256);    
+
+	if ( !isMigration() ){
+		aes_key_setup(&key[0][0], key_schedule, 256);
+		id = -1;
+	}
     
     while(flag){
+
+		checkMigration();
+
 		sys_Receive(&theMessage, aes_master);
 		aes_memcpy(input_text, theMessage.msg, 16);
 			

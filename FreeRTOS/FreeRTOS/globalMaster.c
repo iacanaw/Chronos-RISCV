@@ -612,3 +612,31 @@ void API_ResumeApplication(unsigned int app_id){
         }
     }
 }
+
+void API_Forward_MsgReq(unsigned int requester_task_id, unsigned int app_id, unsigned int producer_task_id){
+    unsigned int mySlot;
+    if(applications[app_id].tasks[producer_task_id].status != TASK_FINISHED){
+        do{
+            mySlot = API_GetServiceSlot();
+            if(mySlot == PIPE_FULL){
+                // Runs the NI Handler to send/receive packets, opening space in the PIPE
+                prints("Estou preso aqui121...\n");
+            }
+        }while(mySlot == PIPE_FULL);
+        
+        ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
+
+        ServicePipe[mySlot].header.header           = applications[app_id].tasks[producer_task_id].addr;
+        ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
+        ServicePipe[mySlot].header.service          = MESSAGE_REQUEST;
+        ServicePipe[mySlot].header.task_id          = requester_task_id;
+        ServicePipe[mySlot].header.app_id           = app_id;
+        ServicePipe[mySlot].header.producer_task_id = producer_task_id;
+
+        API_PushSendQueue(SERVICE, mySlot);
+    }
+    else {
+        prints("ERRO!! MSG REQUEST PERDIDO!\n");
+    }
+    return;
+}

@@ -359,8 +359,15 @@ void API_MigrationFinished(unsigned int app_id, unsigned int task_id){
 void API_UpdatePipe(unsigned int task_id, unsigned int app_id){
     unsigned int msg_destination_taskID, i, tslot = API_GetTaskSlot(task_id, app_id);
     for(i = 0; i < PIPE_SIZE; i++){
+        // Update the messages that are inside the PIPE
         msg_destination_taskID = TaskList[tslot].MessagePipe[i].header.destination_task;
         TaskList[tslot].MessagePipe[i].header.header = TaskList[tslot].TasksMap[msg_destination_taskID];
+
+        // Update every MESSAGE REQUEST that is inside the PIPE
+        if(ServicePipe[i].header.app_id == app_id && ServicePipe[i].header.service == MESSAGE_REQUEST){
+            msg_destination_taskID = ServicePipe[i].header.producer_task;
+            ServicePipe[i].header.header = TaskList[tslot].TasksMap[msg_destination_taskID];
+        }
     }
     return;
 }

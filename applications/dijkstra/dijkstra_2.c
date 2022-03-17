@@ -7,22 +7,28 @@ static char new_value[] =   "> dijkstra2 new value. \n";
 
 volatile static Message msg;
 
-int main()
-{
-	int i, j, v;
-	int source = 0;
-	int q[NUM_NODES];
-	int dist[NUM_NODES];
-	int prev[NUM_NODES];
-	int shortest, u;
-	int alt;
-	int calc = 0;
+int main(){	
+	static int i, j, v;
+	static int source;
+	static int q[NUM_NODES];
+	static int dist[NUM_NODES];
+	static int prev[NUM_NODES];
+	static int shortest, u;
+	static int alt;
+	static int calc;
+	static int AdjMatrix[NUM_NODES][NUM_NODES];
 
-	int AdjMatrix[NUM_NODES][NUM_NODES];
+	if ( !isMigration() ){
+		source = 0;
+		calc = 0;
+	}
 
 	sys_Prints((unsigned int)&start_print);
 
 	while(1){
+
+		checkMigration();
+
 		msg.length = NUM_NODES;
 		for (i=0; i<NUM_NODES; i++) {
 			sys_Receive(&msg, divider);

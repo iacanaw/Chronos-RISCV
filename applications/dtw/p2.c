@@ -8,17 +8,22 @@ volatile static Message msg;
 int main(){
 	volatile static int test[MATX_SIZE][MATX_SIZE];
 	volatile static int pattern[MATX_SIZE][MATX_SIZE];
-	volatile static int result, j;
+	volatile static int result, j, prelude;
 
 	if ( !isMigration() ){
-        j = 0;	// stores the amout of worked patterns
+        j = 0;			// stores the amout of worked patterns
+		prelude = 0; 	// register if the prelude was executed
     }
-
-	sys_Receive(&msg, recognizer);
 
 	sys_Prints((unsigned int)&start_print);
 
-	dtw_memcpy(test, msg.msg, sizeof(test));
+	if(!prelude){
+		sys_Receive(&msg, recognizer);
+
+		dtw_memcpy(test, msg.msg, sizeof(test));
+		
+		prelude = 1;
+	}
 
 	for (/* j = 0 */; j < PATTERN_PER_TASK; j++){
 
