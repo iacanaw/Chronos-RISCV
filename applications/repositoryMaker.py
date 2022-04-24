@@ -249,6 +249,7 @@ with open('repository.h', 'w') as file:
     file.write('#define BIG_CODE ' + str(bigCode) + '\n')
     file.write('// Application IDs\n')
     for i in range(len(appsName)):
+        appsName[i] = appsName[i] + "_" + str(i)
         file.write('#define ' + appsName[i] + " " + str(i) + "\n" )
     file.write('// Application INFO\n')
     file.write('static unsigned int appInfo[NUM_APPS][INFO_SIZE] = {\n')

@@ -86,7 +86,7 @@ void load_matrices(double Binv[THERMAL_NODES][SYSTEM_SIZE], double Cexp[THERMAL_
     FILE *cexppointer;
     cexppointer = fopen("peripheral/tea/cexp.txt","r");
 
-    char line[4000];
+    char line[9000];
     char *number;
     int column, row;
 

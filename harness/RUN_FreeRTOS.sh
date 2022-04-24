@@ -209,14 +209,14 @@ do
 echo "  \\" >> callHarness.sh
 echo "  --program  cpu"$i"=\${FREERTOS_ELF}               \\" >> callHarness.sh
 echo "  --override dictsize=64                          \\" >> callHarness.sh
-echo "  --override uart"$i"/console=T                    \\" >> callHarness.sh
+echo "  --override uart"$i"/console=F                    \\" >> callHarness.sh
 echo "  --override uart"$i"/finishOnDisconnect=T         \\" >> callHarness.sh
 echo "  --override uart"$i"/outfile=simulation/uart"$i".log \\" >> callHarness.sh
 done
 echo "  \\" >> callHarness.sh
 echo "  --program  cpu"$(($N-1))"=\${FREERTOS_ELF}               \\" >> callHarness.sh
 echo "  --override dictsize=64                                 \\" >> callHarness.sh
-echo "  --override uart"$(($N-1))"/console=T                    \\" >> callHarness.sh
+echo "  --override uart"$(($N-1))"/console=F                    \\" >> callHarness.sh
 echo "  --override uart"$(($N-1))"/finishOnDisconnect=T         \\" >> callHarness.sh
 echo "  --override uart"$(($N-1))"/outfile=simulation/uart"$(($N-1))".log \$* --verbose --parallelmax --parallelperipherals --output simulation/imperas.log" >> callHarness.sh
 #--imperasintercepts                                     \
