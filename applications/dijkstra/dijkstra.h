@@ -5,7 +5,7 @@
 #define NUM_NODES 					16		//16 for small input;
 #define NPROC 						5
 #define INFINITY					9999
-#define CALCULATIONS				100
+#define CALCULATIONS				35
 #define KILL						99999
 
 #define dijkstra_0  0

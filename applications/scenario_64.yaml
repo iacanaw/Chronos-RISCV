@@ -1,0 +1,61 @@
+apps:
+ - name: prodcons
+   period: 0
+   executions: 1
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 0
+   executions: 1
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 0
+   executions: 1
+   tasks:
+    prod: 0
+    cons: 1
+ - name: dijkstra
+   period: 242
+   executions: 1
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra
+   period: 242
+   executions: 1
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dtw
+   period: 0
+   executions: 5
+   tasks:
+    bank: 0
+    p1: 1
+    p2: 2
+    p3: 3
+    p4: 4
+    recognizer: 5
+ - name: dtw
+   period: 0
+   executions: 5
+   tasks:
+    bank: 0
+    p1: 1
+    p2: 2
+    p3: 3
+    p4: 4
+    recognizer: 5

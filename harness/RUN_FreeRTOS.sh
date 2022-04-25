@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts ":h:n:x:y:t:" option; do
+while getopts ":h:n:x:y:t:s:" option; do
   case $option in
     h) # display Help
         Help
@@ -17,6 +17,9 @@ while getopts ":h:n:x:y:t:" option; do
     t) #defines the type of simulation (pattern, pidtm, nossa tecnica)
         SimType=$OPTARG
         echo "Using the thermal management technique: "$SimType;;
+    s) #defines the scenario name (without the extension (.yaml))
+        ScenarioName=$OPTARG
+        echo "Using the scenario named: "$ScenarioName;;
     \?) # Invalid option
         echo "Error: Invalid option"
         exit;;
@@ -46,7 +49,7 @@ then
     SimName=$(date +"%d%m%Y%H%M%S")"_"$SimType"_"$(($XX))"x"$(($YY))
     echo "Default simulation name: "$SimName
 else
-    SimName=$SimName"_"$SimType"_"$(($XX))"x"$(($YY))
+    SimName=$SimName"_"$ScenarioName"_"$SimType"_"$(($XX))"x"$(($YY))
 fi
 
 N=$(($XX*$YY))
@@ -94,7 +97,7 @@ for d in */ ; do
 done
 echo "======================="
 echo "CREATING THE REPOSITORY"
-python3 repositoryMaker.py myscenario
+python3 repositoryMaker.py $ScenarioName
 # for d in */ ; do
 #   cd $d
 #   make clean
