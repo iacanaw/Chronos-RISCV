@@ -1,6 +1,6 @@
 apps:
  - name: dijkstra
-   period: 242
+   period: 0
    executions: 1
    tasks:
     dijkstra_0: 0

@@ -12,7 +12,7 @@ apps:
     prod: 0
     cons: 1
  - name: dijkstra
-   period: 242
+   period: 0
    executions: 1
    tasks:
     dijkstra_0: 0
@@ -23,7 +23,7 @@ apps:
     print_dij: 5
     divider: 6
  - name: dijkstra
-   period: 242
+   period: 0
    executions: 1
    tasks:
     dijkstra_0: 0
