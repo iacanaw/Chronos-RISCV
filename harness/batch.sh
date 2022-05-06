@@ -43,7 +43,8 @@ echo "Starting simulations..."
 
 
 ./RUN_FreeRTOS.sh -x 10 -y 10 -t pattern -s scenario_100_50 -n toPaper_pat >> paper_pat.txt
-./RUN_FreeRTOS.sh -x 10 -y 10 -t pidtm -s scenario_100_50 -n toPaper_pid >> paper_pid.txt
 ./RUN_FreeRTOS.sh -x 10 -y 10 -t spiral -s scenario_100_50 -n toPaper_spi >> paper_spi.txt
+./RUN_FreeRTOS.sh -x 10 -y 10 -t pidtm -s scenario_100_50 -n toPaper_pid >> paper_pid.txt
+
 
 echo "Simulations finished."

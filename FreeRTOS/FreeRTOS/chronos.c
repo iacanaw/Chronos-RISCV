@@ -456,6 +456,9 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
             vTaskSuspend( TaskList[taskSlot].TaskHandler );
             prints("Volteiiii!\n");
             //vTaskEnterCritical();
+            vTaskExitCritical();
+        } else {
+            vTaskExitCritical();
         }
     }while(mySlot == PIPE_FULL);
     
