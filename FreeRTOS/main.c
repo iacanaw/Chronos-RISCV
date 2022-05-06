@@ -681,12 +681,12 @@ static void GlobalManagerTask( void *pvParameters ){
 		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
 
         // Update the system temperature
-        //API_UpdateTemperature();
+        API_UpdateTemperature();
 
-        if(tick > 30 && migrate == 1){
-            API_StartMigration(0, 3, 0x00000100);
-            migrate = 0;
-        }
+        // if(tick > 30 && migrate == 1){
+        //     API_StartMigration(0, 3, 0x00000100);
+        //     migrate = 0;
+        // }
 
         // Update PID
         API_UpdatePIDTM();
