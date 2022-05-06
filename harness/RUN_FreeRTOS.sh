@@ -221,8 +221,8 @@ echo "  --program  cpu"$(($N-1))"=\${FREERTOS_ELF}               \\" >> callHarn
 echo "  --override dictsize=64                                 \\" >> callHarness.sh
 echo "  --override uart"$(($N-1))"/console=F                    \\" >> callHarness.sh
 echo "  --override uart"$(($N-1))"/finishOnDisconnect=T         \\" >> callHarness.sh
-echo "  --override uart"$(($N-1))"/outfile=simulation/uart"$(($N-1))".log \$* --verbose --parallelmax --parallelperipherals --output simulation/imperas.log" >> callHarness.sh
-#--imperasintercepts                                     \
+echo "  --override uart"$(($N-1))"/outfile=simulation/uart"$(($N-1))".log \$* --verbose --output simulation/imperas.log" >> callHarness.sh
+#--imperasintercepts            --parallelmax --parallelperipherals                         \
 
 chmod +x callHarness.sh
 ./callHarness.sh

@@ -1,13 +1,13 @@
 apps:
  - name: prodcons
    period: 0
-   executions: 1
+   executions: 10
    tasks:
     prod: 0
     cons: 1
  - name: prodcons
    period: 0
-   executions: 1
+   executions: 10
    tasks:
     prod: 0
     cons: 1

@@ -1,13 +1,13 @@
 apps:
  - name: prodcons
    period: 0
-   executions: 1
+   executions: 10
    tasks:
     prod: 0
     cons: 1
  - name: dijkstra
    period: 0
-   executions: 1
+   executions: 10
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
@@ -18,7 +18,7 @@ apps:
     divider: 6
  - name: dijkstra
    period: 0
-   executions: 1
+   executions: 10
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
@@ -29,7 +29,7 @@ apps:
     divider: 6
  - name: dijkstra
    period: 0
-   executions: 1
+   executions: 10
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
@@ -40,7 +40,7 @@ apps:
     divider: 6
  - name: dtw
    period: 0
-   executions: 5
+   executions: 10
    tasks:
     bank: 0
     p1: 1
@@ -50,7 +50,7 @@ apps:
     recognizer: 5
  - name: dtw
    period: 0
-   executions: 5
+   executions: 10
    tasks:
     bank: 0
     p1: 1
@@ -60,7 +60,7 @@ apps:
     recognizer: 5
  - name: dtw
    period: 0
-   executions: 5
+   executions: 10
    tasks:
     bank: 0
     p1: 1
