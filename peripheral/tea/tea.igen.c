@@ -76,7 +76,7 @@ unsigned int source_pe = 0;
 unsigned int x_data_counter = 0;
 unsigned int y_data_counter = 0;
 
-unsigned int samples_received[DIM_Y][DIM_X];
+unsigned int samples_received[DIM_Y][DIM_X]; 
 
 FILE *fp;
 
