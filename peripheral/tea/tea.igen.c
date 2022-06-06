@@ -28,15 +28,17 @@
 
 
 #include "tea.igen.h"
-#include "../whnoc_dma/noc.h"
+#include "reliability.h"
+//#include "../whnoc_dma/noc.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+//#define TOTAL_STRUCTURES DIM_X*DIM_Y
 
 #define INT_CONVE 1048576   //1048576
 #define INT_CONVB 8192      //8192
 #define INT_CONVC 128       //128    //CONVE\CONVB
-
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
 //////////////////////////////// Callback stubs ////////////////////////////////
 
 #define CLUSTER_SIZE        (DIM_X*DIM_Y)  
@@ -77,6 +79,30 @@ unsigned int x_data_counter = 0;
 unsigned int y_data_counter = 0;
 
 unsigned int samples_received[DIM_Y][DIM_X]; 
+
+// RELIABILITY STUFF
+unsigned int received_samples = 0;
+unsigned int structures;
+ 
+double total_struct_area;               /* Total processor die area*/
+double total_fits;                      /*  Total FITS (1/MTTF) of the entire processor*/
+int rel_counter;
+long double access_counter;
+int unitc;                              /* Unit counter*/
+struct floorplan_structure floorplan;
+double total_inst;          /* Total number of instructions executed */
+double EM_total;            /* Total EM FITS */
+double SM_total;            /* Total SM FITS */
+double TDDB_total;          /* Total TDDB FITS */
+double TC_total;            /* Total TC FITS */
+double NBTI_total;          /* Total NBTI FITS */
+
+//static double *unit_act;
+double globalcountdown;
+float total_structure_fits;
+
+int EM_act_ratio[TOTAL_STRUCTURES];
+
 
 FILE *fp;
 
@@ -194,15 +220,51 @@ void temp_matex(double TempTraceEnd[THERMAL_NODES], double power_trace[SYSTEM_SI
         TempTraceEnd[k] = Tsteady[k] + sumExponentials;
     }
 
-
     fprintf(filepointer,"Temperatures: "); 
     for(i = 0; i < SYSTEM_SIZE; i++)
         fprintf(filepointer,"%f ", TempTraceEnd[i]);
     fprintf(filepointer,"\n");
-    
-    //bhmMessage("I", "Input", "temp[%d]: %f\n",i, TempTraceEnd[i]);
-
     fclose(filepointer);
+
+    // RELIABILITY
+    for (structures=0;structures<TOTAL_STRUCTURES;structures++){
+        EM_act_ratio[structures] = power_trace[structures];
+    }
+
+    for (structures=0; structures < TOTAL_STRUCTURES; structures++){
+
+        /* Calculate FIT value by feeding in each structures temperature, activity
+            * factor, processor supply voltage, and processor frequency. */
+
+        allmodels(TempTraceEnd[structures], EM_act_ratio[structures], 1.0, 1.0, structures);
+
+        total_fits = total_fits+rel_unit[structures].fits;          /* Computes Total average FIT value of processor */
+        total_inst =  total_inst + rel_unit[structures].ind_inst;   /* Computes Total instantaneous FIT value of processor */
+        EM_total = EM_total + rel_unit[structures].EM_fits;         /* Total average individual failure mech FIT value*/
+        SM_total = SM_total + rel_unit[structures].SM_fits; 
+        TDDB_total = TDDB_total + rel_unit[structures].TDDB_fits; 
+        TC_total = TC_total + rel_unit[structures].TC_fits; 
+        NBTI_total = NBTI_total + rel_unit[structures].NBTI_fits; 
+        
+        //unit_act[unitc]=0;
+    }
+
+    FILE *montecarlofile;
+    montecarlofile = fopen("simulation/montecarlofile", "w");
+
+    for (structures=0;structures< TOTAL_STRUCTURES;structures++){
+        /*Print  FIT values for each failure mechanism and structure */
+        fprintf(montecarlofile,"%f\n",rel_unit[structures].EM_fits);
+        fprintf(montecarlofile,"%f\n",rel_unit[structures].SM_fits);
+        fprintf(montecarlofile,"%f\n",rel_unit[structures].TDDB_fits);
+        fprintf(montecarlofile,"%f\n",rel_unit[structures].TC_fits);
+        fprintf(montecarlofile,"%f\n",rel_unit[structures].NBTI_fits);
+
+    }
+    fclose(montecarlofile);
+
+    
+    
 }
 
 /////////////////////////////// Port Declarations //////////////////////////////
@@ -397,6 +459,22 @@ PPM_RESTORE_STATE_FN(peripheralRestoreState) {
 
 int main(int argc, char *argv[]) {
     int i, j;
+
+    total_fits = 0.0;   
+    total_struct_area=0.0;
+    access_counter = 0.0; 
+
+    /* Reliability object initialization for every structure on the processor*/
+    for (unitc = 0; unitc < TOTAL_STRUCTURES; unitc++){
+        sprintf(floorplan.units[unitc].name, "p%d", unitc);
+        floorplan.units[unitc].height = 0.000275;
+        floorplan.units[unitc].width = 0.000275;
+
+        init(&floorplan, unitc);  /* Initialize structures*/
+        fitinit(unitc);           /* Initialize FITS for each structure*/
+    }
+    //-----------end of RELIABILITY STUFF
+
     ppmDocNodeP Root1_node = ppmDocAddSection(0, "Root");
     {
         ppmDocNodeP doc2_node = ppmDocAddSection(Root1_node, "Description");
