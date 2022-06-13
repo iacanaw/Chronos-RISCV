@@ -21,7 +21,7 @@ void init(struct floorplan_structure *floorplan, int unit_number){
 	rel_unit[unit_number].unit_area = (unit->height)*(unit->width); 		/* The area of each
 	structure is calculated using the floorplan file*/
 	
-    
+    rel_unit[unit_number].total_struct_area = 0;
 	rel_unit[unit_number].total_struct_area += rel_unit[unit_number].unit_area;		/* Keeping track of total area of the processor*/
 	
 	rel_unit[unit_number].fits = 0; 	   	/*Initialize each structure's FITs to 0*/
@@ -40,19 +40,25 @@ void fitinit(int unit_number){
 	/* Base FITS for structure is proportional to the area
 	  occupied by the structure on the processor */
 	
-	rel_unit[unit_number].EM_base_fits= (TOTAL_EM_FITS*(unit_area)/total_struct_area);
-	rel_unit[unit_number].SM_base_fits= (TOTAL_SM_FITS*(unit_area)/total_struct_area);
-	rel_unit[unit_number].TDDB_base_fits= (TOTAL_TDDB_FITS*(unit_area)/total_struct_area);
-	rel_unit[unit_number].TC_base_fits= (TOTAL_TC_FITS*(unit_area)/total_struct_area);
-	rel_unit[unit_number].NBTI_base_fits= (TOTAL_NBTI_FITS*(unit_area)/total_struct_area);
+	rel_unit[unit_number].EM_base_fits	= (TOTAL_EM_FITS	*(unit_area/total_struct_area));
+	printf("EM_base_fits: %f\n", rel_unit[unit_number].EM_base_fits);
+	rel_unit[unit_number].SM_base_fits	= (TOTAL_SM_FITS	*(unit_area/total_struct_area));
+	printf("SM_base_fits: %f\n", rel_unit[unit_number].SM_base_fits);
+	rel_unit[unit_number].TDDB_base_fits= (TOTAL_TDDB_FITS	*(unit_area/total_struct_area));
+	printf("TDDB_base_fits: %f\n", rel_unit[unit_number].TDDB_base_fits);
+	rel_unit[unit_number].TC_base_fits	= (TOTAL_TC_FITS	*(unit_area/total_struct_area));
+	printf("TC_base_fits: %f\n", rel_unit[unit_number].TC_base_fits);
+	rel_unit[unit_number].NBTI_base_fits= (TOTAL_NBTI_FITS	*(unit_area/total_struct_area));
+	printf("NBTI_base_fits: %f\n", rel_unit[unit_number].NBTI_base_fits);
 	
 	/* Initial FIT values are same as base FIT values*/
 	
-	rel_unit[unit_number].EM_fits= TOTAL_EM_FITS*unit_area/total_struct_area;
-	rel_unit[unit_number].SM_fits= (TOTAL_SM_FITS*(unit_area)/total_struct_area);
-	rel_unit[unit_number].TDDB_fits= (TOTAL_TDDB_FITS*(unit_area)/total_struct_area);
-	rel_unit[unit_number].TC_fits= (TOTAL_TC_FITS*(unit_area)/total_struct_area);
-	rel_unit[unit_number].NBTI_fits= (TOTAL_NBTI_FITS*(unit_area)/total_struct_area);
+	rel_unit[unit_number].EM_fits 	= (TOTAL_EM_FITS	*(unit_area/total_struct_area));
+	rel_unit[unit_number].SM_fits 	= (TOTAL_SM_FITS	*(unit_area/total_struct_area));
+	rel_unit[unit_number].TDDB_fits = (TOTAL_TDDB_FITS	*(unit_area/total_struct_area));
+	rel_unit[unit_number].TC_fits 	= (TOTAL_TC_FITS	*(unit_area/total_struct_area));
+	rel_unit[unit_number].NBTI_fits = (TOTAL_NBTI_FITS	*(unit_area/total_struct_area));
+	rel_unit[unit_number].fits = rel_unit[unit_number].EM_fits + rel_unit[unit_number].SM_fits + rel_unit[unit_number].TDDB_fits + rel_unit[unit_number].TC_fits + rel_unit[unit_number].NBTI_fits;
     return;
 }
 
@@ -165,8 +171,10 @@ void TC(float temp, float act, float rel_voltage, float rel_freq, int un){
     /* For TC, we calculate the average mean temperature of each structure */
 
 	if (rel_unit[un].access_counter>1){     	
-		rel_unit[un].mean =(rel_unit[un].mean*(rel_unit[un].access_counter-1) + temp)/rel_unit[un].access_counter;
-    } 
+		rel_unit[un].mean = (rel_unit[un].mean*(rel_unit[un].access_counter-1) + temp)/rel_unit[un].access_counter;
+    } else {
+		rel_unit[un].mean = temp;
+	}
 
 	float TC_base_temp_diff = T_base - ambient;	
 	rel_unit[un].TC_fits = pow(((rel_unit[un].mean-ambient)/(TC_base_temp_diff)),TC_exponent)*rel_unit[un].TC_base_fits;

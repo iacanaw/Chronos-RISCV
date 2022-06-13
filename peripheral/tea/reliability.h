@@ -56,30 +56,30 @@ struct floorplan_structure{
 struct UnitRel{
     int unit_ref_number;	/* Reference number of this structure*/
 
-	double old_temp;		/* Previous sampling temperature*/
+	// double old_temp;		/* Previous sampling temperature*/
 
-	double currently_positive;
-	double final_diff;
-	double old_set;
-	double delta_T;
-    long int delta_counter;
-	double TC_new_cycles;
+	// double currently_positive;
+	// double final_diff;
+	// double old_set;
+	// double delta_T;
+    // long int delta_counter;
+	// double TC_new_cycles;
 
-	double non_startup;
+	// double non_startup;
 
 	float mean;
-    float stdev;
-    long long tc_counter;
-    long countdown;
-    int firsttime;
-    double frequency;
-	double nocycles;
+    //float stdev;
+    //long long tc_counter;
+    //long countdown;
+    //int firsttime;
+    //double frequency;
+	//double nocycles;
 
 
 	long int access_counter; 
 	float fits;			 	/* Total fits for the structure*/
 
-	float TC_cycles_allowed;
+	//float TC_cycles_allowed;
 	
 	float EM_inst;		/* Instantaneous FIT values due to each faliure mechanism*/
 	float SM_inst;

@@ -238,7 +238,7 @@ void temp_matex(double TempTraceEnd[THERMAL_NODES], double power_trace[SYSTEM_SI
 
         allmodels(TempTraceEnd[structures], EM_act_ratio[structures], 1.0, 1.0, structures);
 
-        total_fits = total_fits+rel_unit[structures].fits;          /* Computes Total average FIT value of processor */
+        total_fits = total_fits + rel_unit[structures].fits;          /* Computes Total average FIT value of processor */
         total_inst =  total_inst + rel_unit[structures].ind_inst;   /* Computes Total instantaneous FIT value of processor */
         EM_total = EM_total + rel_unit[structures].EM_fits;         /* Total average individual failure mech FIT value*/
         SM_total = SM_total + rel_unit[structures].SM_fits; 
@@ -249,10 +249,20 @@ void temp_matex(double TempTraceEnd[THERMAL_NODES], double power_trace[SYSTEM_SI
         //unit_act[unitc]=0;
     }
 
+    FILE *fitlog;
+    fitlog = fopen("simulation/FITlog.tsv", "a");
+    fprintf(fitlog, "%.4f", (bhmGetCurrentTime()/1000000));
+    for (structures=0; structures < TOTAL_STRUCTURES; structures++){
+        fprintf(fitlog,"\t%f",rel_unit[structures].fits);
+        //printf("FIT VALUE %d: %f\n", structures, rel_unit[structures].fits);
+    }
+    fprintf(fitlog, "\n");
+    fclose(fitlog);
+
     FILE *montecarlofile;
     montecarlofile = fopen("simulation/montecarlofile", "w");
 
-    for (structures=0;structures< TOTAL_STRUCTURES;structures++){
+    for (structures=0;structures < TOTAL_STRUCTURES;structures++){
         /*Print  FIT values for each failure mechanism and structure */
         fprintf(montecarlofile,"%f\n",rel_unit[structures].EM_fits);
         fprintf(montecarlofile,"%f\n",rel_unit[structures].SM_fits);
@@ -481,13 +491,19 @@ int main(int argc, char *argv[]) {
         ppmDocAddText(doc2_node, "Termal Estimator Accelerator");
     }
 
+    FILE *fl;
+    fl = fopen("simulation/FITlog.tsv", "w");
     fp = fopen("simulation/SystemTemperature.tsv", "w");
     fprintf(fp, "time");
+    fprintf(fl, "time");
     for(i=0;i<DIM_X*DIM_Y;i++){
         fprintf(fp, "\t%d",i);
+        fprintf(fl, "\t%d",i);
     }
     fprintf(fp, "\n");
+    fprintf(fl, "\n");
     fclose(fp);
+    fclose(fl);
 
     diagnosticLevel = 0;
     bhmInstallDiagCB(setDiagLevel);

@@ -24,6 +24,9 @@ extern volatile unsigned int API_SystemFinish = FALSE;
     3) Nossa Técnica */
 #define THERMAL_MANAGEMENT 0
 
+/* Defines the amount of ticks to simulate - if zero then simulates until the scenario's end */
+#define SIMULATION_MAX_TICKS 0
+
 /******************************************************************************
  * CoreUARTapb instance data.
  *****************************************************************************/
@@ -575,9 +578,12 @@ static void GlobalManagerTask( void *pvParameters ){
 	API_RepositoryWakeUp();
 
 	for(;;){
+        // Returns from IDLE
 		API_setFreqScale(1000);
         API_applyFreqScale();
+
         tick = xTaskGetTickCount();
+        if(tick >= SIMULATION_MAX_TICKS) _exit(0xfe10);
 		myItoa(tick, str, 10);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
 		printsv("GlobalMasterActive", tick);
@@ -704,7 +710,7 @@ static void GlobalManagerTask( void *pvParameters ){
         API_setFreqIdle();
         API_applyFreqScale();
         
-		if( API_SystemFinish ){
+		if(API_SystemFinish){
 			vTaskDelay(100); // to cool down the system
 			_exit(0xfe10);
 		}

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-while getopts ":h:n:x:y:t:s:" option; do
+while getopts ":h:n:x:y:t:s:m:" option; do
   case $option in
     h) # display Help
         Help
@@ -14,12 +14,15 @@ while getopts ":h:n:x:y:t:s:" option; do
     y) # defines the dimension size (axis y)
         YY=$OPTARG
         echo "The Y axis is defined by the user: "$YY;;
-    t) #defines the type of simulation (pattern, pidtm, nossa tecnica)
+    m) #defines the type of simulation (pattern, pidtm, nossa tecnica)
         SimType=$OPTARG
         echo "Using the thermal management technique: "$SimType;;
     s) #defines the scenario name (without the extension (.yaml))
         ScenarioName=$OPTARG
         echo "Using the scenario named: "$ScenarioName;;
+    t) #defines the simulation max time
+        SimulationMaxTime=$OPTARG
+        echo "Simulation will finish at "$SimulationMaxTime;;
     \?) # Invalid option
         echo "Error: Invalid option"
         exit;;
@@ -31,6 +34,18 @@ shift $((OPTIND-1))
 # then
 #     SimType="PIDTM"
 # fi
+
+if [ -z ${SimulationMaxTime} ];
+then
+    SimulationMaxTime=0
+    echo "Default Simulation time: "$(($SimulationMaxTime))
+fi
+
+if [ -z ${ScenarioName} ];
+then
+    ScenarioName='none'
+    echo "Default Scenario name: "$(($ScenarioName))
+fi
 
 if [ -z ${XX} ];
 then
@@ -49,7 +64,7 @@ then
     SimName=$(date +"%d%m%Y%H%M%S")"_"$SimType"_"$(($XX))"x"$(($YY))
     echo "Default simulation name: "$SimName
 else
-    SimName=$SimName"_"$ScenarioName"_"$SimType"_"$(($XX))"x"$(($YY))
+    SimName=$SimName"_"$ScenarioName"_"$SimulationMaxTime"ticks_"$SimType"_"$(($XX))"x"$(($YY))
 fi
 
 N=$(($XX*$YY))
@@ -80,9 +95,11 @@ elif [[ $SimType == "chronos" ]]
 then
     sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 3/' FreeRTOS/main.c
 else
-    echo "Error: the -t option must be defined as \"pattern\", \"pidtm\" or \"chronos\"."
+    echo "Error: the -m option must be defined as \"pattern\", \"pidtm\" or \"chronos\"."
     exit
 fi
+
+sed -i 's/#define SIMULATION_MAX_TICKS.*/#define SIMULATION_MAX_TICKS '$SimulationMaxTime'/' FreeRTOS/main.c
 
 cd harness
 
@@ -231,6 +248,7 @@ echo "Simulation total time elapsed: "$SECONDS" seconds..."
 
 python3 scripts/graphTemperature.py 
 python3 scripts/graphInstructions.py "$XX" "$YY"
+python3 scripts/graphInstructionsFIT.py "$XX" "$YY"
 
 shopt -s extglob
 rm -rfv !('simulation');

@@ -112,7 +112,7 @@ void powerEstimation(){
 
         // number of instructions executed in the last window
         total = loads + stores + others; 
-        printsv("total instructions~~~> ", total);
+        printsvsv("inst~~~> ", total, "tick ", xTaskGetTickCount());
 
         // calculates the PE dynamic energy
         dynamicEnergy_PE = ((arithDyn[Voltage] * others)) + ((loadStoreDyn[Voltage] * (loads + stores)));
