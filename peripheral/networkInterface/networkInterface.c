@@ -354,8 +354,13 @@ PPM_REG_WRITE_CB(statusRXWrite) {
                 break;
 
             case NI_STATUS_OFF:
-                bhmMessage("I", "statusRXWrite", "NI_STATUS_OFF - estado nao esperado!\n");
-                while(1){}
+                if(command == DONE){
+                    setGO();
+                    bhmMessage("I", "statusRXWrite", "NI_STATUS_OFF - Warning - is it correct?\n");
+                } else {
+                    bhmMessage("I", "statusRXWrite", "NI_STATUS_OFF - estado nao esperado! - command:%x\n",command);
+                    while(1){}
+                }
                 break;
 
             case NI_STATUS_ON:

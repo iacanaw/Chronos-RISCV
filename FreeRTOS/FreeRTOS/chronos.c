@@ -22,9 +22,10 @@ extern volatile unsigned int SendingQueue[PIPE_SIZE*2];
 extern volatile unsigned int SendingQueue_front;
 extern volatile unsigned int SendingQueue_tail;
 
-extern volatile unsigned int SystemTemperature[DIM_Y*DIM_X];
-extern unsigned int temperatureUpdated;
-
+extern volatile unsigned int SystemTemperature[DIM_X*DIM_Y];
+extern volatile unsigned int SystemFIT[DIM_X*DIM_Y];
+extern volatile unsigned int temperatureUpdated;
+extern volatile unsigned int fitUpdated;
 
 ////////////////////////////////////////////////////////////
 // Initialize Chronos stuff

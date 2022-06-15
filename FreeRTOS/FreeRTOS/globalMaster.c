@@ -92,6 +92,7 @@ void API_TilesReset(){
         for (n = 0; n < DIM_Y; n++){
             Tiles[m][n].temperature = 273;
             Tiles[m][n].frequency = 1000;
+            Tiles[m][n].fit = 0;
             Tiles[m][n].taskSlots = NUM_MAX_TASKS;
         }
     }    
@@ -108,6 +109,21 @@ void API_UpdateTemperature(){
             i++;
         }
     }
+    return;
+}
+
+
+////////////////////////////////////////////////////////////
+// Update FIT value
+void API_UpdateFIT(){
+    int m, n, i = 0;
+    for (m = 0; m < DIM_X; m++){
+        for (n = 0; n < DIM_Y; n++){
+            Tiles[m][n].fit = SystemFIT[i];
+            i++;
+        }
+    }
+    return;
 }
 
 void API_UpdatePIDTM(){

@@ -67,7 +67,9 @@ double t_steady[THERMAL_NODES];
 double TempTraceEnd[THERMAL_NODES];
 
 
-unsigned int thePacket[SYSTEM_SIZE+13 ];
+unsigned int thePacket[SYSTEM_SIZE+13];
+unsigned int theFITPacket[SYSTEM_SIZE+13];
+unsigned int sendFITtoMaster = 0;
 unsigned int sendPacketToMaster = 0;
 unsigned int packetPointer = 0;
 
@@ -248,33 +250,7 @@ void temp_matex(double TempTraceEnd[THERMAL_NODES], double power_trace[SYSTEM_SI
         
         //unit_act[unitc]=0;
     }
-
-    FILE *fitlog;
-    fitlog = fopen("simulation/FITlog.tsv", "a");
-    fprintf(fitlog, "%.4f", (bhmGetCurrentTime()/1000000));
-    for (structures=0; structures < TOTAL_STRUCTURES; structures++){
-        fprintf(fitlog,"\t%f",rel_unit[structures].fits);
-        //printf("FIT VALUE %d: %f\n", structures, rel_unit[structures].fits);
-    }
-    fprintf(fitlog, "\n");
-    fclose(fitlog);
-
-    FILE *montecarlofile;
-    montecarlofile = fopen("simulation/montecarlofile", "w");
-
-    for (structures=0;structures < TOTAL_STRUCTURES;structures++){
-        /*Print  FIT values for each failure mechanism and structure */
-        fprintf(montecarlofile,"%f\n",rel_unit[structures].EM_fits);
-        fprintf(montecarlofile,"%f\n",rel_unit[structures].SM_fits);
-        fprintf(montecarlofile,"%f\n",rel_unit[structures].TDDB_fits);
-        fprintf(montecarlofile,"%f\n",rel_unit[structures].TC_fits);
-        fprintf(montecarlofile,"%f\n",rel_unit[structures].NBTI_fits);
-
-    }
-    fclose(montecarlofile);
-
-    
-    
+    return;   
 }
 
 /////////////////////////////// Port Declarations //////////////////////////////
@@ -326,6 +302,22 @@ PPM_PACKETNET_CB(controlUpdate) {
                 // send one flit to the router
                 //bhmMessage("I", "Input", "send %d flit to the router: %d\n", packetPointer, thePacket[packetPointer]);
                 ppmPacketnetWrite(handles.portData, &thePacket[packetPointer], sizeof(thePacket[packetPointer]));
+                
+                // Updates packet pointer
+                if(packetPointer < SYSTEM_SIZE+12){
+                    packetPointer++;
+                }
+                else{
+                    packetPointer = 0;
+                    sendPacketToMaster = 0;
+                }
+            }
+        }
+        else if (sendFITtoMaster){
+            if(routerCredit == 0){
+                // send one flit to the router
+                //bhmMessage("I", "Input", "send %d flit to the router: %d\n", packetPointer, thePacket[packetPointer]);
+                ppmPacketnetWrite(handles.portData, &theFITPacket[packetPointer], sizeof(theFITPacket[packetPointer]));
                 
                 // Updates packet pointer
                 if(packetPointer < SYSTEM_SIZE+12){
@@ -436,12 +428,43 @@ PPM_PACKETNET_CB(dataUpdate) {
         for(i = 0; i < DIM_Y*DIM_X; i++){
             tempi = TempTraceEnd[i]*100;
             thePacket[i+13] = htonl(tempi);
-            //bhmMessage("I", "Input", "temperature %d: %.2f", i, (((float)tempi/100)-273.15));
             fprintf(fp, "\t%.2f", (((float)tempi/100)-273.15));
         }
         fprintf(fp, "\n");
         fclose(fp);
         sendPacketToMaster = 1;
+
+        // FIT Packet to master
+        int fiti;
+        FILE *fitlog;
+    
+        theFITPacket[0] = MASTER_ADDR; // Header (destine address)
+        theFITPacket[1] = htonl(DIM_X*DIM_Y + 11); 
+        theFITPacket[2] = htonl(0x57); // #define TEMPERATURE_PACKET  0x55 (api.h)
+        fitlog = fopen("simulation/FITlog.tsv", "a");
+        fprintf(fitlog, "%.4f", (bhmGetCurrentTime()/1000000));
+        for(i = 0; i < DIM_Y*DIM_X; i++){
+            fiti = rel_unit[i].fits*100;
+            fprintf(fitlog,"\t%f",rel_unit[i].fits);
+            theFITPacket[i+13] = htonl(fiti);
+        }
+        fprintf(fitlog, "\n");
+        fclose(fitlog);
+        sendFITtoMaster = 1;
+
+        FILE *montecarlofile;
+        montecarlofile = fopen("simulation/montecarlofile", "w");
+
+        for (structures=0;structures < TOTAL_STRUCTURES;structures++){
+            /*Print  FIT values for each failure mechanism and structure */
+            fprintf(montecarlofile,"%f\n",rel_unit[structures].EM_fits);
+            fprintf(montecarlofile,"%f\n",rel_unit[structures].SM_fits);
+            fprintf(montecarlofile,"%f\n",rel_unit[structures].TDDB_fits);
+            fprintf(montecarlofile,"%f\n",rel_unit[structures].TC_fits);
+            fprintf(montecarlofile,"%f\n",rel_unit[structures].NBTI_fits);
+        }
+        fclose(montecarlofile);
+
     }
 }
 

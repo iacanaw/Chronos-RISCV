@@ -20,6 +20,8 @@
 #define ENERGY_PACKET                   0x00000050U
 #define TEMPERATURE_PACKET              0x00000055U
 #define FINISH_TEMPERATURE_PACKET       0x00000056U
+#define FIT_PACKET                      0x00000057U
+#define FINISH_FIT_PACKET               0x00000058U
 
 #define TASK_STALL_REQUEST              0x00000070U
 #define TASK_SEND_STALL                 0x00000071U

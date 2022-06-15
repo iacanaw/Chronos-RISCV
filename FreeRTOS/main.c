@@ -341,6 +341,22 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     prints("12NI_RX DONE!\n");
                     break;
 
+                case FIT_PACKET:
+                    prints("Recebendo pacote de FIT");
+                    HW_set_32bit_reg(NI_RX, (unsigned int)&SystemFIT);
+                    incommingPacket.service = FINISH_FIT_PACKET;
+                    prints("11.5NI_RX DONE!\n");
+                    break;
+
+                case FINISH_FIT_PACKET:
+                    fitUpdated = 1;
+                    measuredWindows++;
+                    for(aux = 0; aux < DIM_X*DIM_Y; aux++){ 
+                        printsvsv("pe", aux, "FIT: ", SystemFIT[aux]);
+                    }
+                    prints("12.5NI_RX DONE!\n");
+                    break;
+
                 case SOLVED:
                     //HW_set_32bit_reg(NI_RX, HOLD);
                     prints("13NI_RX HOLD!\n");

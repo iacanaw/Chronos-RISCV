@@ -28,15 +28,17 @@ volatile unsigned int API_SystemFinish;
 unsigned int priorityMatrix[DIM_X*DIM_Y];
 unsigned int priorityPointer;
 
-// Stores the estimated system temperature
+// Stores the estimated system temperature and FIT
 volatile unsigned int SystemTemperature[DIM_X*DIM_Y];
-unsigned int temperatureUpdated;
+volatile unsigned int SystemFIT[DIM_X*DIM_Y];
+volatile unsigned int temperatureUpdated;
+volatile unsigned int fitUpdated;
 
 // Tile Struct
 typedef struct{
     unsigned int temperature;   // In Kelvin
     unsigned int frequency;     // in MegaHertz
-    //unsigned int AppTask[NUM_MAX_TASKS];
+    unsigned int fit;           // Failures in time * 100
     unsigned int taskSlots;
 } Tile;
 
@@ -46,7 +48,7 @@ volatile Tile Tiles[DIM_X][DIM_Y];
 // Task info
 typedef struct{ 
     unsigned int status; 
-    unsigned int addr;   
+    unsigned int addr;
     unsigned int slot;
 } TaskInfo;
 
@@ -122,4 +124,7 @@ void API_UpdatePriorityTable(unsigned int score_source[DIM_X*DIM_Y]);
 void API_UpdatePIDTM(); 
 
 void API_UpdateTemperature();
+
+void API_UpdateFIT();
+
 #endif
