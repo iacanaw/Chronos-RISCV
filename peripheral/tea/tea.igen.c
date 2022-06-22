@@ -383,6 +383,7 @@ PPM_PACKETNET_CB(dataUpdate) {
     }
     
     if(checkPowerReceived()){ // Acabou de receber as energias
+        int i;
     //if(samples_received >= DIM_X*DIM_Y){ // Acabou de receber as energias
         //samples_received = 0;
         for(y_data_counter=0; y_data_counter < DIM_Y; y_data_counter++){
@@ -406,6 +407,16 @@ PPM_PACKETNET_CB(dataUpdate) {
             }
                 //power_trace[index++] = (double)(power[yi][xi]*SCALING_FACTOR)/(1280000*WINDOW_TIME);
         computeSteadyStateTemp(t_steady, power_trace);
+        // SAVE Power
+        FILE *powerlog;
+        powerlog = fopen("simulation/SystemPower.tsv", "a");
+        fprintf(powerlog, "%.4f", (bhmGetCurrentTime()/1000000));
+        for(i = 0; i < DIM_Y*DIM_X; i++){
+            
+            fprintf(powerlog,"\t%f",power_trace[i]);
+        }
+        fprintf(powerlog, "\n");
+        fclose(powerlog);
 
         ////////////////////////////////////////////////////////////////////////
         /*CALCULAR TRANSIENT*/
@@ -418,7 +429,6 @@ PPM_PACKETNET_CB(dataUpdate) {
         y_data_counter = 0;
 
         // Packet to master
-        int i;
         int tempi;
         thePacket[0] = MASTER_ADDR; // Header (destine address)
         thePacket[1] = htonl(DIM_X*DIM_Y + 11); 
@@ -437,21 +447,30 @@ PPM_PACKETNET_CB(dataUpdate) {
         // FIT Packet to master
         int fiti;
         FILE *fitlog;
-    
-        theFITPacket[0] = MASTER_ADDR; // Header (destine address)
-        theFITPacket[1] = htonl(DIM_X*DIM_Y + 11); 
-        theFITPacket[2] = htonl(0x57); // #define TEMPERATURE_PACKET  0x55 (api.h)
-        fitlog = fopen("simulation/FITlog.tsv", "a");
-        fprintf(fitlog, "%.4f", (bhmGetCurrentTime()/1000000));
-        for(i = 0; i < DIM_Y*DIM_X; i++){
-            fiti = rel_unit[i].fits*100;
-            fprintf(fitlog,"\t%f",rel_unit[i].fits);
-            theFITPacket[i+13] = htonl(fiti);
+        received_samples++;
+        if(received_samples < 50){
+            bhmMessage("I", "TEA", "%d samples received to generate the FIT!", received_samples);
         }
-        fprintf(fitlog, "\n");
-        fclose(fitlog);
-        sendFITtoMaster = 1;
+        if(received_samples >= 50){
+            if(received_samples == 50){
+                bhmMessage("I", "TEA", "FIT values are being sent!");
+            }
 
+            theFITPacket[0] = MASTER_ADDR; // Header (destine address)
+            theFITPacket[1] = htonl(DIM_X*DIM_Y + 11); 
+            theFITPacket[2] = htonl(0x57); // defined 0x57 at api.h
+            fitlog = fopen("simulation/FITlog.tsv", "a");
+            fprintf(fitlog, "%.4f", (bhmGetCurrentTime()/1000000));
+            for(i = 0; i < DIM_Y*DIM_X; i++){
+                fiti = rel_unit[i].fits*100;
+                fprintf(fitlog,"\t%f",rel_unit[i].fits);
+                theFITPacket[i+13] = htonl(fiti);
+            }
+            fprintf(fitlog, "\n");
+            fclose(fitlog);
+            sendFITtoMaster = 1;
+        }
+        
         FILE *montecarlofile;
         montecarlofile = fopen("simulation/montecarlofile", "w");
 
@@ -515,18 +534,24 @@ int main(int argc, char *argv[]) {
     }
 
     FILE *fl;
+    FILE *fpower;
     fl = fopen("simulation/FITlog.tsv", "w");
     fp = fopen("simulation/SystemTemperature.tsv", "w");
+    fpower = fopen("simulation/SystemPower.tsv", "w");
     fprintf(fp, "time");
     fprintf(fl, "time");
+    fprintf(fpower, "time");
     for(i=0;i<DIM_X*DIM_Y;i++){
         fprintf(fp, "\t%d",i);
         fprintf(fl, "\t%d",i);
+        fprintf(fpower, "\t%d",i);
     }
     fprintf(fp, "\n");
     fprintf(fl, "\n");
+    fprintf(fpower, "\n");
     fclose(fp);
     fclose(fl);
+    fclose(fpower);
 
     diagnosticLevel = 0;
     bhmInstallDiagCB(setDiagLevel);

@@ -111,9 +111,11 @@ void powerEstimation(){
         resetExecutedInstructions();
 
         // number of instructions executed in the last window
-        total = loads + stores + others; 
+        total = loads + stores + others;
+        vTaskEnterCritical();
         printsvsv("inst~~~> ", total, "tick ", xTaskGetTickCount());
-
+        vTaskExitCritical();
+        
         // calculates the PE dynamic energy
         dynamicEnergy_PE = ((arithDyn[Voltage] * others)) + ((loadStoreDyn[Voltage] * (loads + stores)));
         dynamicEnergy_PE = dynamicEnergy_PE >> 6;

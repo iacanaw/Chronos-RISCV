@@ -20,8 +20,9 @@ for xx in range(XX):
                 line = log_file.readline()
                 if "inst~~~>" in line:
                     value = line.split(' ')
-                    empty.append(int(value[1]))
-                    time.append(int(value[3])/10000)
+                    if value[1].isnumeric() and value[3].isnumeric():
+                        empty.append(int(value[1]))
+                        time.append(int(value[3])/10000)
                 elif line == '':
                     break
             #print(empty)

@@ -334,6 +334,7 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                 case FINISH_TEMPERATURE_PACKET:
                     temperatureUpdated = 1;
                     measuredWindows++;
+                    API_UpdateTemperature();
                     for(aux = 0; aux < DIM_X*DIM_Y; aux++){ 
                         printsvsv("pe", aux, "temp: ", SystemTemperature[aux]);
                     }
@@ -350,7 +351,7 @@ void vNI_RX_HandlerTask( void *pvParameters ){
 
                 case FINISH_FIT_PACKET:
                     fitUpdated = 1;
-                    measuredWindows++;
+                    API_UpdateFIT();
                     for(aux = 0; aux < DIM_X*DIM_Y; aux++){ 
                         printsvsv("pe", aux, "FIT: ", SystemFIT[aux]);
                     }
@@ -578,7 +579,7 @@ void vNI_TMR_HandlerTask( void *pvParameters ){
 
 static void GlobalManagerTask( void *pvParameters ){
 	( void ) pvParameters;
-	int tick;
+	unsigned int tick;
 	char str[20];
 
 	// Initialize the priority vector with the spiral policy
@@ -629,7 +630,7 @@ static void GlobalManagerTask( void *pvParameters ){
 
 static void GlobalManagerTask( void *pvParameters ){
 	( void ) pvParameters;
-	int tick;
+	unsigned int tick;
 	char str[20];
 
 	// Initialize the priority vector with the pattern policy
@@ -641,6 +642,14 @@ static void GlobalManagerTask( void *pvParameters ){
 	// Initialize the applications vector
     API_ApplicationsReset();
 
+    // Enters in idle to wait the first FIT value ~50ms
+    API_setFreqIdle();
+    API_applyFreqScale();
+    while(Tiles[0][0].fit == 0){ 
+        /* Waits here until the FIT value is not updated */ 
+        vTaskDelay(1);
+    }
+
 	// Informs the Repository that the GLOBALMASTER is ready to receive the application info
 	API_RepositoryWakeUp();
 
@@ -648,6 +657,7 @@ static void GlobalManagerTask( void *pvParameters ){
 		API_setFreqScale(1000);
         API_applyFreqScale();
         tick = xTaskGetTickCount();
+        if(tick >= SIMULATION_MAX_TICKS) _exit(0xfe10);
 		myItoa(tick, str, 10);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
 		printsv("GlobalMasterActive", tick);
@@ -677,7 +687,7 @@ static void GlobalManagerTask( void *pvParameters ){
 
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
-    int tick;
+    unsigned int tick;
     int migrate = 1;
 	char str[20];
 
@@ -697,6 +707,7 @@ static void GlobalManagerTask( void *pvParameters ){
         API_setFreqScale(1000);
         API_applyFreqScale();
         tick = xTaskGetTickCount();
+        if(tick >= SIMULATION_MAX_TICKS) _exit(0xfe10);
 		myItoa(tick, str, 10);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
 		printsv("GlobalMasterActive", tick);
@@ -742,12 +753,12 @@ static void GlobalManagerTask( void *pvParameters ){
 
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
-	int tick;
+	unsigned int tick;
 	char str[20];
     int x, y, i;
 	// Initialize the priority vector with the pattern policy
     x = DIM_X-1;
-    y = DIM_Y-1;
+    y = DIM_Y-1;,
     for(i=0; i<(DIM_X*DIM_Y); i++){
         priorityMatrix[i] = (x << 8) | y;
         y--;
@@ -770,6 +781,7 @@ static void GlobalManagerTask( void *pvParameters ){
 		API_setFreqScale(1000);
         API_applyFreqScale();
         tick = xTaskGetTickCount();
+        if(tick >= SIMULATION_MAX_TICKS) _exit(0xfe10);
 		myItoa(tick, str, 10);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
 		printsv("GlobalMasterActive", tick);
@@ -787,6 +799,67 @@ static void GlobalManagerTask( void *pvParameters ){
         
 		if(API_SystemFinish){
 			vTaskDelay(100); // to cool down the system
+			_exit(0xfe10);
+		}
+		else{
+			vTaskDelay(1);
+		}
+	}
+}
+
+#elif THERMAL_MANAGEMENT == 4 // CHARACTERIZE
+
+static void GlobalManagerTask( void *pvParameters ){
+    ( void ) pvParameters;
+	unsigned int tick;
+	char str[20];
+    int x, y, i;
+	// Initialize the priority vector with the pattern policy
+    x = DIM_X-1;
+    y = DIM_Y-1;
+    for(i=0; i<(DIM_X*DIM_Y); i++){
+        priorityMatrix[i] = (x << 8) | y;
+        x--;
+        if ( x < 0 ){
+            x = DIM_X-1;
+            y--;
+        }
+    }
+    //priorityMatrix = {0x404, 0x403, 0x402, 0x401, 0x400, 0x304, 0x303, 0x302, 0x301, 0x300, 0x204, 0x203, 0x202, 0x201, 0x200, 0x104, 0x103, 0x102, 0x101, 0x100, 0x004, 0x003, 0x002, 0x001, 0x000};
+
+	// Initialize the System Tiles Info
+	API_TilesReset();
+
+	// Initialize the applications vector
+    API_ApplicationsReset();
+
+	// Informs the Repository that the GLOBALMASTER is ready to receive the application info
+	API_RepositoryWakeUp();
+
+    vTaskDelay(1);
+	for(;;){
+		API_setFreqScale(1000);
+        API_applyFreqScale();
+        tick = xTaskGetTickCount();
+        printsv("tick: ", tick);
+        if(tick >= SIMULATION_MAX_TICKS) _exit(0xfe10);
+		myItoa(tick, str, 10);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
+		printsv("GlobalMasterActive", tick);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
+
+		// Checks if there is some task to allocate...
+		API_AllocateTasks(tick);
+		
+		// Checks if there is some task to start...
+		API_StartTasks();
+
+        // Enters in idle
+        API_setFreqIdle();
+        API_applyFreqScale();
+        
+		if(API_SystemFinish){
+			//vTaskDelay(100); // to cool down the system
 			_exit(0xfe10);
 		}
 		else{

@@ -1,0 +1,10 @@
+apps:
+ - name: aes
+   period: 0
+   executions: 1
+   tasks:
+    aes_master: 0
+    aes_slave1: 1
+    aes_slave2: 2
+    aes_slave3: 3
+    aes_slave4: 4
