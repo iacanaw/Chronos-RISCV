@@ -3,4 +3,6 @@ info:
    deadline: 0.1
    migration:
     cons: true
+      type: 1
     prod: true
+      type: 2

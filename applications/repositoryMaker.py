@@ -18,6 +18,7 @@ appsTasks = []
 appsTaskSize = []
 appsTaskBss = []
 appsTaskStart = []
+appsTaskType = []
 appsTaskCode = []
 appsTaskDeadline = []
 appsTaskMigration = []
@@ -39,6 +40,7 @@ if exists(SCENARIO):
     for i in range(len(appsName)):
         print("Application " + str(i) + " - " + appsName[i] + " has period of "+ str(appsPeriod[i]) + " and will execute " + str(appsExecutions[i]) + " times.")
         taskSize = []
+        taskType = []
         taskBss = []
         taskCode = []
         taskStart = []
@@ -49,6 +51,10 @@ if exists(SCENARIO):
             appDeadline = int(float(taskInfo['info'][0]['deadline'])*100)
         print(appDeadline)
         for j in range(len(appsTasks[i])):
+            with open(appsName[i]+'/info.yaml') as info_file:
+                taskInfo = yaml.load(info_file, Loader=yaml.SafeLoader)
+                taskType.append(0)
+                taskType[j] = int(taskInfo['info'][0]['type'][appsTasks[i][j]])
             taskSize.append(0)
             taskBss.append(0)
             taskStart.append(0)
@@ -160,7 +166,9 @@ if exists(SCENARIO):
                 if taskSize[j] > bigCode:
                     bigCode = taskSize[j]
                 print("         BSS Size: " + str(taskBss[j]))
+                print("         TaskType: " + str(taskType[j]))
         appsTaskBss.append(copy.deepcopy(taskBss))
+        appsTaskType.append(copy.deepcopy(taskType))
         appsTaskStart.append(copy.deepcopy(taskStart))
         appsTaskSize.append(copy.deepcopy(taskSize))
         appsTaskCode.append(copy.deepcopy(taskCode))
@@ -213,7 +221,7 @@ if exists(SCENARIO):
                 file.write('\t\t  ' + str('0x%08X'%i) + ',  // task appID \n')
                 file.write('\t\t  ' + str('0x%08X'%appsTaskMigration[i][j]) + ',  // migration variable \n')
                 file.write('\t\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
-                file.write('\t\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
+                file.write('\t\t  ' + str('0x%08X'%appsTaskType[i][j]) + ',  // taskType \n')
                 file.write('\t\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
                 file.write('\t\t  ' + str('0x%08X'%4294967295) + ' } // nothing \n')
             file.write('\t}')

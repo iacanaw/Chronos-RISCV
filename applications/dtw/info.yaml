@@ -3,8 +3,14 @@ info:
    deadline: 0.15
    migration:
     bank: true
+      type: 2
     p1: true
+      type: 2
     p2: true
+      type: 2
     p3: true
+      type: 2
     p4: true
+      type: 2
     recognizer: true
+      type: 1

@@ -7,3 +7,9 @@ info:
     aes_slave2: true
     aes_slave3: true
     aes_slave4: true
+   type:
+    aes_master: 1
+    aes_slave1: 1
+    aes_slave2: 1
+    aes_slave3: 1
+    aes_slave4: 0

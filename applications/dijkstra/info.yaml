@@ -3,9 +3,16 @@ info:
    deadline: 0.75
    migration:
     dijkstra_0: true
+      type: 1
     dijkstra_1: true
+      type: 1
     dijkstra_2: true
+      type: 1
     dijkstra_3: true
+      type: 1
     dijkstra_4: true
+      type: 1
     print_dij: true
+      type: 0
     divider: true
+      type: 2

@@ -43,6 +43,10 @@ for i in range(len(appsName)):
         appDeadline = int(float(taskInfo['info'][0]['deadline'])*100)
     print(appDeadline)
     for j in range(len(appsTasks[i])):
+        with open(appsName[i]+'/info.yaml') as info_file:
+            taskInfo = yaml.load(info_file, Loader=yaml.SafeLoader)
+            taskType = int(taskInfo['info'][0]['type'][j])
+        #print(str(taskType))
         taskSize.append(0)
         taskBss.append(0)
         taskStart.append(0)
@@ -129,6 +133,7 @@ for i in range(len(appsName)):
             if taskSize[j] > bigCode:
                 bigCode = taskSize[j]
             print("         BSS Size: " + str(taskBss[j]))
+            print("         TaskType: " + str(taskType))
     appsTaskBss.append(copy.deepcopy(taskBss))
     appsTaskStart.append(copy.deepcopy(taskStart))
     appsTaskSize.append(copy.deepcopy(taskSize))
