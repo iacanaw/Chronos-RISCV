@@ -42,9 +42,9 @@ void iterate(){
             if (packetReceived == 1){
                 in_packetPointer = 0;
                 //bhmMessage("I", "REPO", "Terminou de chegar um pacote!");
-                for (i = 0; i < in_packetSize+2; i++){
+                /*for (i = 0; i < in_packetSize+2; i++){
                     //bhmMessage("I", "REPO", "Flit %d: %x", i, inPacket[i]);
-                }
+                }*/
                 if (inPacket[2] == REPOSITORY_WAKEUP){
                     status = REPO_STARTING;
 
@@ -88,13 +88,21 @@ void iterate(){
             if (sendingPacket == 0){
                 if (sendApp < NUM_APPS){
                     outPacket[0] = MASTER_ADDR;
-                    outPacket[1] = 11;
+                    outPacket[1] = 11+appInfo[sendApp][3];
                     outPacket[2] = REPOSITORY_APP_INFO;
                     outPacket[3] = appInfo[sendApp][0];     // app id
                     outPacket[4] = appInfo[sendApp][1];     // app period
                     outPacket[5] = appInfo[sendApp][2];     // app executions
                     outPacket[6] = appInfo[sendApp][3];     // number of tasks
-
+                    outPacket[7] = -1;
+                    outPacket[8] = -1;
+                    outPacket[9] = -1;
+                    outPacket[10] = -1;
+                    outPacket[11] = -1;
+                    outPacket[12] = -1;
+                    for(i = 13; i < 13+appInfo[sendApp][3]; i++){
+                        outPacket[i] = tasksInfo[sendApp][i-13][7];
+                    }
                     // Increment to send next app
                     sendApp++;
                     

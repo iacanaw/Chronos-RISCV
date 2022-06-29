@@ -1,0 +1,371 @@
+The X axis is defined by the user: 5
+The Y axis is defined by the user: 5
+Using the thermal management technique: chronos
+Using the scenario named: scenario_16
+Simulation name defined by the user
+Number of PEs in this simulation: 25
+=====================
+COMPILING APLICATIONS
+rm -f *.elf *.o *.lst *.tsk
+Compiling Application interrupt aes_slave2.o
+Compiling Application interrupt aes_master.o
+Compiling Application interrupt aes_slave4.o
+Compiling Application interrupt aes_slave1.o
+Compiling Application interrupt aes_slave3.o
+Linking Application aes_slave2.elf
+Linking Application aes_master.elf
+Linking Application aes_slave4.elf
+Linking Application aes_slave1.elf
+Linking Application aes_slave3.elf
+Objdump Application aes_slave2.lst
+Objdump Application aes_master.lst
+Objdump Application aes_slave4.lst
+Objdump Application aes_slave1.lst
+Objdump Application aes_slave3.lst
+List Tasks in aes.tsk
+rm -f *.elf *.o *.lst *.tsk
+Compiling Application interrupt dijkstra_4.o
+Compiling Application interrupt dijkstra_0.o
+Compiling Application interrupt print_dij.o
+Compiling Application interrupt dijkstra_1.o
+Compiling Application interrupt divider.o
+Compiling Application interrupt dijkstra_2.o
+Compiling Application interrupt dijkstra_3.o
+Linking Application dijkstra_4.elf
+Linking Application dijkstra_0.elf
+Linking Application print_dij.elf
+Linking Application dijkstra_1.elf
+Linking Application divider.elf
+Linking Application dijkstra_2.elf
+Linking Application dijkstra_3.elf
+Objdump Application dijkstra_4.lst
+Objdump Application dijkstra_0.lst
+Objdump Application print_dij.lst
+Objdump Application dijkstra_1.lst
+Objdump Application divider.lst
+Objdump Application dijkstra_2.lst
+Objdump Application dijkstra_3.lst
+List Tasks in dijkstra.tsk
+rm -f *.elf *.o *.lst *.tsk
+Compiling Application interrupt p3.o
+Compiling Application interrupt p4.o
+Compiling Application interrupt p1.o
+Compiling Application interrupt bank.o
+Compiling Application interrupt p2.o
+Compiling Application interrupt recognizer.o
+Linking Application p3.elf
+Linking Application p4.elf
+Linking Application p1.elf
+Linking Application bank.elf
+Linking Application p2.elf
+Linking Application recognizer.elf
+Objdump Application p3.lst
+Objdump Application p4.lst
+Objdump Application p1.lst
+Objdump Application bank.lst
+Objdump Application p2.lst
+Objdump Application recognizer.lst
+List Tasks in dtw.tsk
+rm -f *.elf *.o *.lst *.tsk
+Compiling Application interrupt cons.o
+Compiling Application interrupt prod.o
+Linking Application cons.elf
+Linking Application prod.elf
+Objdump Application cons.lst
+Objdump Application prod.lst
+List Tasks in prodcons.tsk
+=======================
+CREATING THE REPOSITORY
+Application 0 - prodcons has period of 0 and will execute 5 times.
+10
+       Task 0 - prod
+wordgap: 2
+[2147485124, '0a21746e']
+[2147485132, '00000000']
+news: 
+[2147485128, '00000000']
+         TaskSize: 501
+         TaskStart: 240
+         MigrateVar: 331
+         BSS Size: 0
+       Task 1 - cons
+wordgap: 2
+[2147485512, '0a21746e']
+[2147485520, '00000000']
+news: 
+[2147485516, '00000000']
+         TaskSize: 601
+         TaskStart: 240
+         MigrateVar: 403
+         BSS Size: 0
+Application 1 - dtw has period of 0 and will execute 5 times.
+15
+       Task 0 - bank
+wordgap: 2
+[2147486672, '0a21746e']
+[2147486680, '00000000']
+news: 
+[2147486676, '00000000']
+         TaskSize: 1010
+         TaskStart: 632
+         MigrateVar: 715
+         BSS Size: 0
+       Task 1 - p1
+wordgap: 2
+[2147486740, '0a21746e']
+[2147486748, '00000000']
+news: 
+[2147486744, '00000000']
+         TaskSize: 1149
+         TaskStart: 632
+         MigrateVar: 734
+         BSS Size: 0
+       Task 2 - p2
+wordgap: 2
+[2147486740, '0a21746e']
+[2147486748, '00000000']
+news: 
+[2147486744, '00000000']
+         TaskSize: 1149
+         TaskStart: 632
+         MigrateVar: 734
+         BSS Size: 0
+       Task 3 - p3
+wordgap: 2
+[2147486740, '0a21746e']
+[2147486748, '00000000']
+news: 
+[2147486744, '00000000']
+         TaskSize: 1149
+         TaskStart: 632
+         MigrateVar: 734
+         BSS Size: 0
+       Task 4 - p4
+wordgap: 2
+[2147486740, '0a21746e']
+[2147486748, '00000000']
+news: 
+[2147486744, '00000000']
+         TaskSize: 1149
+         TaskStart: 632
+         MigrateVar: 734
+         BSS Size: 0
+       Task 5 - recognizer
+wordgap: 2
+[2147487444, '0a21746e']
+[2147487452, '00000000']
+news: 
+[2147487448, '00000000']
+         TaskSize: 1083
+         TaskStart: 632
+         MigrateVar: 896
+         BSS Size: 0
+==================
+COMPILING FREERTOS
+Setting RISCV_PREFIX to default riscv-none-embed- for xPack GNU RISC-V Embedded GCC
+~/git_workspace/Chronos-RISCV/simulation/toPaper_nop_scenario_16_chronos_5x5/FreeRTOS/Debug ~/git_workspace/Chronos-RISCV/simulation/toPaper_nop_scenario_16_chronos_5x5/FreeRTOS
+rm -rf  ./riscv_hal/entry.o ./riscv_hal/init.o ./riscv_hal/riscv_hal.o ./riscv_hal/riscv_hal_stubs.o ./riscv_hal/syscall.o  ./hal/hal_irq.o ./hal/hw_reg_access.o  ./drivers/CoreUARTapb/core_uart_apb.o  ./drivers/CoreTimer/core_timer.o  ./drivers/CoreI2C/core_i2c.o ./drivers/CoreI2C/i2c_interrupt.o  ./drivers/CoreGPIO/core_gpio.o  ./drivers/Core16550/core_16550.o  ./FreeRTOS/portable/MemMang/heap_2.o  ./FreeRTOS/portable/GCC/RISCV/port.o ./FreeRTOS/portable/GCC/RISCV/portasm.o  ./FreeRTOS/croutine.o ./FreeRTOS/event_groups.o ./FreeRTOS/list.o ./FreeRTOS/queue.o ./FreeRTOS/string.o ./FreeRTOS/tasks.o ./FreeRTOS/timers.o ./FreeRTOS/globalMaster.o ./FreeRTOS/applications.o ./FreeRTOS/system_call.o ./FreeRTOS/packet.o ./FreeRTOS/dvfs.o ./FreeRTOS/thermal.o ./FreeRTOS/chronos.o  ./main.o  miv-rv32im-freertos-port-test.hex  miv-rv32im-freertos-port-test.lst  miv-rv32im-freertos-port-test.siz  ./riscv_hal/entry.d  ./hal/hw_reg_access.d  ./FreeRTOS/portable/GCC/RISCV/portasm.d  ./riscv_hal/init.d ./riscv_hal/riscv_hal.d ./riscv_hal/riscv_hal_stubs.d ./riscv_hal/syscall.d  ./hal/hal_irq.d  ./drivers/CoreUARTapb/core_uart_apb.d  ./drivers/CoreTimer/core_timer.d  ./drivers/CoreI2C/core_i2c.d ./drivers/CoreI2C/i2c_interrupt.d  ./drivers/CoreGPIO/core_gpio.d  ./drivers/Core16550/core_16550.d  ./FreeRTOS/portable/MemMang/heap_2.d  ./FreeRTOS/portable/GCC/RISCV/port.d  ./FreeRTOS/croutine.d ./FreeRTOS/event_groups.d ./FreeRTOS/list.d ./FreeRTOS/queue.d ./FreeRTOS/string.d ./FreeRTOS/tasks.d ./FreeRTOS/timers.d ./FreeRTOS/globalMaster.d ./FreeRTOS/applications.d ./FreeRTOS/system_call.d ./FreeRTOS/packet.d ./FreeRTOS/dvfs.d ./FreeRTOS/thermal.d ./FreeRTOS/chronos.d  ./main.d  miv-rv32im-freertos-port-test.elf
+ 
+~/git_workspace/Chronos-RISCV/simulation/toPaper_nop_scenario_16_chronos_5x5/FreeRTOS
+Setting RISCV_PREFIX to default riscv-none-embed- for xPack GNU RISC-V Embedded GCC
+~/git_workspace/Chronos-RISCV/simulation/toPaper_nop_scenario_16_chronos_5x5/FreeRTOS/Debug ~/git_workspace/Chronos-RISCV/simulation/toPaper_nop_scenario_16_chronos_5x5/FreeRTOS
+Building file: ../riscv_hal/entry.S
+Invoking: GNU RISC-V Cross Assembler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"riscv_hal/entry.d" -MT"riscv_hal/entry.o" -c -o "riscv_hal/entry.o" "../riscv_hal/entry.S"
+Finished building: ../riscv_hal/entry.S
+ 
+Building file: ../riscv_hal/init.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"riscv_hal/init.d" -MT"riscv_hal/init.o" -c -o "riscv_hal/init.o" "../riscv_hal/init.c"
+Finished building: ../riscv_hal/init.c
+ 
+Building file: ../riscv_hal/riscv_hal.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"riscv_hal/riscv_hal.d" -MT"riscv_hal/riscv_hal.o" -c -o "riscv_hal/riscv_hal.o" "../riscv_hal/riscv_hal.c"
+Finished building: ../riscv_hal/riscv_hal.c
+ 
+Building file: ../riscv_hal/riscv_hal_stubs.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"riscv_hal/riscv_hal_stubs.d" -MT"riscv_hal/riscv_hal_stubs.o" -c -o "riscv_hal/riscv_hal_stubs.o" "../riscv_hal/riscv_hal_stubs.c"
+Finished building: ../riscv_hal/riscv_hal_stubs.c
+ 
+Building file: ../riscv_hal/syscall.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"riscv_hal/syscall.d" -MT"riscv_hal/syscall.o" -c -o "riscv_hal/syscall.o" "../riscv_hal/syscall.c"
+Finished building: ../riscv_hal/syscall.c
+ 
+Building file: ../hal/hal_irq.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"hal/hal_irq.d" -MT"hal/hal_irq.o" -c -o "hal/hal_irq.o" "../hal/hal_irq.c"
+Finished building: ../hal/hal_irq.c
+ 
+Building file: ../hal/hw_reg_access.S
+Invoking: GNU RISC-V Cross Assembler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"hal/hw_reg_access.d" -MT"hal/hw_reg_access.o" -c -o "hal/hw_reg_access.o" "../hal/hw_reg_access.S"
+Finished building: ../hal/hw_reg_access.S
+ 
+Building file: ../drivers/CoreUARTapb/core_uart_apb.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"drivers/CoreUARTapb/core_uart_apb.d" -MT"drivers/CoreUARTapb/core_uart_apb.o" -c -o "drivers/CoreUARTapb/core_uart_apb.o" "../drivers/CoreUARTapb/core_uart_apb.c"
+Finished building: ../drivers/CoreUARTapb/core_uart_apb.c
+ 
+Building file: ../drivers/CoreTimer/core_timer.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"drivers/CoreTimer/core_timer.d" -MT"drivers/CoreTimer/core_timer.o" -c -o "drivers/CoreTimer/core_timer.o" "../drivers/CoreTimer/core_timer.c"
+Finished building: ../drivers/CoreTimer/core_timer.c
+ 
+Building file: ../drivers/CoreI2C/core_i2c.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"drivers/CoreI2C/core_i2c.d" -MT"drivers/CoreI2C/core_i2c.o" -c -o "drivers/CoreI2C/core_i2c.o" "../drivers/CoreI2C/core_i2c.c"
+Finished building: ../drivers/CoreI2C/core_i2c.c
+ 
+Building file: ../drivers/CoreI2C/i2c_interrupt.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"drivers/CoreI2C/i2c_interrupt.d" -MT"drivers/CoreI2C/i2c_interrupt.o" -c -o "drivers/CoreI2C/i2c_interrupt.o" "../drivers/CoreI2C/i2c_interrupt.c"
+Finished building: ../drivers/CoreI2C/i2c_interrupt.c
+ 
+Building file: ../drivers/CoreGPIO/core_gpio.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"drivers/CoreGPIO/core_gpio.d" -MT"drivers/CoreGPIO/core_gpio.o" -c -o "drivers/CoreGPIO/core_gpio.o" "../drivers/CoreGPIO/core_gpio.c"
+Finished building: ../drivers/CoreGPIO/core_gpio.c
+ 
+Building file: ../drivers/Core16550/core_16550.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"drivers/Core16550/core_16550.d" -MT"drivers/Core16550/core_16550.o" -c -o "drivers/Core16550/core_16550.o" "../drivers/Core16550/core_16550.c"
+Finished building: ../drivers/Core16550/core_16550.c
+ 
+Building file: ../FreeRTOS/portable/MemMang/heap_2.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/portable/MemMang/heap_2.d" -MT"FreeRTOS/portable/MemMang/heap_2.o" -c -o "FreeRTOS/portable/MemMang/heap_2.o" "../FreeRTOS/portable/MemMang/heap_2.c"
+Finished building: ../FreeRTOS/portable/MemMang/heap_2.c
+ 
+Building file: ../FreeRTOS/portable/GCC/RISCV/port.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/portable/GCC/RISCV/port.d" -MT"FreeRTOS/portable/GCC/RISCV/port.o" -c -o "FreeRTOS/portable/GCC/RISCV/port.o" "../FreeRTOS/portable/GCC/RISCV/port.c"
+Finished building: ../FreeRTOS/portable/GCC/RISCV/port.c
+ 
+Building file: ../FreeRTOS/portable/GCC/RISCV/portasm.S
+Invoking: GNU RISC-V Cross Assembler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -x assembler-with-cpp -MMD -MP -MF"FreeRTOS/portable/GCC/RISCV/portasm.d" -MT"FreeRTOS/portable/GCC/RISCV/portasm.o" -c -o "FreeRTOS/portable/GCC/RISCV/portasm.o" "../FreeRTOS/portable/GCC/RISCV/portasm.S"
+Finished building: ../FreeRTOS/portable/GCC/RISCV/portasm.S
+ 
+Building file: ../FreeRTOS/croutine.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/croutine.d" -MT"FreeRTOS/croutine.o" -c -o "FreeRTOS/croutine.o" "../FreeRTOS/croutine.c"
+Finished building: ../FreeRTOS/croutine.c
+ 
+Building file: ../FreeRTOS/event_groups.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/event_groups.d" -MT"FreeRTOS/event_groups.o" -c -o "FreeRTOS/event_groups.o" "../FreeRTOS/event_groups.c"
+Finished building: ../FreeRTOS/event_groups.c
+ 
+Building file: ../FreeRTOS/list.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/list.d" -MT"FreeRTOS/list.o" -c -o "FreeRTOS/list.o" "../FreeRTOS/list.c"
+Finished building: ../FreeRTOS/list.c
+ 
+Building file: ../FreeRTOS/queue.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/queue.d" -MT"FreeRTOS/queue.o" -c -o "FreeRTOS/queue.o" "../FreeRTOS/queue.c"
+Finished building: ../FreeRTOS/queue.c
+ 
+Building file: ../FreeRTOS/string.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/string.d" -MT"FreeRTOS/string.o" -c -o "FreeRTOS/string.o" "../FreeRTOS/string.c"
+Finished building: ../FreeRTOS/string.c
+ 
+Building file: ../FreeRTOS/tasks.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/tasks.d" -MT"FreeRTOS/tasks.o" -c -o "FreeRTOS/tasks.o" "../FreeRTOS/tasks.c"
+Finished building: ../FreeRTOS/tasks.c
+ 
+Building file: ../FreeRTOS/timers.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/timers.d" -MT"FreeRTOS/timers.o" -c -o "FreeRTOS/timers.o" "../FreeRTOS/timers.c"
+Finished building: ../FreeRTOS/timers.c
+ 
+Building file: ../FreeRTOS/globalMaster.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/globalMaster.d" -MT"FreeRTOS/globalMaster.o" -c -o "FreeRTOS/globalMaster.o" "../FreeRTOS/globalMaster.c"
+Finished building: ../FreeRTOS/globalMaster.c
+ 
+Building file: ../FreeRTOS/applications.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/applications.d" -MT"FreeRTOS/applications.o" -c -o "FreeRTOS/applications.o" "../FreeRTOS/applications.c"
+Finished building: ../FreeRTOS/applications.c
+ 
+Building file: ../FreeRTOS/system_call.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/system_call.d" -MT"FreeRTOS/system_call.o" -c -o "FreeRTOS/system_call.o" "../FreeRTOS/system_call.c"
+Finished building: ../FreeRTOS/system_call.c
+ 
+Building file: ../FreeRTOS/packet.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/packet.d" -MT"FreeRTOS/packet.o" -c -o "FreeRTOS/packet.o" "../FreeRTOS/packet.c"
+Finished building: ../FreeRTOS/packet.c
+ 
+Building file: ../FreeRTOS/dvfs.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/dvfs.d" -MT"FreeRTOS/dvfs.o" -c -o "FreeRTOS/dvfs.o" "../FreeRTOS/dvfs.c"
+Finished building: ../FreeRTOS/dvfs.c
+ 
+Building file: ../FreeRTOS/thermal.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/thermal.d" -MT"FreeRTOS/thermal.o" -c -o "FreeRTOS/thermal.o" "../FreeRTOS/thermal.c"
+Finished building: ../FreeRTOS/thermal.c
+ 
+Building file: ../FreeRTOS/chronos.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"FreeRTOS/chronos.d" -MT"FreeRTOS/chronos.o" -c -o "FreeRTOS/chronos.o" "../FreeRTOS/chronos.c"
+Finished building: ../FreeRTOS/chronos.c
+ 
+Building file: ../main.c
+Invoking: GNU RISC-V Cross C Compiler
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -DMSCC_STDIO_THRU_CORE_UART_APB -I"../FreeRTOS" -I"../FreeRTOS/include" -I"../FreeRTOS/portable" -I"../FreeRTOS/portable/GCC" -I"../FreeRTOS/portable/MemMang" -I"../FreeRTOS/portable/GCC/RISCV" -I".." -I"../drivers/CoreGPIO" -I"../drivers/Core16550" -I"../drivers/CoreUARTapb" -I"../drivers/CoreTimer" -I"../hal" -I"../riscv_hal" -std=gnu11 -MMD -MP -MF"main.d" -MT"main.o" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: miv-rv32im-freertos-port-test.elf
+Invoking: GNU RISC-V Cross C Linker
+riscv-none-embed-gcc -march=rv32im -mabi=ilp32 -msmall-data-limit=8 -O0 -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections  -g3 -T "../riscv_hal/microsemi-riscv-ram.ld" -nostartfiles -Xlinker --gc-sections -Wl,-Map,"miv-rv32im-freertos-port-test.map" --specs=nano.specs -o "miv-rv32im-freertos-port-test.elf"  ./riscv_hal/entry.o ./riscv_hal/init.o ./riscv_hal/riscv_hal.o ./riscv_hal/riscv_hal_stubs.o ./riscv_hal/syscall.o  ./hal/hal_irq.o ./hal/hw_reg_access.o  ./drivers/CoreUARTapb/core_uart_apb.o  ./drivers/CoreTimer/core_timer.o  ./drivers/CoreI2C/core_i2c.o ./drivers/CoreI2C/i2c_interrupt.o  ./drivers/CoreGPIO/core_gpio.o  ./drivers/Core16550/core_16550.o  ./FreeRTOS/portable/MemMang/heap_2.o  ./FreeRTOS/portable/GCC/RISCV/port.o ./FreeRTOS/portable/GCC/RISCV/portasm.o  ./FreeRTOS/croutine.o ./FreeRTOS/event_groups.o ./FreeRTOS/list.o ./FreeRTOS/queue.o ./FreeRTOS/string.o ./FreeRTOS/tasks.o ./FreeRTOS/timers.o ./FreeRTOS/globalMaster.o ./FreeRTOS/applications.o ./FreeRTOS/system_call.o ./FreeRTOS/packet.o ./FreeRTOS/dvfs.o ./FreeRTOS/thermal.o ./FreeRTOS/chronos.o  ./main.o   
+Finished building target: miv-rv32im-freertos-port-test.elf
+ 
+Invoking: GNU RISC-V Cross Create Flash Image
+riscv-none-embed-objcopy -O ihex "miv-rv32im-freertos-port-test.elf"  "miv-rv32im-freertos-port-test.hex"
+Finished building: miv-rv32im-freertos-port-test.hex
+ 
+Invoking: GNU RISC-V Cross Create Listing
+riscv-none-embed-objdump --source --all-headers --demangle --line-numbers --wide "miv-rv32im-freertos-port-test.elf" > "miv-rv32im-freertos-port-test.lst"
+Finished building: miv-rv32im-freertos-port-test.lst
+ 
+Invoking: GNU RISC-V Cross Print Size
+riscv-none-embed-size --format=berkeley "miv-rv32im-freertos-port-test.elf"
+   text	   data	    bss	    dec	    hex	filename
+  52688	    256	 347872	 400816	  61db0	miv-rv32im-freertos-port-test.elf
+Finished building: miv-rv32im-freertos-port-test.siz
+ 
+~/git_workspace/Chronos-RISCV/simulation/toPaper_nop_scenario_16_chronos_5x5/FreeRTOS
+====================
+COMPILING THE ROUTER
+# Cross Depending Peripheral obj/Linux64/router.igen.d
+# Cross Depending Peripheral obj/Linux64/router.d
+# Cross Depending Peripheral obj/Linux64/router.attrs.igen.d
+# Cross Compiling Peripheral obj/Linux64/router.attrs.igen.o
+# Cross Compiling Peripheral obj/Linux64/router.o
+# Cross Compiling Peripheral obj/Linux64/router.igen.o
+# Cross Linking Peripheral pse.pse
+======================
+COMPILING THE ITERATOR
+
+iGen (64-Bit) 20210408.0 Platform and Model Template Generator from www.IMPERAS.com.
+Copyright (c) 2005-2021 Imperas Software Ltd.  Contains Imperas Proprietary Information.
+Licensed Software, All Rights Reserved.
+Visit www.IMPERAS.com for multicore debug, verification and analysis solutions.
+
+Info (GPT_WF) Writing peripheral model     'iterator.igen.c'
+Info (GPT_WF) Writing peripheral model header 'iterator.igen.h'
+Info (GPT_WF) Writing peripheral user functions 'iterator.c.igen.stubs'
+Info (GPT_WF) Writing macro definitions    'iterator.macros.igen.h'
+Info (GPT_WF) Writing peripheral model attributes 'iterator.attrs.igen.c'
+IMPERAS IGEN finished
+# Cross Depending Peripheral obj/Linux64/iterator.igen.d
+# Cross Depending Peripheral obj/Linux64/iterator.attrs.igen.d

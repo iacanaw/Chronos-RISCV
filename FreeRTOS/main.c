@@ -186,12 +186,22 @@ void vNI_RX_HandlerTask( void *pvParameters ){
             switch (service){
                 case REPOSITORY_APP_INFO: // When the repository informs the GM that exist a new Application available:
                     prints("REPOSITORY_APP_INFO\n");
-                    API_AddApplication(incommingPacket.application_id,
-                                    incommingPacket.aplication_period, 
-                                    incommingPacket.application_executions, 
-                                    incommingPacket.application_n_tasks);
-                    //HW_set_32bit_reg(NI_RX, DONE);
+                    aux = API_AddApplication(incommingPacket.application_id,
+                                        incommingPacket.aplication_period, 
+                                        incommingPacket.application_executions, 
+                                        incommingPacket.application_n_tasks);
+                    incommingPacket.service = REPOSITORY_APP_INFO_FINISH;
+                    HW_set_32bit_reg(NI_RX, &applications[aux].taskType[0]);
                     prints("1NI_RX DONE!\n");
+                    break;
+                
+                case REPOSITORY_APP_INFO_FINISH: // When the repository informs the GM that exist a new Application available:
+                    prints("REPOSITORY_APP_INFO_FINISH\n");
+                    aux = API_GetApplicationSlot(incommingPacket.application_id);
+                    for(i = 0; i < incommingPacket.application_n_tasks; i++){
+                        printsvsv("> Task ", i, "type  ", applications[aux].taskType[i]);
+                    }
+                    prints("1.5NI_RX DONE!\n");
                     break;
                 
                 case TASK_ALLOCATION_SEND: // When the GM asks one Slave to allocate one task
@@ -758,7 +768,7 @@ static void GlobalManagerTask( void *pvParameters ){
     int x, y, i;
 	// Initialize the priority vector with the pattern policy
     x = DIM_X-1;
-    y = DIM_Y-1;,
+    y = DIM_Y-1;
     for(i=0; i<(DIM_X*DIM_Y); i++){
         priorityMatrix[i] = (x << 8) | y;
         y--;

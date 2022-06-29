@@ -66,6 +66,7 @@ typedef struct{
     unsigned int finishedTasks;
     unsigned int lastFinish;
     unsigned int newAddr;
+    unsigned int taskType[NUM_MAX_APP_TASKS];
 } Application;
  
 // PIDTM stuff
@@ -87,7 +88,7 @@ volatile Application applications[NUM_MAX_APPS];
 // Informs the Repository that the GLOBALMASTER is ready to receive the application info
 void API_RepositoryWakeUp();
 // Add one Application in the Execution Queue
-void API_AddApplication(unsigned int appID, unsigned int appPeriod, unsigned int appExec, unsigned int appNTasks);
+unsigned int API_AddApplication(unsigned int appID, unsigned int appPeriod, unsigned int appExec, unsigned int appNTasks);
 // Reset applications vector
 void API_ApplicationsReset();
 // Gets an application slot that is occipied by a specific application

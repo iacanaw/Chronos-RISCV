@@ -31,7 +31,7 @@ void API_RepositoryWakeUp(){
 
 ////////////////////////////////////////////////////////////
 // Add one Application in the Execution Queue
-void API_AddApplication(unsigned int appID, unsigned int appPeriod, unsigned int appExec, unsigned int appNTasks){
+unsigned int API_AddApplication(unsigned int appID, unsigned int appPeriod, unsigned int appExec, unsigned int appNTasks){
     int slot = API_GetApplicationFreeSlot();
     applications[slot].occupied = TRUE;
     applications[slot].appID = appID;
@@ -44,7 +44,7 @@ void API_AddApplication(unsigned int appID, unsigned int appPeriod, unsigned int
     applications[slot].finishedTasks = 0;
     applications[slot].lastFinish = 0;
     printsv("New application registered - ID: ", appID);
-    return;
+    return slot;
 }
 
 ////////////////////////////////////////////////////////////
