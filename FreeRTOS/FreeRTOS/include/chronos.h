@@ -23,7 +23,7 @@
 #define GLOBAL_MASTER_ADDR  0x0000
 #define NUM_MAX_APPS        20      // The maximum number of Applications
 #define NUM_MAX_APP_TASKS   10      // The maximum number of Tasks that a given Application can have
-#define NUM_MAX_TASKS       2       // The maxinum number of Tasks that can be allocated in a given PE at the same time
+#define NUM_MAX_TASKS       1       // The maxinum number of Tasks that can be allocated in a given PE at the same time
 ////////////////////////////////////////////////////////////
 // PERIPHERAL PORTS
 #define PERIPH_EAST         0x00010000

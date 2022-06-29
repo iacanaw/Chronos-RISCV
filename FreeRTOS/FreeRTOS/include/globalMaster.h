@@ -67,6 +67,7 @@ typedef struct{
     unsigned int lastFinish;
     unsigned int newAddr;
     unsigned int taskType[NUM_MAX_APP_TASKS];
+    unsigned int takedAction[NUM_MAX_APP_TASKS];
 } Application;
  
 // PIDTM stuff
@@ -127,5 +128,8 @@ void API_UpdatePIDTM();
 void API_UpdateTemperature();
 
 void API_UpdateFIT();
+
+unsigned int getMaxfromRow(float **policyTable, unsigned int row, unsigned int n_rows, unsigned int n_collumns);
+
 
 #endif

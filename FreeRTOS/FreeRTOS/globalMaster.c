@@ -9,6 +9,17 @@
 // Informs the Repository that the GLOBALMASTER is ready to receive the application info
 void API_RepositoryWakeUp(){
     unsigned int mySlot;
+
+#if THERMAL_MANAGEMENT != 4 // CHARACTERIZE
+    // Enters in idle to wait the first FIT value ~50ms
+    API_setFreqIdle();
+    API_applyFreqScale();
+    while(Tiles[0][0].fit == 0){ 
+        /* Waits here until the FIT value is not updated */ 
+        vTaskDelay(1);
+    }
+#endif
+
     do{
         mySlot = API_GetServiceSlot();
         if(mySlot == PIPE_FULL){
@@ -94,6 +105,7 @@ void API_TilesReset(){
             Tiles[m][n].frequency = 1000;
             Tiles[m][n].fit = 0;
             Tiles[m][n].taskSlots = NUM_MAX_TASKS;
+            random(); // using this loop to iterate the random algorithm...
         }
     }    
     return;
@@ -249,6 +261,33 @@ void GeneratePatternMatrix(){
     return;
 }
 
+unsigned int API_GetNextTaskToAllocate(unsigned int tick){
+    unsigned int ret = 0xFFFFFFFF;
+    int i;
+    int j;
+    for (i = 0; i < NUM_MAX_APPS; i++){
+        // If the application is valid
+        if (applications[i].occupied == TRUE){
+            // If the nextRun of this application is right now, then release each task!
+            if(applications[i].nextRun <= tick && applications[i].nextRun != applications[i].lastStart){
+                printsv("Starting to allocate the application ", i);
+                // If the system has space to accept every task
+                if(applications[i].numTasks <= API_GetSystemTasksSlots()){   
+                    // Iterates around each task of this application
+                    for(j = 0; j < applications[i].numTasks; j++){
+                        if(applications[i].tasks[j].status != TASK_ALLOCATING){
+                            applications[i].tasks[j].status = TASK_ALLOCATING;
+                            return (0x00000000 | (i << 16 | j));
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return ret;
+}
+
+
 // Checks if there is some task to allocate...
 void API_AllocateTasks(unsigned int tick){
     int i, j;
@@ -285,8 +324,22 @@ void API_AllocateTasks(unsigned int tick){
             }
         }
     }
-
     return;
+}
+
+unsigned int API_CheckTaskToAllocate(unsigned int tick){
+    int i;
+    // Iterate around every possible application
+    for (i = 0; i < NUM_MAX_APPS; i++){
+        // If the application is valid
+        if (applications[i].occupied == TRUE){
+            // If the nextRun of this application is right now, then release each task!
+            if(applications[i].nextRun <= tick && applications[i].nextRun != applications[i].lastStart){
+                return 1;
+            }
+        }
+    }
+    return 0;
 }
 
 void API_DealocateTask(unsigned int task_id, unsigned int app_id){
@@ -656,3 +709,89 @@ void API_Forward_MsgReq(unsigned int requester_task_id, unsigned int app_id, uns
     }
     return;
 }
+
+// A utility function to swap two elements 
+void swap(int* a, int* b) { 
+    int t = *a; 
+    *a = *b; 
+    *b = t; 
+}
+
+/* This function takes last element as pivot, places 
+the pivot element at its correct position in sorted 
+array, and places all smaller (smaller than pivot) 
+to left of pivot and all greater elements to right 
+of pivot */
+int partition (int arr[], int arr2[], int low, int high) { 
+    int pivot = arr[high]; // pivot 
+    int i = (low - 1); // Index of smaller element and indicates the right position of pivot found so far
+    int j;
+    for (j = low; j <= (high - 1); j++) { 
+        // If current element is smaller than the pivot 
+        if (arr[j] < pivot) { 
+            i++; // increment index of smaller element 
+            swap(&arr[i], &arr[j]);
+            swap(&arr2[i], &arr2[j]);
+        } 
+    } 
+    swap(&arr[i + 1], &arr[high]); 
+    swap(&arr2[i + 1], &arr2[high]); 
+    return (i + 1); 
+} 
+
+/* The main function that implements QuickSort 
+arr[] --> Array to be sorted, 
+low --> Starting index, 
+high --> Ending index */
+void quickSort(int arr[], int arr2[], int low, int high){ 
+    if (low < high){ 
+        /* pi is partitioning index, arr[p] is now 
+        at right place */
+        int pi = partition(arr, arr2, low, high); 
+  
+        // Separately sort elements before 
+        // partition and after partition 
+        quickSort(arr, arr2, low, (pi - 1)); 
+        quickSort(arr, arr2, (pi + 1), high); 
+    }
+} 
+
+void API_SortAllocationVectors(unsigned int *temperature_list, unsigned int *tempVar_list, unsigned int *fit_list){
+    unsigned int temperature[DIM_X*DIM_Y];
+    unsigned int fit[DIM_X*DIM_Y];
+    unsigned int tempVariation[DIM_X*DIM_Y];
+    unsigned int addr;
+    unsigned int i;
+    prints("Creating allocation vectors...\n");
+    for(i=0; i<DIM_X*DIM_Y; i++){
+        addr = id2addr(i);
+        temperature_list[i] = addr;
+        tempVar_list[i] = addr;
+        fit_list[i] = addr;
+        temperature[i] = Tiles[getXpos(addr)][getYpos(addr)].temperature;
+        fit[i] = Tiles[getXpos(addr)][getYpos(addr)].fit;
+        tempVariation[i] = Tiles[getXpos(addr)][getYpos(addr)].temperature;
+    }
+    quickSort(temperature, temperature_list, 0, (DIM_X*DIM_Y)-1);
+    quickSort(fit, fit_list, 0, (DIM_X*DIM_Y)-1);
+    quickSort(tempVariation, tempVar_list, 0, (DIM_X*DIM_Y)-1);
+    /*prints("Vectors are sorted...\n");
+    for(i=0; i<DIM_X*DIM_Y; i++){
+        printsvsv("ADDR: ", temperature_list[i], "TEMP: ", temperature[i]);
+        printsvsv("ADDR: ", fit_list[i], "FIT: ", fit[i]);
+        //printsvsv("ADDR: ", temperature_list[i], "VAR: ", temperature[i]);    
+    }*/
+    return;
+}
+
+unsigned int getMaxfromRow(float **policyTable, unsigned int row, unsigned int n_collumns){
+    unsigned int max = 0, i;
+    for( i = 0; i < n_collumns; i++){
+        if(policyTable[row][i] >= max){
+            max = i;
+        }
+    }
+    return max;
+}
+
+

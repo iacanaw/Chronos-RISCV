@@ -27,6 +27,32 @@ extern volatile unsigned int SystemFIT[DIM_X*DIM_Y];
 extern volatile unsigned int temperatureUpdated;
 extern volatile unsigned int fitUpdated;
 
+static unsigned int XORTable[128] = {0xea67e5d5, 0x79a32729, 0xdc1b95b2, 0x03d66b2c, 0x34992d81, 
+0xfe3a5cbb, 0x2fd12192, 0xa4ad71f0, 0xf6af45ff, 0x862e2584, 0x4ed69471, 0xa70b6e13, 0x0479746d, 
+0x6ad61984, 0xfb0fde6b, 0x6ccb7b44, 0xcc0a4380, 0x65a2ad29, 0x0c140f65, 0xf282eb6c, 0x5ebf3a09,
+0xa73aa442, 0x992f5c2e, 0x52b1ead3, 0xff08bdc9, 0x74d92572, 0xfcb55133, 0xa3dc83f7, 0xa1c5203f,
+0x7abb8186, 0xa6097327, 0x328561ae, 0x0964de19, 0x9f94b6c5, 0x225e1f08, 0xf78812dc, 0x12b16ffd, 
+0xa6b97aee, 0x0cdca795, 0x6e620685, 0xdddc48e9, 0x713bdb6a, 0x21bee58f, 0xd9670b69, 0xc10236f3, 
+0x23c95808, 0x83cd7334, 0xa5a69190, 0x15163738, 0xea640e57, 0xadc905ca, 0xc949eb61, 0x020b18ed, 
+0x11ae8593, 0xcd6fe0dd, 0xc05779b1, 0xfc9bad7e, 0x395abe38, 0x1595cbc0, 0x69d9c0e6, 0xaa999e82, 
+0x4241f339, 0x6f4abbb7, 0x7dc9363a, 0xd976af82, 0x29cec2e8, 0x2c8e1364, 0xdfcd0284, 0x1cabcc1e, 
+0x19041777, 0x87c97db0, 0x7f86af5b, 0xf4d735a5, 0xdf34a0c5, 0x86a93440, 0xca2b808f, 0xfdc43f07, 
+0x924f6af9, 0x932de707, 0x74d337cb, 0x6a4eef0c, 0x45d7d4ee, 0x6615ab2d, 0x8a8e7bab, 0x850c97b8, 
+0x7703adfb, 0xbecd7831, 0x1ab05d41, 0x1c066892, 0x9f568b85, 0x475b63bd, 0xbff7c794, 0xcadc938b, 
+0xabf8a2a5, 0x1a435dde, 0x696c8b3a, 0x3c6a4fa5, 0xf668a682, 0xa4fc6d81, 0xd0df5f82, 0x199b33c4, 
+0xdf83bdcd, 0x5b5f3157, 0x99feb290, 0x1a914da5, 0xed1c6b76, 0xcbae4d43, 0x2c65d4a4, 0xd4f6a2a9, 
+0x89eef7d0, 0xded87233, 0x86a72590, 0x852729d1, 0xed3f4fe4, 0x756c871b, 0x2f94fa7c, 0x53a35888, 
+0x6b190128, 0x57319f8d, 0x2a4b8304, 0x01372ad2, 0xa8d518d4, 0x4fae06c9, 0xbab6114a, 0x1946b712, 
+0x325308dc, 0x056b2ffb, 0xfe3c6e88};
+
+unsigned int RandomSeed = 0xace1ace1a;
+
+unsigned int random(){
+    unsigned bit = ((XORTable[RandomSeed & 0x7f] >> (RandomSeed & 0xF)) ^ (RandomSeed >> 2) ^ (RandomSeed >> 3) ^ (XORTable[RandomSeed & 0x7f] >> (RandomSeed & 0xF)) ) & 1;
+    return RandomSeed = (RandomSeed >> 1) | (bit << 15);
+}
+
+
 ////////////////////////////////////////////////////////////
 // Initialize Chronos stuff
 void Chronos_init(){
@@ -303,6 +329,13 @@ void ReceiveMessage(Message *theMessage, unsigned int from){
 ////////////////////////////////////////////////////////////
 // Returns the PE address for a giver pair of coords
 unsigned int makeAddress(unsigned int x, unsigned int y) {
+    unsigned int address = 0x00000000;
+    return (address | (x << 8) | y);
+}
+
+unsigned int id2addr(unsigned int id){
+    unsigned int x = id % DIM_X;
+    unsigned int y = id / DIM_Y;
     unsigned int address = 0x00000000;
     return (address | (x << 8) | y);
 }

@@ -21,8 +21,9 @@ extern volatile unsigned int API_SystemFinish = FALSE;
     0) Spiral (baseline)
     1) Pattern
     2) PIDTM
-    3) Nossa Técnica */
-#define THERMAL_MANAGEMENT 0
+    3) CHRONOS 
+    4) CHARACTERIZATION */
+#define THERMAL_MANAGEMENT 3
 
 /* Defines the amount of ticks to simulate - if zero then simulates until the scenario's end */
 #define SIMULATION_MAX_TICKS 0
@@ -652,14 +653,6 @@ static void GlobalManagerTask( void *pvParameters ){
 	// Initialize the applications vector
     API_ApplicationsReset();
 
-    // Enters in idle to wait the first FIT value ~50ms
-    API_setFreqIdle();
-    API_applyFreqScale();
-    while(Tiles[0][0].fit == 0){ 
-        /* Waits here until the FIT value is not updated */ 
-        vTaskDelay(1);
-    }
-
 	// Informs the Repository that the GLOBALMASTER is ready to receive the application info
 	API_RepositoryWakeUp();
 
@@ -761,22 +754,43 @@ static void GlobalManagerTask( void *pvParameters ){
 
 #elif THERMAL_MANAGEMENT == 3 // CHRONOS
 
+#define N_TASKTYPE  3
+#define N_ACTIONS   6
+
+// ACTIONS
+#define HIG_TEMPERATURE 0
+#define LOW_TEMPERATURE 1
+#define HIG_TEMP_VAR    2
+#define LOW_TEMP_VAR    3
+#define HIG_FIT         4
+#define LOW_FIT         5
+
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
 	unsigned int tick;
 	char str[20];
     int x, y, i;
-	// Initialize the priority vector with the pattern policy
-    x = DIM_X-1;
-    y = DIM_Y-1;
-    for(i=0; i<(DIM_X*DIM_Y); i++){
-        priorityMatrix[i] = (x << 8) | y;
-        y--;
-        if ( y < 0 ){
-            y = DIM_Y-1;
-            x--;
+    unsigned int apptask, app, task;
+    unsigned int addr, i, j;
+    //---------------------------------------
+    // --------- Q-learning stuff -----------
+    unsigned int tp, act;
+    float policyTable[N_TASKTYPE][N_ACTIONS];
+    // Hyperparameters
+    float alpha = 0.1;
+    float gamma = 0.6;
+    float epsilon = 0.1;
+    // lists to consult
+    unsigned int temperature_list[DIM_X*DIM_Y];
+    unsigned int tempVar_list[DIM_X*DIM_Y];
+    unsigned int fit_list[DIM_X*DIM_Y];
+    
+    // policy table initialization
+    for(tp = 0; tp < N_TASKTYPE; tp++){
+        for(act = 0; act < N_ACTIONS; act++){
+            policyTable[tp][act] = 0;
         }
-    }    
+    }
 
 	// Initialize the System Tiles Info
 	API_TilesReset();
@@ -797,8 +811,89 @@ static void GlobalManagerTask( void *pvParameters ){
 		printsv("GlobalMasterActive", tick);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
 
-		// Checks if there is some task to allocate...
-		API_AllocateTasks(tick);
+        // Checks if there is some task to allocate
+        if(API_CheckTaskToAllocate(tick)){
+            // Sorts PEs by certain attributes (temperature, temperature variation, fit)
+            API_SortAllocationVectors(temperature_list, tempVar_list, fit_list);
+
+            apptask = API_GetNextTaskToAllocate(tick);
+            while(apptask != 0xFFFFFFFF){
+                app = (apptask & 0xFFFF0000) >> 16;
+                task = (apptask & 0x0000FFFF);
+
+                if((int)(epsilon*100) < random()%100){
+                    action = random() % N_ACTIONS; // Explore action space
+                } else{
+                    action = getMaxfromRow(policyTable, applications[app].taskType[task], N_ACTIONS); // Exploit learned values
+                }
+
+                // register the taked action 
+                applications[app].takedAction[task] = action;
+
+                switch(action){
+                    case HIG_TEMPERATURE: // allocate in the PE with the higher temperatures
+                        for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
+                            addr = temperature_list[i];
+                            slot = API_GetTaskSlotFromTile(addr, app, task);
+                            if (slot != ERRO) break;
+                        }
+                        break;
+                    
+                    case LOW_TEMPERATURE: // allocate in the PE with the lower temperature
+                        for(i = 0; i < (DIM_X*DIM_Y); i++){
+                            addr = temperature_list[i];
+                            slot = API_GetTaskSlotFromTile(addr, app, task);
+                            if (slot != ERRO) break;
+                        }
+                        break; 
+
+                    case HIG_TEMP_VAR: // allocate in the PE with the higher temperature variation
+                        for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
+                            addr = temperature_list[i];
+                            slot = API_GetTaskSlotFromTile(addr, app, task);
+                            if (slot != ERRO) break;
+                        }
+                        break;
+
+                    case LOW_TEMP_VAR: // allocate in the PE with the lower temperature variation
+                        for(i = 0; i < (DIM_X*DIM_Y); i++){
+                            addr = temperature_list[i];
+                            slot = API_GetTaskSlotFromTile(addr, app, task);
+                            if (slot != ERRO) break;
+                        }
+                        break; 
+
+                    case HIG_FIT: // allocate in the PE with the higher FIT
+                        for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
+                            addr = fit_list[i];
+                            slot = API_GetTaskSlotFromTile(addr, app, task);
+                            if (slot != ERRO) break;
+                        }
+                        break;
+                    
+                    case LOW_FIT: // allocate in the PE with the lower FIT
+                        for(i = 0; i < (DIM_X*DIM_Y); i++){
+                            addr = fit_list[i];
+                            slot = API_GetTaskSlotFromTile(addr, app, task);
+                            if (slot != ERRO) break;
+                        }
+                        break; 
+
+                    default:
+                        prints("Erro ao escolher a acao\n");
+                }
+                
+                // register the application allocation
+                applications[app].tasks[task].addr = addr;
+                applications[app].tasks[task].slot = slot;
+                applications[app].lastStart = tick; //applications[app].nextRun;
+                API_RepositoryAllocation(app, task, addr);
+
+                // gets the next task to allocate
+                apptask = API_GetNextTaskToAllocate(tick);  
+            }
+
+        }
 		
 		// Checks if there is some task to start...
 		API_StartTasks();
