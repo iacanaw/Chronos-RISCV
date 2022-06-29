@@ -13,11 +13,16 @@ samples_time = []
 index = 0
 for xx in range(XX):
     for yy in range(YY):
+        print("reading file " + str(xx) + "x" + str(yy))
         empty = []
         time = []
         with open("simulation/log_"+str(xx)+"x"+str(yy)+".txt", "r") as log_file:
             while True:
-                line = log_file.readline()
+                line = ""
+                try:
+                    line = log_file.readline()
+                except:
+                    print("catched an error in file "+ str(xx) + "x" + str(yy))
                 if "inst~~~>" in line:
                     value = line.split(' ')
                     if value[1].isnumeric() and value[3].isnumeric():
@@ -25,10 +30,8 @@ for xx in range(XX):
                         time.append(int(value[3])/10000)
                 elif line == '':
                     break
-            #print(empty)
             samples.append(deepcopy(empty))
             samples_time.append(deepcopy(time))
-            #print(samples) 
     index += 1
 
 
