@@ -765,21 +765,21 @@ static void GlobalManagerTask( void *pvParameters ){
 #define HIG_FIT         4
 #define LOW_FIT         5
 
+extern float policyTable[N_TASKTYPE][N_ACTIONS];
+
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
 	unsigned int tick;
 	char str[20];
-    int x, y, i;
-    unsigned int apptask, app, task;
-    unsigned int addr, i, j;
+    int x, y;
+    unsigned int apptask, app, task, slot;
+    unsigned int addr, j, i;
     //---------------------------------------
     // --------- Q-learning stuff -----------
-    unsigned int tp, act;
-    float policyTable[N_TASKTYPE][N_ACTIONS];
+    unsigned int tp, action;
     // Hyperparameters
-    float alpha = 0.1;
-    float gamma = 0.6;
-    float epsilon = 0.1;
+
+    float epsilon = 0.1; // 0.100 in fixed point
     // lists to consult
     unsigned int temperature_list[DIM_X*DIM_Y];
     unsigned int tempVar_list[DIM_X*DIM_Y];
@@ -787,8 +787,8 @@ static void GlobalManagerTask( void *pvParameters ){
     
     // policy table initialization
     for(tp = 0; tp < N_TASKTYPE; tp++){
-        for(act = 0; act < N_ACTIONS; act++){
-            policyTable[tp][act] = 0;
+        for(action = 0; action < N_ACTIONS; action++){
+            policyTable[tp][action] = 0;
         }
     }
 
@@ -817,19 +817,23 @@ static void GlobalManagerTask( void *pvParameters ){
             API_SortAllocationVectors(temperature_list, tempVar_list, fit_list);
 
             apptask = API_GetNextTaskToAllocate(tick);
-            while(apptask != 0xFFFFFFFF){
+            printsv("apptask: ", apptask);
+            do{
+
                 app = (apptask & 0xFFFF0000) >> 16;
                 task = (apptask & 0x0000FFFF);
+                printsvsv("Allocating task ", task, "from app ", app);
 
-                if((int)(epsilon*100) < random()%100){
+                if( (int)(epsilon*100) < random()%100 ){
                     action = random() % N_ACTIONS; // Explore action space
                 } else{
-                    action = getMaxfromRow(policyTable, applications[app].taskType[task], N_ACTIONS); // Exploit learned values
+                    action = API_getMaxIdxfromRow(policyTable, applications[app].taskType[task], N_ACTIONS, N_TASKTYPE); // Exploit learned values
                 }
 
                 // register the taked action 
                 applications[app].takedAction[task] = action;
 
+                // Runs the selected action
                 switch(action){
                     case HIG_TEMPERATURE: // allocate in the PE with the higher temperatures
                         for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
@@ -881,17 +885,20 @@ static void GlobalManagerTask( void *pvParameters ){
 
                     default:
                         prints("Erro ao escolher a acao\n");
+                        break;
                 }
                 
                 // register the application allocation
                 applications[app].tasks[task].addr = addr;
                 applications[app].tasks[task].slot = slot;
-                applications[app].lastStart = tick; //applications[app].nextRun;
+                applications[app].lastStart = applications[app].nextRun;
                 API_RepositoryAllocation(app, task, addr);
+                printsvsv("Allocated at: ", getXpos(addr), "- ", getYpos(addr));
 
                 // gets the next task to allocate
                 apptask = API_GetNextTaskToAllocate(tick);  
-            }
+                printsv("new apptask: ", apptask);
+            }while(apptask != 0xFFFFFFFF);
 
         }
 		
@@ -903,6 +910,7 @@ static void GlobalManagerTask( void *pvParameters ){
         API_applyFreqScale();
         
 		if(API_SystemFinish){
+            API_PrintPolicyTable();
 			vTaskDelay(100); // to cool down the system
 			_exit(0xfe10);
 		}

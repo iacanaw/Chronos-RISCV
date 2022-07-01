@@ -5,6 +5,17 @@
 #include "packet.h"
 #include "services.h"
 
+
+unsigned int API_getMaxIdxfromRow(float *policyTable, unsigned int row, unsigned int n_collumns, unsigned int n_rows){
+    unsigned int max = 0, i;
+    for( i = 0; i < n_collumns; i++){
+        if( *(policyTable + row*n_collumns + i) >= max){
+            max = i;
+        }
+    }
+    return max;
+}
+
 ////////////////////////////////////////////////////////////
 // Informs the Repository that the GLOBALMASTER is ready to receive the application info
 void API_RepositoryWakeUp(){
@@ -43,7 +54,7 @@ void API_RepositoryWakeUp(){
 ////////////////////////////////////////////////////////////
 // Add one Application in the Execution Queue
 unsigned int API_AddApplication(unsigned int appID, unsigned int appPeriod, unsigned int appExec, unsigned int appNTasks){
-    int slot = API_GetApplicationFreeSlot();
+    int i, slot = API_GetApplicationFreeSlot();
     applications[slot].occupied = TRUE;
     applications[slot].appID = appID;
     applications[slot].appPeriod = appPeriod;
@@ -54,6 +65,9 @@ unsigned int API_AddApplication(unsigned int appID, unsigned int appPeriod, unsi
     applications[slot].lastStart = -1;
     applications[slot].finishedTasks = 0;
     applications[slot].lastFinish = 0;
+    for(i = 0; i < appNTasks; i++){
+        applications[slot].tasks[i].status = TASK_TO_ALLOCATE;
+    }
     printsv("New application registered - ID: ", appID);
     return slot;
 }
@@ -136,6 +150,11 @@ void API_UpdateFIT(){
         }
     }
     return;
+}
+
+// Get FIT from PE
+unsigned int API_getFIT(unsigned int addr){
+    return Tiles[getXpos(addr)][getYpos(addr)].fit;
 }
 
 void API_UpdatePIDTM(){
@@ -269,16 +288,12 @@ unsigned int API_GetNextTaskToAllocate(unsigned int tick){
         // If the application is valid
         if (applications[i].occupied == TRUE){
             // If the nextRun of this application is right now, then release each task!
-            if(applications[i].nextRun <= tick && applications[i].nextRun != applications[i].lastStart){
-                printsv("Starting to allocate the application ", i);
-                // If the system has space to accept every task
-                if(applications[i].numTasks <= API_GetSystemTasksSlots()){   
-                    // Iterates around each task of this application
-                    for(j = 0; j < applications[i].numTasks; j++){
-                        if(applications[i].tasks[j].status != TASK_ALLOCATING){
-                            applications[i].tasks[j].status = TASK_ALLOCATING;
-                            return (0x00000000 | (i << 16 | j));
-                        }
+            if(applications[i].nextRun <= tick){ // && applications[i].nextRun != applications[i].lastStart){
+                // Gets the task that needs to be allocated
+                for(j = 0; j < applications[i].numTasks; j++){
+                    if(applications[i].tasks[j].status == TASK_TO_ALLOCATE){
+                        applications[i].tasks[j].status = TASK_ALLOCATING;
+                        return (0x00000000 | (i << 16 | j));
                     }
                 }
             }
@@ -342,10 +357,51 @@ unsigned int API_CheckTaskToAllocate(unsigned int tick){
     return 0;
 }
 
+void API_PrintPolicyTable(){
+    int i, j;
+    vTaskEnterCritical();
+    prints("policyTable = [");
+    for(i = 0; i < N_TASKTYPE; i++){
+        prints(" [");
+        for(j = 0; j < N_ACTIONS; j++){
+            printi((int)(policyTable[i][j]*1000));
+            if (j != N_ACTIONS-1){
+                prints(", ");
+            }
+        }
+        if (i != N_TASKTYPE-1){
+            prints("],");
+        }else {
+            prints("] ]\n");
+        }
+    }
+    vTaskExitCritical();
+    return;
+}
+
 void API_DealocateTask(unsigned int task_id, unsigned int app_id){
     unsigned int i, tick;
     volatile int flag;
+    float newvalue, oldvalue, next_max, reward;
+    unsigned int tasktype, takedAct, next_maxid;
+    // Hyperparameters
+    float alpha = 0.1;
+    float gamma = 0.6;
+    //////////////////
     applications[app_id].tasks[task_id].status = TASK_FINISHED;
+    ////////////////////////////////////
+    // Q-learning
+    API_PrintPolicyTable();
+    reward = (int)(1000000/API_getFIT(applications[app_id].tasks[task_id].addr));
+    printsv("reward: ", reward);
+    takedAct = applications[app_id].takedAction[task_id];
+    tasktype = applications[app_id].taskType[task_id];
+    oldvalue = policyTable[tasktype][takedAct];
+    next_maxid = API_getMaxIdxfromRow(policyTable, tasktype, N_ACTIONS, N_TASKTYPE);
+    next_max = policyTable[tasktype][next_maxid];
+    newvalue = (1 - alpha) * oldvalue + alpha * ( reward + gamma * next_max);
+    policyTable[tasktype][takedAct] = newvalue;
+    ////////////////////////////////////
     // verify if every task has finished
     flag = 1;
     for (i = 0; i < applications[app_id].numTasks; i++){
@@ -365,6 +421,9 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
         applications[app_id].lastFinish = tick;
         // if the application must run another time
         if(applications[app_id].appExec > applications[app_id].executed){
+            for (i = 0; i < applications[app_id].numTasks; i++){
+                applications[app_id].tasks[i].status = TASK_TO_ALLOCATE;
+            }
             printsv("\t\tThis application still need to run: ", (applications[app_id].appExec - applications[app_id].executed));
             applications[app_id].nextRun = tick + applications[app_id].appPeriod;
         } else { // if the application has finished its runs
@@ -423,7 +482,7 @@ unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsign
             return i;
         }
     }*/
-    if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots > 0){
+    if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots > 0 && addr != MASTER_ADDR){
         Tiles[getXpos(addr)][getYpos(addr)].taskSlots = Tiles[getXpos(addr)][getYpos(addr)].taskSlots - 1;
         return 1;
     }else {
@@ -783,15 +842,3 @@ void API_SortAllocationVectors(unsigned int *temperature_list, unsigned int *tem
     }*/
     return;
 }
-
-unsigned int getMaxfromRow(float **policyTable, unsigned int row, unsigned int n_collumns){
-    unsigned int max = 0, i;
-    for( i = 0; i < n_collumns; i++){
-        if(policyTable[row][i] >= max){
-            max = i;
-        }
-    }
-    return max;
-}
-
-

@@ -14,12 +14,20 @@
 #define TASK_ALLOCATING     3
 #define TASK_ALLOCATED      4
 #define TASK_STARTED        5
+#define TASK_TO_ALLOCATE    6
 
 // PIDTM defines
 #define KP 10
 #define KI 10
 #define KD 10
 #define INT_WINDOW 10
+
+#define MASTER_ADDR 0x00000000
+
+// q-learning stuff
+#define N_TASKTYPE  3
+#define N_ACTIONS   6
+float policyTable[N_TASKTYPE][N_ACTIONS];
 
 // Finish 
 volatile unsigned int API_SystemFinish;
@@ -86,6 +94,8 @@ volatile PIDinfo pidStatus;
 // Application Info
 volatile Application applications[NUM_MAX_APPS];
 
+// 
+unsigned int API_getMaxIdxfromRow(float *policyTable, unsigned int row, unsigned int n_collumns, unsigned int n_rows);
 // Informs the Repository that the GLOBALMASTER is ready to receive the application info
 void API_RepositoryWakeUp();
 // Add one Application in the Execution Queue
@@ -129,7 +139,6 @@ void API_UpdateTemperature();
 
 void API_UpdateFIT();
 
-unsigned int getMaxfromRow(float **policyTable, unsigned int row, unsigned int n_rows, unsigned int n_collumns);
-
+void API_PrintPolicyTable();
 
 #endif

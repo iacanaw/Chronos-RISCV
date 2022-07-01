@@ -1,7 +1,7 @@
 apps:
  - name: dijkstra
    period: 0
-   executions: 1
+   executions: 1000
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
