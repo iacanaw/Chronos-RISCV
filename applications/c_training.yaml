@@ -1,0 +1,37 @@
+apps:
+ - name: prodcons
+   period: 57
+   executions: 500
+   tasks:
+    prod: 0
+    cons: 1
+ - name: dijkstra
+   period: 78
+   executions: 500
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dtw
+   period: 28
+   executions: 500
+   tasks:
+    bank: 0
+    p1: 1
+    p2: 2
+    p3: 3
+    p4: 4
+    recognizer: 5
+ - name: aes
+   period: 39
+   executions: 500
+   tasks:
+    aes_master: 0
+    aes_slave1: 1
+    aes_slave2: 2
+    aes_slave3: 3
+    aes_slave4: 4

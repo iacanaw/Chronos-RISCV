@@ -7,8 +7,7 @@
 #include "packet.h"
 #include "chronos.h"
 
-// Stores information about each running task
-//extern volatile Task TaskList[ NUM_MAX_TASKS ];
+extern TaskHandle_t KeeperTask_Handler;
 
 void API_TaskListInit(){
     unsigned int i, j;
@@ -179,19 +178,29 @@ void API_MigrationReady(){
     vTaskSuspend( NULL ); // the task suspend itself
 }
 
-
 void API_FinishRunningTask(){
     int i;
+    BaseType_t xHigherPriorityTaskWoken;
     unsigned int slot = API_GetCurrentTaskSlot();
+    if (slot == ERRO) prints("ERRO VIOLENTO AQUI!\n");
+    
     printsvsv("Finishing task:", TaskList[slot].TaskID, "app: ", TaskList[slot].AppID);
     printsv("From slot: ", slot);
     while(API_checkPipe(slot) == 1){
         vTaskDelay(1);
     }
-    vTaskEnterCritical();
-    printsvsv("Task ", TaskList[slot].TaskID, "deleted with sucsess! From application ", TaskList[slot].AppID);
-    TaskList[slot].status = TASK_SLOT_EMPTY;
-    
+    //vTaskEnterCritical();
+    printsvsv("Task ", TaskList[slot].TaskID, " is being deleted! From application ", TaskList[slot].AppID);
+    TaskList[slot].status = TASK_SLOT_FINISH; //TASK_SLOT_EMPTY;
+    xHigherPriorityTaskWoken = pdFALSE;
+    vTaskNotifyGiveFromISR( KeeperTask_Handler, &xHigherPriorityTaskWoken );
+    /* Force a context switch if xHigherPriorityTaskWoken is now
+    set to pdTRUE. The macro used to do this is dependent on
+    the port and may be called portEND_SWITCHING_ISR. */
+    portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
+
+}
+    /*
     for(i = 0; i < NUM_MAX_TASKS; i++){
         printsvsv("TaskList[", i, "]status: ", TaskList[i].status );
         if(TaskList[i].status != TASK_SLOT_EMPTY){
@@ -211,7 +220,7 @@ void API_FinishRunningTask(){
     vTaskDelete(TaskList[slot].TaskHandler);
     prints("deleted! \n");
     return;
-}
+}*/
 
 void API_StallTask(unsigned int app_id, unsigned int task_id){
     int slot = API_GetTaskSlot(task_id, app_id);

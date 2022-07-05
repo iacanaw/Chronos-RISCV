@@ -131,6 +131,7 @@ void API_UpdateTemperature(){
     int m, n, i = 0;
     for (m = 0; m < DIM_X; m++){
         for (n = 0; n < DIM_Y; n++){
+            Tiles[m][n].temperatureVariation = SystemTemperature[i] - Tiles[m][n].temperature;
             Tiles[m][n].temperature = SystemTemperature[i];
             i++;
         }
@@ -360,21 +361,15 @@ unsigned int API_CheckTaskToAllocate(unsigned int tick){
 void API_PrintPolicyTable(){
     int i, j;
     vTaskEnterCritical();
-    prints("policyTable = [");
+    prints("policyTable ");
     for(i = 0; i < N_TASKTYPE; i++){
-        prints(" [");
+        //prints(" [");
         for(j = 0; j < N_ACTIONS; j++){
+            prints(";");
             printi((int)(policyTable[i][j]*1000));
-            if (j != N_ACTIONS-1){
-                prints(", ");
-            }
-        }
-        if (i != N_TASKTYPE-1){
-            prints("],");
-        }else {
-            prints("] ]\n");
         }
     }
+    prints("\n");
     vTaskExitCritical();
     return;
 }
@@ -815,10 +810,10 @@ void quickSort(int arr[], int arr2[], int low, int high){
     }
 } 
 
-void API_SortAllocationVectors(unsigned int *temperature_list, unsigned int *tempVar_list, unsigned int *fit_list){
+void API_SortAllocationVectors(unsigned int *temperature_list, int *tempVar_list, unsigned int *fit_list){
     unsigned int temperature[DIM_X*DIM_Y];
     unsigned int fit[DIM_X*DIM_Y];
-    unsigned int tempVariation[DIM_X*DIM_Y];
+    int tempVariation[DIM_X*DIM_Y];
     unsigned int addr;
     unsigned int i;
     prints("Creating allocation vectors...\n");
@@ -827,9 +822,9 @@ void API_SortAllocationVectors(unsigned int *temperature_list, unsigned int *tem
         temperature_list[i] = addr;
         tempVar_list[i] = addr;
         fit_list[i] = addr;
-        temperature[i] = Tiles[getXpos(addr)][getYpos(addr)].temperature;
-        fit[i] = Tiles[getXpos(addr)][getYpos(addr)].fit;
-        tempVariation[i] = Tiles[getXpos(addr)][getYpos(addr)].temperature;
+        temperature[i] =    Tiles[getXpos(addr)][getYpos(addr)].temperature;
+        fit[i] =            Tiles[getXpos(addr)][getYpos(addr)].fit;
+        tempVariation[i] =  Tiles[getXpos(addr)][getYpos(addr)].temperatureVariation;
     }
     quickSort(temperature, temperature_list, 0, (DIM_X*DIM_Y)-1);
     quickSort(fit, fit_list, 0, (DIM_X*DIM_Y)-1);

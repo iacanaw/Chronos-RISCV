@@ -38,10 +38,11 @@ UART_instance_t g_uart;
 static void vNI_RX_HandlerTask( void *pvParameters );
 static void vNI_TX_HandlerTask( void *pvParameters );
 static void vNI_TMR_HandlerTask( void *pvParameters );
-extern TaskHandle_t NI_RX_Handler, NI_TX_Handler, NI_TMR_Handler;
+extern TaskHandle_t NI_RX_Handler, NI_TX_Handler, NI_TMR_Handler, KeeperTask_Handler;
 
 
 static void GlobalManagerTask( void *pvParameters );
+static void KeeperTask (void *pvParameters);
 
 /*
  * FreeRTOS hook for when malloc fails, enable in FreeRTOSConfig.
@@ -99,6 +100,8 @@ int main( void )
 		xTaskCreate( GlobalManagerTask, "GlobalMaster", 1024*6, NULL, (tskIDLE_PRIORITY + 1), NULL );
 	} else {
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This processor is a Slave: \n" );
+        /* Creates the KeeperTask */
+        xTaskCreate( KeeperTask, "KeeperTask", 256, NULL, (tskIDLE_PRIORITY + 4), &KeeperTask_Handler );
 	}
 	//xTaskCreate( NI_Handler, "Handler", 1024*6, NULL, (tskIDLE_PRIORITY + 2), NULL );
 
@@ -161,14 +164,14 @@ needs servicing. */
 void vNI_RX_HandlerTask( void *pvParameters ){
 	BaseType_t xEvent;
 	unsigned int aux, aux2, service, i;
-	const TickType_t xBlockTime = 10000;
+	//const TickType_t xBlockTime = 10000;
 	uint32_t ulNotifiedValue;
     //BaseType_t xHigherPriorityTaskWoken;
 
     for( ;; ){
 		/* Blocks the task until the NI interrupts it */
         ulNotifiedValue = ulTaskNotifyTake( pdFALSE,
-                                            xBlockTime );
+                                            portMAX_DELAY );
 
         // if( ulNotifiedValue > 0 ){
         //     /* Perform any processing necessitated by the interrupt. */
@@ -346,9 +349,9 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     temperatureUpdated = 1;
                     measuredWindows++;
                     API_UpdateTemperature();
-                    for(aux = 0; aux < DIM_X*DIM_Y; aux++){ 
+                    /*for(aux = 0; aux < DIM_X*DIM_Y; aux++){ 
                         printsvsv("pe", aux, "temp: ", SystemTemperature[aux]);
-                    }
+                    }*/
                     //HW_set_32bit_reg(NI_RX, DONE);
                     prints("12NI_RX DONE!\n");
                     break;
@@ -521,13 +524,13 @@ void vNI_RX_HandlerTask( void *pvParameters ){
 needs servicing. */
 void vNI_TX_HandlerTask( void *pvParameters ){
 	BaseType_t xEvent;
-	const TickType_t xBlockTime = 1000000;
+	//const TickType_t xBlockTime = 1000000;
 	uint32_t ulNotifiedValue;
 
     for( ;; ){
 		/* Blocks the task until the NI interrupts it */
         ulNotifiedValue = ulTaskNotifyTake( pdFALSE,
-                                            xBlockTime );
+                                            portMAX_DELAY );
 
         // if( ulNotifiedValue > 0 ){
         //     /* Perform any processing necessitated by the interrupt. */
@@ -556,13 +559,13 @@ void vNI_TX_HandlerTask( void *pvParameters ){
 needs servicing. */
 void vNI_TMR_HandlerTask( void *pvParameters ){
 	BaseType_t xEvent;
-	const TickType_t xBlockTime = 1000000;
+	//const TickType_t xBlockTime = 1000000;
 	uint32_t ulNotifiedValue;
 
     for( ;; ){
 		/* Blocks the task until the NI interrupts it */
         ulNotifiedValue = ulTaskNotifyTake( pdFALSE,
-                                            xBlockTime );
+                                            portMAX_DELAY );
 
         // if( ulNotifiedValue > 0 ){
         //     /* Perform any processing necessitated by the interrupt. */
@@ -853,7 +856,7 @@ static void GlobalManagerTask( void *pvParameters ){
 
                     case HIG_TEMP_VAR: // allocate in the PE with the higher temperature variation
                         for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
-                            addr = temperature_list[i];
+                            addr = tempVar_list[i];
                             slot = API_GetTaskSlotFromTile(addr, app, task);
                             if (slot != ERRO) break;
                         }
@@ -861,7 +864,7 @@ static void GlobalManagerTask( void *pvParameters ){
 
                     case LOW_TEMP_VAR: // allocate in the PE with the lower temperature variation
                         for(i = 0; i < (DIM_X*DIM_Y); i++){
-                            addr = temperature_list[i];
+                            addr = tempVar_list[i];
                             slot = API_GetTaskSlotFromTile(addr, app, task);
                             if (slot != ERRO) break;
                         }
@@ -981,4 +984,46 @@ static void GlobalManagerTask( void *pvParameters ){
 	}
 }
 
+
 #endif
+
+static void KeeperTask( void *pvParameters ){
+    BaseType_t xEvent;
+	//const TickType_t xBlockTime = 1000000;
+	uint32_t ulNotifiedValue;
+    int i;
+    for( ;; ){
+		/* Blocks the task until some task finishes up */
+        ulNotifiedValue = ulTaskNotifyTake( pdFALSE,
+                                            portMAX_DELAY );
+
+        prints("KeeperTask running...\n");
+
+        for(i = 0; i < NUM_MAX_TASKS; i++){
+            if(TaskList[i].status == TASK_SLOT_FINISH){
+                API_SendFinishTask(TaskList[i].TaskID, TaskList[i].AppID);
+                vPortFree(TaskList[i].fullAddr);
+                prints("free done \n");
+                prints("deleting... \n");
+                vTaskDelete(TaskList[i].TaskHandler);
+                prints("deleted! \n");
+                TaskList[i].status = TASK_SLOT_EMPTY;
+            }
+        }
+
+        /* checks if it's necessary to reduce the frequency */
+        for(i = 0; i < NUM_MAX_TASKS; i++){
+            printsvsv("TaskList[", i, "]status: ", TaskList[i].status );
+            if(TaskList[i].status != TASK_SLOT_EMPTY){
+                printsvsv("Returning because of: ", i, "TaskList[i].status ", TaskList[i].status);
+                i = 0xffffffff;
+                break;
+            }
+        }
+        if(i != 0xffffffff){
+            API_setFreqIdle();
+        }
+
+    }
+}
+

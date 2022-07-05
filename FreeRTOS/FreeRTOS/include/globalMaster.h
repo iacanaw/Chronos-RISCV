@@ -47,6 +47,7 @@ typedef struct{
     unsigned int temperature;   // In Kelvin
     unsigned int frequency;     // in MegaHertz
     unsigned int fit;           // Failures in time * 100
+    int temperatureVariation;   // In Kelvin
     unsigned int taskSlots;
 } Tile;
 
