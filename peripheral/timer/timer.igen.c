@@ -22,10 +22,6 @@ handlesT handles;
 //     Predefined macros PSE_DIAG_LOW, PSE_DIAG_MEDIUM and PSE_DIAG_HIGH may be used
 Uns32 diagnosticLevel;
 
-/////////////////////////////// Global Variable ////////////////////////////////
-
-volatile double timer_us = (double)0.0; // interruption timer in us ~~ default is off (zero)!
-
 /////////////////////////// Diagnostic level callback //////////////////////////
 
 static void setDiagLevel(Uns32 new) {
@@ -82,44 +78,7 @@ PPM_CONSTRUCTOR_CB(periphConstructor) {
     installRegisters();
 }
 
-//////////////////////////////// Callback stubs ////////////////////////////////
 
-PPM_REG_READ_CB(cfgRead) {
-    // YOUR CODE HERE (cfgRead)
-    return *(Uns32*)user;
-}
-
-PPM_REG_WRITE_CB(cfgWrite) {
-    unsigned int value = (double)data;
-    if(value == 0xFFFFFFFF){
-        //bhmMessage("I", "TIMER", "Timer turning interruption down!");
-        ppmWriteNet(handles.INT_TIMER, 0);
-    }
-    else{
-        timer_us = (double)value;
-        bhmMessage("I", "TIMER", "Timer set to interrupt the processor once every %.2lf us!",timer_us);
-    }
-    *(Uns32*)user = data;
-}
-
-PPM_CONSTRUCTOR_CB(constructor) {
-    // YOUR CODE HERE (pre constructor)
-    periphConstructor();
-    // YOUR CODE HERE (post constructor)
-}
-
-PPM_DESTRUCTOR_CB(destructor) {
-    // YOUR CODE HERE (destructor)
-}
-
-
-PPM_SAVE_STATE_FN(peripheralSaveState) {
-    bhmMessage("E", "PPM_RSNI", "Model does not implement save/restore");
-}
-
-PPM_RESTORE_STATE_FN(peripheralRestoreState) {
-    bhmMessage("E", "PPM_RSNI", "Model does not implement save/restore");
-}
 ///////////////////////////////////// Main /////////////////////////////////////
 
 int main(int argc, char *argv[]) {
