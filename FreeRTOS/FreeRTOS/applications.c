@@ -7,7 +7,7 @@
 #include "packet.h"
 #include "chronos.h"
 
-extern TaskHandle_t KeeperTask_Handler;
+//extern TaskHandle_t KeeperTask_Handler;
 
 void API_TaskListInit(){
     unsigned int i, j;
@@ -180,7 +180,7 @@ void API_MigrationReady(){
 
 void API_FinishRunningTask(){
     int i;
-    BaseType_t xHigherPriorityTaskWoken;
+    //BaseType_t xHigherPriorityTaskWoken;
     unsigned int slot = API_GetCurrentTaskSlot();
     if (slot == ERRO) prints("ERRO VIOLENTO AQUI!\n");
     
@@ -192,35 +192,34 @@ void API_FinishRunningTask(){
     //vTaskEnterCritical();
     printsvsv("Task ", TaskList[slot].TaskID, " is being deleted! From application ", TaskList[slot].AppID);
     TaskList[slot].status = TASK_SLOT_FINISH; //TASK_SLOT_EMPTY;
-    xHigherPriorityTaskWoken = pdFALSE;
-    vTaskNotifyGiveFromISR( KeeperTask_Handler, &xHigherPriorityTaskWoken );
+    //xHigherPriorityTaskWoken = pdFALSE;
+    //vTaskNotifyGiveFromISR( KeeperTask_Handler, &xHigherPriorityTaskWoken );
     /* Force a context switch if xHigherPriorityTaskWoken is now
     set to pdTRUE. The macro used to do this is dependent on
     the port and may be called portEND_SWITCHING_ISR. */
-    portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
+    //portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
 
-}
-    /*
+    //}
+    
     for(i = 0; i < NUM_MAX_TASKS; i++){
         printsvsv("TaskList[", i, "]status: ", TaskList[i].status );
-        if(TaskList[i].status != TASK_SLOT_EMPTY){
+        if(TaskList[i].status != TASK_SLOT_EMPTY && TaskList[i].status != TASK_SLOT_FINISH){
             printsvsv("Returning because of: ", i, "TaskList[i].status ", TaskList[i].status);
             i = 0xffffffff;
             break;
         }
     }
-    if(i != 0xffffffff){
-        API_setFreqIdle();
-    }
+    if(i != 0xffffffff){ API_setFreqIdle(); }
     API_SendFinishTask(TaskList[slot].TaskID, TaskList[slot].AppID);
     vPortFree(TaskList[slot].fullAddr);
     prints("free done \n");
+    TaskList[slot].status = TASK_SLOT_EMPTY;
     vTaskExitCritical();
     prints("deleting... \n");
     vTaskDelete(TaskList[slot].TaskHandler);
     prints("deleted! \n");
     return;
-}*/
+}
 
 void API_StallTask(unsigned int app_id, unsigned int task_id){
     int slot = API_GetTaskSlot(task_id, app_id);

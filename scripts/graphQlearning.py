@@ -24,7 +24,7 @@ with open("log_0x0.txt", "r") as log_file:
             for type in range(N_TASKTYPES):
                 for act in range(N_ACTIONS):
                     samples[type][act] = float(int(splited[idx])/1000)
-                    if int(splited[idx]) > biggest:
+                    if float(int(splited[idx])/1000) > biggest:
                         biggest = int(samples[type][act])
                     idx+=1
             #print(samples)
@@ -45,7 +45,7 @@ for act in range(N_ACTIONS):
 
         axs[act, type].plot(x, y)
         axs[act, type].set_title('Act '+str(act)+', Type '+str(type))
-        axs[act, type].text(x[len(x)-1]/2, 10,  "final: "+str(y[len(y)-1]))
+        axs[act, type].text(0, biggest+15,  "final: "+str(y[len(y)-1]))
         axs[act, type].set_ylim([0, biggest+20])
 
 for ax in axs.flat:
@@ -55,4 +55,7 @@ for ax in axs.flat:
 for ax in axs.flat:
     ax.label_outer()
 
-plt.show()
+#plt.show()
+fig = plt.gcf()
+fig.set_size_inches(18.5, 10.5)
+fig.savefig('qlearningtable.png', format='png', dpi=600)

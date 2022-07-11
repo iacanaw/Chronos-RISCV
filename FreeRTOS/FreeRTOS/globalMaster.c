@@ -387,7 +387,7 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
     ////////////////////////////////////
     // Q-learning
     API_PrintPolicyTable();
-    reward = (int)(1000000/API_getFIT(applications[app_id].tasks[task_id].addr));
+    reward = (int)(10000000/API_getFIT(applications[app_id].tasks[task_id].addr));
     printsv("reward: ", reward);
     takedAct = applications[app_id].takedAction[task_id];
     tasktype = applications[app_id].taskType[task_id];

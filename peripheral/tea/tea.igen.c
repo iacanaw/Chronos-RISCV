@@ -56,6 +56,8 @@
 #define SYSTEM_X		    DIM_X
 #define SYSTEM_Y		    DIM_Y
 
+int warnings = 0;
+
 double Binv[THERMAL_NODES][SYSTEM_SIZE];
 double Cexp[THERMAL_NODES][THERMAL_NODES];
 
@@ -332,6 +334,7 @@ PPM_PACKETNET_CB(controlUpdate) {
     }
 }
 
+
 unsigned int checkPowerReceived(){
     int i, j;
     int rtrn = 1;
@@ -348,8 +351,11 @@ unsigned int checkPowerReceived(){
             if(samples_received[j][i] == 0){
                 rtrn = 0;
                 if(warning){
+                    warnings++;
                     bhmMessage("I", "TEA", "PE [%x,%x] nao enviou seu power!",i, j);   
-                    //while(1){}
+                    if(warnings > 500){
+                        while(1){}
+                    } 
                 }
             }
         }

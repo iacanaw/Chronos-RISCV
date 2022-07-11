@@ -139,7 +139,7 @@ PPM_PACKETNET_CB(controlUpdate) {
         if(sendingPacket){
             if(routerCredit == 0){
                 // send one flit to the router
-                //bhmMessage("I", "REPO", "Flit %d sent: %x", out_packetPointer, outPacket[out_packetPointer]);
+                bhmMessage("I", "REPO", "Flit %d sent: %x", out_packetPointer, outPacket[out_packetPointer]);
                 ppmPacketnetWrite(handles.portData, &outPacket[out_packetPointer], sizeof(outPacket[out_packetPointer]));
                 
                 // Stores the size of the packet
@@ -154,6 +154,7 @@ PPM_PACKETNET_CB(controlUpdate) {
                 else{
                     out_packetPointer = 0;
                     sendingPacket = 0;
+                    bhmMessage("I", "REPO", "===============================================================");
                 }
             }
         }

@@ -50,7 +50,7 @@
 volatile ServiceHeader incommingPacket;
 
 // Holds the "NI Handler Task" task handle
-TaskHandle_t NI_RX_Handler, NI_TX_Handler, NI_TMR_Handler, KeeperTask_Handler;
+TaskHandle_t NI_RX_Handler, NI_TX_Handler, NI_TMR_Handler; // KeeperTask_Handler;
 
 
 // Sending Queue

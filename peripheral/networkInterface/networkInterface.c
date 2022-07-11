@@ -343,7 +343,7 @@ PPM_REG_WRITE_CB(statusRXWrite) {
                     control_RX = NI_STATUS_OFF;
                     setGO();
                 } else {
-                    bhmMessage("I", "statusRXWrite", "NI_STATUS_ON - estado nao esperado!\n");
+                    bhmMessage("I", "statusRXWrite", "%x - 1NI_STATUS_ON - estado nao esperado!\n",command);
                     while(1){}
                 }
                 break;
@@ -367,7 +367,7 @@ PPM_REG_WRITE_CB(statusRXWrite) {
                 if ( command == DONE ){
                     setGO();
                 } else{
-                    bhmMessage("I", "statusRXWrite", "NI_STATUS_ON - estado nao esperado!\n");
+                    bhmMessage("I", "statusRXWrite", "%x - 2NI_STATUS_ON - estado nao esperado!\n", command);
                     while(1){}
                 }
                 break;

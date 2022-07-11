@@ -121,6 +121,9 @@ then
 elif [[ $SimType == "characterize" ]]
 then
     sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 4/' FreeRTOS/main.c
+elif [[ $SimType == "chronos2" ]]
+then
+    sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 5/' FreeRTOS/main.c
 else
     echo "Error: the -m option must be defined as \"pattern\", \"pidtm\" or \"chronos\"."
     exit

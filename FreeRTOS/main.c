@@ -22,8 +22,9 @@ extern volatile unsigned int API_SystemFinish = FALSE;
     1) Pattern
     2) PIDTM
     3) CHRONOS 
-    4) CHARACTERIZATION */
-#define THERMAL_MANAGEMENT 3
+    4) CHARACTERIZATION
+    5) CHRONOS2 */
+#define THERMAL_MANAGEMENT 5
 
 /* Defines the amount of ticks to simulate - if zero then simulates until the scenario's end */
 #define SIMULATION_MAX_TICKS 0
@@ -38,11 +39,11 @@ UART_instance_t g_uart;
 static void vNI_RX_HandlerTask( void *pvParameters );
 static void vNI_TX_HandlerTask( void *pvParameters );
 static void vNI_TMR_HandlerTask( void *pvParameters );
-extern TaskHandle_t NI_RX_Handler, NI_TX_Handler, NI_TMR_Handler, KeeperTask_Handler;
+extern TaskHandle_t NI_RX_Handler, NI_TX_Handler, NI_TMR_Handler; // KeeperTask_Handler;
 
 
 static void GlobalManagerTask( void *pvParameters );
-static void KeeperTask (void *pvParameters);
+//static void KeeperTask (void *pvParameters);
 
 /*
  * FreeRTOS hook for when malloc fails, enable in FreeRTOSConfig.
@@ -101,7 +102,7 @@ int main( void )
 	} else {
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This processor is a Slave: \n" );
         /* Creates the KeeperTask */
-        xTaskCreate( KeeperTask, "KeeperTask", 256, NULL, (tskIDLE_PRIORITY + 4), &KeeperTask_Handler );
+        //xTaskCreate( KeeperTask, "KeeperTask", 256, NULL, (tskIDLE_PRIORITY + 4), &KeeperTask_Handler );
 	}
 	//xTaskCreate( NI_Handler, "Handler", 1024*6, NULL, (tskIDLE_PRIORITY + 2), NULL );
 
@@ -768,6 +769,182 @@ static void GlobalManagerTask( void *pvParameters ){
 #define HIG_FIT         4
 #define LOW_FIT         5
 
+extern float policyTable[N_TASKTYPE][N_ACTIONS] = { {201.661, 205.822, 199.128, 206.386, 199.081, 228.746},
+                                                    {261.975, 253.904, 256.355, 261.436, 311.695, 258.952},
+                                                    {255.624, 250.257, 247.782, 232.598, 240.246, 277.564} };
+
+static void GlobalManagerTask( void *pvParameters ){
+    ( void ) pvParameters;
+	unsigned int tick;
+	char str[20];
+    int x, y;
+    unsigned int apptask, app, task, slot;
+    unsigned int addr, j, i;
+    //---------------------------------------
+    // --------- Q-learning stuff -----------
+    unsigned int tp, action;
+    // Hyperparameters
+
+    float epsilon = 0.1; // 0.100 in fixed point
+    // lists to consult
+    unsigned int temperature_list[DIM_X*DIM_Y];
+    unsigned int tempVar_list[DIM_X*DIM_Y];
+    unsigned int fit_list[DIM_X*DIM_Y];
+    
+    // policy table initialization
+    /*for(tp = 0; tp < N_TASKTYPE; tp++){
+        for(action = 0; action < N_ACTIONS; action++){
+            policyTable[tp][action] = 0;
+        }
+    }*/
+
+	// Initialize the System Tiles Info
+	API_TilesReset();
+
+	// Initialize the applications vector
+    API_ApplicationsReset();
+
+	// Informs the Repository that the GLOBALMASTER is ready to receive the application info
+	API_RepositoryWakeUp();
+
+	for(;;){
+		API_setFreqScale(1000);
+        API_applyFreqScale();
+        tick = xTaskGetTickCount();
+        if(tick >= SIMULATION_MAX_TICKS) _exit(0xfe10);
+		myItoa(tick, str, 10);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
+		printsv("GlobalMasterActive", tick);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
+
+        // Checks if there is some task to allocate
+        if(API_CheckTaskToAllocate(tick)){
+            // Sorts PEs by certain attributes (temperature, temperature variation, fit)
+            API_SortAllocationVectors(temperature_list, tempVar_list, fit_list);
+
+            apptask = API_GetNextTaskToAllocate(tick);
+            printsv("apptask: ", apptask);
+            do{
+
+                app = (apptask & 0xFFFF0000) >> 16;
+                task = (apptask & 0x0000FFFF);
+                printsvsv("Allocating task ", task, "from app ", app);
+
+                if( (int)(epsilon*100) < random()%100 ){
+                    action = random() % N_ACTIONS; // Explore action space
+                } else{
+                    action = API_getMaxIdxfromRow(policyTable, applications[app].taskType[task], N_ACTIONS, N_TASKTYPE); // Exploit learned values
+                }
+
+                // register the taked action 
+                applications[app].takedAction[task] = action;
+
+                // Runs the selected action
+                switch(action){
+                    case HIG_TEMPERATURE: // allocate in the PE with the higher temperatures
+                        for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
+                            addr = temperature_list[i];
+                            slot = API_GetTaskSlotFromTile(addr, app, task);
+                            if (slot != ERRO) break;
+                        }
+                        break;
+                    
+                    case LOW_TEMPERATURE: // allocate in the PE with the lower temperature
+                        for(i = 0; i < (DIM_X*DIM_Y); i++){
+                            addr = temperature_list[i];
+                            slot = API_GetTaskSlotFromTile(addr, app, task);
+                            if (slot != ERRO) break;
+                        }
+                        break; 
+
+                    case HIG_TEMP_VAR: // allocate in the PE with the higher temperature variation
+                        for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
+                            addr = tempVar_list[i];
+                            slot = API_GetTaskSlotFromTile(addr, app, task);
+                            if (slot != ERRO) break;
+                        }
+                        break;
+
+                    case LOW_TEMP_VAR: // allocate in the PE with the lower temperature variation
+                        for(i = 0; i < (DIM_X*DIM_Y); i++){
+                            addr = tempVar_list[i];
+                            slot = API_GetTaskSlotFromTile(addr, app, task);
+                            if (slot != ERRO) break;
+                        }
+                        break; 
+
+                    case HIG_FIT: // allocate in the PE with the higher FIT
+                        for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
+                            addr = fit_list[i];
+                            slot = API_GetTaskSlotFromTile(addr, app, task);
+                            if (slot != ERRO) break;
+                        }
+                        break;
+                    
+                    case LOW_FIT: // allocate in the PE with the lower FIT
+                        for(i = 0; i < (DIM_X*DIM_Y); i++){
+                            addr = fit_list[i];
+                            slot = API_GetTaskSlotFromTile(addr, app, task);
+                            if (slot != ERRO) break;
+                        }
+                        break; 
+
+                    default:
+                        prints("Erro ao escolher a acao\n");
+                        break;
+                }
+                
+                // register the application allocation
+                applications[app].tasks[task].addr = addr;
+                applications[app].tasks[task].slot = slot;
+                applications[app].lastStart = applications[app].nextRun;
+                API_RepositoryAllocation(app, task, addr);
+                printsvsv("Allocated at: ", getXpos(addr), "- ", getYpos(addr));
+
+                // gets the next task to allocate
+                apptask = API_GetNextTaskToAllocate(tick);  
+                printsv("new apptask: ", apptask);
+            }while(apptask != 0xFFFFFFFF);
+
+        }
+		
+		// Checks if there is some task to start...
+		API_StartTasks();
+
+        // Enters in idle
+        API_setFreqIdle();
+        API_applyFreqScale();
+        
+		if(API_SystemFinish){
+            API_PrintPolicyTable();
+			vTaskDelay(100); // to cool down the system
+			_exit(0xfe10);
+		}
+		else{
+			vTaskDelay(1);
+		}
+	}
+}
+
+#elif THERMAL_MANAGEMENT == 5 // CHRONOS2
+
+#define N_TASKTYPE  3
+#define S_EMPTY     N_TASKTYPE
+#define S_1_DIAG    (1*N_TASKTYPE)*N_TASKTYPE
+#define S_2_DIAG    (2*N_TASKTYPE)*N_TASKTYPE
+#define S_3_DIAG    (3*N_TASKTYPE)*N_TASKTYPE
+#define S_4_DIAG    (4*N_TASKTYPE)*N_TASKTYPE
+
+#define N_ACTIONS   6
+
+// ACTIONS
+#define HIG_TEMPERATURE 0
+#define LOW_TEMPERATURE 1
+#define HIG_TEMP_VAR    2
+#define LOW_TEMP_VAR    3
+#define HIG_FIT         4
+#define LOW_FIT         5
+
 extern float policyTable[N_TASKTYPE][N_ACTIONS];
 
 static void GlobalManagerTask( void *pvParameters ){
@@ -987,31 +1164,35 @@ static void GlobalManagerTask( void *pvParameters ){
 
 #endif
 
-static void KeeperTask( void *pvParameters ){
+/*static void KeeperTask( void *pvParameters ){
     BaseType_t xEvent;
 	//const TickType_t xBlockTime = 1000000;
 	uint32_t ulNotifiedValue;
     int i;
     for( ;; ){
-		/* Blocks the task until some task finishes up */
+		// Blocks the task until some task finishes up 
         ulNotifiedValue = ulTaskNotifyTake( pdFALSE,
                                             portMAX_DELAY );
 
         prints("KeeperTask running...\n");
 
+        vTaskEnterCritical();
+
         for(i = 0; i < NUM_MAX_TASKS; i++){
             if(TaskList[i].status == TASK_SLOT_FINISH){
-                API_SendFinishTask(TaskList[i].TaskID, TaskList[i].AppID);
                 vPortFree(TaskList[i].fullAddr);
                 prints("free done \n");
                 prints("deleting... \n");
                 vTaskDelete(TaskList[i].TaskHandler);
                 prints("deleted! \n");
                 TaskList[i].status = TASK_SLOT_EMPTY;
+                API_SendFinishTask(TaskList[i].TaskID, TaskList[i].AppID);
             }
         }
 
-        /* checks if it's necessary to reduce the frequency */
+        vTaskExitCritical();
+
+        // checks if it's necessary to reduce the frequency
         for(i = 0; i < NUM_MAX_TASKS; i++){
             printsvsv("TaskList[", i, "]status: ", TaskList[i].status );
             if(TaskList[i].status != TASK_SLOT_EMPTY){
@@ -1020,10 +1201,13 @@ static void KeeperTask( void *pvParameters ){
                 break;
             }
         }
+        prints("Loops out \n");
         if(i != 0xffffffff){
+            prints("Applying freq reduction \n");
             API_setFreqIdle();
         }
+        prints("Done.!.\n");
 
     }
-}
+}*/
 
