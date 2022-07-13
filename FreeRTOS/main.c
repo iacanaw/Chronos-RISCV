@@ -1000,15 +1000,22 @@ static void GlobalManagerTask( void *pvParameters ){
                 task = (apptask & 0x0000FFFF);
                 printsvsv("Allocating task ", task, "from app ", app);
 
-                //
-
-                // try to get a tile slot
-                for(i = 0; i < (DIM_X*DIM_Y); i++){
-                    addr = sorted_addr[i];
-                    slot = API_GetTaskSlotFromTile(addr, app, task);
-                    if (slot != ERRO) break;
-                }
                 
+                if( (int)(epsilon*100) < random()%100 ){ // try something new
+                    // gets a random tile 
+                    do{
+                        addr = sorted_addr[random()%(DIM_X*DIM_Y)];
+                        slot = API_GetTaskSlotFromTile(addr, app, task);
+                    }while (slot == ERRO);
+                } else{ // uses the learned information
+                    // try to get the best tile slot
+                    for(i = 0; i < (DIM_X*DIM_Y); i++){
+                        addr = sorted_addr[i];
+                        slot = API_GetTaskSlotFromTile(addr, app, task);
+                        if (slot != ERRO) break;
+                    }
+                }
+
                 // register the application allocation
                 applications[app].tasks[task].addr = addr;
                 applications[app].tasks[task].slot = slot;

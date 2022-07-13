@@ -378,7 +378,7 @@ void API_PrintPolicyTable(){
 void API_PrintScoreTable(){
     int i, j;
     vTaskEnterCritical();
-    prints("policyTable ");
+    prints("scoreTable ");
     for(i = 0; i < N_TASKTYPE; i++){
         //prints(" [");
         for(j = 0; j < N_STATES; j++){
