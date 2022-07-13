@@ -352,10 +352,10 @@ unsigned int checkPowerReceived(){
                 rtrn = 0;
                 if(warning){
                     warnings++;
-                    bhmMessage("I", "TEA", "PE [%x,%x] nao enviou seu power!",i, j);   
-                    if(warnings > 500){
+                    bhmMessage("I", "TEA", "%d PE [%x,%x] nao enviou seu power!",warnings,i, j);   
+                    /*if(warnings > 500){
                         while(1){}
-                    } 
+                    } */
                 }
             }
         }
@@ -389,6 +389,7 @@ PPM_PACKETNET_CB(dataUpdate) {
     }
     
     if(checkPowerReceived()){ // Acabou de receber as energias
+        warnings = 0;
         int i;
     //if(samples_received >= DIM_X*DIM_Y){ // Acabou de receber as energias
         //samples_received = 0;

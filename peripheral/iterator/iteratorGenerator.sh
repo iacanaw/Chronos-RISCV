@@ -70,9 +70,14 @@ echo "/* Make a callback to each router */" >> iterator.igen.c
 echo "void runIterations(){  " >> iterator.igen.c
 echo "    unsigned int i=0;" >> iterator.igen.c
 echo "    unsigned int tryAgain = 0;" >> iterator.igen.c
+echo "    if(iterationN > 0x07ffffff){" >> iterator.igen.c
+echo "        iterationN = 0;" >> iterator.igen.c
+echo "    }" >> iterator.igen.c
 echo "    do{" >> iterator.igen.c
 echo "        activity = 0;" >> iterator.igen.c
 echo "        iterationN++;" >> iterator.igen.c
+echo "        //bhmMessage(\"I\", \"Iterator\", \"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\");" >> iterator.igen.c
+echo "        //bhmMessage(\"I\", \"Iterator\", \"Starting %llu round\",iterationN);" >> iterator.igen.c
 for i in $(seq 0 $N)
 do
     echo "        iteration = iterationN;" >> iterator.igen.c

@@ -119,6 +119,7 @@ void API_TilesReset(){
             Tiles[m][n].frequency = 1000;
             Tiles[m][n].fit = 0;
             Tiles[m][n].taskSlots = NUM_MAX_TASKS;
+            Tiles[m][n].taskType = -1;
             random(); // using this loop to iterate the random algorithm...
         }
     }    
@@ -374,6 +375,23 @@ void API_PrintPolicyTable(){
     return;
 }
 
+void API_PrintScoreTable(){
+    int i, j;
+    vTaskEnterCritical();
+    prints("policyTable ");
+    for(i = 0; i < N_TASKTYPE; i++){
+        //prints(" [");
+        for(j = 0; j < N_STATES; j++){
+            prints("; ");
+            printi((int)(scoreTable[i][j]*1000));
+        }
+    }
+    prints("\n");
+    vTaskExitCritical();
+    return;
+}
+
+
 void API_DealocateTask(unsigned int task_id, unsigned int app_id){
     unsigned int i, tick;
     volatile int flag;
@@ -479,6 +497,9 @@ unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsign
     }*/
     if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots > 0 && addr != MASTER_ADDR){
         Tiles[getXpos(addr)][getYpos(addr)].taskSlots = Tiles[getXpos(addr)][getYpos(addr)].taskSlots - 1;
+        if( Tiles[getXpos(addr)][getYpos(addr)].taskType < applications[app].taskType[task] || Tiles[getXpos(addr)][getYpos(addr)].taskType == -1){
+            Tiles[getXpos(addr)][getYpos(addr)].taskType = applications[app].taskType[task];
+        }
         return 1;
     }else {
         prints("returning erro5\n");
@@ -489,6 +510,9 @@ unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsign
 // Clear a slot occupied by a given task
 unsigned int API_ClearTaskSlotFromTile(unsigned int addr, unsigned int app, unsigned int task){
     Tiles[getXpos(addr)][getYpos(addr)].taskSlots++;
+    if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots == NUM_MAX_TASKS){
+        Tiles[getXpos(addr)][getYpos(addr)].taskType = -1;
+    }
     if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots > NUM_MAX_TASKS){
         prints("returning erro6\n");
         return ERRO;
@@ -808,7 +832,7 @@ void quickSort(int arr[], int arr2[], int low, int high){
         quickSort(arr, arr2, low, (pi - 1)); 
         quickSort(arr, arr2, (pi + 1), high); 
     }
-} 
+}
 
 void API_SortAllocationVectors(unsigned int *temperature_list, int *tempVar_list, unsigned int *fit_list){
     unsigned int temperature[DIM_X*DIM_Y];
@@ -837,3 +861,126 @@ void API_SortAllocationVectors(unsigned int *temperature_list, int *tempVar_list
     }*/
     return;
 }
+
+unsigned int API_getPEState(unsigned int id){
+    unsigned int addr = id2addr(id);
+    unsigned int x = getXpos(id);
+    unsigned int y = getYpos(id); 
+    unsigned int xi, yi;
+    int state_x, state_y, state_xyz, state_a, state_b, state_abc, a, b, c, z, state;
+
+    unsigned int t0_diagonal, t0_immediate, t1_diagonal, t1_immediate, t2_diagonal, t2_immediate;
+
+    unsigned int immediate[3] = {0,0,0};
+    unsigned int diagonal[3] = {0,0,0};
+    
+    // SOUTH
+    if(getSouth(x,y) != -1)
+        immediate[getSouth(x,y)]++;
+    // SOUTH-WEST
+    if(getSouthWest(x, y) != -1)
+        diagonal[getSouthWest(x, y)]++;
+    // SOUTH-EAST
+    if(getSouthEast(x, y) != -1)
+        diagonal[getSouthEast(x, y)]++;
+    // NORTH
+    if(getNorth(x, y) != -1)
+        immediate[getNorth(x,y)]++;
+    // NORTH-WEST
+    if(getNorthWest(x, y) != -1)
+        diagonal[getNorthWest(x, y)]++;
+    // NORTH-EAST
+    if(getNorthEast(x, y) != -1)
+        diagonal[getNorthEast(x, y)]++;
+    // WEST
+    if(getWest(x, y) != -1)
+        immediate[getWest(x,y)]++;
+    // EAST
+    if(getEast(x, y) != -1)
+        immediate[getEast(x,y)]++;
+     
+    x = immediate[0];
+    y = immediate[1];
+    z = immediate[2];
+
+    a = diagonal[0];
+    b = diagonal[1];
+    c = diagonal[2];
+
+
+    state_x = (int)(x ? ((x*x*x - 18*x*x + 107*x) / 6) : 0);
+    state_y = (int)(y ? ((11*y - y*y - 2*x*y) / 2) : 0);
+    state_xyz = state_x + state_y + z;
+
+    state_a = (int)(a ? ((a*a*a - 18*a*a + 107*a) / 6) : 0);
+    state_b = (int)(b ? ((11*b - b*b - 2*a*b) / 2) : 0);
+    state_abc = state_a + state_b + c;
+
+    state = state_abc*35 + state_xyz;
+    return(state);
+}
+
+int getSouth(int x, int y){
+    if(y > 0){
+        return(Tiles[x][y-1].taskType);
+    } else {
+        return(-1);
+    }
+}
+
+int getNorth(int x, int y){
+    if(y < DIM_Y-1){
+        return(Tiles[x][y+1].taskType);
+    } else {
+        return(-1);
+    }
+}
+
+int getEast(int x, int y){
+    if(x < DIM_X-1){
+        return(Tiles[x+1][y].taskType);
+    } else {
+        return(-1);
+    }
+}
+
+int getWest(int x, int y){
+    if(x > 0){
+        return(Tiles[x-1][y].taskType);
+    } else {
+        return(-1);
+    }
+}
+
+int getSouthWest(int x, int y){
+    if(x > 0 && y > 0){
+        return(Tiles[x-1][y-1].taskType);
+    } else {
+        return(-1);
+    }
+}
+
+int getSouthEast(int x, int y){
+    if(x > 0 && y > 0){
+        return(Tiles[x+1][y-1].taskType);
+    } else {
+        return(-1);
+    }
+}
+
+int getNorthWest(int x, int y){
+    if(y < DIM_Y-1 && x > 0){
+        return(Tiles[x-1][y+1].taskType);
+    } else {
+        return(-1);
+    }
+}
+
+int getNorthEast(int x, int y){
+    if(x < DIM_X-1 && y < DIM_Y-1){
+        return(Tiles[x+1][y+1].taskType);
+    } else {
+        return(-1);
+    }
+}
+ 

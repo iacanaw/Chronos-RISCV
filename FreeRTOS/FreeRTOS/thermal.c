@@ -141,9 +141,10 @@ void powerEstimation(){
         ThermalPacket.header.spent_energy     = totalEnergy;
         API_PushSendQueue(THERMAL, 0);
         prints("EnergyPckt sent\n");
-
-        // change the PE frequency to the selected one
-        API_applyFreqScale();
+    } else {
+        prints("EnergyPckt was not generated!\n");
     }
+    // change the PE frequency to the selected one
+    API_applyFreqScale();
     return;
 }

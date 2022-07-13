@@ -25,7 +25,6 @@ extern volatile unsigned int SendingQueue_tail;
 extern volatile unsigned int SystemTemperature[DIM_X*DIM_Y];
 extern volatile unsigned int SystemFIT[DIM_X*DIM_Y];
 extern volatile unsigned int temperatureUpdated;
-extern volatile unsigned int fitUpdated;
 
 static unsigned int XORTable[128] = {0xea67e5d5, 0x79a32729, 0xdc1b95b2, 0x03d66b2c, 0x34992d81, 
 0xfe3a5cbb, 0x2fd12192, 0xa4ad71f0, 0xf6af45ff, 0x862e2584, 0x4ed69471, 0xa70b6e13, 0x0479746d, 
@@ -51,7 +50,6 @@ unsigned int random(){
     unsigned bit = ((XORTable[RandomSeed & 0x7f] >> (RandomSeed & 0xF)) ^ (RandomSeed >> 2) ^ (RandomSeed >> 3) ^ (XORTable[RandomSeed & 0x7f] >> (RandomSeed & 0xF)) ) & 1;
     return RandomSeed = (RandomSeed >> 1) | (bit << 15);
 }
-
 
 ////////////////////////////////////////////////////////////
 // Initialize Chronos stuff
@@ -205,7 +203,7 @@ uint8_t External_2_IRQHandler(void){
 uint8_t External_3_IRQHandler(void){    
     BaseType_t xHigherPriorityTaskWoken;
     prints("ENTREI NA INTERRUPCAO TX\n");
-    /* Clear the interrupt. */
+    /* Clear the interrupt */
     HW_set_32bit_reg(NI_TX, HOLD);
 
     /* xHigherPriorityTaskWoken must be initialised to pdFALSE.

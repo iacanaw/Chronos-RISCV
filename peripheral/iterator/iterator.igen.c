@@ -22,6 +22,10 @@ unsigned int activity;
 void runIterations(){  
     unsigned int i=0;
     unsigned int tryAgain = 0;
+    if(iterationN > 0x07ffffff){
+        iterationN = 0;
+    }
+    bhmMessage("I", "Iterator", "~~~~~~~~~~~~~~~~~~~~~~~~~~~\nStarting %x round\n",iterationN);
     do{
         activity = 0;
         iterationN++;

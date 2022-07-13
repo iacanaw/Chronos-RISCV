@@ -9,6 +9,9 @@
 
 
 #include "timer.igen.h"
+
+extern volatile double timer_us;
+
 /////////////////////////////// Port Declarations //////////////////////////////
 
 TIMEREG_ab8_dataT TIMEREG_ab8_data;

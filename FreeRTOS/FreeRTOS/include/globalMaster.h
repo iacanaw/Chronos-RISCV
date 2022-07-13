@@ -27,7 +27,9 @@
 // q-learning stuff
 #define N_TASKTYPE  3
 #define N_ACTIONS   6
+#define N_STATES    1225
 float policyTable[N_TASKTYPE][N_ACTIONS];
+float scoreTable[N_TASKTYPE][N_STATES];
 
 // Finish 
 volatile unsigned int API_SystemFinish;
@@ -40,7 +42,6 @@ unsigned int priorityPointer;
 volatile unsigned int SystemTemperature[DIM_X*DIM_Y];
 volatile unsigned int SystemFIT[DIM_X*DIM_Y];
 volatile unsigned int temperatureUpdated;
-volatile unsigned int fitUpdated;
 
 // Tile Struct
 typedef struct{
@@ -49,6 +50,7 @@ typedef struct{
     unsigned int fit;           // Failures in time * 100
     int temperatureVariation;   // In Kelvin
     unsigned int taskSlots;
+    int taskType                //
 } Tile;
 
 // Tiles Info

@@ -93,7 +93,7 @@ int main( void )
 	/* Create the NI Handler task */
 	xTaskCreate( vNI_RX_HandlerTask, "RX_TASK", 1024, NULL, (tskIDLE_PRIORITY + 2), &NI_RX_Handler );
 	xTaskCreate( vNI_TX_HandlerTask, "TX_TASK", 1024, NULL, (tskIDLE_PRIORITY + 3), &NI_TX_Handler );
-	xTaskCreate( vNI_TMR_HandlerTask, "TMR_TASK", 1024, NULL, (tskIDLE_PRIORITY + 4), &NI_TMR_Handler );
+	xTaskCreate( vNI_TMR_HandlerTask, "TMR_TASK", 1024, NULL, (tskIDLE_PRIORITY + 3), &NI_TMR_Handler );
 
 	if (ProcessorAddr == 0x0000){
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This processor is the Global Master: \n" );
@@ -365,10 +365,9 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     break;
 
                 case FINISH_FIT_PACKET:
-                    fitUpdated = 1;
                     API_UpdateFIT();
                     for(aux = 0; aux < DIM_X*DIM_Y; aux++){ 
-                        printsvsv("pe", aux, "FIT: ", SystemFIT[aux]);
+                        printsvsv("pe state ", aux, "FIT: ", SystemFIT[aux]);
                     }
                     prints("12.5NI_RX DONE!\n");
                     break;
@@ -928,47 +927,32 @@ static void GlobalManagerTask( void *pvParameters ){
 
 #elif THERMAL_MANAGEMENT == 5 // CHRONOS2
 
-#define N_TASKTYPE  3
-#define S_EMPTY     N_TASKTYPE
-#define S_1_DIAG    (1*N_TASKTYPE)*N_TASKTYPE
-#define S_2_DIAG    (2*N_TASKTYPE)*N_TASKTYPE
-#define S_3_DIAG    (3*N_TASKTYPE)*N_TASKTYPE
-#define S_4_DIAG    (4*N_TASKTYPE)*N_TASKTYPE
-
-#define N_ACTIONS   6
-
-// ACTIONS
-#define HIG_TEMPERATURE 0
-#define LOW_TEMPERATURE 1
-#define HIG_TEMP_VAR    2
-#define LOW_TEMP_VAR    3
-#define HIG_FIT         4
-#define LOW_FIT         5
-
-extern float policyTable[N_TASKTYPE][N_ACTIONS];
+extern float scoreTable[N_TASKTYPE][N_STATES];
 
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
-	unsigned int tick;
+	unsigned int tick, toprint;
 	char str[20];
     int x, y;
-    unsigned int apptask, app, task, slot;
+    unsigned int apptask, app, task, slot, taskType;
     unsigned int addr, j, i;
+
+    static unsigned int sorted_addr[DIM_X*DIM_Y];
+    static unsigned int sorted_score[DIM_X*DIM_Y];
+
     //---------------------------------------
     // --------- Q-learning stuff -----------
-    unsigned int tp, action;
+    unsigned int tp, state, maxid;
     // Hyperparameters
-
     float epsilon = 0.1; // 0.100 in fixed point
-    // lists to consult
-    unsigned int temperature_list[DIM_X*DIM_Y];
-    unsigned int tempVar_list[DIM_X*DIM_Y];
-    unsigned int fit_list[DIM_X*DIM_Y];
-    
+    float alpha = 0.1;
+    float gamma = 0.6;
+    float oldvalue, maxval, reward;
+
     // policy table initialization
     for(tp = 0; tp < N_TASKTYPE; tp++){
-        for(action = 0; action < N_ACTIONS; action++){
-            policyTable[tp][action] = 0;
+        for(state = 0; state < N_STATES; state++){
+            scoreTable[tp][state] = 0;
         }
     }
 
@@ -993,8 +977,20 @@ static void GlobalManagerTask( void *pvParameters ){
 
         // Checks if there is some task to allocate
         if(API_CheckTaskToAllocate(tick)){
-            // Sorts PEs by certain attributes (temperature, temperature variation, fit)
-            API_SortAllocationVectors(temperature_list, tempVar_list, fit_list);
+
+            // fill the auxiliar vectors
+            for( i = 0; i < DIM_X*DIM_Y; i++){
+                sorted_addr[i] = id2addr(i);
+                sorted_score[i] = (int)(scoreTable[applications[app].taskType[task]][API_getPEState(i)]*1000);
+                //printsvsv("addr: ", sorted_addr[i], "score: ", sorted_score[i]);
+            }
+            
+            // sort addrs by score
+            quickSort(sorted_score, sorted_addr, 0, DIM_X*DIM_Y-1);
+
+            // for( i = 0; i < DIM_X*DIM_Y; i++){
+            //     printsvsv("sorted addr: ", sorted_addr[i], "sorted score: ", sorted_score[i]);
+            // }
 
             apptask = API_GetNextTaskToAllocate(tick);
             printsv("apptask: ", apptask);
@@ -1004,68 +1000,13 @@ static void GlobalManagerTask( void *pvParameters ){
                 task = (apptask & 0x0000FFFF);
                 printsvsv("Allocating task ", task, "from app ", app);
 
-                if( (int)(epsilon*100) < random()%100 ){
-                    action = random() % N_ACTIONS; // Explore action space
-                } else{
-                    action = API_getMaxIdxfromRow(policyTable, applications[app].taskType[task], N_ACTIONS, N_TASKTYPE); // Exploit learned values
-                }
+                //
 
-                // register the taked action 
-                applications[app].takedAction[task] = action;
-
-                // Runs the selected action
-                switch(action){
-                    case HIG_TEMPERATURE: // allocate in the PE with the higher temperatures
-                        for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
-                            addr = temperature_list[i];
-                            slot = API_GetTaskSlotFromTile(addr, app, task);
-                            if (slot != ERRO) break;
-                        }
-                        break;
-                    
-                    case LOW_TEMPERATURE: // allocate in the PE with the lower temperature
-                        for(i = 0; i < (DIM_X*DIM_Y); i++){
-                            addr = temperature_list[i];
-                            slot = API_GetTaskSlotFromTile(addr, app, task);
-                            if (slot != ERRO) break;
-                        }
-                        break; 
-
-                    case HIG_TEMP_VAR: // allocate in the PE with the higher temperature variation
-                        for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
-                            addr = tempVar_list[i];
-                            slot = API_GetTaskSlotFromTile(addr, app, task);
-                            if (slot != ERRO) break;
-                        }
-                        break;
-
-                    case LOW_TEMP_VAR: // allocate in the PE with the lower temperature variation
-                        for(i = 0; i < (DIM_X*DIM_Y); i++){
-                            addr = tempVar_list[i];
-                            slot = API_GetTaskSlotFromTile(addr, app, task);
-                            if (slot != ERRO) break;
-                        }
-                        break; 
-
-                    case HIG_FIT: // allocate in the PE with the higher FIT
-                        for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
-                            addr = fit_list[i];
-                            slot = API_GetTaskSlotFromTile(addr, app, task);
-                            if (slot != ERRO) break;
-                        }
-                        break;
-                    
-                    case LOW_FIT: // allocate in the PE with the lower FIT
-                        for(i = 0; i < (DIM_X*DIM_Y); i++){
-                            addr = fit_list[i];
-                            slot = API_GetTaskSlotFromTile(addr, app, task);
-                            if (slot != ERRO) break;
-                        }
-                        break; 
-
-                    default:
-                        prints("Erro ao escolher a acao\n");
-                        break;
+                // try to get a tile slot
+                for(i = 0; i < (DIM_X*DIM_Y); i++){
+                    addr = sorted_addr[i];
+                    slot = API_GetTaskSlotFromTile(addr, app, task);
+                    if (slot != ERRO) break;
                 }
                 
                 // register the application allocation
@@ -1080,6 +1021,42 @@ static void GlobalManagerTask( void *pvParameters ){
                 printsv("new apptask: ", apptask);
             }while(apptask != 0xFFFFFFFF);
 
+        } else { // updates the score table
+            
+            for(i = 0; i < DIM_X*DIM_Y; i++){
+                addr = id2addr(i);
+
+                // gets the tasktype that is running in the PE 
+                taskType = Tiles[getXpos(addr)][getYpos(addr)].taskType;
+
+                // if the PE is running some task
+                if( taskType != -1 ){
+
+                    // gets the current PE state
+                    state = API_getPEState(i);
+
+                    // calculates the reward
+                    reward = (int)(10000000/API_getFIT(addr));
+                    printsvsv("addr ", addr, "woned reward: ", reward);
+
+                    // gets the old value
+                    oldvalue = scoreTable[taskType][state];
+
+                    // gets the max value from the table
+                    maxid = API_getMaxIdxfromRow(scoreTable, taskType, N_STATES, N_TASKTYPE);
+                    maxval = scoreTable[taskType][maxid];
+
+                    // updates the score table
+                    scoreTable[taskType][state] = (1 - alpha) * oldvalue + alpha * ( reward + gamma * maxval);
+                    
+                    // print score table
+                    toprint++;
+                    if(toprint > 100){
+                        API_PrintScoreTable();
+                        toprint=0;
+                    }
+                }
+            }
         }
 		
 		// Checks if there is some task to start...
@@ -1163,51 +1140,4 @@ static void GlobalManagerTask( void *pvParameters ){
 
 
 #endif
-
-/*static void KeeperTask( void *pvParameters ){
-    BaseType_t xEvent;
-	//const TickType_t xBlockTime = 1000000;
-	uint32_t ulNotifiedValue;
-    int i;
-    for( ;; ){
-		// Blocks the task until some task finishes up 
-        ulNotifiedValue = ulTaskNotifyTake( pdFALSE,
-                                            portMAX_DELAY );
-
-        prints("KeeperTask running...\n");
-
-        vTaskEnterCritical();
-
-        for(i = 0; i < NUM_MAX_TASKS; i++){
-            if(TaskList[i].status == TASK_SLOT_FINISH){
-                vPortFree(TaskList[i].fullAddr);
-                prints("free done \n");
-                prints("deleting... \n");
-                vTaskDelete(TaskList[i].TaskHandler);
-                prints("deleted! \n");
-                TaskList[i].status = TASK_SLOT_EMPTY;
-                API_SendFinishTask(TaskList[i].TaskID, TaskList[i].AppID);
-            }
-        }
-
-        vTaskExitCritical();
-
-        // checks if it's necessary to reduce the frequency
-        for(i = 0; i < NUM_MAX_TASKS; i++){
-            printsvsv("TaskList[", i, "]status: ", TaskList[i].status );
-            if(TaskList[i].status != TASK_SLOT_EMPTY){
-                printsvsv("Returning because of: ", i, "TaskList[i].status ", TaskList[i].status);
-                i = 0xffffffff;
-                break;
-            }
-        }
-        prints("Loops out \n");
-        if(i != 0xffffffff){
-            prints("Applying freq reduction \n");
-            API_setFreqIdle();
-        }
-        prints("Done.!.\n");
-
-    }
-}*/
 

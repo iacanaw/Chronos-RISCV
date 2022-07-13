@@ -347,7 +347,7 @@ unsigned int bufferPop(unsigned int port){
         }
 
         // Updates the routing table, releasing the output port
-        // bhmMessage("INFO", "ROUTER", ">>>>> %x - Porta de saída %d ficou livre\n", myAddress, port);
+        //bhmMessage("INFO", "ROUTER", ">>>>> %x - BUFFER %d FINISHED THE TRANSMITTION - PORT %d IS FREE!", myAddress, port, routingTable[port]);
         routingTable[port] = ND;
 
         // Inform that the next flit will be a header
@@ -445,7 +445,7 @@ unsigned int selectPort(){
 // Allocates the output port to the given selPort if it is available
 void allocate(unsigned int port){
     if(port != ND){
-        // bhmMessage("I", "router", "%x Tentando alocar a porta %d", myAddress, port);
+        //bhmMessage("I", "router", "%x Tentando alocar a porta %d", myAddress, port);
     }
     unsigned int header, to, checkport, allowed;
     // In the first place, verify if the port is not connected to any thing and has something to transmitt 
@@ -475,7 +475,7 @@ void allocate(unsigned int port){
                // bhmMessage("I", "router", "%x conectado com sucesso! %d -> %d", myAddress, port, to);
             }
             // Connect the buffer to the output
-            // bhmMessage("INFO", "ROUTER", ">>>>> %x - Porta %d saindo pela porta %d\n", myAddress, port, to);
+            //bhmMessage("INFO", "ROUTER", ">>>>> %x - BUFFER %d OUTPUTING THROUGHT PORT: %d", myAddress, port, to);
             routingTable[port] = to;
             // and compute a packet transmittion
             countTotalPackets[to] = countTotalPackets[to]+1;
@@ -624,7 +624,7 @@ void transmitt(){
             if((routingTable[port] < ND) && (!isEmpty(port))){
 
                 // Checks if at least one tick has passed since the flit arrived in this router
-                if ((currentTime > buffers[port][first[port]].inTime)||((port == LOCAL) && (lastTickLocal != currentTime))) { // MAYBE lastTickLocal IS LEGACY!
+                if ((currentTime > buffers[port][first[port]].inTime)||((port == LOCAL))){ // && (lastTickLocal != currentTime))) { // MAYBE lastTickLocal IS LEGACY!
 
                     // Transmit it to the LOCAL router
                     if(routingTable[port] == LOCAL){
@@ -768,6 +768,7 @@ void iterate(){
     // Runs the transmittion of one flit to each direction (if there is a connection stablished)
     transmitt();
     //
+    //if(!activity) printRouterInfo();
     ppmPacketnetWrite(handles.iterationsPort, &activity, sizeof(activity));
 }
 
@@ -888,14 +889,23 @@ PPM_PACKETNET_CB(dataWest) {
 }
 
 PPM_PACKETNET_CB(iterationPort) {
+    int i,j ;
     // Stores the actual iteration time
     currentTime = *(unsigned long long int *)data;
 
-    //Checks if it is a local iteration
-    /*if((currentTime >> 31) == 1){
-        myIterationStatusLocal = ITERATION_RELEASED_LOCAL;
-        currentTime = (unsigned long long int )(0x7FFFFFFFULL & currentTime);
-    }*/
+    if(currentTime == 1){
+        bhmMessage("I", "Router", "%x - reseting timers\n", myAddress);
+            // reset the entering time
+        enteringTime = currentTime;
+
+        // reset buffer timers
+        for(i = 0; i < N_PORTS; i++){
+            for( j = 0; j < BUFFER_SIZE; j++){
+                buffers[i][j].inTime = currentTime-1;
+            }
+        }
+    }
+    
     //Runs iterate
     iterate();
 }
@@ -920,11 +930,11 @@ PPM_RESTORE_STATE_FN(peripheralRestoreState) {
 }
 
 void printRouterInfo(){
-    // bhmMessage("I", "ROUTER", "> Router %x status:", myAddress);
-    // bhmMessage("I", "ROUTER", "\t-0 EAST  Connected to: %x \t\tCredit: %x",routingTable[EAST],  control[routingTable[EAST]]);
-    // bhmMessage("I", "ROUTER", "\t-1 WEST  Connected to: %x \t\tCredit: %x",routingTable[WEST],  control[routingTable[WEST]]);
-    // bhmMessage("I", "ROUTER", "\t-2 NORTH Connected to: %x \t\tCredit: %x",routingTable[NORTH], control[routingTable[NORTH]]);
-    // bhmMessage("I", "ROUTER", "\t-3 SOUTH Connected to: %x \t\tCredit: %x",routingTable[SOUTH], control[routingTable[SOUTH]]);
-    // bhmMessage("I", "ROUTER", "\t-4 LOCAL Connected to: %x \t\tCredit: %x",routingTable[LOCAL], control[routingTable[LOCAL]]);
-    // bhmMessage("I", "ROUTER", "======================================================================");
+    bhmMessage("I", "ROUTER", "> Router %x status:", myAddress);
+    bhmMessage("I", "ROUTER", "\t-0 EAST  Connected to: %x \t\tCredit: %x",routingTable[EAST],  control[routingTable[EAST]]);
+    bhmMessage("I", "ROUTER", "\t-1 WEST  Connected to: %x \t\tCredit: %x",routingTable[WEST],  control[routingTable[WEST]]);
+    bhmMessage("I", "ROUTER", "\t-2 NORTH Connected to: %x \t\tCredit: %x",routingTable[NORTH], control[routingTable[NORTH]]);
+    bhmMessage("I", "ROUTER", "\t-3 SOUTH Connected to: %x \t\tCredit: %x",routingTable[SOUTH], control[routingTable[SOUTH]]);
+    bhmMessage("I", "ROUTER", "\t-4 LOCAL Connected to: %x \t\tCredit: %x",routingTable[LOCAL], control[routingTable[LOCAL]]);
+    bhmMessage("I", "ROUTER", "======================================================================");
 }

@@ -1,12 +1,12 @@
 apps:
  - name: prodcons
-   period: 47
+   period: 44
    executions: 200
    tasks:
     prod: 0
     cons: 1
  - name: dijkstra
-   period: 42
+   period: 41
    executions: 300
    tasks:
     dijkstra_0: 0
@@ -17,7 +17,7 @@ apps:
     print_dij: 5
     divider: 6
  - name: dtw
-   period: 9
+   period: 10
    executions: 200
    tasks:
     bank: 0
@@ -27,7 +27,7 @@ apps:
     p4: 4
     recognizer: 5
  - name: dijkstra
-   period: 22
+   period: 18
    executions: 300
    tasks:
     dijkstra_0: 0
