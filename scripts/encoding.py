@@ -29,6 +29,15 @@ def getState2(x, y, z, a, b, c):
 
     return state
 
+def getState3(a, b, c):
+    state_a = (int)(0 if a == 0 else (a**3 - 18*a**2 + 107*a) / 6)
+    state_b = (int)(0 if b == 0 else (11*b - b**2 - 2*a*b)/2)
+    state_abc = state_a + state_b + c
+
+    state = state_abc
+
+    return state
+
 
 print("Possible States: ")
 i = 0
@@ -48,6 +57,18 @@ for a in range(5):
                                 else:
                                     print("State "+str(i)+": ("+str(x)+", "+ str(y)+", "+str(z)+", "+str(a)+", "+ str(b)+", "+str(c)+") => getState = "+str(getState2(x,y,z,a,b,c)))                               
                                 i+=1
+
+for a in range(5):
+    for b in range(5):
+        for c in range(5):
+            if a+b+c <= 4:
+                print("State("+str(a)+", "+str(b)+", "+str(c)+") = "+str(getState3(a,b,c)))
+
+
+print("Testing")
+print(getState2(1,0,0,0,0,0))
+print(getState2(0,0,3,0,0,0))
+print(getState2(0,0,3,1,0,0))
 
 print("Errors: "+str(erro_2))
  

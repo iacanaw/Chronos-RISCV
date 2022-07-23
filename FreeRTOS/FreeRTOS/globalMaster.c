@@ -333,6 +333,7 @@ void API_AllocateTasks(unsigned int tick){
                         applications[i].tasks[j].addr = addr;
                         applications[i].tasks[j].slot = slot;
                         API_RepositoryAllocation(i, j, addr);
+                        debug_task_alloc(tick, i, j, addr);
                     }
 
                     // Resets the lastStart
@@ -359,7 +360,83 @@ unsigned int API_CheckTaskToAllocate(unsigned int tick){
     return 0;
 }
 
-void API_PrintPolicyTable(){
+unsigned int API_GetSmallerFITCluster(unsigned int size){
+    unsigned int cluster_size, base_addr, i, j;
+    int smallFIT = 0x7FFFFFFF;
+    int fit = 0;
+    unsigned int cluster = 0; // (size << 16 | base_addr)
+
+    cluster_size = API_minClusterSize(size);
+    printsvsv("requesting size: ", size, "calculated: ", cluster_size);
+    do{
+        for(i = 0; i <= (DIM_X-cluster_size); i++){
+            for(j = 0; j <= (DIM_Y-cluster_size); j++){
+                base_addr = makeAddress(i, j);
+                fit = API_CheckCluster(base_addr, cluster_size, size);
+                if (fit < smallFIT && fit != 0){
+                    smallFIT = fit;
+                    cluster = (cluster_size << 16) | base_addr;
+                }
+            }
+        }
+        cluster_size++;
+        if(cluster_size > DIM_X || cluster_size > DIM_Y){
+            break;
+        }
+    }while(cluster == 0);
+    if (cluster == 0) {
+        cluster = (DIM_X << 16) | makeAddress(0,0);
+    }
+    return cluster;
+}
+
+unsigned int API_CheckCluster(unsigned int base_addr, unsigned int cluster_size, unsigned int size){
+    unsigned int x;
+    unsigned int y;
+    unsigned int accumulated = 0;
+    unsigned int FIT = 0;
+
+    for(x = getXpos(base_addr); x < (getXpos(base_addr)+cluster_size)-1; x++){
+        for(y = getYpos(base_addr); y < (getYpos(base_addr)+cluster_size)-1; y++){
+            accumulated = accumulated + Tiles[x][y].taskSlots;
+            FIT = FIT + Tiles[x][y].fit;
+        }
+    }
+    if(accumulated >= size) return FIT;
+    else return 0;
+}
+
+unsigned int API_minClusterSize(unsigned int size){
+    //printf(("sqrt input should be non-negative", n > 0));
+
+    // Xₙ₊₁
+    unsigned int x = size;
+
+    // cₙ
+    unsigned int c = 0;
+
+    // dₙ which starts at the highest power of four <= n
+    unsigned int d = 1 << 30; // The second-to-top bit is set.
+                         // Same as ((unsigned) INT32_MAX + 1) / 2.
+    while (d > size)
+        d >>= 2;
+
+    // for dₙ … d₀
+    while (d != 0) {
+        if (x >= c + d) {      // if Xₘ₊₁ ≥ Yₘ then aₘ = 2ᵐ
+            x -= c + d;        // Xₘ = Xₘ₊₁ - Yₘ
+            c = (c >> 1) + d;  // cₘ₋₁ = cₘ/2 + dₘ (aₘ is 2ᵐ)
+        }
+        else {
+            c >>= 1;           // cₘ₋₁ = cₘ/2      (aₘ is 0)
+        }
+        d >>= 2;               // dₘ₋₁ = dₘ/4
+    }
+    if((c*c)%size != 0) c++;
+    return c;                  // c₋₁
+}
+
+/*void API_PrintPolicyTable(){
     int i, j;
     vTaskEnterCritical();
     prints("policyTable ");
@@ -373,20 +450,26 @@ void API_PrintPolicyTable(){
     prints("\n");
     vTaskExitCritical();
     return;
-}
+}*/
 
-void API_PrintScoreTable(){
+void API_PrintScoreTable(float scoreTable[N_TASKTYPE][N_STATES]){
     int i, j;
     vTaskEnterCritical();
-    prints("scoreTable ");
+    prints("scoreTable = { ");
     for(i = 0; i < N_TASKTYPE; i++){
-        //prints(" [");
+        prints(" {");
         for(j = 0; j < N_STATES; j++){
-            prints("; ");
             printi((int)(scoreTable[i][j]*1000));
+            if(j != N_STATES-1){
+                prints(", ");
+            }
+        }
+        prints(" }");
+        if (i != N_TASKTYPE-1){
+            prints(",\n");
         }
     }
-    prints("\n");
+    prints(" };");
     vTaskExitCritical();
     return;
 }
@@ -402,19 +485,21 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
     float gamma = 0.6;
     //////////////////
     applications[app_id].tasks[task_id].status = TASK_FINISHED;
-    ////////////////////////////////////
-    // Q-learning
-    API_PrintPolicyTable();
-    reward = (int)(10000000/API_getFIT(applications[app_id].tasks[task_id].addr));
-    printsv("reward: ", reward);
-    takedAct = applications[app_id].takedAction[task_id];
-    tasktype = applications[app_id].taskType[task_id];
-    oldvalue = policyTable[tasktype][takedAct];
-    next_maxid = API_getMaxIdxfromRow(policyTable, tasktype, N_ACTIONS, N_TASKTYPE);
-    next_max = policyTable[tasktype][next_maxid];
-    newvalue = (1 - alpha) * oldvalue + alpha * ( reward + gamma * next_max);
-    policyTable[tasktype][takedAct] = newvalue;
-    ////////////////////////////////////
+
+    debug_task_dealloc(xTaskGetTickCount(), app_id, task_id, applications[app_id].tasks[task_id].addr);
+    // ////////////////////////////////////
+    // // Q-learning
+    // API_PrintPolicyTable();
+    // reward = (int)(10000000/API_getFIT(applications[app_id].tasks[task_id].addr));
+    // printsv("reward: ", reward);
+    // takedAct = applications[app_id].takedAction[task_id];
+    // tasktype = applications[app_id].taskType[task_id];
+    // oldvalue = policyTable[tasktype][takedAct];
+    // next_maxid = API_getMaxIdxfromRow(policyTable, tasktype, N_ACTIONS, N_TASKTYPE);
+    // next_max = policyTable[tasktype][next_maxid];
+    // newvalue = (1 - alpha) * oldvalue + alpha * ( reward + gamma * next_max);
+    // policyTable[tasktype][takedAct] = newvalue;
+    // ////////////////////////////////////
     // verify if every task has finished
     flag = 1;
     for (i = 0; i < applications[app_id].numTasks; i++){
@@ -864,34 +949,36 @@ void API_SortAllocationVectors(unsigned int *temperature_list, int *tempVar_list
 
 unsigned int API_getPEState(unsigned int id){
     unsigned int addr = id2addr(id);
-    unsigned int x = getXpos(id);
-    unsigned int y = getYpos(id); 
+    unsigned int x = getXpos(addr);
+    unsigned int y = getYpos(addr); 
     unsigned int xi, yi;
     int state_x, state_y, state_xyz, state_a, state_b, state_abc, a, b, c, z, state;
 
-    unsigned int t0_diagonal, t0_immediate, t1_diagonal, t1_immediate, t2_diagonal, t2_immediate;
-
-    unsigned int immediate[3] = {0,0,0};
-    unsigned int diagonal[3] = {0,0,0};
+    unsigned int immediate[N_TASKTYPE];
+    //unsigned int diagonal[N_TASKTYPE];
+    for(a = 0; a < N_TASKTYPE; a++){
+        immediate[a] = 0;
+        //diagonal[a] = 0;
+    }
     
     // SOUTH
     if(getSouth(x,y) != -1)
         immediate[getSouth(x,y)]++;
-    // SOUTH-WEST
-    if(getSouthWest(x, y) != -1)
-        diagonal[getSouthWest(x, y)]++;
-    // SOUTH-EAST
-    if(getSouthEast(x, y) != -1)
-        diagonal[getSouthEast(x, y)]++;
+    // // SOUTH-WEST
+    // if(getSouthWest(x, y) != -1)
+    //     diagonal[getSouthWest(x, y)]++;
+    // // SOUTH-EAST
+    // if(getSouthEast(x, y) != -1)
+    //     diagonal[getSouthEast(x, y)]++;
     // NORTH
     if(getNorth(x, y) != -1)
         immediate[getNorth(x,y)]++;
-    // NORTH-WEST
-    if(getNorthWest(x, y) != -1)
-        diagonal[getNorthWest(x, y)]++;
-    // NORTH-EAST
-    if(getNorthEast(x, y) != -1)
-        diagonal[getNorthEast(x, y)]++;
+    // // NORTH-WEST
+    // if(getNorthWest(x, y) != -1)
+    //     diagonal[getNorthWest(x, y)]++;
+    // // NORTH-EAST
+    // if(getNorthEast(x, y) != -1)
+    //     diagonal[getNorthEast(x, y)]++;
     // WEST
     if(getWest(x, y) != -1)
         immediate[getWest(x,y)]++;
@@ -903,26 +990,31 @@ unsigned int API_getPEState(unsigned int id){
     y = immediate[1];
     z = immediate[2];
 
-    a = diagonal[0];
-    b = diagonal[1];
-    c = diagonal[2];
-
+    // a = diagonal[0];
+    // b = diagonal[1];
+    // c = diagonal[2];
 
     state_x = (int)(x ? ((x*x*x - 18*x*x + 107*x) / 6) : 0);
     state_y = (int)(y ? ((11*y - y*y - 2*x*y) / 2) : 0);
     state_xyz = state_x + state_y + z;
 
-    state_a = (int)(a ? ((a*a*a - 18*a*a + 107*a) / 6) : 0);
-    state_b = (int)(b ? ((11*b - b*b - 2*a*b) / 2) : 0);
-    state_abc = state_a + state_b + c;
+    // state_a = (int)(a ? ((a*a*a - 18*a*a + 107*a) / 6) : 0);
+    // state_b = (int)(b ? ((11*b - b*b - 2*a*b) / 2) : 0);
+    // state_abc = state_a + state_b + c;
 
-    state = state_abc*35 + state_xyz;
+// #if THERMAL_MANAGEMENT == 6 //CHRONOS3
+    state = state_xyz;
+// #else // THERMAL_MANAGEMENT == 5 //CHRONOS2 
+//     state = state_abc*35 + state_xyz;
+// #endif
+    if(state >= N_STATES) printsv("ERRO CALCULANDO ESTADO: ", state);
     return(state);
 }
 
 int getSouth(int x, int y){
     if(y > 0){
-        return(Tiles[x][y-1].taskType);
+        /*if(makeAddress(x,y-1) == GLOBAL_MASTER_ADDR) return 2;
+        else*/ return(Tiles[x][y-1].taskType);
     } else {
         return(-1);
     }
@@ -930,7 +1022,8 @@ int getSouth(int x, int y){
 
 int getNorth(int x, int y){
     if(y < DIM_Y-1){
-        return(Tiles[x][y+1].taskType);
+        /*if(makeAddress(x,y+1) == GLOBAL_MASTER_ADDR) return 2;
+        else*/ return(Tiles[x][y+1].taskType);
     } else {
         return(-1);
     }
@@ -938,7 +1031,8 @@ int getNorth(int x, int y){
 
 int getEast(int x, int y){
     if(x < DIM_X-1){
-        return(Tiles[x+1][y].taskType);
+        /*if(makeAddress(x+1,y) == GLOBAL_MASTER_ADDR) return 2;
+        else*/ return(Tiles[x+1][y].taskType);
     } else {
         return(-1);
     }
@@ -946,7 +1040,8 @@ int getEast(int x, int y){
 
 int getWest(int x, int y){
     if(x > 0){
-        return(Tiles[x-1][y].taskType);
+        /*if(makeAddress(x-1,y) == GLOBAL_MASTER_ADDR) return 2;
+        else*/ return(Tiles[x-1][y].taskType);
     } else {
         return(-1);
     }
@@ -954,7 +1049,8 @@ int getWest(int x, int y){
 
 int getSouthWest(int x, int y){
     if(x > 0 && y > 0){
-        return(Tiles[x-1][y-1].taskType);
+        /*if(makeAddress(x-1,y-1) == GLOBAL_MASTER_ADDR) return 2;
+        else*/ return(Tiles[x-1][y-1].taskType);
     } else {
         return(-1);
     }
@@ -962,7 +1058,8 @@ int getSouthWest(int x, int y){
 
 int getSouthEast(int x, int y){
     if(x > 0 && y > 0){
-        return(Tiles[x+1][y-1].taskType);
+        /*if(makeAddress(x+1,y-1) == GLOBAL_MASTER_ADDR) return 2;
+        else*/ return(Tiles[x+1][y-1].taskType);
     } else {
         return(-1);
     }
@@ -970,7 +1067,8 @@ int getSouthEast(int x, int y){
 
 int getNorthWest(int x, int y){
     if(y < DIM_Y-1 && x > 0){
-        return(Tiles[x-1][y+1].taskType);
+        /*if(makeAddress(x-1,y+1) == GLOBAL_MASTER_ADDR) return 2;
+        else*/ return(Tiles[x-1][y+1].taskType);
     } else {
         return(-1);
     }
@@ -978,7 +1076,8 @@ int getNorthWest(int x, int y){
 
 int getNorthEast(int x, int y){
     if(x < DIM_X-1 && y < DIM_Y-1){
-        return(Tiles[x+1][y+1].taskType);
+        /*if(makeAddress(x+1,y+1) == GLOBAL_MASTER_ADDR) return 2;
+        else*/ return(Tiles[x+1][y+1].taskType);
     } else {
         return(-1);
     }

@@ -26,10 +26,7 @@
 
 // q-learning stuff
 #define N_TASKTYPE  3
-#define N_ACTIONS   6
-#define N_STATES    1225
-float policyTable[N_TASKTYPE][N_ACTIONS];
-float scoreTable[N_TASKTYPE][N_STATES];
+#define N_STATES    35
 
 // Finish 
 volatile unsigned int API_SystemFinish;
@@ -143,5 +140,11 @@ void API_UpdateTemperature();
 void API_UpdateFIT();
 
 void API_PrintPolicyTable();
+
+unsigned int API_GetSmallerFITCluster(unsigned int size);
+
+unsigned int API_CheckCluster(unsigned int base_addr, unsigned int cluster_size, unsigned int size);
+
+unsigned int API_minClusterSize(unsigned int size);
 
 #endif

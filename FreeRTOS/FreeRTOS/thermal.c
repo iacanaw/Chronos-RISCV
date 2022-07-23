@@ -102,7 +102,7 @@ void powerEstimation(){
 
         // calculates the ROUTER dynamic energy
         dynamicEnergy_Router = (idleNoCEnergy + activeNoCEnergy) >> 6;
-        printsv("dynamicEnergy_Router >> ", dynamicEnergy_Router);
+        // printsv("dynamicEnergy_Router >> ", dynamicEnergy_Router);
 
         // reads the number of each type of instruction executed in the last window
         loads = HW_get_32bit_reg(LOADS_COUNT);
@@ -119,10 +119,11 @@ void powerEstimation(){
         // calculates the PE dynamic energy
         dynamicEnergy_PE = ((arithDyn[Voltage] * others)) + ((loadStoreDyn[Voltage] * (loads + stores)));
         dynamicEnergy_PE = dynamicEnergy_PE >> 6;
-        //printsv("dynamicEnergy_PE >> 6: ", dynamicEnergy_PE);
+        // printsv("dynamicEnergy_PE >> 6: ", dynamicEnergy_PE);
 
         // calculates the PE leakage energy
         leakEnergy_PE = (unsigned int)((PE_LEAKAGE * 1000000) * 0.001) >> 6; // mW => pW * s => pJ
+        // printsv("leakEnergy_PE >> 6: ", leakEnergy_PE);
 
         // calculates the MEM dynamic energy
         dynamicEnergy_MEM = (readEnergyMemory[Voltage] * loads) + (writeEnergyMemory[Voltage] * stores);

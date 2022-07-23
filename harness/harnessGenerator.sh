@@ -216,7 +216,7 @@ echo "        opMessage(\"I\", \"HARNESS INFO\", \"================== INICIALIZA
 echo "    " >> harness.c
 echo "        if (runningPE == 0){" >> harness.c
 echo "            opMessage(\"I\", \"HARNESS INFO\", \"\t > MONITOR DE FINALIZAÇÃO ADICIONADO!\");" >> harness.c
-echo "            opProcessorFetchMonitorAdd(proc, 0x80000e04, 0x80000e07, FinishCallback, \"finish\");" >> harness.c
+echo "            opProcessorFetchMonitorAdd(proc, 0x80000da4, 0x80000df0, FinishCallback, \"finish\");" >> harness.c
 echo "        }" >> harness.c
 echo "        " >> harness.c
 echo "        switch(runningPE){" >> harness.c

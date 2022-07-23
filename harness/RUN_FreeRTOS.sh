@@ -106,6 +106,30 @@ cp -r ../../module .
 cp -r ../../peripheral .
 cp -r ../../scripts .
 
+
+# create the platform.cfg file
+cd simulation
+mkdir debug
+cd debug
+echo "router_addressing XY" >> platform.cfg
+echo "channel_number 1" >> platform.cfg
+echo "mpsoc_x "$XX"" >> platform.cfg
+echo "mpsoc_y "$YY"" >> platform.cfg
+echo "flit_size 32" >> platform.cfg
+echo "clock_period_ns 10" >> platform.cfg
+echo "cluster_x "$XX"" >> platform.cfg
+echo "cluster_y "$YY"" >> platform.cfg
+echo "manager_position_x 0" >> platform.cfg
+echo "manager_position_y 0" >> platform.cfg
+
+echo "TASK_ALLOCATION 40" >> services.cfg
+echo "TASK_TERMINATED 70" >> services.cfg
+echo "" >> services.cfg
+echo "\$TASK_ALLOCATION_SERVICE 40 221" >> services.cfg
+echo "\$TASK_TERMINATED_SERVICE 70 221" >> services.cfg
+cd ..
+cd ..
+
 if [[ $SimType == "spiral" ]]
 then
     sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 0/' FreeRTOS/main.c
@@ -124,6 +148,9 @@ then
 elif [[ $SimType == "chronos2" ]]
 then
     sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 5/' FreeRTOS/main.c
+elif [[ $SimType == "chronos3" ]]
+then
+    sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 6/' FreeRTOS/main.c
 else
     echo "Error: the -m option must be defined as \"pattern\", \"pidtm\" or \"chronos\"."
     exit
@@ -279,8 +306,15 @@ echo "Simulation total time elapsed: "$SECONDS" seconds..."
 python3 scripts/graphTemperature.py 
 python3 scripts/graphInstructions.py "$XX" "$YY"
 python3 scripts/graphInstructionsFIT.py "$XX" "$YY"
+python3 scripts/filter_debug.py 
+
+sed -i 's/#define TOTAL_STRUCTURES.*/#define TOTAL_STRUCTURES '$XX'*'$YY'/' scripts/montecarlo.c
+gcc scripts/montecarlo.c -o simulation/montecarlo -lm
+cd simulation
+./montecarlo montecarlofile >> mttflog.txt
+cd ..
 
 shopt -s extglob
 rm -rfv !('simulation') >> /dev/null
-cp simulation/* .
+cp -r simulation/* .
 rm -rf simulation  >> /dev/null

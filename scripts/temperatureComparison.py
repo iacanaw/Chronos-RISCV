@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import sys 
-
+# python3 scripts/temperatureComparison.py pattern_test66_c_training_999999999ticks_pattern_7x7 pidtm_test66_c_training_999999999ticks_pidtm_7x7 chronos2_test66_c_training_9999999999ticks_chronos2_7x7
 pattern_src = sys.argv[1]
 pidtm_src = sys.argv[2]
 spiral_src = sys.argv[3]
@@ -77,8 +77,8 @@ ax.plot(pattern_time, pattern_avg_temp, 'g-', linewidth=0.5, label="AVG Pattern"
 ax.plot(pidtm_time, pidtm_peak_temp, 'r-', linewidth=1.0, label="PEAK PIDTM")
 ax.plot(pidtm_time, pidtm_avg_temp, 'r-', linewidth=0.5, label="AVG PIDTM")
 
-ax.plot(spiral_time, spiral_peak_temp, 'b-', linewidth=1.0, label="PEAK Spiral")
-ax.plot(spiral_time, spiral_avg_temp, 'b-', linewidth=0.5, label="AVG Spiral")
+ax.plot(spiral_time, spiral_peak_temp, 'b-', linewidth=1.0, label="PEAK Chronos")
+ax.plot(spiral_time, spiral_avg_temp, 'b-', linewidth=0.5, label="AVG Chronos")
 
 ax.set_ylim([50, 85])
 
@@ -90,3 +90,41 @@ fig = plt.gcf()
 fig.set_size_inches(18.5, 10.5)
 fig.savefig('simulation/TemperatureComparison.png', format='png', dpi=600, bbox_inches='tight')
 #fig.savefig('simulation/PeakTemperature.eps', format='eps', bbox_inches='tight')
+
+
+print("Statistics: ")
+avg = 0
+pavg = 0
+for i in range(len(spiral_avg_temp)):
+    avg += spiral_avg_temp[i]
+    pavg += spiral_peak_temp[i]
+avg = avg / len(spiral_avg_temp)
+pavg = pavg / len(spiral_avg_temp)
+
+print("Chronos:\n\tAVG: "+str(avg))
+print("\tPEAK AVG: "+str(pavg))
+print("=======================")
+
+avg = 0
+pavg = 0
+for i in range(len(pidtm_avg_temp)):
+    avg += pidtm_avg_temp[i]
+    pavg += pidtm_peak_temp[i]
+avg = avg / len(pidtm_avg_temp)
+pavg = pavg / len(pidtm_avg_temp)
+
+print("PIDTM:\n\tAVG: "+str(avg))
+print("\tPEAK AVG: "+str(pavg))
+print("=======================")
+
+avg = 0
+pavg = 0
+for i in range(len(pattern_avg_temp)):
+    avg += pattern_avg_temp[i]
+    pavg += pattern_peak_temp[i]
+avg = avg / len(pattern_avg_temp)
+pavg = pavg / len(pattern_avg_temp)
+
+print("Pattern:\n\tAVG: "+str(avg))
+print("\tPEAK AVG: "+str(pavg))
+print("=======================")

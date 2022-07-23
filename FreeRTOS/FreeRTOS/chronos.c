@@ -338,6 +338,12 @@ unsigned int id2addr(unsigned int id){
     return (address | (x << 8) | y);
 }
 
+unsigned int addr2id(unsigned int addr){
+    unsigned int x = getXpos(addr);
+    unsigned int y = getYpos(addr);
+    return (y*DIM_X + x);
+}
+
 ////////////////////////////////////////////////////////////
 // Pushes one slot to the sending queue
 void API_PushSendQueue(unsigned int type, unsigned int slot){
@@ -671,5 +677,51 @@ void API_AddPendingReq(unsigned int requester_task_id, unsigned int app_id, unsi
 }
 
 void API_NI_Handler(){
+    return;
+}
+
+void debug_task_alloc(unsigned int tick, unsigned int app, unsigned int task, unsigned int addr){
+    vTaskEnterCritical();
+    prints("\nDebugger, ");
+    printi(tick);
+    prints(", ");
+    printi(addr);
+    prints(", ");
+    printi(40);
+    prints(", ");
+    printi(0);
+    prints(", ");
+    printi(0);
+    prints(", ");
+    printi(0);
+    prints(", ");
+    printi(addr);
+    prints(", ");
+    printi((256*app)+task);
+    prints("\n");
+    vTaskExitCritical();
+    return;
+}
+
+void debug_task_dealloc(unsigned int tick, unsigned int app, unsigned int task, unsigned int addr){
+    vTaskEnterCritical();
+    prints("\nDebugger, ");
+    printi(tick);
+    prints(", ");
+    printi(addr);
+    prints(", ");
+    printi(70);
+    prints(", ");
+    printi(4);
+    prints(", ");
+    printi(0);
+    prints(", ");
+    printi(4);
+    prints(", ");
+    printi(-1);
+    prints(", ");
+    printi((256*app)+task);
+    prints("\n");
+    vTaskExitCritical();
     return;
 }

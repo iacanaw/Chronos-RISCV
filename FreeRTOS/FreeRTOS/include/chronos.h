@@ -67,9 +67,12 @@ void prints(char *text);
 // Prints an integer
 void printi(int value); 
 // Prints a string followed by a integer
-void printsv(char *text1, int value1); 
+void printsv(char *text1, int value1);
 // Prints two strings and two integers interspersed
 void printsvsv(char *text1, int value1, char *text2, int value2);
+//
+void debug_task_dealloc(unsigned int tick, unsigned int app, unsigned int task, unsigned int addr);
+void debug_task_alloc(unsigned int tick, unsigned int app, unsigned int task, unsigned int addr);
 // Gets the X coordinate from the address
 unsigned int getXpos(unsigned int addr);
 // Gets the Y coordinate from the address
@@ -118,5 +121,11 @@ unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int a
 void API_AddPendingReq(unsigned int requester_task_id, unsigned int app_id, unsigned int producer_task_id);
 
 void API_NI_Handler();
+
+unsigned int addr2id(unsigned int addr);
+
+unsigned int id2addr(unsigned int id);
+
+unsigned int sqrt(unsigned int x);
 
 #endif

@@ -24,17 +24,34 @@ appsTaskDeadline = []
 appsTaskMigration = []
 bigCode = 0
 
+app_id = 0
+task_id = 0
+
 if exists(SCENARIO):
     with open(SCENARIO) as file:
-        scenario = yaml.load(file, Loader=yaml.SafeLoader)
-        for app in range(len(scenario['apps'])):
-            appsName.append(scenario['apps'][app]['name'])
-            appsPeriod.append(int(scenario['apps'][app]['period']))
-            appsExecutions.append(int(scenario['apps'][app]['executions']))
-            tasks=[]
-            for task in scenario['apps'][app]['tasks'].keys():
-                tasks.append(task)
-            appsTasks.append(copy.deepcopy(tasks))
+        with open('../simulation/debug/platform.cfg', 'a') as cfgfile:
+            cfgfile.write("BEGIN_task_name_relation\n")
+            scenario = yaml.load(file, Loader=yaml.SafeLoader)
+            for app in range(len(scenario['apps'])):
+                appsName.append(scenario['apps'][app]['name'])
+                appsPeriod.append(int(scenario['apps'][app]['period']))
+                appsExecutions.append(int(scenario['apps'][app]['executions']))
+                tasks=[]
+                for task in scenario['apps'][app]['tasks'].keys():
+                    cfgfile.write(str(task)+" "+str(app_id*256+task_id)+"\n")
+                    task_id+=1
+                    tasks.append(task)
+                task_id = 0
+                app_id+=1
+                appsTasks.append(copy.deepcopy(tasks))
+            cfgfile.write("END_task_name_relation\n")
+            cfgfile.write("BEGIN_app_name_relation\n")
+            app_id = 0
+            for app in range(len(scenario['apps'])):
+                cfgfile.write(scenario['apps'][app]['name']+" "+str(app_id)+"\n")
+                app_id+=1
+            cfgfile.write("END_app_name_relation\n")
+
 
     # Finds information about each application
     for i in range(len(appsName)):
