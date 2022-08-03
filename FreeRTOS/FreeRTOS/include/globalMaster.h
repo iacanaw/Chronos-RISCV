@@ -44,10 +44,11 @@ volatile unsigned int temperatureUpdated;
 typedef struct{
     unsigned int temperature;   // In Kelvin
     unsigned int frequency;     // in MegaHertz
-    unsigned int fit;           // Failures in time * 100
+    volatile unsigned int fit;  // Failures in time * 100
     int temperatureVariation;   // In Kelvin
     unsigned int taskSlots;
-    int taskType                //
+    int taskType;                //
+    unsigned int clusterCount;  // stores the amount of clusters that this PE is participating
 } Tile;
 
 // Tiles Info
@@ -67,6 +68,8 @@ typedef struct{
     unsigned int appPeriod;
     unsigned int appExec;
     unsigned int numTasks;
+    unsigned int cluster_addr;
+    unsigned int cluster_size;
     TaskInfo     tasks[NUM_MAX_APP_TASKS];
     unsigned int nextRun;
     unsigned int executed;
@@ -144,6 +147,10 @@ void API_PrintPolicyTable();
 unsigned int API_GetSmallerFITCluster(unsigned int size);
 
 unsigned int API_CheckCluster(unsigned int base_addr, unsigned int cluster_size, unsigned int size);
+
+void API_FindSmallerFITCluster( unsigned int app);
+
+unsigned int API_GetClusterOccupation(unsigned int base_addr, unsigned int cluster_size);
 
 unsigned int API_minClusterSize(unsigned int size);
 

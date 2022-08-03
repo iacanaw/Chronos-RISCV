@@ -314,6 +314,8 @@ cd simulation
 ./montecarlo montecarlofile >> mttflog.txt
 cd ..
 
+python3 scripts/csvGen.py "$XX" "$YY" "$SimType"
+
 shopt -s extglob
 rm -rfv !('simulation') >> /dev/null
 cp -r simulation/* .

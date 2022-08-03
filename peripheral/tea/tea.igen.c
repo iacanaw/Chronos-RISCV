@@ -327,7 +327,7 @@ PPM_PACKETNET_CB(controlUpdate) {
                 }
                 else{
                     packetPointer = 0;
-                    sendPacketToMaster = 0;
+                    sendFITtoMaster = 0;
                 }
             }
         }

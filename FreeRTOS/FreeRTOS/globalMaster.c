@@ -120,6 +120,7 @@ void API_TilesReset(){
             Tiles[m][n].fit = 0;
             Tiles[m][n].taskSlots = NUM_MAX_TASKS;
             Tiles[m][n].taskType = -1;
+            Tiles[m][n].clusterCount = 0;
             random(); // using this loop to iterate the random algorithm...
         }
     }    
@@ -390,14 +391,80 @@ unsigned int API_GetSmallerFITCluster(unsigned int size){
     return cluster;
 }
 
+void API_FindSmallerFITCluster( unsigned int app){
+    unsigned int cluster_size, base_addr, i, j;
+    int smallFIT = 0x7FFFFFFF;
+    int fit = 0;
+    unsigned int smallOccupation = 0x7FFFFFFF;
+    unsigned int occupation = 0;
+
+    unsigned int sel_cluster_size = 0;
+    unsigned int sel_cluster_base_addr = 0;
+
+
+    cluster_size = API_minClusterSize(applications[app].numTasks*2);
+    printsvsv("requesting size: ", applications[app].numTasks*2, "calculated: ", cluster_size);
+    do{
+        for(i = 0; i <= (DIM_X-cluster_size); i++){
+            for(j = 0; j <= (DIM_Y-cluster_size); j++){
+                base_addr = makeAddress(i, j);
+                fit = API_CheckCluster(base_addr, cluster_size, applications[app].numTasks*2);
+                occupation = API_GetClusterOccupation(base_addr, cluster_size);
+                //prints("----------------\n");
+                //printsv("base: ", base_addr);
+                //printsvsv("fit: ", fit, "occupation: ", occupation);
+                if(fit != 0 && occupation <= smallOccupation){
+                    if ( fit < smallFIT ){
+                        //prints("Selected!\n");
+                        smallFIT = fit;
+                        smallOccupation = occupation;
+                        sel_cluster_size = cluster_size;
+                        sel_cluster_base_addr = base_addr;
+                    }
+                }
+            }
+        }
+        cluster_size++;
+        if(cluster_size > DIM_X || cluster_size > DIM_Y){
+            sel_cluster_size = DIM_X;
+            sel_cluster_base_addr = 0x0000;
+            break;
+        }
+    }while(sel_cluster_size == 0);
+    
+    for(i = getXpos(sel_cluster_base_addr); i <= (DIM_X-sel_cluster_size); i++){
+        for(j = getYpos(sel_cluster_base_addr); j <= (DIM_Y-sel_cluster_size); j++){
+            Tiles[i][j].clusterCount++;
+        }
+    }
+
+    applications[app].cluster_addr = sel_cluster_base_addr;
+    applications[app].cluster_size = sel_cluster_size;
+
+    return;
+}
+
+unsigned int API_GetClusterOccupation(unsigned int base_addr, unsigned int cluster_size){
+    unsigned int i, j, occupation;
+    occupation = 0;
+    for(i = getXpos(base_addr); i < (getXpos(base_addr)+cluster_size); i++){
+        for(j = getYpos(base_addr); j < (getYpos(base_addr)+cluster_size); j++){
+            //printsvsv("occ - addr: ", makeAddress(i, j), "occupation: ", Tiles[i][j].clusterCount);
+            occupation = occupation + Tiles[i][j].clusterCount;
+        }
+    }
+    return occupation;
+}
+
+
 unsigned int API_CheckCluster(unsigned int base_addr, unsigned int cluster_size, unsigned int size){
     unsigned int x;
     unsigned int y;
     unsigned int accumulated = 0;
     unsigned int FIT = 0;
 
-    for(x = getXpos(base_addr); x < (getXpos(base_addr)+cluster_size)-1; x++){
-        for(y = getYpos(base_addr); y < (getYpos(base_addr)+cluster_size)-1; y++){
+    for(x = getXpos(base_addr); x < (getXpos(base_addr)+cluster_size); x++){
+        for(y = getYpos(base_addr); y < (getYpos(base_addr)+cluster_size); y++){
             accumulated = accumulated + Tiles[x][y].taskSlots;
             FIT = FIT + Tiles[x][y].fit;
         }
@@ -476,7 +543,7 @@ void API_PrintScoreTable(float scoreTable[N_TASKTYPE][N_STATES]){
 
 
 void API_DealocateTask(unsigned int task_id, unsigned int app_id){
-    unsigned int i, tick;
+    unsigned int i, j, tick;
     volatile int flag;
     float newvalue, oldvalue, next_max, reward;
     unsigned int tasktype, takedAct, next_maxid;
@@ -512,6 +579,13 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
     }
     // in positive case
     if(flag){
+
+        for(i = getXpos(applications[app_id].cluster_addr); i <= (DIM_X-applications[app_id].cluster_size); i++){
+            for(j = getYpos(applications[app_id].cluster_addr); j <= (DIM_Y-applications[app_id].cluster_size); j++){
+                Tiles[i][j].clusterCount = Tiles[i][j].clusterCount - 1;
+            }
+        }
+
         // register that the application has executed another time
         tick = xTaskGetTickCount();
         applications[app_id].executed++;

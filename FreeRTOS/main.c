@@ -367,9 +367,9 @@ void vNI_RX_HandlerTask( void *pvParameters ){
 
                 case FINISH_FIT_PACKET:
                     API_UpdateFIT();
-                    /*for(aux = 0; aux < DIM_X*DIM_Y; aux++){ 
-                        printsvsv("pe state ", aux, "FIT: ", SystemFIT[aux]);
-                    }*/
+                    for(aux = 0; aux < DIM_X*DIM_Y; aux++){ 
+                        printsvsv("pe state ", aux, "FIT: ", Tiles[getXpos(id2addr(aux))][getYpos(id2addr(aux))].fit);
+                    }
                     prints("12.5NI_RX DONE!\n");
                     break;
 
@@ -1100,11 +1100,11 @@ static void GlobalManagerTask( void *pvParameters ){
     int x, y;
     unsigned int apptask, app, task, slot, taskType, cluster, base_addr, cluster_size, last_app;
     unsigned int addr, j, i, k;
+    unsigned int state_stability[DIM_X*DIM_Y];
+    unsigned int state_last[DIM_X*DIM_Y];
 
     static unsigned int sorted_addr[DIM_X*DIM_Y];
     static unsigned int sorted_score[DIM_X*DIM_Y];
-
-    Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].taskType = 2;
 
     //---------------------------------------
     // --------- Q-learning stuff -----------
@@ -1118,13 +1118,16 @@ static void GlobalManagerTask( void *pvParameters ){
     //policy table initialization
     for(tp = 0; tp < N_TASKTYPE; tp++){
         for(state = 0; state < N_STATES; state++){
-            scoreTable[tp][state] = scoreTable[tp][state]/1000;
+            scoreTable[tp][state] = 0;//scoreTable[tp][state]/1000;
         }
     }
     API_PrintScoreTable(scoreTable);
 
 	// Initialize the System Tiles Info
 	API_TilesReset();
+
+    Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].taskType = 2;
+    Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].clusterCount = 1;
 
 	// Initialize the applications vector
     API_ApplicationsReset();
@@ -1145,6 +1148,8 @@ static void GlobalManagerTask( void *pvParameters ){
         // Checks if there is some task to allocate
         if(API_CheckTaskToAllocate(xTaskGetTickCount())){
             
+            last_app = -1;
+
             while(1){
                 apptask = API_GetNextTaskToAllocate(xTaskGetTickCount());
                 if (apptask == 0xFFFFFFFF) break;
@@ -1152,9 +1157,10 @@ static void GlobalManagerTask( void *pvParameters ){
                 task = (apptask & 0x0000FFFF);
                 printsvsv("Allocating task ", task, "from app ", app);
                 if(last_app != app){
-                    cluster = API_GetSmallerFITCluster(applications[app].numTasks*2);
-                    base_addr = cluster & 0x0000FFFF;
-                    cluster_size = (cluster >> 16) & 0x0000FFFF;
+                    //cluster = API_GetSmallerFITCluster(applications[app].numTasks*2);
+                    API_FindSmallerFITCluster(app);
+                    base_addr = applications[app].cluster_addr;//cluster & 0x0000FFFF;
+                    cluster_size = applications[app].cluster_size;//(cluster >> 16) & 0x0000FFFF;
                     printsvsv("Cluster addr: ", base_addr, " cluster size: ", cluster_size);
                 }
 
@@ -1192,7 +1198,6 @@ static void GlobalManagerTask( void *pvParameters ){
                 applications[app].tasks[task].slot = slot;
                 applications[app].lastStart = applications[app].nextRun;
                 API_RepositoryAllocation(app, task, addr);
-                printsvsv("Allocated at: ", getXpos(addr), "- ", getYpos(addr));
                 debug_task_alloc(tick, app, task, addr);
 
                 last_app = app;
@@ -1203,35 +1208,45 @@ static void GlobalManagerTask( void *pvParameters ){
             for(i = 0; i < DIM_X*DIM_Y; i++){
                 if(API_CheckTaskToAllocate(xTaskGetTickCount())) break;
                 addr = id2addr(i);
-                printsv("updating score addr: ", addr);
+                
                 // gets the tasktype that is running in the PE 
                 taskType = Tiles[getXpos(addr)][getYpos(addr)].taskType;
-
-                // if the PE is running some task
-                if( taskType != -1 ){
-                    printsv("running tasktype: ", taskType);
+                
+                if ( taskType != -1 ) {
+                    
                     // gets the current PE state
                     state = API_getPEState(i);
 
-                    // calculates the reward
-                    reward = (int)(10000000/API_getFIT(addr));
-                    printsvsv("addr ", addr, "woned reward: ", reward);
-
-                    // gets the old value
-                    oldvalue = scoreTable[taskType][state];
-
-                    // gets the max value from the table
-                    maxid = API_getMaxIdxfromRow(scoreTable, taskType, N_STATES, N_TASKTYPE);
-                    maxval = scoreTable[taskType][maxid];
-
-                    // updates the score table
-                    scoreTable[taskType][state] = (1 - alpha) * oldvalue + alpha * ( reward + gamma * maxval);
+                    if( state != state_last[i] ){ // checks if this pe is an stable state
+                        
+                        state_last[i] = state;
+                        state_stability[i] = 0;
                     
-                    // print score table
-                    toprint++;
-                    if(toprint > 100){
-                        API_PrintScoreTable(scoreTable);
-                        toprint=0;
+                    } else if ( state_stability[i] < 10 ){ // waits until the PE is in a stable state
+                        
+                        state_stability[i]++;
+
+                    } else {
+                        // calculates the reward
+                        reward = (int)(10000000/API_getFIT(addr));
+                        //printsvsv("addr ", addr, "woned reward: ", reward);
+
+                        // gets the old value
+                        oldvalue = scoreTable[taskType][state];
+
+                        // gets the max value from the table
+                        maxid = API_getMaxIdxfromRow(scoreTable, taskType, N_STATES, N_TASKTYPE);
+                        maxval = scoreTable[taskType][maxid];
+
+                        // updates the score table
+                        scoreTable[taskType][state] = (1 - alpha) * oldvalue + alpha * ( reward + gamma * maxval);
+                        
+                        // print score table
+                        toprint++;
+                        if(toprint > 100){
+                            API_PrintScoreTable(scoreTable);
+                            toprint=0;
+                        }
                     }
                 }
             }
@@ -1244,6 +1259,13 @@ static void GlobalManagerTask( void *pvParameters ){
         API_setFreqIdle();
         API_applyFreqScale();
         if(API_SystemFinish){
+
+            for(i = 0; i <= (DIM_X); i++){
+                for(j = 0; j <= (DIM_Y); j++){
+                    printsvsv("PE: ", addr2id(i<<8|j), "cluster count: ", Tiles[i][j].clusterCount);
+                }
+            }
+
             //API_PrintPolicyTable();
             API_PrintScoreTable(scoreTable);
             vTaskDelay(100); // to cool down the system
