@@ -133,8 +133,8 @@ void API_UpdateTemperature(){
     int m, n, i = 0;
     for (m = 0; m < DIM_X; m++){
         for (n = 0; n < DIM_Y; n++){
-            Tiles[m][n].temperatureVariation = SystemTemperature[i] - Tiles[m][n].temperature;
-            Tiles[m][n].temperature = SystemTemperature[i];
+            Tiles[n][m].temperatureVariation = SystemTemperature[i] - Tiles[n][m].temperature;
+            Tiles[n][m].temperature = SystemTemperature[i];
             i++;
         }
     }
@@ -148,7 +148,7 @@ void API_UpdateFIT(){
     int m, n, i = 0;
     for (m = 0; m < DIM_X; m++){
         for (n = 0; n < DIM_Y; n++){
-            Tiles[m][n].fit = SystemFIT[i];
+            Tiles[n][m].fit = SystemFIT[i];
             i++;
         }
     }
@@ -432,8 +432,8 @@ void API_FindSmallerFITCluster( unsigned int app){
         }
     }while(sel_cluster_size == 0);
     
-    for(i = getXpos(sel_cluster_base_addr); i <= (DIM_X-sel_cluster_size); i++){
-        for(j = getYpos(sel_cluster_base_addr); j <= (DIM_Y-sel_cluster_size); j++){
+    for(i = getXpos(sel_cluster_base_addr); i < (getXpos(sel_cluster_base_addr)+sel_cluster_size); i++){
+        for(j = getYpos(sel_cluster_base_addr); j < (getYpos(sel_cluster_base_addr)+sel_cluster_size); j++){
             Tiles[i][j].clusterCount++;
         }
     }
@@ -580,8 +580,8 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
     // in positive case
     if(flag){
 
-        for(i = getXpos(applications[app_id].cluster_addr); i <= (DIM_X-applications[app_id].cluster_size); i++){
-            for(j = getYpos(applications[app_id].cluster_addr); j <= (DIM_Y-applications[app_id].cluster_size); j++){
+        for(i = getXpos(applications[app_id].cluster_addr); i < (getXpos(applications[app_id].cluster_addr)+applications[app_id].cluster_size); i++){
+            for(j = getYpos(applications[app_id].cluster_addr); j < (getYpos(applications[app_id].cluster_addr)+applications[app_id].cluster_size); j++){
                 Tiles[i][j].clusterCount = Tiles[i][j].clusterCount - 1;
             }
         }

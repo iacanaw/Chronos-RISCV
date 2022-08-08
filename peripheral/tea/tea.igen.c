@@ -380,6 +380,8 @@ PPM_PACKETNET_CB(dataUpdate) {
     }
     else if(flit_in_counter == 5){  // quinto flit - energia do PE
         power[y_data_counter][x_data_counter] =  htonl(newFlit);
+
+        //if(x_data_counter == 2 && y_data_counter == 1) power[y_data_counter][x_data_counter] = -1;
         //bhmMessage("I", "Input", "power[%d][%d]: %d\n",x_data_counter, y_data_counter, power[y_data_counter][x_data_counter]);
         samples_received[y_data_counter][x_data_counter]++;
         //samples_received++;
