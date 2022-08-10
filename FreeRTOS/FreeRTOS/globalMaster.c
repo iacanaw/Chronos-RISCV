@@ -536,7 +536,7 @@ void API_PrintScoreTable(float scoreTable[N_TASKTYPE][N_STATES]){
             prints(",\n");
         }
     }
-    prints(" };");
+    prints(" };\n");
     vTaskExitCritical();
     return;
 }

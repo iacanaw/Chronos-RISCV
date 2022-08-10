@@ -48,7 +48,7 @@ typedef struct{
     int temperatureVariation;   // In Kelvin
     unsigned int taskSlots;
     int taskType;                //
-    unsigned int clusterCount;  // stores the amount of clusters that this PE is participating
+    volatile unsigned int clusterCount;  // stores the amount of clusters that this PE is participating
 } Tile;
 
 // Tiles Info

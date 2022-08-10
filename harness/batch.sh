@@ -1,73 +1,55 @@
 #!/bin/bash
 
-./RUN_FreeRTOS.sh -x 5 -y 5 -m pattern -s c_testing -n SIMULATION_1 -t 999999999 & 
-pid5=$!
-sleep 1m
-./RUN_FreeRTOS.sh -x 6 -y 6 -m pattern -s c_testing -n SIMULATION_1 -t 999999999 &
-pid6=$!
-sleep 1m
-./RUN_FreeRTOS.sh -x 7 -y 7 -m pattern -s c_testing -n SIMULATION_1 -t 999999999 &
-pid7=$!
-sleep 1m
-./RUN_FreeRTOS.sh -x 8 -y 8 -m pattern -s c_testing -n SIMULATION_1 -t 999999999 &
-pid8=$!
-sleep 1m
-./RUN_FreeRTOS.sh -x 10 -y 10 -m pattern -s c_testing -n SIMULATION_1 -t 999999999 &
-pid10=$!
-sleep 1m
-./RUN_FreeRTOS.sh -x 11 -y 11 -m pattern -s c_testing -n SIMULATION_1 -t 999999999 &
-pid11=$!
-sleep 1m
-./RUN_FreeRTOS.sh -x 12 -y 12 -m pattern -s c_testing -n SIMULATION_1 -t 999999999 &
-pid12=$!
-sleep 1m
+TOTAL=0
+# SECONDS=0
+# ./batchXY.sh 6 6 SIMULATION_3 &
+# pid_6=$!
+# wait $pid_6
+# ELAPSED1="Simulation 6x6 took: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec"
+# echo "$ELAPSED1" >> ../simulation/SIMULATION_3.csv 
+# TOTAL=$(($TOTAL + $SECONDS))
 
-wait $pid5 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
+SECONDS=0
+./batchXY.sh 7 7 SIMULATION_3 &
+pid_7=$!
+wait $pid_7
+ELAPSED2="Simulation 7x7 took: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec"
+echo "$ELAPSED2" >> ../simulation/SIMULATION_3.csv 
+TOTAL=$(($TOTAL + $SECONDS))
 
-./RUN_FreeRTOS.sh -x 5 -y 5 -m pidtm -s c_testing -n SIMULATION_1 -t 999999999 &
-pid5=$!
-sleep 1m
+SECONDS=0
+./batchXY.sh 8 8  SIMULATION_3 &
+pid_8=$!
+wait $pid_8
+ELAPSED3="Simulation 8x8 took: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec"
+echo "$ELAPSED3" >> ../simulation/SIMULATION_3.csv 
+TOTAL=$(($TOTAL + $SECONDS))
 
-wait $pid6 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
+SECONDS=0
+./batchXY.sh 10 10 SIMULATION_3 &
+pid_10=$!
+wait $pid_10
+ELAPSED4="Simulation 10x10 took: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec"
+echo "$ELAPSED4" >> ../simulation/SIMULATION_3.csv 
+TOTAL=$(($TOTAL + $SECONDS))
 
-./RUN_FreeRTOS.sh -x 6 -y 6 -m pidtm -s c_testing -n SIMULATION_1 -t 999999999 &
-pid6=$!
-sleep 1m
+SECONDS=0
+./batchXY.sh 11 11 SIMULATION_3 &
+pid_11=$!
+wait $pid_11
+ELAPSED5="Simulation 11x11 took: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec"
+echo "$ELAPSED5" >> ../simulation/SIMULATION_3.csv 
+TOTAL=$(($TOTAL + $SECONDS))
 
-wait $pid7 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
+SECONDS=0
+./batchXY.sh 12 12 SIMULATION_3 &
+pid_12=$!
+wait $pid_12
+ELAPSED6="Simulation 12x12 took: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec"
+echo "$ELAPSED6" >> ../simulation/SIMULATION_3.csv 
+TOTAL=$(($TOTAL + $SECONDS))
 
-./RUN_FreeRTOS.sh -x 7 -y 7 -m pidtm -s c_testing -n SIMULATION_1 -t 999999999 &
-pid7=$!
-sleep 1m
+ELAPSED="This simulation took: $(($TOTAL / 3600))hrs $((($TOTAL / 60) % 60))min $(($TOTAL % 60))sec"
+echo "$ELAPSED" >> ../simulation/SIMULATION_3.csv 
 
-wait $pid8 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
-
-./RUN_FreeRTOS.sh -x 8 -y 8 -m pidtm -s c_testing -n SIMULATION_1 -t 999999999 &
-pid8=$!
-sleep 1m
-
-wait $pid10 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
-
-./RUN_FreeRTOS.sh -x 10 -y 10 -m pidtm -s c_testing -n SIMULATION_1 -t 999999999 &
-pid10=$!
-sleep 1m
-
-wait $pid11 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
-
-./RUN_FreeRTOS.sh -x 11 -y 11 -m pidtm -s c_testing -n SIMULATION_1 -t 999999999 &
-pid11=$!
-sleep 1m
-
-wait $pid12 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
-
-./RUN_FreeRTOS.sh -x 12 -y 12 -m pidtm -s c_testing -n SIMULATION_1 -t 999999999 &
-pid5=$!
-sleep 1m
-
-wait $pid5 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
-wait $pid6 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
-wait $pid7 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
-wait $pid8 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
-wait $pid10 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
-wait $pid11 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
-wait $pid12 && echo "pid1 exited normally" || echo "pid1 exited abnormally with status $?"
+cat ../simulation/SIMULATION_3*/0_log.csv >> ../simulation/SIMULATION_3.csv

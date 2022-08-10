@@ -122,6 +122,8 @@ void API_AddPendingReq(unsigned int requester_task_id, unsigned int app_id, unsi
 
 void API_NI_Handler();
 
+float Q_rsqrt( float number );
+
 unsigned int addr2id(unsigned int addr);
 
 unsigned int id2addr(unsigned int id);

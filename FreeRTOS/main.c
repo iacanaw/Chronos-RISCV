@@ -1041,9 +1041,9 @@ static void GlobalManagerTask( void *pvParameters ){
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
 	unsigned int tick, toprint;
-    float scoreTable[N_TASKTYPE][N_STATES] = { {3501838.0, 5388638.0, 2606083.0, 1571.0, 0.0, 3779022.0, 3023104.0, 2342154.0, 4627094.0, 2195084.0, 1953289.0, 83616.0, 1866951.0, 1526148.0, 1448207.0, 3032691.0, 1746877.0, 122681.0, 0.0, 3173369.0, 1514270.0, 217211.0, 2983874.0, 323400.0, 1640658.0, 521711.0, 7071.0, 0.0, 47388.0, 0.0, 0.0, 281421.0, 0.0, 0.0, 0.0  },
-                                               {4086100.0, 2828729.0, 2960722.0, 4610389.0, 0.0, 3736479.0, 2332161.0, 2237171.0, 3576559.0, 2771487.0, 2332490.0, 3522212.0, 2390451.0, 1677631.0, 2408259.0, 2514103.0, 2612549.0, 2064054.0, 0.0, 1826067.0, 2641541.0, 3245699.0, 1870426.0, 1636025.0, 1843327.0, 2656933.0, 3215744.0, 2855987.0, 2304784.0, 2150658.0, 4563518.0, 863088.0, 0.0, 0.0, 0.0  },
-                                               {4205861.0, 2440994.0, 2983047.0, 0.0, 0.0, 2159748.0, 2536928.0, 814412.0, 0.0, 2362310.0, 2772170.0, 1995297.0, 2865152.0, 2899140.0, 2685408.0, 3078250.0, 4114394.0, 0.0, 0.0, 1899167.0, 3042651.0, 1433702.0, 3176012.0, 3130932.0, 2270740.0, 5184484.0, 0.0, 153480.0, 4714411.0, 304000.0, 1337470.0, 0.0, 0.0, 0.0, 0.0  } };
+    float scoreTable[N_TASKTYPE][N_STATES] = {  {1168354.0, 1015511.0, 342860.0, 0.0, 0.0, 1134945.0, 1080882.0, 374299.0, 0.0, 1106690.0, 891936.0, 54457.0, 1105820.0, 364426.0, 318193.0, 1008644.0, 337829.0, 106192.0, 0.0, 1130819.0, 449683.0, 0.0, 978057.0, 199497.0, 59457.0, 111181.0, 53018.0, 0.0, 148588.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0  },
+                                                {1042057.0, 991183.0, 614188.0, 31134.0, 0.0, 1036548.0, 978452.0, 499112.0, 73150.0, 1025248.0, 925176.0, 269367.0, 1027785.0, 552088.0, 661988.0, 1048136.0, 1000277.0, 245297.0, 0.0, 1031984.0, 915085.0, 150151.0, 1024742.0, 467151.0, 585704.0, 858192.0, 279271.0, 0.0, 896232.0, 237152.0, 406939.0, 82081.0, 0.0, 50964.0, 0.0  },
+                                                {864685.0, 523457.0, 173549.0, 0.0, 0.0, 858720.0, 519737.0, 63821.0, 10992.0, 785637.0, 451884.0, 13050.0, 486953.0, 124172.0, 128300.0, 730425.0, 267552.0, 21286.0, 0.0, 730914.0, 341844.0, 27692.0, 361483.0, 111763.0, 126400.0, 112150.0, 76439.0, 0.0, 203314.0, 8428.0, 89763.0, 0.0, 0.0, 0.0, 0.0  } };
     char str[20];
     int x, y;
     unsigned int apptask, app, task, slot, taskType, cluster, base_addr, cluster_size, last_app;
@@ -1066,7 +1066,7 @@ static void GlobalManagerTask( void *pvParameters ){
     float epsilon = 0.1; // 0.100 in fixed point
     float alpha = 0.05; //1;
     float gamma = 0.6;
-    float oldvalue, maxval, reward;
+    float oldvalue, maxval, reward, delta;
 
     //policy table initialization
     for(tp = 0; tp < N_TASKTYPE; tp++){
@@ -1079,7 +1079,7 @@ static void GlobalManagerTask( void *pvParameters ){
 	// Initialize the System Tiles Info
 	API_TilesReset();
 
-    Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].taskType = 2;
+    Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].taskType = 1;
     Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].clusterCount = 1;
 
 	// Initialize the applications vector
@@ -1110,10 +1110,9 @@ static void GlobalManagerTask( void *pvParameters ){
                 task = (apptask & 0x0000FFFF);
                 printsvsv("Allocating task ", task, "from app ", app);
                 if(last_app != app){
-                    //cluster = API_GetSmallerFITCluster(applications[app].numTasks*2);
                     API_FindSmallerFITCluster(app);
-                    base_addr = makeAddress(0, 0);//applications[app].cluster_addr;//cluster & 0x0000FFFF;
-                    cluster_size = DIM_X;//applications[app].cluster_size;//(cluster >> 16) & 0x0000FFFF;
+                    base_addr = makeAddress(0,0);//applications[app].cluster_addr;
+                    cluster_size = DIM_X;//applications[app].cluster_size;
                     printsvsv("Cluster addr: ", base_addr, " cluster size: ", cluster_size);
                 }
 
@@ -1184,17 +1183,21 @@ static void GlobalManagerTask( void *pvParameters ){
 
                     } else if ( state == state_last[i] && state_stability[i] >= 50 ) {
                         // calculates the reward
-                        //reward = (int)(10000000/API_getFIT(addr));
                         current_fit = (int)API_getFIT(addr);
-                        reward = (float)((int)starting_fit[i] - (int)current_fit);
-                        if(reward > 0){
-                            reward = reward * 100.0;
+                        delta = (float)((float)(current_fit/100) - (float)(starting_fit[i]/100));
+                        printsv("delta FIT: ", (int)delta);
+                        reward =  (Q_rsqrt(7000+(delta*delta)) * delta * -500) + 500;
+                        printsvsv("state ", state, "woned reward: ", (int)reward);
+                        /*if(reward >= 1.0){
+                            reward = 1000 / reward;
+                            printsvsv("addr ", addr, "woned reward1: ", (int)reward);
+                        } else if( reward < 1.0 && reward > 0.0 ){
+                            reward = 1000 + (reward * 10);
+                            printsvsv("addr ", addr, "woned reward2: ", (int)reward);
                         } else {
-                            reward = reward * -1;
-                        }
-                        //reward = reward + 10000.0;
-
-                        printsvsv("addr ", addr, "woned reward: ", (int)reward);
+                            reward = 1000 + 100 * (reward * -1);
+                            printsvsv("addr ", addr, "woned reward3: ", (int)reward);
+                        }*/
 
                         // gets the old value
                         oldvalue = scoreTable[taskType][state];
