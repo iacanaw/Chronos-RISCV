@@ -316,7 +316,7 @@ cd ..
 
 python3 scripts/csvGen.py "$XX" "$YY" "$SimType"
 
-shopt -s extglob
-rm -rfv !('simulation') >> /dev/null
+# shopt -s extglob
+# rm -rfv !('simulation') >> /dev/null
 cp -r simulation/* .
-rm -rf simulation  >> /dev/null
+# rm -rf simulation  >> /dev/null

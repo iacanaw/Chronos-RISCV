@@ -21,11 +21,11 @@
  * value of approximately 4000. At qualification, we divide the total FITS
  * equally across all failure mechanisms (giving 800 each), and this is further
  * divided among the individual structures in proportion to their area.*/
-#define TOTAL_EM_FITS 800.0
-#define TOTAL_SM_FITS 800.0
-#define TOTAL_TDDB_FITS 800.0
-#define TOTAL_TC_FITS 800.0
-#define TOTAL_NBTI_FITS 800.0	
+#define TOTAL_EM_FITS 400.0
+#define TOTAL_SM_FITS 400.0
+#define TOTAL_TDDB_FITS 400.0
+#define TOTAL_TC_FITS 400.0
+#define TOTAL_NBTI_FITS 400.0	
 
 #define EM_Ea_div_k  (0.9/(8.62e-5)) 	/* EM activation energy [1]*/
 

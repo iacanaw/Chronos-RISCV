@@ -1041,9 +1041,9 @@ static void GlobalManagerTask( void *pvParameters ){
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
 	unsigned int tick, toprint;
-    float scoreTable[N_TASKTYPE][N_STATES] = {  {1168354.0, 1015511.0, 342860.0, 0.0, 0.0, 1134945.0, 1080882.0, 374299.0, 0.0, 1106690.0, 891936.0, 54457.0, 1105820.0, 364426.0, 318193.0, 1008644.0, 337829.0, 106192.0, 0.0, 1130819.0, 449683.0, 0.0, 978057.0, 199497.0, 59457.0, 111181.0, 53018.0, 0.0, 148588.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0  },
-                                                {1042057.0, 991183.0, 614188.0, 31134.0, 0.0, 1036548.0, 978452.0, 499112.0, 73150.0, 1025248.0, 925176.0, 269367.0, 1027785.0, 552088.0, 661988.0, 1048136.0, 1000277.0, 245297.0, 0.0, 1031984.0, 915085.0, 150151.0, 1024742.0, 467151.0, 585704.0, 858192.0, 279271.0, 0.0, 896232.0, 237152.0, 406939.0, 82081.0, 0.0, 50964.0, 0.0  },
-                                                {864685.0, 523457.0, 173549.0, 0.0, 0.0, 858720.0, 519737.0, 63821.0, 10992.0, 785637.0, 451884.0, 13050.0, 486953.0, 124172.0, 128300.0, 730425.0, 267552.0, 21286.0, 0.0, 730914.0, 341844.0, 27692.0, 361483.0, 111763.0, 126400.0, 112150.0, 76439.0, 0.0, 203314.0, 8428.0, 89763.0, 0.0, 0.0, 0.0, 0.0  } };
+    float scoreTable[N_TASKTYPE][N_STATES] = {  {615362.0, 607443.0, 333330.0, 100412.0, 0.0, 615081.0, 609077.0, 416733.0, 52637.0, 612270.0, 598132.0, 121567.0, 601072.0, 349875.0, 431951.0, 586333.0, 458694.0, 155463.0, 27292.0, 598802.0, 455129.0, 0.0, 577175.0, 223347.0, 311792.0, 188246.0, 158618.0, 0.0, 189159.0, 26564.0, 0.0, 0.0, 0.0, 0.0, 0.0  },
+                                                {604406.0, 604027.0, 587765.0, 236350.0, 0.0, 604277.0, 604140.0, 586968.0, 53878.0, 604332.0, 599417.0, 443521.0, 602547.0, 573740.0, 565327.0, 603970.0, 588321.0, 408904.0, 0.0, 603707.0, 587937.0, 242994.0, 601376.0, 477832.0, 572356.0, 577035.0, 419200.0, 55087.0, 572683.0, 262465.0, 368559.0, 172482.0, 0.0, 29876.0, 0.0  },
+                                                {560040.0, 556964.0, 415215.0, 98501.0, 0.0, 559982.0, 554048.0, 336867.0, 0.0, 557905.0, 551377.0, 117817.0, 555778.0, 392426.0, 408838.0, 559375.0, 513835.0, 74591.0, 0.0, 557419.0, 503984.0, 52104.0, 549970.0, 279528.0, 251336.0, 398122.0, 100042.0, 0.0, 353755.0, 52583.0, 100381.0, 0.0, 0.0, 0.0, 0.0  } };
     char str[20];
     int x, y;
     unsigned int apptask, app, task, slot, taskType, cluster, base_addr, cluster_size, last_app;
@@ -1071,7 +1071,7 @@ static void GlobalManagerTask( void *pvParameters ){
     //policy table initialization
     for(tp = 0; tp < N_TASKTYPE; tp++){
         for(state = 0; state < N_STATES; state++){
-            scoreTable[tp][state] = 0;//scoreTable[tp][state]/1000;
+            scoreTable[tp][state] = scoreTable[tp][state]/1000;
         }
     }
     API_PrintScoreTable(scoreTable);
@@ -1129,7 +1129,7 @@ static void GlobalManagerTask( void *pvParameters ){
                 // sort addrs by score
                 quickSort(sorted_score, sorted_addr, 0, cluster_size*cluster_size);
                 
-                if( (int)(epsilon*100) < random()%100 ){ // try something new
+                /*if( (int)(epsilon*100) < random()%100 ){ // try something new
                     //////////////////////////////////////////////
                     // gets a random tile 
                     do{
@@ -1137,13 +1137,13 @@ static void GlobalManagerTask( void *pvParameters ){
                         slot = API_GetTaskSlotFromTile(addr, app, task);
                     }while (slot == ERRO);
                 } else{ // uses the learned information
-                    // try to get the best tile slot
+                  */  // try to get the best tile slot
                     for(i = (cluster_size*cluster_size-1); i >= 0; i--){
                         addr = sorted_addr[i];
                         slot = API_GetTaskSlotFromTile(addr, app, task);
                         if (slot != ERRO) break;
                     }
-                }
+                //}
 
                 // register the application allocation
                 applications[app].tasks[task].addr = addr;
@@ -1155,7 +1155,7 @@ static void GlobalManagerTask( void *pvParameters ){
                 last_app = app;
             }
 
-        } else { // updates the score table
+        } /*else { // updates the score table
             
             for(i = 0; i < DIM_X*DIM_Y; i++){
                 if(API_CheckTaskToAllocate(xTaskGetTickCount())) break;
@@ -1188,16 +1188,6 @@ static void GlobalManagerTask( void *pvParameters ){
                         printsv("delta FIT: ", (int)delta);
                         reward =  (Q_rsqrt(7000+(delta*delta)) * delta * -500) + 500;
                         printsvsv("state ", state, "woned reward: ", (int)reward);
-                        /*if(reward >= 1.0){
-                            reward = 1000 / reward;
-                            printsvsv("addr ", addr, "woned reward1: ", (int)reward);
-                        } else if( reward < 1.0 && reward > 0.0 ){
-                            reward = 1000 + (reward * 10);
-                            printsvsv("addr ", addr, "woned reward2: ", (int)reward);
-                        } else {
-                            reward = 1000 + 100 * (reward * -1);
-                            printsvsv("addr ", addr, "woned reward3: ", (int)reward);
-                        }*/
 
                         // gets the old value
                         oldvalue = scoreTable[taskType][state];
@@ -1223,7 +1213,7 @@ static void GlobalManagerTask( void *pvParameters ){
                     state_last[i] = -1;
                 }
             }
-        }
+        }*/
 		
 		// Checks if there is some task to start...
 		API_StartTasks();
