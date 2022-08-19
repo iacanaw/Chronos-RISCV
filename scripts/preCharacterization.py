@@ -42,7 +42,7 @@ for i in range(numTasks):
 
 # ax.plot(time, peak_temp, 'k-', linewidth=1.0)
 # ax.plot(time, avg_temp, 'r-', linewidth=1.0)
-# ax.set_ylim([50, 85])
+# ax.set_ylim([30, 110])
 
 ax.legend()
 ax.set_title('Power')

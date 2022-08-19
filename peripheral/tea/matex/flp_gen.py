@@ -8,6 +8,7 @@ YY = int(sys.argv[2])
 print("x: " + str(XX) + " y: " + str(YY))
 
 side = 0.00015572*1.4
+#side = 0.0006123
 
 with open('input/floorplan.flp', 'w') as file:
 

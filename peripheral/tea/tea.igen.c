@@ -116,7 +116,7 @@ void load_matrices(double Binv[THERMAL_NODES][SYSTEM_SIZE], double Cexp[THERMAL_
     FILE *cexppointer;
     cexppointer = fopen("peripheral/tea/cexp.txt","r");
 
-    char line[9000];
+    char line[12000];
     char *number;
     int column, row;
 
@@ -457,14 +457,14 @@ PPM_PACKETNET_CB(dataUpdate) {
         int fiti;
         FILE *fitlog;
         received_samples++;
-        if(received_samples < 50){
+        /*if(received_samples < 50){
             bhmMessage("I", "TEA", "%d samples received to generate the FIT!", received_samples);
         }
         if(received_samples >= 50){
             if(received_samples == 50){
                 bhmMessage("I", "TEA", "FIT values are being sent!");
             }
-
+        */
             theFITPacket[0] = MASTER_ADDR; // Header (destine address)
             theFITPacket[1] = htonl(DIM_X*DIM_Y + 11); 
             theFITPacket[2] = htonl(0x57); // defined 0x57 at api.h
@@ -478,7 +478,7 @@ PPM_PACKETNET_CB(dataUpdate) {
             fprintf(fitlog, "\n");
             fclose(fitlog);
             sendFITtoMaster = 1;
-        }
+        //}
         
         FILE *montecarlofile;
         montecarlofile = fopen("simulation/montecarlofile", "w");
@@ -528,8 +528,8 @@ int main(int argc, char *argv[]) {
     /* Reliability object initialization for every structure on the processor*/
     for (unitc = 0; unitc < TOTAL_STRUCTURES; unitc++){
         sprintf(floorplan.units[unitc].name, "p%d", unitc);
-        floorplan.units[unitc].height = 0.000275;
-        floorplan.units[unitc].width = 0.000275;
+        floorplan.units[unitc].height = 0.00065;//275;
+        floorplan.units[unitc].width = 0.00065;//275;
 
         init(&floorplan, unitc);  /* Initialize structures*/
         fitinit(unitc);           /* Initialize FITS for each structure*/

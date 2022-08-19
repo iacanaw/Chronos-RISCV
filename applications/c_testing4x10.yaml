@@ -1,0 +1,77 @@
+apps:
+ - name: prodconsx10
+   period: 440
+   executions: 5
+   tasks:
+    prod: 0
+    cons: 1
+ - name: dijkstrax10
+   period: 410
+   executions: 7
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dtwx10
+   period: 100
+   executions: 5
+   tasks:
+    bank: 0
+    p1: 1
+    p2: 2
+    p3: 3
+    p4: 4
+    recognizer: 5
+ - name: dijkstrax10
+   period: 180
+   executions: 7
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: prodconsx10
+   period: 500
+   executions: 5
+   tasks:
+    prod: 0
+    cons: 1
+ - name: dijkstrax10
+   period: 190
+   executions: 7
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dtwx10
+   period: 160
+   executions: 5
+   tasks:
+    bank: 0
+    p1: 1
+    p2: 2
+    p3: 3
+    p4: 4
+    recognizer: 5
+ - name: dijkstrax10
+   period: 110
+   executions: 7
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6

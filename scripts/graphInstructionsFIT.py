@@ -61,6 +61,7 @@ raw_data = tsv_data.to_numpy()
 
 FIT_time = []
 FIT_samples = np.zeros((len(raw_data[0])-1, len(raw_data)))
+FIT_big = 0
 
 n_pes = len(raw_data[0])-1
 n_samples = len(raw_data)
@@ -69,6 +70,8 @@ for i in range(len(raw_data)):
     FIT_time.append(raw_data[i][0])
     for j in range(len(raw_data[i])-1):
         FIT_samples[j][i] = raw_data[i][j+1]
+        if( FIT_samples[j][i] > FIT_big ):
+            FIT_big = FIT_samples[j][i]
 
 index = 0
 for xx in range(XX):
@@ -76,7 +79,7 @@ for xx in range(XX):
         ax2 = axs[yy, xx].twinx()
         ax2.plot(FIT_time, FIT_samples[index], color="red")
         ax2.set_title('Axis ['+str(yy)+', '+str(xx)+']')
-        ax2.set_ylim([1000, 2000])
+        ax2.set_ylim([0, FIT_big+(FIT_big*0.1)])
         index += 1
 
 for ax in axs.flat:

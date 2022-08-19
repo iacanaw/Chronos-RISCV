@@ -6,6 +6,24 @@
 #include "services.h"
 
 
+void API_PrintOccupation(int tick){
+    int availableSlots, occupiedPES, i;
+    availableSlots = 0;
+    occupiedPES = 0;
+    for( i = 1; i < DIM_X*DIM_Y; i++){
+        availableSlots += Tiles[getXpos(id2addr(i))][getYpos(id2addr(i))].taskSlots;
+        if (Tiles[getXpos(id2addr(i))][getYpos(id2addr(i))].taskSlots != NUM_MAX_TASKS){
+            occupiedPES++;
+        }
+    }
+    availableSlots = ((((DIM_X*DIM_Y-1)*NUM_MAX_TASKS)-availableSlots)*100) / ((DIM_X*DIM_Y-1)*NUM_MAX_TASKS);
+    occupiedPES = (occupiedPES*100) / (DIM_X*DIM_Y-1);
+    vTaskEnterCritical();
+    printsvsv("---->Slot_occ: ", availableSlots, "tick: ", tick);
+    printsvsv("---->PE_occ: ", occupiedPES, "tick: ", tick);
+    vTaskExitCritical();
+}
+
 unsigned int API_getMaxIdxfromRow(float *policyTable, unsigned int row, unsigned int n_collumns, unsigned int n_rows){
     unsigned int max = 0, i;
     for( i = 0; i < n_collumns; i++){

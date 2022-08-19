@@ -34,7 +34,7 @@ for i in range(n_pes):
     
 ax.plot(time, peak_temp, 'k-', linewidth=1.0)
 ax.plot(time, avg_temp, 'r-', linewidth=1.0)
-ax.set_ylim([50, 85])
+ax.set_ylim([30, 110])
 
 ax.set_title('Temperature')
 

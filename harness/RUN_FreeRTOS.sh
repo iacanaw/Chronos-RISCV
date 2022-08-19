@@ -302,21 +302,25 @@ chmod +x callHarness.sh
 ./callHarness.sh
 
 echo "Simulation total time elapsed: "$SECONDS" seconds..."
+echo "Simulation took: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec" >> simulationTime.txt
 
-python3 scripts/graphTemperature.py 
-python3 scripts/graphInstructions.py "$XX" "$YY"
-python3 scripts/graphInstructionsFIT.py "$XX" "$YY"
-python3 scripts/filter_debug.py 
+./scripts/RunScripts.sh "$XX" "$YY" "$SimType"
 
-sed -i 's/#define TOTAL_STRUCTURES.*/#define TOTAL_STRUCTURES '$XX'*'$YY'/' scripts/montecarlo.c
-gcc scripts/montecarlo.c -o simulation/montecarlo -lm
-cd simulation
-./montecarlo montecarlofile >> mttflog.txt
-cd ..
+# python3 scripts/graphTemperature.py 
+# python3 scripts/graphInstructions.py "$XX" "$YY"
+# python3 scripts/graphInstructionsFIT.py "$XX" "$YY"
+# python3 scripts/filter_debug.py 
+# python3 scripts/occupation.py "$XX" "$YY" >> simulation/occupation.txt
 
-python3 scripts/csvGen.py "$XX" "$YY" "$SimType"
+# sed -i 's/#define TOTAL_STRUCTURES.*/#define TOTAL_STRUCTURES '$XX'*'$YY'/' scripts/montecarlo.c
+# gcc scripts/montecarlo.c -o simulation/montecarlo -lm
+# cd simulation
+# ./montecarlo montecarlofile >> mttflog.txt
+# cd ..
+
+# python3 scripts/csvGen.py "$XX" "$YY" "$SimType"
 
 # shopt -s extglob
 # rm -rfv !('simulation') >> /dev/null
-cp -r simulation/* .
+# cp -r simulation/* .
 # rm -rf simulation  >> /dev/null

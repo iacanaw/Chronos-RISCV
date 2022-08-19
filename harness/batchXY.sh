@@ -16,16 +16,16 @@ do
     fi
 done
 
-for (( ; ; ))
-do
-    ./RUN_FreeRTOS.sh -x $X -y $Y -m chronos2 -s $SCENARIO -n $NAME -t 999999999 & 
-    pid_chronos2=$!
-    sleep 5m
-    if ps -p $pid_chronos2 > /dev/null
-    then
-        break
-    fi
-done
+# for (( ; ; ))
+# do
+#     ./RUN_FreeRTOS.sh -x $X -y $Y -m chronos2 -s $SCENARIO -n $NAME -t 999999999 & 
+#     pid_chronos2=$!
+#     sleep 5m
+#     if ps -p $pid_chronos2 > /dev/null
+#     then
+#         break
+#     fi
+# done
 
 for (( ; ; ))
 do

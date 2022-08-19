@@ -625,6 +625,9 @@ static void GlobalManagerTask( void *pvParameters ){
 		printsv("GlobalMasterActive", tick);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
 
+        // prints the occupation
+        API_PrintOccupation(tick);    
+
 		// Checks if there is some task to allocate...
 		API_AllocateTasks(tick);
 		
@@ -636,7 +639,7 @@ static void GlobalManagerTask( void *pvParameters ){
         API_applyFreqScale();
         
 		if(API_SystemFinish){
-			vTaskDelay(100); // to cool down the system
+			//vTaskDelay(100); // to cool down the system
 			_exit(0xfe10);
 		}
 		else{
@@ -674,6 +677,9 @@ static void GlobalManagerTask( void *pvParameters ){
 		printsv("GlobalMasterActive", tick);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
 
+        // prints the occupation
+        API_PrintOccupation(tick);
+
 		// Checks if there is some task to allocate...
 		API_AllocateTasks(tick);
 		
@@ -685,7 +691,7 @@ static void GlobalManagerTask( void *pvParameters ){
         API_applyFreqScale();
         
 		if(API_SystemFinish){
-			vTaskDelay(100); // to cool down the system
+			//vTaskDelay(100); // to cool down the system
 			_exit(0xfe10);
 		}
 		else{
@@ -724,6 +730,9 @@ static void GlobalManagerTask( void *pvParameters ){
 		printsv("GlobalMasterActive", tick);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
 
+        // prints the occupation
+        API_PrintOccupation(tick);
+
         // Update the system temperature
         API_UpdateTemperature();
 
@@ -749,7 +758,7 @@ static void GlobalManagerTask( void *pvParameters ){
         API_applyFreqScale();
         
 		if(API_SystemFinish){
-			vTaskDelay(100); // to cool down the system
+			//vTaskDelay(100); // to cool down the system
 			_exit(0xfe10);
 		}
 		else {
@@ -820,6 +829,9 @@ static void GlobalManagerTask( void *pvParameters ){
 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
 		printsv("GlobalMasterActive", tick);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
+
+        // prints the occupation
+        API_PrintOccupation(tick);
 
         // Checks if there is some task to allocate
         if(API_CheckTaskToAllocate(tick)){
@@ -921,7 +933,7 @@ static void GlobalManagerTask( void *pvParameters ){
         
 		if(API_SystemFinish){
             API_PrintPolicyTable();
-			vTaskDelay(100); // to cool down the system
+			//vTaskDelay(100); // to cool down the system
 			_exit(0xfe10);
 		}
 		else{
@@ -964,6 +976,9 @@ static void GlobalManagerTask( void *pvParameters ){
 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
 		printsv("GlobalMasterActive", tick);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
+
+        // prints the occupation
+        API_PrintOccupation(tick);
 
         // Checks if there is some task to allocate
         if(API_CheckTaskToAllocate(xTaskGetTickCount())){
@@ -1027,7 +1042,7 @@ static void GlobalManagerTask( void *pvParameters ){
         if(API_SystemFinish){
             //API_PrintPolicyTable();
             //API_PrintScoreTable(scoreTable);
-            vTaskDelay(100); // to cool down the system
+            //vTaskDelay(100); // to cool down the system
             _exit(0xfe10);
         }
         else if(!API_CheckTaskToAllocate(xTaskGetTickCount())){
@@ -1097,6 +1112,9 @@ static void GlobalManagerTask( void *pvParameters ){
 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
 		printsv("GlobalMasterActive", tick);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
+
+        // prints the occupation
+        API_PrintOccupation(tick);
 
         // Checks if there is some task to allocate
         if(API_CheckTaskToAllocate(xTaskGetTickCount())){
@@ -1231,7 +1249,7 @@ static void GlobalManagerTask( void *pvParameters ){
             vTaskExitCritical();
             //API_PrintPolicyTable();
             API_PrintScoreTable(scoreTable);
-            vTaskDelay(100); // to cool down the system
+            //vTaskDelay(100); // to cool down the system
             _exit(0xfe10);
         }
         else if(!API_CheckTaskToAllocate(xTaskGetTickCount())){
@@ -1292,7 +1310,7 @@ static void GlobalManagerTask( void *pvParameters ){
         API_applyFreqScale();
         
 		if(API_SystemFinish){
-			//vTaskDelay(100); // to cool down the system
+			////vTaskDelay(100); // to cool down the system
 			_exit(0xfe10);
 		}
 		else{

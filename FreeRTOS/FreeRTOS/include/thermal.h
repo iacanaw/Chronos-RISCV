@@ -11,19 +11,19 @@
 // mW*100 or uW/10
 #define DYN_BUFFER_ACTIVE_0 118
 #define DYN_BUFFER_ACTIVE_1 151
-#define DYN_BUFFER_ACTIVE_2 188
+#define DYN_BUFFER_ACTIVE_2 188*10
 
 #define DYN_CTRL_ACTIVE_0 41
 #define DYN_CTRL_ACTIVE_1 52
-#define DYN_CTRL_ACTIVE_2 65
+#define DYN_CTRL_ACTIVE_2 65*10
 
 #define DYN_BUFFER_IDLE_0 49
 #define DYN_BUFFER_IDLE_1 62
-#define DYN_BUFFER_IDLE_2 77
+#define DYN_BUFFER_IDLE_2 77*10
 
 #define DYN_CTRL_IDLE_0 14
 #define DYN_CTRL_IDLE_1 18
-#define DYN_CTRL_IDLE_2 22
+#define DYN_CTRL_IDLE_2 22*10
 
 const int powerAvgBufferIdle[3] = {DYN_BUFFER_IDLE_0, DYN_BUFFER_IDLE_1, DYN_BUFFER_IDLE_2};
 const int powerSwitchControlIdle[3] = {DYN_CTRL_IDLE_0, DYN_CTRL_IDLE_1, DYN_CTRL_IDLE_2};
@@ -54,13 +54,15 @@ const int writeEnergyMemory[3] = {DYN_WRITE_MEM_0, DYN_WRITE_MEM_1, DYN_WRITE_ME
 #define DYN_ARITH_0 859
 #define DYN_ARITH_1 1097
 //#define DYN_ARITH_2 1370 
-#define DYN_ARITH_2 2158 // paper benini
+//#define DYN_ARITH_2 2158*11 // paper benini
+#define DYN_ARITH_2 1695 
 const int arithDyn[3] = {DYN_ARITH_0, DYN_ARITH_1, DYN_ARITH_2};
 
 #define DYN_LOAD_0 1570
 #define DYN_LOAD_1 2001
 //#define DYN_LOAD_2 2493
-#define DYN_LOAD_2 2521 // paper benini
+//#define DYN_LOAD_2 2521*11 // paper benini
+#define DYN_LOAD_2 2245
 const int loadStoreDyn[3] = {DYN_LOAD_0, DYN_LOAD_1, DYN_LOAD_2};
 
 #define PE_LEAKAGE 108 // mW

@@ -18,8 +18,8 @@
 #define ERRO                -1
 ////////////////////////////////////////////////////////////
 // SYSTEM INFO
-#define DIM_X 4
-#define DIM_Y 4
+#define DIM_X 5
+#define DIM_Y 5
 #define GLOBAL_MASTER_ADDR  0x0000
 #define NUM_MAX_APPS        20      // The maximum number of Applications
 #define NUM_MAX_APP_TASKS   10      // The maximum number of Tasks that a given Application can have

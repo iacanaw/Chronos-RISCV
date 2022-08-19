@@ -154,4 +154,6 @@ unsigned int API_GetClusterOccupation(unsigned int base_addr, unsigned int clust
 
 unsigned int API_minClusterSize(unsigned int size);
 
+void API_PrintOccupation(int tick);
+
 #endif

@@ -25,10 +25,11 @@ void runIterations(){
     if(iterationN > 0x07ffffff){
         iterationN = 0;
     }
-    bhmMessage("I", "Iterator", "~~~~~~~~~~~~~~~~~~~~~~~~~~~\nStarting %x round\n",iterationN);
     do{
         activity = 0;
         iterationN++;
+        //bhmMessage("I", "Iterator", "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        //bhmMessage("I", "Iterator", "Starting %llu round",iterationN);
         iteration = iterationN;
         ppmPacketnetWrite(handles.iterationPort0, &iteration, sizeof(iteration));
         iteration = iterationN;

@@ -63,9 +63,14 @@ with open("simulation/mttflog.txt", "r") as mttffile:
     splited = line.split(' ')
     mttf = splited[len(splited)-1]
 
+with open("simulation/occupation.txt", "r") as occfile:
+    line = occfile.readline()
+    occ = float(line)
+
 with open("simulation/0_log.csv", "w") as logfile:
     print(str(DIM_X*DIM_Y), file=logfile, end=';')
     print(ALGORITHM, file=logfile, end=';')
+    print(str(occ).replace(".",","), file=logfile, end=';')
     print(str(power_avg).replace(".",","), file=logfile, end=';')
     print(str(temp_avg).replace(".",","), file=logfile, end=';')
     print(str(peak_avg).replace(".",","), file=logfile, end=';')

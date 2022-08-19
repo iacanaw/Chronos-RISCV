@@ -1949,7 +1949,7 @@ int main(int argc, const char *argv[]) {
     
         if (runningPE == 0){
             opMessage("I", "HARNESS INFO", "	 > MONITOR DE FINALIZAÇÃO ADICIONADO!");
-            opProcessorFetchMonitorAdd(proc, 0x80000e04, 0x80000e07, FinishCallback, "finish");
+            opProcessorFetchMonitorAdd(proc, 0x80000da4, 0x80000df0, FinishCallback, "finish");
         }
         
         switch(runningPE){

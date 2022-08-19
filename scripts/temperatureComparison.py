@@ -80,7 +80,7 @@ ax.plot(pidtm_time, pidtm_avg_temp, 'r-', linewidth=0.5, label="AVG PIDTM")
 ax.plot(spiral_time, spiral_peak_temp, 'b-', linewidth=1.0, label="PEAK Chronos")
 ax.plot(spiral_time, spiral_avg_temp, 'b-', linewidth=0.5, label="AVG Chronos")
 
-ax.set_ylim([50, 85])
+ax.set_ylim([30, 110])
 
 ax.legend()
 
