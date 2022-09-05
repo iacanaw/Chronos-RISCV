@@ -87,8 +87,8 @@ void powerEstimation(){
          
         // estimate the noc activity
         nocActivity = estimateNoCActivity();
-        if(nocActivity < 100000)
-            nocIdle = 100000 - nocActivity;
+        if(nocActivity < 1000000)
+            nocIdle = 1000000 - nocActivity;
         else
             nocIdle = 0;
 

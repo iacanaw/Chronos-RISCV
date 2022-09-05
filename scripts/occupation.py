@@ -79,9 +79,41 @@ for j in range(10):
             value+=1
     print("\t   "+str((j+1)*10)+"   \t||\t"+format(value/len(occupation)*100, ".3f"))
 
+for i in range(len(occupation)):
+    occupation[i] = occupation[i]*100
+
+slotOcc = []
+timeSlotOcc = []
+PEOcc = []
+timePEOcc = []
+
+with open("simulation/log_0x0.txt", "r") as log_file:
+    while True:
+        line = ""
+        try:
+            line = log_file.readline()
+        except:
+            print("catched an error in file "+ str(xx) + "x" + str(yy))
+        if "---->Slot_occ" in line:
+            value = line.split(' ')
+            if value[1].isnumeric() and value[3].isnumeric():
+                slotOcc.append(int(value[1]))
+                timeSlotOcc.append(int(value[3]))
+        elif "---->PE_occ:" in line:
+            value = line.split(' ')
+            if value[1].isnumeric() and value[3].isnumeric():
+                PEOcc.append(int(value[1]))
+                timePEOcc.append(int(value[3]))
+        elif line == '':
+            break
+
+
 fig, ax = plt.subplots()
-ax.plot(occupation_time, occupation, 'k-', linewidth=1.0)
-ax.set_ylim([0, 1])
+ax.plot(occupation_time, occupation, 'k-', linewidth=1.0, label="Instructions Usage")
+ax.plot(timeSlotOcc, slotOcc, 'r-', linewidth=1.1, label="Slots Occupation")
+ax.plot(timePEOcc, PEOcc, 'b-', linewidth=1.0, label = "PE Occupation")
+ax.legend()
+ax.set_ylim([0, 100])
 ax.set_title('Occupation')
 
 fig = plt.gcf()

@@ -49,7 +49,7 @@
 #define MASTER_ADDR         0x0000              // x=0 y=0 
 #define HEADER_SIZE         2                   // sendTime, service
 #define THERMAL_NODES       (SYSTEM_SIZE*4)+12  // 4 thermal nodes for each PE plus 12 from the environment
-#define TAMB                31815
+#define TAMB                31815 //31315/
 #define TAM_FLIT            32
 #define CLUSTER_X		    DIM_X
 #define CLUSTER_Y		    DIM_Y
@@ -107,6 +107,7 @@ float total_structure_fits;
 
 int EM_act_ratio[TOTAL_STRUCTURES];
 
+int received = 0;
 
 FILE *fp;
 
@@ -353,12 +354,13 @@ unsigned int checkPowerReceived(){
                 if(warning){
                     warnings++;
                     bhmMessage("I", "TEA", "%d PE [%x,%x] nao enviou seu power!",warnings,i, j);   
-                    /*if(warnings > 500){
-                        while(1){}
-                    } */
                 }
             }
         }
+    }
+    if (rtrn == 1 && received == 0){
+        received++;
+        rtrn = 0;
     }
     return rtrn;
 }
@@ -393,8 +395,9 @@ PPM_PACKETNET_CB(dataUpdate) {
     if(checkPowerReceived()){ // Acabou de receber as energias
         warnings = 0;
         int i;
-    //if(samples_received >= DIM_X*DIM_Y){ // Acabou de receber as energias
+        //if(samples_received >= DIM_X*DIM_Y){ // Acabou de receber as energias
         //samples_received = 0;
+    
         for(y_data_counter=0; y_data_counter < DIM_Y; y_data_counter++){
             for(x_data_counter=0; x_data_counter < DIM_X; x_data_counter++){
                 samples_received[y_data_counter][x_data_counter] = 0;
@@ -528,8 +531,8 @@ int main(int argc, char *argv[]) {
     /* Reliability object initialization for every structure on the processor*/
     for (unitc = 0; unitc < TOTAL_STRUCTURES; unitc++){
         sprintf(floorplan.units[unitc].name, "p%d", unitc);
-        floorplan.units[unitc].height = 0.00065;//275;
-        floorplan.units[unitc].width = 0.00065;//275;
+        floorplan.units[unitc].height = 0.000194; // mem 8Kb
+        floorplan.units[unitc].width = 0.000194; // mem 8Kb
 
         init(&floorplan, unitc);  /* Initialize structures*/
         fitinit(unitc);           /* Initialize FITS for each structure*/
@@ -574,7 +577,7 @@ int main(int argc, char *argv[]) {
         }
     }
     for(i=0;i<THERMAL_NODES;i++){
-        TempTraceEnd[i] = 318.15;
+        TempTraceEnd[i] = 313.15;// 318.15;
     }
 
     bhmWaitEvent(bhmGetSystemEvent(BHM_SE_END_OF_SIMULATION));

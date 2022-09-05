@@ -304,23 +304,10 @@ chmod +x callHarness.sh
 echo "Simulation total time elapsed: "$SECONDS" seconds..."
 echo "Simulation took: $(($SECONDS / 3600))hrs $((($SECONDS / 60) % 60))min $(($SECONDS % 60))sec" >> simulationTime.txt
 
+cd simulation
+sed -i '2,10d' FITlog.tsv # removes the first 8 samples from the FIT file
+sed -i '1,24d' matex.txt # removes the first 8 samples from the matex file
+sed -i '2,10d' SystemTemperature.tsv # removes the first 8 samples from the matex file
+sed -i '2,10d' SystemPower.tsv # removes the first 8 samples from the matex file
+
 ./scripts/RunScripts.sh "$XX" "$YY" "$SimType"
-
-# python3 scripts/graphTemperature.py 
-# python3 scripts/graphInstructions.py "$XX" "$YY"
-# python3 scripts/graphInstructionsFIT.py "$XX" "$YY"
-# python3 scripts/filter_debug.py 
-# python3 scripts/occupation.py "$XX" "$YY" >> simulation/occupation.txt
-
-# sed -i 's/#define TOTAL_STRUCTURES.*/#define TOTAL_STRUCTURES '$XX'*'$YY'/' scripts/montecarlo.c
-# gcc scripts/montecarlo.c -o simulation/montecarlo -lm
-# cd simulation
-# ./montecarlo montecarlofile >> mttflog.txt
-# cd ..
-
-# python3 scripts/csvGen.py "$XX" "$YY" "$SimType"
-
-# shopt -s extglob
-# rm -rfv !('simulation') >> /dev/null
-# cp -r simulation/* .
-# rm -rf simulation  >> /dev/null

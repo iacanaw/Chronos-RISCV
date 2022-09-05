@@ -189,7 +189,6 @@ void API_FinishRunningTask(){
     while(API_checkPipe(slot) == 1){
         vTaskDelay(1);
     }
-    //vTaskEnterCritical();
     printsvsv("Task ", TaskList[slot].TaskID, " is being deleted! From application ", TaskList[slot].AppID);
     TaskList[slot].status = TASK_SLOT_FINISH; //TASK_SLOT_EMPTY;
     //xHigherPriorityTaskWoken = pdFALSE;
@@ -210,6 +209,7 @@ void API_FinishRunningTask(){
         }
     }
     if(i != 0xffffffff){ API_setFreqIdle(); }
+    vTaskEnterCritical();
     API_SendFinishTask(TaskList[slot].TaskID, TaskList[slot].AppID);
     vPortFree(TaskList[slot].fullAddr);
     prints("free done \n");

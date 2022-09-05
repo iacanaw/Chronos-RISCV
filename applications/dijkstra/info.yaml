@@ -7,7 +7,7 @@ info:
     dijkstra_2: true
     dijkstra_3: true
     dijkstra_4: true
-    print_dij: true
+    print_dij: false
     divider: true
    type:
     dijkstra_0: 1

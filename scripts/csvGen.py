@@ -58,7 +58,7 @@ for i in range (len(fit_data)):
 fit_avg = fit_avg/fit_samples
 
 with open("simulation/mttflog.txt", "r") as mttffile:
-    line = mttffile.readline()
+    #line = mttffile.readline()
     line = mttffile.readline()
     splited = line.split(' ')
     mttf = splited[len(splited)-1]

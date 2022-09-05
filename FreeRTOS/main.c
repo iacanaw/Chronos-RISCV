@@ -771,288 +771,6 @@ static void GlobalManagerTask( void *pvParameters ){
 
 #elif THERMAL_MANAGEMENT == 3 // CHRONOS
 
-#define N_TASKTYPE  3
-#define N_ACTIONS   6
-
-// ACTIONS
-#define HIG_TEMPERATURE 0
-#define LOW_TEMPERATURE 1
-#define HIG_TEMP_VAR    2
-#define LOW_TEMP_VAR    3
-#define HIG_FIT         4
-#define LOW_FIT         5
-
-extern float policyTable[N_TASKTYPE][N_ACTIONS] = { {201.661, 205.822, 199.128, 206.386, 199.081, 228.746},
-                                                    {261.975, 253.904, 256.355, 261.436, 311.695, 258.952},
-                                                    {255.624, 250.257, 247.782, 232.598, 240.246, 277.564} };
-
-static void GlobalManagerTask( void *pvParameters ){
-    ( void ) pvParameters;
-	unsigned int tick;
-	char str[20];
-    int x, y;
-    unsigned int apptask, app, task, slot;
-    unsigned int addr, j, i;
-    //---------------------------------------
-    // --------- Q-learning stuff -----------
-    unsigned int tp, action;
-    // Hyperparameters
-
-    float epsilon = 0.1; // 0.100 in fixed point
-    // lists to consult
-    unsigned int temperature_list[DIM_X*DIM_Y];
-    unsigned int tempVar_list[DIM_X*DIM_Y];
-    unsigned int fit_list[DIM_X*DIM_Y];
-    
-    // policy table initialization
-    /*for(tp = 0; tp < N_TASKTYPE; tp++){
-        for(action = 0; action < N_ACTIONS; action++){
-            policyTable[tp][action] = 0;
-        }
-    }*/
-
-	// Initialize the System Tiles Info
-	API_TilesReset();
-
-	// Initialize the applications vector
-    API_ApplicationsReset();
-
-	// Informs the Repository that the GLOBALMASTER is ready to receive the application info
-	API_RepositoryWakeUp();
-
-	for(;;){
-		API_setFreqScale(1000);
-        API_applyFreqScale();
-        tick = xTaskGetTickCount();
-        if(tick >= SIMULATION_MAX_TICKS) _exit(0xfe10);
-		myItoa(tick, str, 10);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
-		printsv("GlobalMasterActive", tick);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
-
-        // prints the occupation
-        API_PrintOccupation(tick);
-
-        // Checks if there is some task to allocate
-        if(API_CheckTaskToAllocate(tick)){
-            // Sorts PEs by certain attributes (temperature, temperature variation, fit)
-            API_SortAllocationVectors(temperature_list, tempVar_list, fit_list);
-
-            apptask = API_GetNextTaskToAllocate(tick);
-            printsv("apptask: ", apptask);
-            do{
-
-                app = (apptask & 0xFFFF0000) >> 16;
-                task = (apptask & 0x0000FFFF);
-                printsvsv("Allocating task ", task, "from app ", app);
-
-                if( (int)(epsilon*100) < random()%100 ){
-                    action = random() % N_ACTIONS; // Explore action space
-                } else{
-                    action = API_getMaxIdxfromRow(policyTable, applications[app].taskType[task], N_ACTIONS, N_TASKTYPE); // Exploit learned values
-                }
-
-                // register the taked action 
-                applications[app].takedAction[task] = action;
-
-                // Runs the selected action
-                switch(action){
-                    case HIG_TEMPERATURE: // allocate in the PE with the higher temperatures
-                        for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
-                            addr = temperature_list[i];
-                            slot = API_GetTaskSlotFromTile(addr, app, task);
-                            if (slot != ERRO) break;
-                        }
-                        break;
-                    
-                    case LOW_TEMPERATURE: // allocate in the PE with the lower temperature
-                        for(i = 0; i < (DIM_X*DIM_Y); i++){
-                            addr = temperature_list[i];
-                            slot = API_GetTaskSlotFromTile(addr, app, task);
-                            if (slot != ERRO) break;
-                        }
-                        break; 
-
-                    case HIG_TEMP_VAR: // allocate in the PE with the higher temperature variation
-                        for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
-                            addr = tempVar_list[i];
-                            slot = API_GetTaskSlotFromTile(addr, app, task);
-                            if (slot != ERRO) break;
-                        }
-                        break;
-
-                    case LOW_TEMP_VAR: // allocate in the PE with the lower temperature variation
-                        for(i = 0; i < (DIM_X*DIM_Y); i++){
-                            addr = tempVar_list[i];
-                            slot = API_GetTaskSlotFromTile(addr, app, task);
-                            if (slot != ERRO) break;
-                        }
-                        break; 
-
-                    case HIG_FIT: // allocate in the PE with the higher FIT
-                        for(i = (DIM_X*DIM_Y)-1; i >= 0; i--){
-                            addr = fit_list[i];
-                            slot = API_GetTaskSlotFromTile(addr, app, task);
-                            if (slot != ERRO) break;
-                        }
-                        break;
-                    
-                    case LOW_FIT: // allocate in the PE with the lower FIT
-                        for(i = 0; i < (DIM_X*DIM_Y); i++){
-                            addr = fit_list[i];
-                            slot = API_GetTaskSlotFromTile(addr, app, task);
-                            if (slot != ERRO) break;
-                        }
-                        break; 
-
-                    default:
-                        prints("Erro ao escolher a acao\n");
-                        break;
-                }
-                
-                // register the application allocation
-                applications[app].tasks[task].addr = addr;
-                applications[app].tasks[task].slot = slot;
-                applications[app].lastStart = applications[app].nextRun;
-                API_RepositoryAllocation(app, task, addr);
-                printsvsv("Allocated at: ", getXpos(addr), "- ", getYpos(addr));
-
-                // gets the next task to allocate
-                apptask = API_GetNextTaskToAllocate(tick);  
-                printsv("new apptask: ", apptask);
-            }while(apptask != 0xFFFFFFFF);
-
-        }
-		
-		// Checks if there is some task to start...
-		API_StartTasks();
-
-        // Enters in idle
-        API_setFreqIdle();
-        API_applyFreqScale();
-        
-		if(API_SystemFinish){
-            API_PrintPolicyTable();
-			//vTaskDelay(100); // to cool down the system
-			_exit(0xfe10);
-		}
-		else{
-			vTaskDelay(1);
-		}
-	}
-}
-
-#elif THERMAL_MANAGEMENT == 5 // CHRONOS2
-
-static void GlobalManagerTask( void *pvParameters ){
-    ( void ) pvParameters;
-	char str[20];
-    int x, y;
-    unsigned int tick;
-    unsigned int apptask, app, task, slot, taskType, cluster, base_addr, cluster_size, last_app;
-    unsigned int addr, j, i, k;
-
-    static unsigned int sorted_addr[DIM_X*DIM_Y];
-    static unsigned int sorted_fit[DIM_X*DIM_Y];
-
-    // Initialize the System Tiles Info
-	API_TilesReset();
-
-    Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].taskType = 2;
-    Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].clusterCount = 1;
-
-	// Initialize the applications vector
-    API_ApplicationsReset();
-
-	// Informs the Repository that the GLOBALMASTER is ready to receive the application info
-	API_RepositoryWakeUp();
-
-	for(;;){
-		API_setFreqScale(1000);
-        API_applyFreqScale();
-        tick = xTaskGetTickCount();
-        if(tick >= SIMULATION_MAX_TICKS) _exit(0xfe10);
-		myItoa(tick, str, 10);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
-		printsv("GlobalMasterActive", tick);
-		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
-
-        // prints the occupation
-        API_PrintOccupation(tick);
-
-        // Checks if there is some task to allocate
-        if(API_CheckTaskToAllocate(xTaskGetTickCount())){
-            
-            last_app = -1;
-
-            while(1){
-                apptask = API_GetNextTaskToAllocate(xTaskGetTickCount());
-                if (apptask == 0xFFFFFFFF) break;
-                app = (apptask & 0xFFFF0000) >> 16;
-                task = (apptask & 0x0000FFFF);
-                printsvsv("Allocating task ", task, "from app ", app);
-                if(last_app != app){
-                    API_FindSmallerFITCluster(app);
-                    base_addr = applications[app].cluster_addr;
-                    cluster_size = applications[app].cluster_size;
-                    printsvsv("Cluster addr: ", base_addr, " cluster size: ", cluster_size);
-                }
-
-                // fill the auxiliar vectors
-                k = 0;
-                for( i = getXpos(base_addr); i < (getXpos(base_addr)+cluster_size); i++){
-                    for( j = getYpos(base_addr); j < (getYpos(base_addr)+cluster_size); j++){
-                        sorted_addr[k] = makeAddress(i, j);
-                        sorted_fit[k] = API_getFIT(makeAddress(i, j));
-                        printsvsv("addr: ", sorted_addr[k], "fit: ", sorted_fit[k]);
-                        k++;
-                    }
-                }
-                
-                // sort addrs by score
-                quickSort(sorted_fit, sorted_addr, 0, cluster_size*cluster_size);
-                
-                // try to get the best tile slot
-                for(i = 0; i <= (cluster_size*cluster_size-1); i++){
-                    printsvsv("addr: ", sorted_addr[i], "fit: ", sorted_fit[i]);
-                    addr = sorted_addr[i];
-                    slot = API_GetTaskSlotFromTile(addr, app, task);
-                    if (slot != ERRO) break;
-                }
-
-                //addr = makeAddress(getYpos(addr), getXpos(addr));
-                // register the application allocation
-                applications[app].tasks[task].addr = addr;
-                applications[app].tasks[task].slot = slot;
-                applications[app].lastStart = applications[app].nextRun;
-                API_RepositoryAllocation(app, task, addr);
-                debug_task_alloc(tick, app, task, addr);
-
-                last_app = app;
-            }
-
-        }
-
-		// Checks if there is some task to start...
-		API_StartTasks();
-
-        // Enters in idle
-        API_setFreqIdle();
-        API_applyFreqScale();
-        if(API_SystemFinish){
-            //API_PrintPolicyTable();
-            //API_PrintScoreTable(scoreTable);
-            //vTaskDelay(100); // to cool down the system
-            _exit(0xfe10);
-        }
-        else if(!API_CheckTaskToAllocate(xTaskGetTickCount())){
-            vTaskDelay(1);
-        }
-	}    
-}
-
-#elif THERMAL_MANAGEMENT == 6 // CHRONOS3
-
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
 	unsigned int tick, toprint;
@@ -1065,8 +783,6 @@ static void GlobalManagerTask( void *pvParameters ){
     unsigned int addr, j, i, k;
     unsigned int state_stability[DIM_X*DIM_Y];
     unsigned int state_last[DIM_X*DIM_Y];
-    //unsigned int state_steady[DIM_X*DIM_Y];
-    //unsigned int status[DIM_X*DIM_Y]; 
 
     int starting_fit[DIM_X*DIM_Y];
     int current_fit;
@@ -1078,8 +794,8 @@ static void GlobalManagerTask( void *pvParameters ){
     // --------- Q-learning stuff -----------
     unsigned int tp, state, maxid;
     // Hyperparameters
-    float epsilon = 0.1; // 0.100 in fixed point
-    float alpha = 0.05; //1;
+    float epsilon = 0.1;
+    float alpha = 0.1;
     float gamma = 0.6;
     float oldvalue, maxval, reward, delta;
 
@@ -1129,8 +845,8 @@ static void GlobalManagerTask( void *pvParameters ){
                 printsvsv("Allocating task ", task, "from app ", app);
                 if(last_app != app){
                     API_FindSmallerFITCluster(app);
-                    base_addr = makeAddress(0,0);//applications[app].cluster_addr;
-                    cluster_size = DIM_X;//applications[app].cluster_size;
+                    base_addr = applications[app].cluster_addr;
+                    cluster_size = applications[app].cluster_size;
                     printsvsv("Cluster addr: ", base_addr, " cluster size: ", cluster_size);
                 }
 
@@ -1147,21 +863,13 @@ static void GlobalManagerTask( void *pvParameters ){
                 // sort addrs by score
                 quickSort(sorted_score, sorted_addr, 0, cluster_size*cluster_size);
                 
-                /*if( (int)(epsilon*100) < random()%100 ){ // try something new
-                    //////////////////////////////////////////////
-                    // gets a random tile 
-                    do{
-                        addr = sorted_addr[random()%(cluster_size*cluster_size)];
-                        slot = API_GetTaskSlotFromTile(addr, app, task);
-                    }while (slot == ERRO);
-                } else{ // uses the learned information
-                  */  // try to get the best tile slot
-                    for(i = (cluster_size*cluster_size-1); i >= 0; i--){
-                        addr = sorted_addr[i];
-                        slot = API_GetTaskSlotFromTile(addr, app, task);
-                        if (slot != ERRO) break;
-                    }
-                //}
+                // try to get the best tile slot
+                for(i = (cluster_size*cluster_size-1); i >= 0; i--){
+                    addr = sorted_addr[i];
+                    slot = API_GetTaskSlotFromTile(addr, app, task);
+                    if (slot != ERRO) break;
+                }
+            
 
                 // register the application allocation
                 applications[app].tasks[task].addr = addr;
@@ -1171,9 +879,165 @@ static void GlobalManagerTask( void *pvParameters ){
                 debug_task_alloc(tick, app, task, addr);
 
                 last_app = app;
+
+                // Checks if there is some task to start...
+                API_StartTasks();
             }
 
-        } /*else { // updates the score table
+        } 
+		
+		// Checks if there is some task to start...
+		API_StartTasks();
+
+        // Enters in idle
+        API_setFreqIdle();
+        API_applyFreqScale();
+        if(API_SystemFinish){
+            vTaskEnterCritical();
+            for(i = 0; i <= (DIM_X); i++){
+                for(j = 0; j <= (DIM_Y); j++){
+                    printsvsv("PE: ", addr2id(i<<8|j), "cluster count: ", Tiles[i][j].clusterCount);
+                }
+            }
+            vTaskExitCritical();
+            //API_PrintPolicyTable();
+            API_PrintScoreTable(scoreTable);
+            //vTaskDelay(100); // to cool down the system
+            _exit(0xfe10);
+        }
+        else if(!API_CheckTaskToAllocate(xTaskGetTickCount())){
+            vTaskDelay(1);
+        }
+	}
+}
+
+#elif THERMAL_MANAGEMENT == 5 // CHRONOS2
+
+
+#elif THERMAL_MANAGEMENT == 6 // CHRONOS3
+
+static void GlobalManagerTask( void *pvParameters ){
+    ( void ) pvParameters;
+	unsigned int tick, toprint;
+    float scoreTable[N_TASKTYPE][N_STATES] = {  {615362.0, 607443.0, 333330.0, 100412.0, 0.0, 615081.0, 609077.0, 416733.0, 52637.0, 612270.0, 598132.0, 121567.0, 601072.0, 349875.0, 431951.0, 586333.0, 458694.0, 155463.0, 27292.0, 598802.0, 455129.0, 0.0, 577175.0, 223347.0, 311792.0, 188246.0, 158618.0, 0.0, 189159.0, 26564.0, 0.0, 0.0, 0.0, 0.0, 0.0  },
+                                                {604406.0, 604027.0, 587765.0, 236350.0, 0.0, 604277.0, 604140.0, 586968.0, 53878.0, 604332.0, 599417.0, 443521.0, 602547.0, 573740.0, 565327.0, 603970.0, 588321.0, 408904.0, 0.0, 603707.0, 587937.0, 242994.0, 601376.0, 477832.0, 572356.0, 577035.0, 419200.0, 55087.0, 572683.0, 262465.0, 368559.0, 172482.0, 0.0, 29876.0, 0.0  },
+                                                {560040.0, 556964.0, 415215.0, 98501.0, 0.0, 559982.0, 554048.0, 336867.0, 0.0, 557905.0, 551377.0, 117817.0, 555778.0, 392426.0, 408838.0, 559375.0, 513835.0, 74591.0, 0.0, 557419.0, 503984.0, 52104.0, 549970.0, 279528.0, 251336.0, 398122.0, 100042.0, 0.0, 353755.0, 52583.0, 100381.0, 0.0, 0.0, 0.0, 0.0  } };
+    char str[20];
+    int x, y;
+    unsigned int apptask, app, task, slot, taskType, cluster, base_addr, cluster_size, last_app;
+    unsigned int addr, j, i, k;
+    unsigned int state_stability[DIM_X*DIM_Y];
+    unsigned int state_last[DIM_X*DIM_Y];
+
+    int starting_fit[DIM_X*DIM_Y];
+    int current_fit;
+
+    static unsigned int sorted_addr[DIM_X*DIM_Y];
+    static unsigned int sorted_score[DIM_X*DIM_Y];
+
+    //---------------------------------------
+    // --------- Q-learning stuff -----------
+    unsigned int tp, state, maxid;
+    // Hyperparameters
+    float epsilon = 0.1;
+    float alpha = 0.1;
+    float gamma = 0.6;
+    float oldvalue, maxval, reward, delta;
+
+    //policy table initialization
+    for(tp = 0; tp < N_TASKTYPE; tp++){
+        for(state = 0; state < N_STATES; state++){
+            scoreTable[tp][state] = 0;//scoreTable[tp][state]/1000;
+        }
+    }
+    API_PrintScoreTable(scoreTable);
+
+	// Initialize the System Tiles Info
+	API_TilesReset();
+
+    Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].taskType = 1;
+    Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].clusterCount = 1;
+
+	// Initialize the applications vector
+    API_ApplicationsReset();
+
+	// Informs the Repository that the GLOBALMASTER is ready to receive the application info
+	API_RepositoryWakeUp();
+
+	for(;;){
+		API_setFreqScale(1000);
+        API_applyFreqScale();
+        tick = xTaskGetTickCount();
+        if(tick >= SIMULATION_MAX_TICKS) _exit(0xfe10);
+		myItoa(tick, str, 10);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
+		printsv("GlobalMasterActive", tick);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
+
+        // prints the occupation
+        API_PrintOccupation(tick);
+
+        // Checks if there is some task to allocate
+        if(API_CheckTaskToAllocate(xTaskGetTickCount())){
+            
+            last_app = -1;
+
+            while(1){
+                apptask = API_GetNextTaskToAllocate(xTaskGetTickCount());
+                if (apptask == 0xFFFFFFFF) break;
+                app = (apptask & 0xFFFF0000) >> 16;
+                task = (apptask & 0x0000FFFF);
+                printsvsv("Allocating task ", task, "from app ", app);
+                if(last_app != app){
+                    API_FindSmallerFITCluster(app);
+                    base_addr = applications[app].cluster_addr;
+                    cluster_size = applications[app].cluster_size;
+                    printsvsv("Cluster addr: ", base_addr, " cluster size: ", cluster_size);
+                }
+
+                // fill the auxiliar vectors
+                k = 0;
+                for( i = getXpos(base_addr); i < (getXpos(base_addr)+cluster_size); i++){
+                    for( j = getYpos(base_addr); j < (getYpos(base_addr)+cluster_size); j++){
+                        sorted_addr[k] = makeAddress(i, j);
+                        sorted_score[k] = (int)(scoreTable[applications[app].taskType[task]][API_getPEState(addr2id(makeAddress(i,j)))]*1000);
+                        k++;
+                    }
+                }
+                
+                // sort addrs by score
+                quickSort(sorted_score, sorted_addr, 0, cluster_size*cluster_size);
+                
+                if( (int)(epsilon*100) < random()%100 ){ // try something new
+                    //////////////////////////////////////////////
+                    // gets a random tile 
+                    do{
+                        addr = sorted_addr[random()%(cluster_size*cluster_size)];
+                        slot = API_GetTaskSlotFromTile(addr, app, task);
+                    }while (slot == ERRO);
+                } else{ // uses the learned information
+                    // try to get the best tile slot
+                    for(i = (cluster_size*cluster_size-1); i >= 0; i--){
+                        addr = sorted_addr[i];
+                        slot = API_GetTaskSlotFromTile(addr, app, task);
+                        if (slot != ERRO) break;
+                    }
+                }
+
+                // register the application allocation
+                applications[app].tasks[task].addr = addr;
+                applications[app].tasks[task].slot = slot;
+                applications[app].lastStart = applications[app].nextRun;
+                API_RepositoryAllocation(app, task, addr);
+                debug_task_alloc(tick, app, task, addr);
+
+                last_app = app;
+
+                // Checks if there is some task to start...
+                API_StartTasks();
+            }
+
+        } else if(tick > 200) { // updates the score table
             
             for(i = 0; i < DIM_X*DIM_Y; i++){
                 if(API_CheckTaskToAllocate(xTaskGetTickCount())) break;
@@ -1203,8 +1067,12 @@ static void GlobalManagerTask( void *pvParameters ){
                         // calculates the reward
                         current_fit = (int)API_getFIT(addr);
                         delta = (float)((float)(current_fit/100) - (float)(starting_fit[i]/100));
-                        printsv("delta FIT: ", (int)delta);
-                        reward =  (Q_rsqrt(7000+(delta*delta)) * delta * -500) + 500;
+                        if(delta > 0)
+                            printsv("delta FIT: +", (int)delta);
+                        else
+                            printsv("delta FIT: -", (int)(delta*-1));
+                        //reward =  (Q_rsqrt(7000+(delta*delta)) * delta * -500) + 500;
+                        reward =  (Q_rsqrt(1000+(delta*delta)) * delta * -100) + 100;
                         printsvsv("state ", state, "woned reward: ", (int)reward);
 
                         // gets the old value
@@ -1217,6 +1085,7 @@ static void GlobalManagerTask( void *pvParameters ){
                         // updates the score table
                         scoreTable[taskType][state] = (1 - alpha) * oldvalue + alpha * ( reward + gamma * maxval);
                         
+                        // saves the current FIT for the next update
                         state_stability[i] = 0;
                         starting_fit[i] = API_getFIT(addr);
 
@@ -1231,7 +1100,7 @@ static void GlobalManagerTask( void *pvParameters ){
                     state_last[i] = -1;
                 }
             }
-        }*/
+        }
 		
 		// Checks if there is some task to start...
 		API_StartTasks();

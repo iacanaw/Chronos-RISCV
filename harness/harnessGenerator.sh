@@ -168,6 +168,7 @@ echo "}" >> harness.c
 echo "" >> harness.c
 for i in $(seq 0 $N);
 do
+    #if [ $i -gt 40 ]; then
     echo "static OP_MONITOR_FN(FreqCallback"$i"){" >> harness.c
     echo "" >> harness.c
     echo "    // reads the frequency scale, provided by the system" >> harness.c
@@ -185,6 +186,7 @@ do
     echo "    return;" >> harness.c
     echo "}" >> harness.c
     echo "" >> harness.c
+    #fi
 done
 echo "int main(int argc, const char *argv[]) {" >> harness.c
 echo "    int             runningPE       = 0;" >> harness.c
@@ -223,9 +225,10 @@ echo "        switch(runningPE){" >> harness.c
 for i in $(seq 0 $N);
 do
     echo "            case "$i":" >> harness.c
-    echo "                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback"$i", \"frequency"$i"\");" >> harness.c
-    echo "                opMessage(\"I\", \"HARNESS INFO\", \"\t > MONITOR DE FREQUENCIA "$i" ADICIONADO!\");" >> harness.c
-
+    #if [ $i -gt 40 ]; then
+        echo "                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback"$i", \"frequency"$i"\");" >> harness.c
+        echo "                opMessage(\"I\", \"HARNESS INFO\", \"\t > MONITOR DE FREQUENCIA "$i" ADICIONADO!\");" >> harness.c
+    #fi
     echo "                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback"$i", \"fetch"$i"\");" >> harness.c
     echo "                opMessage(\"I\", \"HARNESS INFO\", \"	 > MONITOR DE FETCH "$i" ADICIONADO!\");" >> harness.c
     echo "                break;" >> harness.c

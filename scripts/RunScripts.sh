@@ -7,7 +7,7 @@ YY=$2
 SimType=$3
 
 # generates the temperature graph
-python3 scripts/graphTemperature.py 
+python3 scripts/graphTemperature.py "$SimType"
 
 # generates the instruction graph
 python3 scripts/graphInstructions.py "$XX" "$YY"
@@ -19,14 +19,17 @@ python3 scripts/graphInstructionsFIT.py "$XX" "$YY"
 python3 scripts/filter_debug.py 
 
 # generates the occupation graph
-python3 scripts/occupation.py "$XX" "$YY" >> simulation/occupation.txt
+python3 scripts/occupation.py "$XX" "$YY" > simulation/occupation.txt
 
 # calculates the MTTF using the montecarlo algorithm 
-sed -i 's/#define TOTAL_STRUCTURES.*/#define TOTAL_STRUCTURES '$XX'*'$YY'/' scripts/montecarlo.c
-gcc scripts/montecarlo.c -o simulation/montecarlo -lm
-cd simulation
-./montecarlo montecarlofile >> mttflog.txt
-cd ..
+# sed -i 's/#define TOTAL_STRUCTURES.*/#define TOTAL_STRUCTURES '$XX'*'$YY'/' scripts/montecarlo.c
+# gcc scripts/montecarlo.c -o simulation/montecarlo -lm
+# cd simulation
+# ./montecarlo montecarlofile >> mttflog.txt
+# cd ..
+
+# calculates the MTTF using the montecarlo algorithm - Using RAMP to generate the FIT file
+./scripts/RunRAMP.sh "$XX" "$YY"
 
 # create a CSV file with data about the simulation
 python3 scripts/csvGen.py "$XX" "$YY" "$SimType"
