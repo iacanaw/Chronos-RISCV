@@ -62,10 +62,8 @@ fig.savefig('simulation/PeakTemperature.png', format='png', dpi=300, bbox_inches
 fig.savefig('simulation/PeakTemperature.eps', format='eps', bbox_inches='tight')
 
 with open("simulation/ThermalStatistics.csv", "w") as TSfile:
-    print(";Average;STD", file=TSfile)
-    print("MAX;"+str(max_temp.mean()).replace(".", ",")+";"+str(max_temp.std()).replace(".", ","), file=TSfile)
-    print("MIN;"+str(min_temp.mean()).replace(".", ",")+";"+str(min_temp.std()).replace(".", ","), file=TSfile)
-    print("MEDIAN;"+str(mediana.mean()).replace(".", ",")+";"+str(mediana.std()).replace(".", ","), file=TSfile)
-    print("AVERAGE;"+str(avg_temp.mean()).replace(".", ",")+";"+str(avg_temp.std()).replace(".", ","), file=TSfile)
-    print("1 QUARTILE;"+str(pri_quartil.mean()).replace(".", ",")+";"+str(pri_quartil.std()).replace(".", ","), file=TSfile)
-    print("3 QUARTILE;"+str(ter_quartil.mean()).replace(".", ",")+";"+str(ter_quartil.std()).replace(".", ","), file=TSfile)
+    print(str(max_temp.mean()).replace(".", ",")+";"+str(max_temp.std()).replace(".", ","), file=TSfile)
+    print(str(ter_quartil.mean()).replace(".", ",")+";"+str(ter_quartil.std()).replace(".", ","), file=TSfile)
+    print(str(mediana.mean()).replace(".", ",")+";"+str(mediana.std()).replace(".", ","), file=TSfile)
+    print(str(pri_quartil.mean()).replace(".", ",")+";"+str(pri_quartil.std()).replace(".", ","), file=TSfile)
+    print(str(min_temp.mean()).replace(".", ",")+";"+str(min_temp.std()).replace(".", ","), file=TSfile)

@@ -136,7 +136,7 @@ void UnitRel::EM(float temp,float act, float rel_voltage, float rel_freq)
 	else
 		EM_fits =( EM_fits*(access_counter-1) + fits_ratio*EM_base_fits);
 
-	printf("EM_fits: %f\n-----------~\n", EM_fits);
+	//printf("EM_fits: %f\n-----------~\n", EM_fits);
 	
 	EM_inst = fits_ratio*EM_base_fits;	/* Instantaneous values of FITS*/
 }	

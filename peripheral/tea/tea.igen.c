@@ -105,7 +105,7 @@ double NBTI_total;          /* Total NBTI FITS */
 double globalcountdown;
 float total_structure_fits;
 
-int EM_act_ratio[TOTAL_STRUCTURES];
+double EM_act_ratio[TOTAL_STRUCTURES];
 
 int received = 0;
 
@@ -234,6 +234,7 @@ void temp_matex(double TempTraceEnd[THERMAL_NODES], double power_trace[SYSTEM_SI
     // RELIABILITY
     for (structures=0;structures<TOTAL_STRUCTURES;structures++){
         EM_act_ratio[structures] = power_trace[structures];
+        //printf("stru[%d] = %f\n", structures, EM_act_ratio[structures]);
     }
 
     for (structures=0; structures < TOTAL_STRUCTURES; structures++){
@@ -474,8 +475,8 @@ PPM_PACKETNET_CB(dataUpdate) {
             fitlog = fopen("simulation/FITlog.tsv", "a");
             fprintf(fitlog, "%.4f", (bhmGetCurrentTime()/1000000));
             for(i = 0; i < DIM_Y*DIM_X; i++){
-                fiti = rel_unit[i].fits*100;
-                fprintf(fitlog,"\t%f",rel_unit[i].fits);
+                fiti = rel_unit[i].ind_inst*100;
+                fprintf(fitlog,"\t%f",rel_unit[i].ind_inst);
                 theFITPacket[i+13] = htonl(fiti);
             }
             fprintf(fitlog, "\n");

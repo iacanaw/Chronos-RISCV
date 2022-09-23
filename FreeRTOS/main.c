@@ -25,7 +25,8 @@ extern volatile unsigned int API_SystemFinish = FALSE;
     4) CHARACTERIZATION
     5) CHRONOS2
     6) CHRONOS3 */
-#define THERMAL_MANAGEMENT 6
+#define THERMAL_MANAGEMENT 3
+#define MIGRATION 1
 
 /* Defines the amount of ticks to simulate - if zero then simulates until the scenario's end */
 #define SIMULATION_MAX_TICKS 0
@@ -294,8 +295,13 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     prints("Tem uma mensagem chegando...\n");
                     aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
                     //printsv("MESSAGE_DELIVERY addr: ", TaskList[aux].MsgToReceive);
-                    HW_set_32bit_reg(NI_RX, TaskList[aux].MsgToReceive);
-                    incommingPacket.service = MESSAGE_DELIVERY_FINISH;
+                    if(aux != ERRO) {
+                        HW_set_32bit_reg(NI_RX, TaskList[aux].MsgToReceive);
+                        incommingPacket.service = MESSAGE_DELIVERY_FINISH;
+                    }
+                    else{
+                        prints("ERRO! - Destinatário não presente!\n");
+                    }
                     //prints("done...\n----------\n");
                     //HW_set_32bit_reg(NI_RX, DONE);
                     prints("9NI_RX DONE!\n");
@@ -437,6 +443,10 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     API_SetMigrationVar(aux, 0xFFFFFFFF);
                     incommingPacket.service = TASK_MIGRATION_RECEIVE;
                     HW_set_32bit_reg(NI_RX, TaskList[aux].taskAddr);
+
+                    //vTaskEnterCritical();
+                    //printsvsv("fmig~~~> ", incommingPacket.app_id, "task ", incommingPacket.task_id);
+                    //vTaskExitCritical();
                     break;
 
                 case TASK_MIGRATION_RECEIVE:
@@ -495,8 +505,14 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     prints("26NI_RX DONE!\n");
                     prints("Chegou um TASK_RESUME!\n");
                     aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.app_id);
-                    // Informs the NI were to write the application
-                    HW_set_32bit_reg(NI_RX, (unsigned int)&TaskList[aux].appNumTasks);
+                    if(aux!=ERRO){
+                        // Informs the NI were to write the application
+                        HW_set_32bit_reg(NI_RX, (unsigned int)&TaskList[aux].appNumTasks);
+                    } else {
+                        prints("Task nao encontrada!\n");
+                        aux = API_GetFreeTaskSlot();
+                        HW_set_32bit_reg(NI_RX, (unsigned int)&TaskList[aux].appNumTasks);
+                    }
                     incommingPacket.service = TASK_RESUME_FINISH;
                     //HW_set_32bit_reg(NI_RX, DONE);
                     break;
@@ -511,6 +527,11 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                 case LOST_MESSAGE_REQ:
                     prints("28NI_RX_DONE!\n");
                     API_Forward_MsgReq(incommingPacket.task_id, incommingPacket.app_id, incommingPacket.producer_task_id);
+                    break;
+
+                case TASK_REFUSE_MIGRATION:
+                    prints("29NI_RX_DONE!\n");
+                    API_Migration_Refused(incommingPacket.task_id, incommingPacket.app_id, incommingPacket.why);
                     break;
 
                 default:
@@ -705,8 +726,8 @@ static void GlobalManagerTask( void *pvParameters ){
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
     unsigned int tick;
-    int migrate = 1;
 	char str[20];
+    unsigned int migrate, mig_app, mig_task, mig_addr, mig_slot;
 
     // Initialize the priority vector with the pattern policy
     GeneratePatternMatrix();
@@ -736,11 +757,6 @@ static void GlobalManagerTask( void *pvParameters ){
         // Update the system temperature
         API_UpdateTemperature();
 
-        // if(tick > 30 && migrate == 1){
-        //     API_StartMigration(0, 3, 0x00000100);
-        //     migrate = 0;
-        // }
-
         // Update PID
         API_UpdatePIDTM();
 
@@ -749,9 +765,28 @@ static void GlobalManagerTask( void *pvParameters ){
 
         // Checks if there is some task to allocate...
 		API_AllocateTasks(tick);
-		
-		// Checks if there is some task to start...
+
+        // Checks if there is some task to start...
 		API_StartTasks();
+
+        // Check migration
+#if MIGRATION
+        migrate = API_SelectTask_Migration_Temperature(70);
+        if (migrate != -1){
+            printsvsv("Got a app to migrate: ",(migrate>>16)," task: ", (migrate & 0x0000FFFF));
+            mig_app = migrate >> 16;
+            mig_task = migrate & 0x0000FFFF;
+            for(;;){
+                mig_addr = getNextPriorityAddr();
+                printsv("mig_addr = ", mig_addr);
+                mig_slot = API_GetTaskSlotFromTile(mig_addr, mig_app, mig_task);
+                if (mig_slot != ERRO)
+                    break;
+            }
+            printsvsv("Migrating it to ", getXpos(mig_addr), "-", getYpos(mig_addr));
+            API_StartMigration(mig_app, mig_task, mig_addr);
+        }
+#endif
         
         // Enters in idle
         API_setFreqIdle();
@@ -774,9 +809,9 @@ static void GlobalManagerTask( void *pvParameters ){
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
 	unsigned int tick, toprint;
-    float scoreTable[N_TASKTYPE][N_STATES] = {  {615362.0, 607443.0, 333330.0, 100412.0, 0.0, 615081.0, 609077.0, 416733.0, 52637.0, 612270.0, 598132.0, 121567.0, 601072.0, 349875.0, 431951.0, 586333.0, 458694.0, 155463.0, 27292.0, 598802.0, 455129.0, 0.0, 577175.0, 223347.0, 311792.0, 188246.0, 158618.0, 0.0, 189159.0, 26564.0, 0.0, 0.0, 0.0, 0.0, 0.0  },
-                                                {604406.0, 604027.0, 587765.0, 236350.0, 0.0, 604277.0, 604140.0, 586968.0, 53878.0, 604332.0, 599417.0, 443521.0, 602547.0, 573740.0, 565327.0, 603970.0, 588321.0, 408904.0, 0.0, 603707.0, 587937.0, 242994.0, 601376.0, 477832.0, 572356.0, 577035.0, 419200.0, 55087.0, 572683.0, 262465.0, 368559.0, 172482.0, 0.0, 29876.0, 0.0  },
-                                                {560040.0, 556964.0, 415215.0, 98501.0, 0.0, 559982.0, 554048.0, 336867.0, 0.0, 557905.0, 551377.0, 117817.0, 555778.0, 392426.0, 408838.0, 559375.0, 513835.0, 74591.0, 0.0, 557419.0, 503984.0, 52104.0, 549970.0, 279528.0, 251336.0, 398122.0, 100042.0, 0.0, 353755.0, 52583.0, 100381.0, 0.0, 0.0, 0.0, 0.0  } };
+    float scoreTable[N_TASKTYPE][N_STATES] =  {  {121904.0, 113251.0, 84648.0, 1887.0, 0.0, 111709.0, 98885.0, 77391.0, 4306.0, 103536.0, 93782.0, 75882.0, 91944.0, 80801.0, 86164.0, 85623.0, 79369.0, 28912.0, 0.0, 84735.0, 79862.0, 51045.0, 93364.0, 83839.0, 74967.0, 13761.0, 41727.0, 476.0, 47306.0, 34574.0, 50508.0, 0.0, 0.0, 0.0, 0.0  },
+                                                 {119969.0, 116690.0, 89130.0, 50246.0, 0.0, 109430.0, 104431.0, 78310.0, 72370.0, 109541.0, 86781.0, 79209.0, 86960.0, 82305.0, 79687.0, 100943.0, 88185.0, 80293.0, 9146.0, 97405.0, 86204.0, 87135.0, 93771.0, 83387.0, 77609.0, 90253.0, 86956.0, 45097.0, 79638.0, 90053.0, 70384.0, 37629.0, 9857.0, 39325.0, 2182.0  },
+                                                 {130456.0, 100619.0, 55879.0, 0.0, 0.0, 131773.0, 88187.0, 78353.0, 424.0, 111200.0, 87924.0, 64131.0, 91503.0, 84865.0, 85301.0, 109229.0, 85482.0, 34487.0, 0.0, 107594.0, 89627.0, 38409.0, 93614.0, 85888.0, 84243.0, 72218.0, 6593.0, 399.0, 77399.0, 20244.0, 65916.0, 0.0, 0.0, 12186.0, 0.0  } };
     char str[20];
     int x, y;
     unsigned int apptask, app, task, slot, taskType, cluster, base_addr, cluster_size, last_app;
@@ -790,6 +825,10 @@ static void GlobalManagerTask( void *pvParameters ){
     static unsigned int sorted_addr[DIM_X*DIM_Y];
     static unsigned int sorted_score[DIM_X*DIM_Y];
 
+    unsigned int checkMigration, migrate, mig_app, mig_task, mig_addr, num_pes;
+    float candidate_score;
+                        
+    checkMigration = 200;
     //---------------------------------------
     // --------- Q-learning stuff -----------
     unsigned int tp, state, maxid;
@@ -884,10 +923,55 @@ static void GlobalManagerTask( void *pvParameters ){
                 API_StartTasks();
             }
 
-        } 
-		
+        }
+#if MIGRATION
+        else{
+            migrate = API_SelectTask_Migration_Temperature(70);
+            if (migrate != ERRO){
+                printsvsv("Got a app to migrate: ",(migrate>>16)," task: ", (migrate & 0x0000FFFF));
+                mig_app = migrate >> 16;
+                mig_task = migrate & 0x0000FFFF;
+
+                base_addr = applications[mig_app].cluster_addr;
+                cluster_size = applications[mig_app].cluster_size;
+                // fill the auxiliar vectors
+                k = 0;
+                for( i = getXpos(base_addr); i < (getXpos(base_addr)+cluster_size); i++){
+                    for( j = getYpos(base_addr); j < (getYpos(base_addr)+cluster_size); j++){
+                        sorted_addr[k] = makeAddress(i, j);
+                        sorted_score[k] = (int)(scoreTable[applications[mig_app].taskType[mig_task]][API_getPEState(addr2id(makeAddress(i,j)))]*1000);
+                        k++;
+                    }
+                }
+
+                // sort addrs by score
+                num_pes = (cluster_size*cluster_size)-1; 
+                printsv("Sorting num_pes = ", num_pes);
+                quickSort(sorted_score, sorted_addr, 0, num_pes);
+                
+                // try to get the best tile slot
+                mig_addr = 0xFFFFFFFF;
+                prints("Checking... \n");
+                for(i = num_pes; i >= 0; i--){
+                    addr = sorted_addr[i];
+                    slot = API_GetTaskSlotFromTile(addr, mig_app, mig_task);
+                    if (slot != ERRO){
+                        mig_addr = addr;
+                        break;
+                    }
+                }
+                if(mig_addr != 0xFFFFFFFF){
+                    API_StartMigration(mig_app, mig_task, mig_addr);
+                    printsvsv("Migrating it to ", getXpos(mig_addr), "- ", getYpos(mig_addr));
+                } else {
+                    prints("Not found!\n");
+                }
+            }
+        }
+#endif
+
 		// Checks if there is some task to start...
-		API_StartTasks();
+	    API_StartTasks();
 
         // Enters in idle
         API_setFreqIdle();
@@ -919,9 +1003,9 @@ static void GlobalManagerTask( void *pvParameters ){
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
 	unsigned int tick, toprint;
-    float scoreTable[N_TASKTYPE][N_STATES] = {  {615362.0, 607443.0, 333330.0, 100412.0, 0.0, 615081.0, 609077.0, 416733.0, 52637.0, 612270.0, 598132.0, 121567.0, 601072.0, 349875.0, 431951.0, 586333.0, 458694.0, 155463.0, 27292.0, 598802.0, 455129.0, 0.0, 577175.0, 223347.0, 311792.0, 188246.0, 158618.0, 0.0, 189159.0, 26564.0, 0.0, 0.0, 0.0, 0.0, 0.0  },
-                                                {604406.0, 604027.0, 587765.0, 236350.0, 0.0, 604277.0, 604140.0, 586968.0, 53878.0, 604332.0, 599417.0, 443521.0, 602547.0, 573740.0, 565327.0, 603970.0, 588321.0, 408904.0, 0.0, 603707.0, 587937.0, 242994.0, 601376.0, 477832.0, 572356.0, 577035.0, 419200.0, 55087.0, 572683.0, 262465.0, 368559.0, 172482.0, 0.0, 29876.0, 0.0  },
-                                                {560040.0, 556964.0, 415215.0, 98501.0, 0.0, 559982.0, 554048.0, 336867.0, 0.0, 557905.0, 551377.0, 117817.0, 555778.0, 392426.0, 408838.0, 559375.0, 513835.0, 74591.0, 0.0, 557419.0, 503984.0, 52104.0, 549970.0, 279528.0, 251336.0, 398122.0, 100042.0, 0.0, 353755.0, 52583.0, 100381.0, 0.0, 0.0, 0.0, 0.0  } };
+    float scoreTable[N_TASKTYPE][N_STATES] = {  {121904.0, 113251.0, 84648.0, 1887.0, 0.0, 111709.0, 98885.0, 77391.0, 4306.0, 103536.0, 93782.0, 75882.0, 91944.0, 80801.0, 86164.0, 85623.0, 79369.0, 28912.0, 0.0, 84735.0, 79862.0, 51045.0, 93364.0, 83839.0, 74967.0, 13761.0, 41727.0, 476.0, 47306.0, 34574.0, 50508.0, 0.0, 0.0, 0.0, 0.0  },
+                                                 {119969.0, 116690.0, 89130.0, 50246.0, 0.0, 109430.0, 104431.0, 78310.0, 72370.0, 109541.0, 86781.0, 79209.0, 86960.0, 82305.0, 79687.0, 100943.0, 88185.0, 80293.0, 9146.0, 97405.0, 86204.0, 87135.0, 93771.0, 83387.0, 77609.0, 90253.0, 86956.0, 45097.0, 79638.0, 90053.0, 70384.0, 37629.0, 9857.0, 39325.0, 2182.0  },
+                                                 {130456.0, 100619.0, 55879.0, 0.0, 0.0, 131773.0, 88187.0, 78353.0, 424.0, 111200.0, 87924.0, 64131.0, 91503.0, 84865.0, 85301.0, 109229.0, 85482.0, 34487.0, 0.0, 107594.0, 89627.0, 38409.0, 93614.0, 85888.0, 84243.0, 72218.0, 6593.0, 399.0, 77399.0, 20244.0, 65916.0, 0.0, 0.0, 12186.0, 0.0  } };
     char str[20];
     int x, y;
     unsigned int apptask, app, task, slot, taskType, cluster, base_addr, cluster_size, last_app;
@@ -940,14 +1024,14 @@ static void GlobalManagerTask( void *pvParameters ){
     unsigned int tp, state, maxid;
     // Hyperparameters
     float epsilon = 0.1;
-    float alpha = 0.1;
+    float alpha = 0.01;
     float gamma = 0.6;
     float oldvalue, maxval, reward, delta;
 
     //policy table initialization
     for(tp = 0; tp < N_TASKTYPE; tp++){
         for(state = 0; state < N_STATES; state++){
-            scoreTable[tp][state] = 0;//scoreTable[tp][state]/1000;
+            scoreTable[tp][state] = scoreTable[tp][state]/1000;
         }
     }
     API_PrintScoreTable(scoreTable);
@@ -1072,7 +1156,7 @@ static void GlobalManagerTask( void *pvParameters ){
                         else
                             printsv("delta FIT: -", (int)(delta*-1));
                         //reward =  (Q_rsqrt(7000+(delta*delta)) * delta * -500) + 500;
-                        reward =  (Q_rsqrt(1000+(delta*delta)) * delta * -100) + 100;
+                        reward =  (Q_rsqrt(10000+(delta*delta)) * delta * -100) + 100;
                         printsvsv("state ", state, "woned reward: ", (int)reward);
 
                         // gets the old value
@@ -1190,4 +1274,83 @@ static void GlobalManagerTask( void *pvParameters ){
 
 
 #endif
+
+
+/*for(i = 0; i < NUM_MAX_APPS; i++){
+                
+                //if(API_CheckTaskToAllocate(xTaskGetTickCount())) break;
+
+                if(applications[i].occupied == TRUE){
+                    migrationPossible = TRUE;
+                    for(j = 0; j < applications[i].numTasks; j++){
+                        if( applications[i].tasks[j].status != TASK_STARTED ){
+                            migrationPossible = FALSE;
+                            break;
+                        }
+                    }
+                    if(migrationPossible == TRUE){
+                        candidate = 0xFFFFFFFF;
+                        candidate_score = 0;
+                        candidate_type = 0;
+                        candidate_temp = 0;
+                        for( j = 0; j < applications[i].numTasks; j++){
+                            // if the task can migrate - get the "candidate" with the smallest score to migrate
+                            if( applications[i].tasks[j].migration == TRUE ){
+                                j_type = applications[i].taskType[j];
+                                j_state = API_getPEState(addr2id(applications[i].tasks[j].addr));
+                                j_temp = Tiles[getXpos(applications[i].tasks[j].addr)][getYpos(applications[i].tasks[j].addr)].temperature;
+                                if( candidate = 0xFFFFFFFF ){
+                                    candidate_score = scoreTable[j_type][j_state];
+                                    candidate = j;
+                                    candidate_type = j_type;
+                                    candidate_temp = j_temp;
+                                } else{
+                                    if( candidate_temp < j_temp ){
+                                        candidate_score = scoreTable[j_type][j_state];
+                                        candidate = j;
+                                        candidate_type = j_type;
+                                        candidate_temp = j_temp;
+                                    }
+                                }
+                            }
+                        }
+                        if( candidate != 0xFFFFFFFF ){
+                            // find the best PE within the application cluster to send the candidate
+                            base_addr = applications[i].cluster_addr;
+                            cluster_size = applications[i].cluster_size;
+                            // fill the auxiliar vectors
+                            k = 0;
+                            for( i = getXpos(base_addr); i < (getXpos(base_addr)+cluster_size); i++){
+                                for( j = getYpos(base_addr); j < (getYpos(base_addr)+cluster_size); j++){
+                                    sorted_addr[k] = makeAddress(i, j);
+                                    sorted_score[k] = (int)(scoreTable[applications[app].taskType[task]][API_getPEState(addr2id(makeAddress(i,j)))]*1000);
+                                    k++;
+                                }
+                            }
+                            // sort addrs by score
+                            quickSort(sorted_score, sorted_addr, 0, cluster_size*cluster_size);
+                            
+                            // try to get the best tile slot
+                            for(i = (cluster_size*cluster_size-1); i >= 0; i--){
+                                addr = sorted_addr[i];
+                                slot = API_GetTaskSlotFromTile(addr, app, task);
+                                if( candidate_score > sorted_score[i] ){
+                                    addr = 0xFFFFFFFF;
+                                    break;
+                                }
+                                else if (slot != ERRO){
+                                    break;
+                                }
+                                else if (i == 0){
+                                    addr = 0xFFFFFFFF;
+                                }
+                            }
+                            if(addr != 0xFFFFFFFF){
+                                API_StartMigration(i, candidate, addr);
+                                printsv("Migrating it to ", addr);
+                            }
+                        }
+                    }
+                }
+            }*/
 

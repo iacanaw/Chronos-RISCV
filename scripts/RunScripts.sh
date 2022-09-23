@@ -5,6 +5,7 @@
 XX=$1
 YY=$2
 SimType=$3
+Scenario=$4
 
 # generates the temperature graph
 python3 scripts/graphTemperature.py "$SimType"
@@ -32,4 +33,4 @@ python3 scripts/occupation.py "$XX" "$YY" > simulation/occupation.txt
 ./scripts/RunRAMP.sh "$XX" "$YY"
 
 # create a CSV file with data about the simulation
-python3 scripts/csvGen.py "$XX" "$YY" "$SimType"
+python3 scripts/csvGen.py "$XX" "$YY" "$SimType" "$Scenario"

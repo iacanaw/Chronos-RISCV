@@ -19,8 +19,8 @@
 
 typedef int64_t int64;
 
-#define DIM_X 8
-#define DIM_Y 8
+#define DIM_X 10
+#define DIM_Y 10
 
 #define TOTAL_STRUCTURES DIM_X*DIM_Y
 

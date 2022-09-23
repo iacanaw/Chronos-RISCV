@@ -481,25 +481,19 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
     unsigned int mySlot, slot, taskSlot;
     unsigned int i;
     Message *theMessage;
+    vTaskEnterCritical();
     do{
-        vTaskEnterCritical();
         mySlot = API_GetMessageSlot();
+        //vTaskExitCritical();
+        // Suspends the Task until the PIPE has space
         if(mySlot == PIPE_FULL){
-            // Runs the NI Handler to send/receive packets, opening space in the PIPE
             prints("Estou preso aqui2...\n");
-            //API_NI_Handler();
             taskSlot = API_GetCurrentTaskSlot();
             TaskList[taskSlot].status = TASK_SLOT_SUSPENDED;
-            //vTaskExitCritical();
             vTaskSuspend( TaskList[taskSlot].TaskHandler );
-            prints("Volteiiii!\n");
-            //vTaskEnterCritical();
-            //vTaskExitCritical();
-        } /*else {
-            vTaskExitCritical();
-        }*/
+        }
     }while(mySlot == PIPE_FULL);
-    
+    //vTaskEnterCritical();
     theMessage = addr;
 
     taskSlot = (mySlot & 0x0000FF00) >> 8;//API_GetCurrentTaskSlot();
@@ -508,13 +502,14 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
     printsvsv("Adding a msg to task ", taskID, " in the PIPE slot ", mySlot);
     printsv("from app: ", TaskList[taskSlot].AppID);
     //MessagePipe[mySlot].holder = taskSlot;
-
+    vTaskEnterCritical();
     TaskList[taskSlot].MessagePipe[slot].header.header           = TaskList[taskSlot].TasksMap[taskID];
     TaskList[taskSlot].MessagePipe[slot].header.payload_size     = PKT_SERVICE_SIZE + theMessage->length + 1;
     TaskList[taskSlot].MessagePipe[slot].header.service          = MESSAGE_DELIVERY;
     TaskList[taskSlot].MessagePipe[slot].header.application_id   = TaskList[taskSlot].AppID;
     TaskList[taskSlot].MessagePipe[slot].header.producer_task    = TaskList[taskSlot].TaskID;
     TaskList[taskSlot].MessagePipe[slot].header.destination_task = taskID;
+    vTaskExitCritical();
     TaskList[taskSlot].MessagePipe[slot].msg.length              = theMessage->length;
     for (i = 0; i < theMessage->length; i++){
         TaskList[taskSlot].MessagePipe[slot].msg.msg[i]          = theMessage->msg[i];

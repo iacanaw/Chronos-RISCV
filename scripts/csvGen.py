@@ -7,6 +7,7 @@ import sys
 DIM_X = int(sys.argv[1])
 DIM_Y = int(sys.argv[2])
 ALGORITHM = sys.argv[3]
+SCENARIO = sys.argv[4]
 
 temp_data = pd.read_csv("simulation/SystemTemperature.tsv", sep='\t')
 temp_data = temp_data.to_numpy()
@@ -67,6 +68,33 @@ with open("simulation/occupation.txt", "r") as occfile:
     line = occfile.readline()
     occ = float(line)
 
+with open("simulation/ThermalStatistics.csv", "r") as tsfile:
+    line = tsfile.readline()
+    splited = line.split(";")
+    maxx = splited[0]
+    maxx_std = splited[1]
+    
+    line = tsfile.readline()
+    splited = line.split(";")
+    q3 = splited[0]
+    q3_std = splited[1]
+    
+    line = tsfile.readline()
+    splited = line.split(";")
+    median = splited[0]
+    median_std = splited[1]
+    
+    line = tsfile.readline()
+    splited = line.split(";")
+    q1 = splited[0]
+    q1_std = splited[1]
+    
+    line = tsfile.readline()
+    splited = line.split(";")
+    minn = splited[0]
+    minn_std = splited[1]
+    
+
 with open("simulation/0_log.csv", "w") as logfile:
     print(str(DIM_X*DIM_Y), file=logfile, end=';')
     print(ALGORITHM, file=logfile, end=';')
@@ -75,4 +103,15 @@ with open("simulation/0_log.csv", "w") as logfile:
     print(str(temp_avg).replace(".",","), file=logfile, end=';')
     print(str(peak_avg).replace(".",","), file=logfile, end=';')
     print(str(fit_avg).replace(".",","), file=logfile, end=';')
-    print(str(mttf).replace(".",","), file=logfile, end='')
+    print(str(mttf).replace(".",",").replace("\n", ""), file=logfile, end=';')
+    print(SCENARIO, file=logfile, end=';')
+    print(maxx, file=logfile, end=';')
+    print(q3, file=logfile, end=';')
+    print(median, file=logfile, end=';')
+    print(q1, file=logfile, end=';')
+    print(minn, file=logfile, end=';')
+    print(maxx_std.replace("\n", ""), file=logfile, end=';')
+    print(q3_std.replace("\n", ""), file=logfile, end=';')
+    print(median_std.replace("\n", ""), file=logfile, end=';')
+    print(q1_std.replace("\n", ""), file=logfile, end=';')
+    print(minn_std.replace("\n", ""), file=logfile, end='')

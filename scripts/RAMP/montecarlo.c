@@ -41,8 +41,8 @@
 #define min(X, Y)  ((X) < (Y) ? (X) : (Y)) 
 #define max(X, Y)  ((X) > (Y) ? (X) : (Y))
 
-#define DIM_X 8
-#define DIM_Y 8
+#define DIM_X 10
+#define DIM_Y 10
 
 #define TOTAL_STRUCTURES DIM_X*DIM_Y
 

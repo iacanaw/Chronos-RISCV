@@ -31,6 +31,9 @@
 // Finish 
 volatile unsigned int API_SystemFinish;
 
+// Migration
+volatile unsigned int Migration_Status;
+
 // Stores the ADDRESS of each tile ordered by the current priotity policy
 unsigned int priorityMatrix[DIM_X*DIM_Y];
 unsigned int priorityPointer;
@@ -46,7 +49,7 @@ typedef struct{
     unsigned int frequency;     // in MegaHertz
     volatile unsigned int fit;  // Failures in time * 100
     int temperatureVariation;   // In Kelvin
-    unsigned int taskSlots;
+    int taskSlots;
     int taskType;                //
     volatile unsigned int clusterCount;  // stores the amount of clusters that this PE is participating
 } Tile;
@@ -59,6 +62,7 @@ typedef struct{
     unsigned int status; 
     unsigned int addr;
     unsigned int slot;
+    unsigned int migration;
 } TaskInfo;
 
 // Application Struct
@@ -155,5 +159,11 @@ unsigned int API_GetClusterOccupation(unsigned int base_addr, unsigned int clust
 unsigned int API_minClusterSize(unsigned int size);
 
 void API_PrintOccupation(int tick);
+
+void API_Migration_Refused(unsigned int task_id, unsigned int app_id, unsigned int why);
+
+unsigned int API_SelectTaskFromPE_Migration(int pe_id);
+
+unsigned int API_SelectTask_Migration_Temperature(int threshold);
 
 #endif

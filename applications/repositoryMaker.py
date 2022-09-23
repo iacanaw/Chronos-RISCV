@@ -72,10 +72,15 @@ if exists(SCENARIO):
                 taskInfo = yaml.load(info_file, Loader=yaml.SafeLoader)
                 taskType.append(0)
                 taskType[j] = int(taskInfo['info'][0]['type'][appsTasks[i][j]])
+                #print(taskInfo['info'][0]['migration'][appsTasks[i][j]])
+                if taskInfo['info'][0]['migration'][appsTasks[i][j]] == False:
+                    taskMigrateVar.append(0)
+                else:
+                    taskMigrateVar.append(-1)
             taskSize.append(0)
             taskBss.append(0)
             taskStart.append(0)
-            taskMigrateVar.append(0)
+            #taskMigrateVar.append(0)
             code = []
             bss = False
             print("       Task " + str(j) + " - " + appsTasks[i][j])
@@ -100,8 +105,8 @@ if exists(SCENARIO):
                                 cut_line = re.split(r' ', line)
                                 currentAddr = cut_line[0]
                                 currentAddr = int(currentAddr, 16)
-                                taskMigrateVar[j] = int((currentAddr - 2147483648)/4)
-
+                                if taskMigrateVar[j] != 0:
+                                    taskMigrateVar[j] = int((currentAddr - 2147483648)/4)
                         # if any line that has an instruction
                         if ("800" in line) and ("\t" in line):
                             cut_line = re.split(r'\t', line)

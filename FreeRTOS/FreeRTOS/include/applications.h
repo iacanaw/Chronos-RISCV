@@ -53,5 +53,11 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
 // Starts the execution of a task that is alocated in a given spot
 void API_TaskStart(unsigned int slot, unsigned int arg);
 
+void API_Refuse_Migration(unsigned int app_id, unsigned int task_id, unsigned int why);
+
+void API_InformMigration(unsigned int app_id, unsigned int task_id);
+
+void API_SetMigrationVar(unsigned int slot, unsigned int value);
+
 void API_FinishRunningTask();
 #endif

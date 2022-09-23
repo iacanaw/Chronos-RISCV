@@ -309,5 +309,6 @@ sed -i '2,10d' FITlog.tsv # removes the first 8 samples from the FIT file
 sed -i '1,24d' matex.txt # removes the first 8 samples from the matex file
 sed -i '2,10d' SystemTemperature.tsv # removes the first 8 samples from the matex file
 sed -i '2,10d' SystemPower.tsv # removes the first 8 samples from the matex file
+cd ..
 
-./scripts/RunScripts.sh "$XX" "$YY" "$SimType"
+./scripts/RunScripts.sh "$XX" "$YY" "$SimType" "$ScenarioName"

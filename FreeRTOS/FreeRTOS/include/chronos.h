@@ -16,6 +16,8 @@
 #define TRUE                1
 #define FALSE               0
 #define ERRO                -1
+#define CAN_NOT_MIGRATE     -2
+#define TASK_NOT_LOCATED    -3
 ////////////////////////////////////////////////////////////
 // SYSTEM INFO
 #define DIM_X 5

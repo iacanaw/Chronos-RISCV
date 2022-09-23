@@ -62,12 +62,13 @@ typedef struct {
 	};
 	union{
 		unsigned int flit7;
-		unsigned int app_id;			// ** Informs to witch application that task is from
+		unsigned int app_id;				// ** Informs to witch application that task is from
 	};
 	union{
 		unsigned int flit8;
 		unsigned int task_arg;				// ** Informs an argument to the task that is starting
-		unsigned int task_migration_addr	// ** Informs were in the task is located the variable that controls the migration process
+		unsigned int task_migration_addr;	// ** Informs were in the task is located the variable that controls the migration process
+		unsigned int why;					// ** Informs why the migration was not accepted by the PE
 	};
 	union{
 		unsigned int flit9;

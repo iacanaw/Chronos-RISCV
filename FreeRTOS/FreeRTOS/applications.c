@@ -46,10 +46,44 @@ unsigned int API_GetFreeTaskSlot(){
 
 void API_InformMigration(unsigned int app_id, unsigned int task_id){
     unsigned int tslot = API_GetTaskSlot(task_id, app_id);
-    volatile unsigned int *migrationVar = TaskList[tslot].migrationPointer;
-    printsv("Antes: ", *migrationVar);
-    *migrationVar = 0xFFFFFFFF;
-    printsv("Depois: ", *migrationVar);
+    if(tslot != ERRO){
+        if ( TaskList[tslot].migrationPointer != 0 ){
+            volatile unsigned int *migrationVar = TaskList[tslot].migrationPointer;
+            *migrationVar = 0xFFFFFFFF;
+            vTaskEnterCritical();
+            printsvsv("mig~~~> ", app_id, "task ", task_id);
+            vTaskExitCritical();
+        } else {
+            // refuse migration - why CAN_NOT_MIGRATE
+            API_Refuse_Migration(app_id, task_id, CAN_NOT_MIGRATE);
+        }
+    } else {
+        // refuse migration - why TASK_NOT_LOCATED
+        API_Refuse_Migration(app_id, task_id, TASK_NOT_LOCATED);
+    }
+    return;
+}
+
+void API_Refuse_Migration(unsigned int app_id, unsigned int task_id, unsigned int why){
+    unsigned int mySlot = API_GetServiceSlot();
+    do{
+        if(mySlot == PIPE_FULL){
+            // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui11...\n");
+            API_NI_Handler();
+        }
+    }while(mySlot == PIPE_FULL);
+
+    ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
+
+    ServicePipe[mySlot].header.header           = makeAddress(0, 0);
+    ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
+    ServicePipe[mySlot].header.service          = TASK_REFUSE_MIGRATION;
+    ServicePipe[mySlot].header.task_id          = task_id;
+    ServicePipe[mySlot].header.app_id           = app_id;
+    ServicePipe[mySlot].header.why              = why;
+
+    API_PushSendQueue(SERVICE, mySlot);
     return;
 }
 
@@ -60,7 +94,6 @@ void API_SetMigrationVar(unsigned int slot, unsigned int value){
     *migrationVar = value;
     return;
 }
-
 
 unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int app_id, unsigned int migration_addr){
     unsigned int tslot = API_GetFreeTaskSlot();
@@ -97,7 +130,10 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
     TaskList[tslot].taskAddr = TaskList[tslot].fullAddr + (PKT_HEADER_SIZE*4);
     printsv("Task addr: ", TaskList[tslot].taskAddr );
     TaskList[tslot].mainAddr =  TaskList[tslot].taskAddr + (4 * start_point);
-    TaskList[tslot].migrationPointer = TaskList[tslot].taskAddr + ( 4 * migration_addr);
+    if ( migration_addr != 0 )
+        TaskList[tslot].migrationPointer = TaskList[tslot].taskAddr + ( 4 * migration_addr);
+    else
+        TaskList[tslot].migrationPointer = 0;
 
     // filling the MemoryRegion_t struct
     //TaskList[tslot].memRegion.ulLengthInBytes = 0;// TaskList[tslot].taskSize;
@@ -365,17 +401,22 @@ void API_MigrationFinished(unsigned int app_id, unsigned int task_id){
 }
 
 void API_UpdatePipe(unsigned int task_id, unsigned int app_id){
-    unsigned int msg_destination_taskID, i, tslot = API_GetTaskSlot(task_id, app_id);
-    for(i = 0; i < PIPE_SIZE; i++){
-        // Update the messages that are inside the PIPE
-        msg_destination_taskID = TaskList[tslot].MessagePipe[i].header.destination_task;
-        TaskList[tslot].MessagePipe[i].header.header = TaskList[tslot].TasksMap[msg_destination_taskID];
+    unsigned int msg_destination_taskID, i, tslot;
+    tslot = API_GetTaskSlot(task_id, app_id);
+    if(tslot != ERRO){
+        for(i = 0; i < PIPE_SIZE; i++){
+            // Update messages that are inside the PIPE
+            msg_destination_taskID = TaskList[tslot].MessagePipe[i].header.destination_task;
+            TaskList[tslot].MessagePipe[i].header.header = TaskList[tslot].TasksMap[msg_destination_taskID];
 
-        // Update every MESSAGE REQUEST that is inside the PIPE
-        if(ServicePipe[i].header.app_id == app_id && ServicePipe[i].header.service == MESSAGE_REQUEST){
-            msg_destination_taskID = ServicePipe[i].header.producer_task;
-            ServicePipe[i].header.header = TaskList[tslot].TasksMap[msg_destination_taskID];
+            // Update every MESSAGE REQUEST that is inside the PIPE
+            if(ServicePipe[i].header.app_id == app_id && ServicePipe[i].header.service == MESSAGE_REQUEST){
+                msg_destination_taskID = ServicePipe[i].header.producer_task;
+                ServicePipe[i].header.header = TaskList[tslot].TasksMap[msg_destination_taskID];
+            }
         }
+    } else{
+        prints("WARNING - API_UpdatePipe didn't found the required app/task\n");
     }
     return;
 }

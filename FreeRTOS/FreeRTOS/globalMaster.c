@@ -5,6 +5,70 @@
 #include "packet.h"
 #include "services.h"
 
+unsigned int API_SelectTask_Migration_Temperature(int threshold){
+    int thr_temp = (threshold+273)*100; // transforming to kelvin
+    int sel_temp = 0;
+    unsigned int i, j, i_temp, aux, selected = -1;
+    if (Migration_Status == TRUE){
+        selected = -1;
+    } else {
+        for( i = 0; i < NUM_MAX_APPS; i++){
+            for ( j = 0; j < applications[i].numTasks; j++){
+                if ( applications[i].tasks[j].status == TASK_MIGRATION_FORWARD || applications[i].tasks[j].status == TASK_RESUME ){
+                    return ERRO;
+                }
+            }
+        }
+
+        for( i = 0; i < DIM_X*DIM_Y; i++ ){
+            i_temp = Tiles[getXpos(id2addr(i))][getYpos(id2addr(i))].temperature;
+            if (sel_temp < i_temp && i_temp >= thr_temp){
+                // printsvsv("Looking for a task at PE ", i, " temperature: ", (i_temp/100)-273);
+                aux = API_SelectTaskFromPE_Migration( i );
+                // printsv("AUX: ", aux);
+                if ( aux != ERRO ){
+                    selected = aux;
+                    sel_temp = i_temp;
+                }
+            }
+        }
+    }
+    return selected;
+}
+
+unsigned int API_SelectTaskFromPE_Migration(int pe_id){
+    int i, j, k;
+    // iterates around every application
+    for( i = 0; i <= NUM_MAX_APPS; i++ ){
+        if(applications[i].occupied == TRUE){
+            // iterates for every task
+            for ( j = 0; j < applications[i].numTasks; j++){
+                // checks if the task is running
+                if( applications[i].tasks[j].status == TASK_STARTED ){
+                    // checks if the task is running in the selected PE
+                    if( applications[i].tasks[j].addr == id2addr(pe_id) ){
+                        // checks if the task can migrate
+                        if( applications[i].tasks[j].migration == TRUE ){
+                            // checks if every task from this application is running
+                            for (k = 0; k < applications[i].numTasks; k++){
+                                // printsvsv("app ", i, "task ", j);
+                                // printsv("status: ", applications[i].tasks[k].status);
+                                if( applications[i].tasks[k].status != TASK_STARTED){
+                                    k = ERRO;
+                                    break;
+                                }
+                            }
+                            if (k != ERRO){
+                                return (i << 16) | j;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return ERRO;
+}
 
 void API_PrintOccupation(int tick){
     int availableSlots, occupiedPES, i;
@@ -38,6 +102,8 @@ unsigned int API_getMaxIdxfromRow(float *policyTable, unsigned int row, unsigned
 // Informs the Repository that the GLOBALMASTER is ready to receive the application info
 void API_RepositoryWakeUp(){
     unsigned int mySlot;
+
+    Migration_Status = FALSE;
 
 #if THERMAL_MANAGEMENT != 4 // CHARACTERIZE
     // Enters in idle to wait the first FIT value ~50ms
@@ -85,6 +151,7 @@ unsigned int API_AddApplication(unsigned int appID, unsigned int appPeriod, unsi
     applications[slot].lastFinish = 0;
     for(i = 0; i < appNTasks; i++){
         applications[slot].tasks[i].status = TASK_TO_ALLOCATE;
+        applications[slot].tasks[i].migration = TRUE;
     }
     printsv("New application registered - ID: ", appID);
     return slot;
@@ -218,7 +285,7 @@ void API_UpdatePriorityTable(unsigned int score_source[DIM_X*DIM_Y]){
             }
         }
 
-        addr = (coolest % DIM_X << 8) | coolest / DIM_X;
+        addr = ((coolest % DIM_X) << 8) | (coolest / DIM_X);
 
         priorityMatrix[i] = addr;
     
@@ -623,6 +690,7 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
             // To finish the simulation!!
             for(i = 0; i < NUM_MAX_APPS; i++){
                 if (applications[i].occupied == TRUE){
+                    printsv("--------> not yet! Application still occupied: ", i);
                     return;
                 }
             }
@@ -638,20 +706,18 @@ unsigned int getNextPriorityAddr(){
     int i;
     unsigned int addr = makeAddress(0,0);
     for(;;){
-        // Checks if it's a valid address
-        if (priorityMatrix[priorityPointer] != makeAddress(0,0)){
-            if (Tiles[getXpos(addr)][getYpos(addr)].taskSlots > 0){
-            //for(i = 0; i < NUM_MAX_TASKS; i++){
-                //if (Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] == NONE)
-                    addr = priorityMatrix[priorityPointer];
-            //}
-            }
-        }
 
         // Increments the priorityPointer
         priorityPointer++;
         if (priorityPointer == DIM_X*DIM_Y)
             priorityPointer = 0;
+
+        // Checks if it's a valid address
+        if (priorityMatrix[priorityPointer] != makeAddress(0,0)){
+            if (Tiles[getXpos(addr)][getYpos(addr)].taskSlots > 0){
+                addr = priorityMatrix[priorityPointer];
+            }
+        }
 
         // If we found a new valid address, return
         if( addr != makeAddress(0,0))
@@ -663,15 +729,6 @@ unsigned int getNextPriorityAddr(){
 
 // Gets a free slot from one given tile
 unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsigned int task){
-    /*int i;
-    printsv("procurnado um slot no tile ", addr);
-    for(i = 0; i < NUM_MAX_TASKS; i++){
-        if(Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] == NONE){
-            printsv("\t achei!! > ", i);
-            Tiles[getXpos(addr)][getYpos(addr)].AppTask[i] = (app << 16) | task;
-            return i;
-        }
-    }*/
     if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots > 0 && addr != MASTER_ADDR){
         Tiles[getXpos(addr)][getYpos(addr)].taskSlots = Tiles[getXpos(addr)][getYpos(addr)].taskSlots - 1;
         if( Tiles[getXpos(addr)][getYpos(addr)].taskType < applications[app].taskType[task] || Tiles[getXpos(addr)][getYpos(addr)].taskType == -1){
@@ -723,7 +780,6 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
         if(mySlot == PIPE_FULL){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
             prints("Estou preso aqui6...\n");
-            API_NI_Handler();
         }
     }while(mySlot == PIPE_FULL);
     printsv("I got a free service slot!! -> ", mySlot);
@@ -756,13 +812,6 @@ void API_ApplicationStart(unsigned int app_id){
             prints("Estou preso aqui7...\n");
             API_NI_Handler();
         }
-        // do{
-        //     mySlot = API_GetMessageSlot();
-        //     if(mySlot == PIPE_FULL){
-        //         // Runs the NI Handler to send/receive packets, opening space in the PIPE
-        //         API_NI_Handler();
-        //     }
-        // }while(mySlot == PIPE_FULL);
         printsv("Sending TASK_START to task ", i);
         ServiceMessage.status = PIPE_OCCUPIED;
 
@@ -793,6 +842,17 @@ void API_StartMigration(unsigned int app_id, unsigned int task_id, unsigned int 
     ServiceMessage.header.task_id               = task_id;
     ServiceMessage.header.app_id                = app_id;
     API_PushSendQueue(SYS_MESSAGE, 0);
+    Migration_Status = TRUE;
+    return;
+}
+
+void API_Migration_Refused(unsigned int task_id, unsigned int app_id, unsigned int why){
+    Migration_Status = FALSE;
+    if( why == CAN_NOT_MIGRATE ){ 
+        applications[app_id].tasks[task_id].migration = FALSE;
+    } else if ( applications[app_id].tasks[task_id].status == TASK_MIGRATION_REQUEST ){
+        applications[app_id].tasks[task_id].status = TASK_STARTED;
+    }
     return;
 }
 
@@ -884,25 +944,28 @@ void API_StallTask_Ack(unsigned int app_id, unsigned int task_id){
 }
 
 void API_Migration_ForwardTask( unsigned int app_id, unsigned int task_id, unsigned int newAddr){
-    while(ServiceMessage.status == PIPE_OCCUPIED){
-        // Runs the NI Handler to send/receive packets, opening space in the PIPE
-        prints("Estou preso aqui17...\n");
-        API_NI_Handler();
-    }
+    unsigned int mySlot;
+    do{
+        mySlot = API_GetServiceSlot();
+        if(mySlot == PIPE_FULL){
+            // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui17...\n");
+        }
+    }while(mySlot == PIPE_FULL);
     printsvsv("Forwarding the original task: ", task_id, "from app: ", app_id);
     applications[app_id].tasks[task_id].status = TASK_MIGRATION_FORWARD;
-    ServiceMessage.status                   = PIPE_OCCUPIED;
-    ServiceMessage.header.header            = applications[app_id].tasks[task_id].addr;
-    ServiceMessage.header.payload_size      = PKT_SERVICE_SIZE;
-    ServiceMessage.header.service           = TASK_MIGRATION_FORWARD;
-    ServiceMessage.header.task_id           = task_id;
-    ServiceMessage.header.app_id            = app_id;
-    ServiceMessage.header.task_dest_addr    = applications[app_id].newAddr;
-    API_PushSendQueue(SYS_MESSAGE, 0);
+    ServicePipe[mySlot].header.header            = applications[app_id].tasks[task_id].addr;
+    ServicePipe[mySlot].header.payload_size      = PKT_SERVICE_SIZE;
+    ServicePipe[mySlot].header.service           = TASK_MIGRATION_FORWARD;
+    ServicePipe[mySlot].header.task_id           = task_id;
+    ServicePipe[mySlot].header.app_id            = app_id;
+    ServicePipe[mySlot].header.task_dest_addr    = applications[app_id].newAddr;
+    API_PushSendQueue(SERVICE, mySlot);
 }
 
 void API_ReleaseApplication(unsigned int app_id, unsigned int task_id){
     int i, j;
+    Migration_Status = FALSE;
     for(i = 0; i< applications[app_id].numTasks; i++){
         applications[app_id].tasks[i].status = TASK_RESUME;
     }
