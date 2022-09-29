@@ -65,7 +65,7 @@ if exists(SCENARIO):
         appDeadline = 0
         with open(appsName[i]+'/info.yaml') as info_file:
             taskInfo = yaml.load(info_file, Loader=yaml.SafeLoader)
-            appDeadline = int(float(taskInfo['info'][0]['deadline'])*100)
+            appDeadline = int(float(taskInfo['info'][0]['deadline']))
         print(appDeadline)
         for j in range(len(appsTasks[i])):
             with open(appsName[i]+'/info.yaml') as info_file:

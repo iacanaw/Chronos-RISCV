@@ -1,6 +1,6 @@
 info:
  - name: dtw
-   deadline: 0.15
+   deadline: 1100
    migration:
     bank: true
     p1: true

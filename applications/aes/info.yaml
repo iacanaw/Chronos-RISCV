@@ -1,6 +1,6 @@
 info:
  - name: aes
-   deadline: 0.20
+   deadline: 750
    migration:
     aes_master: true
     aes_slave1: true

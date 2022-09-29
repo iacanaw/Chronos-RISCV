@@ -62,10 +62,6 @@ void vApplicationIdleHook( void );
  */
 void vApplicationStackOverflowHook( TaskHandle_t pxTask, char *pcTaskName );
 
-/*
- * Stores the processor address
- */
-unsigned int ProcessorAddr;
 
 extern volatile unsigned int measuredWindows;
 
@@ -89,7 +85,7 @@ int main( void )
 	UART_polled_tx_string( &g_uart, (const uint8_t *)"\n Chronos platform initializing... \n" );
 	Chronos_init();
 	UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This terminal belongs to the address: " );
-	myItoa(ProcessorAddr, str, 16);
+	myItoa(API_getProcessorAddr(), str, 16);
     UART_polled_tx_string( &g_uart, (const uint8_t *)str); UART_polled_tx_string( &g_uart, (const uint8_t *)"\n");
 	
 	/* Create the NI Handler task */
@@ -97,7 +93,7 @@ int main( void )
 	xTaskCreate( vNI_TX_HandlerTask, "TX_TASK", 1024, NULL, (tskIDLE_PRIORITY + 3), &NI_TX_Handler );
 	xTaskCreate( vNI_TMR_HandlerTask, "TMR_TASK", 1024, NULL, (tskIDLE_PRIORITY + 3), &NI_TMR_Handler );
 
-	if (ProcessorAddr == 0x0000){
+	if (API_getProcessorAddr() == 0x0000){
 		UART_polled_tx_string( &g_uart, (const uint8_t *)"\n This processor is the Global Master: \n" );
 		/* Create the GlobalManager task */
 		xTaskCreate( GlobalManagerTask, "GlobalMaster", 1024*6, NULL, (tskIDLE_PRIORITY + 1), NULL );
@@ -194,9 +190,10 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                 case REPOSITORY_APP_INFO: // When the repository informs the GM that exist a new Application available:
                     prints("REPOSITORY_APP_INFO\n");
                     aux = API_AddApplication(incommingPacket.application_id,
-                                        incommingPacket.aplication_period, 
-                                        incommingPacket.application_executions, 
-                                        incommingPacket.application_n_tasks);
+                                             incommingPacket.aplication_period, 
+                                             incommingPacket.application_executions, 
+                                             incommingPacket.application_n_tasks,
+                                             incommingPacket.deadline);
                     incommingPacket.service = REPOSITORY_APP_INFO_FINISH;
                     HW_set_32bit_reg(NI_RX, &applications[aux].taskType[0]);
                     prints("1NI_RX DONE!\n");
@@ -283,7 +280,7 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                         prints("Mensagem não encontrada, adicionando ao PendingReq!\n");
                         API_AddPendingReq(incommingPacket.task_id, incommingPacket.app_id, incommingPacket.producer_task_id);
                     } else {
-                        prints("Mensagem encontrada no pipe!\n");
+                        printsv("Mensagem encontrada no pipe slot: ", (0x000000FF & aux));
                         API_PushSendQueue(MESSAGE, aux);
                         // API_Try2Send();
                     }
@@ -294,7 +291,6 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                 case MESSAGE_DELIVERY:
                     prints("Tem uma mensagem chegando...\n");
                     aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
-                    //printsv("MESSAGE_DELIVERY addr: ", TaskList[aux].MsgToReceive);
                     if(aux != ERRO) {
                         HW_set_32bit_reg(NI_RX, TaskList[aux].MsgToReceive);
                         incommingPacket.service = MESSAGE_DELIVERY_FINISH;
@@ -302,8 +298,6 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     else{
                         prints("ERRO! - Destinatário não presente!\n");
                     }
-                    //prints("done...\n----------\n");
-                    //HW_set_32bit_reg(NI_RX, DONE);
                     prints("9NI_RX DONE!\n");
                     break;
                 
@@ -392,7 +386,7 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     prints("14NI_RX DONE!\n");
                     prints("Starting Migration Process...\n");
                     printsvsv("App: ", incommingPacket.app_id, "Task: ", incommingPacket.task_id);
-                    API_InformMigration(incommingPacket.app_id, incommingPacket.task_id);
+                    API_InformMigration(incommingPacket.app_id, incommingPacket.task_id, incommingPacket.task_migration_addr);
                     break;
                 
                 case TASK_MIGRATION_READY:
@@ -496,7 +490,12 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                 case TASK_MIGRATION_FINISHED:
                     prints("25NI_RX_DONE!\n");
                     printsvsv("Task: ", incommingPacket.task_id, "has migrated with success! App: ", incommingPacket.app_id);
-                    aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.app_id);
+                    //aux = API_GetTaskSlot(incommingPacket.task_id, incommingPacket.app_id);
+
+                    API_ClearTaskSlotFromTile(applications[incommingPacket.app_id].tasks[incommingPacket.task_id].addr,
+                                              incommingPacket.app_id, 
+                                              incommingPacket.task_id );
+
                     applications[incommingPacket.app_id].tasks[incommingPacket.task_id].addr = applications[incommingPacket.app_id].newAddr;
                     API_ReleaseApplication(incommingPacket.app_id, incommingPacket.task_id);
                     break;
@@ -531,7 +530,8 @@ void vNI_RX_HandlerTask( void *pvParameters ){
 
                 case TASK_REFUSE_MIGRATION:
                     prints("29NI_RX_DONE!\n");
-                    API_Migration_Refused(incommingPacket.task_id, incommingPacket.app_id, incommingPacket.why);
+                    printsv("Migration refused for address: ", incommingPacket.task_migration_addr);
+                    API_Migration_Refused(incommingPacket.task_id, incommingPacket.app_id, incommingPacket.why, incommingPacket.task_migration_addr);
                     break;
 
                 default:
@@ -575,7 +575,7 @@ void vNI_TX_HandlerTask( void *pvParameters ){
 		HW_set_32bit_reg(NI_TX, DONE);  // releases the interruption
 		API_Try2Send();                 // tries to send another packet (if available)
         
-		// exits the criticla mode
+		// exits the critical mode
 		vTaskExitCritical();
 
     }
@@ -585,6 +585,7 @@ void vNI_TX_HandlerTask( void *pvParameters ){
 needs servicing. */
 void vNI_TMR_HandlerTask( void *pvParameters ){
 	BaseType_t xEvent;
+    int slot;
 	//const TickType_t xBlockTime = 1000000;
 	uint32_t ulNotifiedValue;
 
@@ -601,6 +602,15 @@ void vNI_TMR_HandlerTask( void *pvParameters ){
         //     /* Did not receive a notification within the expected time. */
 		// 	UART_polled_tx_string( &g_uart, (const uint8_t *)" Time out NI TIMER...\r\n" );
         // }
+
+
+        // informs if any task has finished in the last period
+        for(slot = 0; slot < NUM_MAX_TASKS; slot++){
+            if( TaskList[slot].status == TASK_SLOT_TO_FREE &&  TaskList[slot].TaskHandler == 0xFFFFFFFF ){
+                TaskList[slot].status = TASK_SLOT_EMPTY;
+                API_SendFinishTask(TaskList[slot].TaskID, TaskList[slot].AppID);
+            }
+        }
 
 		// enters in critical mode 
 		vTaskEnterCritical();
@@ -772,7 +782,7 @@ static void GlobalManagerTask( void *pvParameters ){
         // Check migration
 #if MIGRATION
         migrate = API_SelectTask_Migration_Temperature(70);
-        if (migrate != -1){
+        if (migrate != -1  && !API_CheckTaskToAllocate(xTaskGetTickCount())){
             printsvsv("Got a app to migrate: ",(migrate>>16)," task: ", (migrate & 0x0000FFFF));
             mig_app = migrate >> 16;
             mig_task = migrate & 0x0000FFFF;
@@ -900,10 +910,12 @@ static void GlobalManagerTask( void *pvParameters ){
                 }
                 
                 // sort addrs by score
-                quickSort(sorted_score, sorted_addr, 0, cluster_size*cluster_size);
+                num_pes = (cluster_size*cluster_size)-1; 
+                printsv("Sorting num_pes = ", num_pes);
+                quickSort(sorted_score, sorted_addr, 0, num_pes);
                 
-                // try to get the best tile slot
-                for(i = (cluster_size*cluster_size-1); i >= 0; i--){
+                // try to get the best tile slot (higher score)
+                for(i = num_pes; i >= 0; i--){
                     addr = sorted_addr[i];
                     slot = API_GetTaskSlotFromTile(addr, app, task);
                     if (slot != ERRO) break;
@@ -912,6 +924,7 @@ static void GlobalManagerTask( void *pvParameters ){
 
                 // register the application allocation
                 applications[app].tasks[task].addr = addr;
+                printsvsv("X: ", getXpos(addr), "Y: ", getYpos(addr));
                 applications[app].tasks[task].slot = slot;
                 applications[app].lastStart = applications[app].nextRun;
                 API_RepositoryAllocation(app, task, addr);
@@ -939,20 +952,21 @@ static void GlobalManagerTask( void *pvParameters ){
                 for( i = getXpos(base_addr); i < (getXpos(base_addr)+cluster_size); i++){
                     for( j = getYpos(base_addr); j < (getYpos(base_addr)+cluster_size); j++){
                         sorted_addr[k] = makeAddress(i, j);
-                        sorted_score[k] = (int)(scoreTable[applications[mig_app].taskType[mig_task]][API_getPEState(addr2id(makeAddress(i,j)))]*1000);
+                        sorted_score[k] = Tiles[i][j].temperature;//(int)(scoreTable[applications[mig_app].taskType[mig_task]][API_getPEState(addr2id(makeAddress(i,j)))]*1000);
                         k++;
                     }
                 }
 
-                // sort addrs by score
+                // sort addrs by temperature
                 num_pes = (cluster_size*cluster_size)-1; 
                 printsv("Sorting num_pes = ", num_pes);
                 quickSort(sorted_score, sorted_addr, 0, num_pes);
                 
-                // try to get the best tile slot
+                // try to get the best tile slot (lower temperature)
                 mig_addr = 0xFFFFFFFF;
                 prints("Checking... \n");
-                for(i = num_pes; i >= 0; i--){
+                //for(i = num_pes; i >= 0; i--){
+                for(i = 0; i <= num_pes; i++){
                     addr = sorted_addr[i];
                     slot = API_GetTaskSlotFromTile(addr, mig_app, mig_task);
                     if (slot != ERRO){

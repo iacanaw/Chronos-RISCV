@@ -17,6 +17,7 @@
 #define TASK_SLOT_BLOQUED           5
 #define TASK_SLOT_MIGRATED          6
 #define TASK_SLOT_FINISH            7
+#define TASK_SLOT_TO_FREE           8
 
 typedef struct {
     volatile unsigned int status;
@@ -53,9 +54,9 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
 // Starts the execution of a task that is alocated in a given spot
 void API_TaskStart(unsigned int slot, unsigned int arg);
 
-void API_Refuse_Migration(unsigned int app_id, unsigned int task_id, unsigned int why);
+void API_Refuse_Migration(unsigned int app_id, unsigned int task_id, unsigned int newAddr, unsigned int why);
 
-void API_InformMigration(unsigned int app_id, unsigned int task_id);
+void API_InformMigration(unsigned int app_id, unsigned int task_id, unsigned int newAddr);
 
 void API_SetMigrationVar(unsigned int slot, unsigned int value);
 

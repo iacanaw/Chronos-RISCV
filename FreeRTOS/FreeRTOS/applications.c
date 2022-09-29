@@ -44,7 +44,7 @@ unsigned int API_GetFreeTaskSlot(){
     return ERRO;
 }
 
-void API_InformMigration(unsigned int app_id, unsigned int task_id){
+void API_InformMigration(unsigned int app_id, unsigned int task_id, unsigned int newAddr){
     unsigned int tslot = API_GetTaskSlot(task_id, app_id);
     if(tslot != ERRO){
         if ( TaskList[tslot].migrationPointer != 0 ){
@@ -54,34 +54,39 @@ void API_InformMigration(unsigned int app_id, unsigned int task_id){
             printsvsv("mig~~~> ", app_id, "task ", task_id);
             vTaskExitCritical();
         } else {
+            prints("Refusing because task can not migrate!\n");
             // refuse migration - why CAN_NOT_MIGRATE
-            API_Refuse_Migration(app_id, task_id, CAN_NOT_MIGRATE);
+            API_Refuse_Migration(app_id, task_id, newAddr, CAN_NOT_MIGRATE);
         }
     } else {
+        prints("Refusing because task was not located!\n");
         // refuse migration - why TASK_NOT_LOCATED
-        API_Refuse_Migration(app_id, task_id, TASK_NOT_LOCATED);
+        API_Refuse_Migration(app_id, task_id, newAddr, TASK_NOT_LOCATED);
     }
     return;
 }
 
-void API_Refuse_Migration(unsigned int app_id, unsigned int task_id, unsigned int why){
+void API_Refuse_Migration(unsigned int app_id, unsigned int task_id, unsigned int newAddr, unsigned int why){
     unsigned int mySlot = API_GetServiceSlot();
     do{
         if(mySlot == PIPE_FULL){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
             prints("Estou preso aqui11...\n");
-            API_NI_Handler();
+            vTaskExitCritical();
+            asm("nop");
+            vTaskEnterCritical();
         }
     }while(mySlot == PIPE_FULL);
 
     ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
 
-    ServicePipe[mySlot].header.header           = makeAddress(0, 0);
-    ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
-    ServicePipe[mySlot].header.service          = TASK_REFUSE_MIGRATION;
-    ServicePipe[mySlot].header.task_id          = task_id;
-    ServicePipe[mySlot].header.app_id           = app_id;
-    ServicePipe[mySlot].header.why              = why;
+    ServicePipe[mySlot].header.header               = makeAddress(0, 0);
+    ServicePipe[mySlot].header.payload_size         = PKT_SERVICE_SIZE;
+    ServicePipe[mySlot].header.service              = TASK_REFUSE_MIGRATION;
+    ServicePipe[mySlot].header.task_id              = task_id;
+    ServicePipe[mySlot].header.app_id               = app_id;
+    ServicePipe[mySlot].header.why                  = why;
+    ServicePipe[mySlot].header.task_migration_addr  = newAddr;//API_getProcessorAddr();
 
     API_PushSendQueue(SERVICE, mySlot);
     return;
@@ -150,7 +155,7 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
 unsigned int API_GetTaskSlot(unsigned int task_id, unsigned int app_id){
     unsigned int i;
     printsvsv("looking for task_id ", task_id, " from app_id ", app_id);
-    for( i = 0; i < NUM_MAX_APP_TASKS; i++){
+    for( i = 0; i < NUM_MAX_TASKS; i++){
         if( task_id == TaskList[i].TaskID && app_id == TaskList[i].AppID ){
             printsv("current status: ", TaskList[i].status);
             if( TaskList[i].status != TASK_SLOT_EMPTY ){
@@ -216,6 +221,7 @@ void API_MigrationReady(){
 
 void API_FinishRunningTask(){
     int i;
+    TaskHandle_t del_handler;
     //BaseType_t xHigherPriorityTaskWoken;
     unsigned int slot = API_GetCurrentTaskSlot();
     if (slot == ERRO) prints("ERRO VIOLENTO AQUI!\n");
@@ -246,14 +252,15 @@ void API_FinishRunningTask(){
     }
     if(i != 0xffffffff){ API_setFreqIdle(); }
     vTaskEnterCritical();
-    API_SendFinishTask(TaskList[slot].TaskID, TaskList[slot].AppID);
     vPortFree(TaskList[slot].fullAddr);
     prints("free done \n");
-    TaskList[slot].status = TASK_SLOT_EMPTY;
-    vTaskExitCritical();
+    TaskList[slot].status = TASK_SLOT_TO_FREE;
+    del_handler = TaskList[slot].TaskHandler;
+    TaskList[slot].TaskHandler = 0xFFFFFFFF;
     prints("deleting... \n");
-    vTaskDelete(TaskList[slot].TaskHandler);
-    prints("deleted! \n");
+    vTaskExitCritical();
+    vTaskDelete(del_handler);
+    prints("deleted! \n"); // this should not be printed
     return;
 }
 
@@ -302,7 +309,7 @@ void API_ForwardTask(unsigned int app_id, unsigned int task_id, unsigned int des
 }
 
 void API_SendPIPE(unsigned int app_id, unsigned int task_id, unsigned int task_dest_addr){
-    unsigned int i, done, newer ,slot, taskslot = API_GetTaskSlot(task_id, app_id);
+    unsigned int i, done, newer, slot, taskslot = API_GetTaskSlot(task_id, app_id);
     do{
         newer = 0xEFFFFFFF;
         done = 1;

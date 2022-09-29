@@ -1,6 +1,6 @@
 info:
  - name: dijkstra
-   deadline: 0.75
+   deadline: 600
    migration:
     dijkstra_0: true
     dijkstra_1: true

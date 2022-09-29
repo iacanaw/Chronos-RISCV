@@ -1,6 +1,6 @@
 info:
  - name: dtwx10
-   deadline: 0.15
+   deadline: 7000
    migration:
     bank: true
     p1: true

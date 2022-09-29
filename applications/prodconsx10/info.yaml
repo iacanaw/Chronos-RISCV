@@ -1,6 +1,6 @@
 info:
  - name: prodconsx10
-   deadline: 0.1
+   deadline: 7000
    migration:
     cons: true
     prod: true

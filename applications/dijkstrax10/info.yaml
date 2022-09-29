@@ -1,6 +1,6 @@
 info:
  - name: dijkstrax10
-   deadline: 0.75
+   deadline: 7500
    migration:
     dijkstra_0: true
     dijkstra_1: true

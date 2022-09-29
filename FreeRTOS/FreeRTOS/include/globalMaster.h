@@ -70,12 +70,14 @@ typedef struct{
     unsigned int occupied;
     unsigned int appID;
     unsigned int appPeriod;
+    unsigned int arrived;
     unsigned int appExec;
     unsigned int numTasks;
     unsigned int cluster_addr;
     unsigned int cluster_size;
     TaskInfo     tasks[NUM_MAX_APP_TASKS];
     unsigned int nextRun;
+    unsigned int deadline;
     unsigned int executed;
     unsigned int lastStart;
     unsigned int finishedTasks;
@@ -106,7 +108,7 @@ unsigned int API_getMaxIdxfromRow(float *policyTable, unsigned int row, unsigned
 // Informs the Repository that the GLOBALMASTER is ready to receive the application info
 void API_RepositoryWakeUp();
 // Add one Application in the Execution Queue
-unsigned int API_AddApplication(unsigned int appID, unsigned int appPeriod, unsigned int appExec, unsigned int appNTasks);
+unsigned int API_AddApplication(unsigned int appID, unsigned int appPeriod, unsigned int appExec, unsigned int appNTasks, unsigned int appDeadline);
 // Reset applications vector
 void API_ApplicationsReset();
 // Gets an application slot that is occipied by a specific application
@@ -160,7 +162,7 @@ unsigned int API_minClusterSize(unsigned int size);
 
 void API_PrintOccupation(int tick);
 
-void API_Migration_Refused(unsigned int task_id, unsigned int app_id, unsigned int why);
+void API_Migration_Refused(unsigned int task_id, unsigned int app_id, unsigned int why, unsigned int addr);
 
 unsigned int API_SelectTaskFromPE_Migration(int pe_id);
 

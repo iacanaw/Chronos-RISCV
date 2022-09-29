@@ -1,7 +1,7 @@
 apps:
  - name: dtw
-   period: 0
-   executions: 1
+   period: 2000
+   executions: 2
    tasks:
     bank: 0
     p1: 1

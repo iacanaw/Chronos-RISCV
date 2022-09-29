@@ -90,7 +90,6 @@ const int loadStoreDyn[3] = {DYN_LOAD_0, DYN_LOAD_1, DYN_LOAD_2};
 #define LOCAL_FLITS     0x8FFFFFA8
 #define LOCAL_PACKETS   0x8FFFFFA4
 
-extern unsigned int ProcessorAddr;
 unsigned int thermalPacket_pending = FALSE;
 
 unsigned int memFlits;

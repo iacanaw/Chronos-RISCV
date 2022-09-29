@@ -1,6 +1,6 @@
 info:
  - name: prodcons
-   deadline: 0.1
+   deadline: 1100
    migration:
     cons: true
     prod: true

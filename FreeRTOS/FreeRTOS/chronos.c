@@ -12,8 +12,8 @@
 #include "applications.h"
 #include "globalMaster.h"
 
-// Stores the processorAddress
-extern unsigned int ProcessorAddr;
+// Holds the processor address
+unsigned int ProcessorAddr;
 
 // Stores information about each running task
 extern volatile Task TaskList[ NUM_MAX_TASKS ];
@@ -49,6 +49,10 @@ unsigned int RandomSeed = 0xace1ace1a;
 unsigned int random(){
     unsigned bit = ((XORTable[RandomSeed & 0x7f] >> (RandomSeed & 0xF)) ^ (RandomSeed >> 2) ^ (RandomSeed >> 3) ^ (XORTable[RandomSeed & 0x7f] >> (RandomSeed & 0xF)) ) & 1;
     return RandomSeed = (RandomSeed >> 1) | (bit << 15);
+}
+
+unsigned int API_getProcessorAddr(){
+    return ProcessorAddr;
 }
 
 ////////////////////////////////////////////////////////////
@@ -398,7 +402,7 @@ unsigned int API_PopSendQueue(){
         return EMPTY;
     } else {
         element = SendingQueue[SendingQueue_tail];
-        if (SendingQueue_tail == (PIPE_SIZE*2)-1){
+        if (SendingQueue_tail == (PIPE_SIZE*NUM_MAX_TASKS + PIPE_SIZE)-1){
             SendingQueue_tail = 0;
         } else {
             SendingQueue_tail++;
@@ -501,7 +505,6 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
     printsv("taskSlot: ", taskSlot);
     printsvsv("Adding a msg to task ", taskID, " in the PIPE slot ", mySlot);
     printsv("from app: ", TaskList[taskSlot].AppID);
-    //MessagePipe[mySlot].holder = taskSlot;
     vTaskEnterCritical();
     TaskList[taskSlot].MessagePipe[slot].header.header           = TaskList[taskSlot].TasksMap[taskID];
     TaskList[taskSlot].MessagePipe[slot].header.payload_size     = PKT_SERVICE_SIZE + theMessage->length + 1;
@@ -531,7 +534,6 @@ void API_SendFinishTask(unsigned int task_id, unsigned int app_id){
         if(mySlot == PIPE_FULL){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
             prints("Estou preso aqui3...\n");
-            API_NI_Handler();
         }
     }while(mySlot == PIPE_FULL);
 
@@ -541,8 +543,8 @@ void API_SendFinishTask(unsigned int task_id, unsigned int app_id){
     ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
     ServicePipe[mySlot].header.service          = TASK_FINISH;
     ServicePipe[mySlot].header.task_id          = task_id;
-    ServicePipe[mySlot].header.app_id      = app_id;
-    ServicePipe[mySlot].header.task_dest_addr   = ProcessorAddr;
+    ServicePipe[mySlot].header.app_id           = app_id;
+    ServicePipe[mySlot].header.task_dest_addr   = API_getProcessorAddr();
     API_PushSendQueue(SERVICE, mySlot);
     return;    
 }
@@ -587,8 +589,8 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
     //
     for (i = 0; i < NUM_MAX_TASKS; i++){
         if ( TaskList[i].status == TASK_SLOT_RUNNING && TaskList[i].waitingMsg == FALSE ){
-            i = 999;
             printsv("Not changing the frequency because task # is running: ", i);
+            i = 999;
             break;
         }
     }
@@ -634,7 +636,7 @@ unsigned int API_CheckMessagePipe(unsigned int requester_task_id, unsigned int a
         }
     }
     if(sel != ERRO){
-        TaskList[sel >> 8].MessagePipe[sel & 0x000000FF].status == PIPE_TRANSMITTING;
+        TaskList[sel >> 8].MessagePipe[sel & 0x000000FF].status = PIPE_TRANSMITTING;
         TaskList[sel >> 8].MessagePipe[sel & 0x000000FF].header.header = TaskList[sel>>8].TasksMap[requester_task_id];
     }
     vTaskExitCritical();
@@ -652,8 +654,10 @@ void API_AddPendingReq(unsigned int requester_task_id, unsigned int app_id, unsi
         do{
             mySlot = API_GetServiceSlot();
             if(mySlot == PIPE_FULL){
-                // Runs the NI Handler to send/receive packets, opening space in the PIPE
                 prints("Estou preso aqui111...\n");
+                vTaskExitCritical();
+                asm("nop");
+                vTaskEnterCritical();
             }
         }while(mySlot == PIPE_FULL);
         

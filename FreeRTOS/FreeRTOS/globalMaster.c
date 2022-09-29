@@ -11,6 +11,7 @@ unsigned int API_SelectTask_Migration_Temperature(int threshold){
     unsigned int i, j, i_temp, aux, selected = -1;
     if (Migration_Status == TRUE){
         selected = -1;
+        prints("Ongoing migration...\n");
     } else {
         for( i = 0; i < NUM_MAX_APPS; i++){
             for ( j = 0; j < applications[i].numTasks; j++){
@@ -137,23 +138,34 @@ void API_RepositoryWakeUp(){
 
 ////////////////////////////////////////////////////////////
 // Add one Application in the Execution Queue
-unsigned int API_AddApplication(unsigned int appID, unsigned int appPeriod, unsigned int appExec, unsigned int appNTasks){
+unsigned int API_AddApplication(unsigned int appID, unsigned int appPeriod, unsigned int appExec, unsigned int appNTasks, unsigned int appDeadline){
     int i, slot = API_GetApplicationFreeSlot();
     applications[slot].occupied = TRUE;
     applications[slot].appID = appID;
     applications[slot].appPeriod = appPeriod;
+    applications[slot].arrived = xTaskGetTickCount();
     applications[slot].appExec = appExec;
     applications[slot].numTasks = appNTasks;
-    applications[slot].nextRun = xTaskGetTickCount() + appPeriod;
+    applications[slot].nextRun = xTaskGetTickCount();// + appPeriod;
+    applications[slot].deadline = appDeadline;
     applications[slot].executed = 0;
     applications[slot].lastStart = -1;
     applications[slot].finishedTasks = 0;
     applications[slot].lastFinish = 0;
+
+    if(applications[slot].appPeriod < applications[slot].deadline){
+        prints("WARNING: The user provided an app Period smaller than the app Deadline => appPeriod = deadline\n");
+        applications[slot].appPeriod = applications[slot].deadline;
+    }
+    printsvsv("APP: ", appID, "NEXTRUN: ", applications[slot].nextRun);
+    printsvsv("DEADLINE:", applications[slot].deadline, "PERIOD: ", applications[slot].appPeriod);
+
     for(i = 0; i < appNTasks; i++){
         applications[slot].tasks[i].status = TASK_TO_ALLOCATE;
         applications[slot].tasks[i].migration = TRUE;
     }
     printsv("New application registered - ID: ", appID);
+    printsv("Deadline ", applications[slot].deadline);
     return slot;
 }
 
@@ -630,27 +642,18 @@ void API_PrintScoreTable(float scoreTable[N_TASKTYPE][N_STATES]){
 void API_DealocateTask(unsigned int task_id, unsigned int app_id){
     unsigned int i, j, tick;
     volatile int flag;
-    float newvalue, oldvalue, next_max, reward;
+    int time_execution;
     unsigned int tasktype, takedAct, next_maxid;
-    // Hyperparameters
-    float alpha = 0.1;
-    float gamma = 0.6;
     //////////////////
+    if(applications[app_id].tasks[task_id].status == TASK_MIGRATION_REQUEST){
+        Migration_Status = FALSE;
+        API_ClearTaskSlotFromTile(applications[app_id].newAddr, app_id, task_id);
+    }
+
     applications[app_id].tasks[task_id].status = TASK_FINISHED;
 
     debug_task_dealloc(xTaskGetTickCount(), app_id, task_id, applications[app_id].tasks[task_id].addr);
-    // ////////////////////////////////////
-    // // Q-learning
-    // API_PrintPolicyTable();
-    // reward = (int)(10000000/API_getFIT(applications[app_id].tasks[task_id].addr));
-    // printsv("reward: ", reward);
-    // takedAct = applications[app_id].takedAction[task_id];
-    // tasktype = applications[app_id].taskType[task_id];
-    // oldvalue = policyTable[tasktype][takedAct];
-    // next_maxid = API_getMaxIdxfromRow(policyTable, tasktype, N_ACTIONS, N_TASKTYPE);
-    // next_max = policyTable[tasktype][next_maxid];
-    // newvalue = (1 - alpha) * oldvalue + alpha * ( reward + gamma * next_max);
-    // policyTable[tasktype][takedAct] = newvalue;
+    
     // ////////////////////////////////////
     // verify if every task has finished
     flag = 1;
@@ -674,7 +677,13 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
         // register that the application has executed another time
         tick = xTaskGetTickCount();
         applications[app_id].executed++;
-        printsvsv("Application ", app_id, "was executed in ", (tick - applications[app_id].lastStart));
+        time_execution = (tick - applications[app_id].lastStart);
+        printsvsv("Application ", app_id, "was executed in ", time_execution);
+        if(time_execution - applications[app_id].deadline < 0){
+            printsv("The application has VIOLATED the deadline: ", applications[app_id].deadline);
+        }else {
+            printsv("The application was executed within the deadline: ", applications[app_id].deadline);
+        }
         applications[app_id].lastFinish = tick;
         // if the application must run another time
         if(applications[app_id].appExec > applications[app_id].executed){
@@ -682,7 +691,7 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
                 applications[app_id].tasks[i].status = TASK_TO_ALLOCATE;
             }
             printsv("\t\tThis application still need to run: ", (applications[app_id].appExec - applications[app_id].executed));
-            applications[app_id].nextRun = tick + applications[app_id].appPeriod;
+            applications[app_id].nextRun = applications[app_id].arrived + (applications[app_id].executed * applications[app_id].appPeriod); //tick + applications[app_id].appPeriod;
         } else { // if the application has finished its runs
             prints("\t\tThis application is DONE!\n");
             applications[app_id].occupied = FALSE;
@@ -731,6 +740,7 @@ unsigned int getNextPriorityAddr(){
 unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsigned int task){
     if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots > 0 && addr != MASTER_ADDR){
         Tiles[getXpos(addr)][getYpos(addr)].taskSlots = Tiles[getXpos(addr)][getYpos(addr)].taskSlots - 1;
+        printsvsv("addr: ", addr, "slots: ", Tiles[getXpos(addr)][getYpos(addr)].taskSlots);
         if( Tiles[getXpos(addr)][getYpos(addr)].taskType < applications[app].taskType[task] || Tiles[getXpos(addr)][getYpos(addr)].taskType == -1){
             Tiles[getXpos(addr)][getYpos(addr)].taskType = applications[app].taskType[task];
         }
@@ -744,6 +754,7 @@ unsigned int API_GetTaskSlotFromTile(unsigned int addr, unsigned int app, unsign
 // Clear a slot occupied by a given task
 unsigned int API_ClearTaskSlotFromTile(unsigned int addr, unsigned int app, unsigned int task){
     Tiles[getXpos(addr)][getYpos(addr)].taskSlots++;
+    printsvsv("Cleaning TILE: ", addr, " slots: ", Tiles[getXpos(addr)][getYpos(addr)].taskSlots);
     if(Tiles[getXpos(addr)][getYpos(addr)].taskSlots == NUM_MAX_TASKS){
         Tiles[getXpos(addr)][getYpos(addr)].taskType = -1;
     }
@@ -841,17 +852,22 @@ void API_StartMigration(unsigned int app_id, unsigned int task_id, unsigned int 
     ServiceMessage.header.service               = TASK_MIGRATION_REQUEST;
     ServiceMessage.header.task_id               = task_id;
     ServiceMessage.header.app_id                = app_id;
+    ServiceMessage.header.task_migration_addr   = new_addr;
     API_PushSendQueue(SYS_MESSAGE, 0);
     Migration_Status = TRUE;
     return;
 }
 
-void API_Migration_Refused(unsigned int task_id, unsigned int app_id, unsigned int why){
-    Migration_Status = FALSE;
+void API_Migration_Refused(unsigned int task_id, unsigned int app_id, unsigned int why, unsigned int addr){
     if( why == CAN_NOT_MIGRATE ){ 
         applications[app_id].tasks[task_id].migration = FALSE;
-    } else if ( applications[app_id].tasks[task_id].status == TASK_MIGRATION_REQUEST ){
+    }
+    if ( applications[app_id].tasks[task_id].status == TASK_MIGRATION_REQUEST ){
         applications[app_id].tasks[task_id].status = TASK_STARTED;
+    }
+    if( Migration_Status == TRUE ){
+        Migration_Status = FALSE;
+        API_ClearTaskSlotFromTile(addr, app_id, task_id);
     }
     return;
 }
@@ -950,6 +966,9 @@ void API_Migration_ForwardTask( unsigned int app_id, unsigned int task_id, unsig
         if(mySlot == PIPE_FULL){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
             prints("Estou preso aqui17...\n");
+            vTaskExitCritical();
+            asm("nop");
+            vTaskEnterCritical();
         }
     }while(mySlot == PIPE_FULL);
     printsvsv("Forwarding the original task: ", task_id, "from app: ", app_id);
@@ -1002,14 +1021,18 @@ void API_ResumeApplication(unsigned int app_id){
 
 void API_Forward_MsgReq(unsigned int requester_task_id, unsigned int app_id, unsigned int producer_task_id){
     unsigned int mySlot;
+    
     if(applications[app_id].tasks[producer_task_id].status != TASK_FINISHED){
         do{
             mySlot = API_GetServiceSlot();
             if(mySlot == PIPE_FULL){
-                // Runs the NI Handler to send/receive packets, opening space in the PIPE
                 prints("Estou preso aqui121...\n");
+                vTaskExitCritical();
+                asm("nop");
+                vTaskEnterCritical();
             }
         }while(mySlot == PIPE_FULL);
+
         
         ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
 

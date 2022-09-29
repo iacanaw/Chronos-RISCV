@@ -83,7 +83,7 @@ void powerEstimation(){
         thermalPacket_pending = TRUE;
 
         // gets the number of ports
-        nPorts = getNumberOfPorts(ProcessorAddr);
+        nPorts = getNumberOfPorts(API_getProcessorAddr());
          
         // estimate the noc activity
         nocActivity = estimateNoCActivity();
@@ -141,7 +141,7 @@ void powerEstimation(){
         ThermalPacket.header.header           = makeAddress(0, 0) | PERIPH_WEST;
         ThermalPacket.header.payload_size     = PKT_SERVICE_SIZE;
         ThermalPacket.header.service          = ENERGY_PACKET;
-        ThermalPacket.header.source_addr      = ProcessorAddr;
+        ThermalPacket.header.source_addr      = API_getProcessorAddr();
         ThermalPacket.header.spent_energy     = totalEnergy;
         API_PushSendQueue(THERMAL, 0);
         prints("EnergyPckt sent\n");

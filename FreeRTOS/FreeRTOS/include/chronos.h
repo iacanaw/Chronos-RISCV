@@ -54,13 +54,11 @@ volatile ServiceHeader incommingPacket;
 // Holds the "NI Handler Task" task handle
 TaskHandle_t NI_RX_Handler, NI_TX_Handler, NI_TMR_Handler; // KeeperTask_Handler;
 
-
 // Sending Queue
-volatile unsigned int SendingQueue[PIPE_SIZE*2];
+volatile unsigned int SendingQueue[PIPE_SIZE*NUM_MAX_TASKS + PIPE_SIZE];
 volatile unsigned int SendingQueue_front;
 volatile unsigned int SendingQueue_tail;
 volatile unsigned int SendingSlot;
-
 
 // Initiate chronos stuff
 void Chronos_init();
@@ -131,5 +129,7 @@ unsigned int addr2id(unsigned int addr);
 unsigned int id2addr(unsigned int id);
 
 unsigned int sqrt(unsigned int x);
+
+unsigned int API_getProcessorAddr();
 
 #endif
