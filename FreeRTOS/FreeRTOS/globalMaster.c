@@ -821,7 +821,6 @@ void API_ApplicationStart(unsigned int app_id){
         while(ServiceMessage.status == PIPE_OCCUPIED){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
             prints("Estou preso aqui7...\n");
-            API_NI_Handler();
         }
         printsv("Sending TASK_START to task ", i);
         ServiceMessage.status = PIPE_OCCUPIED;
@@ -843,6 +842,10 @@ void API_ApplicationStart(unsigned int app_id){
 
 void API_StartMigration(unsigned int app_id, unsigned int task_id, unsigned int new_addr){
     unsigned int i, j;
+    while(ServiceMessage.status == PIPE_OCCUPIED){
+        // Runs the NI Handler to send/receive packets, opening space in the PIPE
+        prints("Estou preso aqui70...\n");
+    }
     printsvsv("Starting Migration Process for app: ", app_id, "Task: ", task_id);
     applications[app_id].tasks[task_id].status  = TASK_MIGRATION_REQUEST;
     applications[app_id].newAddr                = new_addr;

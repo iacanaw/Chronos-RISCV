@@ -940,7 +940,7 @@ static void GlobalManagerTask( void *pvParameters ){
 #if MIGRATION
         else{
             migrate = API_SelectTask_Migration_Temperature(70);
-            if (migrate != ERRO){
+            if (migrate != ERRO  && !API_CheckTaskToAllocate(xTaskGetTickCount())){
                 printsvsv("Got a app to migrate: ",(migrate>>16)," task: ", (migrate & 0x0000FFFF));
                 mig_app = migrate >> 16;
                 mig_task = migrate & 0x0000FFFF;

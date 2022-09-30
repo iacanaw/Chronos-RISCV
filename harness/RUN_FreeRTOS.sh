@@ -4,27 +4,28 @@
 # Help                                                                         #
 ################################################################################
 Help(){
-   # Display Help
-   echo "Starts the RISC-V Chronos platform."
-   echo
-   echo "Syntax: RUN_FreeRTOS.sh [-n|x|y|t|s|m]"
-   echo "options:"
-   echo "-n     Simulation name (default uses the date and time to generate a name)."
-   echo "-x     Defines the amount of PEs in the X coordinate (default: 5)."
-   echo "-y     Defines the amount of PEs in the Y coordinate (default: 5)."
-   echo "-t     Defines the amount of time that the simulation will last."
-   echo "       If not defined the simulation will last until every application finishes."
-   echo "-s     Defines the scenario source file."
-   echo "       If not defined or if the file does not exist the system will run empty."
-   echo "-m     Choose the management method [spiral|pidtm|pattern|chronos|characterize]"
+    # Display Help
+    echo "Starts the RISC-V Chronos platform."
+    echo
+    echo "Syntax: RUN_FreeRTOS.sh [-n|x|y|t|s|m]"
+    echo "options:"
+    echo "-n     Simulation name (default uses the date and time to generate a name)."
+    echo "-x     Defines the amount of PEs in the X coordinate (default: 5)."
+    echo "-y     Defines the amount of PEs in the Y coordinate (default: 5)."
+    echo "-t     Defines the amount of time that the simulation will last."
+    echo "       If not defined the simulation will last until every application finishes."
+    echo "-s     Defines the scenario source file."
+    echo "       If not defined or if the file does not exist the system will run empty."
+    echo "-m     Choose the management method [spiral|pidtm|pattern|chronos|characterize]"
+    echo "-g     Choose if the migration algorithm is working or not [yes][no]"
 }
 
 if [ "$1" == "-h" ]; then
-  Help
-  exit
+    Help
+    exit
 fi
 
-while getopts ":h:n:x:y:t:s:m:" option; do
+while getopts ":h:n:x:y:t:s:m:g:" option; do
   case $option in
     h) # display Help
         Help
@@ -47,6 +48,8 @@ while getopts ":h:n:x:y:t:s:m:" option; do
     t) #defines the simulation max time
         SimulationMaxTime=$OPTARG
         echo "Simulation will finish at "$SimulationMaxTime;;
+    g) #defines the migration algorithm
+        Migration=$OPTARG;;
     \?) # Invalid option
         echo "Error: Invalid option"
         exit;;
@@ -81,6 +84,12 @@ if [ -z ${YY} ];
 then
     YY=5
     echo "Default Y axis dimention: "$(($YY))
+fi
+
+if [ -z ${Migration} ];
+then
+    Migration='yes'
+    echo "Default migration is ACTIVE"
 fi
 
 if [ -z ${SimName} ];
@@ -153,6 +162,17 @@ then
     sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 6/' FreeRTOS/main.c
 else
     echo "Error: the -m option must be defined as \"pattern\", \"pidtm\" or \"chronos\"."
+    exit
+fi
+
+if [[ $Migration == "yes" ]]
+then
+    sed -i 's/#define MIGRATION.*/#define MIGRATION 1/' FreeRTOS/main.c
+elif [[ $Migration == "no" ]]
+then
+    sed -i 's/#define MIGRATION.*/#define MIGRATION 0/' FreeRTOS/main.c
+else
+    echo "Error: Migration not defined!"
     exit
 fi
 
