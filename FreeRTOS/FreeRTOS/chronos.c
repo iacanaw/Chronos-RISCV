@@ -93,7 +93,7 @@ void Chronos_init(){
 
     // Set the system to Idle
     API_setFreqIdle();
-    API_freqStepUp();
+    //API_freqStepUp();
     return;
 }
 
@@ -475,7 +475,7 @@ void API_AckTaskAllocation(unsigned int task_id, unsigned int app_id){
     ServicePipe[mySlot].header.payload_size     = PKT_SERVICE_SIZE;
     ServicePipe[mySlot].header.service          = TASK_ALLOCATION_SUCCESS;
     ServicePipe[mySlot].header.task_id          = task_id;
-    ServicePipe[mySlot].header.app_id      = app_id;
+    ServicePipe[mySlot].header.app_id           = app_id;
 
     API_PushSendQueue(SERVICE, mySlot);
     return;    
@@ -492,9 +492,23 @@ void API_SendMessage(unsigned int addr, unsigned int taskID){
         // Suspends the Task until the PIPE has space
         if(mySlot == PIPE_FULL){
             prints("Estou preso aqui2...\n");
+
             taskSlot = API_GetCurrentTaskSlot();
+            for (i = 0; i < NUM_MAX_TASKS; i++){
+                if ( TaskList[i].status == TASK_SLOT_RUNNING && TaskList[i].waitingMsg == FALSE && i != taskSlot ){
+                    printsv("Not changing the frequency because task # is running: ", i);
+                    i = 999;
+                    break;
+                }
+            }
+            if (i < 999) {
+                API_setFreqScale(100);
+            }
+
             TaskList[taskSlot].status = TASK_SLOT_SUSPENDED;
             vTaskSuspend( TaskList[taskSlot].TaskHandler );
+
+            API_setFreqScale(1000);
         }
     }while(mySlot == PIPE_FULL);
     //vTaskEnterCritical();
@@ -569,7 +583,6 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
         if(mySlot == PIPE_FULL){
             // Runs the NI Handler to send/receive packets, opening space in the PIPE
             prints("Estou preso aqui4...\n");
-            API_NI_Handler();
         }
     }while(mySlot == PIPE_FULL);
 
@@ -601,14 +614,8 @@ void API_SendMessageReq(unsigned int addr, unsigned int taskID){
     // Bloquear a tarefa!
     while(TaskList[taskSlot].waitingMsg == TRUE){ 
         vTaskDelay(1);
+        //vTaskSuspend( TaskList[taskSlot].TaskHandler );
     }
-
-    // while( TaskList[taskSlot].waitingMsg == TRUE ){
-    //     TaskList[taskSlot].status = TASK_SLOT_BLOQUED;
-    //     // Blocks the task until the NI interrupts it
-    //     ulNotifiedValue = ulTaskNotifyTake( pdFALSE, xBlockTime );
-    // }
-
 
     API_setFreqScale(1000);
 

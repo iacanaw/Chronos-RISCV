@@ -37,7 +37,7 @@
 
 #define NBTI_beta   0.3		/* Beta in NBTI equation [2]*/
 
-#define T_base  (273.15 + 80.00)	/* Qualification temperature. At this value, the total processor FIT value will be 4000. By changing this temperature, we can model processors with different reliability qualification costs (Higher implies more expensive).*/ 
+#define T_base  (273.15 + 75.00)	/* Qualification temperature. At this value, the total processor FIT value will be 4000. By changing this temperature, we can model processors with different reliability qualification costs (Higher implies more expensive).*/ 
 #define ambient (273.15 + 40.00)
 
 #define TOTAL_STRUCTURES DIM_X*DIM_Y

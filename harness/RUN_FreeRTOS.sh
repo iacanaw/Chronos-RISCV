@@ -97,7 +97,7 @@ then
     SimName=$(date +"%d%m%Y%H%M%S")"_"$SimType"_"$(($XX))"x"$(($YY))
     echo "Default simulation name: "$SimName
 else
-    SimName=$SimName"_"$ScenarioName"_"$SimulationMaxTime"ticks_"$SimType"_"$(($XX))"x"$(($YY))
+    SimName=$SimName"_"$ScenarioName"_"$SimulationMaxTime"ticks_mig"$Migration"_"$SimType"_"$(($XX))"x"$(($YY))
 fi
 
 N=$(($XX*$YY))
@@ -160,6 +160,9 @@ then
 elif [[ $SimType == "chronos3" ]]
 then
     sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 6/' FreeRTOS/main.c
+elif [[ $SimType == "worst" ]]
+then
+    sed -i 's/#define THERMAL_MANAGEMENT.*/#define THERMAL_MANAGEMENT 7/' FreeRTOS/main.c
 else
     echo "Error: the -m option must be defined as \"pattern\", \"pidtm\" or \"chronos\"."
     exit

@@ -24,7 +24,8 @@ extern volatile unsigned int API_SystemFinish = FALSE;
     3) CHRONOS 
     4) CHARACTERIZATION
     5) CHRONOS2
-    6) CHRONOS3 */
+    6) CHRONOS3
+    7) WORST */
 #define THERMAL_MANAGEMENT 3
 #define MIGRATION 1
 
@@ -292,51 +293,51 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     prints("Tem uma mensagem chegando...\n");
                     aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
                     if(aux != ERRO) {
-                        HW_set_32bit_reg(NI_RX, TaskList[aux].MsgToReceive);
                         incommingPacket.service = MESSAGE_DELIVERY_FINISH;
+                        HW_set_32bit_reg(NI_RX, TaskList[aux].MsgToReceive);
                     }
                     else{
-                        prints("ERRO! - Destinatário não presente!\n");
+                        prints("WARNING! - Destinatário não presente!\n");
+                        while(ServiceMessage.status == PIPE_OCCUPIED){
+                            // Runs the NI Handler to send/receive packets, opening space in the PIPE
+                            prints("Estou preso aqui777...\n");
+                            vTaskExitCritical();
+                            asm("nop");
+                            vTaskEnterCritical();
+                        }
+                        ServiceMessage.status = PIPE_OCCUPIED;
+
+                        if(API_getProcessorAddr() == MASTER_ADDR){
+                            ServiceMessage.header.header           = applications[incommingPacket.application_id].tasks[incommingPacket.destination_task].addr;
+                        } else {
+                            ServiceMessage.header.header           = MASTER_ADDR;
+                        }
+                        ServiceMessage.header.payload_size     = incommingPacket.payload_size;
+                        ServiceMessage.header.service          = MESSAGE_DELIVERY;
+                        ServiceMessage.header.application_id   = incommingPacket.application_id;
+                        ServiceMessage.header.producer_task    = incommingPacket.producer_task;
+                        ServiceMessage.header.destination_task = incommingPacket.destination_task;
+                        incommingPacket.service                = MESSAGE_RETARGET;
+                        HW_set_32bit_reg(NI_RX, (unsigned int)&ServiceMessage.msg);
+                        API_PushSendQueue(SYS_MESSAGE, 0);
                     }
                     prints("9NI_RX DONE!\n");
                     break;
                 
+                case MESSAGE_RETARGET:
+                    printsv("Reencaminhando mensagem para PE: ", ServiceMessage.header.header );
+                    API_PushSendQueue(SYS_MESSAGE, 0);
+                    prints("9.1NI_RX_DONE!");
+                    break;
+
+
                 case MESSAGE_DELIVERY_FINISH:
                     //prints("Terminou de entregar a mensagem!!\n");
                     aux = API_GetTaskSlot(incommingPacket.destination_task, incommingPacket.application_id);
                     TaskList[aux].waitingMsg = FALSE;
-                    // if ( TaskList[aux].status == TASK_SLOT_SUSPENDED ){
-                    //     printsv("Resumindo taskSlot ", aux);
-                    //     TaskList[aux].status = TASK_SLOT_RUNNING;
-                    //     vTaskResume( TaskList[aux].TaskHandler );
-                    // }
-
-                    // if(TaskList[aux].status == TASK_SLOT_BLOQUED){
-                    //     TaskList[aux].status = TASK_SLOT_RUNNING;
-                    //     /* xHigherPriorityTaskWoken must be initialised to pdFALSE.
-                    //     If calling vTaskNotifyGiveFromISR() unblocks the handling
-                    //     task, and the priority of the handling task is higher than
-                    //     the priority of the currently running task, then
-                    //     xHigherPriorityTaskWoken will be automatically set to pdTRUE. */
-                    //     xHigherPriorityTaskWoken = pdFALSE;
-
-                    //     /* Unblock the handling task so the task can perform
-                    //     any processing necessitated by the interrupt.  xHandlingTask
-                    //     is the task's handle, which was obtained when the task was
-                    //     created.  vTaskNotifyGiveFromISR() also increments
-                    //     the receiving task's notification value. */
-                    //     vTaskNotifyGiveFromISR( TaskList[aux].TaskHandler, &xHigherPriorityTaskWoken );
-
-                    //     /* Force a context switch if xHigherPriorityTaskWoken is now
-                    //     set to pdTRUE. The macro used to do this is dependent on
-                    //     the port and may be called portEND_SWITCHING_ISR. */
-                    //     //portEND_SWITCHING_ISR( xHigherPriorityTaskWoken );
-                    // }
-
-                    //HW_set_32bit_reg(NI_RX, DONE);
                     prints("10NI_RX DONE!\n");
-                    //vTaskResume(TaskList[aux].TaskHandler);
-                    xTaskResumeFromISR(TaskList[aux].TaskHandler);
+                    vTaskResume(TaskList[aux].TaskHandler);
+                    //xTaskResumeFromISR(TaskList[aux].TaskHandler);
                     break;
                 
                 case TEMPERATURE_PACKET:
@@ -660,7 +661,7 @@ static void GlobalManagerTask( void *pvParameters ){
         API_PrintOccupation(tick);    
 
 		// Checks if there is some task to allocate...
-		API_AllocateTasks(tick);
+		API_AllocateTasks(tick, -1);
 		
 		// Checks if there is some task to start...
 		API_StartTasks();
@@ -712,7 +713,7 @@ static void GlobalManagerTask( void *pvParameters ){
         API_PrintOccupation(tick);
 
 		// Checks if there is some task to allocate...
-		API_AllocateTasks(tick);
+		API_AllocateTasks(tick, -1);
 		
 		// Checks if there is some task to start...
 		API_StartTasks();
@@ -735,7 +736,7 @@ static void GlobalManagerTask( void *pvParameters ){
 
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
-    unsigned int tick;
+    unsigned int tick, k;
 	char str[20];
     unsigned int migrate, mig_app, mig_task, mig_addr, mig_slot;
 
@@ -774,27 +775,28 @@ static void GlobalManagerTask( void *pvParameters ){
         API_UpdatePriorityTable(pidStatus.control_signal);
 
         // Checks if there is some task to allocate...
-		API_AllocateTasks(tick);
+		API_AllocateTasks(tick, -1);
 
         // Checks if there is some task to start...
 		API_StartTasks();
 
         // Check migration
 #if MIGRATION
-        migrate = API_SelectTask_Migration_Temperature(70);
+        migrate = API_SelectTask_Migration_Temperature(75);
         if (migrate != -1  && !API_CheckTaskToAllocate(xTaskGetTickCount())){
             printsvsv("Got a app to migrate: ",(migrate>>16)," task: ", (migrate & 0x0000FFFF));
             mig_app = migrate >> 16;
             mig_task = migrate & 0x0000FFFF;
-            for(;;){
-                mig_addr = getNextPriorityAddr();
+            for(k=0;k<(DIM_X*DIM_Y)-1;k++){
+                mig_addr = getNextPriorityAddr(-1);
                 printsv("mig_addr = ", mig_addr);
                 mig_slot = API_GetTaskSlotFromTile(mig_addr, mig_app, mig_task);
-                if (mig_slot != ERRO)
+                if (mig_slot != ERRO){
+                    printsvsv("Migrating it to ", getXpos(mig_addr), "-", getYpos(mig_addr));
+                    API_StartMigration(mig_app, mig_task, mig_addr);
                     break;
+                }   
             }
-            printsvsv("Migrating it to ", getXpos(mig_addr), "-", getYpos(mig_addr));
-            API_StartMigration(mig_app, mig_task, mig_addr);
         }
 #endif
         
@@ -939,7 +941,7 @@ static void GlobalManagerTask( void *pvParameters ){
         }
 #if MIGRATION
         else{
-            migrate = API_SelectTask_Migration_Temperature(70);
+            migrate = API_SelectTask_Migration_Temperature(75);
             if (migrate != ERRO  && !API_CheckTaskToAllocate(xTaskGetTickCount())){
                 printsvsv("Got a app to migrate: ",(migrate>>16)," task: ", (migrate & 0x0000FFFF));
                 mig_app = migrate >> 16;
@@ -1267,7 +1269,7 @@ static void GlobalManagerTask( void *pvParameters ){
 		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
 
 		// Checks if there is some task to allocate...
-		API_AllocateTasks(tick);
+		API_AllocateTasks(tick, -1);
 		
 		// Checks if there is some task to start...
 		API_StartTasks();
@@ -1278,6 +1280,61 @@ static void GlobalManagerTask( void *pvParameters ){
         
 		if(API_SystemFinish){
 			////vTaskDelay(100); // to cool down the system
+			_exit(0xfe10);
+		}
+		else{
+			vTaskDelay(1);
+		}
+	}
+}
+
+/*-----------------------------------------------------------*/
+#elif THERMAL_MANAGEMENT == 7 // WORST
+
+static void GlobalManagerTask( void *pvParameters ){
+	( void ) pvParameters;
+	unsigned int tick;
+	char str[20];
+
+	// Initialize the priority vector with the spiral policy
+	generateWorstMatrix();
+
+	// Initialize the System Tiles Info
+	API_TilesReset();
+
+	// Initialize the applications vector
+    API_ApplicationsReset();
+
+	// Informs the Repository that the GLOBALMASTER is ready to receive the application info
+	API_RepositoryWakeUp();
+
+	for(;;){
+        // Returns from IDLE
+		API_setFreqScale(1000);
+        API_applyFreqScale();
+
+        tick = xTaskGetTickCount();
+        if(tick >= SIMULATION_MAX_TICKS) _exit(0xfe10);
+		myItoa(tick, str, 10);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
+		printsv("GlobalMasterActive", tick);
+		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
+
+        // prints the occupation
+        API_PrintOccupation(tick);    
+
+		// Checks if there is some task to allocate...
+		API_AllocateTasks(tick, 0);
+		
+		// Checks if there is some task to start...
+		API_StartTasks();
+
+        // Enters in idle
+        API_setFreqIdle();
+        API_applyFreqScale();
+        
+		if(API_SystemFinish){
+			//vTaskDelay(100); // to cool down the system
 			_exit(0xfe10);
 		}
 		else{

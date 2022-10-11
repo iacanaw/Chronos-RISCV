@@ -30,7 +30,7 @@ typedef int64_t int64;
 #define TOTAL_TC_FITS 800.0
 #define TOTAL_NBTI_FITS 800.0
 
-const int T_base = 273.15+80.0;	/* Qualification temperature. At this value, the total processor FIT value will be 4000. By changing this temperature, we can model processors with different reliability qualification costs (Higher implies more expensive).*/ 
+const int T_base = 273.15+75.0;	/* Qualification temperature. At this value, the total processor FIT value will be 4000. By changing this temperature, we can model processors with different reliability qualification costs (Higher implies more expensive).*/ 
 const int ambient = 273.15+40.0;
 
 #define EM_Ea_div_k  (0.9/(8.62e-5)) 	/* EM activation energy [1]*/

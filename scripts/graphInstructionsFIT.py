@@ -26,7 +26,7 @@ for xx in range(XX):
                 try:
                     line = log_file.readline()
                 except:
-                    print("catched an error in file "+ str(xx) + "x" + str(yy))
+                    pass#print("catched an error in file "+ str(xx) + "x" + str(yy))
                 if "inst~~~>" in line:
                     value = line.split(' ')
                     if value[1].isnumeric() and value[3].isnumeric():

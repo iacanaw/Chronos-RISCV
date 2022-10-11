@@ -103,6 +103,9 @@ unsigned int API_getMaxIdxfromRow(float *policyTable, unsigned int row, unsigned
 // Informs the Repository that the GLOBALMASTER is ready to receive the application info
 void API_RepositoryWakeUp(){
     unsigned int mySlot;
+    API_setFreqIdle();
+    API_applyFreqScale();
+    while(xTaskGetTickCount() < 40){ /*waits here */ }
 
     Migration_Status = FALSE;
 
@@ -344,6 +347,14 @@ void generateSpiralMatrix() {
     }
 }
 
+void generateWorstMatrix() {
+    int i;
+    for(i = 0; i < DIM_X*DIM_Y; i++){
+        priorityMatrix[i] = id2addr(i);
+    }
+    return;
+}
+
 // Generates the Pattern Matrix for Pattern mapping
 void GeneratePatternMatrix(){
     int i, aux;
@@ -404,8 +415,8 @@ unsigned int API_GetNextTaskToAllocate(unsigned int tick){
 
 
 // Checks if there is some task to allocate...
-void API_AllocateTasks(unsigned int tick){
-    int i, j;
+void API_AllocateTasks(unsigned int tick, unsigned int start){
+    int i, j, k;
     int addr, slot;
     // Iterate around every possible application
     for (i = 0; i < NUM_MAX_APPS; i++){
@@ -413,20 +424,21 @@ void API_AllocateTasks(unsigned int tick){
         if (applications[i].occupied == TRUE){
 
             // If the nextRun of this application is right now, then release each task!
-            if(applications[i].nextRun <= tick && applications[i].nextRun != applications[i].lastStart){
+            if(applications[i].nextRun <= tick && applications[i].nextRun != applications[i].lastStart && API_isApplicationReady(i)){
                 printsv("Starting to release the application ", i);
                 // If the system has space to accept every task
                 if(applications[i].numTasks <= API_GetSystemTasksSlots()){
                     
                     // Iterates around each task of this application
                     for(j = 0; j < applications[i].numTasks; j++){
-
+                        printsv("getting a slot for task ", j);
                         for(;;){
-                            addr = getNextPriorityAddr();
+                            addr = getNextPriorityAddr(start);
                             slot = API_GetTaskSlotFromTile(addr, i, j);
                             if (slot != ERRO)
                                 break;
                         }
+                        printsv("selected slot at ", addr);
                         applications[i].tasks[j].status = TASK_ALLOCATING;
                         applications[i].tasks[j].addr = addr;
                         applications[i].tasks[j].slot = slot;
@@ -443,6 +455,16 @@ void API_AllocateTasks(unsigned int tick){
     return;
 }
 
+unsigned int API_isApplicationReady(unsigned int app){
+    unsigned int i;
+    for(i = 0; i < applications[app].numTasks; i++){
+        if(applications[app].tasks[i].status != TASK_TO_ALLOCATE){
+            return FALSE;
+        }
+    }
+    return TRUE;
+}
+
 unsigned int API_CheckTaskToAllocate(unsigned int tick){
     int i;
     // Iterate around every possible application
@@ -450,12 +472,12 @@ unsigned int API_CheckTaskToAllocate(unsigned int tick){
         // If the application is valid
         if (applications[i].occupied == TRUE){
             // If the nextRun of this application is right now, then release each task!
-            if(applications[i].nextRun <= tick && applications[i].nextRun != applications[i].lastStart){
-                return 1;
+            if(applications[i].nextRun <= tick && applications[i].nextRun != applications[i].lastStart && API_isApplicationReady(i)){
+                return TRUE;
             }
         }
     }
-    return 0;
+    return FALSE;
 }
 
 unsigned int API_GetSmallerFITCluster(unsigned int size){
@@ -711,26 +733,34 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
 }
 
 // Gets the address of the next tile in the priority list 
-unsigned int getNextPriorityAddr(){
+unsigned int getNextPriorityAddr(unsigned int start){
     int i;
     unsigned int addr = makeAddress(0,0);
+    
+    if(start != -1){
+        priorityPointer = start;
+    }
+    
     for(;;){
-
         // Increments the priorityPointer
         priorityPointer++;
         if (priorityPointer == DIM_X*DIM_Y)
             priorityPointer = 0;
+        
+        //printsv("prioritypointer: ", priorityPointer);
 
         // Checks if it's a valid address
         if (priorityMatrix[priorityPointer] != makeAddress(0,0)){
-            if (Tiles[getXpos(addr)][getYpos(addr)].taskSlots > 0){
+            if (Tiles[getXpos(priorityMatrix[priorityPointer])][getYpos(priorityMatrix[priorityPointer])].taskSlots > 0){
                 addr = priorityMatrix[priorityPointer];
             }
         }
 
         // If we found a new valid address, return
-        if( addr != makeAddress(0,0))
+        if( addr != makeAddress(0,0)){
+            //printsv("trying addr: ", addr);
             break;
+        }
     }
     return addr;
     //return 0x101;

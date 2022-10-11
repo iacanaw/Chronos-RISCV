@@ -7,7 +7,14 @@ YY = int(sys.argv[2])
 
 print("x: " + str(XX) + " y: " + str(YY))
 
-side = 0.000194 # MEM 8Kb
+# if((XX==2 and YY==2) or (XX==5 and YY==5) or (XX==11 and YY==11)):
+# 	side = 0.000170
+# elif ((XX == 9 and YY==9) or (XX==10 and YY==10)  or (XX==12 and YY==12)):
+# 	side = 0.0002
+# else:
+# 	side = 0.000120#194
+
+side = 0.000266 
 
 with open('input/floorplan.flp', 'w') as file:
 

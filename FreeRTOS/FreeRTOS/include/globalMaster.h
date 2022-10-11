@@ -120,9 +120,9 @@ void API_TilesReset();
 // Generates the Pattern Matrix for Pattern mapping
 void GeneratePatternMatrix();
 // Checks if there is some task to allocate...
-void API_AllocateTasks(unsigned int tick);
+void API_AllocateTasks(unsigned int tick, unsigned int start);
 // Gets the address of the next tile in the priority list 
-unsigned int getNextPriorityAddr();
+unsigned int getNextPriorityAddr(unsigned int start);
 // Iterates around the system tiles to sum the amount of tasks slots available
 unsigned int API_GetSystemTasksSlots();
 // Gets a free slot from one given tile
@@ -167,5 +167,7 @@ void API_Migration_Refused(unsigned int task_id, unsigned int app_id, unsigned i
 unsigned int API_SelectTaskFromPE_Migration(int pe_id);
 
 unsigned int API_SelectTask_Migration_Temperature(int threshold);
+
+unsigned int API_isApplicationReady(unsigned int app);
 
 #endif

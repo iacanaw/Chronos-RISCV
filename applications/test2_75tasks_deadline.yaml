@@ -100,3 +100,29 @@ apps:
    tasks:
     prod: 0
     cons: 1
+ - name: prodcons
+   period: 0
+   executions: 24
+   tasks:
+    prod: 0
+    cons: 1
+ - name: dtw
+   period: 0
+   executions: 24
+   tasks:
+    bank: 0
+    p1: 1
+    p2: 2
+    p3: 3
+    p4: 4
+    recognizer: 5
+ - name: dtw
+   period: 0
+   executions: 24
+   tasks:
+    bank: 0
+    p1: 1
+    p2: 2
+    p3: 3
+    p4: 4
+    recognizer: 5
