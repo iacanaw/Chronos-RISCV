@@ -53,3 +53,6 @@ dkms.conf
 
 *.pse
 simulation/*
+
+scripts/*.pdf
+scripts/*.png
