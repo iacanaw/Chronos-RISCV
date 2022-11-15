@@ -495,6 +495,7 @@ void vNI_RX_HandlerTask( void *pvParameters ){
                     
                     log_migration_success(xTaskGetTickCount());
 
+
                     API_ClearTaskSlotFromTile(applications[incommingPacket.app_id].tasks[incommingPacket.task_id].addr,
                                               incommingPacket.app_id, 
                                               incommingPacket.task_id );
@@ -785,6 +786,7 @@ static void GlobalManagerTask( void *pvParameters ){
         // Check migration
 #if MIGRATION_AVAIL
         migrate = API_SelectTask_Migration_Temperature(THRESHOLD_TEMP);
+
         if (migrate != -1  && !API_CheckTaskToAllocate(xTaskGetTickCount())){
             printsvsv("Got a app to migrate: ",(migrate>>16)," task: ", (migrate & 0x0000FFFF));
             mig_app = migrate >> 16;
@@ -920,6 +922,7 @@ static void GlobalManagerTask( void *pvParameters ){
                 
                 // sort addrs by score
                 num_pes = k-1; 
+
                 printsv("Sorting num_pes = ", num_pes);
                 quickSort(sorted_score, sorted_addr, 0, num_pes);
                 
@@ -1300,6 +1303,7 @@ static void GlobalManagerTask( void *pvParameters ){
 
 		// Checks if there is some task to allocate...
 		API_AllocateTasks(tick, 0);
+
 		
 		// Checks if there is some task to start...
 		API_StartTasks();
@@ -1399,6 +1403,7 @@ static void GlobalManagerTask( void *pvParameters ){
                             if( applications[i].tasks[j].migration == TRUE ){
                                 j_type = applications[i].taskType[j];
                                 j_state = API_getPEState(addr2id(applications[i].tasks[j].addr), -1);
+
                                 j_temp = Tiles[getXpos(applications[i].tasks[j].addr)][getYpos(applications[i].tasks[j].addr)].temperature;
                                 if( candidate = 0xFFFFFFFF ){
                                     candidate_score = scoreTable[j_type][j_state];
@@ -1425,6 +1430,7 @@ static void GlobalManagerTask( void *pvParameters ){
                                 for( j = getYpos(base_addr); j < (getYpos(base_addr)+cluster_size); j++){
                                     sorted_addr[k] = makeAddress(i, j);
                                     sorted_score[k] = (int)(scoreTable[applications[app].taskType[task]][API_getPEState(addr2id(makeAddress(i,j)),-1)]*1000);
+
                                     k++;
                                 }
                             }

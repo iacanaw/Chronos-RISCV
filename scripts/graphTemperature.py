@@ -52,7 +52,7 @@ ax.plot(time, mediana, 'g-', linewidth=1.0, label = "Median Temperature")
 ax.plot(time, pri_quartil, 'c-', linewidth=1.0, label = "First Quartile")
 ax.plot(time, ter_quartil, 'm-', linewidth=1.0, label = "Third Quartile")
 
-ax.set_ylim([50, 90])
+ax.set_ylim([50, 80])
 
 ax.set_title('Temperature - '+simType)
 ax.legend()

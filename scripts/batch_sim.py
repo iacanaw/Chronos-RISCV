@@ -37,7 +37,6 @@ def main():
     name = "ISCAS23_Q3_"
     i = 0
 
-
     # Creating Threads to run MATEX and Graphs
     for time in sim_time_s:
         for size in sizes_to_sim:

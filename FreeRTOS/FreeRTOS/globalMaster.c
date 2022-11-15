@@ -765,6 +765,18 @@ unsigned int getNextPriorityAddr(unsigned int start){
     }
     
     for(;;){
+        //printsv("prioritypointer: ", priorityPointer);
+
+        // Checks if it's a valid address
+        if (priorityMatrix[priorityPointer] != makeAddress(0,0)){
+            if (Tiles[getXpos(priorityMatrix[priorityPointer])][getYpos(priorityMatrix[priorityPointer])].taskSlots > 0){
+                addr = priorityMatrix[priorityPointer];
+            }
+        }
+        // Increments the priorityPointer
+        priorityPointer++;
+        if (priorityPointer == DIM_X*DIM_Y)
+            priorityPointer = 0;
         
         //printsv("prioritypointer: ", priorityPointer);
 
@@ -774,11 +786,6 @@ unsigned int getNextPriorityAddr(unsigned int start){
                 addr = priorityMatrix[priorityPointer];
             }
         }
-
-        // Increments the priorityPointer
-        priorityPointer++;
-        if (priorityPointer == DIM_X*DIM_Y)
-            priorityPointer = 0;
 
         // If we found a new valid address, return
         if( addr != makeAddress(0,0)){

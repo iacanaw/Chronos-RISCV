@@ -152,6 +152,7 @@ def main():
             categories_low_bound[i] = str(int(categories_low_bound[i]))+" - "+str(int(categories_low_bound[i]+interval))
         plt.xticks([r + bar_width*(NUM_CAT/2) for r in range(NUM_CAT)],categories_low_bound)
         plt.title(graph[0].split("_")[4]+"% of PE occupation")
+
         plt.legend()
         ax = plt.gca()
 
@@ -172,7 +173,6 @@ def main():
 
         plt.savefig("graphs"+graph[0]+".png")  
         plt.savefig("graphs"+graph[0]+".pdf",  format='pdf', bbox_inches='tight')  
-
 
 
 def run_ramp(folder, x, y):
