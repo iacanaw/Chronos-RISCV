@@ -44,12 +44,51 @@ unsigned int API_GetFreeTaskSlot(){
     return ERRO;
 }
 
-void API_InformMigration(unsigned int app_id, unsigned int task_id){
+void API_InformMigration(unsigned int app_id, unsigned int task_id, unsigned int newAddr){
     unsigned int tslot = API_GetTaskSlot(task_id, app_id);
-    volatile unsigned int *migrationVar = TaskList[tslot].migrationPointer;
-    printsv("Antes: ", *migrationVar);
-    *migrationVar = 0xFFFFFFFF;
-    printsv("Depois: ", *migrationVar);
+    if(tslot != ERRO){
+        if ( TaskList[tslot].migrationPointer != 0 ){
+            volatile unsigned int *migrationVar = TaskList[tslot].migrationPointer;
+            *migrationVar = 0xFFFFFFFF;
+            vTaskEnterCritical();
+            printsvsv("mig~~~> ", app_id, "task ", task_id);
+            vTaskExitCritical();
+        } else {
+            prints("Refusing because task can not migrate!\n");
+            // refuse migration - why CAN_NOT_MIGRATE
+            API_Refuse_Migration(app_id, task_id, newAddr, CAN_NOT_MIGRATE);
+        }
+    } else {
+        prints("Refusing because task was not located!\n");
+        // refuse migration - why TASK_NOT_LOCATED
+        API_Refuse_Migration(app_id, task_id, newAddr, TASK_NOT_LOCATED);
+    }
+    return;
+}
+
+void API_Refuse_Migration(unsigned int app_id, unsigned int task_id, unsigned int newAddr, unsigned int why){
+    unsigned int mySlot = API_GetServiceSlot();
+    do{
+        if(mySlot == PIPE_FULL){
+            // Runs the NI Handler to send/receive packets, opening space in the PIPE
+            prints("Estou preso aqui11...\n");
+            vTaskExitCritical();
+            asm("nop");
+            vTaskEnterCritical();
+        }
+    }while(mySlot == PIPE_FULL);
+
+    ServicePipe[mySlot].holder = PIPE_SYS_HOLDER;
+
+    ServicePipe[mySlot].header.header               = makeAddress(0, 0);
+    ServicePipe[mySlot].header.payload_size         = PKT_SERVICE_SIZE;
+    ServicePipe[mySlot].header.service              = TASK_REFUSE_MIGRATION;
+    ServicePipe[mySlot].header.task_id              = task_id;
+    ServicePipe[mySlot].header.app_id               = app_id;
+    ServicePipe[mySlot].header.why                  = why;
+    ServicePipe[mySlot].header.task_migration_addr  = newAddr;//API_getProcessorAddr();
+
+    API_PushSendQueue(SERVICE, mySlot);
     return;
 }
 
@@ -60,7 +99,6 @@ void API_SetMigrationVar(unsigned int slot, unsigned int value){
     *migrationVar = value;
     return;
 }
-
 
 unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int app_id, unsigned int migration_addr){
     unsigned int tslot = API_GetFreeTaskSlot();
@@ -97,7 +135,10 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
     TaskList[tslot].taskAddr = TaskList[tslot].fullAddr + (PKT_HEADER_SIZE*4);
     printsv("Task addr: ", TaskList[tslot].taskAddr );
     TaskList[tslot].mainAddr =  TaskList[tslot].taskAddr + (4 * start_point);
-    TaskList[tslot].migrationPointer = TaskList[tslot].taskAddr + ( 4 * migration_addr);
+    if ( migration_addr != 0 )
+        TaskList[tslot].migrationPointer = TaskList[tslot].taskAddr + ( 4 * migration_addr);
+    else
+        TaskList[tslot].migrationPointer = 0;
 
     // filling the MemoryRegion_t struct
     //TaskList[tslot].memRegion.ulLengthInBytes = 0;// TaskList[tslot].taskSize;
@@ -114,7 +155,7 @@ unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, uns
 unsigned int API_GetTaskSlot(unsigned int task_id, unsigned int app_id){
     unsigned int i;
     printsvsv("looking for task_id ", task_id, " from app_id ", app_id);
-    for( i = 0; i < NUM_MAX_APP_TASKS; i++){
+    for( i = 0; i < NUM_MAX_TASKS; i++){
         if( task_id == TaskList[i].TaskID && app_id == TaskList[i].AppID ){
             printsv("current status: ", TaskList[i].status);
             if( TaskList[i].status != TASK_SLOT_EMPTY ){
@@ -180,6 +221,7 @@ void API_MigrationReady(){
 
 void API_FinishRunningTask(){
     int i;
+    TaskHandle_t del_handler;
     //BaseType_t xHigherPriorityTaskWoken;
     unsigned int slot = API_GetCurrentTaskSlot();
     if (slot == ERRO) prints("ERRO VIOLENTO AQUI!\n");
@@ -189,7 +231,6 @@ void API_FinishRunningTask(){
     while(API_checkPipe(slot) == 1){
         vTaskDelay(1);
     }
-    //vTaskEnterCritical();
     printsvsv("Task ", TaskList[slot].TaskID, " is being deleted! From application ", TaskList[slot].AppID);
     TaskList[slot].status = TASK_SLOT_FINISH; //TASK_SLOT_EMPTY;
     //xHigherPriorityTaskWoken = pdFALSE;
@@ -210,14 +251,16 @@ void API_FinishRunningTask(){
         }
     }
     if(i != 0xffffffff){ API_setFreqIdle(); }
-    API_SendFinishTask(TaskList[slot].TaskID, TaskList[slot].AppID);
+    vTaskEnterCritical();
     vPortFree(TaskList[slot].fullAddr);
     prints("free done \n");
-    TaskList[slot].status = TASK_SLOT_EMPTY;
-    vTaskExitCritical();
+    TaskList[slot].status = TASK_SLOT_TO_FREE;
+    del_handler = TaskList[slot].TaskHandler;
+    TaskList[slot].TaskHandler = 0xFFFFFFFF;
     prints("deleting... \n");
-    vTaskDelete(TaskList[slot].TaskHandler);
-    prints("deleted! \n");
+    vTaskExitCritical();
+    vTaskDelete(del_handler);
+    prints("deleted! \n"); // this should not be printed
     return;
 }
 
@@ -266,7 +309,7 @@ void API_ForwardTask(unsigned int app_id, unsigned int task_id, unsigned int des
 }
 
 void API_SendPIPE(unsigned int app_id, unsigned int task_id, unsigned int task_dest_addr){
-    unsigned int i, done, newer ,slot, taskslot = API_GetTaskSlot(task_id, app_id);
+    unsigned int i, done, newer, slot, taskslot = API_GetTaskSlot(task_id, app_id);
     do{
         newer = 0xEFFFFFFF;
         done = 1;
@@ -365,17 +408,22 @@ void API_MigrationFinished(unsigned int app_id, unsigned int task_id){
 }
 
 void API_UpdatePipe(unsigned int task_id, unsigned int app_id){
-    unsigned int msg_destination_taskID, i, tslot = API_GetTaskSlot(task_id, app_id);
-    for(i = 0; i < PIPE_SIZE; i++){
-        // Update the messages that are inside the PIPE
-        msg_destination_taskID = TaskList[tslot].MessagePipe[i].header.destination_task;
-        TaskList[tslot].MessagePipe[i].header.header = TaskList[tslot].TasksMap[msg_destination_taskID];
+    unsigned int msg_destination_taskID, i, tslot;
+    tslot = API_GetTaskSlot(task_id, app_id);
+    if(tslot != ERRO){
+        for(i = 0; i < PIPE_SIZE; i++){
+            // Update messages that are inside the PIPE
+            msg_destination_taskID = TaskList[tslot].MessagePipe[i].header.destination_task;
+            TaskList[tslot].MessagePipe[i].header.header = TaskList[tslot].TasksMap[msg_destination_taskID];
 
-        // Update every MESSAGE REQUEST that is inside the PIPE
-        if(ServicePipe[i].header.app_id == app_id && ServicePipe[i].header.service == MESSAGE_REQUEST){
-            msg_destination_taskID = ServicePipe[i].header.producer_task;
-            ServicePipe[i].header.header = TaskList[tslot].TasksMap[msg_destination_taskID];
+            // Update every MESSAGE REQUEST that is inside the PIPE
+            if(ServicePipe[i].header.app_id == app_id && ServicePipe[i].header.service == MESSAGE_REQUEST){
+                msg_destination_taskID = ServicePipe[i].header.producer_task;
+                ServicePipe[i].header.header = TaskList[tslot].TasksMap[msg_destination_taskID];
+            }
         }
+    } else{
+        prints("WARNING - API_UpdatePipe didn't found the required app/task\n");
     }
     return;
 }

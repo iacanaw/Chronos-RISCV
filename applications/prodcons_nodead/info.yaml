@@ -1,0 +1,9 @@
+info:
+ - name: prodcons_nodead
+   deadline: 10
+   migration:
+    cons: true
+    prod: true
+   type:
+    cons: 1
+    prod: 1

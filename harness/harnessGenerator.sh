@@ -27,6 +27,11 @@ echo "// Address to save the instruction counters" >> harness.c
 echo "#define LOAD_ADDR       0x8FFFFFF4u" >> harness.c
 echo "#define STORE_ADDR      0x8FFFFFF0u" >> harness.c
 echo "#define OTHERS_ADDR     0x8FFFFFECu" >> harness.c
+echo "#define BRANCH_ADDR     0x8FFFFFE8u" >> harness.c
+echo "#define REG_ADDR        0x8FFFFFE4u" >> harness.c
+echo "#define IMM_ADDR        0x8FFFFFE0u" >> harness.c
+echo "#define JUMP_ADDR       0x8FFFFFDCu" >> harness.c
+echo "#define PC_ADDR         0x8FFFFFD8u" >> harness.c
 echo "" >> harness.c
 N=$(($N-1))
 for i in $(seq 0 $N);
@@ -34,6 +39,11 @@ do
     echo "unsigned int load"$i" = 0;" >> harness.c
     echo "unsigned int store"$i" = 0;" >> harness.c
     echo "unsigned int others"$i" = 0;" >> harness.c
+    echo "unsigned int branch"$i" = 0;" >> harness.c
+    echo "unsigned int reg"$i" = 0;" >> harness.c
+    echo "unsigned int imm"$i" = 0;" >> harness.c
+    echo "unsigned int jump"$i" = 0;" >> harness.c
+    echo "unsigned int pc"$i" = 0;" >> harness.c
     echo "unsigned int fetch"$i" = 0;" >> harness.c
 done
 echo "" >> harness.c
@@ -111,21 +121,35 @@ do
     echo "    opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
     echo "    unsigned int instruction32 = vec2usi(aux_8bits);" >> harness.c
     echo "    fetch"$i"++;" >> harness.c
-    echo "" >> harness.c
-    echo "    //opMessage(\"I\", \"FETCH\", \"PE%d- %s @ %x\", "$i", opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);" >> harness.c
+    echo "    unsigned int masked = instruction32 & 0x0000007F;" >> harness.c
     echo "    " >> harness.c
     echo "    // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60" >> harness.c
-    echo "    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) " >> harness.c
+    echo "    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) " >> harness.c
     echo "        load"$i"++;" >> harness.c
     echo "    }" >> harness.c
-    echo "    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)" >> harness.c
+    echo "    else if (masked == 0x00000013){" >> harness.c
+    echo "        imm"$i"++;" >> harness.c
+    echo "    }" >> harness.c
+    echo "    else if (masked == 0x00000033){" >> harness.c
+    echo "        reg"$i"++;" >> harness.c
+    echo "    }" >> harness.c
+    echo "    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)" >> harness.c
     echo "        store"$i"++;" >> harness.c
     echo "    }" >> harness.c
+    echo "    else if (masked == 0x00000063){" >> harness.c
+    echo "        branch"$i"++;" >> harness.c
+    echo "    }" >> harness.c
+    echo "    else if ( (masked == 0x00000067) || (masked == 0x0000006F) ){" >> harness.c
+    echo "        jump"$i"++;" >> harness.c
+    echo "    }" >> harness.c
+    echo "    else if ( (masked == 0x00000017) || (masked == 0x00000037) ){" >> harness.c
+    echo "        pc"$i"++;" >> harness.c
+    echo "    }    " >> harness.c
     echo "    else{" >> harness.c
     echo "        others"$i"++;" >> harness.c
     echo "    }" >> harness.c
     echo "" >> harness.c
-    echo "    if(fetch"$i" > 100){" >> harness.c
+    echo "    if(fetch"$i" > 900){" >> harness.c
     echo "        fetch"$i" = 0;" >> harness.c
     echo "" >> harness.c
     echo "        opProcessorRead(processor, LOAD_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
@@ -154,6 +178,51 @@ do
     echo "        aux_8bits[0] =  others"$i" & 0x000000FF;" >> harness.c
     echo "        opProcessorWrite(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
     echo "        others"$i" = 0;" >> harness.c
+    echo "" >> harness.c
+    echo "        opProcessorRead(processor, REG_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
+    echo "        reg"$i" = reg"$i" + vec2usi(aux_8bits);" >> harness.c
+    echo "        aux_8bits[3] = (reg"$i" >> 24) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[2] = (reg"$i" >> 16) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[1] = (reg"$i" >> 8) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[0] =  reg"$i" & 0x000000FF;" >> harness.c
+    echo "        opProcessorWrite(processor, REG_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
+    echo "        reg"$i" = 0;" >> harness.c
+    echo "" >> harness.c
+    echo "        opProcessorRead(processor, IMM_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
+    echo "        imm"$i" = imm"$i" + vec2usi(aux_8bits);" >> harness.c
+    echo "        aux_8bits[3] = (imm"$i" >> 24) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[2] = (imm"$i" >> 16) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[1] = (imm"$i" >> 8) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[0] =  imm"$i" & 0x000000FF;" >> harness.c
+    echo "        opProcessorWrite(processor, IMM_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
+    echo "        imm"$i" = 0;" >> harness.c
+    echo "" >> harness.c
+    echo "        opProcessorRead(processor, BRANCH_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
+    echo "        branch"$i" = branch"$i" + vec2usi(aux_8bits);" >> harness.c
+    echo "        aux_8bits[3] = (branch"$i" >> 24) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[2] = (branch"$i" >> 16) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[1] = (branch"$i" >> 8) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[0] =  branch"$i" & 0x000000FF;" >> harness.c
+    echo "        opProcessorWrite(processor, BRANCH_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
+    echo "        branch"$i" = 0;" >> harness.c
+    echo "" >> harness.c
+    echo "        opProcessorRead(processor, JUMP_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
+    echo "        jump"$i" = jump"$i" + vec2usi(aux_8bits);" >> harness.c
+    echo "        aux_8bits[3] = (jump"$i" >> 24) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[2] = (jump"$i" >> 16) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[1] = (jump"$i" >> 8) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[0] =  jump"$i" & 0x000000FF;" >> harness.c
+    echo "        opProcessorWrite(processor, JUMP_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
+    echo "        jump"$i" = 0;" >> harness.c
+    echo "" >> harness.c
+    echo "        opProcessorRead(processor, PC_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
+    echo "        pc"$i" = pc"$i" + vec2usi(aux_8bits);" >> harness.c
+    echo "        aux_8bits[3] = (pc"$i" >> 24) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[2] = (pc"$i" >> 16) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[1] = (pc"$i" >> 8) & 0x000000FF;" >> harness.c
+    echo "        aux_8bits[0] =  pc"$i" & 0x000000FF;" >> harness.c
+    echo "        opProcessorWrite(processor, PC_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);" >> harness.c
+    echo "        pc"$i" = 0;" >> harness.c
     echo "    }" >> harness.c
     echo "" >> harness.c
     echo "    return;" >> harness.c
@@ -168,6 +237,7 @@ echo "}" >> harness.c
 echo "" >> harness.c
 for i in $(seq 0 $N);
 do
+    #if [ $i -gt 40 ]; then
     echo "static OP_MONITOR_FN(FreqCallback"$i"){" >> harness.c
     echo "" >> harness.c
     echo "    // reads the frequency scale, provided by the system" >> harness.c
@@ -185,6 +255,7 @@ do
     echo "    return;" >> harness.c
     echo "}" >> harness.c
     echo "" >> harness.c
+    #fi
 done
 echo "int main(int argc, const char *argv[]) {" >> harness.c
 echo "    int             runningPE       = 0;" >> harness.c
@@ -223,9 +294,10 @@ echo "        switch(runningPE){" >> harness.c
 for i in $(seq 0 $N);
 do
     echo "            case "$i":" >> harness.c
-    echo "                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback"$i", \"frequency"$i"\");" >> harness.c
-    echo "                opMessage(\"I\", \"HARNESS INFO\", \"\t > MONITOR DE FREQUENCIA "$i" ADICIONADO!\");" >> harness.c
-
+    #if [ $i -gt 40 ]; then
+        echo "                opProcessorWriteMonitorAdd(proc, 0x8FFFFFF8, 0x8FFFFFFB, FreqCallback"$i", \"frequency"$i"\");" >> harness.c
+        echo "                opMessage(\"I\", \"HARNESS INFO\", \"\t > MONITOR DE FREQUENCIA "$i" ADICIONADO!\");" >> harness.c
+    #fi
     echo "                opProcessorFetchMonitorAdd(proc, 0x80000000, 0x8fffffff, FetchCallback"$i", \"fetch"$i"\");" >> harness.c
     echo "                opMessage(\"I\", \"HARNESS INFO\", \"	 > MONITOR DE FETCH "$i" ADICIONADO!\");" >> harness.c
     echo "                break;" >> harness.c

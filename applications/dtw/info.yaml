@@ -1,6 +1,6 @@
 info:
  - name: dtw
-   deadline: 0.15
+   deadline: 1100
    migration:
     bank: true
     p1: true
@@ -9,9 +9,9 @@ info:
     p4: true
     recognizer: true
    type:
-    bank: 2
-    p1: 2
-    p2: 2
-    p3: 2
-    p4: 2
+    bank: 1
+    p1: 1
+    p2: 1
+    p3: 1
+    p4: 1
     recognizer: 1

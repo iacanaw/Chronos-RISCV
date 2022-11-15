@@ -1,13 +1,13 @@
 apps:
  - name: prodconsx10
-   period: 440
-   executions: 5
+   period: 0
+   executions: 14
    tasks:
     prod: 0
     cons: 1
  - name: dijkstrax10
-   period: 410
-   executions: 7
+   period: 1500
+   executions: 14
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
@@ -17,8 +17,8 @@ apps:
     print_dij: 5
     divider: 6
  - name: dtwx10
-   period: 100
-   executions: 5
+   period: 0
+   executions: 14
    tasks:
     bank: 0
     p1: 1
@@ -27,8 +27,8 @@ apps:
     p4: 4
     recognizer: 5
  - name: dijkstrax10
-   period: 180
-   executions: 7
+   period: 3800
+   executions: 14
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
@@ -38,13 +38,13 @@ apps:
     print_dij: 5
     divider: 6
  - name: prodconsx10
-   period: 500
-   executions: 5
+   period: 8500
+   executions: 7
    tasks:
     prod: 0
     cons: 1
  - name: dijkstrax10
-   period: 190
+   period: 8500
    executions: 7
    tasks:
     dijkstra_0: 0
@@ -55,7 +55,7 @@ apps:
     print_dij: 5
     divider: 6
  - name: dtwx10
-   period: 160
+   period: 16000
    executions: 5
    tasks:
     bank: 0
@@ -65,8 +65,8 @@ apps:
     p4: 4
     recognizer: 5
  - name: dijkstrax10
-   period: 110
-   executions: 7
+   period: 16000
+   executions: 5
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1

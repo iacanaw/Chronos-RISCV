@@ -27,7 +27,7 @@ volatile static Message theMessage;
 
 int main(){
 	static unsigned int key_schedule[60];
-	static int qtd_messages, op_mode, x, flag = 1, id, i;
+	static int qtd_messages, op_mode, x, flag = 1, id, i, a;
 	static unsigned int enc_buf[128];
 	static unsigned int input_text[16]; 
 	static unsigned int key[1][32] = { {0x60,0x3d,0xeb,0x10,0x15,0xca,0x71,0xbe,0x2b,0x73,0xae,0xf0,0x85,0x7d,0x77,0x81,0x1f,0x35,0x2c,0x07,0x3b,0x61,0x08,0xd7,0x2d,0x98,0x10,0xa3,0x09,0x14,0xdf,0xf4} };
@@ -44,7 +44,11 @@ int main(){
 		checkMigration();
 
 		sys_Receive(&theMessage, aes_master);
-		aes_memcpy(input_text, theMessage.msg, 16);
+		//aes_memcpy(input_text, theMessage.msg, 16);
+		for(a = 0; a < theMessage.length; a++){
+			input_text[a] = theMessage.msg[a];
+		}
+		
 			
 #ifdef debug_comunication_on
         sys_Prints(&config_print);
@@ -53,7 +57,7 @@ int main(){
         }
         sys_Prints( &barra_ene ); 
 #endif 
-				
+	
 		op_mode = input_text[0];
 		qtd_messages = input_text[1];
 		x = input_text[2];	
@@ -63,7 +67,7 @@ int main(){
             sys_Prints( &myID_print );
             sys_Printi(id);
 		}	
-		sys_Prints(&operation_print); 
+		sys_Prints( &operation_print ); 
 		sys_Printi(op_mode);
         sys_Prints( &barra_ene ); 
 		sys_Prints(&blocks_print); 		
@@ -75,8 +79,11 @@ int main(){
 			qtd_messages = 0;
 		}
 		for(x = 0; x < qtd_messages; x++){
-			sys_Receive(&theMessage, aes_master);		
-			aes_memcpy(input_text, theMessage.msg, 4*AES_BLOCK_SIZE);
+			sys_Receive(&theMessage, aes_master);
+			//aes_memcpy(input_text, theMessage.msg, 4*AES_BLOCK_SIZE);
+			for(a = 0; a < theMessage.length; a++){
+				input_text[a] = theMessage.msg[a];
+			}
 			
 #ifdef debug_comunication_on
             sys_Prints(&receiv_print);
@@ -95,10 +102,14 @@ int main(){
 				aes_decrypt(input_text, enc_buf, key_schedule, KEY_SIZE);
 			}			
 			theMessage.length = 4*AES_BLOCK_SIZE;
-			aes_memcpy( theMessage.msg, enc_buf, 4*AES_BLOCK_SIZE);
+			//aes_memcpy( theMessage.msg, enc_buf, 4*AES_BLOCK_SIZE);
+			for(a = 0; a < theMessage.length; a++){
+				theMessage.msg[a] = enc_buf[a];
+			}
 			sys_Send(&theMessage, aes_master);	
 		}
 	}
     sys_Prints(&finish_print);
 	sys_Finish();
 }
+

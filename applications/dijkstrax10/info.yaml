@@ -1,6 +1,6 @@
 info:
  - name: dijkstrax10
-   deadline: 0.75
+   deadline: 8000
    migration:
     dijkstra_0: true
     dijkstra_1: true
@@ -10,10 +10,10 @@ info:
     print_dij: true
     divider: true
    type:
-    dijkstra_0: 1
-    dijkstra_1: 1
-    dijkstra_2: 1
-    dijkstra_3: 1
-    dijkstra_4: 1
+    dijkstra_0: 0
+    dijkstra_1: 0
+    dijkstra_2: 0
+    dijkstra_3: 0
+    dijkstra_4: 0
     print_dij: 0
-    divider: 2
+    divider: 1

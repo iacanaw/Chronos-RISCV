@@ -1,7 +1,7 @@
 apps:
- - name: dijkstra
+ - name: dijkstra_nodead
    period: 0
-   executions: 1000
+   executions: 10
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1

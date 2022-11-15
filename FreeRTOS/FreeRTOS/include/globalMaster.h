@@ -31,6 +31,9 @@
 // Finish 
 volatile unsigned int API_SystemFinish;
 
+// Migration
+volatile unsigned int Migration_Status;
+
 // Stores the ADDRESS of each tile ordered by the current priotity policy
 unsigned int priorityMatrix[DIM_X*DIM_Y];
 unsigned int priorityPointer;
@@ -46,7 +49,7 @@ typedef struct{
     unsigned int frequency;     // in MegaHertz
     volatile unsigned int fit;  // Failures in time * 100
     int temperatureVariation;   // In Kelvin
-    unsigned int taskSlots;
+    int taskSlots;
     int taskType;                //
     volatile unsigned int clusterCount;  // stores the amount of clusters that this PE is participating
 } Tile;
@@ -59,6 +62,7 @@ typedef struct{
     unsigned int status; 
     unsigned int addr;
     unsigned int slot;
+    unsigned int migration;
 } TaskInfo;
 
 // Application Struct
@@ -66,12 +70,14 @@ typedef struct{
     unsigned int occupied;
     unsigned int appID;
     unsigned int appPeriod;
+    unsigned int arrived;
     unsigned int appExec;
     unsigned int numTasks;
     unsigned int cluster_addr;
     unsigned int cluster_size;
     TaskInfo     tasks[NUM_MAX_APP_TASKS];
     unsigned int nextRun;
+    unsigned int deadline;
     unsigned int executed;
     unsigned int lastStart;
     unsigned int finishedTasks;
@@ -102,7 +108,7 @@ unsigned int API_getMaxIdxfromRow(float *policyTable, unsigned int row, unsigned
 // Informs the Repository that the GLOBALMASTER is ready to receive the application info
 void API_RepositoryWakeUp();
 // Add one Application in the Execution Queue
-unsigned int API_AddApplication(unsigned int appID, unsigned int appPeriod, unsigned int appExec, unsigned int appNTasks);
+unsigned int API_AddApplication(unsigned int appID, unsigned int appPeriod, unsigned int appExec, unsigned int appNTasks, unsigned int appDeadline);
 // Reset applications vector
 void API_ApplicationsReset();
 // Gets an application slot that is occipied by a specific application
@@ -114,9 +120,9 @@ void API_TilesReset();
 // Generates the Pattern Matrix for Pattern mapping
 void GeneratePatternMatrix();
 // Checks if there is some task to allocate...
-void API_AllocateTasks(unsigned int tick);
+void API_AllocateTasks(unsigned int tick, unsigned int start);
 // Gets the address of the next tile in the priority list 
-unsigned int getNextPriorityAddr();
+unsigned int getNextPriorityAddr(unsigned int start);
 // Iterates around the system tiles to sum the amount of tasks slots available
 unsigned int API_GetSystemTasksSlots();
 // Gets a free slot from one given tile
@@ -155,5 +161,13 @@ unsigned int API_GetClusterOccupation(unsigned int base_addr, unsigned int clust
 unsigned int API_minClusterSize(unsigned int size);
 
 void API_PrintOccupation(int tick);
+
+void API_Migration_Refused(unsigned int task_id, unsigned int app_id, unsigned int why, unsigned int addr);
+
+unsigned int API_SelectTaskFromPE_Migration(int pe_id);
+
+unsigned int API_SelectTask_Migration_Temperature(int threshold);
+
+unsigned int API_isApplicationReady(unsigned int app);
 
 #endif

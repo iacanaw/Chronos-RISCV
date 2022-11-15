@@ -21,11 +21,11 @@
  * value of approximately 4000. At qualification, we divide the total FITS
  * equally across all failure mechanisms (giving 800 each), and this is further
  * divided among the individual structures in proportion to their area.*/
-#define TOTAL_EM_FITS 400.0
-#define TOTAL_SM_FITS 400.0
-#define TOTAL_TDDB_FITS 400.0
-#define TOTAL_TC_FITS 400.0
-#define TOTAL_NBTI_FITS 400.0	
+#define TOTAL_EM_FITS 800.0//*TOTAL_STRUCTURES
+#define TOTAL_SM_FITS 800.0//*TOTAL_STRUCTURES
+#define TOTAL_TDDB_FITS 800.0//*TOTAL_STRUCTURES
+#define TOTAL_TC_FITS 800.0//*TOTAL_STRUCTURES
+#define TOTAL_NBTI_FITS 800.0//*TOTAL_STRUCTURES
 
 #define EM_Ea_div_k  (0.9/(8.62e-5)) 	/* EM activation energy [1]*/
 
@@ -37,9 +37,8 @@
 
 #define NBTI_beta   0.3		/* Beta in NBTI equation [2]*/
 
-#define T_base  345.00	/* Qualification temperature. At this value, the total processor FIT value will be 4000. By changing this temperature, we can model processors with different reliability qualification costs (Higher implies more expensive).*/ 
-
-#define ambient 318.15
+#define T_base  (273.15 + 75.00)	/* Qualification temperature. At this value, the total processor FIT value will be 4000. By changing this temperature, we can model processors with different reliability qualification costs (Higher implies more expensive).*/ 
+#define ambient (273.15 + 40.00)
 
 #define TOTAL_STRUCTURES DIM_X*DIM_Y
 

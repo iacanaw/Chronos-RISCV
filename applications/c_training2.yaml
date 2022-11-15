@@ -49,6 +49,23 @@ apps:
     dijkstra_4: 4
     print_dij: 5
     divider: 6
+ - name: dijkstra
+   period: 31
+   executions: 300
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: prodcons
+   period: 40
+   executions: 170
+   tasks:
+    prod: 0
+    cons: 1
  - name: prodcons
    period: 40
    executions: 170
@@ -89,8 +106,8 @@ apps:
     print_dij: 5
     divider: 6
  - name: dijkstra
-   period: 35
-   executions: 300
+   period: 100
+   executions: 275
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1

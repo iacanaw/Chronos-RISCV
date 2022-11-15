@@ -111,7 +111,7 @@ void API_ClearPipeSlot(unsigned int typeSlot){
     } else if ( type == MIGRATION ){
         asm("nop");
     } else { // type == MESSAGE
-        //printsv("cleaning message pipe slot: ", slot);
+        printsv("cleaning message pipe slot: ", slot);
         TaskList[taskID].MessagePipe[slot].status = PIPE_FREE;
         //TaskList[taskID].MessagePipe[slot].holder = PIPE_FREE;
     }

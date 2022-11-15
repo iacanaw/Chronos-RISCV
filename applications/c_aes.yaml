@@ -1,7 +1,7 @@
 apps:
  - name: aes
-   period: 7
-   executions: 100
+   period: 0
+   executions: 10
    tasks:
     aes_master: 0
     aes_slave1: 1

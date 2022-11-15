@@ -8,7 +8,7 @@
 #define PACKET_MAX_SIZE     MSG_SIZE + PKT_HEADER_SIZE
 ////////////////////////////////////////////////////////////
 // PIPE
-#define PIPE_SIZE           4 			// Defines the PIPE size
+#define PIPE_SIZE           12 			// Defines the PIPE size
 #define PIPE_OCCUPIED       1			
 #define PIPE_FREE           -1			
 #define PIPE_TRANSMITTING   -2			
@@ -59,15 +59,18 @@ typedef struct {
 		unsigned int flit6;
 		unsigned int application_n_tasks;	// ** Informs the GlobalMaster the number of tasks that a given application have
 		unsigned int task_start_point;		// ** Informs the main() start point for that task
+		unsigned int why;					// ** Informs why the migration was not accepted by the PE
 	};
 	union{
 		unsigned int flit7;
-		unsigned int app_id;			// ** Informs to witch application that task is from
+		unsigned int app_id;				// ** Informs to witch application that task is from
+		unsigned int deadline;				// ** Informs the application deadline
 	};
 	union{
 		unsigned int flit8;
 		unsigned int task_arg;				// ** Informs an argument to the task that is starting
-		unsigned int task_migration_addr	// ** Informs were in the task is located the variable that controls the migration process
+		unsigned int task_migration_addr;	// ** Informs were in the task is located the variable that controls the migration process
+		
 	};
 	union{
 		unsigned int flit9;

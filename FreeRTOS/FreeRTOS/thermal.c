@@ -3,9 +3,14 @@
 
 void printExecutedInstructions(){
     prints("--------------------------\n");
-    printsv("Loads:\t\t",       HW_get_32bit_reg(LOADS_COUNT));
-    printsv("Stores:\t\t",      HW_get_32bit_reg(STORES_COUNT));
-    printsv("Others:\t\t",      HW_get_32bit_reg(OTHERS_COUNT));
+    printsv("Loads:\t\t",           HW_get_32bit_reg(LOADS_COUNT));
+    printsv("Stores:\t\t",          HW_get_32bit_reg(STORES_COUNT));
+    printsv("Branch:\t\t",          HW_get_32bit_reg(BRANCH_COUNT));
+    printsv("Register:\t\t",        HW_get_32bit_reg(REG_COUNT));
+    printsv("Immediate:\t\t",       HW_get_32bit_reg(IMM_COUNT));
+    printsv("Jump:\t\t",            HW_get_32bit_reg(JUMP_COUNT));
+    printsv("ProgramCounter:\t\t",  HW_get_32bit_reg(PC_COUNT));
+    printsv("Others:\t\t",          HW_get_32bit_reg(OTHERS_COUNT));
     prints("--------------------------\n");
 }
 
@@ -13,6 +18,11 @@ void resetExecutedInstructions(){
     HW_set_32bit_reg(LOADS_COUNT, 0);
     HW_set_32bit_reg(STORES_COUNT, 0);
     HW_set_32bit_reg(OTHERS_COUNT, 0);
+    HW_set_32bit_reg(BRANCH_COUNT, 0);
+    HW_set_32bit_reg(REG_COUNT, 0);
+    HW_set_32bit_reg(IMM_COUNT, 0);
+    HW_set_32bit_reg(JUMP_COUNT, 0);
+    HW_set_32bit_reg(PC_COUNT, 0);
     return;
 }
 
@@ -74,7 +84,7 @@ unsigned int estimateNoCActivity() {
 void powerEstimation(){
     //unsigned int actualTime, deltaTime;
     unsigned int Voltage = 2;
-    unsigned int loads, stores, others, total;
+    unsigned int loads, stores, branch, reg, imm, jump, pc, others, total;
     unsigned int dynamicEnergy_PE, dynamicEnergy_MEM, dynamicEnergy_Router;
     unsigned int leakEnergy_PE;
     unsigned int totalEnergy, nPorts, nocActivity, energyActive, energyIdle, nocIdle, idleNoCEnergy, activeNoCEnergy;
@@ -83,12 +93,12 @@ void powerEstimation(){
         thermalPacket_pending = TRUE;
 
         // gets the number of ports
-        nPorts = getNumberOfPorts(ProcessorAddr);
+        nPorts = getNumberOfPorts(API_getProcessorAddr());
          
         // estimate the noc activity
         nocActivity = estimateNoCActivity();
-        if(nocActivity < 100000)
-            nocIdle = 100000 - nocActivity;
+        if(nocActivity < 1000000)
+            nocIdle = 1000000 - nocActivity;
         else
             nocIdle = 0;
 
@@ -105,19 +115,31 @@ void powerEstimation(){
         printsv("dynamicEnergy_Router >> 6: ", dynamicEnergy_Router);
 
         // reads the number of each type of instruction executed in the last window
-        loads = HW_get_32bit_reg(LOADS_COUNT);
-        stores = HW_get_32bit_reg(STORES_COUNT);
-        others = HW_get_32bit_reg(OTHERS_COUNT);
+        loads =     HW_get_32bit_reg(LOADS_COUNT);
+        stores =    HW_get_32bit_reg(STORES_COUNT);
+        others =    HW_get_32bit_reg(OTHERS_COUNT);
+        branch =    HW_get_32bit_reg(BRANCH_COUNT);
+        reg =       HW_get_32bit_reg(REG_COUNT);
+        imm =       HW_get_32bit_reg(IMM_COUNT);
+        jump =      HW_get_32bit_reg(JUMP_COUNT);
+        pc =        HW_get_32bit_reg(PC_COUNT);
         resetExecutedInstructions();
 
         // number of instructions executed in the last window
-        total = loads + stores + others;
+        total = loads + stores + branch + reg + imm + jump + pc + others;
         vTaskEnterCritical();
         printsvsv("inst~~~> ", total, "tick ", xTaskGetTickCount());
         vTaskExitCritical();
         
         // calculates the PE dynamic energy
-        dynamicEnergy_PE = ((arithDyn[Voltage] * others)) + ((loadStoreDyn[Voltage] * (loads + stores)));
+        dynamicEnergy_PE = (arithDyn[Voltage] * others) + \
+                           (branchDyn[Voltage] * branch) + \
+                           (regDyn[Voltage] * reg) + \
+                           (immDyn[Voltage] * imm) + \
+                           (loadDyn[Voltage] * loads) + \
+                           (storeDyn[Voltage] * stores) + \
+                           (jumpDyn[Voltage] * jump) + \
+                           (pcDyn[Voltage] * pc);
         //printsv("dynamicEnergy_PE: ", dynamicEnergy_PE);
         dynamicEnergy_PE = dynamicEnergy_PE >> 6;
         printsv("dynamicEnergy_PE >> 6: ", dynamicEnergy_PE);
@@ -141,7 +163,7 @@ void powerEstimation(){
         ThermalPacket.header.header           = makeAddress(0, 0) | PERIPH_WEST;
         ThermalPacket.header.payload_size     = PKT_SERVICE_SIZE;
         ThermalPacket.header.service          = ENERGY_PACKET;
-        ThermalPacket.header.source_addr      = ProcessorAddr;
+        ThermalPacket.header.source_addr      = API_getProcessorAddr();
         ThermalPacket.header.spent_energy     = totalEnergy;
         API_PushSendQueue(THERMAL, 0);
         prints("EnergyPckt sent\n");

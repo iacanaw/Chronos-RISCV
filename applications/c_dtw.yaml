@@ -1,7 +1,7 @@
 apps:
- - name: dtw
+ - name: dtw_nodead
    period: 0
-   executions: 1
+   executions: 10
    tasks:
     bank: 0
     p1: 1

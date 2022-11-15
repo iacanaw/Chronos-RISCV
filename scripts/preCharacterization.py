@@ -4,12 +4,11 @@ import pandas as pd
 import sys 
 
 numTasks = int(sys.argv[1])
-appName = sys.argv[2]
 
 plt.close("all")
 plt.style.use('_mpl-gallery')
 
-tsv_data = pd.read_csv("SystemPower.tsv", sep='\t')
+tsv_data = pd.read_csv("../simulation/SystemPower.tsv", sep='\t')
 raw_data = tsv_data.to_numpy()
 
 n_pes = len(raw_data[0])-1
@@ -32,7 +31,7 @@ for i in range(len(raw_data)):
 
 for j in range(numTasks):
     avg_power[j] = avg_power[j] / n_samples
-    print(str(j)+" "+str(avg_power[j]))
+    print(str(j)+" "+str(avg_power[j]).replace(".", ","))
 
 fig, ax = plt.subplots()
 

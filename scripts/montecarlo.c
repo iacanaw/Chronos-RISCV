@@ -93,7 +93,7 @@ int main(int argc,char *argv[])
 
 	for (structure_count=0;structure_count<TOTAL_STRUCTURES;structure_count++){
 		for (fail_count=0;fail_count<5;fail_count++){
-			expected_mttf[fail_count][structure_count]=(30.0*2000.22)/fits[fail_count][structure_count];
+			expected_mttf[fail_count][structure_count]=(30.0*3805.17503)/fits[fail_count][structure_count];
 		}
 	}
 

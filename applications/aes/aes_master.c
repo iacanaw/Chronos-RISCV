@@ -42,6 +42,7 @@ int main(){
 	static int pad_value, aux_msg[3];
 	static int aux1_blocks_PE;
 	static int aux2_blocks_PE;	
+	int a;
 
 	if ( !isMigration() ){
 		asm("nop");
@@ -89,13 +90,17 @@ int main(){
 	// Send number of block and operation mode and ID
 	// to each Slave_PE
 	for(x=0; x < MAX_SLAVES; x++){
-		theMessage.length = sizeof(aux_msg)/4;
+		theMessage.length = 3;
 		aux_msg[0] = CIPHER_MODE;
 		aux_msg[1] = qtd_messages[x];
 		aux_msg[2] = x+1;
 		if(x >= NUMBER_OF_SLAVES) // zero messages to Slave not used
 			aux_msg[0] = END_TASK;
-		aes_memcpy(theMessage.msg, aux_msg, sizeof(aux_msg));
+		
+		//aes_memcpy(theMessage.msg, aux_msg, sizeof(aux_msg));
+		for( a = 0; a < theMessage.length; a++){
+			theMessage.msg[a] = aux_msg[a];
+		}
 		sys_Send(&theMessage, Slave[x]);  
 	}
 
@@ -106,7 +111,10 @@ int main(){
 		for(y = 0; y < NUMBER_OF_SLAVES; y++){
 			if(qtd_messages[(x+y) % NUMBER_OF_SLAVES] != 0){
 				theMessage.length = 4*AES_BLOCK_SIZE;
-				aes_memcpy(theMessage.msg, &plain_msg[(x+y)*AES_BLOCK_SIZE], 4*AES_BLOCK_SIZE);
+				//aes_memcpy(theMessage.msg, &plain_msg[(x+y)*AES_BLOCK_SIZE], 4*AES_BLOCK_SIZE);
+				for(a = 0; a < theMessage.length; a++){
+					theMessage.msg[a] = plain_msg[((x+y)*AES_BLOCK_SIZE)+a];
+				}
 				sys_Send(&theMessage, Slave[(x+y) % NUMBER_OF_SLAVES]);
 			}
 		}
@@ -147,10 +155,13 @@ int main(){
 	// Send number of block and operation mode
 	// to each Slave_PE
 	for(x=0; x < NUMBER_OF_SLAVES; x++){
-		theMessage.length = sizeof(aux_msg);
+		theMessage.length = 3;
 		aux_msg[0] = DECIPHER_MODE;
 		aux_msg[1] = qtd_messages[x];
-		aes_memcpy(theMessage.msg, aux_msg, sizeof(aux_msg));
+		//aes_memcpy(theMessage.msg, aux_msg, sizeof(aux_msg));
+		for(a = 0; a < theMessage.length; a++){
+			theMessage.msg[a] = aux_msg[a];
+		}
 		sys_Send(&theMessage, Slave[x]);  
 	}
 
@@ -161,7 +172,10 @@ int main(){
 		for(y = 0; y < NUMBER_OF_SLAVES; y++){
 			if(qtd_messages[(x+y) % NUMBER_OF_SLAVES] != 0){
 				theMessage.length = 4*AES_BLOCK_SIZE;
-				aes_memcpy(theMessage.msg, &cipher_msg[(x+y)*AES_BLOCK_SIZE], 4*AES_BLOCK_SIZE);
+				//aes_memcpy(theMessage.msg, &cipher_msg[(x+y)*AES_BLOCK_SIZE], 4*AES_BLOCK_SIZE);
+				for(a = 0; a < theMessage.length; a++){
+					theMessage.msg[a] = cipher_msg[((x+y)*AES_BLOCK_SIZE)+a];
+				}
 				sys_Send(&theMessage, Slave[(x+y) % NUMBER_OF_SLAVES]);   
 			} 
 		}
@@ -190,10 +204,13 @@ int main(){
 	//  End tasks still running
 	//  End Applicattion
 	for(x=0; x < NUMBER_OF_SLAVES; x++){
-		theMessage.length = sizeof(aux_msg);
+		theMessage.length = 3;
 		aux_msg[0] = END_TASK;
 		aux_msg[1] = 0;
-		aes_memcpy(&theMessage.msg, aux_msg, sizeof(aux_msg));
+		//aes_memcpy(&theMessage.msg, aux_msg, sizeof(aux_msg));
+		for(a = 0; a < theMessage.length; a++){
+			theMessage.msg[a] = aux_msg[a];
+		}
 		sys_Send(&theMessage, Slave[x]);  
 	}
 

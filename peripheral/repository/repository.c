@@ -94,7 +94,7 @@ void iterate(){
                     outPacket[4] = appInfo[sendApp][1];     // app period
                     outPacket[5] = appInfo[sendApp][2];     // app executions
                     outPacket[6] = appInfo[sendApp][3];     // number of tasks
-                    outPacket[7] = -1;
+                    outPacket[7] = appInfo[sendApp][4];     // deadline
                     outPacket[8] = -1;
                     outPacket[9] = -1;
                     outPacket[10] = -1;

@@ -196,10 +196,10 @@ static OP_MONITOR_FN(FetchCallback0) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 0, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load0++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store0++;
     }
     else{
@@ -248,10 +248,10 @@ static OP_MONITOR_FN(FetchCallback1) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 1, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load1++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store1++;
     }
     else{
@@ -300,10 +300,10 @@ static OP_MONITOR_FN(FetchCallback2) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 2, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load2++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store2++;
     }
     else{
@@ -348,16 +348,31 @@ static OP_MONITOR_FN(FetchCallback3) {
     opProcessorRead(processor, addr, &aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
     unsigned int instruction32 = vec2usi(aux_8bits);
     fetch3++;
-
+    unsigned int masked = instruction32 & 0x0000007F;
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 3, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load3++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if (masked == 0x00000013){
+        imm3++;
+    }
+    else if (masked == 0x00000033){
+        reg3++;
+    }
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store3++;
     }
+    else if (masked == 0x00000063){
+        branch3++;
+    }
+    else if ( (masked == 0x00000067) || (masked == 0x0000006F) ){
+        jump3++;
+    }
+    else if ( (masked == 0x00000017) || (masked == 0x00000037) ){
+        pc3++;
+    }    
     else{
         others3++;
     }
@@ -391,6 +406,51 @@ static OP_MONITOR_FN(FetchCallback3) {
         aux_8bits[0] =  others3 & 0x000000FF;
         opProcessorWrite(processor, OTHERS_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
         others3 = 0;
+
+        opProcessorRead(processor, REG_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        reg3 = reg3 + vec2usi(aux_8bits);
+        aux_8bits[3] = (reg3 >> 24) & 0x000000FF;
+        aux_8bits[2] = (reg3 >> 16) & 0x000000FF;
+        aux_8bits[1] = (reg3 >> 8) & 0x000000FF;
+        aux_8bits[0] =  reg3 & 0x000000FF;
+        opProcessorWrite(processor, REG_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        reg3 = 0;
+
+        opProcessorRead(processor, IMM_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        imm3 = imm3 + vec2usi(aux_8bits);
+        aux_8bits[3] = (imm3 >> 24) & 0x000000FF;
+        aux_8bits[2] = (imm3 >> 16) & 0x000000FF;
+        aux_8bits[1] = (imm3 >> 8) & 0x000000FF;
+        aux_8bits[0] =  imm3 & 0x000000FF;
+        opProcessorWrite(processor, IMM_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        imm3 = 0;
+
+        opProcessorRead(processor, BRANCH_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        branch3 = branch3 + vec2usi(aux_8bits);
+        aux_8bits[3] = (branch3 >> 24) & 0x000000FF;
+        aux_8bits[2] = (branch3 >> 16) & 0x000000FF;
+        aux_8bits[1] = (branch3 >> 8) & 0x000000FF;
+        aux_8bits[0] =  branch3 & 0x000000FF;
+        opProcessorWrite(processor, BRANCH_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        branch3 = 0;
+
+        opProcessorRead(processor, JUMP_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        jump3 = jump3 + vec2usi(aux_8bits);
+        aux_8bits[3] = (jump3 >> 24) & 0x000000FF;
+        aux_8bits[2] = (jump3 >> 16) & 0x000000FF;
+        aux_8bits[1] = (jump3 >> 8) & 0x000000FF;
+        aux_8bits[0] =  jump3 & 0x000000FF;
+        opProcessorWrite(processor, JUMP_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        jump3 = 0;
+
+        opProcessorRead(processor, PC_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        pc3 = pc3 + vec2usi(aux_8bits);
+        aux_8bits[3] = (pc3 >> 24) & 0x000000FF;
+        aux_8bits[2] = (pc3 >> 16) & 0x000000FF;
+        aux_8bits[1] = (pc3 >> 8) & 0x000000FF;
+        aux_8bits[0] =  pc3 & 0x000000FF;
+        opProcessorWrite(processor, PC_ADDR, aux_8bits, 4, 1, True, OP_HOSTENDIAN_TARGET);
+        pc3 = 0;
     }
 
     return;
@@ -404,10 +464,10 @@ static OP_MONITOR_FN(FetchCallback4) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 4, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load4++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store4++;
     }
     else{
@@ -456,10 +516,10 @@ static OP_MONITOR_FN(FetchCallback5) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 5, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load5++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store5++;
     }
     else{
@@ -508,10 +568,10 @@ static OP_MONITOR_FN(FetchCallback6) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 6, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load6++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store6++;
     }
     else{
@@ -560,10 +620,10 @@ static OP_MONITOR_FN(FetchCallback7) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 7, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load7++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store7++;
     }
     else{
@@ -612,10 +672,10 @@ static OP_MONITOR_FN(FetchCallback8) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 8, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load8++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store8++;
     }
     else{
@@ -664,10 +724,10 @@ static OP_MONITOR_FN(FetchCallback9) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 9, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load9++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store9++;
     }
     else{
@@ -716,10 +776,10 @@ static OP_MONITOR_FN(FetchCallback10) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 10, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load10++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store10++;
     }
     else{
@@ -768,10 +828,10 @@ static OP_MONITOR_FN(FetchCallback11) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 11, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load11++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store11++;
     }
     else{
@@ -820,10 +880,10 @@ static OP_MONITOR_FN(FetchCallback12) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 12, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load12++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store12++;
     }
     else{
@@ -872,10 +932,10 @@ static OP_MONITOR_FN(FetchCallback13) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 13, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load13++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store13++;
     }
     else{
@@ -924,10 +984,10 @@ static OP_MONITOR_FN(FetchCallback14) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 14, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load14++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store14++;
     }
     else{
@@ -976,10 +1036,10 @@ static OP_MONITOR_FN(FetchCallback15) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 15, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load15++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store15++;
     }
     else{
@@ -1028,10 +1088,10 @@ static OP_MONITOR_FN(FetchCallback16) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 16, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load16++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store16++;
     }
     else{
@@ -1080,10 +1140,10 @@ static OP_MONITOR_FN(FetchCallback17) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 17, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load17++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store17++;
     }
     else{
@@ -1132,10 +1192,10 @@ static OP_MONITOR_FN(FetchCallback18) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 18, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load18++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store18++;
     }
     else{
@@ -1184,10 +1244,10 @@ static OP_MONITOR_FN(FetchCallback19) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 19, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load19++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store19++;
     }
     else{
@@ -1236,10 +1296,10 @@ static OP_MONITOR_FN(FetchCallback20) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 20, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load20++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store20++;
     }
     else{
@@ -1288,10 +1348,10 @@ static OP_MONITOR_FN(FetchCallback21) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 21, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load21++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store21++;
     }
     else{
@@ -1340,10 +1400,10 @@ static OP_MONITOR_FN(FetchCallback22) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 22, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load22++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store22++;
     }
     else{
@@ -1392,10 +1452,10 @@ static OP_MONITOR_FN(FetchCallback23) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 23, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load23++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store23++;
     }
     else{
@@ -1444,10 +1504,10 @@ static OP_MONITOR_FN(FetchCallback24) {
     //opMessage("I", "FETCH", "PE%d- %s @ %x", 24, opProcessorDisassemble(processor, addr, OP_DSA_UNCOOKED), (unsigned int)addr);
     
     // https://www2.eecs.berkeley.edu/Pubs/TechRpts/2014/EECS-2014-54.pdf - pag 60
-    if((instruction32 & 0x0000007F) == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
+    if(masked == 0x00000003){         // checks if the opcode is equal to b0000011 (LOAD) 
         load24++;
     }
-    else if((instruction32 & 0x0000007F) == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
+    else if(masked == 0x00000023){    // checks if the opcode is equal to b0100011 (STORE)
         store24++;
     }
     else{

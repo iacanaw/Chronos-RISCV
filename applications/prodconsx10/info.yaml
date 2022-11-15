@@ -1,9 +1,9 @@
 info:
  - name: prodconsx10
-   deadline: 0.1
+   deadline: 11000
    migration:
     cons: true
     prod: true
    type:
     cons: 1
-    prod: 2
+    prod: 1

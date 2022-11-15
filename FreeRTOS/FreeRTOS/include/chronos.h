@@ -16,6 +16,8 @@
 #define TRUE                1
 #define FALSE               0
 #define ERRO                -1
+#define CAN_NOT_MIGRATE     -2
+#define TASK_NOT_LOCATED    -3
 ////////////////////////////////////////////////////////////
 // SYSTEM INFO
 #define DIM_X 5
@@ -24,6 +26,7 @@
 #define NUM_MAX_APPS        20      // The maximum number of Applications
 #define NUM_MAX_APP_TASKS   10      // The maximum number of Tasks that a given Application can have
 #define NUM_MAX_TASKS       1       // The maxinum number of Tasks that can be allocated in a given PE at the same time
+#define SENDINGQUEUE_SIZE 256 // It must be higher than PIPE_SIZE*NUM_MAX_TASKS + PIPE_SIZE
 ////////////////////////////////////////////////////////////
 // PERIPHERAL PORTS
 #define PERIPH_EAST         0x00010000
@@ -52,13 +55,11 @@ volatile ServiceHeader incommingPacket;
 // Holds the "NI Handler Task" task handle
 TaskHandle_t NI_RX_Handler, NI_TX_Handler, NI_TMR_Handler; // KeeperTask_Handler;
 
-
 // Sending Queue
-volatile unsigned int SendingQueue[PIPE_SIZE*2];
+volatile unsigned int SendingQueue[SENDINGQUEUE_SIZE];
 volatile unsigned int SendingQueue_front;
 volatile unsigned int SendingQueue_tail;
 volatile unsigned int SendingSlot;
-
 
 // Initiate chronos stuff
 void Chronos_init();
@@ -129,5 +130,7 @@ unsigned int addr2id(unsigned int addr);
 unsigned int id2addr(unsigned int id);
 
 unsigned int sqrt(unsigned int x);
+
+unsigned int API_getProcessorAddr();
 
 #endif

@@ -21,7 +21,8 @@ int main(){
     float reward;
     float i;
     for(i = -300.0; i < 300.0; i=i+0.01){
-        reward =  (Q_rsqrt(7000+(i*i)) * i * -500) + 500;
+        //reward =  (Q_rsqrt(7000+(i*i)) * i * -500) + 500;
+		reward =  (Q_rsqrt(1000+(i*i)) * i * -100) + 100;
         printf("%f;%f\n", i, reward);
     }
 
