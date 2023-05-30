@@ -170,17 +170,10 @@ fi
 
 if [[ $Migration == "yes" ]]
 then
-<<<<<<< HEAD
     sed -i 's/#define MIGRATION_AVAIL.*/#define MIGRATION_AVAIL 1/' FreeRTOS/main.c
 elif [[ $Migration == "no" ]]
 then
     sed -i 's/#define MIGRATION_AVAIL.*/#define MIGRATION_AVAIL 0/' FreeRTOS/main.c
-=======
-    sed -i 's/#define MIGRATION.*/#define MIGRATION 1/' FreeRTOS/main.c
-elif [[ $Migration == "no" ]]
-then
-    sed -i 's/#define MIGRATION.*/#define MIGRATION 0/' FreeRTOS/main.c
->>>>>>> 653fc342bd62b49aac855ef9cb6ebe5d35cd3f9e
 else
     echo "Error: Migration not defined!"
     exit

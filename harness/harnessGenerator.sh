@@ -250,7 +250,7 @@ do
     echo "    if(freqScale > 91.0){ // this should never occour, but this is a security if to ensure that the processor does never stall by going to 0% of its frequency" >> harness.c
     echo "        freqScale = 90;" >> harness.c
     echo "    }" >> harness.c
-    echo "    opMessage(\"I\", \"HARNESS\", \" >>> PE "$i" changing to %.1f%% of its nominal frequency -- (%.0fMHz)\", 100-freqScale, 10*(100-freqScale));" >> harness.c
+    echo "    //opMessage(\"I\", \"HARNESS\", \" >>> PE "$i" changing to %.1f%% of its nominal frequency -- (%.0fMHz)\", 100-freqScale, 10*(100-freqScale));" >> harness.c
     echo "    opProcessorDerate(processor, freqScale);" >> harness.c
     echo "    return;" >> harness.c
     echo "}" >> harness.c
@@ -311,7 +311,7 @@ echo "    }" >> harness.c
 echo "" >> harness.c
 echo "    /* Simulation loop */" >> harness.c
 echo "    while(!finished) {" >> harness.c
-echo "        myTime += 0.1;" >> harness.c
+echo "        myTime += 0.001;" >> harness.c
 echo "        opRootModuleSetSimulationStopTime(mi, myTime);" >> harness.c
 echo "        stopProcessor = opRootModuleSimulate(mi);" >> harness.c
 echo "        " >> harness.c
@@ -319,7 +319,8 @@ echo "        optStopReason sr = stopProcessor ? opProcessorStopReason(stopProce
 echo "                                         : OP_SR_EXIT;" >> harness.c
 echo "        switch(sr) {" >> harness.c
 echo "            case OP_SR_EXIT:" >> harness.c
-echo "                opMessage(\"I\", \"HARNESS\", \"Simulation time: %.1f seconds elapsed...\", myTime);" >> harness.c
+echo "                opMessage(\"I\", \"HARNESS\", \"Simulation time: %.3f seconds elapsed...\", myTime);" >> harness.c
+echo "                //printf(\"Simulation time: %.3f seconds elapsed...\\\\n\", myTime);" >> harness.c
 echo "                break; " >> harness.c
 echo "            " >> harness.c
 echo "            case OP_SR_FINISH:" >> harness.c

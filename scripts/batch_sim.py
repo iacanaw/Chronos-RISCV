@@ -6,7 +6,7 @@ import subprocess
 from timeit import default_timer as timer
 
 
-maxthreads = 6
+maxthreads = 4
 sema = threading.Semaphore(value=maxthreads)
 
 def main():
@@ -30,11 +30,25 @@ def main():
     # name = "ISCAS23_78_"
     # i = 0
 
-    sim_time_s = [0.5, 1]
-    scenarios_to_sim = ["iscas_90", "iscas_70", "iscas_50", "iscas_30"]
-    sizes_to_sim = [8]
-    managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["yes", "no"]], ["chronos", ["yes", "no"]]]
-    name = "ISCAS23_Q3_"
+    # sim_time_s = [0.5, 1]
+    # scenarios_to_sim = ["iscas_90", "iscas_70", "iscas_50", "iscas_30"]
+    # sizes_to_sim = [8]
+    # managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["yes", "no"]], ["chronos", ["yes", "no"]]]
+    # name = "ISCAS23_Q3_"
+    # i = 0
+
+    # sim_time_s = [1]
+    # scenarios_to_sim = ["alog_50", "alog_70", "alog_90"] # 98 137 176
+    # sizes_to_sim = [14]
+    # managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["no", "yes"]], ["chronos", ["no", "yes"]]]
+    # name = "ALOG23_"
+    # i = 0
+
+    sim_time_s = [5]
+    scenarios_to_sim = ["alog_50", "alog_70", "alog_90"] # 98 137 176
+    sizes_to_sim = [14, 16, 20]
+    managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["no", "yes"]], ["chronos", ["no", "yes"]]]
+    name = "TESE_"
     i = 0
 
     # Creating Threads to run MATEX and Graphs
@@ -45,9 +59,9 @@ def main():
                     for mig in mm[1]:
                         str_name = name+str(i)
                         method = mm[0]
-                        if( i == 32 or i == 8):
-                            x = threading.Thread(target=run_ovp_sim, args=(str_name, time, size, scenario, method, mig,))
-                            x.start()
+                        #if():
+                        x = threading.Thread(target=run_ovp_sim, args=(str_name, time, size, scenario, method, mig,))
+                        x.start()
                         i+=1
                             
     
@@ -64,7 +78,7 @@ def run_ovp_sim(name, time, size, scenario, mm, mig):
         output, error = process.communicate()
         end = timer()
         print(str(end-start))
-        if (end - start) > 10*60: # 10min in seconds
+        if (end - start) > 15*60: # 10min in seconds
             break
     sema.release()
 

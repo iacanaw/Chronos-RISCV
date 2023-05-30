@@ -29,10 +29,10 @@ ax1.grid(True, which="both", ls="--", alpha=0.75)
 
 #Anotations
 plt.annotate( '', xy=(4, 2.36), xycoords='data', xytext=(4, 147.90), textcoords='data',arrowprops={'arrowstyle': '<->'})
-plt.annotate( '62,56x', xy=(4, 14), xycoords='data', xytext=(3, 3), textcoords='offset points')
+plt.annotate( '~62x', xy=(4, 14), xycoords='data', xytext=(3, 3), textcoords='offset points')
 
 plt.annotate( '', xy=(100, 92.46), xycoords='data', xytext=(100, 3731.39), textcoords='data',arrowprops={'arrowstyle': '<->'})
-plt.annotate( '40,35x', xy=(90, 1000), xycoords='data', xytext=(3, 3), textcoords='offset points')
+plt.annotate( '~40x', xy=(90, 1000), xycoords='data', xytext=(3, 3), textcoords='offset points')
 
 # for i in range(2,9):
     # ax1.plot(num_pes[i], sc_minpersec[i], 'o', ms=12, color='green', mfc='none', mew=2, alpha=0.5)

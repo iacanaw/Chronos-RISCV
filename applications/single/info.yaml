@@ -1,0 +1,7 @@
+info:
+ - name: single
+   deadline: 1100
+   migration:
+    single: true
+   type:
+    single: 2

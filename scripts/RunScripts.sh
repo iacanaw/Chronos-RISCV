@@ -27,8 +27,6 @@ python3 scripts/hop.py
 
 # run the migration counter and generate a migration visualization
 python3 scripts/migs.py
-=======
->>>>>>> 653fc342bd62b49aac855ef9cb6ebe5d35cd3f9e
 
 # calculates the MTTF using the montecarlo algorithm 
 # sed -i 's/#define TOTAL_STRUCTURES.*/#define TOTAL_STRUCTURES '$XX'*'$YY'/' scripts/montecarlo.c

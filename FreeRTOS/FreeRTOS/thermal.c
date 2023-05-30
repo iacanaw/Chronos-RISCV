@@ -159,6 +159,11 @@ void powerEstimation(){
         totalEnergy = (dynamicEnergy_MEM + dynamicEnergy_PE + dynamicEnergy_Router) + (leakEnergy_PE);
         printsv("TotalEnergy: ", totalEnergy);
 
+        // if(API_getProcessorAddr() != makeAddress(5,5))
+        //     totalEnergy = 15760373;
+
+        // ./RUN_FreeRTOS.sh -n test_power0 -x 11 -y 11 -t 9999999999 -s c_pipeline_beta -m characterize -g no
+
         // Fill the ThermalPacket slot...
         ThermalPacket.header.header           = makeAddress(0, 0) | PERIPH_WEST;
         ThermalPacket.header.payload_size     = PKT_SERVICE_SIZE;

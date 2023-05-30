@@ -741,7 +741,8 @@ static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
     unsigned int tick, k;
 	char str[20];
-    unsigned int migrate, mig_app, mig_task, mig_addr, mig_slot;
+    unsigned int migrate, migtick, mig_app, mig_task, mig_addr, mig_slot;
+    migtick = 0;
 
     // Initialize the priority vector with the pattern policy
     GeneratePatternMatrix();
@@ -787,7 +788,7 @@ static void GlobalManagerTask( void *pvParameters ){
 #if MIGRATION_AVAIL
         migrate = API_SelectTask_Migration_Temperature(THRESHOLD_TEMP);
 
-        if (migrate != -1  && !API_CheckTaskToAllocate(xTaskGetTickCount())){
+        if (migrate != -1  && !API_CheckTaskToAllocate(xTaskGetTickCount()) && migtick+5 <= xTaskGetTickCount()){
             printsvsv("Got a app to migrate: ",(migrate>>16)," task: ", (migrate & 0x0000FFFF));
             mig_app = migrate >> 16;
             mig_task = migrate & 0x0000FFFF;
@@ -798,6 +799,7 @@ static void GlobalManagerTask( void *pvParameters ){
                 if (mig_slot != ERRO){
                     printsvsv("Migrating it to ", getXpos(mig_addr), "-", getYpos(mig_addr));
                     API_StartMigration(mig_app, mig_task, mig_addr);
+                    migtick = xTaskGetTickCount();
                     break;
                 }   
             }
@@ -844,7 +846,8 @@ static void GlobalManagerTask( void *pvParameters ){
     static unsigned int sorted_addr[DIM_X*DIM_Y];
     static unsigned int sorted_score[DIM_X*DIM_Y];
 
-    unsigned int checkMigration, migrate, mig_app, mig_task, mig_addr, num_pes;
+    unsigned int checkMigration, migrate, migtick, mig_app, mig_task, mig_addr, num_pes;
+    migtick = 0;
     float candidate_score;
                         
     checkMigration = 200;
@@ -952,7 +955,7 @@ static void GlobalManagerTask( void *pvParameters ){
 #if MIGRATION_AVAIL
         else{
             migrate = API_SelectTask_Migration_Temperature(THRESHOLD_TEMP);
-            if (migrate != ERRO  && !API_CheckTaskToAllocate(xTaskGetTickCount())){
+            if (migrate != ERRO  && !API_CheckTaskToAllocate(xTaskGetTickCount()) && migtick+5 <= xTaskGetTickCount() ){
                 printsvsv("Got a app to migrate: ",(migrate>>16)," task: ", (migrate & 0x0000FFFF));
                 mig_app = migrate >> 16;
                 mig_task = migrate & 0x0000FFFF;
@@ -1011,6 +1014,7 @@ static void GlobalManagerTask( void *pvParameters ){
                     if(mig_addr != 0xFFFFFFFF){
                         API_StartMigration(mig_app, mig_task, mig_addr);
                         printsvsv("Migrating it to ", getXpos(mig_addr), "- ", getYpos(mig_addr));
+                        migtick = xTaskGetTickCount();
                     } else {
                         prints("Not found!\n");
                     }
@@ -1270,8 +1274,9 @@ static void GlobalManagerTask( void *pvParameters ){
 	// Initialize the priority vector with the pattern policy
     x = DIM_X-1;
     y = DIM_Y-1;
+    int options[4] = {(6<<8)|4, (5<<8)|5, (4<<8)|4, (4<<8)|6};
     for(i=0; i<(DIM_X*DIM_Y); i++){
-        priorityMatrix[i] = (x << 8) | y;
+        priorityMatrix[i] = options[i%4];//(5 << 8) | 5; //(x << 8) | y;
         x--;
         if ( x < 0 ){
             x = DIM_X-1;

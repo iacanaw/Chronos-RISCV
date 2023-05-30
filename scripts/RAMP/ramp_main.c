@@ -66,7 +66,7 @@ int main(){
     inFile.close();
 
     power = (double**) malloc((TOTAL_STRUCTURES+1)*sizeof(double));
-    temperatures = (double**) malloc(TOTAL_STRUCTURES*sizeof(double));
+    temperatures = (double**) malloc((TOTAL_STRUCTURES+1)*sizeof(double));
 
     for (int i = 0; i < TOTAL_STRUCTURES+1; i++){
         power[i] = (double*) malloc(num_samples*sizeof(double));

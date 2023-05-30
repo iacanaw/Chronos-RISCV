@@ -1,0 +1,6 @@
+apps:
+ - name: single
+   period: 0
+   executions: 40
+   tasks:
+    single: 0

@@ -1,0 +1,21 @@
+apps:
+ - name: single
+   period: 0
+   executions: 20
+   tasks:
+    single: 0
+ - name: single
+   period: 0
+   executions: 20
+   tasks:
+    single: 0
+ - name: single
+   period: 0
+   executions: 20
+   tasks:
+    single: 0
+ - name: single
+   period: 0
+   executions: 20
+   tasks:
+    single: 0

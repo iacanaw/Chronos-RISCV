@@ -13,15 +13,20 @@ plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
 fig, axes = plt.subplots(nrows=1, ncols=4, sharex=True, sharey=True,  figsize=(12,3), constrained_layout=True)
 
 # generate some random test data
-folder_w = "ISCAS23_Q3_30_iscas_70_10000ticks_migno_worst_8x8"
-folder_p = "ISCAS23_Q3_31_iscas_70_10000ticks_migno_pattern_8x8"
-folder_pid = "ISCAS23_Q3_32_iscas_70_10000ticks_migyes_pidtm_8x8"
-folder_c = "ISCAS23_Q3_34_iscas_70_10000ticks_migyes_chronos_8x8"
+# folder_w = "ALOG23_0_alog_50_10000ticks_migno_worst_14x14"
+# folder_p = "ALOG23_1_alog_50_10000ticks_migno_pattern_14x14"
+# folder_pid = "ALOG23_2_alog_50_10000ticks_migno_pidtm_14x14"
+# folder_c = "ALOG23_3_alog_50_10000ticks_migyes_pidtm_14x14"
+#testing_c_prodcons_999999ticks_migyes_pidtm_4x4
+folder_w = "ALOG23_6_alog_70_10000ticks_migno_worst_14x14"
+folder_p = "ALOG23_7_alog_70_10000ticks_migno_pattern_14x14"
+folder_pid = "ALOG23_8_alog_70_10000ticks_migno_pidtm_14x14"
+folder_c = "ALOG23_9_alog_70_10000ticks_migyes_pidtm_14x14"
 
 folders = [folder_w, folder_p, folder_pid, folder_c] 
-labels = ["Worst", "Pattern", "PIDTM Mig.", "FLEA Mig."]
+labels = ["Worst", "Pattern", "PID", "PID+Mig"]
 #colors = ["#f9c80e", "#f86624", "#ea3546", "#43bccd" ]
-colors = ["#ef476f", "#FFD166", "#06D6A0", "#118AB2" ]
+colors = ["#390099", "#9e0059", "#ff5400", "#ffbd00" ]
 
 boxplot = []
 picplot = []
@@ -36,6 +41,9 @@ for folder in folders:
         side = int(math.sqrt(sysSize))
         picMax = np.zeros((side,side))
 
+        picAvg = np.zeros((side,side))
+        nsamples = 0
+
         time = []
         samples = np.zeros((len(raw_data[0])-1, len(raw_data)))
 
@@ -47,8 +55,10 @@ for folder in folders:
 
         for i in range(len(raw_data)):
                 time.append(raw_data[i][0])
-                for j in range(len(raw_data[i])-2):
-                        sample[j] = raw_data[i][j+2]
+                nsamples += 1
+                for j in range(len(raw_data[i])-1):
+                        sample[j] = raw_data[i][j+1]
+                        picAvg[int(j%side)][int(j/side)] += sample[j]
                         if generalMax < sample[j]:
                                 generalMax = sample[j]
                                 uj = 1
@@ -58,13 +68,43 @@ for folder in folders:
                                                 uj+=1
 
                 sample.sort()
-                max_temp[i] = sample[n_pes-2]
+                max_temp[i] = sample[n_pes-1]
         
-        boxplot.append(axes[k].imshow(picMax,  interpolation='nearest', aspect='auto', vmin=50, vmax=80))
-        # divider = make_axes_locatable(axes[k])
-        # cax = divider.append_axes("right", size="20%", pad=0.05)
-        # plt.colorbar(boxplot[len(boxplot)-1], cax=cax, ticks=MultipleLocator(10), format="%.0f")
+        # print(picAvg)
+        # print(nsamples)
+        for x in range(side):
+                for y in range(side):
+                        
+                        picAvg[x][y] = picAvg[x][y] / nsamples
+
+
+        # https://matplotlib.org/stable/gallery/images_contours_and_fields/interpolation_methods.html -> more interpolation methods
+        # https://matplotlib.org/stable/tutorials/colors/colormaps.html                               -> more colors
+        pcm = axes[k].imshow(picAvg, interpolation='gaussian', aspect='auto', vmin=50, vmax=85, cmap='jet') # YlOrRd, jet, turbo
+
+        # Major ticks
+        axes[k].set_xticks(np.arange(0, 14, 1))
+        axes[k].set_yticks(np.arange(0, 14, 1))
+
+        # Labels for major ticks
+        axes[k].set_xticklabels(np.arange(0, 14, 1))
+        axes[k].set_yticklabels(np.arange(0, 14, 1))
+
+        # Minor ticks
+        axes[k].set_xticks(np.arange(-.5, 13, 1), minor=True)
+        axes[k].set_yticks(np.arange(-.5, 13, 1), minor=True)
+
+        #Title
+        axes[k].set_title(labels[k])
+
+        # Gridlines based on minor ticks
+        axes[k].grid(which='minor', color='black', linestyle='-', linewidth=1)
+        axes[k].tick_params(axis='both', which='major', labelsize=8)
+
         k+=1
+
+fig.colorbar(pcm, ax=axes[:], location='right', shrink=1.0, label="Temperature (°C)")
+fig.suptitle('Average PE Temperature - 70% System Occupation', fontsize=16)
 
 for i in range(len(axes)):
         pass
