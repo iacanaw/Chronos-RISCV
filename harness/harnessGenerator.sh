@@ -261,7 +261,7 @@ echo "int main(int argc, const char *argv[]) {" >> harness.c
 echo "    int             runningPE       = 0;" >> harness.c
 echo "    optProcessorP   stopProcessor   = 0;" >> harness.c
 echo "    Bool            finished        = False;" >> harness.c
-echo "	optProcessorP proc;" >> harness.c
+echo "	optProcessorP proc = NULL;" >> harness.c
 echo "    opSessionInit(OP_VERSION);" >> harness.c
 echo "    /* create the root module with reduced Quantum (in line with Custom Scheduler) */" >> harness.c
 echo "	optParamP params = OP_PARAMS(OP_PARAM_DOUBLE_SET(OP_FP_QUANTUM, QUANTUM_TIME_SLICE));" >> harness.c
