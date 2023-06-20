@@ -1,0 +1,17 @@
+info:
+ - name: fibonacci
+   deadline: 0
+   migration:
+    fibonacci_0: false
+    fibonacci_1: false
+    fibonacci_2: false
+    fibonacci_3: false
+    fibonacci_4: false
+    divider: false
+   type:
+    fibonacci_0: 0
+    fibonacci_1: 0
+    fibonacci_2: 0
+    fibonacci_3: 0
+    fibonacci_4: 0
+    divider: 1
