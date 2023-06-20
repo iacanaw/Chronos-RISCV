@@ -7,7 +7,7 @@ import sys
 simType = sys.argv[1]
 
 plt.close("all")
-plt.style.use('_mpl-gallery')
+plt.style.use('seaborn-dark-palette')
 
 tsv_data = pd.read_csv("simulation/SystemTemperature.tsv", sep='\t')
 raw_data = tsv_data.to_numpy()
