@@ -8,6 +8,10 @@
 #include <iostream>
 #include <iomanip>
 #include <fstream>
+#include <cstdlib>
+#include <string>
+#include <sstream>
+
 using namespace std;
 
 #define SIDE_SIZE 0.000194 // mem 8Kb
@@ -88,7 +92,7 @@ int main(){
     inFile.open("matex.log");
     while ( getline (inFile,line) ){
         string line_name;
-        stringstream lineStream(line);
+        stringstream lineStream(line_name);
         lineStream >> line_name;
         
         if(line_count >= 10*3 && line_count < (line_total-10*3)){

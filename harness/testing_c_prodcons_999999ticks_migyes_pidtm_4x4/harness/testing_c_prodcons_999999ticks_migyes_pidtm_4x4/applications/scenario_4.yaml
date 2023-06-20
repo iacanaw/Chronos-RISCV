@@ -1,0 +1,7 @@
+apps:
+ - name: prodcons_test
+   period: 0
+   executions: 1000
+   tasks:
+    prod: 0
+    cons: 1

@@ -1,0 +1,7 @@
+apps:
+ - name: prodcons_nodead
+   period: 0
+   executions: 10
+   tasks:
+    prod: 0
+    cons: 1

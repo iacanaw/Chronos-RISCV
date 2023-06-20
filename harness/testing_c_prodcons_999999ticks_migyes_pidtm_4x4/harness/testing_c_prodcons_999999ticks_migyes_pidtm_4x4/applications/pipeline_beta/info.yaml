@@ -1,0 +1,13 @@
+info:
+ - name: pipeline_beta
+   deadline: 10
+   migration:
+    pipe0: true
+    pipe1: true
+    pipe2: true
+    pipe3: true
+   type:
+    pipe0: 2
+    pipe1: 0
+    pipe2: 0
+    pipe3: 0

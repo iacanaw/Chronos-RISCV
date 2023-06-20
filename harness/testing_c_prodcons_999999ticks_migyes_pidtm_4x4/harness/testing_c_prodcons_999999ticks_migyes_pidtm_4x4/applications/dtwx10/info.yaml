@@ -1,0 +1,17 @@
+info:
+ - name: dtwx10
+   deadline: 11000
+   migration:
+    bank: true
+    p1: true
+    p2: true
+    p3: true
+    p4: true
+    recognizer: true
+   type:
+    bank: 1
+    p1: 1
+    p2: 1
+    p3: 1
+    p4: 1
+    recognizer: 1

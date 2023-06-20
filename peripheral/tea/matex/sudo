@@ -1,0 +1,11 @@
+Loaded plugins: fastestmirror, langpacks
+Determining fastest mirrors
+ * base: mirror.uepg.br
+ * centos-sclo-rh: mirror.uepg.br
+ * centos-sclo-sclo: mirror.uepg.br
+ * epel: mirror.its.dal.ca
+ * extras: mirror.uepg.br
+ * rpmfusion-free-updates: mirror.host.ag
+ * rpmfusion-nonfree-updates: edgeuno-bog2.mm.fcix.net
+ * updates: mirror.uepg.br
+Metadata Cache Created

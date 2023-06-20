@@ -8,7 +8,7 @@ SimType=$3
 Scenario=$4
 
 # generates the temperature graph
-python3 scripts/graphTemperature.py "$SimType"
+#python3 scripts/graphTemperature.py "$SimType"
 
 # generates the instruction graph
 python3 scripts/graphInstructions.py "$XX" "$YY"

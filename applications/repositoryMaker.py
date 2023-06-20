@@ -6,7 +6,11 @@ import copy
 import re
 from os import path
 from os.path import exists
-from pandas import cut
+try:
+     from pandas import cut
+except ImportError:
+    print("Não tem pandas!!!",file=sys.stderr)
+    exit(1)
 import yaml
 
 SCENARIO = str(sys.argv[1]) + '.yaml'

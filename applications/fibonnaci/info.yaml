@@ -1,0 +1,17 @@
+info:
+ - name: fibonnaci
+   deadline: 0
+   migration:
+    fibonnaci_0: false
+    fibonnaci_1: false
+    fibonnaci_2: false
+    fibonnaci_3: false
+    fibonnaci_4: false
+    divider: false
+   type:
+    fibonnaci_0: 0
+    fibonnaci_1: 0
+    fibonnaci_2: 0
+    fibonnaci_3: 0
+    fibonnaci_4: 0
+    divider: 1

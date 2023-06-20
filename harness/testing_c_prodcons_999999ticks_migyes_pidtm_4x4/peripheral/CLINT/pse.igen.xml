@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <peripheral constructor="constructor"
+    formalValues="F"
+    httpvis="F"
+    imagefile="pse.pse"
+    library="peripheral"
+    name="CLINT"
+    nbyte="F"
+    recursive="F"
+    releasestatus="4"
+    saveRestore="F"
+    usernetports="nextNetPortUser"
+    vendor="riscv.ovpworld.org"
+    version="1.0"
+    visibility="0">
+    <docsection name="doc"
+        text="Licensing">
+        <doctext name="txt"
+            text="Open Source Apache 2.0"/>
+    </docsection>
+    <docsection name="doc_1"
+        text="Description">
+        <doctext name="txt"
+            text="
+Risc-V Core Local Interruptor (CLINT).
+Use the num_harts parameter to specify the number of harts suported (default 1).
+For each supported hart there will be an MTimerInterruptN and MSWInterruptN net port, plus msipN and mtimecmpN registers implemented, where N is a value from 0..num_harts-1
+There is also a single mtime register.
+"/>
+    </docsection>
+    <docsection name="doc_2"
+        text="Limitations">
+        <doctext name="txt"
+            text="Writes to mtime register are not supported"/>
+    </docsection>
+    <docsection name="doc_3"
+        text="Reference">
+        <doctext name="txt"
+            text="SiFive Freedom U540-C000 Manual FU540-C000-v1.0.pdf (https://www.sifive.com/documentation/chips/freedom-u540-c000-manual)"/>
+    </docsection>
+    <formalattribute defaultvalue="1"
+        max="4095"
+        min="1"
+        name="num_harts"
+        type="Uns32">
+        <docsection name="doc"
+            text="num_harts">
+            <doctext name="txt"
+                text="Number of harts implemented"/>
+        </docsection>
+    </formalattribute>
+    <formalattribute defaultvalue="10.0"
+        max="1000.0"
+        min="0.001"
+        name="clockMHz"
+        type="double">
+        <docsection name="doc"
+            text="clockMHz">
+            <doctext name="txt"
+                text="Clock rate used in timer calculations (in MHz)"/>
+        </docsection>
+    </formalattribute>
+    <netport name="MTimerInterrupt0"
+        type="output"/>
+    <netport name="MSWInterrupt0"
+        type="output"/>
+    <busslaveport addresswidth="32"
+        name="port0"
+        size="0xc000">
+        <addressblock name="msip"
+            size="0x4000"
+            width="32">
+            <localmemory name="msipMem"
+                readfunction="reservedRD"
+                size="0x4000"
+                userdata="0x0"
+                writefunction="reservedWR"/>
+            <memorymappedregister access="rw"
+                isvolatile="F"
+                name="msip0"
+                nbyte="F"
+                offset="0x0"
+                readfunction="msipRead"
+                userdata="0"
+                viewfunction="msipView"
+                width="32"
+                writefunction="msipWrite"
+                writemask="1">
+                <docsection name="doc"
+                    text="msip0">
+                    <doctext name="txt"
+                        text="Hart 0 Machine-Mode Software Interrupt"/>
+                </docsection>
+            </memorymappedregister>
+        </addressblock>
+        <addressblock name="mtime"
+            offset="0x4000"
+            size="0x8000"
+            width="32">
+            <localmemory name="mtimeMem"
+                readfunction="reservedRD"
+                size="0x8000"
+                userdata="0x4000"
+                writefunction="reservedWR"/>
+            <memorymappedregister access="rw"
+                isvolatile="T"
+                name="mtimecmpLo0"
+                nbyte="F"
+                readfunction="mtimecmpRead"
+                userdata="0"
+                viewfunction="mtimecmpViewLo"
+                width="32"
+                writefunction="mtimecmpWrite">
+                <docsection name="doc"
+                    text="mtimecmpLo0">
+                    <doctext name="txt"
+                        text="Hart 0 Machine-Mode Timer Compare Low"/>
+                </docsection>
+            </memorymappedregister>
+            <memorymappedregister access="rw"
+                isvolatile="T"
+                name="mtimecmpHi0"
+                nbyte="F"
+                offset="0x4"
+                readfunction="mtimecmpRead"
+                userdata="0"
+                viewfunction="mtimecmpViewHi"
+                width="32"
+                writefunction="mtimecmpWrite">
+                <docsection name="doc"
+                    text="mtimecmpHi0">
+                    <doctext name="txt"
+                        text="Hart 0 Machine-Mode Timer Compare High"/>
+                </docsection>
+            </memorymappedregister>
+            <memorymappedregister access="r"
+                isvolatile="T"
+                name="mtimeLo"
+                nbyte="F"
+                offset="0x7ff8"
+                readfunction="mtimeRead"
+                viewfunction="mtimeViewLo"
+                width="32">
+                <docsection name="doc"
+                    text="mtime">
+                    <doctext name="txt"
+                        text="Machine-Mode mtime Low"/>
+                </docsection>
+            </memorymappedregister>
+            <memorymappedregister access="r"
+                isvolatile="T"
+                name="mtimeHi"
+                nbyte="F"
+                offset="0x7ffc"
+                readfunction="mtimeRead"
+                viewfunction="mtimeViewHi"
+                width="32">
+                <docsection name="doc"
+                    text="mtime">
+                    <doctext name="txt"
+                        text="Machine-Mode mtime High"/>
+                </docsection>
+            </memorymappedregister>
+        </addressblock>
+    </busslaveport>
+    <fileversion major="1"
+        minor="0"
+        name="_version_0"/>
+ </peripheral>

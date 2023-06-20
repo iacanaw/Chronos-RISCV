@@ -1,0 +1,21 @@
+info:
+ - name: pipeline_gama
+   deadline: 10
+   migration:
+    pipe0: true
+    pipe1: true
+    pipe2: true
+    pipe3: true
+    pipe4: true
+    pipe5: true
+    pipe6: true
+    pipe7: true
+   type:
+    pipe0: 1
+    pipe1: 0
+    pipe2: 0
+    pipe3: 0
+    pipe4: 0
+    pipe5: 0
+    pipe6: 0
+    pipe7: 1

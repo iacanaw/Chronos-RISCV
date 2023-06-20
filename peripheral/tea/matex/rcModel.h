@@ -15,7 +15,7 @@
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
-#include <Eigen/Dense>
+#include <eigen3/Eigen/Dense>
 #include <float.h>
 
 #include "floorplan.h"

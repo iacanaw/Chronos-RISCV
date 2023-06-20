@@ -14,8 +14,10 @@
 #include <complex>
 #include <string>
 #include <math.h>
-#include <Eigen/Dense>
-#include <Eigen/Eigenvalues>
+//#include <Eigen/Dense>
+#include <eigen3/Eigen/Dense>
+#include <eigen3/Eigen/Eigenvalues>
+//#include <Eigen/Eigenvalues>
 
 #include "configurationParameters.h"
 #include "floorplan.h"

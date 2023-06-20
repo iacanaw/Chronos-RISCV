@@ -1,0 +1,16 @@
+info:
+ - name: dtw_nodead
+   deadline: 10
+   migration:
+    bank: true
+    p1: true
+    p2: true
+    p3: true
+    p4: true
+    recognizer: true
+   type:
+    bank: 1
+    p1: 1
+    p2: 1
+    p3: 1
+    p4: 1

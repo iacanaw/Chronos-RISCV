@@ -1,0 +1,11 @@
+apps:
+ - name: fibonnaci
+   period: 0
+   executions: 1
+   tasks:
+    fibonnaci_0: 0
+    fibonnaci_1: 1
+    fibonnaci_2: 2
+    fibonnaci_3: 3
+    fibonnaci_4: 4
+    divider: 5

@@ -1,0 +1,67 @@
+apps:
+ - name: prodcons
+   period: 0
+   executions: 10
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 45
+   executions: 10
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 40
+   executions: 10
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 35
+   executions: 10
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 30
+   executions: 10
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 25
+   executions: 10
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 5
+   executions: 10
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 10
+   executions: 10
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 15
+   executions: 10
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 8
+   executions: 10
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 20
+   executions: 10
+   tasks:
+    prod: 0
+    cons: 1

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+ <peripheral constructor="constructor"
+    destructor="destructor"
+    formalValues="F"
+    httpvis="F"
+    imagefile="pse.pse"
+    library="peripheral"
+    name="networkInterface"
+    nbyte="F"
+    recursive="F"
+    releasestatus="0"
+    saveRestore="F"
+    vendor="gaph"
+    version="1.0"
+    visibility="0">
+    <docsection name="doc"
+        text="Description">
+        <doctext name="txt"
+            text="A OVP DMA for a router"/>
+    </docsection>
+    <busslaveport addresswidth="32"
+        mustbeconnected="T"
+        name="TIMEREG"
+        size="0x4">
+        <addressblock name="ab8"
+            size="0x4"
+            width="32">
+            <memorymappedregister access="rw"
+                isvolatile="T"
+                name="timerCfg"
+                nbyte="F"
+                offset="0x0"
+                readfunction="cfgRead"
+                width="32"
+                writefunction="cfgWrite"/>
+        </addressblock>
+    </busslaveport>
+    <netport name="INT_TIMER"
+        type="output">
+        <docsection name="doc"
+            text="Description">
+            <doctext name="txt"
+                text="Timer Interrupt Request"/>
+        </docsection>
+    </netport>
+    <fileversion major="1"
+        minor="0"
+        name="_version_0"/>
+ </peripheral>

@@ -62,24 +62,6 @@ void runIterations(){
         ppmPacketnetWrite(handles.iterationPort14, &iteration, sizeof(iteration));
         iteration = iterationN;
         ppmPacketnetWrite(handles.iterationPort15, &iteration, sizeof(iteration));
-        iteration = iterationN;
-        ppmPacketnetWrite(handles.iterationPort16, &iteration, sizeof(iteration));
-        iteration = iterationN;
-        ppmPacketnetWrite(handles.iterationPort17, &iteration, sizeof(iteration));
-        iteration = iterationN;
-        ppmPacketnetWrite(handles.iterationPort18, &iteration, sizeof(iteration));
-        iteration = iterationN;
-        ppmPacketnetWrite(handles.iterationPort19, &iteration, sizeof(iteration));
-        iteration = iterationN;
-        ppmPacketnetWrite(handles.iterationPort20, &iteration, sizeof(iteration));
-        iteration = iterationN;
-        ppmPacketnetWrite(handles.iterationPort21, &iteration, sizeof(iteration));
-        iteration = iterationN;
-        ppmPacketnetWrite(handles.iterationPort22, &iteration, sizeof(iteration));
-        iteration = iterationN;
-        ppmPacketnetWrite(handles.iterationPort23, &iteration, sizeof(iteration));
-        iteration = iterationN;
-        ppmPacketnetWrite(handles.iterationPort24, &iteration, sizeof(iteration));
         i++;
         if(tryAgain == 0 && activity == 0){
             activity++; 
@@ -229,69 +211,6 @@ PPM_PACKETNET_CB(iteration14) {
  }
 
 PPM_PACKETNET_CB(iteration15) {
-    unsigned int act = *(unsigned int *)data;
-    if(act > 0){
-        activity++;
-    }
- }
-
-PPM_PACKETNET_CB(iteration16) {
-    unsigned int act = *(unsigned int *)data;
-    if(act > 0){
-        activity++;
-    }
- }
-
-PPM_PACKETNET_CB(iteration17) {
-    unsigned int act = *(unsigned int *)data;
-    if(act > 0){
-        activity++;
-    }
- }
-
-PPM_PACKETNET_CB(iteration18) {
-    unsigned int act = *(unsigned int *)data;
-    if(act > 0){
-        activity++;
-    }
- }
-
-PPM_PACKETNET_CB(iteration19) {
-    unsigned int act = *(unsigned int *)data;
-    if(act > 0){
-        activity++;
-    }
- }
-
-PPM_PACKETNET_CB(iteration20) {
-    unsigned int act = *(unsigned int *)data;
-    if(act > 0){
-        activity++;
-    }
- }
-
-PPM_PACKETNET_CB(iteration21) {
-    unsigned int act = *(unsigned int *)data;
-    if(act > 0){
-        activity++;
-    }
- }
-
-PPM_PACKETNET_CB(iteration22) {
-    unsigned int act = *(unsigned int *)data;
-    if(act > 0){
-        activity++;
-    }
- }
-
-PPM_PACKETNET_CB(iteration23) {
-    unsigned int act = *(unsigned int *)data;
-    if(act > 0){
-        activity++;
-    }
- }
-
-PPM_PACKETNET_CB(iteration24) {
     unsigned int act = *(unsigned int *)data;
     if(act > 0){
         activity++;
