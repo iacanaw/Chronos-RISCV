@@ -881,8 +881,10 @@ static void GlobalManagerTask( void *pvParameters ){
 	API_RepositoryWakeUp();
 
 	for(;;){
+        // sets the frequency to 100% available (1GHz)
 		API_setFreqScale(1000);
         API_applyFreqScale();
+
         tick = xTaskGetTickCount();
         if(tick >= SIMULATION_MAX_TICKS) _exit(0xfe10);
 		myItoa(tick, str, 10);
@@ -899,6 +901,7 @@ static void GlobalManagerTask( void *pvParameters ){
             last_app = -1;
 
             while(1){
+
                 apptask = API_GetNextTaskToAllocate(xTaskGetTickCount());
                 if (apptask == 0xFFFFFFFF) break;
                 app = (apptask & 0xFFFF0000) >> 16;
@@ -1056,9 +1059,9 @@ static void GlobalManagerTask( void *pvParameters ){
 static void GlobalManagerTask( void *pvParameters ){
     ( void ) pvParameters;
 	unsigned int tick, toprint;
-    float scoreTable[N_TASKTYPE][N_STATES] = {  {138588.0, 136475.0, 118634.0, 69488.0, 26475.0, 135189.0, 127135.0, 120576.0, 36591.0, 126427.0, 111347.0, 61487.0, 115174.0, 47365.0, 40427.0, 134196.0, 131019.0, 120668.0, 57007.0, 133455.0, 120899.0, 105415.0, 123268.0, 100480.0, 93282.0, 136399.0, 123911.0, 89096.0, 119726.0, 118999.0, 104742.0, 132186.0, 117439.0, 114611.0, 64359.0  },
+    float scoreTable[N_TASKTYPE][N_STATES]; /* = {  {138588.0, 136475.0, 118634.0, 69488.0, 26475.0, 135189.0, 127135.0, 120576.0, 36591.0, 126427.0, 111347.0, 61487.0, 115174.0, 47365.0, 40427.0, 134196.0, 131019.0, 120668.0, 57007.0, 133455.0, 120899.0, 105415.0, 123268.0, 100480.0, 93282.0, 136399.0, 123911.0, 89096.0, 119726.0, 118999.0, 104742.0, 132186.0, 117439.0, 114611.0, 64359.0  },
                                                 {135004.0, 126239.0, 116435.0, 67290.0, 2556.0, 124121.0, 106296.0, 111192.0, 3981.0, 125049.0, 110986.0, 59483.0, 118855.0, 82031.0, 60822.0, 131398.0, 120661.0, 111369.0, 55781.0, 123223.0, 109282.0, 92727.0, 116978.0, 90300.0, 91559.0, 121194.0, 116667.0, 80727.0, 122873.0, 99328.0, 106581.0, 122644.0, 97843.0, 108670.0, 58304.0  },
-                                                {147152.0, 134885.0, 136807.0, 113511.0, 8709.0, 140868.0, 130051.0, 115800.0, 26465.0, 125009.0, 106524.0, 35688.0, 95980.0, 22735.0, 0.0, 144243.0, 138313.0, 124404.0, 12030.0, 131150.0, 124981.0, 76021.0, 113529.0, 89276.0, 31648.0, 132353.0, 135855.0, 92856.0, 126663.0, 103219.0, 89788.0, 125674.0, 82874.0, 65613.0, 89850.0  } };
+                                                {147152.0, 134885.0, 136807.0, 113511.0, 8709.0, 140868.0, 130051.0, 115800.0, 26465.0, 125009.0, 106524.0, 35688.0, 95980.0, 22735.0, 0.0, 144243.0, 138313.0, 124404.0, 12030.0, 131150.0, 124981.0, 76021.0, 113529.0, 89276.0, 31648.0, 132353.0, 135855.0, 92856.0, 126663.0, 103219.0, 89788.0, 125674.0, 82874.0, 65613.0, 89850.0  } };*/
     char str[20];
     int x, y;
     unsigned int apptask, app, task, slot, taskType, cluster, base_addr, cluster_size, last_app;
@@ -1084,7 +1087,8 @@ static void GlobalManagerTask( void *pvParameters ){
     //policy table initialization
     for(tp = 0; tp < N_TASKTYPE; tp++){
         for(state = 0; state < N_STATES; state++){
-            scoreTable[tp][state] = scoreTable[tp][state]/1000;
+            //scoreTable[tp][state] = scoreTable[tp][state]/1000;
+            scoreTable[tp][state] = 0.0;//random();
         }
     }
     API_PrintScoreTable(scoreTable);

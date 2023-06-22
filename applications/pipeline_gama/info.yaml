@@ -11,11 +11,11 @@ info:
     pipe6: true
     pipe7: true
    type:
-    pipe0: 1
-    pipe1: 0
+    pipe0: 2
+    pipe1: 1
     pipe2: 0
     pipe3: 0
     pipe4: 0
     pipe5: 0
     pipe6: 0
-    pipe7: 1
+    pipe7: 2

@@ -11,9 +11,9 @@ info:
     pipeB3: true
    type:
     master: 2
-    pipeA1: 1
+    pipeA1: 2
     pipeA2: 1
     pipeA3: 1
     pipeB1: 2
     pipeB2: 1
-    pipeB3: 1
+    pipeB3: 2
