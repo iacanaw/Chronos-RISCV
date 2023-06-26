@@ -23,8 +23,8 @@ def getState2(a,b,c,d,e,f):
 for a in range(5):
     for b in range(5):
         for c in range(5):
-            # for ad in range(5):
-            #     for bd in range(5):
-            #         for cd in range(5):
-                        if(a+b+c)<=4: #and (ad+bd+cd)<=4:
-                            print(str(a)+" "+str(b)+" "+str(c)+" "+str(int(getState(a,b,c))))
+             for ad in range(5):
+                 for bd in range(5):
+                     for cd in range(5):
+                        if(a+b+c)<=4 and (ad+bd+cd)<=4:
+                            print(str(a)+" "+str(b)+" "+str(c)+" "+str(ad)+" "+str(bd)+" "+str(cd)+" "+str(int(getState2(a,b,c,ad,bd,cd))))

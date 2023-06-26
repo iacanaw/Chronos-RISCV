@@ -1195,8 +1195,10 @@ unsigned int API_getPEState(unsigned int id, unsigned int excludeAddr){
     unsigned int x = getXpos(addr);
     unsigned int y = getYpos(addr);
     int state_x, state_y, z, state, a;
+    unsigned int xd, yd, zd, state_xd, state_yd, stated; //, b0, c0, ad, bd, cd, i;
 
     unsigned int immediate[N_TASKTYPE];
+    unsigned int diagonal[N_TASKTYPE]; //+
 
     if(excludeAddr != -1){
         ex = getXpos(excludeAddr);
@@ -1208,6 +1210,7 @@ unsigned int API_getPEState(unsigned int id, unsigned int excludeAddr){
 
     for(a = 0; a < N_TASKTYPE; a++){
         immediate[a] = 0;
+        diagonal[a] = 0; //+
     }
     // SOUTH
     if(getSouth(x,y) != -1 && !(x == ex && (y-1) == ey ))
@@ -1221,14 +1224,54 @@ unsigned int API_getPEState(unsigned int id, unsigned int excludeAddr){
     // EAST
     if(getEast(x, y) != -1 && !((x+1) == ex && y == ey ))
         immediate[getEast(x,y)]++;
+    
+    // SouthWest
+    if(getSouthWest(x,y) != -1 && !((x-1) == ex && (y-1) == ey ))
+        diagonal[getSouthWest(x,y)]++;
+    // SouthEast
+    if(getSouthEast(x,y) != -1 && !((x+1) == ex && (y-1) == ey ))
+        diagonal[getSouthEast(x,y)]++;
+    // NorthWest
+    if(getNorthWest(x, y) != -1 && !((x-1) == ex && (y+1) == ey ))
+        diagonal[getNorthWest(x,y)]++;
+    // NorthEast
+    if(getNorthEast(x, y) != -1 && !((x+1) == ex && (y+1) == ey ))
+        diagonal[getNorthEast(x,y)]++;
      
     x = immediate[0];
     y = immediate[1];
     z = immediate[2];
+    xd = diagonal[0];
+    yd = diagonal[1];
+    zd = diagonal[2];
 
     state_x = (int)(x ? ((x*x*x - 18*x*x + 107*x) / 6) : 0);
     state_y = (int)(y ? ((11*y - y*y - 2*x*y) / 2) : 0);
     state = state_x + state_y + z;
+
+    state_xd = (int)(xd ? ((xd*xd*xd - 18*xd*xd + 107*xd) / 6) : 0);
+    state_yd = (int)(yd ? ((11*yd - yd*yd - 2*xd*yd) / 2) : 0);
+    stated = state_xd + state_yd + zd;
+
+    state = stated*35 + state;
+    
+    /*i=0;
+    for(a0=0; a0<5; a0++){
+        for(b0=0; b0<5; b0++){
+            for(c0=0; c0<5; c0++){
+                for(ad=0; ad<5; ad++){
+                    for(bd=0; bd<5; bd++){
+                        for(cd=0; cd<5; cd++){
+                            if(a0 == x && b0 == y && c0 == z && ad == xd && bd == yd && cd == zd)
+                                return i;
+                            else if( (a0 + b0 + c0) <= 4 && (ad + bd + cd) <= 4)
+                                i+=1;
+                        }
+                    }
+                }
+            }
+        }
+    }*/
 
     if(state >= N_STATES) printsv("ERRO CALCULANDO ESTADO: ", state);
     return(state);
