@@ -1277,6 +1277,19 @@ unsigned int API_getPEState(unsigned int id, unsigned int excludeAddr){
     return(state);
 }
 
+int API_calculateState(int l0, int l1, int l2, int d0, int d1, int d2){
+    int state_x, state_y, state, state_xd, state_yd, stated;
+    state_x = (int)(l0 ? ((l0*l0*l0 - 18*l0*l0 + 107*l0) / 6) : 0);
+    state_y = (int)(l1 ? ((11*l1 - l1*l1 - 2*l0*l1) / 2) : 0);
+    state = state_x + state_y + l2;
+
+    state_xd = (int)(d0 ? ((d0*d0*d0 - 18*d0*d0 + 107*d0) / 6) : 0);
+    state_yd = (int)(d1 ? ((11*d1 - d1*d1 - 2*d0*d1) / 2) : 0);
+    stated = state_xd + state_yd + d2;
+
+    return (stated*35 + state);
+}
+
 int getSouth(int x, int y){
     if(y > 0){
         /*if(makeAddress(x,y-1) == GLOBAL_MASTER_ADDR) return 2;
