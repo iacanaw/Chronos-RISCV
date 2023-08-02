@@ -18,6 +18,7 @@ Help(){
     echo "       If not defined or if the file does not exist the system will run empty."
     echo "-m     Choose the management method [spiral|pidtm|pattern|chronos|characterize]"
     echo "-g     Choose if the migration algorithm is working or not [yes][no]"
+    echo "-c     Choose if the cluster formation [temp][clusterless][tasks][fit] (default: fit)"
 }
 
 if [ "$1" == "-h" ]; then
@@ -25,11 +26,14 @@ if [ "$1" == "-h" ]; then
     exit
 fi
 
-while getopts ":h:n:x:y:t:s:m:g:" option; do
+while getopts ":h:n:x:y:t:s:m:g:c:" option; do
   case $option in
     h) # display Help
         Help
         exit;;
+    c) # display the clusterformation
+        ClusterFormation=$OPTARG
+        echo "Cluster formation defined by the user";;
     n) # Enter a name
         SimName=$OPTARG
         echo "Simulation name defined by the user";;
@@ -66,6 +70,12 @@ if [ -z ${SimulationMaxTime} ];
 then
     SimulationMaxTime=0
     echo "Default Simulation time: "$(($SimulationMaxTime))
+fi
+
+if [ -z ${ClusterFormation} ];
+then
+    ClusterFormation='fit'
+    echo "Default cluster formation: "$(($ClusterFormation))
 fi
 
 if [ -z ${ScenarioName} ];
@@ -177,6 +187,20 @@ then
 else
     echo "Error: Migration not defined!"
     exit
+fi
+
+if [[ $ClusterFormation == "clusterless" ]]
+then
+    sed -i 's/#define CLUSTER_FORMATION.*/#define CLUSTER_FORMATION 0/' FreeRTOS/FreeRTOS/include/chronos.h
+elif [[ $ClusterFormation == "temp" ]]
+then
+    sed -i 's/#define CLUSTER_FORMATION.*/#define CLUSTER_FORMATION 1/' FreeRTOS/FreeRTOS/include/chronos.h
+elif [[ $ClusterFormation == "tasks" ]]
+then
+    sed -i 's/#define CLUSTER_FORMATION.*/#define CLUSTER_FORMATION 2/' FreeRTOS/FreeRTOS/include/chronos.h
+elif [[ $ClusterFormation == "fit" ]]
+then
+    sed -i 's/#define CLUSTER_FORMATION.*/#define CLUSTER_FORMATION 3/' FreeRTOS/FreeRTOS/include/chronos.h
 fi
 
 sed -i 's/#define SIMULATION_MAX_TICKS.*/#define SIMULATION_MAX_TICKS '$SimulationMaxTime'/' FreeRTOS/main.c
@@ -335,3 +359,4 @@ sed -i '2,10d' SystemPower.tsv # removes the first 8 samples from the matex file
 cd ..
 
 ./scripts/RunScripts.sh "$XX" "$YY" "$SimType" "$ScenarioName"
+

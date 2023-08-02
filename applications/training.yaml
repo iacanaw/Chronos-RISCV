@@ -125,3 +125,21 @@ apps:
     pipe1: 1
     pipe2: 2
     pipe3: 3
+ - name: prodcons
+   period: 44
+   executions: 200
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 38
+   executions: 200
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons
+   period: 30
+   executions: 200
+   tasks:
+    prod: 0
+    cons: 1

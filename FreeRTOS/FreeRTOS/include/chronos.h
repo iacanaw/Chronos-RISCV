@@ -11,6 +11,7 @@
 #include "packet.h"
 #include "services.h"
 
+#define CLUSTER_FORMATION   0
 ////////////////////////////////////////////////////////////
 // DEFINES
 #define TRUE                1

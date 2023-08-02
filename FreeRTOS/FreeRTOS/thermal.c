@@ -88,13 +88,11 @@ void powerEstimation(){
     unsigned int dynamicEnergy_PE, dynamicEnergy_MEM, dynamicEnergy_Router;
     unsigned int leakEnergy_PE;
     unsigned int totalEnergy, nPorts, nocActivity, energyActive, energyIdle, nocIdle, idleNoCEnergy, activeNoCEnergy;
-    
     if(!thermalPacket_pending){
         thermalPacket_pending = TRUE;
 
         // gets the number of ports
         nPorts = getNumberOfPorts(API_getProcessorAddr());
-         
         // estimate the noc activity
         nocActivity = estimateNoCActivity();
         if(nocActivity < 1000000)
@@ -105,11 +103,9 @@ void powerEstimation(){
         // calculates the energy
         energyActive = ((nPorts * powerAvgBufferActive[Voltage]) + powerSwitchControlActive[Voltage]);
         energyIdle   = ((nPorts * powerAvgBufferIdle[Voltage]) + powerSwitchControlIdle[Voltage]);
-
         // multiply by the period to get the power consumption
         idleNoCEnergy = nocIdle * energyIdle; // * DC_DC_CONVERTER_ENERGY_OVERHEAD / 10;
         activeNoCEnergy = nocActivity * energyActive + (memFlits * (readEnergyMemory[Voltage] + writeEnergyMemory[Voltage]));  //* DC_DC_CONVERTER_ENERGY_OVERHEAD / 10;
-
         // calculates the ROUTER dynamic energy
         dynamicEnergy_Router = (idleNoCEnergy + activeNoCEnergy)  >> 6;
         printsv("dynamicEnergy_Router >> 6: ", dynamicEnergy_Router);

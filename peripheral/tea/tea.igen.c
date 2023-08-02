@@ -415,7 +415,7 @@ PPM_PACKETNET_CB(dataUpdate) {
             for(xi = 0; xi < DIM_X; xi++){
                 power_trace[index] = ((((double)power[yi][xi] * 64) / 100) / (1000000000)) * 10; //0.001));
                 //power_trace[index] = ((((double)power[yi][xi]* 64 / 1000 / 100) * 128 / 100) * 20)/(1280000*0.001);
-                //bhmMessage("I", "input", "power: %.6lf", power_trace[index]);
+               // bhmMessage("I", "input", "power: %.6lf", power_trace[index]);
                 index++;
             }
                 //power_trace[index++] = (double)(power[yi][xi]*SCALING_FACTOR)/(1280000*WINDOW_TIME);

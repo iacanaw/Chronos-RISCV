@@ -1,5 +1,3 @@
-/* Reliability Aware MicroProcessors (RAMP) Version 2.0
- * Developed by Jayanth Srinivasan (srinivsn@cs.uiuc.edu)*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>

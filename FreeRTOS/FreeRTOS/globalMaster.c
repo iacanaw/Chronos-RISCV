@@ -503,34 +503,65 @@ unsigned int API_CheckTaskToAllocate(unsigned int tick){
     return FALSE;
 }
 
-unsigned int API_GetSmallerFITCluster(unsigned int size){
+// Defines the hole system as the cluster
+void API_Clusterless(unsigned int app){
+    applications[app].cluster_addr = makeAddress(0,0);
+    applications[app].cluster_size = DIM_X;
+    return;
+}
+
+// Defines a cluster with the  as objetive
+void API_FindBestCluster( unsigned int app){
     unsigned int cluster_size, base_addr, i, j;
     int smallFIT = 0x7FFFFFFF;
     int fit = 0;
-    unsigned int cluster = 0; // (size << 16 | base_addr)
+    unsigned int smallOccupation = 0x7FFFFFFF;
+    unsigned int occupation = 0;
 
-    cluster_size = API_minClusterSize(size);
-    printsvsv("requesting size: ", size, "calculated: ", cluster_size);
+    unsigned int sel_cluster_size = 0;
+    unsigned int sel_cluster_base_addr = 0;
+
+
+    cluster_size = API_minClusterSize(applications[app].numTasks*2);
+    printsvsv("requesting size: ", applications[app].numTasks*2, "calculated: ", cluster_size);
     do{
         for(i = 0; i <= (DIM_X-cluster_size); i++){
             for(j = 0; j <= (DIM_Y-cluster_size); j++){
                 base_addr = makeAddress(i, j);
-                fit = API_CheckCluster(base_addr, cluster_size, size);
-                if (fit < smallFIT && fit != 0){
-                    smallFIT = fit;
-                    cluster = (cluster_size << 16) | base_addr;
+                fit = API_CheckCluster(base_addr, cluster_size, applications[app].numTasks*2);
+                occupation = API_GetClusterOccupation(base_addr, cluster_size);
+                //prints("----------------\n");
+                //printsv("base: ", base_addr);
+                //printsvsv("fit: ", fit, "occupation: ", occupation);
+                if(fit != 0 && occupation <= smallOccupation){
+                    if ( fit < smallFIT ){
+                        //prints("Selected!\n");
+                        smallFIT = fit;
+                        smallOccupation = occupation;
+                        sel_cluster_size = cluster_size;
+                        sel_cluster_base_addr = base_addr;
+                    }
                 }
             }
         }
         cluster_size++;
         if(cluster_size > DIM_X || cluster_size > DIM_Y){
+            sel_cluster_size = DIM_X;
+            sel_cluster_base_addr = 0x0000;
             break;
         }
-    }while(cluster == 0);
-    if (cluster == 0) {
-        cluster = (DIM_X << 16) | makeAddress(0,0);
+    }while(sel_cluster_size == 0);
+    
+    for(i = getXpos(sel_cluster_base_addr); i < (getXpos(sel_cluster_base_addr)+sel_cluster_size); i++){
+        for(j = getYpos(sel_cluster_base_addr); j < (getYpos(sel_cluster_base_addr)+sel_cluster_size); j++){
+            Tiles[i][j].clusterCount++;
+        }
     }
-    return cluster;
+
+    applications[app].cluster_addr = sel_cluster_base_addr;
+    applications[app].cluster_size = sel_cluster_size;
+
+    return;
 }
 
 void API_FindSmallerFITCluster( unsigned int app){
@@ -608,7 +639,13 @@ unsigned int API_CheckCluster(unsigned int base_addr, unsigned int cluster_size,
     for(x = getXpos(base_addr); x < (getXpos(base_addr)+cluster_size); x++){
         for(y = getYpos(base_addr); y < (getYpos(base_addr)+cluster_size); y++){
             accumulated = accumulated + Tiles[x][y].taskSlots;
+#if CLUSTER_FORMATION == 1 // TEMP
+            FIT = FIT + Tiles[x][y].temperature;
+#elif CLUSTER_FORMATION == 2 // OCCU
+            FIT = accumulated;
+#elif CLUSTER_FORMATION == 3 // FIT 
             FIT = FIT + Tiles[x][y].fit;
+#endif
         }
     }
     if(accumulated >= size) return FIT;
@@ -668,6 +705,7 @@ void API_PrintScoreTable(float scoreTable[N_TASKTYPE][N_STATES]){
     for(i = 0; i < N_TASKTYPE; i++){
         prints(" {");
         for(j = 0; j < N_STATES; j++){
+            //printi((scoreTable[i][j]));
             printi((int)(scoreTable[i][j]*1000));
             if(j != N_STATES-1){
                 prints(", ");
@@ -1153,7 +1191,7 @@ void quickSort(int arr[], int arr2[], int low, int high){
         /* pi is partitioning index, arr[p] is now 
         at right place */
         int pi = partition(arr, arr2, low, high); 
-  
+        //printsv("PI: ", pi);
         // Separately sort elements before 
         // partition and after partition 
         quickSort(arr, arr2, low, (pi - 1)); 

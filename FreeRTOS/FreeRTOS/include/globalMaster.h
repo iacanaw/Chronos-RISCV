@@ -150,7 +150,9 @@ void API_UpdateFIT();
 
 void API_PrintPolicyTable();
 
-unsigned int API_GetSmallerFITCluster(unsigned int size);
+void API_Clusterless(unsigned int app);
+
+void API_FindBestCluster(unsigned int app);
 
 unsigned int API_CheckCluster(unsigned int base_addr, unsigned int cluster_size, unsigned int size);
 
