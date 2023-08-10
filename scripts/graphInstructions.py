@@ -11,9 +11,12 @@ samples = []
 samples_time = []
 
 index = 0
+files = 0
 for xx in range(XX):
     for yy in range(YY):
-        print("reading file " + str(xx) + "x" + str(yy))
+        files+=1
+        print("\rgraphInstructions.py - Reading File "+str(files)+"/"+str(XX*YY)+" - "+str((files*100)/(XX*YY))+"%", end='')
+        #print("reading file " + str(xx) + "x" + str(yy))
         empty = []
         time = []
         with open("simulation/log_"+str(xx)+"x"+str(yy)+".txt", "r") as log_file:

@@ -4,6 +4,8 @@
 XX=$1
 YY=$2
 
+
+
 # copy data from the simulation folder
 cp simulation/matex.txt scripts/RAMP/matex.log
 
@@ -19,9 +21,11 @@ cd scripts/RAMP
 g++ ramp_main.c reliability.cc -o ramp_main
 gcc montecarlo.c -o montecarlo -lm
 
+echo "Starting RAMP to generate statistics!"
 # run the RAMP to generate the statistics
 ./ramp_main
 
+echo "Starting MONTECARLO simulation to obtain the MTTF!"
 # call the montecarlo to generate the system MTTF 
 ./montecarlo montecarlofile > ../../simulation/mttflog.txt
 

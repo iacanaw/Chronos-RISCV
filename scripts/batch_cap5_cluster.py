@@ -11,12 +11,13 @@ sema = threading.Semaphore(value=maxthreads)
 
 def main():
 
-    sim_time_s = [5]
-    scenarios_to_sim = ["alog_50", "alog_70", "alog_90"] # 98 137 176
+    sim_time_s = [2.5]
+    scenarios_to_sim = ["alog_70", "alog_50", "alog_90"] # 98 137 176
     sizes_to_sim = [14]
-    managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["no"]], ["chronos", ["no"]]]
-    clusters = ["clusterless", "temp", "fit", "task"]
-    name = "TESE_CAP5_"
+    #managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["no"]], ["chronos", ["no"]]]
+    managements_mig = [["chronos", ["no", "yes"]]]
+    clusters = ["clusterless", "fit", "temp", "tasks"]
+    name = "TESE_Z_CLUSTER_TAB35_"
     i = 0
 
     # Creating Threads to run MATEX and Graphs

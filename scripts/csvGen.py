@@ -76,6 +76,24 @@ with open("simulation/migs.txt", "r") as migsfile:
     line = migsfile.readline()
     migs = float(line)
 
+with open("simulation/log_0x0.txt", "r") as logfile:
+    line = logfile.readline()
+    if("Cluster Formation" in line):
+        splited = line.split(' ')
+        clusterformation = splited[2]
+        if clusterformation == '0':
+            clusterformation = "clusterless"
+        elif clusterformation == '1':
+            clusterformation = "temp"
+        elif clusterformation == '2':
+            clusterformation = "tasks"
+        elif clusterformation == '3':
+            clusterformation = "fit"
+        else:
+            clusterformation = "?"
+    else:
+        clusterformation = '-'
+
 with open("simulation/ThermalStatistics.csv", "r") as tsfile:
     line = tsfile.readline()
     splited = line.split(";")
@@ -114,6 +132,7 @@ with open("simulation/0_log.csv", "w") as logfile:
     print(str(peak_avg).replace(".",","), file=logfile, end=';')
     print(str(fit_avg).replace(".",","), file=logfile, end=';')
     print(str(mttf).replace(".",",").replace("\n", ""), file=logfile, end=';')
+    print("-;-;-", file=logfile, end=';')
     print(SCENARIO, file=logfile, end=';')
     print(maxx, file=logfile, end=';')
     print(q3, file=logfile, end=';')
@@ -124,4 +143,5 @@ with open("simulation/0_log.csv", "w") as logfile:
     print(q3_std.replace("\n", ""), file=logfile, end=';')
     print(median_std.replace("\n", ""), file=logfile, end=';')
     print(q1_std.replace("\n", ""), file=logfile, end=';')
-    print(minn_std.replace("\n", ""), file=logfile, end='')
+    print(minn_std.replace("\n", ""), file=logfile, end=';')
+    print(clusterformation, file=logfile, end='')

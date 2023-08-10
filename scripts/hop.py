@@ -51,7 +51,7 @@ def main():
                 app_id = int(line.split(" ")[1])
                 apps[app_id] = app_name
 
-    print("Sistema de dimensoes: "+str(mpsoc_x)+"x"+str(mpsoc_y))
+    print("\nSistema de dimensoes: "+str(mpsoc_x)+"x"+str(mpsoc_y))
     print(tasks)
     print(apps)
 

@@ -14,8 +14,11 @@ occupation = []
 occupation_time = []
 
 index = 0
+files = 0
 for xx in range(XX):
     for yy in range(YY):
+        files+=1
+        print("\roccupation.py - Reading File "+str(files)+"/"+str(XX*YY)+" - "+str((files*100)/(XX*YY))+"%", end='')
         #print("reading file " + str(xx) + "x" + str(yy))
         empty = []
         time = []

@@ -34,7 +34,6 @@
 #include <string.h>
 #include <stdlib.h>
 
-//#define TOTAL_STRUCTURES DIM_X*DIM_Y
 
 #define INT_CONVE 1048576   //1048576
 #define INT_CONVB 8192      //8192
@@ -109,7 +108,11 @@ double EM_act_ratio[TOTAL_STRUCTURES];
 
 int received = 0;
 
-FILE *fp;
+FILE *FITlog_file;
+FILE *SysTemp_file; 
+FILE *SysPower_file;
+FILE *Matex_file;
+
 
 void load_matrices(double Binv[THERMAL_NODES][SYSTEM_SIZE], double Cexp[THERMAL_NODES][THERMAL_NODES]){
     FILE *binvpointer;
@@ -198,23 +201,23 @@ void temp_matex(double TempTraceEnd[THERMAL_NODES], double power_trace[SYSTEM_SI
     double Tsteady[THERMAL_NODES];
     double Tdifference[THERMAL_NODES];
 
-    FILE *filepointer;
-    filepointer = fopen("simulation/matex.txt","a");
+    //FILE *filepointer;
+    //filepointer = fopen("simulation/matex.txt","a");
 
     computeSteadyStateTemp(Tsteady, power_trace);
 
     for(k = 0; k < THERMAL_NODES; k++)
         Tdifference[k] = TempTraceEnd[k] - Tsteady[k];
 
-    fprintf(filepointer,"Power: "); 
+    fprintf(Matex_file,"Power: "); 
     for(i = 0; i < SYSTEM_SIZE; i++)
-        fprintf(filepointer,"%f ", power_trace[i]);
-    fprintf(filepointer,"\n");
+        fprintf(Matex_file,"%f ", power_trace[i]);
+    fprintf(Matex_file,"\n");
 
-    fprintf(filepointer,"Tsteady: "); 
+    fprintf(Matex_file,"Tsteady: "); 
     for(i = 0; i < SYSTEM_SIZE; i++)
-        fprintf(filepointer,"%f ", Tsteady[i]);
-    fprintf(filepointer,"\n");
+        fprintf(Matex_file,"%f ", Tsteady[i]);
+    fprintf(Matex_file,"\n");
 
     for(k = 0; k < THERMAL_NODES; k++){
         sumExponentials = 0;
@@ -225,11 +228,12 @@ void temp_matex(double TempTraceEnd[THERMAL_NODES], double power_trace[SYSTEM_SI
         TempTraceEnd[k] = Tsteady[k] + sumExponentials;
     }
 
-    fprintf(filepointer,"Temperatures: "); 
+    fprintf(Matex_file,"Temperatures: "); 
     for(i = 0; i < SYSTEM_SIZE; i++)
-        fprintf(filepointer,"%f ", TempTraceEnd[i]);
-    fprintf(filepointer,"\n");
-    fclose(filepointer);
+        fprintf(Matex_file,"%f ", TempTraceEnd[i]);
+    fprintf(Matex_file,"\n");
+    fflush(Matex_file);
+    //fclose(filepointer);
 
     // RELIABILITY
     for (structures=0;structures<TOTAL_STRUCTURES;structures++){
@@ -421,15 +425,16 @@ PPM_PACKETNET_CB(dataUpdate) {
                 //power_trace[index++] = (double)(power[yi][xi]*SCALING_FACTOR)/(1280000*WINDOW_TIME);
         computeSteadyStateTemp(t_steady, power_trace);
         // SAVE Power
-        FILE *powerlog;
-        powerlog = fopen("simulation/SystemPower.tsv", "a");
-        fprintf(powerlog, "%.4f", (bhmGetCurrentTime()/1000000));
+        //FILE *powerlog;
+        //powerlog = fopen("simulation/SystemPower.tsv", "a");
+        fprintf(SysPower_file, "%.4f", (bhmGetCurrentTime()/1000000));
         for(i = 0; i < DIM_Y*DIM_X; i++){
             
-            fprintf(powerlog,"\t%f",power_trace[i]);
+            fprintf(SysPower_file,"\t%f",power_trace[i]);
         }
-        fprintf(powerlog, "\n");
-        fclose(powerlog);
+        fprintf(SysPower_file, "\n");
+        fflush(SysPower_file);
+        //fclose(powerlog);
 
         ////////////////////////////////////////////////////////////////////////
         /*CALCULAR TRANSIENT*/
@@ -446,20 +451,21 @@ PPM_PACKETNET_CB(dataUpdate) {
         thePacket[0] = MASTER_ADDR; // Header (destine address)
         thePacket[1] = htonl(DIM_X*DIM_Y + 11); 
         thePacket[2] = htonl(0x55); // #define TEMPERATURE_PACKET  0x55 (api.h)
-        fp = fopen("simulation/SystemTemperature.tsv", "a");
-        fprintf(fp, "%.4f", (bhmGetCurrentTime()/1000000));
+        //fp = fopen("simulation/SystemTemperature.tsv", "a");
+        fprintf(SysTemp_file, "%.4f", (bhmGetCurrentTime()/1000000));
         for(i = 0; i < DIM_Y*DIM_X; i++){
             tempi = TempTraceEnd[i]*100;
             thePacket[i+13] = htonl(tempi);
-            fprintf(fp, "\t%.2f", (((float)tempi/100)-273.15));
+            fprintf(SysTemp_file, "\t%.2f", (((float)tempi/100)-273.15));
         }
-        fprintf(fp, "\n");
-        fclose(fp);
+        fprintf(SysTemp_file, "\n");
+        fflush(SysTemp_file);
+        //fclose(fp);
         sendPacketToMaster = 1;
 
         // FIT Packet to master
         int fiti;
-        FILE *fitlog;
+        //FILE *fitlog;
         received_samples++;
         /*if(received_samples < 50){
             bhmMessage("I", "TEA", "%d samples received to generate the FIT!", received_samples);
@@ -472,15 +478,16 @@ PPM_PACKETNET_CB(dataUpdate) {
             theFITPacket[0] = MASTER_ADDR; // Header (destine address)
             theFITPacket[1] = htonl(DIM_X*DIM_Y + 11); 
             theFITPacket[2] = htonl(0x57); // defined 0x57 at api.h
-            fitlog = fopen("simulation/FITlog.tsv", "a");
-            fprintf(fitlog, "%.4f", (bhmGetCurrentTime()/1000000));
+            //fitlog = fopen("simulation/FITlog.tsv", "a");
+            fprintf(FITlog_file, "%.4f", (bhmGetCurrentTime()/1000000));
             for(i = 0; i < DIM_Y*DIM_X; i++){
                 fiti = rel_unit[i].ind_inst*100;
-                fprintf(fitlog,"\t%f",rel_unit[i].ind_inst);
+                fprintf(FITlog_file,"\t%f",rel_unit[i].ind_inst);
                 theFITPacket[i+13] = htonl(fiti);
             }
-            fprintf(fitlog, "\n");
-            fclose(fitlog);
+            fprintf(FITlog_file, "\n");
+            fflush(FITlog_file);
+            //fclose(fitlog);
             sendFITtoMaster = 1;
         //}
         
@@ -546,25 +553,21 @@ int main(int argc, char *argv[]) {
         ppmDocAddText(doc2_node, "Termal Estimator Accelerator");
     }
 
-    FILE *fl;
-    FILE *fpower;
-    fl = fopen("simulation/FITlog.tsv", "w");
-    fp = fopen("simulation/SystemTemperature.tsv", "w");
-    fpower = fopen("simulation/SystemPower.tsv", "w");
-    fprintf(fp, "time");
-    fprintf(fl, "time");
-    fprintf(fpower, "time");
+    Matex_file = fopen("simulation/matex.txt","w");
+    FITlog_file = fopen("simulation/FITlog.tsv", "w");
+    SysTemp_file = fopen("simulation/SystemTemperature.tsv", "w");
+    SysPower_file = fopen("simulation/SystemPower.tsv", "w");
+    fprintf(SysTemp_file, "time");
+    fprintf(FITlog_file, "time");
+    fprintf(SysPower_file, "time");
     for(i=0;i<DIM_X*DIM_Y;i++){
-        fprintf(fp, "\t%d",i);
-        fprintf(fl, "\t%d",i);
-        fprintf(fpower, "\t%d",i);
+        fprintf(SysTemp_file, "\t%d",i);
+        fprintf(FITlog_file, "\t%d",i);
+        fprintf(SysPower_file, "\t%d",i);
     }
-    fprintf(fp, "\n");
-    fprintf(fl, "\n");
-    fprintf(fpower, "\n");
-    fclose(fp);
-    fclose(fl);
-    fclose(fpower);
+    fprintf(SysTemp_file, "\n");
+    fprintf(FITlog_file, "\n");
+    fprintf(SysPower_file, "\n");
 
     diagnosticLevel = 0;
     bhmInstallDiagCB(setDiagLevel);
@@ -582,6 +585,10 @@ int main(int argc, char *argv[]) {
     }
 
     bhmWaitEvent(bhmGetSystemEvent(BHM_SE_END_OF_SIMULATION));
+    fclose(FITlog_file);
+    fclose(SysTemp_file);
+    fclose(SysPower_file);
+    fclose(Matex_file);
     destructor();
     return 0;
 }
