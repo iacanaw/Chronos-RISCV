@@ -6,7 +6,7 @@ import subprocess
 from timeit import default_timer as timer
 
 
-maxthreads = 1
+maxthreads = 6
 sema = threading.Semaphore(value=maxthreads)
 
 def main():
