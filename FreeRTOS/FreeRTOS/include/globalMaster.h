@@ -26,7 +26,7 @@
 
 // q-learning stuff
 #define N_TASKTYPE  3
-#define N_STATES    35*35
+#define N_STATES    35
 
 unsigned int globalID;
 
