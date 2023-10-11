@@ -72,7 +72,7 @@ for i in range(len(occupation)):
     occupation[i] = occupation[i]/max
     sum += occupation[i]
 avg = sum / len(occupation)
-print(avg)
+print("\n"+ str(avg))
 print("\tUso (%)\t\t||    Ocorrências")
 print("========================||========================")
 for j in range(10):
@@ -89,6 +89,9 @@ slotOcc = []
 timeSlotOcc = []
 PEOcc = []
 timePEOcc = []
+migStart = []
+migEnd = []
+migRef = []
 
 with open("simulation/log_0x0.txt", "r") as log_file:
     while True:
@@ -107,14 +110,24 @@ with open("simulation/log_0x0.txt", "r") as log_file:
             if value[1].isnumeric() and value[3].isnumeric():
                 PEOcc.append(int(value[1]))
                 timePEOcc.append(int(value[3]))
+        elif "Got a app to migrate" in line:
+            migStart.append(timePEOcc[-1:])
+        elif "25NI_RX_DONE" in line:
+            migEnd.append(timePEOcc[-1:])
+        elif "29NI_RX_DONE" in line:
+            migRef.append(timePEOcc[-1:])
         elif line == '':
-            break
+            break       
+
 
 
 fig, ax = plt.subplots()
 ax.plot(occupation_time, occupation, 'k-', linewidth=1.0, label="Instructions Usage")
-ax.plot(timeSlotOcc, slotOcc, 'r-', linewidth=1.1, label="Slots Occupation")
+#ax.plot(timeSlotOcc, slotOcc, 'r-', linewidth=1.1, label="Slots Occupation")
 ax.plot(timePEOcc, PEOcc, 'b-', linewidth=1.0, label = "PE Occupation")
+ax.vlines(migStart, 0, 100, colors='green', linestyle='dashdot', label="Start Mig")
+ax.vlines(migEnd, 0, 100, colors='orange', linestyle="dashed", label="End Mig")
+ax.vlines(migRef, 0, 100, colors='red', linestyle="dotted", label="Refused Mig")
 ax.legend()
 ax.set_ylim([0, 100])
 ax.set_title('Occupation')

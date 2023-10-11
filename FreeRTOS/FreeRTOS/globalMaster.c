@@ -75,28 +75,29 @@ void API_PrintOccupation(int tick){
     int availableSlots, occupiedPES, i;
     availableSlots = 0;
     occupiedPES = 0;
+    vTaskEnterCritical();
     for( i = 1; i < DIM_X*DIM_Y; i++){
         availableSlots += Tiles[getXpos(id2addr(i))][getYpos(id2addr(i))].taskSlots;
         if (Tiles[getXpos(id2addr(i))][getYpos(id2addr(i))].taskSlots != NUM_MAX_TASKS){
             occupiedPES++;
         }
     }
-    availableSlots = ((((DIM_X*DIM_Y-1)*NUM_MAX_TASKS)-availableSlots)*100) / ((DIM_X*DIM_Y-1)*NUM_MAX_TASKS);
-    occupiedPES = (occupiedPES*100) / (DIM_X*DIM_Y-1);
-    vTaskEnterCritical();
+    availableSlots = ((((DIM_X*DIM_Y)*NUM_MAX_TASKS)-availableSlots)*100) / ((DIM_X*DIM_Y)*NUM_MAX_TASKS);
+    occupiedPES = (occupiedPES*100) / (DIM_X*DIM_Y);
     printsvsv("---->Slot_occ: ", availableSlots, "tick: ", tick);
     printsvsv("---->PE_occ: ", occupiedPES, "tick: ", tick);
     vTaskExitCritical();
 }
 
 unsigned int API_getMaxIdxfromRow(float *policyTable, unsigned int row, unsigned int n_collumns, unsigned int n_rows){
-    unsigned int max = 0, i;
+    unsigned int i;
+    float max = 0;
     for( i = 0; i < n_collumns; i++){
         if( *(policyTable + row*n_collumns + i) >= max){
             max = i;
         }
     }
-    return max;
+    return (int)max;
 }
 
 ////////////////////////////////////////////////////////////
@@ -106,7 +107,7 @@ void API_RepositoryWakeUp(){
     API_setFreqIdle();
     API_applyFreqScale();
     while(xTaskGetTickCount() < 40){ /*waits here */ }
-
+    globalID = 100;
     Migration_Status = FALSE;
 
 #if THERMAL_MANAGEMENT != 4 // CHARACTERIZE
@@ -513,14 +514,13 @@ void API_Clusterless(unsigned int app){
 // Defines a cluster with the  as objetive
 void API_FindBestCluster( unsigned int app){
     unsigned int cluster_size, base_addr, i, j;
-    int smallFIT = 0x7FFFFFFF;
-    int fit = 0;
+    int smallScore = 0x7FFFFFFF;
+    int score = 0;
     unsigned int smallOccupation = 0x7FFFFFFF;
     unsigned int occupation = 0;
 
     unsigned int sel_cluster_size = 0;
     unsigned int sel_cluster_base_addr = 0;
-
 
     cluster_size = API_minClusterSize(applications[app].numTasks*2);
     printsvsv("requesting size: ", applications[app].numTasks*2, "calculated: ", cluster_size);
@@ -528,15 +528,15 @@ void API_FindBestCluster( unsigned int app){
         for(i = 0; i <= (DIM_X-cluster_size); i++){
             for(j = 0; j <= (DIM_Y-cluster_size); j++){
                 base_addr = makeAddress(i, j);
-                fit = API_CheckCluster(base_addr, cluster_size, applications[app].numTasks*2);
+                score = API_CheckCluster(base_addr, cluster_size, applications[app].numTasks*2);
                 occupation = API_GetClusterOccupation(base_addr, cluster_size);
                 //prints("----------------\n");
                 //printsv("base: ", base_addr);
                 //printsvsv("fit: ", fit, "occupation: ", occupation);
-                if(fit != 0 && occupation <= smallOccupation){
-                    if ( fit < smallFIT ){
+                if(score != 0 && occupation <= smallOccupation){
+                    if ( score < smallScore || (score == smallScore && 0 == (random()%2)) ){ 
                         //prints("Selected!\n");
-                        smallFIT = fit;
+                        smallScore = score;
                         smallOccupation = occupation;
                         sel_cluster_size = cluster_size;
                         sel_cluster_base_addr = base_addr;
@@ -743,7 +743,7 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
     for (i = 0; i < applications[app_id].numTasks; i++){
         printsvsv("checking ", i, "task is: ", applications[app_id].tasks[i].status);
         printsvsv("from app: ", app_id, "running at addr: ", applications[app_id].tasks[i].addr);
-        if(applications[app_id].tasks[i].status != TASK_FINISHED){
+        if(applications[app_id].tasks[i].status != TASK_FINISHED && applications[app_id].tasks[i].status != TASK_TO_ALLOCATE){
             flag = 0;
             break;
         }
@@ -902,9 +902,11 @@ void API_RepositoryAllocation(unsigned int app, unsigned int task, unsigned int 
     ServicePipe[mySlot].header.task_id          = task;
     ServicePipe[mySlot].header.app_id           = app;
     ServicePipe[mySlot].header.task_dest_addr   = dest_addr;
-
+    ServicePipe[mySlot].header.id               = globalID;
+    printsv("globalID: ", globalID);
+    globalID++;
     API_PushSendQueue(SERVICE, mySlot);
-    return;    
+    return;
 }
 
 void API_TaskAllocated(unsigned int task_id, unsigned int app_id){
@@ -965,11 +967,18 @@ void API_Migration_Refused(unsigned int task_id, unsigned int app_id, unsigned i
         applications[app_id].tasks[task_id].migration = FALSE;
     }
     if ( applications[app_id].tasks[task_id].status == TASK_MIGRATION_REQUEST ){
-        applications[app_id].tasks[task_id].status = TASK_STARTED;
+        //applications[app_id].tasks[task_id].status = TASK_STARTED; // old
+        // if(task_id > 0){
+        //     applications[app_id].tasks[task_id].status = applications[app_id].tasks[0].status;
+        // }
+        // else{
+        //     applications[app_id].tasks[task_id].status = applications[app_id].tasks[1].status;
+        // }
+        API_DealocateTask(task_id, app_id);
     }
     if( Migration_Status == TRUE ){
         Migration_Status = FALSE;
-        API_ClearTaskSlotFromTile(addr, app_id, task_id);
+        //API_ClearTaskSlotFromTile(addr, app_id, task_id);
     }
     return;
 }
@@ -984,14 +993,12 @@ void API_StartTasks(){
                 if(applications[j].tasks[i].status == TASK_RESUME){
                     API_ResumeApplication(j);
                     start = FALSE;
-                    //break;
                 } else if( applications[j].tasks[i].status == TASK_SEND_STALL){
                     start = FALSE;
                     API_Send_StallTask( j, i );
                 }
                 else if( applications[j].tasks[i].status != TASK_ALLOCATED){
                     start = FALSE;
-                    //break;
                 } 
             }
             if(start == TRUE){
@@ -1056,7 +1063,7 @@ void API_StallTask_Ack(unsigned int app_id, unsigned int task_id){
         }
     }
     API_Migration_ForwardTask(app_id, m_task_id, applications[app_id].newAddr);
-
+    printsv("TTT02: ", xTaskGetTickCount());
     prints("Every task is stalled! Forwarding the migrating task... \n");
     return;
 }
@@ -1196,6 +1203,17 @@ void quickSort(int arr[], int arr2[], int low, int high){
         // partition and after partition 
         quickSort(arr, arr2, low, (pi - 1)); 
         quickSort(arr, arr2, (pi + 1), high); 
+    }
+}
+
+void randPositions(int arr[], int arr2[], int low, int high){
+    for(int i = low; i < (high-1); i++){
+        if(arr[i] == arr[i+1]){
+            if( 60 > random()%100 ){
+                swap(&arr[i], &arr[i+1]);
+                swap(&arr2[i], &arr2[i+1]);
+            }
+        }
     }
 }
 

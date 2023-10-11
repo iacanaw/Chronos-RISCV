@@ -20,32 +20,34 @@ bar_width = 1 / (NUM_CAT+1)
 
 def main():
 
-    sim_time_s = [1]
-    scenarios_to_sim = ["iscas_90", "iscas_70", "iscas_50", "iscas_30"]
-    sizes_to_sim = [8]
-    managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["yes", "no"]], ["chronos", ["yes", "no"]]]
-    name = "ISCAS23_Q3_"
-    i = 24
+    # sim_time_s = [1]
+    # scenarios_to_sim = ["iscas_90", "iscas_70", "iscas_50", "iscas_30"]
+    # sizes_to_sim = [8]
+    # managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["yes", "no"]], ["chronos", ["yes", "no"]]]
+    # name = "ISCAS23_Q3_"
+    # i = 24
 
-    graphs = []
-    threads = []
-    # Creating Threads to run MATEX and Graphs
-    for time in sim_time_s:
-        for size in sizes_to_sim:
-            for scenario in scenarios_to_sim:
-                graph = [] 
-                for mm in managements_mig:
-                    for mig in mm[1]:
-                        str_name = name+str(i)
-                        method = mm[0]
-                        foldername = str_name+"_"+scenario+"_"+str(time*10000)+"ticks_mig"+mig+"_"+method+"_"+str(size)+"x"+str(size)                        
-                        #x = threading.Thread(target=run_ramp, args=(foldername, size, size,))
-                        #x.start()
-                        #threads.append(x)
-                        graph.append(foldername)
-                        i+=1
-                graphs.append(graph)
-        
+    # graphs = []
+    # threads = []
+    # # Creating Threads to run MATEX and Graphs
+    # for time in sim_time_s:
+    #     for size in sizes_to_sim:
+    #         for scenario in scenarios_to_sim:
+    #             graph = [] 
+    #             for mm in managements_mig:
+    #                 for mig in mm[1]:
+    #                     str_name = name+str(i)
+    #                     method = mm[0]
+    #                     foldername = str_name+"_"+scenario+"_"+str(time*10000)+"ticks_mig"+mig+"_"+method+"_"+str(size)+"x"+str(size)                        
+    #                     #x = threading.Thread(target=run_ramp, args=(foldername, size, size,))
+    #                     #x.start()
+    #                     #threads.append(x)
+    #                     graph.append(foldername)
+    #                     i+=1
+    #             graphs.append(graph)
+    
+    graphs = [["TESE_CAP5_0_alog_50_50000ticks_migno_worst_14x14", "TESE_CAP5_1_alog_50_50000ticks_migno_pattern_14x14", "TESE_CAP5_2_alog_50_50000ticks_migno_pidtm_14x14","TESE_CAP5_remain_0_alog_50_30000ticks_migyes_pidtm_14x14","TESE_CAP5_4_alog_50_50000ticks_migno_chronos_14x14","TESE_CAP5_remain_1_alog_50_30000ticks_migyes_chronos_14x14"], ["TESE_CAP5_7_alog_70_50000ticks_migno_worst_14x14", "TESE_CAP5_8_alog_70_50000ticks_migno_pattern_14x14","TESE_CAP5_9_alog_70_50000ticks_migno_pidtm_14x14","TESE_CAP5_remain_4_alog_70_30000ticks_migyes_pidtm_14x14", "TESE_CAP5_11_alog_70_50000ticks_migno_chronos_14x14","TESE_CAP5_remain_5_alog_70_30000ticks_migyes_chronos_14x14" ]]
+
     for graph in graphs:
         # for each graph...
         small_fit = 9999999999
@@ -121,7 +123,7 @@ def main():
                 if k in graph[i]:
                     the_label = graph[i].split("_")[7]
                     if "worst" in graph[i]:
-                        plt.bar((X + i*bar_width), organized_fits[i], width = bar_width, edgecolor ='black', label="Worst", color="#ef476f", hatch="xx") #f9c80e
+                        plt.bar((X + i*bar_width), organized_fits[i], width = bar_width, edgecolor ='black', label="Clumped", color="#ef476f", hatch="xx") #f9c80e
     
                     elif "pidtm" in graph[i] and "migyes" in graph[i]:
                         plt.bar((X + i*bar_width), organized_fits[i], width = bar_width, edgecolor ='black', label="PID Mig.", color="#06D6A0", hatch="\\\\\\") #ea3546

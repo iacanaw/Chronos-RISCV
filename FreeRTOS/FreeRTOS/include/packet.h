@@ -74,6 +74,7 @@ typedef struct {
 	};
 	union{
 		unsigned int flit9;
+		unsigned int id;
 	};
 	union{
 		unsigned int flit10;

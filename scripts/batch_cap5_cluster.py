@@ -6,37 +6,40 @@ import subprocess
 from timeit import default_timer as timer
 
 
-maxthreads = 4
+maxthreads = 6
 sema = threading.Semaphore(value=maxthreads)
 
 def main():
 
     sim_time_s = [2.5]
-    scenarios_to_sim = ["alog_70", "alog_50", "alog_90"] # 98 137 176
-    sizes_to_sim = [14]
-    #managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["no"]], ["chronos", ["no"]]]
-    managements_mig = [["chronos", ["no", "yes"]]]
-    clusters = ["clusterless", "fit", "temp", "tasks"]
-    name = "TESE_Z_CLUSTER_TAB35_"
+    scenarios_to_sim = ["70occ", "50occ", "90occ"]
+    sizes_to_sim = [3, 6, 8, 11] #, 14]
+    managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["no", "yes"]], ["chronos", ["no", "yes"]]]
+    clusters = ["fit", "temp", "tasks", "clusterless"]
+    name = "TESE_TAB3535_"
     i = 0
 
     # Creating Threads to run MATEX and Graphs
     for time in sim_time_s:
         for size in sizes_to_sim:
             for scenario in scenarios_to_sim:
+                scenario = str(size)+"_"+scenario
                 for mm in managements_mig:
                     for mig in mm[1]:
                         method = mm[0]
+                        
                         if(mm[0] == "chronos"):
                             for cluster in clusters:
                                 str_name = name+str(i)
-                                x = threading.Thread(target=run_ovp_sim, args=(str_name, time, size, scenario, method, mig, cluster,))
-                                x.start()
+                                if(mig == "yes"):
+                                    x = threading.Thread(target=run_ovp_sim, args=(str_name, time, size, scenario, method, mig, cluster,))
+                                    x.start()
                                 i+=1
                         else:
                             str_name = name+str(i)
-                            x = threading.Thread(target=run_ovp_sim, args=(str_name, time, size, scenario, method, mig, " ", ))
-                            x.start()
+                            if(mig == "yes" ):
+                                x = threading.Thread(target=run_ovp_sim, args=(str_name, time, size, scenario, method, mig, " ", ))
+                                x.start()
                             i+=1
                             
     
@@ -56,7 +59,7 @@ def run_ovp_sim(name, time, size, scenario, mm, mig, cluster):
         output, error = process.communicate()
         end = timer()
         print(str(end-start))
-        if (end - start) > 15*60: # 10min in seconds
+        if (end - start) > size*1.5*60: # 10min in seconds
             break
     sema.release()
 

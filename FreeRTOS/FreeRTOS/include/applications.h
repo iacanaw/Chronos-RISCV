@@ -21,6 +21,7 @@
 
 typedef struct {
     volatile unsigned int status;
+    unsigned int id;
     MemoryRegion_t memRegion; 
     unsigned int TaskID;
     unsigned int AppID;
@@ -50,7 +51,7 @@ void API_TaskListInit();
 // Returns the running taskID
 unsigned int API_GetCurrentTaskSlot();
 // Creates a new task filling the TaskList
-unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int app_id, unsigned int migration_addr);
+unsigned int API_TaskAllocation(unsigned int task_id, unsigned int txt_size, unsigned int bss_size, unsigned int start_point, unsigned int app_id, unsigned int migration_addr, unsigned int id);
 // Starts the execution of a task that is alocated in a given spot
 void API_TaskStart(unsigned int slot, unsigned int arg);
 

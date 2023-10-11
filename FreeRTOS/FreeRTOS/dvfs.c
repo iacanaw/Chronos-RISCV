@@ -2,11 +2,13 @@
 
 void API_setFreqIdle(){
     selectedFrequencyScale = FREQ_IDLE;
+    prints("FREQ IDLE");
     return;
 }
 
 void API_setFreqScale(unsigned int scale){
     selectedFrequencyScale = scale;
+    printsv("FREQ ", scale);
     return;
 }
 

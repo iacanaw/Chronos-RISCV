@@ -26,7 +26,9 @@
 
 // q-learning stuff
 #define N_TASKTYPE  3
-#define N_STATES    35
+#define N_STATES    35*35
+
+unsigned int globalID;
 
 // Finish 
 volatile unsigned int API_SystemFinish;
@@ -171,5 +173,7 @@ unsigned int API_SelectTaskFromPE_Migration(int pe_id);
 unsigned int API_SelectTask_Migration_Temperature(int threshold);
 
 unsigned int API_isApplicationReady(unsigned int app);
+
+void randPositions(int arr[], int arr2[], int low, int high);
 
 #endif

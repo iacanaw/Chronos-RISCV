@@ -1,5 +1,8 @@
 #include "thermal.h"
 #include "chronos.h"
+#include "applications.h"
+// Stores information about each running task
+extern volatile Task TaskList[ NUM_MAX_TASKS ];
 
 void printExecutedInstructions(){
     prints("--------------------------\n");
@@ -125,6 +128,10 @@ void powerEstimation(){
         total = loads + stores + branch + reg + imm + jump + pc + others;
         vTaskEnterCritical();
         printsvsv("inst~~~> ", total, "tick ", xTaskGetTickCount());
+        for(int i=0;i<NUM_MAX_TASKS;i++){
+            if(TaskList[i].status != TASK_SLOT_EMPTY)
+            printsv("globalID: ", TaskList[i].id);
+        }
         vTaskExitCritical();
         
         // calculates the PE dynamic energy
