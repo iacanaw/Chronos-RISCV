@@ -32,7 +32,6 @@ def main():
                         x.start()
                         i+=1
                             
-    
 
 def run_ovp_sim(name, time, size, scenario, mm, mig):
     sema.acquire()
@@ -41,13 +40,13 @@ def run_ovp_sim(name, time, size, scenario, mm, mig):
         start = timer()
         bashCommand = "./RUN_FreeRTOS.sh -x "+str(size)+" -y "+str(size)+" -t "+str(time*10000)+" -m "+mm+" -s "+scenario+" -n "+name+" -g "+mig
         print(bashCommand)
-        # process = subprocess.Popen(bashCommand, shell=True)
-        # process.wait()
-        # output, error = process.communicate()
-        # end = timer()
-        # print(str(end-start))
-        # if (end - start) > size*1.5*60: 
-        break
+        process = subprocess.Popen(bashCommand, shell=True)
+        process.wait()
+        output, error = process.communicate()
+        end = timer()
+        print(str(end-start))
+        if (end - start) > size*1.5*60: 
+            break
     sema.release()
 
 #-----------------------------------------------------
