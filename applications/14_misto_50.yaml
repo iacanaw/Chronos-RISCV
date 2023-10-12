@@ -1,0 +1,171 @@
+apps:
+ - name: prodcons_nodead
+   period: 0
+   executions: 1
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons_nodead
+   period: 0
+   executions: 1
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons_nodead
+   period: 0
+   executions: 1
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons_nodead
+   period: 0
+   executions: 1
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons_nodead
+   period: 0
+   executions: 1
+   tasks:
+    prod: 0
+    cons: 1
+ - name: double_pipeline
+   period: 0
+   executions: 10
+   tasks:
+    master: 0
+    pipeA1: 1
+    pipeA2: 2
+    pipeA3: 3
+    pipeB1: 4
+    pipeB2: 5
+    pipeB3: 6
+ - name: double_pipeline
+   period: 0
+   executions: 10
+   tasks:
+    master: 0
+    pipeA1: 1
+    pipeA2: 2
+    pipeA3: 3
+    pipeB1: 4
+    pipeB2: 5
+    pipeB3: 6
+ - name: double_pipeline
+   period: 0
+   executions: 10
+   tasks:
+    master: 0
+    pipeA1: 1
+    pipeA2: 2
+    pipeA3: 3
+    pipeB1: 4
+    pipeB2: 5
+    pipeB3: 6
+ - name: double_pipeline
+   period: 0
+   executions: 10
+   tasks:
+    master: 0
+    pipeA1: 1
+    pipeA2: 2
+    pipeA3: 3
+    pipeB1: 4
+    pipeB2: 5
+    pipeB3: 6
+ - name: double_pipeline
+   period: 0
+   executions: 10
+   tasks:
+    master: 0
+    pipeA1: 1
+    pipeA2: 2
+    pipeA3: 3
+    pipeB1: 4
+    pipeB2: 5
+    pipeB3: 6
+ - name: double_pipeline
+   period: 0
+   executions: 10
+   tasks:
+    master: 0
+    pipeA1: 1
+    pipeA2: 2
+    pipeA3: 3
+    pipeB1: 4
+    pipeB2: 5
+    pipeB3: 6
+ - name: double_pipeline
+   period: 0
+   executions: 10
+   tasks:
+    master: 0
+    pipeA1: 1
+    pipeA2: 2
+    pipeA3: 3
+    pipeB1: 4
+    pipeB2: 5
+    pipeB3: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: pipeline_beta
+   period: 0
+   executions: 10
+   tasks:
+    pipe0: 0
+    pipe1: 1
+    pipe2: 2
+    pipe3: 3

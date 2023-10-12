@@ -12,10 +12,10 @@ sema = threading.Semaphore(value=maxthreads)
 def main():
 
     sim_time_s = [2.5]
-    scenarios_to_sim = [ "_communication_50", "_computation_70"]
-    sizes_to_sim = [14, 20]
+    scenarios_to_sim = [ "_communication_70", "_computation_70", "_misto_70", "_communication_90", "_computation_90", "_misto_90", "_communication_50", "_computation_50", "_misto_50" ]
+    sizes_to_sim = [14]
     managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["no", "yes"]], ["chronos", ["no", "yes"]]]
-    name = "VITOR_"
+    name = "SIMULATIONS_"
     i = 0
 
     # Creating Threads to run MATEX and Graphs

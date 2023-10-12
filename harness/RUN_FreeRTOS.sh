@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# exit when any command fails
+set -e
+
 ################################################################################
 # Help                                                                         #
 ################################################################################
@@ -311,9 +314,9 @@ cd harness
 sh harnessGenerator.sh "$XX" "$YY"
 cd ..
 rm -rf harness/obj
-rm harness/harness.Linux64.exe
+rm -f harness/harness.Linux64.exe
 make -C harness
-rm callHarness.sh
+rm -f callHarness.sh
 echo "FREERTOS_ELF=FreeRTOS/Debug/miv-rv32im-freertos-port-test.elf" >> callHarness.sh
 echo "echo \"===============================\"" >> callHarness.sh
 echo "echo \"CLEANING THE SIMULATION FOLDER\"" >> callHarness.sh

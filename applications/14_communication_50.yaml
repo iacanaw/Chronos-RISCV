@@ -1,0 +1,155 @@
+apps:
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: dijkstra_nodead
+   period: 0
+   executions: 10
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
