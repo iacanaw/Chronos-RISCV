@@ -79,7 +79,7 @@ apps:
     cons: 1
  - name: double_pipeline
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     master: 0
     pipeA1: 1
@@ -90,7 +90,7 @@ apps:
     pipeB3: 6
  - name: double_pipeline
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     master: 0
     pipeA1: 1
@@ -101,7 +101,7 @@ apps:
     pipeB3: 6
  - name: double_pipeline
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     master: 0
     pipeA1: 1
@@ -112,7 +112,7 @@ apps:
     pipeB3: 6
  - name: double_pipeline
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     master: 0
     pipeA1: 1
@@ -123,7 +123,7 @@ apps:
     pipeB3: 6
  - name: double_pipeline
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     master: 0
     pipeA1: 1
@@ -134,7 +134,7 @@ apps:
     pipeB3: 6
  - name: double_pipeline
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     master: 0
     pipeA1: 1
@@ -145,7 +145,7 @@ apps:
     pipeB3: 6
  - name: double_pipeline
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     master: 0
     pipeA1: 1
@@ -156,7 +156,7 @@ apps:
     pipeB3: 6
  - name: double_pipeline
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     master: 0
     pipeA1: 1
@@ -167,7 +167,7 @@ apps:
     pipeB3: 6
  - name: double_pipeline
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     master: 0
     pipeA1: 1
@@ -178,7 +178,7 @@ apps:
     pipeB3: 6
  - name: double_pipeline
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     master: 0
     pipeA1: 1
@@ -189,7 +189,7 @@ apps:
     pipeB3: 6
  - name: double_pipeline
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     master: 0
     pipeA1: 1
@@ -200,7 +200,7 @@ apps:
     pipeB3: 6
  - name: dijkstra_nodead
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
@@ -211,7 +211,7 @@ apps:
     divider: 6
  - name: dijkstra_nodead
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
@@ -222,7 +222,7 @@ apps:
     divider: 6
  - name: dijkstra_nodead
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
@@ -233,7 +233,7 @@ apps:
     divider: 6
  - name: dijkstra_nodead
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
@@ -244,7 +244,7 @@ apps:
     divider: 6
  - name: dijkstra_nodead
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
@@ -255,7 +255,7 @@ apps:
     divider: 6
  - name: dijkstra_nodead
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     dijkstra_0: 0
     dijkstra_1: 1
@@ -266,7 +266,7 @@ apps:
     divider: 6
  - name: pipeline_beta
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     pipe0: 0
     pipe1: 1
@@ -274,7 +274,7 @@ apps:
     pipe3: 3
  - name: pipeline_beta
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     pipe0: 0
     pipe1: 1
@@ -282,7 +282,7 @@ apps:
     pipe3: 3
  - name: pipeline_beta
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     pipe0: 0
     pipe1: 1
@@ -290,7 +290,7 @@ apps:
     pipe3: 3
  - name: pipeline_beta
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     pipe0: 0
     pipe1: 1
@@ -298,7 +298,7 @@ apps:
     pipe3: 3
  - name: pipeline_beta
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     pipe0: 0
     pipe1: 1
@@ -306,7 +306,7 @@ apps:
     pipe3: 3
  - name: pipeline_beta
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     pipe0: 0
     pipe1: 1
@@ -314,7 +314,7 @@ apps:
     pipe3: 3
  - name: pipeline_beta
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     pipe0: 0
     pipe1: 1
@@ -322,7 +322,7 @@ apps:
     pipe3: 3
  - name: pipeline_beta
    period: 0
-   executions: 10
+   executions: 50
    tasks:
     pipe0: 0
     pipe1: 1

@@ -1,0 +1,50 @@
+apps:
+ - name: pipeline_beta
+   period: 0
+   executions: 40
+   tasks:
+    pipe0: 0
+    pipe1: 1
+    pipe2: 2
+    pipe3: 3
+ - name: pipeline_alpha
+   period: 0
+   executions: 40
+   tasks:
+    pipe0: 0
+    pipe1: 1
+    pipe2: 2
+    pipe3: 3
+ - name: prodcons_nodead
+   period: 0
+   executions: 40
+   tasks:
+    prod: 0
+    cons: 1
+ - name: pipeline_beta
+   period: 0
+   executions: 40
+   tasks:
+    pipe0: 0
+    pipe1: 1
+    pipe2: 2
+    pipe3: 3
+ - name: pipeline_alpha
+   period: 0
+   executions: 40
+   tasks:
+    pipe0: 0
+    pipe1: 1
+    pipe2: 2
+    pipe3: 3
+ - name: double_pipeline
+   period: 0
+   executions: 40
+   tasks:
+    master: 0
+    pipeA1: 1
+    pipeA2: 2
+    pipeA3: 3
+    pipeB1: 4
+    pipeB2: 5
+    pipeB3: 6
