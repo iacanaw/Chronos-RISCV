@@ -11,12 +11,12 @@ fig, ax = plt.subplots(figsize =(5, 2.866))
 
 EFFECTS = ["EM", "SM", "TDDB", "TC", "NBTI"]
 
-folder_w = "SIMULATIONS_18_14_communication_90_25000.0ticks_migno_worst_14x14"
-folder_p = "SIMULATIONS_19_14_communication_90_25000.0ticks_migno_pattern_14x14"
-folder_pid = "SIMULATIONS_20_14_communication_90_25000.0ticks_migno_pidtm_14x14"
-folder_c = "SIMULATIONS_21_14_communication_90_25000.0ticks_migyes_pidtm_14x14"
-folder_flea = "SIMULATIONS_22_14_communication_90_25000.0ticks_migno_chronos_14x14"
-folder_d = "SIMULATIONS_23_14_communication_90_25000.0ticks_migyes_chronos_14x14"
+folder_w = "SIMULATIONS_12_14_misto_70_25000.0ticks_migno_worst_14x14"
+folder_p = "SIMULATIONS_13_14_misto_70_25000.0ticks_migno_pattern_14x14"
+folder_pid = "SIMULATIONS_14_14_misto_70_25000.0ticks_migno_pidtm_14x14"
+folder_c = "SIMULATIONS_15_14_misto_70_25000.0ticks_migyes_pidtm_14x14"
+folder_flea = "SIMULATIONS_16_14_misto_70_25000.0ticks_migno_chronos_14x14"
+folder_d = "SIMULATIONS_17_14_misto_70_25000.0ticks_migyes_chronos_14x14"
 
 folders = [folder_w, folder_p, folder_pid, folder_c, folder_flea, folder_d] 
 
@@ -38,22 +38,23 @@ for folder in folders:
                         masterPE = 0
                         for pe in range(sys_size):
                                 # saves the fits
-                                summed =  float(sys_fit[pe*5])+float(sys_fit[(pe*5)+1])+float(sys_fit[(pe*5)+2])+float(sys_fit[(pe*5)+3])+float(sys_fit[(pe*5)+4])
-                                pe = [ float(sys_fit[pe*5]), float(sys_fit[(pe*5)+1]), float(sys_fit[(pe*5)+2]), float(sys_fit[(pe*5)+3]), float(sys_fit[(pe*5)+4]) ]
-                                fit_sum.append(summed)
-                                fits.append(pe)
+                                if(pe > -1):
+                                        summed =  float(sys_fit[pe*5])+float(sys_fit[(pe*5)+1])+float(sys_fit[(pe*5)+2])+float(sys_fit[(pe*5)+3])+float(sys_fit[(pe*5)+4])
+                                        pe = [ float(sys_fit[pe*5]), float(sys_fit[(pe*5)+1]), float(sys_fit[(pe*5)+2]), float(sys_fit[(pe*5)+3]), float(sys_fit[(pe*5)+4]) ]
+                                        fit_sum.append(summed)
+                                        fits.append(pe)
 
-                                # update the graph limits
-                                pe_total_fit = pe[0] + pe[1] + pe[2] + pe[3] + pe[4]
-                                if(pe_total_fit > big_fit):
-                                        big_fit = pe_total_fit
-                                if(pe_total_fit < small_fit):
-                                        small_fit = pe_total_fit
-                                
-                                if masterPE == 0:
-                                        masterPE = pe_total_fit
-                                elif bigPE < pe_total_fit:
-                                        bigPE = pe_total_fit
+                                        # update the graph limits
+                                        pe_total_fit = pe[0] + pe[1] + pe[2] + pe[3] + pe[4]
+                                        if(pe_total_fit > big_fit):
+                                                big_fit = pe_total_fit
+                                        if(pe_total_fit < small_fit):
+                                                small_fit = pe_total_fit
+                                        
+                                        if masterPE == 0:
+                                                masterPE = pe_total_fit
+                                        elif bigPE < pe_total_fit:
+                                                bigPE = pe_total_fit
                         
                         fit_values.append(fit_sum)
 
@@ -80,6 +81,7 @@ plt.rcParams.update({'axes.labelsize': 10})
 plt.rc('axes', labelsize=12)
 
 boxplot.append(plt.boxplot(oc70, vert=True, patch_artist=True, labels=labels, whis=10.0))
+# boxplot.append(plt.violinplot(oc70, vert=True))
 plt.title("70% of PE occupation - Mixed - 14x14")
 
 # # plot violin plot

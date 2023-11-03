@@ -5,16 +5,15 @@ import time
 import subprocess
 from timeit import default_timer as timer
 
-
-maxthreads = 6
+maxthreads = 8
 sema = threading.Semaphore(value=maxthreads)
 
 def main():
 
     sim_time_s = [2.5]
-    scenarios_to_sim = [ "_communication_70", "_computation_70", "_misto_70", "_communication_90", "_computation_90", "_misto_90", "_communication_50", "_computation_50", "_misto_50" ]
-    sizes_to_sim = [14]
-    managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["no", "yes"]], ["chronos", ["no", "yes"]]]
+    scenarios_to_sim = [ "_mixed1_70", "_mixed2_70", "_mixed1_90", "_mixed2_90", "_mixed1_50", "_mixed2_50" ]
+    sizes_to_sim = [8]
+    managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["no", "yes"]], ["chronos", ["no", "yes"]], ["chronos2", ["no", "yes"]]]
     name = "SIMULATIONS_"
     i = 0
 
@@ -27,7 +26,6 @@ def main():
                     for mig in mm[1]:
                         str_name = name+str(i)
                         method = mm[0]
-                        #if():
                         x = threading.Thread(target=run_ovp_sim, args=(str_name, time, size, scenario, method, mig,))
                         x.start()
                         i+=1

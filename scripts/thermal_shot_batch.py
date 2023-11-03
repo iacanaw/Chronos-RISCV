@@ -12,12 +12,12 @@ plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
 
 fig, axes = plt.subplots(nrows=1, ncols=6, sharex=True, sharey=True,  figsize=(18,3.5), constrained_layout=True)
 
-folder_w = "SIMULATIONS_18_14_communication_90_25000.0ticks_migno_worst_14x14"
-folder_p = "SIMULATIONS_19_14_communication_90_25000.0ticks_migno_pattern_14x14"
-folder_pid = "SIMULATIONS_20_14_communication_90_25000.0ticks_migno_pidtm_14x14"
-folder_c = "SIMULATIONS_21_14_communication_90_25000.0ticks_migyes_pidtm_14x14"
-folder_flea = "SIMULATIONS_22_14_communication_90_25000.0ticks_migno_chronos_14x14"
-folder_d = "SIMULATIONS_23_14_communication_90_25000.0ticks_migyes_chronos_14x14"
+folder_w = "SIMULATIONS_12_14_misto_70_25000.0ticks_migno_worst_14x14"
+folder_p = "SIMULATIONS_13_14_misto_70_25000.0ticks_migno_pattern_14x14"
+folder_pid = "SIMULATIONS_14_14_misto_70_25000.0ticks_migno_pidtm_14x14"
+folder_c = "SIMULATIONS_15_14_misto_70_25000.0ticks_migyes_pidtm_14x14"
+folder_flea = "SIMULATIONS_16_14_misto_70_25000.0ticks_migno_chronos_14x14"
+folder_d = "SIMULATIONS_17_14_misto_70_25000.0ticks_migyes_chronos_14x14"
 
 folders = [folder_w, folder_p, folder_pid, folder_c, folder_flea, folder_d] 
 labels = ["Worst", "Pattern", "PID", "PID+Mig", "FLEA", "FLEA+Mig"]

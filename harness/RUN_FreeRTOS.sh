@@ -77,7 +77,7 @@ fi
 
 if [ -z ${ClusterFormation} ];
 then
-    ClusterFormation='fit'
+    ClusterFormation='temp'
     echo "Default cluster formation: "$(($ClusterFormation))
 fi
 

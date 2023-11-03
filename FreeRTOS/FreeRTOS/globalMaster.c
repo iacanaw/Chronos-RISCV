@@ -578,15 +578,17 @@ void API_FindSmallerFITCluster( unsigned int app){
     cluster_size = API_minClusterSize(applications[app].numTasks*2);
     printsvsv("requesting size: ", applications[app].numTasks*2, "calculated: ", cluster_size);
     do{
+        if(cluster_size > DIM_X || cluster_size > DIM_Y){
+            sel_cluster_size = DIM_X;
+            sel_cluster_base_addr = 0x0000;
+            break;
+        }
         for(i = 0; i <= (DIM_X-cluster_size); i++){
             for(j = 0; j <= (DIM_Y-cluster_size); j++){
                 base_addr = makeAddress(i, j);
                 fit = API_CheckCluster(base_addr, cluster_size, applications[app].numTasks*2);
-                occupation = API_GetClusterOccupation(base_addr, cluster_size);
-                //prints("----------------\n");
-                //printsv("base: ", base_addr);
-                //printsvsv("fit: ", fit, "occupation: ", occupation);
-                if(fit != 0 && occupation <= smallOccupation){
+                //occupation = API_GetClusterOccupation(base_addr, cluster_size);
+                if(fit != 0){ // && occupation <= smallOccupation){
                     if ( fit < smallFIT ){
                         //prints("Selected!\n");
                         smallFIT = fit;
@@ -598,11 +600,6 @@ void API_FindSmallerFITCluster( unsigned int app){
             }
         }
         cluster_size++;
-        if(cluster_size > DIM_X || cluster_size > DIM_Y){
-            sel_cluster_size = DIM_X;
-            sel_cluster_base_addr = 0x0000;
-            break;
-        }
     }while(sel_cluster_size == 0);
     
     for(i = getXpos(sel_cluster_base_addr); i < (getXpos(sel_cluster_base_addr)+sel_cluster_size); i++){
@@ -1245,13 +1242,14 @@ void API_SortAllocationVectors(unsigned int *temperature_list, int *tempVar_list
     return;
 }
 
-unsigned int API_getPEState(unsigned int id, unsigned int excludeAddr){
+unsigned int API_getPEStateX4(unsigned int id, unsigned int excludeAddr){
     unsigned int addr = id2addr(id);
     unsigned int ex, ey;
     unsigned int x = getXpos(addr);
     unsigned int y = getYpos(addr);
-    int state_x, state_y, z, state, a;
-    unsigned int xd, yd, zd, state_xd, state_yd, stated; //, b0, c0, ad, bd, cd, i;
+    int state_0, state_1, state, a;
+    int i0, i1, i2;
+    int d0, d1, d2;
 
     unsigned int immediate[N_TASKTYPE];
     unsigned int diagonal[N_TASKTYPE]; //+
@@ -1266,7 +1264,7 @@ unsigned int API_getPEState(unsigned int id, unsigned int excludeAddr){
 
     for(a = 0; a < N_TASKTYPE; a++){
         immediate[a] = 0;
-        diagonal[a] = 0; //+
+        diagonal[a] = 0; 
     }
     // SOUTH
     if(getSouth(x,y) != -1 && !(x == ex && (y-1) == ey ))
@@ -1294,41 +1292,71 @@ unsigned int API_getPEState(unsigned int id, unsigned int excludeAddr){
     if(getNorthEast(x, y) != -1 && !((x+1) == ex && (y+1) == ey ))
         diagonal[getNorthEast(x,y)]++;
      
+    i0 = immediate[0];
+    i1 = immediate[1];
+    i2 = immediate[2];
+    // 4*35
+    d0 = diagonal[0];
+    d1 = diagonal[1];
+    d2 = diagonal[2];
+
+    state_0 = (int)(i0 ? ((i0*i0*i0 - 18*i0*i0 + 107*i0) / 6) : 0);
+    state_1 = (int)(i1 ? ((11*i1 - i1*i1 - 2*i0*i1) / 2) : 0);
+    state = state_0 + state_1 + i2;
+
+    if(d2 >= 2) // diagonal com vizinhos tipo 2
+        state = state+35*1;
+    else if(d1 >= 2) // diagonal com vizinhos tipo 1
+        state = state+35*2;
+    else if(x == 0 || x == DIM_X-1 || y == 0 || y == DIM_Y-1) // bordas
+        state = state+35*3;
+        
+    if(state >= N_STATES*4) printsv("ERRO CALCULANDO ESTADO: ", state);
+    return(state);
+}
+
+unsigned int API_getPEState(unsigned int id, unsigned int excludeAddr){
+    unsigned int addr = id2addr(id);
+    unsigned int ex, ey;
+    unsigned int x = getXpos(addr);
+    unsigned int y = getYpos(addr);
+    int state_x, state_y, z, state, a;
+    unsigned int xd, yd, zd, state_xd, state_yd, stated;
+
+    unsigned int immediate[N_TASKTYPE];
+
+    if(excludeAddr != -1){
+        ex = getXpos(excludeAddr);
+        ey = getYpos(excludeAddr);
+    } else {
+        ex = -1;
+        ey = -1;
+    }
+
+    for(a = 0; a < N_TASKTYPE; a++){
+        immediate[a] = 0;
+    }
+    // SOUTH
+    if(getSouth(x,y) != -1 && !(x == ex && (y-1) == ey ))
+        immediate[getSouth(x,y)]++;
+    // NORTH
+    if(getNorth(x, y) != -1 && !(x == ex && (y+1) == ey ))
+        immediate[getNorth(x,y)]++;
+    // WEST
+    if(getWest(x, y) != -1 && !((x-1) == ex && y == ey ))
+        immediate[getWest(x,y)]++;
+    // EAST
+    if(getEast(x, y) != -1 && !((x+1) == ex && y == ey ))
+        immediate[getEast(x,y)]++;
+     
     x = immediate[0];
     y = immediate[1];
     z = immediate[2];
-    xd = diagonal[0];
-    yd = diagonal[1];
-    zd = diagonal[2];
 
     state_x = (int)(x ? ((x*x*x - 18*x*x + 107*x) / 6) : 0);
     state_y = (int)(y ? ((11*y - y*y - 2*x*y) / 2) : 0);
     state = state_x + state_y + z;
-
-    state_xd = (int)(xd ? ((xd*xd*xd - 18*xd*xd + 107*xd) / 6) : 0);
-    state_yd = (int)(yd ? ((11*yd - yd*yd - 2*xd*yd) / 2) : 0);
-    stated = state_xd + state_yd + zd;
-
-    state = stated*35 + state;
     
-    /*i=0;
-    for(a0=0; a0<5; a0++){
-        for(b0=0; b0<5; b0++){
-            for(c0=0; c0<5; c0++){
-                for(ad=0; ad<5; ad++){
-                    for(bd=0; bd<5; bd++){
-                        for(cd=0; cd<5; cd++){
-                            if(a0 == x && b0 == y && c0 == z && ad == xd && bd == yd && cd == zd)
-                                return i;
-                            else if( (a0 + b0 + c0) <= 4 && (ad + bd + cd) <= 4)
-                                i+=1;
-                        }
-                    }
-                }
-            }
-        }
-    }*/
-
     if(state >= N_STATES) printsv("ERRO CALCULANDO ESTADO: ", state);
     return(state);
 }
