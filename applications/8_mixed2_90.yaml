@@ -1,0 +1,122 @@
+apps:
+ - name: prodcons_nodead
+   period: 0
+   executions: 50
+   tasks:
+    prod: 0
+    cons: 1
+ - name: pipeline_alpha
+   period: 0
+   executions: 50
+   tasks:
+    pipe0: 0
+    pipe1: 1
+    pipe2: 2
+    pipe3: 3
+ - name: prodcons_nodead
+   period: 0
+   executions: 50
+   tasks:
+    prod: 0
+    cons: 1
+ - name: pipeline_alpha
+   period: 0
+   executions: 50
+   tasks:
+    pipe0: 0
+    pipe1: 1
+    pipe2: 2
+    pipe3: 3
+ - name: prodcons_nodead
+   period: 0
+   executions: 50
+   tasks:
+    prod: 0
+    cons: 1
+ - name: dijkstra_nodead
+   period: 0
+   executions: 50
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: prodcons_nodead
+   period: 0
+   executions: 50
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons_nodead
+   period: 0
+   executions: 50
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons_nodead
+   period: 0
+   executions: 50
+   tasks:
+    prod: 0
+    cons: 1
+ - name: dijkstra_nodead
+   period: 0
+   executions: 50
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: prodcons_nodead
+   period: 0
+   executions: 50
+   tasks:
+    prod: 0
+    cons: 1
+ - name: dtw_nodead
+   period: 10
+   executions: 50
+   tasks:
+    bank: 0
+    p1: 1
+    p2: 2
+    p3: 3
+    p4: 4
+    recognizer: 5
+ - name: dijkstra_nodead
+   period: 0
+   executions: 50
+   tasks:
+    dijkstra_0: 0
+    dijkstra_1: 1
+    dijkstra_2: 2
+    dijkstra_3: 3
+    dijkstra_4: 4
+    print_dij: 5
+    divider: 6
+ - name: prodcons_nodead
+   period: 0
+   executions: 50
+   tasks:
+    prod: 0
+    cons: 1
+ - name: prodcons_nodead
+   period: 0
+   executions: 50
+   tasks:
+    prod: 0
+    cons: 1
+ - name: pipeline_alpha
+   period: 0
+   executions: 50
+   tasks:
+    pipe0: 0
+    pipe1: 1
+    pipe2: 2
+    pipe3: 3
