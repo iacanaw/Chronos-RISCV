@@ -971,12 +971,12 @@ static void GlobalManagerTask( void *pvParameters ){
                 }
 
                 // register the application allocation
-                applications[app].tasks[task].addr = addr;
-                printsvsv("X: ", getXpos(addr), "Y: ", getYpos(addr));
+                applications[app].tasks[task].addr = high_addr;
+                printsvsv("X: ", getXpos(high_addr), "Y: ", getYpos(high_addr));
                 applications[app].tasks[task].slot = slot;
                 applications[app].lastStart = applications[app].nextRun;
-                API_RepositoryAllocation(app, task, addr);
-                debug_task_alloc(tick, app, task, addr);
+                API_RepositoryAllocation(app, task, high_addr);
+                debug_task_alloc(tick, app, task, high_addr);
 
                 last_app = app;
 
@@ -1223,12 +1223,12 @@ static void GlobalManagerTask( void *pvParameters ){
                 }
 
                 // register the application allocation
-                applications[app].tasks[task].addr = addr;
-                printsvsv("X: ", getXpos(addr), "Y: ", getYpos(addr));
+                applications[app].tasks[task].addr = high_addr;
+                printsvsv("X: ", getXpos(high_addr), "Y: ", getYpos(high_addr));
                 applications[app].tasks[task].slot = slot;
                 applications[app].lastStart = applications[app].nextRun;
-                API_RepositoryAllocation(app, task, addr);
-                debug_task_alloc(tick, app, task, addr);
+                API_RepositoryAllocation(app, task, high_addr);
+                debug_task_alloc(tick, app, task, high_addr);
 
                 last_app = app;
 
