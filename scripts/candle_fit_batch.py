@@ -102,9 +102,9 @@ def violin_batch(folders, labels):
     whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
 
     inds = np.arange(1, len(medians) + 1)
-    ax.scatter(inds, medians, marker='.', color='white', s=30, zorder=3)
-    ax.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
-    ax.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
+    ax.scatter(inds, medians, marker='.', color='k', s=20, zorder=3)
+    ax.vlines(inds, quartile1, quartile3, color='white', linestyle='-', lw=5)
+    #ax.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
 
     ax.yaxis.grid(True)
     ax.xaxis.grid(True)

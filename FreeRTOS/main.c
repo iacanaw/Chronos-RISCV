@@ -28,7 +28,7 @@ extern volatile unsigned int API_SystemFinish = FALSE;
     7) WORST */
 #define THERMAL_MANAGEMENT 3
 #define MIGRATION_AVAIL 1
-#define THRESHOLD_TEMP 78
+#define THRESHOLD_TEMP 70
 
 /* Defines the amount of ticks to simulate - if zero then simulates until the scenario's end */
 #define SIMULATION_MAX_TICKS 0

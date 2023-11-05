@@ -516,8 +516,8 @@ void API_FindBestCluster( unsigned int app){
     unsigned int cluster_size, base_addr, i, j;
     int smallScore = 0x7FFFFFFF;
     int score = 0;
-    unsigned int smallOccupation = 0x7FFFFFFF;
-    unsigned int occupation = 0;
+    //unsigned int smallOccupation = 0x7FFFFFFF;
+    //unsigned int occupation = 0;
 
     unsigned int sel_cluster_size = 0;
     unsigned int sel_cluster_base_addr = 0;
@@ -529,15 +529,15 @@ void API_FindBestCluster( unsigned int app){
             for(j = 0; j <= (DIM_Y-cluster_size); j++){
                 base_addr = makeAddress(i, j);
                 score = API_CheckCluster(base_addr, cluster_size, applications[app].numTasks*2);
-                occupation = API_GetClusterOccupation(base_addr, cluster_size);
+                //occupation = API_GetClusterOccupation(base_addr, cluster_size);
                 //prints("----------------\n");
                 //printsv("base: ", base_addr);
                 //printsvsv("fit: ", fit, "occupation: ", occupation);
-                if(score != 0 && occupation <= smallOccupation){
+                if(score != 0) {// && occupation <= smallOccupation){
                     if ( score < smallScore || (score == smallScore && 0 == (random()%2)) ){ 
                         //prints("Selected!\n");
                         smallScore = score;
-                        smallOccupation = occupation;
+                        //smallOccupation = occupation;
                         sel_cluster_size = cluster_size;
                         sel_cluster_base_addr = base_addr;
                     }
@@ -676,6 +676,9 @@ unsigned int API_minClusterSize(unsigned int size){
         d >>= 2;               // dₘ₋₁ = dₘ/4
     }
     if((c*c)%size != 0) c++;
+    if (c<3){ // defines the minimum cluster size as 4
+        c = 4;
+    }
     return c;                  // c₋₁
 }
 
