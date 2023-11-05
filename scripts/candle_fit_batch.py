@@ -1,129 +1,133 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import copy
-plt.rcParams['font.family'] = 'serif'
-plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
 
-# fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(7.85,5), constrained_layout=True)
-# fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(9, 2.866), constrained_layout=True)
-fig, ax = plt.subplots(figsize =(5, 2.866))
+def adjacent_values(vals, q1, q3):
+    upper_adjacent_value = q3 + (q3 - q1) * 1.5
+    upper_adjacent_value = np.clip(upper_adjacent_value, q3, vals[-1])
 
+    lower_adjacent_value = q1 - (q3 - q1) * 1.5
+    lower_adjacent_value = np.clip(lower_adjacent_value, vals[0], q1)
+    return lower_adjacent_value, upper_adjacent_value
 
-EFFECTS = ["EM", "SM", "TDDB", "TC", "NBTI"]
+# def set_axis_style(ax, labelss):
+#     ax.set_xticks(np.arange(1, len(labelss) + 1), labels=labelss)
+#     ax.set_xlim(0.25, len(labelss) + 0.75)
+#     ax.set_xlabel('Sample name')
 
-folder_w = "SIMULATIONS_12_14_misto_70_25000.0ticks_migno_worst_14x14"
-folder_p = "SIMULATIONS_13_14_misto_70_25000.0ticks_migno_pattern_14x14"
-folder_pid = "SIMULATIONS_14_14_misto_70_25000.0ticks_migno_pidtm_14x14"
-folder_c = "SIMULATIONS_15_14_misto_70_25000.0ticks_migyes_pidtm_14x14"
-folder_flea = "SIMULATIONS_16_14_misto_70_25000.0ticks_migno_chronos_14x14"
-folder_d = "SIMULATIONS_17_14_misto_70_25000.0ticks_migyes_chronos_14x14"
+def violin_batch(folders, labels):
+    plt.rcParams['font.family'] = 'serif'
+    plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
 
-folders = [folder_w, folder_p, folder_pid, folder_c, folder_flea, folder_d] 
+    fig, ax = plt.subplots(figsize =(1.1*len(folders), 2.866))
 
-big_fit = 0
-small_fit = 9999999999
-fit_values = []
-for folder in folders:
-        # if i == 0 or i == 6:
-        #         fit_values = []
+    colors = ["#390099", "#9e0059", "#ff5400", "#ffbd00", "#996900", "#f5ab00", "#004af5", "#0033AB" ]
 
+    EFFECTS = ["EM", "SM", "TDDB", "TC", "NBTI"]
+
+    big_fit = 0
+    small_fit = 9999999999
+    fit_values = []
+    for folder in folders:
         with open("simulation/"+folder+"/simulation/montecarlofile", "r") as fit_file:
-                        sys_fit = fit_file.readlines()
-                        sys_size = int(len(sys_fit)/len(EFFECTS))
-                        print("===============")
-                        print("The system has "+str(sys_size)+" PEs.")
-                        fits = []
-                        fit_sum = []
-                        bigPE = 0
-                        masterPE = 0
-                        for pe in range(sys_size):
-                                # saves the fits
-                                if(pe > -1):
-                                        summed =  float(sys_fit[pe*5])+float(sys_fit[(pe*5)+1])+float(sys_fit[(pe*5)+2])+float(sys_fit[(pe*5)+3])+float(sys_fit[(pe*5)+4])
-                                        pe = [ float(sys_fit[pe*5]), float(sys_fit[(pe*5)+1]), float(sys_fit[(pe*5)+2]), float(sys_fit[(pe*5)+3]), float(sys_fit[(pe*5)+4]) ]
-                                        fit_sum.append(summed)
-                                        fits.append(pe)
+                sys_fit = fit_file.readlines()
+                sys_size = int(len(sys_fit)/len(EFFECTS))
+                print("===============")
+                print("The system has "+str(sys_size)+" PEs.")
+                fits = []
+                fit_sum = []
+                bigPE = 0
+                masterPE = 0
+                for pe in range(sys_size):
+                    # saves the fits
+                    if(pe > -1):
+                        summed =  float(sys_fit[pe*5])+float(sys_fit[(pe*5)+1])+float(sys_fit[(pe*5)+2])+float(sys_fit[(pe*5)+3])+float(sys_fit[(pe*5)+4])
+                        pe = [ float(sys_fit[pe*5]), float(sys_fit[(pe*5)+1]), float(sys_fit[(pe*5)+2]), float(sys_fit[(pe*5)+3]), float(sys_fit[(pe*5)+4]) ]
+                        fit_sum.append(summed)
+                        fits.append(pe)
 
-                                        # update the graph limits
-                                        pe_total_fit = pe[0] + pe[1] + pe[2] + pe[3] + pe[4]
-                                        if(pe_total_fit > big_fit):
-                                                big_fit = pe_total_fit
-                                        if(pe_total_fit < small_fit):
-                                                small_fit = pe_total_fit
-                                        
-                                        if masterPE == 0:
-                                                masterPE = pe_total_fit
-                                        elif bigPE < pe_total_fit:
-                                                bigPE = pe_total_fit
+                        # update the graph limits
+                        pe_total_fit = pe[0] + pe[1] + pe[2] + pe[3] + pe[4]
+                        if(pe_total_fit > big_fit):
+                            big_fit = pe_total_fit
+                        if(pe_total_fit < small_fit):
+                            small_fit = pe_total_fit
                         
-                        fit_values.append(fit_sum)
+                        if masterPE == 0:
+                            masterPE = pe_total_fit
+                        elif bigPE < pe_total_fit:
+                            bigPE = pe_total_fit
+                
+                fit_values.append(fit_sum)
 
-                        with open("simulation/"+folder+"/simulation/mttf_calc.txt", "w") as mttffile:
-                                mttf = ((10**9)/masterPE) / (365*24)
-                                print(folder+" M-MTTF: "+str(mttf).replace(".",",") +" "+str(masterPE).replace(".",","), file=mttffile)
-                                mttf = ((10**9)/bigPE) / (365*24)
-                                print(folder+" OTHER-MTTF: "+str(mttf).replace(".",",")+" "+str(bigPE).replace(".",","), file=mttffile)
+                with open("simulation/"+folder+"/simulation/mttf_calc.txt", "w") as mttffile:
+                    mttf = ((10**9)/masterPE) / (365*24)
+                    print(folder+" M-MTTF: "+str(mttf).replace(".",",") +" "+str(masterPE).replace(".",","), file=mttffile)
+                    mttf = ((10**9)/bigPE) / (365*24)
+                    print(folder+" OTHER-MTTF: "+str(mttf).replace(".",",")+" "+str(bigPE).replace(".",","), file=mttffile)
         
         print("Big: "+str(big_fit))
         print("Small: "+str(small_fit))
         interval = (big_fit - small_fit)
         print("Interval: "+str(interval))
-        oc70 = copy.deepcopy(fit_values)
+        data = copy.deepcopy(fit_values)
 
-labels = ["Worst", "Pattern", "PID", "PID+Mig", "FLEA", "FLEA+Mig"]
-boxplot = []
+    boxplot = []
 
-# https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.boxplot.html
-#https://towardsdatascience.com/create-and-customize-boxplots-with-pythons-matplotlib-to-get-lots-of-insights-from-your-data-d561c9883643
-# plot violin plot
-plt.rcParams.update({'font.size': 10})
-plt.rcParams.update({'axes.labelsize': 10})
-plt.rc('axes', labelsize=12)
+    # https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.boxplot.html
+    #https://towardsdatascience.com/create-and-customize-boxplots-with-pythons-matplotlib-to-get-lots-of-insights-from-your-data-d561c9883643
+    # plot violin plot
+    plt.rcParams.update({'font.size': 10})
+    plt.rcParams.update({'axes.labelsize': 10})
+    plt.rc('axes', labelsize=12)
 
-boxplot.append(plt.boxplot(oc70, vert=True, patch_artist=True, labels=labels, whis=10.0))
-# boxplot.append(plt.violinplot(oc70, vert=True))
-plt.title("70% of PE occupation - Mixed - 14x14")
+    ax.set_title('Customized violin plot')
+    parts = ax.violinplot(
+            data, showmeans=False, showmedians=False,
+            showextrema=False)
 
-# # plot violin plot
-# boxplot.append(axes[0].boxplot(oc50, vert=True, patch_artist=True, labels=labels, whis=10.0)) 
-# axes[0].set_title("(a) 50% of PE occupation")
+    colors = plt.cm.turbo(np.linspace(0, 1, len(folders)))
 
-# print(oc70)
+    k = 0
+    for pc in parts['bodies']:
+        pc.set_facecolor(colors[k%len(folders)])
+        pc.set_edgecolor('black')
+        pc.set_alpha(1)
+        k+=1
 
-colors = ["#ef476f", "#FFD166", "#06D6A0", "#9AFCE2", "#118AB2", "#98DEF5" ]
-#hatches = ["x", "-", "\\", "/", "o", "."]
+    quartile1, medians, quartile3 = np.percentile(data, [25, 50, 75], axis=1)
+    whiskers = np.array([
+        adjacent_values(sorted_array, q1, q3)
+        for sorted_array, q1, q3 in zip(data, quartile1, quartile3)])
+    whiskers_min, whiskers_max = whiskers[:, 0], whiskers[:, 1]
 
-for bplot in boxplot:
-    for patch, color in zip(bplot['boxes'], colors):
-        patch.set_facecolor(color)
-#     for patch, hatch in zip(bplot['boxes'], hatches):
-#         patch.set(hatch = hatch)
-    for median in bplot['medians']:
-        median.set(color='black', linewidth=2)
+    inds = np.arange(1, len(medians) + 1)
+    ax.scatter(inds, medians, marker='.', color='white', s=30, zorder=3)
+    ax.vlines(inds, quartile1, quartile3, color='k', linestyle='-', lw=5)
+    ax.vlines(inds, whiskers_min, whiskers_max, color='k', linestyle='-', lw=1)
 
-# adding horizontal grid lines
-# for row in axes:
-#     for col in row:
-# for col in axes:
-#         col.yaxis.grid(True)
-#         col.xaxis.grid(True)
-#         # col.set_xticks([y+1 for y in range(len(oc90))])
-#         #col.set_xlabel('Management technique')
-#         col.set_ylabel(r'Failures in $10^9$ hours')
-#         col.set_ylim(small_fit-200,big_fit+200)
+    ax.yaxis.grid(True)
+    ax.xaxis.grid(True)
 
-ax.yaxis.grid(True)
-ax.xaxis.grid(True)
-# col.set_xticks([y+1 for y in range(len(oc90))])
-#col.set_xlabel('Management technique')
-ax.set_ylabel(r'Failures in $10^9$ hours')
-ax.set_ylim(small_fit-200,big_fit+200)
+    ax.set_ylabel(r'Failures in $10^9$ hours')
+    ax.set_ylim(small_fit-200,big_fit+200)
 
 
-# add x-tick labels
-# plt.setp(axes, xticks=[y+1 for y in range(len(oc90))],
-#             xticklabels=['W', 'P', 'PID-M', 'PID', 'C-M', 'C' ])
-fig.savefig('candle_fit.png', format='png', dpi=300, bbox_inches='tight')
-fig.savefig('candle_fit.pdf', format='pdf', bbox_inches='tight')
-#plt.show()
+    # add x-tick labels
+    plt.setp(ax, xticks=[y+1 for y in range(len(data))], xticklabels=labels)
 
+    fig.savefig("simulation/"+folders[0]+"_VIOLIN_BATCH.png", format='png', dpi=300, bbox_inches='tight')
+    fig.savefig("simulation/"+folders[0]+"_VIOLIN_BATCH.pdf", format='pdf', bbox_inches='tight')
+    #plt.show()
+
+if __name__ == '__main__': # chamada da funcao principal
+    folder_w = "SIMULATIONS_24_14_computation_90_25000.0ticks_migno_worst_14x14"
+    folder_p = "SIMULATIONS_25_14_computation_90_25000.0ticks_migno_pattern_14x14"
+    folder_pid = "SIMULATIONS_26_14_computation_90_25000.0ticks_migno_pidtm_14x14"
+    folder_c = "SIMULATIONS_27_14_computation_90_25000.0ticks_migyes_pidtm_14x14"
+    folder_flea = "SIMULATIONS_28_14_computation_90_25000.0ticks_migno_chronos_14x14"
+    folder_d = "SIMULATIONS_29_14_computation_90_25000.0ticks_migyes_chronos_14x14"
+
+    folders = [folder_w, folder_p, folder_pid, folder_c, folder_flea] 
+    labels = ["Worst", "Pattern", "PID", "PID+Mig", "FLEA", "FLEA+Mig"]
+    violin_batch(folders, labels)

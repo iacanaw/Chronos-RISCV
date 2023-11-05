@@ -117,8 +117,8 @@ def shot_batch(folders, labels):
         # fig.text(0.5, -0.02, 'Time (s)', ha='center')
         # fig.text(-0.02, 0.5, 'Temperature (°C)', va='center', rotation='vertical')
 
-        fig.savefig("simulation/"+folders[0]+"_BATCH.png", format='png', dpi=300, bbox_inches='tight')
-        fig.savefig("simulation/"+folders[0]+"_BATCH.pdf", format='pdf', bbox_inches='tight')
+        fig.savefig("simulation/"+folders[0]+"_THERMAL_BATCH.png", format='png', dpi=300, bbox_inches='tight')
+        fig.savefig("simulation/"+folders[0]+"_THERMAL_BATCH.pdf", format='pdf', bbox_inches='tight')
 
 #-----------------------------------------------------
 if __name__ == '__main__': # chamada da funcao principal
