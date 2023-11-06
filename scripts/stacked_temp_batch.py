@@ -73,7 +73,7 @@ def stacked_batch(folders, labels):
         ax2.set(xlabel='Time (s)', ylabel='Temperature (°C)')
         ax2.grid()
         ax2.set_ylim(65,100)
-        ax2.set_xlim(0.1,2.5)
+        ax2.set_xlim(0.1,2)
         ax2.legend(ncol=4)
 
         fig2.savefig("simulation/"+folders[0]+"_MAXTEMP_BATCH.png", format='png', dpi=300, bbox_inches='tight')

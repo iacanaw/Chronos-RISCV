@@ -529,11 +529,10 @@ void API_FindBestCluster( unsigned int app){
             for(j = 0; j <= (DIM_Y-cluster_size); j++){
                 base_addr = makeAddress(i, j);
                 score = API_CheckCluster(base_addr, cluster_size, applications[app].numTasks*2);
-                occupation = API_GetClusterOccupation(base_addr, cluster_size);
-                //prints("----------------\n");
-                //printsv("base: ", base_addr);
-                //printsvsv("clusterScore: ", score, "baseAddr: ", base_addr);
+                printsvsv("baseAddr: ", base_addr, "clusterScore: ", score);
                 if(score != 0) {
+                    occupation = API_GetClusterOccupation(base_addr, cluster_size);
+                    printsvsv("clusterOcc: ", occupation);
                     if( occupation < smallOccupation || (occupation == smallOccupation && 0 == (random()%2)) ){
                         if ( score < smallScore || (score == smallScore && 0 == (random()%2)) ){ 
                             //prints("Selected!\n");
