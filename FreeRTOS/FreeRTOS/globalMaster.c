@@ -535,7 +535,7 @@ void API_FindBestCluster( unsigned int app){
                     printsv("clusterOcc: ", occupation);
                     if( occupation < smallOccupation || (occupation == smallOccupation && 0 == (random()%2)) ){
                         if ( score < smallScore || (score == smallScore && 0 == (random()%2)) ){ 
-                            //prints("Selected!\n");
+                            prints("Selected!\n");
                             smallScore = score;
                             sel_cluster_size = cluster_size;
                             sel_cluster_base_addr = base_addr;
