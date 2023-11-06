@@ -234,8 +234,8 @@ void API_UpdateTemperature(){
     int m, n, i = 0;
     for (m = 0; m < DIM_X; m++){
         for (n = 0; n < DIM_Y; n++){
-            Tiles[n][m].temperatureVariation = SystemTemperature[i] - Tiles[n][m].temperature;
-            Tiles[n][m].temperature = SystemTemperature[i];
+            Tiles[m][n].temperatureVariation = SystemTemperature[i] - Tiles[m][n].temperature;
+            Tiles[m][n].temperature = SystemTemperature[i];
             i++;
         }
     }
@@ -516,8 +516,6 @@ void API_FindBestCluster( unsigned int app){
     unsigned int cluster_size, base_addr, i, j;
     int smallScore = 0x7FFFFFFF;
     int score = 0;
-    //unsigned int smallOccupation = 0x7FFFFFFF;
-    //unsigned int occupation = 0;
 
     unsigned int sel_cluster_size = 0;
     unsigned int sel_cluster_base_addr = 0;
@@ -532,12 +530,11 @@ void API_FindBestCluster( unsigned int app){
                 //occupation = API_GetClusterOccupation(base_addr, cluster_size);
                 //prints("----------------\n");
                 //printsv("base: ", base_addr);
-                //printsvsv("fit: ", fit, "occupation: ", occupation);
+                printsvsv("clusterScore: ", score, "baseAddr: ", base_addr);
                 if(score != 0) {// && occupation <= smallOccupation){
                     if ( score < smallScore || (score == smallScore && 0 == (random()%2)) ){ 
-                        //prints("Selected!\n");
+                        prints("Selected!\n");
                         smallScore = score;
-                        //smallOccupation = occupation;
                         sel_cluster_size = cluster_size;
                         sel_cluster_base_addr = base_addr;
                     }
@@ -545,7 +542,7 @@ void API_FindBestCluster( unsigned int app){
             }
         }
         cluster_size++;
-        if(cluster_size > DIM_X || cluster_size > DIM_Y){
+        if(cluster_size >= DIM_X || cluster_size >= DIM_Y){
             sel_cluster_size = DIM_X;
             sel_cluster_base_addr = 0x0000;
             break;
@@ -676,7 +673,7 @@ unsigned int API_minClusterSize(unsigned int size){
         d >>= 2;               // dₘ₋₁ = dₘ/4
     }
     if((c*c)%size != 0) c++;
-    if (c<3){ // defines the minimum cluster size as 4
+    if (c<=3){ // defines the minimum cluster size as 4
         c = 4;
     }
     return c;                  // c₋₁
