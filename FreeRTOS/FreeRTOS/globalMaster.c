@@ -232,10 +232,10 @@ void API_TilesReset(){
 // Update tiles temperature
 void API_UpdateTemperature(){
     int m, n, i = 0;
-    for (m = 0; m < DIM_X; m++){
-        for (n = 0; n < DIM_Y; n++){
-            Tiles[m][n].temperatureVariation = SystemTemperature[i] - Tiles[m][n].temperature;
-            Tiles[m][n].temperature = SystemTemperature[i];
+    for (m = 0; m < DIM_Y; m++){
+        for (n = 0; n < DIM_X; n++){
+            Tiles[n][m].temperatureVariation = SystemTemperature[i] - Tiles[n][m].temperature;
+            Tiles[n][m].temperature = SystemTemperature[i];
             i++;
         }
     }
@@ -261,8 +261,8 @@ void API_UpdateFIT(){
     int m, n, i = 0;
     unsigned int avgFit = 0;
     unsigned int totalFit = 0;
-    for (m = 0; m < DIM_X; m++){
-        for (n = 0; n < DIM_Y; n++){
+    for (m = 0; m < DIM_Y; m++){
+        for (n = 0; n < DIM_X; n++){
             avgFit = Tiles[n][m].fit;
             // printsv("avgFit ", avgFit);
             totalFit = Tiles[n][m].fit << 5;
