@@ -11,7 +11,7 @@ from candle_fit_batch import violin_batch
 def main():
 
     sim_time_s = [2.0]
-    scenarios_to_sim = [ "_mixed1_70", "_mixed2_70", "_mixed1_90", "_mixed2_90", "_mixed1_50", "_mixed2_50" ]
+    scenarios_to_sim = [ "_mixed1_70", "_computation_70", "_mixed2_70", "_mixed1_90", "_computation_90", "_mixed2_90", "_mixed1_50", "_computation_50", "_mixed2_50" ]
     sizes_to_sim = [8]
     managements_mig = [["worst", ["no"]], ["pattern", ["no"]], ["pidtm", ["no", "yes"]], ["chronos", ["no", "yes"]], ["chronos2", ["no", "yes"]]]
     name = "SIMULATIONS_"

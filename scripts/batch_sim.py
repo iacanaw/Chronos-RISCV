@@ -28,9 +28,9 @@ def main():
                         method = mm[0]
                         x = threading.Thread(target=run_ovp_sim, args=(str_name, simtime, size, scenario, method, mig,))
                         x.start()
-                        sleeptime = int(math.sqrt(size)*1.5*60)
-                        print("waiting for "+str(sleeptime)+" seconds...")
-                        time.sleep(sleeptime)
+                        # sleeptime = int(math.sqrt(size)*1.5*60)
+                        # print("waiting for "+str(sleeptime)+" seconds...")
+                        # time.sleep(sleeptime)
                         i+=1
                             
 

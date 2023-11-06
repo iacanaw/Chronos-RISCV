@@ -57,3 +57,6 @@ simulation/*
 scripts/*.pdf
 scripts/*.png
 scripts/ISCAS23/*
+
+harness/*.log
+scripts/__pycache__/*
