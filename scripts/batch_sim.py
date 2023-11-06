@@ -30,7 +30,9 @@ def main():
                         x.start()
                         # sleeptime = int(math.sqrt(size)*1.5*60)
                         # print("waiting for "+str(sleeptime)+" seconds...")
-                        # time.sleep(sleeptime)
+                        sema.acquire()
+                        time.sleep(60)
+                        sema.release()
                         i+=1
                             
 
