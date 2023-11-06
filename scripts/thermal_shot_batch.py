@@ -11,7 +11,7 @@ def shot_batch(folders, labels):
     print(labels)
     plt.rcParams['font.family'] = 'serif'
     plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
-    fig, axes = plt.subplots(nrows=6, ncols=len(folders), sharex=True, sharey=True,  figsize=(3*len(folders),3.15*6), constrained_layout=True)
+    fig, axes = plt.subplots(nrows=6, ncols=len(folders), sharex=True, sharey=True,  figsize=(3*len(folders),3*6), constrained_layout=True)
     time_max = 0
     boxplot = []
     picplot = []
