@@ -158,8 +158,6 @@ void API_FindBestCluster(unsigned int app);
 
 unsigned int API_CheckCluster(unsigned int base_addr, unsigned int cluster_size, unsigned int size);
 
-void API_FindSmallerFITCluster( unsigned int app);
-
 unsigned int API_GetClusterOccupation(unsigned int base_addr, unsigned int cluster_size);
 
 unsigned int API_minClusterSize(unsigned int size);

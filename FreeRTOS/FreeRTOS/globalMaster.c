@@ -516,6 +516,8 @@ void API_FindBestCluster( unsigned int app){
     unsigned int cluster_size, base_addr, i, j;
     int smallScore = 0x7FFFFFFF;
     int score = 0;
+    int occupation;
+    int smallOccupation = 0x7FFFFFFF;
 
     unsigned int sel_cluster_size = 0;
     unsigned int sel_cluster_base_addr = 0;
@@ -527,16 +529,19 @@ void API_FindBestCluster( unsigned int app){
             for(j = 0; j <= (DIM_Y-cluster_size); j++){
                 base_addr = makeAddress(i, j);
                 score = API_CheckCluster(base_addr, cluster_size, applications[app].numTasks*2);
-                //occupation = API_GetClusterOccupation(base_addr, cluster_size);
+                occupation = API_GetClusterOccupation(base_addr, cluster_size);
                 //prints("----------------\n");
                 //printsv("base: ", base_addr);
-                printsvsv("clusterScore: ", score, "baseAddr: ", base_addr);
-                if(score != 0) {// && occupation <= smallOccupation){
-                    if ( score < smallScore || (score == smallScore && 0 == (random()%2)) ){ 
-                        prints("Selected!\n");
-                        smallScore = score;
-                        sel_cluster_size = cluster_size;
-                        sel_cluster_base_addr = base_addr;
+                //printsvsv("clusterScore: ", score, "baseAddr: ", base_addr);
+                if(score != 0) {
+                    if( occupation < smallOccupation || (occupation == smallOccupation && 0 == (random()%2)) ){
+                        if ( score < smallScore || (score == smallScore && 0 == (random()%2)) ){ 
+                            //prints("Selected!\n");
+                            smallScore = score;
+                            sel_cluster_size = cluster_size;
+                            sel_cluster_base_addr = base_addr;
+                            smallOccupation = occupation;
+                        }
                     }
                 }
             }
@@ -547,56 +552,6 @@ void API_FindBestCluster( unsigned int app){
             sel_cluster_base_addr = 0x0000;
             break;
         }
-    }while(sel_cluster_size == 0);
-    
-    for(i = getXpos(sel_cluster_base_addr); i < (getXpos(sel_cluster_base_addr)+sel_cluster_size); i++){
-        for(j = getYpos(sel_cluster_base_addr); j < (getYpos(sel_cluster_base_addr)+sel_cluster_size); j++){
-            Tiles[i][j].clusterCount++;
-        }
-    }
-
-    applications[app].cluster_addr = sel_cluster_base_addr;
-    applications[app].cluster_size = sel_cluster_size;
-
-    return;
-}
-
-void API_FindSmallerFITCluster( unsigned int app){
-    unsigned int cluster_size, base_addr, i, j;
-    int smallFIT = 0x7FFFFFFF;
-    int fit = 0;
-    unsigned int smallOccupation = 0x7FFFFFFF;
-    unsigned int occupation = 0;
-
-    unsigned int sel_cluster_size = 0;
-    unsigned int sel_cluster_base_addr = 0;
-
-
-    cluster_size = API_minClusterSize(applications[app].numTasks*2);
-    printsvsv("requesting size: ", applications[app].numTasks*2, "calculated: ", cluster_size);
-    do{
-        if(cluster_size > DIM_X || cluster_size > DIM_Y){
-            sel_cluster_size = DIM_X;
-            sel_cluster_base_addr = 0x0000;
-            break;
-        }
-        for(i = 0; i <= (DIM_X-cluster_size); i++){
-            for(j = 0; j <= (DIM_Y-cluster_size); j++){
-                base_addr = makeAddress(i, j);
-                fit = API_CheckCluster(base_addr, cluster_size, applications[app].numTasks*2);
-                //occupation = API_GetClusterOccupation(base_addr, cluster_size);
-                if(fit != 0){ // && occupation <= smallOccupation){
-                    if ( fit < smallFIT ){
-                        //prints("Selected!\n");
-                        smallFIT = fit;
-                        smallOccupation = occupation;
-                        sel_cluster_size = cluster_size;
-                        sel_cluster_base_addr = base_addr;
-                    }
-                }
-            }
-        }
-        cluster_size++;
     }while(sel_cluster_size == 0);
     
     for(i = getXpos(sel_cluster_base_addr); i < (getXpos(sel_cluster_base_addr)+sel_cluster_size); i++){

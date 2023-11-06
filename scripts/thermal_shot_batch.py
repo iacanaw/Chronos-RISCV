@@ -12,7 +12,7 @@ def shot_batch(folders, labels):
     plt.rcParams['font.family'] = 'serif'
     plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
     fig, axes = plt.subplots(nrows=6, ncols=len(folders), sharex=True, sharey=True,  figsize=(3*len(folders),3*6), constrained_layout=True)
-    time_max = 99999999999
+    time_max = 0
     boxplot = []
     picplot = []
     colors = ["#390099", "#9e0059", "#ff5400", "#ffbd00", "#996900", "#f5ab00", "#004af5", "#0033AB" ]
@@ -20,9 +20,9 @@ def shot_batch(folders, labels):
     for folder in folders:
         tsv_data = pd.read_csv("simulation/"+folder+"/simulation/SystemTemperature.tsv", sep='\t')
         raw_data = tsv_data.to_numpy()
-
-    if time_max > raw_data[len(raw_data)-1][0]:
-        time_max = raw_data[len(raw_data)-1][0]
+        if time_max < raw_data[len(raw_data)-1][0]:
+            time_max = raw_data[len(raw_data)-1][0]
+    
     print(time_max)
     window_time = time_max/6
     print(window_time)
