@@ -59,4 +59,4 @@ scripts/*.png
 scripts/ISCAS23/*
 
 harness/*.log
-*.pyc
+scripts/__pycache__/*
