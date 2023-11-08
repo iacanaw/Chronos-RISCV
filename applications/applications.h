@@ -6,6 +6,7 @@
 #define MIGRATION_RESET 0xFFFFFFFE
 
 volatile static int MIGRATE = MIGRATION_RESET;
+static int VAR_ITERATION = 0xFFFFFFFD;
 
 // https://www.geeksforgeeks.org/write-memcpy/
 void memcpy(void *dest, void *src, unsigned int n){

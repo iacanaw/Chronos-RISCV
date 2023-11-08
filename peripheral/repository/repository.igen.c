@@ -9,6 +9,7 @@
 
 
 #include "repository.igen.h"
+
 /////////////////////////////// Port Declarations //////////////////////////////
 
 handlesT handles;
@@ -42,7 +43,6 @@ PPM_CONSTRUCTOR_CB(periphConstructor) {
 ///////////////////////////////////// Main /////////////////////////////////////
 
 int main(int argc, char *argv[]) {
-
     diagnosticLevel = 0;
     bhmInstallDiagCB(setDiagLevel);
     constructor();

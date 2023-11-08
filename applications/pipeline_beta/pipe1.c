@@ -21,7 +21,7 @@ int main(){
     mensagem.length = 1;
 
     /* main loop */
-    for (/* i = 0 */; i < PRODCONS_ITERATIONS; i++) {
+    for (/* i = 0 */; i < (VAR_ITERATION/65)+12; i++) {
         
         checkMigration();
         

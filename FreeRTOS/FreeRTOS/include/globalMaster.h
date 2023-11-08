@@ -50,6 +50,7 @@ typedef struct{
     unsigned int temperature;   // In Kelvin
     unsigned int frequency;     // in MegaHertz
     volatile unsigned int fit;  // Failures in time * 100
+    unsigned int tempWindow;    // stores the avg temperature in the previous 32ms
     int temperatureVariation;   // In Kelvin
     int taskSlots;
     int taskType;                //
@@ -105,6 +106,8 @@ volatile PIDinfo pidStatus;
 // Application Info
 volatile Application applications[NUM_MAX_APPS];
 
+// returns one random iteration value (ranging from 16-3248)
+unsigned int API_GetRandomIteration(int i);
 // 
 unsigned int API_getMaxIdxfromRow(float *policyTable, unsigned int row, unsigned int n_collumns, unsigned int n_rows);
 // Informs the Repository that the GLOBALMASTER is ready to receive the application info

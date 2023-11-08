@@ -74,6 +74,7 @@ typedef struct {
 	};
 	union{
 		unsigned int flit9;
+		unsigned int varIteration; 			// ** Informs were in the task is located the variable that controls the number of iterations
 		unsigned int id;
 	};
 	union{

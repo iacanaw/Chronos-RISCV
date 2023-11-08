@@ -26,6 +26,7 @@ appsTaskType = []
 appsTaskCode = []
 appsTaskDeadline = []
 appsTaskMigration = []
+appsVarIteration = []
 bigCode = 0
 
 app_id = 0
@@ -66,6 +67,7 @@ if exists(SCENARIO):
         taskCode = []
         taskStart = []
         taskMigrateVar = []
+        varIteration = []
         appDeadline = 0
         with open(appsName[i]+'/info.yaml') as info_file:
             taskInfo = yaml.load(info_file, Loader=yaml.SafeLoader)
@@ -99,18 +101,26 @@ if exists(SCENARIO):
                     else:
                         # detects the main address
                         if "<main>:" in line:
-                                cut_line = re.split(r' ', line)
-                                currentAddr = cut_line[0]
-                                currentAddr = int(currentAddr, 16)
-                                taskStart[j] = int((currentAddr - 2147483648)/4)
+                            cut_line = re.split(r' ', line)
+                            currentAddr = cut_line[0]
+                            currentAddr = int(currentAddr, 16)
+                            taskStart[j] = int((currentAddr - 2147483648)/4)
 
                         # detects the migrate address
                         if "<MIGRATE>:" in line:
-                                cut_line = re.split(r' ', line)
-                                currentAddr = cut_line[0]
-                                currentAddr = int(currentAddr, 16)
-                                if taskMigrateVar[j] != 0:
-                                    taskMigrateVar[j] = int((currentAddr - 2147483648)/4)
+                            cut_line = re.split(r' ', line)
+                            currentAddr = cut_line[0]
+                            currentAddr = int(currentAddr, 16)
+                            if taskMigrateVar[j] != 0:
+                                taskMigrateVar[j] = int((currentAddr - 2147483648)/4)
+
+                        # detects the var_iteration address
+                        if "<VAR_ITERATION>:" in line:
+                            cut_line = re.split(r' ', line)
+                            currentAddr = cut_line[0]
+                            currentAddr = int(currentAddr, 16)
+                            varIteration.append(int((currentAddr - 2147483648)/4))
+                            
                         # if any line that has an instruction
                         if ("800" in line) and ("\t" in line):
                             cut_line = re.split(r'\t', line)
@@ -189,6 +199,7 @@ if exists(SCENARIO):
                 print("         TaskSize: " + str(taskSize[j]))
                 print("         TaskStart: " + str(taskStart[j]))
                 print("         MigrateVar: " + str(taskMigrateVar[j]))
+                print("         VarIteration: " + str(varIteration[j]))
                 if taskSize[j] > bigCode:
                     bigCode = taskSize[j]
                 print("         BSS Size: " + str(taskBss[j]))
@@ -200,6 +211,7 @@ if exists(SCENARIO):
         appsTaskCode.append(copy.deepcopy(taskCode))
         appsTaskDeadline.append(copy.deepcopy(appDeadline))
         appsTaskMigration.append(copy.deepcopy(taskMigrateVar))
+        appsVarIteration.append(copy.deepcopy(varIteration))
 
     # Creates the "repository.h"
     with open('repository.h', 'w') as file:
@@ -215,6 +227,8 @@ if exists(SCENARIO):
         for i in range(len(appsName)):
             appsName[i] = appsName[i] + "_" + str(i)
             file.write('#define ' + appsName[i] + " " + str(i) + "\n" )
+        file.write('// Number of tasks for a given application that was mapped\n')
+        file.write('static unsigned int appUtilization[NUM_APPS];\n')
         file.write('// Application INFO\n')
         file.write('static unsigned int appInfo[NUM_APPS][INFO_SIZE] = {\n')
         for i in range(len(appsName)):
@@ -246,7 +260,7 @@ if exists(SCENARIO):
                 file.write('\t\t  ' + str('0x%08X'%appsTaskStart[i][j]) + ',  // start point \n')
                 file.write('\t\t  ' + str('0x%08X'%i) + ',  // task appID \n')
                 file.write('\t\t  ' + str('0x%08X'%appsTaskMigration[i][j]) + ',  // migration variable \n')
-                file.write('\t\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
+                file.write('\t\t  ' + str('0x%08X'%appsVarIteration[i][j]) + ',  // iteration variable \n')
                 file.write('\t\t  ' + str('0x%08X'%appsTaskType[i][j]) + ',  // taskType \n')
                 file.write('\t\t  ' + str('0x%08X'%4294967295) + ',  // nothing \n')
                 file.write('\t\t  ' + str('0x%08X'%4294967295) + ' } // nothing \n')
@@ -285,6 +299,7 @@ else:
         file.write('#define BIG_CODE 0\n')
         file.write('// Application INFO\n')
         file.write('static unsigned int appInfo[NUM_APPS][INFO_SIZE];\n')
+        file.write('static unsigned int appUtilization[NUM_APPS];\n')
         file.write('static unsigned int tasksInfo[NUM_APPS][MAX_TASKS][INFO_SIZE];\n')
         file.write('static unsigned int tasksCode[NUM_APPS][MAX_TASKS][BIG_CODE];\n')
         file.write("#endif /*__REPOSITORY_H__*/\n")

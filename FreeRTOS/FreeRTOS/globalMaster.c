@@ -222,6 +222,7 @@ void API_TilesReset(){
             Tiles[m][n].taskSlots = NUM_MAX_TASKS;
             Tiles[m][n].taskType = -1;
             Tiles[m][n].clusterCount = 0;
+            Tiles[m][n].tempWindow = ((27315+4000)<<5);
             random(); // using this loop to iterate the random algorithm...
         }
     }    
@@ -232,12 +233,17 @@ void API_TilesReset(){
 // Update tiles temperature
 void API_UpdateTemperature(){
     int m, n, i = 0;
+    int aux;
     vTaskEnterCritical();
     for (m = 0; m < DIM_Y; m++){
         for (n = 0; n < DIM_X; n++){
             Tiles[n][m].temperatureVariation = SystemTemperature[i] - Tiles[n][m].temperature;
             Tiles[n][m].temperature = SystemTemperature[i];
-            // printsvsv("addr: ", makeAddress(n,m), " temp: ", Tiles[n][m].temperature);
+
+            //Tiles[m][n].tempWindow = Tiles[m][n].tempWindow << 5; // multiplica por 32
+            Tiles[m][n].tempWindow = Tiles[m][n].tempWindow - (Tiles[m][n].tempWindow >> 5); // tira uma das amostras
+            Tiles[m][n].tempWindow = Tiles[m][n].tempWindow + Tiles[n][m].temperature; // adiciona a temperatura atual
+            //Tiles[m][n].tempWindow = Tiles[m][n].tempWindow >> 5; // divide por 32
             i++;
         }
     }
@@ -536,7 +542,7 @@ void API_FindBestCluster( unsigned int app){
                 if(score != 0) {
                     occupation = API_GetClusterOccupation(base_addr, cluster_size);
                     printsv("clusterOcc: ", occupation);
-                    if( occupation < smallOccupation || (occupation == smallOccupation && 0 == (random()%2)) ){
+                    //if( occupation < smallOccupation || (occupation == smallOccupation && 0 == (random()%2)) ){
                         if ( score < smallScore || (score == smallScore && 0 == (random()%2)) ){ 
                             prints("Selected!\n");
                             smallScore = score;
@@ -544,7 +550,7 @@ void API_FindBestCluster( unsigned int app){
                             sel_cluster_base_addr = base_addr;
                             smallOccupation = occupation;
                         }
-                    }
+                    //}
                 }
             }
         }
@@ -591,7 +597,7 @@ unsigned int API_CheckCluster(unsigned int base_addr, unsigned int cluster_size,
         for(y = getYpos(base_addr); y < (getYpos(base_addr)+cluster_size); y++){
             accumulated = accumulated + Tiles[x][y].taskSlots;
 #if CLUSTER_FORMATION == 1 // TEMP
-            FIT = FIT + Tiles[x][y].temperature;
+            FIT = FIT + Tiles[x][y].tempWindow;
 #elif CLUSTER_FORMATION == 2 // OCCU
             FIT = accumulated;
 #elif CLUSTER_FORMATION == 3 // FIT 

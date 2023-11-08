@@ -22,7 +22,7 @@ int main(){
     mensagem.length = 1;
 
     /* main loop */
-    for (/* i = 0 */; i < PRODCONS_ITERATIONS; i++) {
+    for (/* i = 0 */; i < (VAR_ITERATION/60)+10; i++) {
         
         checkMigration();
 

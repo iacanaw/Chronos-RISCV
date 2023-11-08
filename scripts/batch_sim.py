@@ -26,6 +26,7 @@ def main():
                     for mig in mm[1]:
                         str_name = name+str(i)
                         method = mm[0]
+                        # if(mm[0] == "chronos" or mm[0] == "chronos2" or i >= 26 ):
                         x = threading.Thread(target=run_ovp_sim, args=(str_name, simtime, size, scenario, method, mig,))
                         x.start()
                         # sleeptime = int(math.sqrt(size)*1.5*60)
@@ -33,6 +34,7 @@ def main():
                         sema.acquire()
                         time.sleep(60)
                         sema.release()
+                        
                         i+=1
                             
 

@@ -20,7 +20,7 @@ int main(){
     sys_Prints((unsigned int)&start_print);
 
     /* main loop */
-    for (/* i = 0 */; i < PRODCONS_ITERATIONS; i++) {
+    for (/* i = 0 */; i < (VAR_ITERATION/65)+32; i++) {
         
         checkMigration();
 
