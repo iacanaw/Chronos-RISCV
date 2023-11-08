@@ -232,13 +232,16 @@ void API_TilesReset(){
 // Update tiles temperature
 void API_UpdateTemperature(){
     int m, n, i = 0;
+    vTaskEnterCritical();
     for (m = 0; m < DIM_Y; m++){
         for (n = 0; n < DIM_X; n++){
             Tiles[n][m].temperatureVariation = SystemTemperature[i] - Tiles[n][m].temperature;
             Tiles[n][m].temperature = SystemTemperature[i];
+            // printsvsv("addr: ", makeAddress(n,m), " temp: ", Tiles[n][m].temperature);
             i++;
         }
     }
+    vTaskExitCritical();
     return;
 }
 

@@ -1128,7 +1128,7 @@ static void GlobalManagerTask( void *pvParameters ){
 	// Initialize the System Tiles Info
 	API_TilesReset();
 
-    Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].taskType = 1;
+    Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].taskType = 2;
     Tiles[getXpos(GLOBAL_MASTER_ADDR)][getYpos(GLOBAL_MASTER_ADDR)].clusterCount = 1;
 
 	// Initialize the applications vector

@@ -60,12 +60,12 @@ def shot_batch(folders, labels):
                     nsamples += 1
                     for j in range(len(raw_data[i])-1):
                         sample[j] = raw_data[i][j+1]
-                        picAvg[int(j%side)][int(j/side)] += sample[j]
+                        picAvg[int(j/side)][int(j%side)] += sample[j]
                         if generalMax < sample[j]:
                             generalMax = sample[j]
                             uj = 1
-                            for ux in range(side):
-                                for uy in range(side):
+                            for uy in range(side):
+                                for ux in range(side):
                                     picMax[ux][uy] = raw_data[i][uj]
                                     uj+=1
 
