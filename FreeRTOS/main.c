@@ -717,7 +717,7 @@ static void GlobalManagerTask( void *pvParameters ){
         API_PrintOccupation(tick);
 
 		// Checks if there is some task to allocate...
-		API_AllocateTasks(tick, -1);
+		API_AllocateTasks(tick, 0);
 		
 		// Checks if there is some task to start...
 		API_StartTasks();
@@ -780,7 +780,7 @@ static void GlobalManagerTask( void *pvParameters ){
         API_UpdatePriorityTable(pidStatus.control_signal);
 
         // Checks if there is some task to allocate...
-		API_AllocateTasks(tick, -1);
+		API_AllocateTasks(tick, 0);
 
         // Checks if there is some task to start...
 		API_StartTasks();
@@ -797,7 +797,7 @@ static void GlobalManagerTask( void *pvParameters ){
                     mig_app = migrate >> 16;
                     mig_task = migrate & 0x0000FFFF;
                     for(k=0;k<(DIM_X*DIM_Y)-1;k++){
-                        mig_addr = getNextPriorityAddr(-1);
+                        mig_addr = getNextPriorityAddr(0);
                         printsv("mig_addr = ", mig_addr);
                         mig_slot = API_GetTaskSlotFromTile(mig_addr, mig_app, mig_task);
                         if (mig_slot != ERRO){

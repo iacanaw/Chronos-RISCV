@@ -6,7 +6,7 @@ from matplotlib.ticker import MultipleLocator
 import numpy as np
 import pandas as pd
 import math 
-
+import sys
 def shot_batch(folders, labels):
     print(labels)
     plt.rcParams['font.family'] = 'serif'
@@ -37,7 +37,6 @@ def shot_batch(folders, labels):
             tsv_data = pd.read_csv("simulation/"+folder+"/simulation/SystemTemperature.tsv", sep='\t')
             raw_data = tsv_data.to_numpy()
 
-            generalMax = 0
             sysSize = len(raw_data[0])-1
             side = int(math.sqrt(sysSize))
             picMax = np.zeros((side,side))
@@ -54,29 +53,17 @@ def shot_batch(folders, labels):
             max_temp = np.zeros(n_samples)
             sample = np.zeros(n_pes)
 
-            for i in range(len(raw_data)):
-                if raw_data[i][0] > window_time*l and raw_data[i][0] < window_time*l+1:
+            
+            for i in range(len(raw_data)): 
+                if raw_data[i][0] > window_time*l and raw_data[i][0] <= window_time*(l+1):
                     time.append(raw_data[i][0])
                     nsamples += 1
                     for j in range(len(raw_data[i])-1):
                         sample[j] = raw_data[i][j+1]
                         picAvg[int(j/side)][int(j%side)] += sample[j]
-                        if generalMax < sample[j]:
-                            generalMax = sample[j]
-                            uj = 1
-                            for uy in range(side):
-                                for ux in range(side):
-                                    picMax[ux][uy] = raw_data[i][uj]
-                                    uj+=1
 
-                sample.sort()
-                max_temp[i] = sample[n_pes-1]
-            
-            # print(picAvg)
-            # print(nsamples)
             for x in range(side):
                 for y in range(side):
-                    
                     picAvg[x][y] = picAvg[x][y] / nsamples
 
 
@@ -98,7 +85,12 @@ def shot_batch(folders, labels):
 
             #Title
             axes[l][k].set_title(labels[k])
-            print(labels[k])
+            
+            # #Display for the user the progress
+            # for x in range(75):
+            #     print('*' * (75 - x), x, end='\x1b[1K\r')
+            print(("=======>"+labels[k]+": Generating graph "+str(l+1)+" of 6 encompassing from "+str(time[0])+"s to "+str(time[-1])+"s"))#, end='\r')
+
             # Gridlines based on minor ticks
             axes[l][k].grid(which='minor', color='black', linestyle='-', linewidth=1)
             axes[l][k].tick_params(axis='both', which='major', labelsize=8)
@@ -108,35 +100,11 @@ def shot_batch(folders, labels):
     fig.colorbar(pcm, ax=axes[:], location='right', shrink=0.75, label="Temperature (°C)")
     #fig.suptitle('Average PE Temperature - 70% System Occupation', fontsize=16)
 
-    for i in range(len(axes)):
-        pass
-        # axes[i].yaxis.grid(True)
-        # axes[i].xaxis.grid(True)
-        #axes[i].legend()
-        # axes[i].plot([0,1],[80,80], linestyle='dotted', color="black")
-        # if i == 0:
-        #     axes[i].set_title('Peak Temperature Comparison')
-
-    # lines_labels = [ax.get_legend_handles_labels() for ax in fig.axes]
-    # lines, labels = [sum(lol, []) for lol in zip(*lines_labels)]
-    #fig.legend(lines, labels, ncol=4, loc="lower center",  bbox_to_anchor=(0.673, -0.12))
-
-
-    # fig.text(0.5, -0.02, 'Time (s)', ha='center')
-    # fig.text(-0.02, 0.5, 'Temperature (°C)', va='center', rotation='vertical')
-
     fig.savefig("simulation/"+folders[0]+"_THERMAL_BATCH.png", format='png', dpi=300, bbox_inches='tight')
     fig.savefig("simulation/"+folders[0]+"_THERMAL_BATCH.pdf", format='pdf', bbox_inches='tight')
 
 #-----------------------------------------------------
 if __name__ == '__main__': # chamada da funcao principal
-    folder_w = "SIMULATIONS_12_14_misto_70_25000.0ticks_migno_worst_14x14"
-    folder_p = "SIMULATIONS_13_14_misto_70_25000.0ticks_migno_pattern_14x14"
-    folder_pid = "SIMULATIONS_14_14_misto_70_25000.0ticks_migno_pidtm_14x14"
-    folder_c = "SIMULATIONS_15_14_misto_70_25000.0ticks_migyes_pidtm_14x14"
-    folder_flea = "SIMULATIONS_16_14_misto_70_25000.0ticks_migno_chronos_14x14"
-    folder_d = "SIMULATIONS_17_14_misto_70_25000.0ticks_migyes_chronos_14x14"
-
-    folders = [folder_w, folder_p, folder_pid, folder_c, folder_flea, folder_d] 
-    labels = ["Worst", "Pattern", "PID", "PID+Mig", "FLEA", "FLEA+Mig"]
+    folders = ['SIMULATIONS_8_8_mixed1_90_20000.0ticks_migno_worst_8x8', 'SIMULATIONS_9_8_mixed1_90_20000.0ticks_migno_pattern_8x8', 'SIMULATIONS_10_8_mixed1_90_20000.0ticks_migno_pidtm_8x8', 'SIMULATIONS_11_8_mixed1_90_20000.0ticks_migyes_pidtm_8x8', 'SIMULATIONS_12_8_mixed1_90_20000.0ticks_migno_chronos_8x8', 'SIMULATIONS_13_8_mixed1_90_20000.0ticks_migyes_chronos_8x8', 'SIMULATIONS_14_8_mixed1_90_20000.0ticks_migno_chronos2_8x8', 'SIMULATIONS_15_8_mixed1_90_20000.0ticks_migyes_chronos2_8x8']
+    labels = ['WORST', 'PATTERN', 'PIDTM', 'PIDTM+MIG', 'FLEA', 'FLEA+MIG', 'FLEA2', 'FLEA2+MIG']
     shot_batch(folders, labels)
