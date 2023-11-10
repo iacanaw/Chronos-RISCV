@@ -320,7 +320,7 @@ void API_UpdatePriorityTable(unsigned int score_source[DIM_X*DIM_Y]){
 
     memcpy(score, score_source, (DIM_X*DIM_Y*4));
 
-    for (i = (DIM_X * DIM_Y) - 1; i >= 0; i--) {
+    for (i = 0; i < (DIM_X * DIM_Y); i++) {
         // reset the coolest
         coolest = 0;
 
@@ -328,7 +328,7 @@ void API_UpdatePriorityTable(unsigned int score_source[DIM_X*DIM_Y]){
             for ( x = 0; x < DIM_X; x++ ) {
                 index = x + y * DIM_X;
 
-                if (score[index] < score[coolest] && score[index] != -1)
+                if (score[index] < score[coolest] && score[index] != 0x7FFFFFFF)
                     coolest = index;
             }
         }
@@ -337,7 +337,7 @@ void API_UpdatePriorityTable(unsigned int score_source[DIM_X*DIM_Y]){
 
         priorityMatrix[i] = addr;
     
-        score[coolest] = -1;
+        score[coolest] = 0x7FFFFFFF;
     }
 
 }
@@ -390,11 +390,17 @@ void generateWorstMatrix() {
 
 // Generates the Pattern Matrix for Pattern mapping
 void GeneratePatternMatrix(){
-    int i, aux;
+    int i, aux, valid, sel, j;
     aux = 0;
     priorityPointer = 0;
+    int addrs[DIM_X*DIM_Y];
+    for(i = 0; i < DIM_X*DIM_Y; i++){
+        priorityMatrix[i] = -2;
+        addrs[i] = id2addr(i);
+    }
+
     //prints("Testando Pattern: \n");
-    for(i=0; i<(DIM_X*DIM_Y); i++){
+    for(i=0; i<((DIM_X*DIM_Y)/2); i++){
         //printi(i); prints(": "); printi(aux); prints("\n");
         priorityMatrix[i] = (aux / DIM_X << 8) | aux % DIM_X;
 
@@ -420,6 +426,27 @@ void GeneratePatternMatrix(){
             else
                 aux = 1;
         }    
+    }
+    for(i=((DIM_X*DIM_Y)/2); i<(DIM_X*DIM_Y); i++){
+        do{
+            valid = 0;
+            sel = random()%(DIM_X*DIM_Y);
+            if (addrs[sel] != -1){
+                for(j = 0; j < DIM_X*DIM_Y; j++){
+                    if(priorityMatrix[j] == addrs[sel]){
+                        addrs[sel] = -1;
+                    }
+                }
+                if(addrs[sel] != -1){
+                    valid = 1;
+                }
+            }
+        }while(!valid);
+        priorityMatrix[i] = addrs[sel];
+    }
+
+    for(i = 0; i < DIM_X*DIM_Y; i++){
+        printsvsv("pattern[", i, "] = ", priorityMatrix[i]);
     }
     return;
 }

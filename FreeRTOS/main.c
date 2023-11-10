@@ -712,12 +712,17 @@ static void GlobalManagerTask( void *pvParameters ){
 		UART_polled_tx_string( &g_uart, (const uint8_t *)str);
 		printsv("GlobalMasterActive", tick);
 		UART_polled_tx_string( &g_uart, (const uint8_t *)" GlobalMasterRoutine...\r\n" );
-
+        
         // prints the occupation
         API_PrintOccupation(tick);
 
+        // generate a new pattern
+        if((tick % 200) == 0){
+            GeneratePatternMatrix();
+        }
+
 		// Checks if there is some task to allocate...
-		API_AllocateTasks(tick, 0);
+		API_AllocateTasks(tick, (random()%(DIM_X*DIM_Y)));
 		
 		// Checks if there is some task to start...
 		API_StartTasks();
