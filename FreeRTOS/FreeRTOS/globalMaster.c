@@ -150,7 +150,7 @@ unsigned int API_AddApplication(unsigned int appID, unsigned int appPeriod, unsi
     applications[slot].arrived = xTaskGetTickCount();
     applications[slot].appExec = appExec;
     applications[slot].numTasks = appNTasks;
-    applications[slot].nextRun = xTaskGetTickCount();// + appPeriod;
+    applications[slot].nextRun = xTaskGetTickCount() + appPeriod;
     applications[slot].deadline = appDeadline;
     applications[slot].executed = 0;
     applications[slot].lastStart = -1;
@@ -761,7 +761,8 @@ void API_DealocateTask(unsigned int task_id, unsigned int app_id){
                 applications[app_id].tasks[i].status = TASK_TO_ALLOCATE;
             }
             printsv("\t\tThis application still need to run: ", (applications[app_id].appExec - applications[app_id].executed));
-            applications[app_id].nextRun = applications[app_id].arrived + (applications[app_id].executed * applications[app_id].appPeriod); //tick + applications[app_id].appPeriod;
+            applications[app_id].nextRun = tick + applications[app_id].appPeriod; //applications[app_id].arrived + (applications[app_id].executed * applications[app_id].appPeriod); //tick + applications[app_id].appPeriod;
+            printsv("\t\tNext start: ", applications[app_id].nextRun);
         } else { // if the application has finished its runs
             prints("\t\tThis application is DONE!\n");
             applications[app_id].occupied = FALSE;
