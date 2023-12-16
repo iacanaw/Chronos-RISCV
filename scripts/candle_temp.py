@@ -54,29 +54,29 @@ labels = ["Clumped", "Pattern", "PID", "PID+M", "FLEA", "FLEA+M"]
 boxplot = []
 # plot violin plot
 # boxplot.append(axes[0][0].boxplot(oc90, vert=True, patch_artist=True, labels=labels))
-# axes[0][0].set_title("(a) 90% of PE occupation")
+# axes[0][0].set_title("(a) 90% of PE occupancy")
 
 # # plot violin plot
 # boxplot.append(axes[0][1].boxplot(oc70, vert=True, patch_artist=True, labels=labels))
-# axes[0][1].set_title("(b) 70% of PE occupation")
+# axes[0][1].set_title("(b) 70% of PE occupancy")
 
 # # # plot violin plot
 # boxplot.append(axes[1][0].boxplot(oc50, vert=True, patch_artist=True, labels=labels))
-# axes[1][0].set_title("(c) 50% of PE occupation")
+# axes[1][0].set_title("(c) 50% of PE occupancy")
 
 # # # plot violin plot
 # boxplot.append(axes[1][1].boxplot(oc30, vert=True, patch_artist=True, labels=labels))
-# axes[1][1].set_title("(d) 30% of PE occupation")
+# axes[1][1].set_title("(d) 30% of PE occupancy")
 
 # https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.boxplot.html
 #https://towardsdatascience.com/create-and-customize-boxplots-with-pythons-matplotlib-to-get-lots-of-insights-from-your-data-d561c9883643
 # plot violin plot
 boxplot.append(axes[1].boxplot(oc70, vert=True, patch_artist=True, labels=labels, showfliers=False, whis=2.0))
-axes[1].set_title("(b) 70% of PE occupation")
+axes[1].set_title("(b) 70% of PE occupancy")
 
 # # plot violin plot
 boxplot.append(axes[0].boxplot(oc50, vert=True, patch_artist=True, labels=labels, whis=2.0)) 
-axes[0].set_title("(a) 50% of PE occupation")
+axes[0].set_title("(a) 50% of PE occupancy")
 
 colors = ["#ef476f", "#FFD166", "#06D6A0", "#9AFCE2", "#118AB2", "#98DEF5" ]
 #hatches = ["x", "-", "\\", "/", "o", "."]

@@ -10,15 +10,15 @@ YY = int(sys.argv[2])
 samples = []
 samples_time = []
 
-occupation = []
-occupation_time = []
+occupancy = []
+occupancy_time = []
 
 index = 0
 files = 0
 for xx in range(XX):
     for yy in range(YY):
         files+=1
-        print("\roccupation.py - Reading File "+str(files)+"/"+str(XX*YY)+" - "+str((files*100)/(XX*YY))+"%", end='')
+        print("\roccupancy.py - Reading File "+str(files)+"/"+str(XX*YY)+" - "+str((files*100)/(XX*YY))+"%", end='')
         #print("reading file " + str(xx) + "x" + str(yy))
         empty = []
         time = []
@@ -31,9 +31,12 @@ for xx in range(XX):
                     pass#print("catched an error in file "+ str(xx) + "x" + str(yy))
                 if "inst~~~>" in line:
                     value = line.split(' ')
-                    if value[1].isnumeric() and value[3].isnumeric():
-                        empty.append(int(value[1]))
-                        time.append(int(value[3]))
+                    try:
+                        if value[1].isnumeric() and value[3].isnumeric():
+                            empty.append(int(value[1]))
+                            time.append(int(value[3]))
+                    except:
+                        pass
                 elif line == '':
                     break
             samples.append(deepcopy(empty))
@@ -56,34 +59,34 @@ while True:
         break
     else:
         mean = sum / match
-        occupation.append(deepcopy(mean))
-        occupation_time.append(deepcopy(up))
+        occupancy.append(deepcopy(mean))
+        occupancy_time.append(deepcopy(up))
         low = up
         up += 50
 
 max = 1000000
-for i in range(len(occupation)):
+for i in range(len(occupancy)):
     
-    if occupation[i] > max:
-        max = occupation[i]
+    if occupancy[i] > max:
+        max = occupancy[i]
 
 
-for i in range(len(occupation)):
-    occupation[i] = occupation[i]/max
-    sum += occupation[i]
-avg = sum / len(occupation)
+for i in range(len(occupancy)):
+    occupancy[i] = occupancy[i]/max
+    sum += occupancy[i]
+avg = sum / len(occupancy)
 print("\n"+ str(avg))
 print("\tUso (%)\t\t||    Ocorrências")
 print("========================||========================")
 for j in range(10):
     value=0
-    for i in range(len(occupation)):
-        if occupation[i] < (j+1)/10 and occupation[i] >= j/10:
+    for i in range(len(occupancy)):
+        if occupancy[i] < (j+1)/10 and occupancy[i] >= j/10:
             value+=1
-    print("\t   "+str((j+1)*10)+"   \t||\t"+format(value/len(occupation)*100, ".3f"))
+    print("\t   "+str((j+1)*10)+"   \t||\t"+format(value/len(occupancy)*100, ".3f"))
 
-for i in range(len(occupation)):
-    occupation[i] = occupation[i]*100
+for i in range(len(occupancy)):
+    occupancy[i] = occupancy[i]*100
 
 slotOcc = []
 timeSlotOcc = []
@@ -110,7 +113,7 @@ with open("simulation/log_0x0.txt", "r") as log_file:
             if value[1].isnumeric() and value[3].isnumeric():
                 PEOcc.append(int(value[1]))
                 timePEOcc.append(int(value[3]))
-        elif "Got a app to migrate" in line:
+        elif "it to" in line: #look for "Migrating it to"
             migStart.append(timePEOcc[-1:])
         elif "25NI_RX_DONE" in line:
             migEnd.append(timePEOcc[-1:])
@@ -122,17 +125,17 @@ with open("simulation/log_0x0.txt", "r") as log_file:
 
 
 fig, ax = plt.subplots()
-ax.plot(occupation_time, occupation, 'k-', linewidth=1.0, label="Instructions Usage")
-#ax.plot(timeSlotOcc, slotOcc, 'r-', linewidth=1.1, label="Slots Occupation")
-ax.plot(timePEOcc, PEOcc, 'b-', linewidth=1.0, label = "PE Occupation")
+ax.plot(occupancy_time, occupancy, 'k-', linewidth=1.0, label="Instructions Usage")
+#ax.plot(timeSlotOcc, slotOcc, 'r-', linewidth=1.1, label="Slots Occupancy")
+ax.plot(timePEOcc, PEOcc, 'b-', linewidth=1.0, label = "PE Occupancy")
 ax.vlines(migStart, 0, 100, colors='green', linestyle='dashdot', label="Start Mig")
 ax.vlines(migEnd, 0, 100, colors='orange', linestyle="dashed", label="End Mig")
 ax.vlines(migRef, 0, 100, colors='red', linestyle="dotted", label="Refused Mig")
 ax.legend()
 ax.set_ylim([0, 100])
-ax.set_title('Occupation')
+ax.set_title('Occupancy')
 
 fig = plt.gcf()
 fig.set_size_inches(18.5, 10.5)
 #plt.show()
-fig.savefig('simulation/Occupation.png', format='png', dpi=600, bbox_inches='tight')
+fig.savefig('simulation/Occupancy.png', format='png', dpi=600, bbox_inches='tight')

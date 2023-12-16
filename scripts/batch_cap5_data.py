@@ -182,7 +182,7 @@ def thermal_shot(directory, folders):
             l+=1
 
     fig.colorbar(pcm, ax=axes[:], location='right', shrink=1.0, label="Temperature (°C)")
-    #fig.suptitle('Average PE Temperature - 70% System Occupation', fontsize=16)
+    #fig.suptitle('Average PE Temperature - 70% System Occupancy', fontsize=16)
 
     fig.savefig(directory+"/thermal_shot.png", format='png', dpi=300, bbox_inches='tight')
     fig.savefig(directory+"/thermal_shot.pdf", format='pdf', bbox_inches='tight')    

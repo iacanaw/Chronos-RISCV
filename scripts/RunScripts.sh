@@ -19,8 +19,8 @@ python3 scripts/graphInstructionsFIT.py "$XX" "$YY"
 # generates files to run the debugger (ferramenta do ruaro)
 python3 scripts/filter_debug.py 
 
-# generates the occupation graph
-python3 scripts/occupation.py "$XX" "$YY" > simulation/occupation.txt
+# generates the occupancy graph
+python3 scripts/occupancy.py "$XX" "$YY" > simulation/occupancy.txt
 
 # run the hop counter
 python3 scripts/hop.py

@@ -717,12 +717,13 @@ static void GlobalManagerTask( void *pvParameters ){
         API_PrintOccupation(tick);
 
         // generate a new pattern
-        if((tick % 200) == 0){
+        if((tick % 2000000) == 0){
             GeneratePatternMatrix();
         }
 
 		// Checks if there is some task to allocate...
-		API_AllocateTasks(tick, (random()%(DIM_X*DIM_Y)));
+		//API_AllocateTasks(tick, (random()%(DIM_X*DIM_Y)));
+        API_AllocateTasks(tick, 0);
 		
 		// Checks if there is some task to start...
 		API_StartTasks();
@@ -1259,7 +1260,7 @@ static void GlobalManagerTask( void *pvParameters ){
                     for( j = getYpos(base_addr); j < (getYpos(base_addr)+cluster_size); j++){
                         if(Tiles[i][j].taskSlots > 0 && makeAddress(i, j) != MASTER_ADDR && Tiles[i][j].temperature < (THRESHOLD_TEMP+273)*100){
                             sorted_addr[k] = makeAddress(i, j);
-                            sorted_score[k] =  Tiles[i][j].temperature;
+                            sorted_score[k] = Tiles[i][j].temperature;
                             k++;
                         }
                     }

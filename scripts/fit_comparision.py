@@ -153,7 +153,7 @@ def main():
         for i in range(len(categories_low_bound)):
             categories_low_bound[i] = str(int(categories_low_bound[i]))+" - "+str(int(categories_low_bound[i]+interval))
         plt.xticks([r + bar_width*(NUM_CAT/2) for r in range(NUM_CAT)],categories_low_bound)
-        plt.title(graph[0].split("_")[4]+"% of PE occupation")
+        plt.title(graph[0].split("_")[4]+"% of PE occupancy")
 
         plt.legend()
         ax = plt.gca()

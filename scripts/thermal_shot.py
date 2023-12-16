@@ -104,7 +104,7 @@ for folder in folders:
         k+=1
 
 fig.colorbar(pcm, ax=axes[:], location='right', shrink=1.0, label="Temperature (°C)")
-fig.suptitle('Average PE Temperature - 70% System Occupation', fontsize=16)
+fig.suptitle('Average PE Temperature - 70% System Occupancy', fontsize=16)
 
 for i in range(len(axes)):
         pass

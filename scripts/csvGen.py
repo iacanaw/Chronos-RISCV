@@ -64,7 +64,7 @@ with open("simulation/mttflog.txt", "r") as mttffile:
     splited = line.split(' ')
     mttf = splited[len(splited)-1]
 
-with open("simulation/occupation.txt", "r") as occfile:
+with open("simulation/occupancy.txt", "r") as occfile:
     line = occfile.readline()
     occ = float(line)
 

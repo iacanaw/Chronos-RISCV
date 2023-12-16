@@ -78,7 +78,7 @@ for i in range(len(axes)):
         #axes[i].plot([0,1],[80,80], linestyle='dotted', color="#F6416C", linewidth=2)
         axes[i].plot([0,1],[average[i],average[i]], linestyle='dotted', color=colors[i], linewidth=2)
         if i == 0:
-                axes[i].set_title('Peak Temperature Comparison - 50% System Occupation')
+                axes[i].set_title('Peak Temperature Comparison - 50% System Occupancy')
 
 lines_labels = [ax.get_legend_handles_labels() for ax in fig.axes]
 lines, labels = [sum(lol, []) for lol in zip(*lines_labels)]
