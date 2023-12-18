@@ -284,7 +284,11 @@ echo "COMPILING THE TEA"
 cd ../tea
 cd matex
 python3 flp_gen.py "$XX" "$YY"
-./MatEx -c input/chronos.cfg -f input/floorplan.flp -p input/power.pwr
+if [ "$XX"=="20" ] && [ "$YY"=="20" ]; then
+    echo "XX and YY is equal to 20, command not executed."
+else
+    ./MatEx -c input/chronos.cfg -f input/floorplan.flp -p input/power.pwr
+fi
 cd ..
 rm -rf obj
 rm -f pse.pse
