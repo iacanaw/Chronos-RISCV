@@ -400,7 +400,7 @@ void GeneratePatternMatrix(){
     }
 
     //prints("Testando Pattern: \n");
-    for(i=0; i<((DIM_X*DIM_Y)/2); i++){
+    for(i = 0; i < DIM_X*DIM_Y; i++){
         //printi(i); prints(": "); printi(aux); prints("\n");
         priorityMatrix[i] = (aux / DIM_X << 8) | aux % DIM_X;
 
@@ -427,22 +427,13 @@ void GeneratePatternMatrix(){
                 aux = 1;
         }    
     }
-    for(i=((DIM_X*DIM_Y)/2); i<(DIM_X*DIM_Y); i++){
-        do{
-            valid = 0;
-            sel = random()%(DIM_X*DIM_Y);
-            if (addrs[sel] != -1){
-                for(j = 0; j < DIM_X*DIM_Y; j++){
-                    if(priorityMatrix[j] == addrs[sel]){
-                        addrs[sel] = -1;
-                    }
-                }
-                if(addrs[sel] != -1){
-                    valid = 1;
-                }
-            }
-        }while(!valid);
-        priorityMatrix[i] = addrs[sel];
+
+    // shuffle half the vectord
+    for (i = ((DIM_X*DIM_Y)/2); i < (DIM_X*DIM_Y); i++) {
+        j = i + (random() % (DIM_X*DIM_Y - i));
+        aux = priorityMatrix[i];
+        priorityMatrix[i] = priorityMatrix[j];
+        priorityMatrix[j] = aux;
     }
 
     for(i = 0; i < DIM_X*DIM_Y; i++){
