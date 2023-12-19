@@ -1,6 +1,7 @@
 import matplotlib
 import matplotlib.pyplot as plt
 import numpy as np
+from get_data import get_data
 
 
 def autolabel(rects):
@@ -16,39 +17,76 @@ def autolabel(rects):
 plt.rcParams['font.family'] = 'serif'
 plt.rcParams['font.serif'] = ['Times New Roman'] + plt.rcParams['font.serif']
 
-labels = ['MIXED 50%', 'MIXED 70%', 'MIXED 90%', 'COMP 50%', 'COMP 70%', 'COMP 90%']
-men_means = [7.88, 5.24, 3.94, 5.04, 4.30, 3.53] # 8x8 FLEA
-women_means = [7.92, 5.19, 3.93, 5.26, 4.36, 3.40] # 8x8 FLEA+
-
-# men_means = [4.35, 3.20, 2.87, 2.58, 1.67, 1.04] # 14x14 FLEA
-# women_means = [4.33, 3.18, 2.83, 2.59, 1.7, 1.07] # 14x14 FLEA+ 
+labels   = ["A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "A9", "B1", "B2", "B3", "B4", "B5", "B6", "B7", "C1", "C2", "C3", "C4", "C5"]
+heuristics = ['Grouped', 'Pattern', 'PID', 'PID (MIG)', 'FLEA+', 'FLEA+ (MIG)']
+colors = ['#F51839', '#F59018', '#0CADF5', '#00F5BA',  '#0CF53B', '#E2F530']
 
 x = np.arange(len(labels))  # the label locationss
-width = 0.35  # the width of the bars
-
-fig, ax = plt.subplots(figsize =(8,3))
-rects1 = ax.bar(x - width/2, men_means, width, label='FLEA')
-rects2 = ax.bar(x + width/2, women_means, width, label='FLEA+')
-
-# Add some text for labels, title and custom x-axis tick labels, etc.
-ax.set_ylabel('MTTF (years)')
-ax.set_title('Comparison 8x8 scenarios')
-# ax.set_title('Comparison 14x14 scenarios')
-ax.set_xticks(x)
-ax.set_xticklabels(labels)
-ax.legend()
-ax.set_ylim(0,10)
-
-autolabel(rects1)
-autolabel(rects2)
-
-fig.tight_layout()
-plt.xticks(rotation=0)
+width = 0.85/len(heuristics)  # the width of the bars
 
 
-fig.savefig("MTTF_8_COMPARE.png", format='png', dpi=300, bbox_inches='tight')
-fig.savefig("MTTF_8_COMPARE.pdf", format='pdf', bbox_inches='tight')
+def generate_graph(TSV_label, Y_label, graph_label, limitINF, limitSUP, fig_name):
+    fig, ax = plt.subplots(figsize =(8,3.2))
+    ax.yaxis.grid(True, color='black', linestyle='-', linewidth=0.5)
+    rects=[]
+    data = []
+    #get data
+    for i in range(len(heuristics)):
+        data.append(get_data(TSV_label, heuristics[i]))
+        print(get_data(TSV_label, heuristics[i]))
+    #print
+    for i in range(len(heuristics)):
+        rects.append(ax.bar((x - width*len(heuristics)/2) + i*width, data[i], width, label=heuristics[i], color=colors[i], edgecolor='black', linewidth=0.5))
+    #add cosméticos
+    ax.set_ylabel(Y_label)
+    ax.set_title(graph_label)
+    ax.set_xticks(x)
+    ax.set_xticklabels(labels)
+    ax.set_ylim(limitINF,limitSUP)
+    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.093), fancybox=False, shadow=False, ncol=6, fontsize='8')
+    fig.tight_layout()
+    plt.xticks(rotation=0)
+    fig.savefig(fig_name+'.png', format='png', dpi=300, bbox_inches='tight')
+    fig.savefig(fig_name+'.pdf', format='pdf', bbox_inches='tight')
 
+if __name__ == '__main__': # chamada da funcao principal
+    TSV_label = 'Avg(Temp)'
+    Y_label = 'Temperature (°C)'
+    graph_label = 'Average Temperature'
+    limitINF = 60
+    limitSUP = 100
+    fig_name = 'avg_temp'
+    generate_graph(TSV_label, Y_label, graph_label, limitINF, limitSUP, fig_name)
 
+    TSV_label = 'AvgHop'
+    Y_label = "Hop count"
+    graph_label = 'Average Hop count'
+    limitINF = 0
+    limitSUP = 10
+    fig_name = 'avg_hop'
+    generate_graph(TSV_label, Y_label, graph_label, limitINF, limitSUP, fig_name)
 
+    TSV_label = 'Migrations'
+    Y_label = "Migrations"
+    graph_label = 'Registred Migrations'
+    limitINF = 0
+    limitSUP = 100
+    fig_name = 'avg_mig'
+    generate_graph(TSV_label, Y_label, graph_label, limitINF, limitSUP, fig_name)
+
+    TSV_label = 'Avg(PeakTemp)'
+    Y_label = "Temperature (°C)"
+    graph_label = 'Average Peak Temperature'
+    limitINF = 70
+    limitSUP = 110
+    fig_name = 'avg_peak'
+    generate_graph(TSV_label, Y_label, graph_label, limitINF, limitSUP, fig_name)
+
+    TSV_label = 'MTTF monte'
+    Y_label = "MTTF (years)"
+    graph_label = 'Mean Time to Failure'
+    limitINF = 0
+    limitSUP = 10
+    fig_name = 'avg_mttf'
+    generate_graph(TSV_label, Y_label, graph_label, limitINF, limitSUP, fig_name)
 
